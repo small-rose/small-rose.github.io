@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>时间的荒野Fx</title>
+  
+  <subtitle>zhzy</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-05-12T16:00:00.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>zhangxiaocai</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo搭建静态博客及踩坑问题</title>
+    <link href="http://yoursite.com/2020/05/13/hexo-problem/"/>
+    <id>http://yoursite.com/2020/05/13/hexo-problem/</id>
+    <published>2020-05-12T16:00:00.000Z</published>
+    <updated>2020-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
+    <link href="http://yoursite.com/2020/05/13/db_type/"/>
+    <id>http://yoursite.com/2020/05/13/db_type/</id>
+    <published>2020-05-12T16:00:00.000Z</published>
+    <updated>2020-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不同类型数据库字段类型和JAVA类型、sql类型对应关系。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java,DataBase" scheme="http://yoursite.com/categories/Java-DataBase/"/>
+    
+    
+      <category term="DataBase" scheme="http://yoursite.com/tags/DataBase/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开发常用传送门列表</title>
+    <link href="http://yoursite.com/2020/05/13/fast-door/"/>
+    <id>http://yoursite.com/2020/05/13/fast-door/</id>
+    <published>2020-05-12T16:00:00.000Z</published>
+    <updated>2020-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开发常用传送门列表&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java,DataBase" scheme="http://yoursite.com/categories/Java-DataBase/"/>
+    
+    
+      <category term="DataBase" scheme="http://yoursite.com/tags/DataBase/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js让页面自动刷新</title>
+    <link href="http://yoursite.com/2019/11/09/js-auto-refresh/"/>
+    <id>http://yoursite.com/2019/11/09/js-auto-refresh/</id>
+    <published>2019-11-08T16:00:00.000Z</published>
+    <updated>2019-11-08T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;js让页面自动刷新&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java,DataBase" scheme="http://yoursite.com/categories/Java-DataBase/"/>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos-jdk安装配置环境变量</title>
+    <link href="http://yoursite.com/2018/09/10/centos-config-jdk/"/>
+    <id>http://yoursite.com/2018/09/10/centos-config-jdk/</id>
+    <published>2018-09-09T16:00:00.000Z</published>
+    <updated>2018-09-09T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; Centos上安装jdk，配置环境变量的方法&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux,Java" scheme="http://yoursite.com/categories/Linux-Java/"/>
+    
+    
+      <category term="centos,Java" scheme="http://yoursite.com/tags/centos-Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos相关配置</title>
+    <link href="http://yoursite.com/2018/05/13/centos-config-some/"/>
+    <id>http://yoursite.com/2018/05/13/centos-config-some/</id>
+    <published>2018-05-12T16:00:00.000Z</published>
+    <updated>2018-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; Centos网络配置 | Centos时间配置 | DNS解析问题&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux,centos" scheme="http://yoursite.com/categories/Linux-centos/"/>
+    
+    
+      <category term="centos配置" scheme="http://yoursite.com/tags/centos%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+</feed>
