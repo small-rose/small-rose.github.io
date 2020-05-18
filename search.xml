@@ -73,32 +73,7 @@
     <url>/2020/05/13/hexo-problem/</url>
     <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
 <a id="more"></a>
-<h2 id="Hexo搭建静态博客及踩坑问题"><a href="#Hexo搭建静态博客及踩坑问题" class="headerlink" title="Hexo搭建静态博客及踩坑问题"></a>Hexo搭建静态博客及踩坑问题</h2><p>[TOC]</p>
-<h2 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1.环境准备"></a>1.环境准备</h2><p>安装git环境，安装node环境，安装git for windows（或者其它git客户端）<br>github账号<br>本文环境如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo：4.2.1</span><br><span class="line">hexo-cli：3.1.0</span><br><span class="line">os：Windows_NT 10.0.18362 win32 x64</span><br><span class="line">http_parser：2.8.0</span><br><span class="line">node：8.12.0</span><br><span class="line">v8：6.2.414.66</span><br><span class="line">uv：1.19.2</span><br><span class="line">zlib：1.2.11</span><br><span class="line">ares：1.10.1-DEV</span><br><span class="line">modules：57</span><br><span class="line">nghttp2：1.32.0</span><br><span class="line">napi： 3</span><br><span class="line">openssl：1.0.2p</span><br><span class="line">icu：60.1</span><br><span class="line">unicode：10.0</span><br><span class="line">cldr：32.0</span><br><span class="line">tz：2017c</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-安装hexo及初始化"><a href="#2-安装hexo及初始化" class="headerlink" title="2.安装hexo及初始化"></a>2.安装hexo及初始化</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> D:hexo/    //换成你的目录</span><br><span class="line">$ npm install -g hexo-cli   //安装hexo脚手架</span><br><span class="line">$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件</span><br><span class="line">$ npm install   //安装依赖包命令</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-常用命令"><a href="#3-常用命令" class="headerlink" title="3.常用命令"></a>3.常用命令</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean      &#x2F;&#x2F;清空public文件夹内容</span><br><span class="line">hexo g 或  hexo generate   &#x2F;&#x2F;在hexo站点根目录下生成public文件夹，相关静态网页文件</span><br><span class="line">hexo s 或  hexo server     &#x2F;&#x2F;启动服务预览 http:&#x2F;&#x2F;localhost:4000</span><br><span class="line">hexo d 或  hexo deploy     &#x2F;&#x2F;部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</span><br></pre></td></tr></table></figure>
-<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
-<h2 id="4-创建链接页面"><a href="#4-创建链接页面" class="headerlink" title="4.创建链接页面"></a>4.创建链接页面</h2><p>命令<br><font color=red></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page  yourpagename</span><br></pre></td></tr></table></figure>
-</font>
-#### 创建about页面
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
-修改source/about/index.md文件即可。文件内可以使用markdown或html语法。
-
-<h4 id="创建分类"><a href="#创建分类" class="headerlink" title="创建分类"></a>创建分类</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page categories   &#x2F;&#x2F;创建分类</span><br></pre></td></tr></table></figure>
-<p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-05-14 21:51:42</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>那么在写文章的时候就可以在头部使用分类了，如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo搭建静态博客及踩坑问题</span><br><span class="line">date: 2020-05-13</span><br><span class="line">categories: Hexo</span><br><span class="line">---</span><br><span class="line"> this is my article ...</span><br></pre></td></tr></table></figure>
-<h4 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page tags         &#x2F;&#x2F;创建标签</span><br></pre></td></tr></table></figure>
-<p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-05-14 21:51:42</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>那么在写文章的时候就可以在头部使用标签了，如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo搭建静态博客及踩坑问题</span><br><span class="line">date: 2020-05-13</span><br><span class="line">categories: Hexo</span><br><span class="line">tags: Hexo</span><br><span class="line">---</span><br><span class="line"> this is my article ...</span><br></pre></td></tr></table></figure>
-
+<h2 id="Hexo搭建静态博客常见踩坑问题"><a href="#Hexo搭建静态博客常见踩坑问题" class="headerlink" title="Hexo搭建静态博客常见踩坑问题"></a>Hexo搭建静态博客常见踩坑问题</h2><p>[TOC]</p>
 <h2 id="5-安装hexo常用插件（非必须）"><a href="#5-安装hexo常用插件（非必须）" class="headerlink" title="5.安装hexo常用插件（非必须）"></a>5.安装hexo常用插件（非必须）</h2><h4 id="主题更换"><a href="#主题更换" class="headerlink" title="主题更换"></a>主题更换</h4><p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
 <p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
 <p>如安装主题hexo-theme-xoxo-plus：</p>
@@ -131,7 +106,7 @@
 <p>使用参考链接参考<a href="https://blog.csdn.net/q2158798/article/details/82354154" target="_blank" rel="noopener">幻凡ss</a></p>
 <h2 id="6-常见踩坑"><a href="#6-常见踩坑" class="headerlink" title="6.常见踩坑"></a>6.常见踩坑</h2><p>报错多在hexo g 的时候报错</p>
 <h5 id="（一）YAMLException"><a href="#（一）YAMLException" class="headerlink" title="（一）YAMLException"></a>（一）YAMLException</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ERROR Process failed: _posts&#x2F;hexo-problem.md</span><br><span class="line">YAMLException: end of the stream or a document separator is expected at line x, column y:</span><br><span class="line">at ...</span><br></pre></td></tr></table></figure>
-<p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件，第几行第几列。<br>B.其次是头部yaml配置</p>
+<p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">key: value</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
 <h5 id="（二）某个ejs或swig文件报错"><a href="#（二）某个ejs或swig文件报错" class="headerlink" title="（二）某个ejs或swig文件报错"></a>（二）某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
@@ -191,6 +166,99 @@
       </categories>
       <tags>
         <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客——创建页面</title>
+    <url>/2020/05/13/hexo-create-page/</url>
+    <content><![CDATA[<p> Hexo已经搭建好了，那么怎么生成页面呢？本文记录创建页面相关内容。</p>
+<a id="more"></a>
+<h2 id="Hexo搭建静态博客——创建页面"><a href="#Hexo搭建静态博客——创建页面" class="headerlink" title="Hexo搭建静态博客——创建页面"></a>Hexo搭建静态博客——创建页面</h2><p>作者：阿兰那</p>
+<h2 id="1-创建链接页面的基本命令"><a href="#1-创建链接页面的基本命令" class="headerlink" title="1.创建链接页面的基本命令"></a>1.创建链接页面的基本命令</h2><font color=red>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page  yourpagename</span><br></pre></td></tr></table></figure>
+</font>
+
+<h4 id="2-创建about页面"><a href="#2-创建about页面" class="headerlink" title="2.创建about页面"></a>2.创建about页面</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
+<p>修改source/about/index.md文件即可。文件内可以使用markdown或html语法。</p>
+<h4 id="3-创建分类"><a href="#3-创建分类" class="headerlink" title="3.创建分类"></a>3.创建分类</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page categories   &#x2F;&#x2F;创建分类</span><br></pre></td></tr></table></figure>
+<p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-05-14 21:51:42</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>那么在写文章的时候就可以在头部使用分类了，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo搭建静态博客及踩坑问题</span><br><span class="line">date: 2020-05-13</span><br><span class="line">categories: Hexo</span><br><span class="line">---</span><br><span class="line"> this is my article ...</span><br></pre></td></tr></table></figure>
+<h4 id="4-创建标签"><a href="#4-创建标签" class="headerlink" title="4.创建标签"></a>4.创建标签</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page tags         &#x2F;&#x2F;创建标签</span><br></pre></td></tr></table></figure>
+<p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-05-14 21:51:42</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>那么在写文章的时候就可以在头部使用标签了，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo搭建静态博客及踩坑问题</span><br><span class="line">date: 2020-05-13</span><br><span class="line">categories: Hexo</span><br><span class="line">tags: Hexo</span><br><span class="line">---</span><br><span class="line"> this is my article ...</span><br></pre></td></tr></table></figure>
+<p>是不是很简单呢？</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客记录——主题篇</title>
+    <url>/2020/05/13/hexo-change-theme/</url>
+    <content><![CDATA[<p> Hexo静态博客，修改主题。</p>
+ <a id="more"></a>
+<h4 id="主题更换"><a href="#主题更换" class="headerlink" title="主题更换"></a>主题更换</h4><p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
+<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
+<p>如安装主题hexo-theme-xoxo-plus：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</span><br></pre></td></tr></table></figure>
+<p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;</span><br><span class="line">## Themes: https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;</span><br><span class="line"># landscape</span><br><span class="line">theme: hexo-theme-xoxo-plus</span><br></pre></td></tr></table></figure>
+<p>启动预览即可，如果对该主题的设置请到主题目录下修改主题的配置文件_config.yml</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客——搭建篇</title>
+    <url>/2020/05/13/hexo-put-up/</url>
+    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
+<a id="more"></a>
+<h2 id="Hexo搭建静态博客记录——搭建篇"><a href="#Hexo搭建静态博客记录——搭建篇" class="headerlink" title="Hexo搭建静态博客记录——搭建篇"></a>Hexo搭建静态博客记录——搭建篇</h2><p>[TOC]</p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>本文环境如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo：4.2.1</span><br><span class="line">hexo-cli：3.1.0</span><br><span class="line">os：Windows_NT 10.0.18362 win32 x64</span><br><span class="line">http_parser：2.8.0</span><br><span class="line">node：8.12.0</span><br><span class="line">v8：6.2.414.66</span><br><span class="line">uv：1.19.2</span><br><span class="line">zlib：1.2.11</span><br><span class="line">ares：1.10.1-DEV</span><br><span class="line">modules：57</span><br><span class="line">nghttp2：1.32.0</span><br><span class="line">napi： 3</span><br><span class="line">openssl：1.0.2p</span><br><span class="line">icu：60.1</span><br><span class="line">unicode：10.0</span><br><span class="line">cldr：32.0</span><br><span class="line">tz：2017c</span><br></pre></td></tr></table></figure>
+<p>1.安装git环境：安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<p>2.安装node环境：[node下载]<br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node --version</span><br></pre></td></tr></table></figure>
+
+<p>3.github账号，如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
+<h2 id="2-安装hexo及初始化"><a href="#2-安装hexo及初始化" class="headerlink" title="2.安装hexo及初始化"></a>2.安装hexo及初始化</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> D:hexo/    //换成你的目录</span><br><span class="line">$ npm install -g hexo-cli   //安装hexo脚手架</span><br><span class="line">$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件</span><br><span class="line">$ npm install   //安装依赖包命令</span><br></pre></td></tr></table></figure>
+<h2 id="3-编译生成静态页面"><a href="#3-编译生成静态页面" class="headerlink" title="3.编译生成静态页面"></a>3.编译生成静态页面</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-启动服务预览"><a href="#4-启动服务预览" class="headerlink" title="4.启动服务预览"></a>4.启动服务预览</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果出现说明搭建成功。</p>
+<h2 id="5-补充常用命令"><a href="#5-补充常用命令" class="headerlink" title="5.补充常用命令"></a>5.补充常用命令</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean      &#x2F;&#x2F;清空public文件夹内容</span><br><span class="line">hexo g 或  hexo generate   &#x2F;&#x2F;在hexo站点根目录下生成public文件夹，相关静态网页文件</span><br><span class="line">hexo s 或  hexo server     &#x2F;&#x2F;启动服务预览 http:&#x2F;&#x2F;localhost:4000</span><br><span class="line">hexo d 或  hexo deploy     &#x2F;&#x2F;部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</span><br></pre></td></tr></table></figure>
+<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客——插件安装</title>
+    <url>/2020/05/13/hexo-plugins/</url>
+    <content><![CDATA[<p> Hexo已经搭建好了，那么怎么安装插件呢？本文记录安装插件相关内容。</p>
+<p>plugins</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>

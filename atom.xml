@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>时间的荒野Fx</title>
+  <title>时间的荒野</title>
   
   <subtitle>zhzy</subtitle>
   <link href="/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>zhangxiaocai</name>
+    <name>张宗愿</name>
     
   </author>
   
@@ -68,6 +68,95 @@
     <summary type="html">
     
       &lt;p&gt; 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建静态博客——创建页面</title>
+    <link href="http://yoursite.com/2020/05/13/hexo-create-page/"/>
+    <id>http://yoursite.com/2020/05/13/hexo-create-page/</id>
+    <published>2020-05-12T16:00:00.000Z</published>
+    <updated>2020-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; Hexo已经搭建好了，那么怎么生成页面呢？本文记录创建页面相关内容。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建静态博客记录——主题篇</title>
+    <link href="http://yoursite.com/2020/05/13/hexo-change-theme/"/>
+    <id>http://yoursite.com/2020/05/13/hexo-change-theme/</id>
+    <published>2020-05-12T16:00:00.000Z</published>
+    <updated>2020-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; Hexo静态博客，修改主题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建静态博客——搭建篇</title>
+    <link href="http://yoursite.com/2020/05/13/hexo-put-up/"/>
+    <id>http://yoursite.com/2020/05/13/hexo-put-up/</id>
+    <published>2020-05-12T16:00:00.000Z</published>
+    <updated>2020-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建静态博客——插件安装</title>
+    <link href="http://yoursite.com/2020/05/13/hexo-plugins/"/>
+    <id>http://yoursite.com/2020/05/13/hexo-plugins/</id>
+    <published>2020-05-12T16:00:00.000Z</published>
+    <updated>2020-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; Hexo已经搭建好了，那么怎么安装插件呢？本文记录安装插件相关内容。&lt;/p&gt;
+&lt;p&gt;plugins&lt;/p&gt;
+
+      
     
     </summary>
     

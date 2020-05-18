@@ -15,13 +15,13 @@
   
 
   
-    <meta name="description" content="something is good" />
+    <meta name="description" content="good" />
   
   
   
   <link rel="icon" type="image/x-icon" href="/images/footer-logo.png">
   
-  <title>Hexo搭建静态博客及踩坑问题 [ 时间的荒野Fx ]</title>
+  <title>Hexo搭建静态博客及踩坑问题 [ 时间的荒野 ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -30,7 +30,7 @@
       <link rel="stylesheet" href="/css/xoxo.css">
     
   
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="时间的荒野Fx" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="时间的荒野" type="application/atom+xml">
 </head>
 
 
@@ -39,7 +39,7 @@
     <nav class="home-menu pure-menu pure-menu-horizontal">
   <a class="pure-menu-heading" href="/">
     
-    <span class="title" style="text-transform:none">时间的荒野Fx</span>
+    <span class="title" style="text-transform:none">时间的荒野</span>
   </a>
 
   <ul class="pure-menu-list clearfix">
@@ -71,6 +71,12 @@
               
               </ul>
             </li>
+          
+      
+          
+            
+              <li class="pure-menu-item"><a href="/paper" class="pure-menu-link">Papers</a></li>
+            
           
       
           
@@ -123,38 +129,13 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 13 分钟</span>
+      <span class="read">阅读耗时 10 分钟</span>
     </header>
 
     <div class="post-content">
       <p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
 <a id="more"></a>
-<h2 id="Hexo搭建静态博客及踩坑问题"><a href="#Hexo搭建静态博客及踩坑问题" class="headerlink" title="Hexo搭建静态博客及踩坑问题"></a>Hexo搭建静态博客及踩坑问题</h2><p>[TOC]</p>
-<h2 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1.环境准备"></a>1.环境准备</h2><p>安装git环境，安装node环境，安装git for windows（或者其它git客户端）<br>github账号<br>本文环境如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">hexo：4.2.1</span><br><span class="line">hexo-cli：3.1.0</span><br><span class="line">os：Windows_NT 10.0.18362 win32 x64</span><br><span class="line">http_parser：2.8.0</span><br><span class="line">node：8.12.0</span><br><span class="line">v8：6.2.414.66</span><br><span class="line">uv：1.19.2</span><br><span class="line">zlib：1.2.11</span><br><span class="line">ares：1.10.1-DEV</span><br><span class="line">modules：57</span><br><span class="line">nghttp2：1.32.0</span><br><span class="line">napi： 3</span><br><span class="line">openssl：1.0.2p</span><br><span class="line">icu：60.1</span><br><span class="line">unicode：10.0</span><br><span class="line">cldr：32.0</span><br><span class="line">tz：2017c</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-安装hexo及初始化"><a href="#2-安装hexo及初始化" class="headerlink" title="2.安装hexo及初始化"></a>2.安装hexo及初始化</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> D:hexo/    //换成你的目录</span><br><span class="line">$ npm install -g hexo-cli   //安装hexo脚手架</span><br><span class="line">$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件</span><br><span class="line">$ npm install   //安装依赖包命令</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-常用命令"><a href="#3-常用命令" class="headerlink" title="3.常用命令"></a>3.常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean      &#x2F;&#x2F;清空public文件夹内容</span><br><span class="line">hexo g 或  hexo generate   &#x2F;&#x2F;在hexo站点根目录下生成public文件夹，相关静态网页文件</span><br><span class="line">hexo s 或  hexo server     &#x2F;&#x2F;启动服务预览 http:&#x2F;&#x2F;localhost:4000</span><br><span class="line">hexo d 或  hexo deploy     &#x2F;&#x2F;部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</span><br></pre></td></tr></table></figure>
-<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
-<h2 id="4-创建链接页面"><a href="#4-创建链接页面" class="headerlink" title="4.创建链接页面"></a>4.创建链接页面</h2><p>命令<br><font color=red></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page  yourpagename</span><br></pre></td></tr></table></figure>
-</font>
-#### 创建about页面
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
-修改source/about/index.md文件即可。文件内可以使用markdown或html语法。
-
-<h4 id="创建分类"><a href="#创建分类" class="headerlink" title="创建分类"></a>创建分类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories   &#x2F;&#x2F;创建分类</span><br></pre></td></tr></table></figure>
-<p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-05-14 21:51:42</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>那么在写文章的时候就可以在头部使用分类了，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo搭建静态博客及踩坑问题</span><br><span class="line">date: 2020-05-13</span><br><span class="line">categories: Hexo</span><br><span class="line">---</span><br><span class="line"> this is my article ...</span><br></pre></td></tr></table></figure>
-<h4 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags         &#x2F;&#x2F;创建标签</span><br></pre></td></tr></table></figure>
-<p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-05-14 21:51:42</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>那么在写文章的时候就可以在头部使用标签了，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo搭建静态博客及踩坑问题</span><br><span class="line">date: 2020-05-13</span><br><span class="line">categories: Hexo</span><br><span class="line">tags: Hexo</span><br><span class="line">---</span><br><span class="line"> this is my article ...</span><br></pre></td></tr></table></figure>
-
+<h2 id="Hexo搭建静态博客常见踩坑问题"><a href="#Hexo搭建静态博客常见踩坑问题" class="headerlink" title="Hexo搭建静态博客常见踩坑问题"></a>Hexo搭建静态博客常见踩坑问题</h2><p>[TOC]</p>
 <h2 id="5-安装hexo常用插件（非必须）"><a href="#5-安装hexo常用插件（非必须）" class="headerlink" title="5.安装hexo常用插件（非必须）"></a>5.安装hexo常用插件（非必须）</h2><h4 id="主题更换"><a href="#主题更换" class="headerlink" title="主题更换"></a>主题更换</h4><p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
 <p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
 <p>如安装主题hexo-theme-xoxo-plus：</p>
@@ -187,7 +168,7 @@
 <p>使用参考链接参考<a href="https://blog.csdn.net/q2158798/article/details/82354154" target="_blank" rel="noopener">幻凡ss</a></p>
 <h2 id="6-常见踩坑"><a href="#6-常见踩坑" class="headerlink" title="6.常见踩坑"></a>6.常见踩坑</h2><p>报错多在hexo g 的时候报错</p>
 <h5 id="（一）YAMLException"><a href="#（一）YAMLException" class="headerlink" title="（一）YAMLException"></a>（一）YAMLException</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ERROR Process failed: _posts&#x2F;hexo-problem.md</span><br><span class="line">YAMLException: end of the stream or a document separator is expected at line x, column y:</span><br><span class="line">at ...</span><br></pre></td></tr></table></figure>
-<p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件，第几行第几列。<br>B.其次是头部yaml配置</p>
+<p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">key: value</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
 <h5 id="（二）某个ejs或swig文件报错"><a href="#（二）某个ejs或swig文件报错" class="headerlink" title="（二）某个ejs或swig文件报错"></a>（二）某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
@@ -201,7 +182,7 @@
     
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo搭建静态博客及踩坑问题"><span class="toc-text">Hexo搭建静态博客及踩坑问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-环境准备"><span class="toc-text">1.环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装hexo及初始化"><span class="toc-text">2.安装hexo及初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-常用命令"><span class="toc-text">3.常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-创建链接页面"><span class="toc-text">4.创建链接页面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建分类"><span class="toc-text">创建分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建标签"><span class="toc-text">创建标签</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-安装hexo常用插件（非必须）"><span class="toc-text">5.安装hexo常用插件（非必须）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主题更换"><span class="toc-text">主题更换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装插件"><span class="toc-text">安装插件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-常见踩坑"><span class="toc-text">6.常见踩坑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）YAMLException"><span class="toc-text">（一）YAMLException</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）某个ejs或swig文件报错"><span class="toc-text">（二）某个ejs或swig文件报错</span></a></li></ol></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo搭建静态博客常见踩坑问题"><span class="toc-text">Hexo搭建静态博客常见踩坑问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-安装hexo常用插件（非必须）"><span class="toc-text">5.安装hexo常用插件（非必须）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主题更换"><span class="toc-text">主题更换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装插件"><span class="toc-text">安装插件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-常见踩坑"><span class="toc-text">6.常见踩坑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）YAMLException"><span class="toc-text">（一）YAMLException</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）某个ejs或swig文件报错"><span class="toc-text">（二）某个ejs或swig文件报错</span></a></li></ol></li></ol></li></ol></li></ol>
   </div>
 
 
@@ -219,8 +200,8 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2019/11/09/js-auto-refresh/" rel="next" title="js让页面自动刷新">
-          js让页面自动刷新
+          <a href="/2020/05/13/hexo-create-page/" rel="next" title="Hexo搭建静态博客——创建页面">
+          Hexo搭建静态博客——创建页面
           </a>
         
       </div>
@@ -244,7 +225,7 @@
             clientID: 'c4b13546843299882555',
             clientSecret: '8c2fdb2fba55e11c786191c7920a39ce3246f4b7',
             id: window.location.pathname,
-            repo: 'zhblog',
+            repo: 'zhzy2017.github.io',
             owner: 'zhzy2017',
             admin: 'zhzy2017'
         })
@@ -260,7 +241,7 @@
   </div>
   <footer class="footer text-center">
     <div id="bottom-inner">
-        <a class="bottom-item" href="https://github.com/fooying" target="_blank">GitHub</a> |
+        <a class="bottom-item" href="https://github.com/zhzy2017" target="_blank">GitHub</a> |
         <a class="bottom-item" href="/links">友情链接</a> |
         <a class="bottom-item" href="https://hexo.io" target="_blank">Powered by hexo</a> |
         <a class="bottom-item" href="https://github.com/fooying/hexo-theme-xoxo-plus" target="_blank">Theme xoxo-plus</a> |
