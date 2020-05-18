@@ -8,7 +8,7 @@
       <link href="/2020/05/17/hexo-6-deploy/"/>
       <url>/2020/05/17/hexo-6-deploy/</url>
       
-        <content type="html"><![CDATA[<p>Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。</p><a id="more"></a><h2 id="Hexo搭建静态博客（六）——项目部署"><a href="#Hexo搭建静态博客（六）——项目部署" class="headerlink" title="Hexo搭建静态博客（六）——项目部署"></a>Hexo搭建静态博客（六）——项目部署</h2><p>[TOC]</p><h4 id="关于部署"><a href="#关于部署" class="headerlink" title="关于部署"></a>关于部署</h4><p>常见部署在github上，如果有自己独立的服务器也可以部署在服务上，此处用的腾讯云服务器。</p><p>整理中</p>]]></content>
+        <content type="html"><![CDATA[<p>Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。</p><a id="more"></a><h2 id="Hexo搭建静态博客（六）——项目部署"><a href="#Hexo搭建静态博客（六）——项目部署" class="headerlink" title="Hexo搭建静态博客（六）——项目部署"></a>Hexo搭建静态博客（六）——项目部署</h2><p>[TOC]</p><h4 id="关于部署"><a href="#关于部署" class="headerlink" title="关于部署"></a>关于部署</h4><p>常见部署在github上，如果有自己独立的服务器也可以部署在服务上，此处用的腾讯云服务器。</p><p>整理中…</p><p>1.github上部署</p><p>2.云服务器部署</p>]]></content>
       
       
       <categories>
