@@ -11,7 +11,7 @@
   <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
   
   
-    <meta name="keywords" content="DataBase," />
+    <meta name="keywords" content="Hexo," />
   
 
   
@@ -21,7 +21,7 @@
   
   <link rel="icon" type="image/x-icon" href="/images/footer-logo.png">
   
-  <title>开发常用传送门列表 [ 时间的荒野 ]</title>
+  <title>Hexo搭建静态博客（三）——主题更换 [ 时间的荒野 ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -109,19 +109,19 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        开发常用传送门列表
+        Hexo搭建静态博客（三）——主题更换
       </h1>
       <span>
         
-        <time class="time" datetime="2020-05-12T16:00:00.000Z">
-        2020-05-13
+        <time class="time" datetime="2020-05-14T16:00:00.000Z">
+        2020-05-15
       </time>
         
       </span>
       <span class="slash">/</span>
       <span class="post-meta">
       <span class="post-tags">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DataBase/" rel="tag">DataBase</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
       </span>
     </span>
       <span class="slash">/</span>
@@ -129,19 +129,33 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 1 分钟</span>
+      <span class="read">阅读耗时 2 分钟</span>
     </header>
 
     <div class="post-content">
-      <p>开发常用传送门列表</p>
-<a id="more"></a>
-<p> <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
+      <p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
+ <a id="more"></a>
+
+<h4 id="Hexo搭建静态博客（三）——主题更换"><a href="#Hexo搭建静态博客（三）——主题更换" class="headerlink" title="Hexo搭建静态博客（三）——主题更换"></a>Hexo搭建静态博客（三）——主题更换</h4><p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
+<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
+<p>如我安装主题hexo-theme-xoxo-plus。</p>
+<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;</span><br><span class="line">## Themes: https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;</span><br><span class="line"># landscape</span><br><span class="line">theme: hexo-theme-xoxo-plus</span><br></pre></td></tr></table></figure>
+<p>启动预览即可。</p>
+<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
 
     </div>
 
   </article>
   <div class="toc-container">
     
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Hexo搭建静态博客（三）——主题更换"><span class="toc-text">Hexo搭建静态博客（三）——主题更换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-下载主题"><span class="toc-text">1.下载主题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-修改配置"><span class="toc-text">2.修改配置</span></a></li></ol>
+  </div>
+
 
   </div>
 </div>
@@ -157,16 +171,16 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2020/05/13/hexo-problem/" rel="next" title="Hexo搭建静态博客及踩坑问题">
-          Hexo搭建静态博客及踩坑问题
+          <a href="/2020/05/14/hexo-2-create-page/" rel="next" title="Hexo搭建静态博客（二）——创建页面">
+          Hexo搭建静态博客（二）——创建页面
           </a>
         
       </div>
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2020/05/13/db_type/" rel="prev" title="不同类型数据库字段类型和JAVA类型、sql类型对应关系">
-            不同类型数据库字段类型和JAVA类型、sql类型对应关系
+          <a href="/2020/05/16/hexo-4-plugins/" rel="prev" title="Hexo搭建静态博客（四）——插件安装">
+            Hexo搭建静态博客（四）——插件安装
           </a>
           <span>〉</span>
         

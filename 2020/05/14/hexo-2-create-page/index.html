@@ -21,7 +21,7 @@
   
   <link rel="icon" type="image/x-icon" href="/images/footer-logo.png">
   
-  <title>Hexo搭建静态博客记录——主题篇 [ 时间的荒野 ]</title>
+  <title>Hexo搭建静态博客（二）——创建页面 [ 时间的荒野 ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -109,12 +109,12 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        Hexo搭建静态博客记录——主题篇
+        Hexo搭建静态博客（二）——创建页面
       </h1>
       <span>
         
-        <time class="time" datetime="2020-05-12T16:00:00.000Z">
-        2020-05-13
+        <time class="time" datetime="2020-05-13T16:00:00.000Z">
+        2020-05-14
       </time>
         
       </span>
@@ -129,19 +129,31 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 1 分钟</span>
+      <span class="read">阅读耗时 2 分钟</span>
     </header>
 
     <div class="post-content">
-      <p> Hexo静态博客，修改主题。</p>
- <a id="more"></a>
-<h4 id="主题更换"><a href="#主题更换" class="headerlink" title="主题更换"></a>主题更换</h4><p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
-<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
-<p>如安装主题hexo-theme-xoxo-plus：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</span><br></pre></td></tr></table></figure>
-<p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;</span><br><span class="line">## Themes: https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;</span><br><span class="line"># landscape</span><br><span class="line">theme: hexo-theme-xoxo-plus</span><br></pre></td></tr></table></figure>
-<p>启动预览即可，如果对该主题的设置请到主题目录下修改主题的配置文件_config.yml</p>
+      <p> Hexo已经搭建好了，很多链接都没有页面，那么怎么生成页面呢？本文记录创建页面相关内容。</p>
+<a id="more"></a>
+<h2 id="Hexo搭建静态博客（二）——创建页面"><a href="#Hexo搭建静态博客（二）——创建页面" class="headerlink" title="Hexo搭建静态博客（二）——创建页面"></a>Hexo搭建静态博客（二）——创建页面</h2><p>作者：阿兰那</p>
+<h2 id="1-创建链接页面的基本命令"><a href="#1-创建链接页面的基本命令" class="headerlink" title="1.创建链接页面的基本命令"></a>1.创建链接页面的基本命令</h2><font color=red>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page  yourpagename</span><br></pre></td></tr></table></figure>
+</font>
+
+<h4 id="2-创建about页面"><a href="#2-创建about页面" class="headerlink" title="2.创建about页面"></a>2.创建about页面</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
+<p>修改source/about/index.md文件即可。文件内可以使用markdown或html语法。</p>
+<h4 id="3-创建分类"><a href="#3-创建分类" class="headerlink" title="3.创建分类"></a>3.创建分类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories   &#x2F;&#x2F;创建分类</span><br></pre></td></tr></table></figure>
+<p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-05-14 21:51:42</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>那么在写文章的时候就可以在头部使用分类了，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo搭建静态博客及踩坑问题</span><br><span class="line">date: 2020-05-13</span><br><span class="line">categories: Hexo</span><br><span class="line">---</span><br><span class="line"> this is my article ...</span><br></pre></td></tr></table></figure>
+<h4 id="4-创建标签"><a href="#4-创建标签" class="headerlink" title="4.创建标签"></a>4.创建标签</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags         &#x2F;&#x2F;创建标签</span><br></pre></td></tr></table></figure>
+<p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-05-14 21:51:42</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>那么在写文章的时候就可以在头部使用标签了，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo搭建静态博客及踩坑问题</span><br><span class="line">date: 2020-05-13</span><br><span class="line">categories: Hexo</span><br><span class="line">tags: Hexo</span><br><span class="line">---</span><br><span class="line"> this is my article ...</span><br></pre></td></tr></table></figure>
+<p>是不是很简单呢？</p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
 
     </div>
 
@@ -150,7 +162,7 @@
     
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#主题更换"><span class="toc-text">主题更换</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo搭建静态博客（二）——创建页面"><span class="toc-text">Hexo搭建静态博客（二）——创建页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-创建链接页面的基本命令"><span class="toc-text">1.创建链接页面的基本命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建about页面"><span class="toc-text">2.创建about页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-创建分类"><span class="toc-text">3.创建分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-创建标签"><span class="toc-text">4.创建标签</span></a></li></ol></li></ol></li></ol>
   </div>
 
 
@@ -168,16 +180,16 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2020/05/13/hexo-put-up/" rel="next" title="Hexo搭建静态博客——搭建篇">
-          Hexo搭建静态博客——搭建篇
+          <a href="/2020/05/13/hexo-1-put-up/" rel="next" title="Hexo搭建静态博客（一）——基础搭建">
+          Hexo搭建静态博客（一）——基础搭建
           </a>
         
       </div>
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2020/05/13/hexo-create-page/" rel="prev" title="Hexo搭建静态博客——创建页面">
-            Hexo搭建静态博客——创建页面
+          <a href="/2020/05/15/hexo-3-change-theme/" rel="prev" title="Hexo搭建静态博客（三）——主题更换">
+            Hexo搭建静态博客（三）——主题更换
           </a>
           <span>〉</span>
         

@@ -11,7 +11,7 @@
   <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
   
   
-    <meta name="keywords" content="centos配置," />
+    <meta name="keywords" content="Hexo," />
   
 
   
@@ -21,7 +21,7 @@
   
   <link rel="icon" type="image/x-icon" href="/images/footer-logo.png">
   
-  <title>Centos相关配置 [ 时间的荒野 ]</title>
+  <title>Hexo搭建静态博客（五）——踩坑问题 [ 时间的荒野 ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -109,19 +109,19 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        Centos相关配置
+        Hexo搭建静态博客（五）——踩坑问题
       </h1>
       <span>
         
-        <time class="time" datetime="2018-05-12T16:00:00.000Z">
-        2018-05-13
+        <time class="time" datetime="2020-05-16T16:00:00.000Z">
+        2020-05-17
       </time>
         
       </span>
       <span class="slash">/</span>
       <span class="post-meta">
       <span class="post-tags">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos%E9%85%8D%E7%BD%AE/" rel="tag">centos配置</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
       </span>
     </span>
       <span class="slash">/</span>
@@ -129,33 +129,22 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 3 分钟</span>
+      <span class="read">阅读耗时 2 分钟</span>
     </header>
 
     <div class="post-content">
-      <p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
+      <p>Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。</p>
 <a id="more"></a>
+<h2 id="Hexo搭建静态博客（五）——踩坑问题"><a href="#Hexo搭建静态博客（五）——踩坑问题" class="headerlink" title="Hexo搭建静态博客（五）——踩坑问题"></a>Hexo搭建静态博客（五）——踩坑问题</h2><p>[TOC]</p>
+<p>常见报错多在hexo g 的时候报错</p>
+<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ERROR Process failed: _posts&#x2F;hexo-problem.md</span><br><span class="line">YAMLException: end of the stream or a document separator is expected at line x, column y:</span><br><span class="line">at ...</span><br></pre></td></tr></table></figure>
+<p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">key: value</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
+<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install   hexo-reading-time --save</span><br></pre></td></tr></table></figure>
+<p>(3)其他后续再补充</p>
 
-<h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc/sysconfig/network-scripts/</span><br></pre></td></tr></table></figure>
-<p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">TYPE&#x3D;Ethernet</span><br><span class="line">PROXY_METHOD&#x3D;none</span><br><span class="line">BROWSER_ONLY&#x3D;no</span><br><span class="line">BOOTPROTO&#x3D;none</span><br><span class="line">DEFROUTE&#x3D;yes</span><br><span class="line">IPV4_FAILURE_FATAL&#x3D;no</span><br><span class="line">IPV6INIT&#x3D;yes</span><br><span class="line">IPV6_AUTOCONF&#x3D;yes</span><br><span class="line">IPV6_DEFROUTE&#x3D;yes</span><br><span class="line">IPV6_FAILURE_FATAL&#x3D;no</span><br><span class="line">IPV6_ADDR_GEN_MODE&#x3D;stable-privacy</span><br><span class="line">NAME&#x3D;ens192</span><br><span class="line">UUID&#x3D;64e7784d-8183-4db5-af4c-120203391708</span><br><span class="line">DEVICE&#x3D;ens192</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line">IPADDR&#x3D;192.168.66.80</span><br><span class="line">PREFIX&#x3D;24</span><br><span class="line">GATEWAY&#x3D;192.168.66.254</span><br><span class="line">IPV6_PRIVACY&#x3D;no</span><br></pre></td></tr></table></figure>
-<p>（2）重启网络服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ service network restart</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">      Local time: 四 2014-12-25 10:52:10 CST</span><br><span class="line">  Universal time: 四 2014-12-25 02:52:10 UTC</span><br><span class="line">        RTC time: 四 2014-12-25 02:52:10</span><br><span class="line">        Timezone: Asia&#x2F;Shanghai (CST, +0800)</span><br><span class="line">     NTP enabled: yes</span><br><span class="line">NTP synchronized: yes</span><br><span class="line"> RTC in local TZ: no</span><br><span class="line">      DST active: n&#x2F;a</span><br></pre></td></tr></table></figure>
-
-<h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ timedatectl list-timezones</span><br></pre></td></tr></table></figure>
-<h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ timedatectl <span class="built_in">set</span>-local-rtc 1</span><br></pre></td></tr></table></figure>
-<h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ timedatectl <span class="built_in">set</span>-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
-<h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/resolve.conf</span><br></pre></td></tr></table></figure>
-<p>增加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nameserver 8.8.8.8</span><br><span class="line">nameserver 8.8.4.4</span><br></pre></td></tr></table></figure>
     </div>
 
   </article>
@@ -163,7 +152,7 @@
     
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Centos各种配置"><span class="toc-text">Centos各种配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Centos网络配置"><span class="toc-text">1.Centos网络配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#网络配置"><span class="toc-text">网络配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Centos时间配置"><span class="toc-text">2.Centos时间配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#列出所有时区"><span class="toc-text">列出所有时区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><span class="toc-text">将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置系统时区为上海"><span class="toc-text">设置系统时区为上海</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#直接修改时间时区"><span class="toc-text">直接修改时间时区</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-DNS解析问题"><span class="toc-text">3.DNS解析问题</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo搭建静态博客（五）——踩坑问题"><span class="toc-text">Hexo搭建静态博客（五）——踩坑问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-YAMLException"><span class="toc-text">1. YAMLException</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-某个ejs或swig文件报错"><span class="toc-text">2.  某个ejs或swig文件报错</span></a></li></ol></li></ol></li></ol></li></ol>
   </div>
 
 
@@ -180,12 +169,17 @@
     <div class="post-nav">
       <div class="post-nav-item post-nav-next">
         
+          <span>〈 </span>
+          <a href="/2020/05/16/hexo-4-plugins/" rel="next" title="Hexo搭建静态博客（四）——插件安装">
+          Hexo搭建静态博客（四）——插件安装
+          </a>
+        
       </div>
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2018/05/13/db_type/" rel="prev" title="不同类型数据库字段类型和JAVA类型、sql类型对应关系">
-            不同类型数据库字段类型和JAVA类型、sql类型对应关系
+          <a href="/2020/05/17/hexo-6-deploy/" rel="prev" title="Hexo搭建静态博客（六）——项目部署">
+            Hexo搭建静态博客（六）——项目部署
           </a>
           <span>〉</span>
         

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-12T16:00:00.000Z</updated>
+  <updated>2020-05-16T16:00:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,146 +17,120 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
-    <link href="http://yoursite.com/2020/05/13/db_type/"/>
-    <id>http://yoursite.com/2020/05/13/db_type/</id>
-    <published>2020-05-12T16:00:00.000Z</published>
-    <updated>2020-05-12T16:00:00.000Z</updated>
+    <title>Hexo搭建静态博客（六）——项目部署</title>
+    <link href="http://yoursite.com/2020/05/17/hexo-6-deploy/"/>
+    <id>http://yoursite.com/2020/05/17/hexo-6-deploy/</id>
+    <published>2020-05-16T16:00:00.000Z</published>
+    <updated>2020-05-16T16:00:00.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;不同类型数据库字段类型和JAVA类型、sql类型对应关系。&lt;/p&gt;
+      &lt;p&gt;Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。&lt;/p&gt;
     
     </summary>
     
     
-      <category term="Java,DataBase" scheme="http://yoursite.com/categories/Java-DataBase/"/>
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
     
     
-      <category term="DataBase" scheme="http://yoursite.com/tags/DataBase/"/>
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
   <entry>
-    <title>开发常用传送门列表</title>
-    <link href="http://yoursite.com/2020/05/13/fast-door/"/>
-    <id>http://yoursite.com/2020/05/13/fast-door/</id>
-    <published>2020-05-12T16:00:00.000Z</published>
-    <updated>2020-05-12T16:00:00.000Z</updated>
+    <title>Hexo搭建静态博客（五）——踩坑问题</title>
+    <link href="http://yoursite.com/2020/05/17/hexo-5-problem/"/>
+    <id>http://yoursite.com/2020/05/17/hexo-5-problem/</id>
+    <published>2020-05-16T16:00:00.000Z</published>
+    <updated>2020-05-16T16:00:00.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;开发常用传送门列表&lt;/p&gt;
+      &lt;p&gt;Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。&lt;/p&gt;
     
     </summary>
     
     
-      <category term="Java,DataBase" scheme="http://yoursite.com/categories/Java-DataBase/"/>
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
     
     
-      <category term="DataBase" scheme="http://yoursite.com/tags/DataBase/"/>
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
   <entry>
-    <title>Hexo搭建静态博客及踩坑问题</title>
-    <link href="http://yoursite.com/2020/05/13/hexo-problem/"/>
-    <id>http://yoursite.com/2020/05/13/hexo-problem/</id>
+    <title>Hexo搭建静态博客（四）——插件安装</title>
+    <link href="http://yoursite.com/2020/05/16/hexo-4-plugins/"/>
+    <id>http://yoursite.com/2020/05/16/hexo-4-plugins/</id>
+    <published>2020-05-15T16:00:00.000Z</published>
+    <updated>2020-05-15T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hexo静态博客已经搭建好了，链接页面有了，主题也换了，还是想要一些小功能怎么办呢？本文记录插件安装相关内容。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建静态博客（三）——主题更换</title>
+    <link href="http://yoursite.com/2020/05/15/hexo-3-change-theme/"/>
+    <id>http://yoursite.com/2020/05/15/hexo-3-change-theme/</id>
+    <published>2020-05-14T16:00:00.000Z</published>
+    <updated>2020-05-14T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建静态博客（二）——创建页面</title>
+    <link href="http://yoursite.com/2020/05/14/hexo-2-create-page/"/>
+    <id>http://yoursite.com/2020/05/14/hexo-2-create-page/</id>
+    <published>2020-05-13T16:00:00.000Z</published>
+    <updated>2020-05-13T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; Hexo已经搭建好了，很多链接都没有页面，那么怎么生成页面呢？本文记录创建页面相关内容。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建静态博客（一）——基础搭建</title>
+    <link href="http://yoursite.com/2020/05/13/hexo-1-put-up/"/>
+    <id>http://yoursite.com/2020/05/13/hexo-1-put-up/</id>
     <published>2020-05-12T16:00:00.000Z</published>
     <updated>2020-05-12T16:00:00.000Z</updated>
     
     <summary type="html">
     
       &lt;p&gt; 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建静态博客——创建页面</title>
-    <link href="http://yoursite.com/2020/05/13/hexo-create-page/"/>
-    <id>http://yoursite.com/2020/05/13/hexo-create-page/</id>
-    <published>2020-05-12T16:00:00.000Z</published>
-    <updated>2020-05-12T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; Hexo已经搭建好了，那么怎么生成页面呢？本文记录创建页面相关内容。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建静态博客记录——主题篇</title>
-    <link href="http://yoursite.com/2020/05/13/hexo-change-theme/"/>
-    <id>http://yoursite.com/2020/05/13/hexo-change-theme/</id>
-    <published>2020-05-12T16:00:00.000Z</published>
-    <updated>2020-05-12T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; Hexo静态博客，修改主题。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建静态博客——搭建篇</title>
-    <link href="http://yoursite.com/2020/05/13/hexo-put-up/"/>
-    <id>http://yoursite.com/2020/05/13/hexo-put-up/</id>
-    <published>2020-05-12T16:00:00.000Z</published>
-    <updated>2020-05-12T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建静态博客——插件安装</title>
-    <link href="http://yoursite.com/2020/05/13/hexo-plugins/"/>
-    <id>http://yoursite.com/2020/05/13/hexo-plugins/</id>
-    <published>2020-05-12T16:00:00.000Z</published>
-    <updated>2020-05-12T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt; Hexo已经搭建好了，那么怎么安装插件呢？本文记录安装插件相关内容。&lt;/p&gt;
-&lt;p&gt;plugins&lt;/p&gt;
-
-      
     
     </summary>
     
@@ -190,6 +164,27 @@
   </entry>
   
   <entry>
+    <title>开发常用传送门列表</title>
+    <link href="http://yoursite.com/2019/05/13/fast-door/"/>
+    <id>http://yoursite.com/2019/05/13/fast-door/</id>
+    <published>2019-05-12T16:00:00.000Z</published>
+    <updated>2019-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开发常用传送门列表&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java,DataBase" scheme="http://yoursite.com/categories/Java-DataBase/"/>
+    
+    
+      <category term="DataBase" scheme="http://yoursite.com/tags/DataBase/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Centos-jdk安装配置环境变量</title>
     <link href="http://yoursite.com/2018/09/10/centos-config-jdk/"/>
     <id>http://yoursite.com/2018/09/10/centos-config-jdk/</id>
@@ -209,6 +204,27 @@
       <category term="centos" scheme="http://yoursite.com/tags/centos/"/>
     
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
+    <link href="http://yoursite.com/2018/05/13/db_type/"/>
+    <id>http://yoursite.com/2018/05/13/db_type/</id>
+    <published>2018-05-12T16:00:00.000Z</published>
+    <updated>2018-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不同类型数据库字段类型和JAVA类型、sql类型对应关系。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java,DataBase" scheme="http://yoursite.com/categories/Java-DataBase/"/>
+    
+    
+      <category term="DataBase" scheme="http://yoursite.com/tags/DataBase/"/>
     
   </entry>
   

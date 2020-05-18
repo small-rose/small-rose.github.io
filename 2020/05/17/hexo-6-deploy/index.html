@@ -21,7 +21,7 @@
   
   <link rel="icon" type="image/x-icon" href="/images/footer-logo.png">
   
-  <title>Hexo搭建静态博客——创建页面 [ 时间的荒野 ]</title>
+  <title>Hexo搭建静态博客（六）——项目部署 [ 时间的荒野 ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -109,12 +109,12 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        Hexo搭建静态博客——创建页面
+        Hexo搭建静态博客（六）——项目部署
       </h1>
       <span>
         
-        <time class="time" datetime="2020-05-12T16:00:00.000Z">
-        2020-05-13
+        <time class="time" datetime="2020-05-16T16:00:00.000Z">
+        2020-05-17
       </time>
         
       </span>
@@ -129,30 +129,15 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 2 分钟</span>
+      <span class="read">阅读耗时 1 分钟</span>
     </header>
 
     <div class="post-content">
-      <p> Hexo已经搭建好了，那么怎么生成页面呢？本文记录创建页面相关内容。</p>
+      <p>Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。</p>
 <a id="more"></a>
-<h2 id="Hexo搭建静态博客——创建页面"><a href="#Hexo搭建静态博客——创建页面" class="headerlink" title="Hexo搭建静态博客——创建页面"></a>Hexo搭建静态博客——创建页面</h2><p>作者：阿兰那</p>
-<h2 id="1-创建链接页面的基本命令"><a href="#1-创建链接页面的基本命令" class="headerlink" title="1.创建链接页面的基本命令"></a>1.创建链接页面的基本命令</h2><font color=red>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page  yourpagename</span><br></pre></td></tr></table></figure>
-</font>
-
-<h4 id="2-创建about页面"><a href="#2-创建about页面" class="headerlink" title="2.创建about页面"></a>2.创建about页面</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
-<p>修改source/about/index.md文件即可。文件内可以使用markdown或html语法。</p>
-<h4 id="3-创建分类"><a href="#3-创建分类" class="headerlink" title="3.创建分类"></a>3.创建分类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories   &#x2F;&#x2F;创建分类</span><br></pre></td></tr></table></figure>
-<p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-05-14 21:51:42</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>那么在写文章的时候就可以在头部使用分类了，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo搭建静态博客及踩坑问题</span><br><span class="line">date: 2020-05-13</span><br><span class="line">categories: Hexo</span><br><span class="line">---</span><br><span class="line"> this is my article ...</span><br></pre></td></tr></table></figure>
-<h4 id="4-创建标签"><a href="#4-创建标签" class="headerlink" title="4.创建标签"></a>4.创建标签</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags         &#x2F;&#x2F;创建标签</span><br></pre></td></tr></table></figure>
-<p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-05-14 21:51:42</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>那么在写文章的时候就可以在头部使用标签了，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo搭建静态博客及踩坑问题</span><br><span class="line">date: 2020-05-13</span><br><span class="line">categories: Hexo</span><br><span class="line">tags: Hexo</span><br><span class="line">---</span><br><span class="line"> this is my article ...</span><br></pre></td></tr></table></figure>
-<p>是不是很简单呢？</p>
+<h2 id="Hexo搭建静态博客（六）——项目部署"><a href="#Hexo搭建静态博客（六）——项目部署" class="headerlink" title="Hexo搭建静态博客（六）——项目部署"></a>Hexo搭建静态博客（六）——项目部署</h2><p>[TOC]</p>
+<h4 id="关于部署"><a href="#关于部署" class="headerlink" title="关于部署"></a>关于部署</h4><p>常见部署在github上，如果有自己独立的服务器也可以部署在服务上，此处用的腾讯云服务器。</p>
+<p>整理中</p>
 
     </div>
 
@@ -161,7 +146,7 @@
     
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo搭建静态博客——创建页面"><span class="toc-text">Hexo搭建静态博客——创建页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-创建链接页面的基本命令"><span class="toc-text">1.创建链接页面的基本命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建about页面"><span class="toc-text">2.创建about页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-创建分类"><span class="toc-text">3.创建分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-创建标签"><span class="toc-text">4.创建标签</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo搭建静态博客（六）——项目部署"><span class="toc-text">Hexo搭建静态博客（六）——项目部署</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#关于部署"><span class="toc-text">关于部署</span></a></li></ol></li></ol></li></ol>
   </div>
 
 
@@ -179,19 +164,14 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2020/05/13/hexo-change-theme/" rel="next" title="Hexo搭建静态博客记录——主题篇">
-          Hexo搭建静态博客记录——主题篇
+          <a href="/2020/05/17/hexo-5-problem/" rel="next" title="Hexo搭建静态博客（五）——踩坑问题">
+          Hexo搭建静态博客（五）——踩坑问题
           </a>
         
       </div>
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2020/05/13/hexo-problem/" rel="prev" title="Hexo搭建静态博客及踩坑问题">
-            Hexo搭建静态博客及踩坑问题
-          </a>
-          <span>〉</span>
-        
       </div>
     </div>
   
