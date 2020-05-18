@@ -35,7 +35,8 @@
         <category>Linux,Java</category>
       </categories>
       <tags>
-        <tag>centos,Java</tag>
+        <tag>centos</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -150,6 +151,7 @@
     <url>/2020/05/13/fast-door/</url>
     <content><![CDATA[<p>开发常用传送门列表</p>
 <a id="more"></a>
+<p> <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
 ]]></content>
       <categories>
         <category>Java,DataBase</category>

@@ -117,7 +117,9 @@
       <category term="Linux,Java" scheme="http://yoursite.com/categories/Linux-Java/"/>
     
     
-      <category term="centos,Java" scheme="http://yoursite.com/tags/centos-Java/"/>
+      <category term="centos" scheme="http://yoursite.com/tags/centos/"/>
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
   </entry>
   
