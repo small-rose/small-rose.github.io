@@ -5,9 +5,9 @@
   <subtitle>zhzy</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://localhost:4000/"/>
+  <link href="http://zhangxiaocai.cn/"/>
   <updated>2020-05-16T16:00:00.000Z</updated>
-  <id>http://localhost:4000/</id>
+  <id>http://zhangxiaocai.cn/</id>
   
   <author>
     <name>张宗愿</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hexo搭建静态博客（六）——项目部署</title>
-    <link href="http://localhost:4000/posts/c68d7a69.html"/>
-    <id>http://localhost:4000/posts/c68d7a69.html</id>
+    <link href="http://zhangxiaocai.cn/posts/c68d7a69.html"/>
+    <id>http://zhangxiaocai.cn/posts/c68d7a69.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
@@ -30,17 +30,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="http://localhost:4000/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://localhost:4000/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <link href="http://localhost:4000/posts/ce4a93ff.html"/>
-    <id>http://localhost:4000/posts/ce4a93ff.html</id>
+    <link href="http://zhangxiaocai.cn/posts/ce4a93ff.html"/>
+    <id>http://zhangxiaocai.cn/posts/ce4a93ff.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
@@ -51,17 +51,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="http://localhost:4000/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://localhost:4000/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（四）——插件安装</title>
-    <link href="http://localhost:4000/posts/cda13ebe.html"/>
-    <id>http://localhost:4000/posts/cda13ebe.html</id>
+    <link href="http://zhangxiaocai.cn/posts/cda13ebe.html"/>
+    <id>http://zhangxiaocai.cn/posts/cda13ebe.html</id>
     <published>2020-05-15T16:00:00.000Z</published>
     <updated>2020-05-15T16:00:00.000Z</updated>
     
@@ -72,17 +72,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="http://localhost:4000/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://localhost:4000/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（三）——主题更换</title>
-    <link href="http://localhost:4000/posts/a5bf7e18.html"/>
-    <id>http://localhost:4000/posts/a5bf7e18.html</id>
+    <link href="http://zhangxiaocai.cn/posts/a5bf7e18.html"/>
+    <id>http://zhangxiaocai.cn/posts/a5bf7e18.html</id>
     <published>2020-05-14T16:00:00.000Z</published>
     <updated>2020-05-14T16:00:00.000Z</updated>
     
@@ -93,17 +93,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="http://localhost:4000/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://localhost:4000/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（二）——创建页面</title>
-    <link href="http://localhost:4000/posts/c1358fc8.html"/>
-    <id>http://localhost:4000/posts/c1358fc8.html</id>
+    <link href="http://zhangxiaocai.cn/posts/c1358fc8.html"/>
+    <id>http://zhangxiaocai.cn/posts/c1358fc8.html</id>
     <published>2020-05-13T16:00:00.000Z</published>
     <updated>2020-05-13T16:00:00.000Z</updated>
     
@@ -114,17 +114,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="http://localhost:4000/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://localhost:4000/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（一）——基础搭建</title>
-    <link href="http://localhost:4000/posts/9f117b.html"/>
-    <id>http://localhost:4000/posts/9f117b.html</id>
+    <link href="http://zhangxiaocai.cn/posts/9f117b.html"/>
+    <id>http://zhangxiaocai.cn/posts/9f117b.html</id>
     <published>2020-05-12T16:00:00.000Z</published>
     <updated>2020-05-12T16:00:00.000Z</updated>
     
@@ -135,17 +135,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="http://localhost:4000/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://localhost:4000/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>js让页面自动刷新</title>
-    <link href="http://localhost:4000/posts/7413f2ca.html"/>
-    <id>http://localhost:4000/posts/7413f2ca.html</id>
+    <link href="http://zhangxiaocai.cn/posts/7413f2ca.html"/>
+    <id>http://zhangxiaocai.cn/posts/7413f2ca.html</id>
     <published>2019-11-08T16:00:00.000Z</published>
     <updated>2019-11-08T16:00:00.000Z</updated>
     
@@ -156,17 +156,17 @@
     </summary>
     
     
-      <category term="Java,DataBase" scheme="http://localhost:4000/categories/Java-DataBase/"/>
+      <category term="Java,DataBase" scheme="http://zhangxiaocai.cn/categories/Java-DataBase/"/>
     
     
-      <category term="javascript" scheme="http://localhost:4000/tags/javascript/"/>
+      <category term="javascript" scheme="http://zhangxiaocai.cn/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>开发常用传送门列表</title>
-    <link href="http://localhost:4000/posts/2d1a17c5.html"/>
-    <id>http://localhost:4000/posts/2d1a17c5.html</id>
+    <link href="http://zhangxiaocai.cn/posts/2d1a17c5.html"/>
+    <id>http://zhangxiaocai.cn/posts/2d1a17c5.html</id>
     <published>2019-05-12T16:00:00.000Z</published>
     <updated>2019-05-12T16:00:00.000Z</updated>
     
@@ -177,17 +177,17 @@
     </summary>
     
     
-      <category term="Java,DataBase" scheme="http://localhost:4000/categories/Java-DataBase/"/>
+      <category term="Java,DataBase" scheme="http://zhangxiaocai.cn/categories/Java-DataBase/"/>
     
     
-      <category term="DataBase" scheme="http://localhost:4000/tags/DataBase/"/>
+      <category term="DataBase" scheme="http://zhangxiaocai.cn/tags/DataBase/"/>
     
   </entry>
   
   <entry>
     <title>Centos-jdk安装配置环境变量</title>
-    <link href="http://localhost:4000/posts/9064540a.html"/>
-    <id>http://localhost:4000/posts/9064540a.html</id>
+    <link href="http://zhangxiaocai.cn/posts/9064540a.html"/>
+    <id>http://zhangxiaocai.cn/posts/9064540a.html</id>
     <published>2018-09-09T16:00:00.000Z</published>
     <updated>2018-09-09T16:00:00.000Z</updated>
     
@@ -198,19 +198,19 @@
     </summary>
     
     
-      <category term="Linux,Java" scheme="http://localhost:4000/categories/Linux-Java/"/>
+      <category term="Linux,Java" scheme="http://zhangxiaocai.cn/categories/Linux-Java/"/>
     
     
-      <category term="centos" scheme="http://localhost:4000/tags/centos/"/>
+      <category term="centos" scheme="http://zhangxiaocai.cn/tags/centos/"/>
     
-      <category term="Java" scheme="http://localhost:4000/tags/Java/"/>
+      <category term="Java" scheme="http://zhangxiaocai.cn/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
-    <link href="http://localhost:4000/posts/dc390855.html"/>
-    <id>http://localhost:4000/posts/dc390855.html</id>
+    <link href="http://zhangxiaocai.cn/posts/dc390855.html"/>
+    <id>http://zhangxiaocai.cn/posts/dc390855.html</id>
     <published>2018-05-12T16:00:00.000Z</published>
     <updated>2018-05-12T16:00:00.000Z</updated>
     
@@ -221,17 +221,17 @@
     </summary>
     
     
-      <category term="Java,DataBase" scheme="http://localhost:4000/categories/Java-DataBase/"/>
+      <category term="Java,DataBase" scheme="http://zhangxiaocai.cn/categories/Java-DataBase/"/>
     
     
-      <category term="DataBase" scheme="http://localhost:4000/tags/DataBase/"/>
+      <category term="DataBase" scheme="http://zhangxiaocai.cn/tags/DataBase/"/>
     
   </entry>
   
   <entry>
     <title>Centos相关配置</title>
-    <link href="http://localhost:4000/posts/42e4f857.html"/>
-    <id>http://localhost:4000/posts/42e4f857.html</id>
+    <link href="http://zhangxiaocai.cn/posts/42e4f857.html"/>
+    <id>http://zhangxiaocai.cn/posts/42e4f857.html</id>
     <published>2018-05-12T16:00:00.000Z</published>
     <updated>2018-05-12T16:00:00.000Z</updated>
     
@@ -242,10 +242,10 @@
     </summary>
     
     
-      <category term="Linux,centos" scheme="http://localhost:4000/categories/Linux-centos/"/>
+      <category term="Linux,centos" scheme="http://zhangxiaocai.cn/categories/Linux-centos/"/>
     
     
-      <category term="centos配置" scheme="http://localhost:4000/tags/centos%E9%85%8D%E7%BD%AE/"/>
+      <category term="centos配置" scheme="http://zhangxiaocai.cn/tags/centos%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
