@@ -19,15 +19,19 @@
   
   
   
-  <link rel="icon" type="image/x-icon" href="/images/footer-logo.png">
+  <link rel="icon" type="image/x-icon" href="/images/touxiang.png">
   
-  <title>Hexo搭建静态博客（五）——踩坑问题 [ 时间的荒野 ]</title>
+  <title>Hexo搭建静态博客（三）——主题更换 [ 时间的荒野 ]</title>
   
     <!-- stylesheets list from config.yml -->
     
-      <link rel="stylesheet" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css">
+      <link rel="stylesheet" href="/css/normalize.css">
+    
+      <link rel="stylesheet" href="/css/pure-min.css">
     
       <link rel="stylesheet" href="/css/xoxo.css">
+    
+      <link rel="stylesheet" href="/css/zzy.css">
     
   
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="时间的荒野" type="application/atom+xml">
@@ -38,6 +42,8 @@
   <div class="nav-container">
     <nav class="home-menu pure-menu pure-menu-horizontal">
   <a class="pure-menu-heading" href="/">
+    
+      <img class="avatar" src="http://localhost:4000/images/touxiang.png">
     
     <span class="title" style="text-transform:none">时间的荒野</span>
   </a>
@@ -103,12 +109,12 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        Hexo搭建静态博客（五）——踩坑问题
+        Hexo搭建静态博客（三）——主题更换
       </h1>
       <span>
         
-        <time class="time" datetime="2020-05-16T16:00:00.000Z">
-        2020-05-17
+        <time class="time" datetime="2020-05-14T16:00:00.000Z">
+        2020-05-15
       </time>
         
       </span>
@@ -127,17 +133,20 @@
     </header>
 
     <div class="post-content">
-      <p>Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。</p>
-<a id="more"></a>
-<h2 id="Hexo搭建静态博客（五）——踩坑问题"><a href="#Hexo搭建静态博客（五）——踩坑问题" class="headerlink" title="Hexo搭建静态博客（五）——踩坑问题"></a>Hexo搭建静态博客（五）——踩坑问题</h2><p>[TOC]</p>
-<p>常见报错多在hexo g 的时候报错</p>
-<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ERROR Process failed: _posts&#x2F;hexo-problem.md</span><br><span class="line">YAMLException: end of the stream or a document separator is expected at line x, column y:</span><br><span class="line">at ...</span><br></pre></td></tr></table></figure>
-<p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">key: value</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
-<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install   hexo-reading-time --save</span><br></pre></td></tr></table></figure>
-<p>(3)其他后续再补充</p>
+      <p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
+ <a id="more"></a>
+
+<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
+<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
+<p>如我安装主题hexo-theme-xoxo-plus。</p>
+<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;</span><br><span class="line">## Themes: https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;</span><br><span class="line"># landscape</span><br><span class="line">theme: hexo-theme-xoxo-plus</span><br></pre></td></tr></table></figure>
+<h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g &amp; hexo s</span><br></pre></td></tr></table></figure>
+<p>浏览器访问：<br>大功告成。</p>
+<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
 
     </div>
 
@@ -146,7 +155,7 @@
     
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo搭建静态博客（五）——踩坑问题"><span class="toc-text">Hexo搭建静态博客（五）——踩坑问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-YAMLException"><span class="toc-text">1. YAMLException</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-某个ejs或swig文件报错"><span class="toc-text">2.  某个ejs或swig文件报错</span></a></li></ol></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-下载主题"><span class="toc-text">1.下载主题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-修改配置"><span class="toc-text">2.修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-启动预览"><span class="toc-text">3.启动预览</span></a></li></ol>
   </div>
 
 
@@ -164,16 +173,16 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2020/05/16/hexo-4-plugins/" rel="next" title="Hexo搭建静态博客（四）——插件安装">
-          Hexo搭建静态博客（四）——插件安装
+          <a href="/posts/c1358fc8.html" rel="next" title="Hexo搭建静态博客（二）——创建页面">
+          Hexo搭建静态博客（二）——创建页面
           </a>
         
       </div>
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2020/05/17/hexo-6-deploy/" rel="prev" title="Hexo搭建静态博客（六）——项目部署">
-            Hexo搭建静态博客（六）——项目部署
+          <a href="/posts/cda13ebe.html" rel="prev" title="Hexo搭建静态博客（四）——插件安装">
+            Hexo搭建静态博客（四）——插件安装
           </a>
           <span>〉</span>
         
@@ -205,12 +214,24 @@
   </div>
   <footer class="footer text-center">
     <div id="bottom-inner">
+    	<a class="bottom-item" href="http://www.zhangxiaocai.cn" target="_blank">主站</a> |
         <a class="bottom-item" href="https://github.com/zhzy2017" target="_blank">GitHub</a> |
         <a class="bottom-item" href="/links">友情链接</a> |
         <a class="bottom-item" href="https://hexo.io" target="_blank">Powered by hexo</a> |
-        <a class="bottom-item" href="https://github.com/fooying/hexo-theme-xoxo-plus" target="_blank">Theme xoxo-plus</a> |
+        <a class="bottom-item" href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19015637号</a> |
         <a class="bottom-item" href="/atom.xml">订阅</a>
     </div>
+    
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
 </footer>
 
   

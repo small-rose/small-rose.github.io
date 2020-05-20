@@ -19,15 +19,19 @@
   
   
   
-  <link rel="icon" type="image/x-icon" href="/images/footer-logo.png">
+  <link rel="icon" type="image/x-icon" href="/images/touxiang.png">
   
   <title>Hexo搭建静态博客（四）——插件安装 [ 时间的荒野 ]</title>
   
     <!-- stylesheets list from config.yml -->
     
-      <link rel="stylesheet" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css">
+      <link rel="stylesheet" href="/css/normalize.css">
+    
+      <link rel="stylesheet" href="/css/pure-min.css">
     
       <link rel="stylesheet" href="/css/xoxo.css">
+    
+      <link rel="stylesheet" href="/css/zzy.css">
     
   
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="时间的荒野" type="application/atom+xml">
@@ -38,6 +42,8 @@
   <div class="nav-container">
     <nav class="home-menu pure-menu pure-menu-horizontal">
   <a class="pure-menu-heading" href="/">
+    
+      <img class="avatar" src="http://localhost:4000/images/touxiang.png">
     
     <span class="title" style="text-transform:none">时间的荒野</span>
   </a>
@@ -123,38 +129,44 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 6 分钟</span>
+      <span class="read">阅读耗时 7 分钟</span>
     </header>
 
     <div class="post-content">
-      <p>Hexo静态博客已经搭建好了，链接页面有了，主题也换了，还是想要一些小功能怎么办呢？本文记录插件安装相关内容。</p>
+      <p>Hexo静态博客已经搭建好了，链接页面有了，主题也换了，还是想要一些小功能或小改变怎么办呢？本文记录插件安装相关内容。</p>
 <a id="more"></a>
-<h2 id="Hexo搭建静态博客（四）——插件安装"><a href="#Hexo搭建静态博客（四）——插件安装" class="headerlink" title="Hexo搭建静态博客（四）——插件安装"></a>Hexo搭建静态博客（四）——插件安装</h2><p>注意：安装插件不是非必须，除了部分插件跟着主题必须安装之外，其他插件属于可选。</p>
-<h4 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install   hexo-generator-feed  --save   #订阅</span><br><span class="line">npm install   hexo-generator-search --save  #搜索</span><br></pre></td></tr></table></figure>
-<p>这里说一下添加本地搜索，有的主题已经自己带了搜索功能，只要配置开启即可。如果没有带主题可以自己加上。<br><font color=red>特别说明：如果主题自带搜索，看自带搜索操作说明即可，如果主题无搜索看自定义模式说明即可。</font></p>
-<p>第一步：安装搜索插件 <code>npm install hexo-generator-searchdb --save</code></p>
-<p>第二步：根目录_config.yml文件配置添加</p>
+
+<p>注意：安装插件不是非必须，除了部分插件跟着主题必须安装之外，其他插件属于可选。</p>
+<h3 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install   hexo-generator-feed  --save   #订阅</span><br><span class="line">npm install   hexo-generator-search --save  #搜索</span><br></pre></td></tr></table></figure>
+<h3 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h3><p>这里说一下添加本地搜索，有的主题已经自己带了搜索功能，只要配置开启即可。如果没有带主题可以自己加上。<br><font color=red>特别说明：如果主题自带搜索，看自带搜索操作说明即可，如果主题无搜索看自定义模式说明即可。</font></p>
+<h4 id="步骤一-安装插件"><a href="#步骤一-安装插件" class="headerlink" title="步骤一 安装插件"></a>步骤一 安装插件</h4><p>第一步：安装搜索插件 <code>npm install hexo-generator-searchdb --save</code></p>
+<h4 id="步骤二-修改配置"><a href="#步骤二-修改配置" class="headerlink" title="步骤二 修改配置"></a>步骤二 修改配置</h4><p>第二步：根目录_config.yml文件配置添加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
 <p>主题配置_config.yml添加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local_search: </span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
-
-<p>第三步:添加搜索框</p>
+<h4 id="步骤三-添加搜索"><a href="#步骤三-添加搜索" class="headerlink" title="步骤三 添加搜索"></a>步骤三 添加搜索</h4><p>第三步:添加搜索框</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"search-content"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"pure-form"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"local-search-input"</span> <span class="attr">name</span>=<span class="string">"q"</span> <span class="attr">results</span>=<span class="string">"0"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span> <span class="attr">placeholder</span>=<span class="string">"搜索"</span> <span class="attr">class</span>=<span class="string">"pure-input pure-input-1"</span> <span class="attr">style</span>=<span class="string">"background-color: rgb(204, 232, 207);"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"local-search-result"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>第1种，主题自带搜索模式，有独立的search页面,生成页面前面已经讲到了，把代码放到source/search/index.md文件中即可。</p>
 <p>第2种，自定义模式，直接加在首页，想加哪个位置看自己喜好，位置找主题下的布局文件夹_layout或layout/partials之类的文件夹下,里面有head.ejs或head.swig文件（如果不是请自己查找节点，文件反正就那些）,添加html代码</p>
-<p>第四步：引入js</p>
+<h4 id="步骤四-引入js文件"><a href="#步骤四-引入js文件" class="headerlink" title="步骤四 引入js文件"></a>步骤四 引入js文件</h4><p>第四步：引入js</p>
 <p>第1种，主题自带搜索模式，主题下的配置文件一般有scripts设置，直接配置路径，一般都有示例如</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scripts:</span><br><span class="line">#- &#x2F;&#x2F;cdn.bootcss.com&#x2F;zepto&#x2F;1.2.0&#x2F;zepto.min.js</span><br><span class="line">#- &#x2F;js&#x2F;xoxo.js</span><br><span class="line">  - &#x2F;js&#x2F;search.js</span><br></pre></td></tr></table></figure>
 <p>第2种，自定义模式，没有scripts配置,就在找主题下的布局文件夹_layout或layout/中，有js.ejs或srcipt.ejs，<br>文件可以从这里拿：<a href="https://github.com/zhzy2017/hexo-search-plugin-snippets" target="_blank" rel="noopener">https://github.com/zhzy2017/hexo-search-plugin-snippets</a><br>把search.js 放到source\js目录下,引入使用也有不同的方法</p>
-<p>第五步：css设置<br>有的带搜索的无须操作，没有的从下载hexo-search-plugin-snippets里面拿拷贝到source/css里面，引入即可，</p>
+<h4 id="步骤五-引入css文件"><a href="#步骤五-引入css文件" class="headerlink" title="步骤五 引入css文件"></a>步骤五 引入css文件</h4><p>第五步：css设置<br>有的带搜索的无须操作，没有的从下载hexo-search-plugin-snippets里面拿拷贝到source/css里面，引入即可，</p>
 <p>第1种，主题自带搜索模式，一般不需要配置写在公共文件中，如果没有样式可以在主题下的配置文件一般有stylesheets设置，直接配置路径，一般都有示例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stylesheets:</span><br><span class="line"># - &#x2F;css&#x2F;normalize.css</span><br><span class="line"> - &#x2F;&#x2F;cdn.bootcss.com&#x2F;pure&#x2F;1.0.0&#x2F;pure-min.css</span><br><span class="line"> - &#x2F;css&#x2F;xoxo.css</span><br></pre></td></tr></table></figure>
 <p>第2种，自定义模式，跟配引入js类似，找一下主题目录ejs或swig文件引入，或者直接用css或less文件放到source/css目录下的某个文件中，这样不需要引文件</p>
 <p>其他插件，具体使用自行搜索，一般是修改配置或添加代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-index-pin-top –save  #文章置顶插件 </span><br><span class="line">npm uninstall hexo-generator-index –save 	#文章置顶插件 </span><br><span class="line">npm i –save hexo-wordcount 	   #文章字数+阅读时长统计 	</span><br><span class="line">npm install hexo-baidu-url-submit –save 	#百度链接主动推送 	</span><br><span class="line">npm install hexo-deployer-ftpsync –save 	#hexo上传至FTP服务器 	</span><br><span class="line">npm install hexo-deployer-cos –save 	#hexo上传至腾讯云COS 	</span><br><span class="line">npm install hexo-deployer-aliyun –save 	#hexo上传至阿里云 	</span><br><span class="line">npm install –save hexo-admin 	#hexo管理插件 	</span><br><span class="line">hexo-blog-encrypt(请看文档) 	#hexo文章加密码 </span><br><span class="line">npm install leancloud-storage –save 	#Valine评论 	</span><br><span class="line">Valine评论邮件通知 	Valine评论提醒</span><br></pre></td></tr></table></figure>
+
 <p>使用参考链接参考<a href="https://blog.csdn.net/q2158798/article/details/82354154" target="_blank" rel="noopener">幻凡ss</a></p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
+<h3 id="修改修改永久链接"><a href="#修改修改永久链接" class="headerlink" title="修改修改永久链接"></a>修改修改永久链接</h3><p>Hexo修改修改永久链接的默认格式,方便SEO.<br><code>npm install hexo-abbrlink --save</code>  #文章永久链接 <a href="https://github.com/Rozbo/hexo-abbrlink" target="_blank" rel="noopener">项目地址在这里</a></p>
+<h4 id="1-安装插件"><a href="#1-安装插件" class="headerlink" title="1.安装插件"></a>1.安装插件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;</span><br><span class="line"># permalink_defaults:</span><br><span class="line">permalink: posts&#x2F;:abbrlink.html</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  # 算法：crc16(default) and crc32</span><br><span class="line">  rep: hex    # 进制：dec(default) and hex</span><br></pre></td></tr></table></figure>
+<h4 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp; heox g &amp; hexo s</span><br></pre></td></tr></table></figure>
+<p>点击一篇文章，检查浏览器地址看看是不是发生变化了？</p>
 
     </div>
 
@@ -163,7 +175,7 @@
     
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo搭建静态博客（四）——插件安装"><span class="toc-text">Hexo搭建静态博客（四）——插件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装插件命令"><span class="toc-text">安装插件命令</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装插件命令"><span class="toc-text">安装插件命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地搜索插件"><span class="toc-text">本地搜索插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#步骤一-安装插件"><span class="toc-text">步骤一 安装插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#步骤二-修改配置"><span class="toc-text">步骤二 修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#步骤三-添加搜索"><span class="toc-text">步骤三 添加搜索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#步骤四-引入js文件"><span class="toc-text">步骤四 引入js文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#步骤五-引入css文件"><span class="toc-text">步骤五 引入css文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改修改永久链接"><span class="toc-text">修改修改永久链接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-安装插件"><span class="toc-text">1.安装插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-修改配置"><span class="toc-text">2.修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-重启"><span class="toc-text">3.重启</span></a></li></ol></li></ol>
   </div>
 
 
@@ -181,7 +193,7 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2020/05/15/hexo-3-change-theme/" rel="next" title="Hexo搭建静态博客（三）——主题更换">
+          <a href="/posts/a5bf7e18.html" rel="next" title="Hexo搭建静态博客（三）——主题更换">
           Hexo搭建静态博客（三）——主题更换
           </a>
         
@@ -189,7 +201,7 @@
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2020/05/17/hexo-5-problem/" rel="prev" title="Hexo搭建静态博客（五）——踩坑问题">
+          <a href="/posts/ce4a93ff.html" rel="prev" title="Hexo搭建静态博客（五）——踩坑问题">
             Hexo搭建静态博客（五）——踩坑问题
           </a>
           <span>〉</span>
@@ -222,12 +234,24 @@
   </div>
   <footer class="footer text-center">
     <div id="bottom-inner">
+    	<a class="bottom-item" href="http://www.zhangxiaocai.cn" target="_blank">主站</a> |
         <a class="bottom-item" href="https://github.com/zhzy2017" target="_blank">GitHub</a> |
         <a class="bottom-item" href="/links">友情链接</a> |
         <a class="bottom-item" href="https://hexo.io" target="_blank">Powered by hexo</a> |
-        <a class="bottom-item" href="https://github.com/fooying/hexo-theme-xoxo-plus" target="_blank">Theme xoxo-plus</a> |
+        <a class="bottom-item" href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19015637号</a> |
         <a class="bottom-item" href="/atom.xml">订阅</a>
     </div>
+    
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
 </footer>
 
   

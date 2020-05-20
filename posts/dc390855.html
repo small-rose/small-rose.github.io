@@ -11,7 +11,7 @@
   <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
   
   
-    <meta name="keywords" content="Hexo," />
+    <meta name="keywords" content="DataBase," />
   
 
   
@@ -19,15 +19,19 @@
   
   
   
-  <link rel="icon" type="image/x-icon" href="/images/footer-logo.png">
+  <link rel="icon" type="image/x-icon" href="/images/touxiang.png">
   
-  <title>Hexo搭建静态博客（一）——基础搭建 [ 时间的荒野 ]</title>
+  <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系 [ 时间的荒野 ]</title>
   
     <!-- stylesheets list from config.yml -->
     
-      <link rel="stylesheet" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css">
+      <link rel="stylesheet" href="/css/normalize.css">
+    
+      <link rel="stylesheet" href="/css/pure-min.css">
     
       <link rel="stylesheet" href="/css/xoxo.css">
+    
+      <link rel="stylesheet" href="/css/zzy.css">
     
   
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="时间的荒野" type="application/atom+xml">
@@ -38,6 +42,8 @@
   <div class="nav-container">
     <nav class="home-menu pure-menu pure-menu-horizontal">
   <a class="pure-menu-heading" href="/">
+    
+      <img class="avatar" src="http://localhost:4000/images/touxiang.png">
     
     <span class="title" style="text-transform:none">时间的荒野</span>
   </a>
@@ -103,19 +109,19 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        Hexo搭建静态博客（一）——基础搭建
+        不同类型数据库字段类型和JAVA类型、sql类型对应关系
       </h1>
       <span>
         
-        <time class="time" datetime="2020-05-12T16:00:00.000Z">
-        2020-05-13
+        <time class="time" datetime="2018-05-12T16:00:00.000Z">
+        2018-05-13
       </time>
         
       </span>
       <span class="slash">/</span>
       <span class="post-meta">
       <span class="post-tags">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DataBase/" rel="tag">DataBase</a></li></ul>
       </span>
     </span>
       <span class="slash">/</span>
@@ -123,40 +129,20 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 4 分钟</span>
+      <span class="read">阅读耗时 1 分钟</span>
     </header>
 
     <div class="post-content">
-      <p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
+      <p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
 <a id="more"></a>
-<h2 id="Hexo搭建静态博客（一）——基础搭建"><a href="#Hexo搭建静态博客（一）——基础搭建" class="headerlink" title="Hexo搭建静态博客（一）——基础搭建"></a>Hexo搭建静态博客（一）——基础搭建</h2><p>[TOC]</p>
-<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>本文环境如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">hexo：4.2.1</span><br><span class="line">hexo-cli：3.1.0</span><br><span class="line">os：Windows_NT 10.0.18362 win32 x64</span><br><span class="line">http_parser：2.8.0</span><br><span class="line">node：8.12.0</span><br><span class="line">v8：6.2.414.66</span><br><span class="line">uv：1.19.2</span><br><span class="line">zlib：1.2.11</span><br><span class="line">ares：1.10.1-DEV</span><br><span class="line">modules：57</span><br><span class="line">nghttp2：1.32.0</span><br><span class="line">napi： 3</span><br><span class="line">openssl：1.0.2p</span><br><span class="line">icu：60.1</span><br><span class="line">unicode：10.0</span><br><span class="line">cldr：32.0</span><br><span class="line">tz：2017c</span><br></pre></td></tr></table></figure>
-<p>1.安装git环境：安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-<p>2.安装node环境：[node下载]<br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --version</span><br></pre></td></tr></table></figure>
 
-<p>3.github账号，如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
-<h2 id="2-安装hexo及初始化"><a href="#2-安装hexo及初始化" class="headerlink" title="2.安装hexo及初始化"></a>2.安装hexo及初始化</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> D:hexo/    //换成你的目录</span><br><span class="line">$ npm install -g hexo-cli   //安装hexo脚手架</span><br><span class="line">$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件</span><br><span class="line">$ npm install   //安装依赖包命令</span><br></pre></td></tr></table></figure>
-<h2 id="3-编译生成静态页面"><a href="#3-编译生成静态页面" class="headerlink" title="3.编译生成静态页面"></a>3.编译生成静态页面</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-启动服务预览"><a href="#4-启动服务预览" class="headerlink" title="4.启动服务预览"></a>4.启动服务预览</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果出现说明搭建成功。</p>
-<h2 id="5-补充常用命令"><a href="#5-补充常用命令" class="headerlink" title="5.补充常用命令"></a>5.补充常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean      &#x2F;&#x2F;清空public文件夹内容</span><br><span class="line">hexo g 或  hexo generate   &#x2F;&#x2F;在hexo站点根目录下生成public文件夹，相关静态网页文件</span><br><span class="line">hexo s 或  hexo server     &#x2F;&#x2F;启动服务预览 http:&#x2F;&#x2F;localhost:4000</span><br><span class="line">hexo d 或  hexo deploy     &#x2F;&#x2F;部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</span><br></pre></td></tr></table></figure>
-<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
+<p><img src="/images/db_jdbcType.jpg" alt="Image text"></p>
 
     </div>
 
   </article>
   <div class="toc-container">
     
-  <div id="toc" class="toc-article">
-    <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo搭建静态博客（一）——基础搭建"><span class="toc-text">Hexo搭建静态博客（一）——基础搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装hexo及初始化"><span class="toc-text">2.安装hexo及初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-编译生成静态页面"><span class="toc-text">3.编译生成静态页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-启动服务预览"><span class="toc-text">4.启动服务预览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-补充常用命令"><span class="toc-text">5.补充常用命令</span></a></li></ol>
-  </div>
-
 
   </div>
 </div>
@@ -172,16 +158,16 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2019/11/09/js-auto-refresh/" rel="next" title="js让页面自动刷新">
-          js让页面自动刷新
+          <a href="/posts/42e4f857.html" rel="next" title="Centos相关配置">
+          Centos相关配置
           </a>
         
       </div>
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2020/05/14/hexo-2-create-page/" rel="prev" title="Hexo搭建静态博客（二）——创建页面">
-            Hexo搭建静态博客（二）——创建页面
+          <a href="/posts/9064540a.html" rel="prev" title="Centos-jdk安装配置环境变量">
+            Centos-jdk安装配置环境变量
           </a>
           <span>〉</span>
         
@@ -213,12 +199,24 @@
   </div>
   <footer class="footer text-center">
     <div id="bottom-inner">
+    	<a class="bottom-item" href="http://www.zhangxiaocai.cn" target="_blank">主站</a> |
         <a class="bottom-item" href="https://github.com/zhzy2017" target="_blank">GitHub</a> |
         <a class="bottom-item" href="/links">友情链接</a> |
         <a class="bottom-item" href="https://hexo.io" target="_blank">Powered by hexo</a> |
-        <a class="bottom-item" href="https://github.com/fooying/hexo-theme-xoxo-plus" target="_blank">Theme xoxo-plus</a> |
+        <a class="bottom-item" href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19015637号</a> |
         <a class="bottom-item" href="/atom.xml">订阅</a>
     </div>
+    
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
 </footer>
 
   
