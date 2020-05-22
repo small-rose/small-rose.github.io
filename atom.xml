@@ -17,15 +17,15 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <link href="https://zhangxiaocai.cn/posts/ce4a93ff.html"/>
-    <id>https://zhangxiaocai.cn/posts/ce4a93ff.html</id>
+    <title>Hexo搭建静态博客（六）——项目部署</title>
+    <link href="https://zhangxiaocai.cn/posts/c68d7a69.html"/>
+    <id>https://zhangxiaocai.cn/posts/c68d7a69.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。&lt;/p&gt;
+      &lt;p&gt;Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。&lt;/p&gt;
     
     </summary>
     
@@ -38,15 +38,15 @@
   </entry>
   
   <entry>
-    <title>Hexo搭建静态博客（六）——项目部署</title>
-    <link href="https://zhangxiaocai.cn/posts/c68d7a69.html"/>
-    <id>https://zhangxiaocai.cn/posts/c68d7a69.html</id>
+    <title>Hexo搭建静态博客（五）——踩坑问题</title>
+    <link href="https://zhangxiaocai.cn/posts/ce4a93ff.html"/>
+    <id>https://zhangxiaocai.cn/posts/ce4a93ff.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。&lt;/p&gt;
+      &lt;p&gt;Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。&lt;/p&gt;
     
     </summary>
     
@@ -208,27 +208,6 @@
   </entry>
   
   <entry>
-    <title>Centos相关配置</title>
-    <link href="https://zhangxiaocai.cn/posts/42e4f857.html"/>
-    <id>https://zhangxiaocai.cn/posts/42e4f857.html</id>
-    <published>2018-05-12T16:00:00.000Z</published>
-    <updated>2018-05-12T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; Centos网络配置 | Centos时间配置 | DNS解析问题&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux,centos" scheme="https://zhangxiaocai.cn/categories/Linux-centos/"/>
-    
-    
-      <category term="centos配置" scheme="https://zhangxiaocai.cn/tags/centos%E9%85%8D%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
     <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
     <link href="https://zhangxiaocai.cn/posts/dc390855.html"/>
     <id>https://zhangxiaocai.cn/posts/dc390855.html</id>
@@ -246,6 +225,27 @@
     
     
       <category term="DataBase" scheme="https://zhangxiaocai.cn/tags/DataBase/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos相关配置</title>
+    <link href="https://zhangxiaocai.cn/posts/42e4f857.html"/>
+    <id>https://zhangxiaocai.cn/posts/42e4f857.html</id>
+    <published>2018-05-12T16:00:00.000Z</published>
+    <updated>2018-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; Centos网络配置 | Centos时间配置 | DNS解析问题&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux,centos" scheme="https://zhangxiaocai.cn/categories/Linux-centos/"/>
+    
+    
+      <category term="centos配置" scheme="https://zhangxiaocai.cn/tags/centos%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
