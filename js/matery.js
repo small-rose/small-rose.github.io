@@ -170,10 +170,4 @@ $(function () {
     // 初始化加载 tooltipped.
     $('.tooltipped').tooltip();
 
-    $("body").mCustomScrollbar({
-            //mouseWheelPixels:100,
-            theme: "minimal-dark"
-            
-    });
-    console.log(" game over");
 });
