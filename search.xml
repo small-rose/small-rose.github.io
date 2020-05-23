@@ -142,55 +142,6 @@ nameserver 8.8.4.4</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（一）——基础搭建</title>
-    <url>/posts/9f117b.html</url>
-    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
-<a id="more"></a>
-<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
-<pre><code>$ hexo -v
-hexo：4.2.1
-hexo-cli：3.1.0
-os：Windows_NT 10.0.18362 win32 x64
-http_parser：2.8.0
-node：8.12.0
-v8：6.2.414.66
-uv：1.19.2
-zlib：1.2.11
-ares：1.10.1-DEV
-modules：57
-nghttp2：1.32.0
-napi： 3
-openssl：1.0.2p
-icu：60.1
-unicode：10.0
-cldr：32.0
-tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
-<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
-<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
-<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
-$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
-$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
-$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
-<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
-<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
-<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
-hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
-hexo s 或  hexo server     //启动服务预览 http://localhost:4000
-hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
-<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建静态博客（二）——创建页面</title>
     <url>/posts/c1358fc8.html</url>
     <content><![CDATA[<p> Hexo已经搭建好了，很多链接都没有页面，那么怎么生成页面呢？本文记录创建页面相关内容。</p>
@@ -268,65 +219,46 @@ theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启�
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（四）——插件安装</title>
-    <url>/posts/cda13ebe.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题也换了，还是想要一些小功能或小改变怎么办呢？本文记录插件安装相关内容。</p>
+    <title>Hexo搭建静态博客（一）——基础搭建</title>
+    <url>/posts/9f117b.html</url>
+    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
 <a id="more"></a>
-
-<p>注意：安装插件不是非必须，除了部分插件跟着主题必须安装之外，其他插件属于可选。</p>
-<h3 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h3><pre><code>npm install   hexo-generator-feed  --save   #订阅
-npm install   hexo-generator-search --save  #搜索</code></pre><h3 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h3><p>这里说一下添加本地搜索，有的主题已经自己带了搜索功能，只要配置开启即可。如果没有带主题可以自己加上。<br><font color=red>特别说明：如果主题自带搜索，看自带搜索操作说明即可，如果主题无搜索看自定义模式说明即可。</font></p>
-<h4 id="步骤一-安装插件"><a href="#步骤一-安装插件" class="headerlink" title="步骤一 安装插件"></a>步骤一 安装插件</h4><p>第一步：安装搜索插件 <code>npm install hexo-generator-searchdb --save</code></p>
-<h4 id="步骤二-修改配置"><a href="#步骤二-修改配置" class="headerlink" title="步骤二 修改配置"></a>步骤二 修改配置</h4><p>第二步：根目录_config.yml文件配置添加</p>
-<pre><code>search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000</code></pre><p>主题配置_config.yml添加</p>
-<pre><code>local_search: 
-  enable: true</code></pre><h4 id="步骤三-添加搜索"><a href="#步骤三-添加搜索" class="headerlink" title="步骤三 添加搜索"></a>步骤三 添加搜索</h4><p>第三步:添加搜索框</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>search-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-input<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>q<span class="token punctuation">"</span></span> <span class="token attr-name">results</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">autocomplete</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>off<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>搜索<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-input pure-input-1<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">204</span>, <span class="token number">232</span>, <span class="token number">207</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-result<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
-<p>第1种，主题自带搜索模式，有独立的search页面,生成页面前面已经讲到了，把代码放到source/search/index.md文件中即可。</p>
-<p>第2种，自定义模式，直接加在首页，想加哪个位置看自己喜好，位置找主题下的布局文件夹_layout或layout/partials之类的文件夹下,里面有head.ejs或head.swig文件（如果不是请自己查找节点，文件反正就那些）,添加html代码</p>
-<h4 id="步骤四-引入js文件"><a href="#步骤四-引入js文件" class="headerlink" title="步骤四 引入js文件"></a>步骤四 引入js文件</h4><p>第四步：引入js</p>
-<p>第1种，主题自带搜索模式，主题下的配置文件一般有scripts设置，直接配置路径，一般都有示例如</p>
-<pre><code>scripts:
-#- //cdn.bootcss.com/zepto/1.2.0/zepto.min.js
-#- /js/xoxo.js
-  - /js/search.js</code></pre><p>第2种，自定义模式，没有scripts配置,就在找主题下的布局文件夹_layout或layout/中，有js.ejs或srcipt.ejs，<br>文件可以从这里拿：<a href="https://github.com/zhzy2017/hexo-search-plugin-snippets" target="_blank" rel="noopener">https://github.com/zhzy2017/hexo-search-plugin-snippets</a><br>把search.js 放到source\js目录下,引入使用也有不同的方法</p>
-<h4 id="步骤五-引入css文件"><a href="#步骤五-引入css文件" class="headerlink" title="步骤五 引入css文件"></a>步骤五 引入css文件</h4><p>第五步：css设置<br>有的带搜索的无须操作，没有的从下载hexo-search-plugin-snippets里面拿拷贝到source/css里面，引入即可，</p>
-<p>第1种，主题自带搜索模式，一般不需要配置写在公共文件中，如果没有样式可以在主题下的配置文件一般有stylesheets设置，直接配置路径，一般都有示例：</p>
-<pre><code>stylesheets:
-# - /css/normalize.css
- - //cdn.bootcss.com/pure/1.0.0/pure-min.css
- - /css/xoxo.css
-</code></pre><p>第2种，自定义模式，跟配引入js类似，找一下主题目录ejs或swig文件引入，或者直接用css或less文件放到source/css目录下的某个文件中，这样不需要引文件</p>
-<p>其他插件，具体使用自行搜索，一般是修改配置或添加代码</p>
-<pre><code>npm install hexo-generator-index-pin-top –save  #文章置顶插件 
-npm uninstall hexo-generator-index –save     #文章置顶插件 
-npm i –save hexo-wordcount        #文章字数+阅读时长统计     
-npm install hexo-baidu-url-submit –save     #百度链接主动推送     
-npm install hexo-deployer-ftpsync –save     #hexo上传至FTP服务器     
-npm install hexo-deployer-cos –save     #hexo上传至腾讯云COS     
-npm install hexo-deployer-aliyun –save     #hexo上传至阿里云     
-npm install –save hexo-admin     #hexo管理插件     
-hexo-blog-encrypt(请看文档)     #hexo文章加密码 
-npm install leancloud-storage –save     #Valine评论     
-Valine评论邮件通知     Valine评论提醒 </code></pre><p>使用参考链接参考<a href="https://blog.csdn.net/q2158798/article/details/82354154" target="_blank" rel="noopener">幻凡ss</a></p>
-<h3 id="修改修改永久链接"><a href="#修改修改永久链接" class="headerlink" title="修改修改永久链接"></a>修改修改永久链接</h3><p>Hexo修改修改永久链接的默认格式,方便SEO.<br><code>npm install hexo-abbrlink --save</code>  #文章永久链接 <a href="https://github.com/Rozbo/hexo-abbrlink" target="_blank" rel="noopener">项目地址在这里</a></p>
-<h4 id="1-安装插件"><a href="#1-安装插件" class="headerlink" title="1.安装插件"></a>1.安装插件</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><pre><code># permalink: :year/:month/:day/:title/
-# permalink_defaults:
-permalink: posts/:abbrlink.html
-abbrlink:
-  alg: crc32  # 算法：crc16(default) and crc32
-  rep: hex    # 进制：dec(default) and hex</code></pre><h4 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h4><pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> heox g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>点击一篇文章，检查浏览器地址看看是不是发生变化了？</p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
+<pre><code>$ hexo -v
+hexo：4.2.1
+hexo-cli：3.1.0
+os：Windows_NT 10.0.18362 win32 x64
+http_parser：2.8.0
+node：8.12.0
+v8：6.2.414.66
+uv：1.19.2
+zlib：1.2.11
+ares：1.10.1-DEV
+modules：57
+nghttp2：1.32.0
+napi： 3
+openssl：1.0.2p
+icu：60.1
+unicode：10.0
+cldr：32.0
+tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
+<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
+<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
+<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
+$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
+$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
+$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
+<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
+<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
+<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
+hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
+hexo s 或  hexo server     //启动服务预览 http://localhost:4000
+hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
+<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -398,6 +330,74 @@ fr4me<span class="token operator">+</span><span class="token operator">=</span><
 <p>整理中…</p>
 <p>1.github上部署</p>
 <p>2.云服务器部署</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（四）——插件安装</title>
+    <url>/posts/cda13ebe.html</url>
+    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题也换了，还是想要一些小功能或小改变怎么办呢？本文记录插件安装相关内容。</p>
+<a id="more"></a>
+
+<p>注意：安装插件不是非必须，除了部分插件跟着主题必须安装之外，其他插件属于可选。</p>
+<h3 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h3><pre><code>npm install   hexo-generator-feed  --save   #订阅
+npm install   hexo-generator-search --save  #搜索</code></pre><h3 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h3><p>这里说一下添加本地搜索，有的主题已经自己带了搜索功能，只要配置开启即可。如果没有带主题可以自己加上。<br><font color=red>特别说明：如果主题自带搜索，看自带搜索操作说明即可，如果主题无搜索看自定义模式说明即可。</font></p>
+<h4 id="步骤一-安装插件"><a href="#步骤一-安装插件" class="headerlink" title="步骤一 安装插件"></a>步骤一 安装插件</h4><p>第一步：安装搜索插件 <code>npm install hexo-generator-searchdb --save</code></p>
+<h4 id="步骤二-修改配置"><a href="#步骤二-修改配置" class="headerlink" title="步骤二 修改配置"></a>步骤二 修改配置</h4><p>第二步：根目录_config.yml文件配置添加</p>
+<pre><code>search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000</code></pre><p>主题配置_config.yml添加</p>
+<pre><code>local_search: 
+  enable: true</code></pre><h4 id="步骤三-添加搜索"><a href="#步骤三-添加搜索" class="headerlink" title="步骤三 添加搜索"></a>步骤三 添加搜索</h4><p>第三步:添加搜索框</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>search-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-input<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>q<span class="token punctuation">"</span></span> <span class="token attr-name">results</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">autocomplete</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>off<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>搜索<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-input pure-input-1<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">204</span>, <span class="token number">232</span>, <span class="token number">207</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-result<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>第1种，主题自带搜索模式，有独立的search页面,生成页面前面已经讲到了，把代码放到source/search/index.md文件中即可。</p>
+<p>第2种，自定义模式，直接加在首页，想加哪个位置看自己喜好，位置找主题下的布局文件夹_layout或layout/partials之类的文件夹下,里面有head.ejs或head.swig文件（如果不是请自己查找节点，文件反正就那些）,添加html代码</p>
+<h4 id="步骤四-引入js文件"><a href="#步骤四-引入js文件" class="headerlink" title="步骤四 引入js文件"></a>步骤四 引入js文件</h4><p>第四步：引入js</p>
+<p>第1种，主题自带搜索模式，主题下的配置文件一般有scripts设置，直接配置路径，一般都有示例如</p>
+<pre><code>scripts:
+#- //cdn.bootcss.com/zepto/1.2.0/zepto.min.js
+#- /js/xoxo.js
+  - /js/search.js</code></pre><p>第2种，自定义模式，没有scripts配置,就在找主题下的布局文件夹_layout或layout/中，有js.ejs或srcipt.ejs，<br>文件可以从这里拿：<a href="https://github.com/zhzy2017/hexo-search-plugin-snippets" target="_blank" rel="noopener">https://github.com/zhzy2017/hexo-search-plugin-snippets</a><br>把search.js 放到source\js目录下,引入使用也有不同的方法</p>
+<h4 id="步骤五-引入css文件"><a href="#步骤五-引入css文件" class="headerlink" title="步骤五 引入css文件"></a>步骤五 引入css文件</h4><p>第五步：css设置<br>有的带搜索的无须操作，没有的从下载hexo-search-plugin-snippets里面拿拷贝到source/css里面，引入即可，</p>
+<p>第1种，主题自带搜索模式，一般不需要配置写在公共文件中，如果没有样式可以在主题下的配置文件一般有stylesheets设置，直接配置路径，一般都有示例：</p>
+<pre><code>stylesheets:
+# - /css/normalize.css
+ - //cdn.bootcss.com/pure/1.0.0/pure-min.css
+ - /css/xoxo.css
+</code></pre><p>第2种，自定义模式，跟配引入js类似，找一下主题目录ejs或swig文件引入，或者直接用css或less文件放到source/css目录下的某个文件中，这样不需要引文件</p>
+<p>其他插件，具体使用自行搜索，一般是修改配置或添加代码</p>
+<pre><code>npm install hexo-generator-index-pin-top –save  #文章置顶插件 
+npm uninstall hexo-generator-index –save     #文章置顶插件 
+npm i –save hexo-wordcount        #文章字数+阅读时长统计     
+npm install hexo-baidu-url-submit –save     #百度链接主动推送     
+npm install hexo-deployer-ftpsync –save     #hexo上传至FTP服务器     
+npm install hexo-deployer-cos –save     #hexo上传至腾讯云COS     
+npm install hexo-deployer-aliyun –save     #hexo上传至阿里云     
+npm install –save hexo-admin     #hexo管理插件     
+hexo-blog-encrypt(请看文档)     #hexo文章加密码 
+npm install leancloud-storage –save     #Valine评论     
+Valine评论邮件通知     Valine评论提醒 </code></pre><p>使用参考链接参考<a href="https://blog.csdn.net/q2158798/article/details/82354154" target="_blank" rel="noopener">幻凡ss</a></p>
+<h3 id="修改修改永久链接"><a href="#修改修改永久链接" class="headerlink" title="修改修改永久链接"></a>修改修改永久链接</h3><p>Hexo修改修改永久链接的默认格式,方便SEO.<br><code>npm install hexo-abbrlink --save</code>  #文章永久链接 <a href="https://github.com/Rozbo/hexo-abbrlink" target="_blank" rel="noopener">项目地址在这里</a></p>
+<h4 id="1-安装插件"><a href="#1-安装插件" class="headerlink" title="1.安装插件"></a>1.安装插件</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save</code></pre>
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><pre><code># permalink: :year/:month/:day/:title/
+# permalink_defaults:
+permalink: posts/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex</code></pre><h4 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h4><pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> heox g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>点击一篇文章，检查浏览器地址看看是不是发生变化了？</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
