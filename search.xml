@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Centos相关配置</title>
+    <url>/posts/42e4f857.html</url>
+    <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
+<a id="more"></a>
+
+<h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre>
+<p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p>
+<pre><code>TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens192
+UUID=64e7784d-8183-4db5-af4c-120203391708
+DEVICE=ens192
+ONBOOT=yes
+IPADDR=192.168.66.80
+PREFIX=24
+GATEWAY=192.168.66.254
+IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre>
+<h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p>
+<pre><code>      Local time: 四 2014-12-25 10:52:10 CST
+  Universal time: 四 2014-12-25 02:52:10 UTC
+        RTC time: 四 2014-12-25 02:52:10
+        Timezone: Asia/Shanghai (CST, +0800)
+     NTP enabled: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre>
+<h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre>
+<h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre>
+<h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre>
+<h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p>
+<pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre>
+<p>增加：</p>
+<pre><code>nameserver 8.8.8.8
+nameserver 8.8.4.4</code></pre>]]></content>
+      <categories>
+        <category>Linux,centos</category>
+      </categories>
+      <tags>
+        <tag>centos配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos-jdk安装配置环境变量</title>
     <url>/posts/9064540a.html</url>
     <content><![CDATA[<p> Centos上安装jdk，配置环境变量的方法</p>
@@ -59,57 +113,60 @@ export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href=
       </tags>
   </entry>
   <entry>
-    <title>Centos相关配置</title>
-    <url>/posts/42e4f857.html</url>
-    <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
+    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
+    <url>/posts/dc390855.html</url>
+    <content><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
 <a id="more"></a>
 
-<h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre>
-<p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p>
-<pre><code>TYPE=Ethernet
-PROXY_METHOD=none
-BROWSER_ONLY=no
-BOOTPROTO=none
-DEFROUTE=yes
-IPV4_FAILURE_FATAL=no
-IPV6INIT=yes
-IPV6_AUTOCONF=yes
-IPV6_DEFROUTE=yes
-IPV6_FAILURE_FATAL=no
-IPV6_ADDR_GEN_MODE=stable-privacy
-NAME=ens192
-UUID=64e7784d-8183-4db5-af4c-120203391708
-DEVICE=ens192
-ONBOOT=yes
-IPADDR=192.168.66.80
-PREFIX=24
-GATEWAY=192.168.66.254
-IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre>
-<h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p>
-<pre><code>      Local time: 四 2014-12-25 10:52:10 CST
-  Universal time: 四 2014-12-25 02:52:10 UTC
-        RTC time: 四 2014-12-25 02:52:10
-        Timezone: Asia/Shanghai (CST, +0800)
-     NTP enabled: yes
-NTP synchronized: yes
- RTC in local TZ: no
-      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre>
-<h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre>
-<h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre>
-<h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre>
-<h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p>
-<pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre>
-<p>增加：</p>
-<pre><code>nameserver 8.8.8.8
-nameserver 8.8.4.4</code></pre>]]></content>
+<p><img src="/medias/cool-loading-animated-gif-3.gif" data-original="/images/db_jdbcType.jpg" alt="Image text"></p>
+]]></content>
       <categories>
-        <category>Linux,centos</category>
+        <category>Java,DataBase</category>
       </categories>
       <tags>
-        <tag>centos配置</tag>
+        <tag>DataBase</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开发常用传送门列表</title>
+    <url>/posts/2d1a17c5.html</url>
+    <content><![CDATA[<p>开发常用传送门列表</p>
+<a id="more"></a>
+<p> <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>DataBase</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（三）——主题更换</title>
+    <url>/posts/a5bf7e18.html</url>
+    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
+ <a id="more"></a>
+
+<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
+<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
+<p>如我安装主题hexo-theme-xoxo-plus。</p>
+<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
+<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
+<pre><code># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# landscape
+theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>浏览器访问：<br>大功告成。</p>
+<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -162,35 +219,6 @@ hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹
       </tags>
   </entry>
   <entry>
-    <title>开发常用传送门列表</title>
-    <url>/posts/2d1a17c5.html</url>
-    <content><![CDATA[<p>开发常用传送门列表</p>
-<a id="more"></a>
-<p> <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>DataBase</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
-    <url>/posts/dc390855.html</url>
-    <content><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
-<a id="more"></a>
-
-<p><img src="/medias/cool-loading-animated-gif-3.gif" data-original="/images/db_jdbcType.jpg" alt="Image text"></p>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>DataBase</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建静态博客（二）——创建页面</title>
     <url>/posts/c1358fc8.html</url>
     <content><![CDATA[<p> Hexo已经搭建好了，很多链接都没有页面，那么怎么生成页面呢？本文记录创建页面相关内容。</p>
@@ -230,34 +258,6 @@ tags: Hexo
 ---
  this is my article ...
 </code></pre><p>是不是很简单呢？</p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（三）——主题更换</title>
-    <url>/posts/a5bf7e18.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
- <a id="more"></a>
-
-<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
-<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
-<p>如我安装主题hexo-theme-xoxo-plus。</p>
-<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
-<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
-<pre><code># Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-# landscape
-theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>浏览器访问：<br>大功告成。</p>
-<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
 <p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
 ]]></content>
       <categories>
