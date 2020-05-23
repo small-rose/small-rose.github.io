@@ -128,97 +128,6 @@ nameserver 8.8.4.4</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
-    <title>开发常用传送门列表</title>
-    <url>/posts/2d1a17c5.html</url>
-    <content><![CDATA[<p>开发常用传送门列表</p>
-<a id="more"></a>
-<p> <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>DataBase</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（二）——创建页面</title>
-    <url>/posts/c1358fc8.html</url>
-    <content><![CDATA[<p> Hexo已经搭建好了，很多链接都没有页面，那么怎么生成页面呢？本文记录创建页面相关内容。</p>
-<a id="more"></a>
-
-<p>作者：阿兰那</p>
-<h2 id="1-创建链接页面的基本命令"><a href="#1-创建链接页面的基本命令" class="headerlink" title="1.创建链接页面的基本命令"></a>1.创建链接页面的基本命令</h2><font color=red>
-```
-hexo new page  yourpagename
-```
-</font>
-
-<h4 id="2-创建about页面"><a href="#2-创建about页面" class="headerlink" title="2.创建about页面"></a>2.创建about页面</h4><pre><code>hexo new page about</code></pre><p>修改source/about/index.md文件即可。文件内可以使用markdown或html语法。</p>
-<h4 id="3-创建分类"><a href="#3-创建分类" class="headerlink" title="3.创建分类"></a>3.创建分类</h4><pre><code>hexo new page categories   //创建分类</code></pre><p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p>
-<pre><code>---
-title: categories
-date: 2020-05-14 21:51:42
-type: categories
----</code></pre><p>那么在写文章的时候就可以在头部使用分类了，如：</p>
-<pre><code>---
-title: Hexo搭建静态博客及踩坑问题
-date: 2020-05-13
-categories: Hexo
----
- this is my article ...
-</code></pre><h4 id="4-创建标签"><a href="#4-创建标签" class="headerlink" title="4.创建标签"></a>4.创建标签</h4><pre><code>hexo new page tags         //创建标签</code></pre><p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p>
-<pre><code>---
-title: tags
-date: 2020-05-14 21:51:42
-type: tags
----</code></pre><p>那么在写文章的时候就可以在头部使用标签了，如：</p>
-<pre><code>---
-title: Hexo搭建静态博客及踩坑问题
-date: 2020-05-13
-categories: Hexo
-tags: Hexo
----
- this is my article ...
-</code></pre><p>是不是很简单呢？</p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（三）——主题更换</title>
-    <url>/posts/a5bf7e18.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
- <a id="more"></a>
-
-<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
-<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
-<p>如我安装主题hexo-theme-xoxo-plus。</p>
-<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
-<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
-<pre><code># Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-# landscape
-theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>浏览器访问：<br>大功告成。</p>
-<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建静态博客（一）——基础搭建</title>
     <url>/posts/9f117b.html</url>
     <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
@@ -268,6 +177,48 @@ hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹
       </tags>
   </entry>
   <entry>
+    <title>开发常用传送门列表</title>
+    <url>/posts/2d1a17c5.html</url>
+    <content><![CDATA[<p>开发常用传送门列表</p>
+<a id="more"></a>
+<p> <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>DataBase</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（三）——主题更换</title>
+    <url>/posts/a5bf7e18.html</url>
+    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
+ <a id="more"></a>
+
+<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
+<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
+<p>如我安装主题hexo-theme-xoxo-plus。</p>
+<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
+<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
+<pre><code># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# landscape
+theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>浏览器访问：<br>大功告成。</p>
+<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo搭建静态博客（五）——踩坑问题</title>
     <url>/posts/ce4a93ff.html</url>
     <content><![CDATA[<p>Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。</p>
@@ -291,45 +242,46 @@ key: value
       </tags>
   </entry>
   <entry>
-    <title>js让页面自动刷新</title>
-    <url>/posts/7413f2ca.html</url>
-    <content><![CDATA[<p>js让页面自动刷新</p>
+    <title>Hexo搭建静态博客（二）——创建页面</title>
+    <url>/posts/c1358fc8.html</url>
+    <content><![CDATA[<p> Hexo已经搭建好了，很多链接都没有页面，那么怎么生成页面呢？本文记录创建页面相关内容。</p>
 <a id="more"></a>
 
-<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
-<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">=</span><span class="token number">0</span>
-current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">else</span>
-location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">++</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
-<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（六）——项目部署</title>
-    <url>/posts/c68d7a69.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。</p>
-<a id="more"></a>
+<p>作者：阿兰那</p>
+<h2 id="1-创建链接页面的基本命令"><a href="#1-创建链接页面的基本命令" class="headerlink" title="1.创建链接页面的基本命令"></a>1.创建链接页面的基本命令</h2><font color=red>
+```
+hexo new page  yourpagename
+```
+</font>
 
-<h4 id="关于部署"><a href="#关于部署" class="headerlink" title="关于部署"></a>关于部署</h4><p>常见部署在github上，如果有自己独立的服务器也可以部署在服务上，此处用的腾讯云服务器。</p>
-<p>整理中…</p>
-<p>1.github上部署</p>
-<p>2.云服务器部署</p>
+<h4 id="2-创建about页面"><a href="#2-创建about页面" class="headerlink" title="2.创建about页面"></a>2.创建about页面</h4><pre><code>hexo new page about</code></pre><p>修改source/about/index.md文件即可。文件内可以使用markdown或html语法。</p>
+<h4 id="3-创建分类"><a href="#3-创建分类" class="headerlink" title="3.创建分类"></a>3.创建分类</h4><pre><code>hexo new page categories   //创建分类</code></pre><p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p>
+<pre><code>---
+title: categories
+date: 2020-05-14 21:51:42
+type: categories
+---</code></pre><p>那么在写文章的时候就可以在头部使用分类了，如：</p>
+<pre><code>---
+title: Hexo搭建静态博客及踩坑问题
+date: 2020-05-13
+categories: Hexo
+---
+ this is my article ...
+</code></pre><h4 id="4-创建标签"><a href="#4-创建标签" class="headerlink" title="4.创建标签"></a>4.创建标签</h4><pre><code>hexo new page tags         //创建标签</code></pre><p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p>
+<pre><code>---
+title: tags
+date: 2020-05-14 21:51:42
+type: tags
+---</code></pre><p>那么在写文章的时候就可以在头部使用标签了，如：</p>
+<pre><code>---
+title: Hexo搭建静态博客及踩坑问题
+date: 2020-05-13
+categories: Hexo
+tags: Hexo
+---
+ this is my article ...
+</code></pre><p>是不是很简单呢？</p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -398,6 +350,54 @@ abbrlink:
   alg: crc32  # 算法：crc16(default) and crc32
   rep: hex    # 进制：dec(default) and hex</code></pre><h4 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h4><pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> heox g <span class="token operator">&amp;</span> hexo s</code></pre>
 <p>点击一篇文章，检查浏览器地址看看是不是发生变化了？</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js让页面自动刷新</title>
+    <url>/posts/7413f2ca.html</url>
+    <content><![CDATA[<p>js让页面自动刷新</p>
+<a id="more"></a>
+
+<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
+<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">=</span><span class="token number">0</span>
+current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">++</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
+<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（六）——项目部署</title>
+    <url>/posts/c68d7a69.html</url>
+    <content><![CDATA[<p>Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。</p>
+<a id="more"></a>
+
+<h4 id="关于部署"><a href="#关于部署" class="headerlink" title="关于部署"></a>关于部署</h4><p>常见部署在github上，如果有自己独立的服务器也可以部署在服务上，此处用的腾讯云服务器。</p>
+<p>整理中…</p>
+<p>1.github上部署</p>
+<p>2.云服务器部署</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
