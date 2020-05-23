@@ -1,409 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>Centos-jdk安装配置环境变量</title>
-    <url>/posts/9064540a.html</url>
-    <content><![CDATA[<p> Centos上安装jdk，配置环境变量的方法</p>
-<a id="more"></a>
-<h2 id="Centos上jdk配置"><a href="#Centos上jdk配置" class="headerlink" title="Centos上jdk配置"></a>Centos上jdk配置</h2><p>[TOC]</p>
-<h2 id="1-检查环境"><a href="#1-检查环境" class="headerlink" title="1.检查环境"></a>1.检查环境</h2><p>查看java版本</p>
-<pre class=" language-bash"><code class="language-bash">java -version</code></pre>
-<p> 检查是否已经安装jdk，通常默认自认openjdk</p>
-<pre class=" language-bash"><code class="language-bash">java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
-java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
-java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
-java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</code></pre>
-<p> 如果要卸载,需要root用户权限才可以执行：</p>
-<pre class=" language-bash"><code class="language-bash">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
-rpm -e --nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
-rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
-rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</code></pre>
-<p>再次查看java版本，如提示未找到命令则删除成功。</p>
-<h2 id="2-上传jdk安装文件"><a href="#2-上传jdk安装文件" class="headerlink" title="2.上传jdk安装文件"></a>2.上传jdk安装文件</h2><h4 id="上传方法"><a href="#上传方法" class="headerlink" title="上传方法"></a>上传方法</h4><p>（1）可以联网直接下载即可<br>（2）ssh可以安装用rz/sz上传下载<br>（3）ftp自行安装ftp服务，关于安装教程可到：</p>
-<p>上传jdk-7u80-linux-x64.tar.gz到你的目录后，<br>解压后移动到 <code>/usr/jdk1.7.0_80</code></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf jdk-7u80-linux-x64.tar.gz
-<span class="token function">cp</span>  jdk-7u80 /usr/jdk1.7.0_80</code></pre>
-<p>【关于解压命令大全可以移步：】</p>
-<h2 id="2-配置关变量"><a href="#2-配置关变量" class="headerlink" title="2.配置关变量"></a>2.配置关变量</h2><p>/etc/profile全局变量配置</p>
-<pre class=" language-bash"><code class="language-bash">vim /etc/profile</code></pre>
-<p>.bash_profile为root用户的环境变量。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /root/
-<span class="token function">ls</span> -a
-<span class="token function">vi</span> .bash_profile</code></pre>
-<p>二者均可，建议修改用户环境变量。<br>在文件末尾增加java环境变量即可,听说CentOS6上面的是JAVAHOME，CentOS7是{JAVA_HOME}</p>
-<pre><code># .bash_profile
-
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-        . ~/.bashrc
-fi
-
-# User specific environment and startup programs
-
-export JAVA_HOME=/usr/jdk1.7.0_80
-export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
-
-export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href="#3-让刚刚设置的环境变量生效" class="headerlink" title="3.让刚刚设置的环境变量生效"></a>3.让刚刚设置的环境变量生效</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile</code></pre>
-<p>或者</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> .bash_profile</code></pre>
-<h2 id="4-再次验证是否配置成功"><a href="#4-再次验证是否配置成功" class="headerlink" title="4.再次验证是否配置成功"></a>4.再次验证是否配置成功</h2><pre class=" language-bash"><code class="language-bash">java -version</code></pre>
-<p>出现java版本号代表安装成功。</p>
-]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Hexo搭建静态博客（六）——项目部署</title>
+      <link href="/posts/c68d7a69.html"/>
+      <url>/posts/c68d7a69.html</url>
+      
+        <content type="html"><![CDATA[<p>Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。</p><a id="more"></a><h4 id="关于部署"><a href="#关于部署" class="headerlink" title="关于部署"></a>关于部署</h4><p>常见部署在github上，如果有自己独立的服务器也可以部署在服务上，此处用的腾讯云服务器。</p><p>整理中…</p><p>1.github上部署</p><p>2.云服务器部署</p>]]></content>
+      
+      
       <categories>
-        <category>Linux,Java</category>
+          
+          <category> Hexo </category>
+          
       </categories>
-      <tags>
-        <tag>centos</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Centos相关配置</title>
-    <url>/posts/42e4f857.html</url>
-    <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
-<a id="more"></a>
-
-<h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre>
-<p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p>
-<pre><code>TYPE=Ethernet
-PROXY_METHOD=none
-BROWSER_ONLY=no
-BOOTPROTO=none
-DEFROUTE=yes
-IPV4_FAILURE_FATAL=no
-IPV6INIT=yes
-IPV6_AUTOCONF=yes
-IPV6_DEFROUTE=yes
-IPV6_FAILURE_FATAL=no
-IPV6_ADDR_GEN_MODE=stable-privacy
-NAME=ens192
-UUID=64e7784d-8183-4db5-af4c-120203391708
-DEVICE=ens192
-ONBOOT=yes
-IPADDR=192.168.66.80
-PREFIX=24
-GATEWAY=192.168.66.254
-IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre>
-<h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p>
-<pre><code>      Local time: 四 2014-12-25 10:52:10 CST
-  Universal time: 四 2014-12-25 02:52:10 UTC
-        RTC time: 四 2014-12-25 02:52:10
-        Timezone: Asia/Shanghai (CST, +0800)
-     NTP enabled: yes
-NTP synchronized: yes
- RTC in local TZ: no
-      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre>
-<h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre>
-<h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre>
-<h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre>
-<h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p>
-<pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre>
-<p>增加：</p>
-<pre><code>nameserver 8.8.8.8
-nameserver 8.8.4.4</code></pre>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo搭建静态博客（五）——踩坑问题</title>
+      <link href="/posts/ce4a93ff.html"/>
+      <url>/posts/ce4a93ff.html</url>
+      
+        <content type="html"><![CDATA[<p>Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。</p><a id="more"></a><p>常见报错多在 <code>hexo g</code> 的时候报错</p><h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.mdYAMLException: end of the stream or a document separator is expected at line x, column y:at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p><pre><code>---key: value---</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p><h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p><pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)其他后续再补充</p>]]></content>
+      
+      
       <categories>
-        <category>Linux,centos</category>
+          
+          <category> Hexo </category>
+          
       </categories>
-      <tags>
-        <tag>centos配置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
-    <url>/posts/dc390855.html</url>
-    <content><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
-<a id="more"></a>
-
-<p><img src="/medias/cool-loading-animated-gif-3.gif" data-original="/images/db_jdbcType.jpg" alt="Image text"></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo搭建静态博客（四）——插件安装</title>
+      <link href="/posts/cda13ebe.html"/>
+      <url>/posts/cda13ebe.html</url>
+      
+        <content type="html"><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题也换了，还是想要一些小功能或小改变怎么办呢？本文记录插件安装相关内容。</p><a id="more"></a><p>注意：安装插件不是非必须，除了部分插件跟着主题必须安装之外，其他插件属于可选。</p><h3 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h3><pre><code>npm install   hexo-generator-feed  --save   #订阅npm install   hexo-generator-search --save  #搜索</code></pre><h3 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h3><p>这里说一下添加本地搜索，有的主题已经自己带了搜索功能，只要配置开启即可。如果没有带主题可以自己加上。<br><font color=red>特别说明：如果主题自带搜索，看自带搜索操作说明即可，如果主题无搜索看自定义模式说明即可。</font></p><h4 id="步骤一-安装插件"><a href="#步骤一-安装插件" class="headerlink" title="步骤一 安装插件"></a>步骤一 安装插件</h4><p>第一步：安装搜索插件 <code>npm install hexo-generator-searchdb --save</code></p><h4 id="步骤二-修改配置"><a href="#步骤二-修改配置" class="headerlink" title="步骤二 修改配置"></a>步骤二 修改配置</h4><p>第二步：根目录_config.yml文件配置添加</p><pre><code>search:  path: search.xml  field: post  format: html  limit: 10000</code></pre><p>主题配置_config.yml添加</p><pre><code>local_search:   enable: true</code></pre><h4 id="步骤三-添加搜索"><a href="#步骤三-添加搜索" class="headerlink" title="步骤三 添加搜索"></a>步骤三 添加搜索</h4><p>第三步:添加搜索框</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>search-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-input<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>q<span class="token punctuation">"</span></span> <span class="token attr-name">results</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">autocomplete</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>off<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>搜索<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-input pure-input-1<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">204</span>, <span class="token number">232</span>, <span class="token number">207</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-result<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre><p>第1种，主题自带搜索模式，有独立的search页面,生成页面前面已经讲到了，把代码放到source/search/index.md文件中即可。</p><p>第2种，自定义模式，直接加在首页，想加哪个位置看自己喜好，位置找主题下的布局文件夹_layout或layout/partials之类的文件夹下,里面有head.ejs或head.swig文件（如果不是请自己查找节点，文件反正就那些）,添加html代码</p><h4 id="步骤四-引入js文件"><a href="#步骤四-引入js文件" class="headerlink" title="步骤四 引入js文件"></a>步骤四 引入js文件</h4><p>第四步：引入js</p><p>第1种，主题自带搜索模式，主题下的配置文件一般有scripts设置，直接配置路径，一般都有示例如</p><pre><code>scripts:#- //cdn.bootcss.com/zepto/1.2.0/zepto.min.js#- /js/xoxo.js  - /js/search.js</code></pre><p>第2种，自定义模式，没有scripts配置,就在找主题下的布局文件夹_layout或layout/中，有js.ejs或srcipt.ejs，<br>文件可以从这里拿：<a href="https://github.com/zhzy2017/hexo-search-plugin-snippets" target="_blank" rel="noopener">https://github.com/zhzy2017/hexo-search-plugin-snippets</a><br>把search.js 放到source\js目录下,引入使用也有不同的方法</p><h4 id="步骤五-引入css文件"><a href="#步骤五-引入css文件" class="headerlink" title="步骤五 引入css文件"></a>步骤五 引入css文件</h4><p>第五步：css设置<br>有的带搜索的无须操作，没有的从下载hexo-search-plugin-snippets里面拿拷贝到source/css里面，引入即可，</p><p>第1种，主题自带搜索模式，一般不需要配置写在公共文件中，如果没有样式可以在主题下的配置文件一般有stylesheets设置，直接配置路径，一般都有示例：</p><pre><code>stylesheets:# - /css/normalize.css - //cdn.bootcss.com/pure/1.0.0/pure-min.css - /css/xoxo.css</code></pre><p>第2种，自定义模式，跟配引入js类似，找一下主题目录ejs或swig文件引入，或者直接用css或less文件放到source/css目录下的某个文件中，这样不需要引文件</p><p>其他插件，具体使用自行搜索，一般是修改配置或添加代码</p><pre><code>npm install hexo-generator-index-pin-top –save  #文章置顶插件 npm uninstall hexo-generator-index –save     #文章置顶插件 npm i –save hexo-wordcount        #文章字数+阅读时长统计     npm install hexo-baidu-url-submit –save     #百度链接主动推送     npm install hexo-deployer-ftpsync –save     #hexo上传至FTP服务器     npm install hexo-deployer-cos –save     #hexo上传至腾讯云COS     npm install hexo-deployer-aliyun –save     #hexo上传至阿里云     npm install –save hexo-admin     #hexo管理插件     hexo-blog-encrypt(请看文档)     #hexo文章加密码 npm install leancloud-storage –save     #Valine评论     Valine评论邮件通知     Valine评论提醒 </code></pre><p>使用参考链接参考<a href="https://blog.csdn.net/q2158798/article/details/82354154" target="_blank" rel="noopener">幻凡ss</a></p><h3 id="修改修改永久链接"><a href="#修改修改永久链接" class="headerlink" title="修改修改永久链接"></a>修改修改永久链接</h3><p>Hexo修改修改永久链接的默认格式,方便SEO.<br><code>npm install hexo-abbrlink --save</code>  #文章永久链接 <a href="https://github.com/Rozbo/hexo-abbrlink" target="_blank" rel="noopener">项目地址在这里</a></p><h4 id="1-安装插件"><a href="#1-安装插件" class="headerlink" title="1.安装插件"></a>1.安装插件</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save</code></pre><h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><pre><code># permalink: :year/:month/:day/:title/# permalink_defaults:permalink: posts/:abbrlink.htmlabbrlink:  alg: crc32  # 算法：crc16(default) and crc32  rep: hex    # 进制：dec(default) and hex</code></pre><h4 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h4><pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> heox g <span class="token operator">&amp;</span> hexo s</code></pre><p>点击一篇文章，检查浏览器地址看看是不是发生变化了？</p>]]></content>
+      
+      
       <categories>
-        <category>Java,DataBase</category>
+          
+          <category> Hexo </category>
+          
       </categories>
-      <tags>
-        <tag>DataBase</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（一）——基础搭建</title>
-    <url>/posts/9f117b.html</url>
-    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
-<a id="more"></a>
-<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
-<pre><code>$ hexo -v
-hexo：4.2.1
-hexo-cli：3.1.0
-os：Windows_NT 10.0.18362 win32 x64
-http_parser：2.8.0
-node：8.12.0
-v8：6.2.414.66
-uv：1.19.2
-zlib：1.2.11
-ares：1.10.1-DEV
-modules：57
-nghttp2：1.32.0
-napi： 3
-openssl：1.0.2p
-icu：60.1
-unicode：10.0
-cldr：32.0
-tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
-<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
-<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
-<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
-$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
-$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
-$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
-<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
-<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
-<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
-hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
-hexo s 或  hexo server     //启动服务预览 http://localhost:4000
-hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
-<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo搭建静态博客（三）——主题更换</title>
+      <link href="/posts/a5bf7e18.html"/>
+      <url>/posts/a5bf7e18.html</url>
+      
+        <content type="html"><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p> <a id="more"></a><p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p><p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p><p>如我安装主题hexo-theme-xoxo-plus。</p><h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre><h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p><pre><code># Extensions## Plugins: https://hexo.io/plugins/## Themes: https://hexo.io/themes/# landscapetheme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre><p>浏览器访问：<br>大功告成。</p><p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p><p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>]]></content>
+      
+      
       <categories>
-        <category>Hexo</category>
+          
+          <category> Hexo </category>
+          
       </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>开发常用传送门列表</title>
-    <url>/posts/2d1a17c5.html</url>
-    <content><![CDATA[<p>开发常用传送门列表</p>
-<a id="more"></a>
-<p> <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo搭建静态博客（二）——创建页面</title>
+      <link href="/posts/c1358fc8.html"/>
+      <url>/posts/c1358fc8.html</url>
+      
+        <content type="html"><![CDATA[<p> Hexo已经搭建好了，很多链接都没有页面，那么怎么生成页面呢？本文记录创建页面相关内容。</p><a id="more"></a><p>作者：阿兰那</p><h2 id="1-创建链接页面的基本命令"><a href="#1-创建链接页面的基本命令" class="headerlink" title="1.创建链接页面的基本命令"></a>1.创建链接页面的基本命令</h2><font color=red>```hexo new page  yourpagename```</font><h4 id="2-创建about页面"><a href="#2-创建about页面" class="headerlink" title="2.创建about页面"></a>2.创建about页面</h4><pre><code>hexo new page about</code></pre><p>修改source/about/index.md文件即可。文件内可以使用markdown或html语法。</p><h4 id="3-创建分类"><a href="#3-创建分类" class="headerlink" title="3.创建分类"></a>3.创建分类</h4><pre><code>hexo new page categories   //创建分类</code></pre><p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p><pre><code>---title: categoriesdate: 2020-05-14 21:51:42type: categories---</code></pre><p>那么在写文章的时候就可以在头部使用分类了，如：</p><pre><code>---title: Hexo搭建静态博客及踩坑问题date: 2020-05-13categories: Hexo--- this is my article ...</code></pre><h4 id="4-创建标签"><a href="#4-创建标签" class="headerlink" title="4.创建标签"></a>4.创建标签</h4><pre><code>hexo new page tags         //创建标签</code></pre><p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p><pre><code>---title: tagsdate: 2020-05-14 21:51:42type: tags---</code></pre><p>那么在写文章的时候就可以在头部使用标签了，如：</p><pre><code>---title: Hexo搭建静态博客及踩坑问题date: 2020-05-13categories: Hexotags: Hexo--- this is my article ...</code></pre><p>是不是很简单呢？</p><p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>]]></content>
+      
+      
       <categories>
-        <category>Java,DataBase</category>
+          
+          <category> Hexo </category>
+          
       </categories>
-      <tags>
-        <tag>DataBase</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（三）——主题更换</title>
-    <url>/posts/a5bf7e18.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
- <a id="more"></a>
-
-<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
-<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
-<p>如我安装主题hexo-theme-xoxo-plus。</p>
-<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
-<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
-<pre><code># Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-# landscape
-theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>浏览器访问：<br>大功告成。</p>
-<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo搭建静态博客（一）——基础搭建</title>
+      <link href="/posts/9f117b.html"/>
+      <url>/posts/9f117b.html</url>
+      
+        <content type="html"><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p><a id="more"></a><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p><pre><code>$ hexo -vhexo：4.2.1hexo-cli：3.1.0os：Windows_NT 10.0.18362 win32 x64http_parser：2.8.0node：8.12.0v8：6.2.414.66uv：1.19.2zlib：1.2.11ares：1.10.1-DEVmodules：57nghttp2：1.32.0napi： 3openssl：1.0.2picu：60.1unicode：10.0cldr：32.0tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre><h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p><pre class=" language-bash"><code class="language-bash">node --version</code></pre><h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p><h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre><h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre><h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre><p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件hexo s 或  hexo server     //启动服务预览 http://localhost:4000hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre><p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p><p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>]]></content>
+      
+      
       <categories>
-        <category>Hexo</category>
+          
+          <category> Hexo </category>
+          
       </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <url>/posts/ce4a93ff.html</url>
-    <content><![CDATA[<p>Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。</p>
-<a id="more"></a>
-
-<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
-<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
-YAMLException: end of the stream or a document separator is expected at line x, column y:
-at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
-<pre><code>---
-key: value
----</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
-<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
-<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)其他后续再补充</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>js让页面自动刷新</title>
+      <link href="/posts/7413f2ca.html"/>
+      <url>/posts/7413f2ca.html</url>
+      
+        <content type="html"><![CDATA[<p>js让页面自动刷新</p><a id="more"></a><h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p><pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>count<span class="token operator">=</span><span class="token number">0</span>current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span><span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">else</span>location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>count<span class="token operator">++</span><span class="token punctuation">;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span><span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>]]></content>
+      
+      
       <categories>
-        <category>Hexo</category>
+          
+          <category> Java,DataBase </category>
+          
       </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（二）——创建页面</title>
-    <url>/posts/c1358fc8.html</url>
-    <content><![CDATA[<p> Hexo已经搭建好了，很多链接都没有页面，那么怎么生成页面呢？本文记录创建页面相关内容。</p>
-<a id="more"></a>
-
-<p>作者：阿兰那</p>
-<h2 id="1-创建链接页面的基本命令"><a href="#1-创建链接页面的基本命令" class="headerlink" title="1.创建链接页面的基本命令"></a>1.创建链接页面的基本命令</h2><font color=red>
-```
-hexo new page  yourpagename
-```
-</font>
-
-<h4 id="2-创建about页面"><a href="#2-创建about页面" class="headerlink" title="2.创建about页面"></a>2.创建about页面</h4><pre><code>hexo new page about</code></pre><p>修改source/about/index.md文件即可。文件内可以使用markdown或html语法。</p>
-<h4 id="3-创建分类"><a href="#3-创建分类" class="headerlink" title="3.创建分类"></a>3.创建分类</h4><pre><code>hexo new page categories   //创建分类</code></pre><p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p>
-<pre><code>---
-title: categories
-date: 2020-05-14 21:51:42
-type: categories
----</code></pre><p>那么在写文章的时候就可以在头部使用分类了，如：</p>
-<pre><code>---
-title: Hexo搭建静态博客及踩坑问题
-date: 2020-05-13
-categories: Hexo
----
- this is my article ...
-</code></pre><h4 id="4-创建标签"><a href="#4-创建标签" class="headerlink" title="4.创建标签"></a>4.创建标签</h4><pre><code>hexo new page tags         //创建标签</code></pre><p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p>
-<pre><code>---
-title: tags
-date: 2020-05-14 21:51:42
-type: tags
----</code></pre><p>那么在写文章的时候就可以在头部使用标签了，如：</p>
-<pre><code>---
-title: Hexo搭建静态博客及踩坑问题
-date: 2020-05-13
-categories: Hexo
-tags: Hexo
----
- this is my article ...
-</code></pre><p>是不是很简单呢？</p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>开发常用传送门列表</title>
+      <link href="/posts/2d1a17c5.html"/>
+      <url>/posts/2d1a17c5.html</url>
+      
+        <content type="html"><![CDATA[<p>开发常用传送门列表</p><a id="more"></a><p> <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>]]></content>
+      
+      
       <categories>
-        <category>Hexo</category>
+          
+          <category> Java,DataBase </category>
+          
       </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（四）——插件安装</title>
-    <url>/posts/cda13ebe.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题也换了，还是想要一些小功能或小改变怎么办呢？本文记录插件安装相关内容。</p>
-<a id="more"></a>
-
-<p>注意：安装插件不是非必须，除了部分插件跟着主题必须安装之外，其他插件属于可选。</p>
-<h3 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h3><pre><code>npm install   hexo-generator-feed  --save   #订阅
-npm install   hexo-generator-search --save  #搜索</code></pre><h3 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h3><p>这里说一下添加本地搜索，有的主题已经自己带了搜索功能，只要配置开启即可。如果没有带主题可以自己加上。<br><font color=red>特别说明：如果主题自带搜索，看自带搜索操作说明即可，如果主题无搜索看自定义模式说明即可。</font></p>
-<h4 id="步骤一-安装插件"><a href="#步骤一-安装插件" class="headerlink" title="步骤一 安装插件"></a>步骤一 安装插件</h4><p>第一步：安装搜索插件 <code>npm install hexo-generator-searchdb --save</code></p>
-<h4 id="步骤二-修改配置"><a href="#步骤二-修改配置" class="headerlink" title="步骤二 修改配置"></a>步骤二 修改配置</h4><p>第二步：根目录_config.yml文件配置添加</p>
-<pre><code>search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000</code></pre><p>主题配置_config.yml添加</p>
-<pre><code>local_search: 
-  enable: true</code></pre><h4 id="步骤三-添加搜索"><a href="#步骤三-添加搜索" class="headerlink" title="步骤三 添加搜索"></a>步骤三 添加搜索</h4><p>第三步:添加搜索框</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>search-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-input<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>q<span class="token punctuation">"</span></span> <span class="token attr-name">results</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">autocomplete</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>off<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>搜索<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-input pure-input-1<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">204</span>, <span class="token number">232</span>, <span class="token number">207</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-result<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
-<p>第1种，主题自带搜索模式，有独立的search页面,生成页面前面已经讲到了，把代码放到source/search/index.md文件中即可。</p>
-<p>第2种，自定义模式，直接加在首页，想加哪个位置看自己喜好，位置找主题下的布局文件夹_layout或layout/partials之类的文件夹下,里面有head.ejs或head.swig文件（如果不是请自己查找节点，文件反正就那些）,添加html代码</p>
-<h4 id="步骤四-引入js文件"><a href="#步骤四-引入js文件" class="headerlink" title="步骤四 引入js文件"></a>步骤四 引入js文件</h4><p>第四步：引入js</p>
-<p>第1种，主题自带搜索模式，主题下的配置文件一般有scripts设置，直接配置路径，一般都有示例如</p>
-<pre><code>scripts:
-#- //cdn.bootcss.com/zepto/1.2.0/zepto.min.js
-#- /js/xoxo.js
-  - /js/search.js</code></pre><p>第2种，自定义模式，没有scripts配置,就在找主题下的布局文件夹_layout或layout/中，有js.ejs或srcipt.ejs，<br>文件可以从这里拿：<a href="https://github.com/zhzy2017/hexo-search-plugin-snippets" target="_blank" rel="noopener">https://github.com/zhzy2017/hexo-search-plugin-snippets</a><br>把search.js 放到source\js目录下,引入使用也有不同的方法</p>
-<h4 id="步骤五-引入css文件"><a href="#步骤五-引入css文件" class="headerlink" title="步骤五 引入css文件"></a>步骤五 引入css文件</h4><p>第五步：css设置<br>有的带搜索的无须操作，没有的从下载hexo-search-plugin-snippets里面拿拷贝到source/css里面，引入即可，</p>
-<p>第1种，主题自带搜索模式，一般不需要配置写在公共文件中，如果没有样式可以在主题下的配置文件一般有stylesheets设置，直接配置路径，一般都有示例：</p>
-<pre><code>stylesheets:
-# - /css/normalize.css
- - //cdn.bootcss.com/pure/1.0.0/pure-min.css
- - /css/xoxo.css
-</code></pre><p>第2种，自定义模式，跟配引入js类似，找一下主题目录ejs或swig文件引入，或者直接用css或less文件放到source/css目录下的某个文件中，这样不需要引文件</p>
-<p>其他插件，具体使用自行搜索，一般是修改配置或添加代码</p>
-<pre><code>npm install hexo-generator-index-pin-top –save  #文章置顶插件 
-npm uninstall hexo-generator-index –save     #文章置顶插件 
-npm i –save hexo-wordcount        #文章字数+阅读时长统计     
-npm install hexo-baidu-url-submit –save     #百度链接主动推送     
-npm install hexo-deployer-ftpsync –save     #hexo上传至FTP服务器     
-npm install hexo-deployer-cos –save     #hexo上传至腾讯云COS     
-npm install hexo-deployer-aliyun –save     #hexo上传至阿里云     
-npm install –save hexo-admin     #hexo管理插件     
-hexo-blog-encrypt(请看文档)     #hexo文章加密码 
-npm install leancloud-storage –save     #Valine评论     
-Valine评论邮件通知     Valine评论提醒 </code></pre><p>使用参考链接参考<a href="https://blog.csdn.net/q2158798/article/details/82354154" target="_blank" rel="noopener">幻凡ss</a></p>
-<h3 id="修改修改永久链接"><a href="#修改修改永久链接" class="headerlink" title="修改修改永久链接"></a>修改修改永久链接</h3><p>Hexo修改修改永久链接的默认格式,方便SEO.<br><code>npm install hexo-abbrlink --save</code>  #文章永久链接 <a href="https://github.com/Rozbo/hexo-abbrlink" target="_blank" rel="noopener">项目地址在这里</a></p>
-<h4 id="1-安装插件"><a href="#1-安装插件" class="headerlink" title="1.安装插件"></a>1.安装插件</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><pre><code># permalink: :year/:month/:day/:title/
-# permalink_defaults:
-permalink: posts/:abbrlink.html
-abbrlink:
-  alg: crc32  # 算法：crc16(default) and crc32
-  rep: hex    # 进制：dec(default) and hex</code></pre><h4 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h4><pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> heox g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>点击一篇文章，检查浏览器地址看看是不是发生变化了？</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> DataBase </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Centos-jdk安装配置环境变量</title>
+      <link href="/posts/9064540a.html"/>
+      <url>/posts/9064540a.html</url>
+      
+        <content type="html"><![CDATA[<p> Centos上安装jdk，配置环境变量的方法</p><a id="more"></a><h2 id="Centos上jdk配置"><a href="#Centos上jdk配置" class="headerlink" title="Centos上jdk配置"></a>Centos上jdk配置</h2><p>[TOC]</p><h2 id="1-检查环境"><a href="#1-检查环境" class="headerlink" title="1.检查环境"></a>1.检查环境</h2><p>查看java版本</p><pre class=" language-bash"><code class="language-bash">java -version</code></pre><p> 检查是否已经安装jdk，通常默认自认openjdk</p><pre class=" language-bash"><code class="language-bash">java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</code></pre><p> 如果要卸载,需要root用户权限才可以执行：</p><pre class=" language-bash"><code class="language-bash">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64rpm -e --nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</code></pre><p>再次查看java版本，如提示未找到命令则删除成功。</p><h2 id="2-上传jdk安装文件"><a href="#2-上传jdk安装文件" class="headerlink" title="2.上传jdk安装文件"></a>2.上传jdk安装文件</h2><h4 id="上传方法"><a href="#上传方法" class="headerlink" title="上传方法"></a>上传方法</h4><p>（1）可以联网直接下载即可<br>（2）ssh可以安装用rz/sz上传下载<br>（3）ftp自行安装ftp服务，关于安装教程可到：</p><p>上传jdk-7u80-linux-x64.tar.gz到你的目录后，<br>解压后移动到 <code>/usr/jdk1.7.0_80</code></p><pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf jdk-7u80-linux-x64.tar.gz<span class="token function">cp</span>  jdk-7u80 /usr/jdk1.7.0_80</code></pre><p>【关于解压命令大全可以移步：】</p><h2 id="2-配置关变量"><a href="#2-配置关变量" class="headerlink" title="2.配置关变量"></a>2.配置关变量</h2><p>/etc/profile全局变量配置</p><pre class=" language-bash"><code class="language-bash">vim /etc/profile</code></pre><p>.bash_profile为root用户的环境变量。</p><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /root/<span class="token function">ls</span> -a<span class="token function">vi</span> .bash_profile</code></pre><p>二者均可，建议修改用户环境变量。<br>在文件末尾增加java环境变量即可,听说CentOS6上面的是JAVAHOME，CentOS7是{JAVA_HOME}</p><pre><code># .bash_profile# Get the aliases and functionsif [ -f ~/.bashrc ]; then        . ~/.bashrcfi# User specific environment and startup programsexport JAVA_HOME=/usr/jdk1.7.0_80export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jarPATH=$PATH:$HOME/bin:$JAVA_HOME/binexport PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href="#3-让刚刚设置的环境变量生效" class="headerlink" title="3.让刚刚设置的环境变量生效"></a>3.让刚刚设置的环境变量生效</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile</code></pre><p>或者</p><pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> .bash_profile</code></pre><h2 id="4-再次验证是否配置成功"><a href="#4-再次验证是否配置成功" class="headerlink" title="4.再次验证是否配置成功"></a>4.再次验证是否配置成功</h2><pre class=" language-bash"><code class="language-bash">java -version</code></pre><p>出现java版本号代表安装成功。</p>]]></content>
+      
+      
       <categories>
-        <category>Hexo</category>
+          
+          <category> Linux,Java </category>
+          
       </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js让页面自动刷新</title>
-    <url>/posts/7413f2ca.html</url>
-    <content><![CDATA[<p>js让页面自动刷新</p>
-<a id="more"></a>
-
-<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
-<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">=</span><span class="token number">0</span>
-current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">else</span>
-location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">++</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
-<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> centos </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Centos相关配置</title>
+      <link href="/posts/42e4f857.html"/>
+      <url>/posts/42e4f857.html</url>
+      
+        <content type="html"><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p><a id="more"></a><h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre><p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p><pre><code>TYPE=EthernetPROXY_METHOD=noneBROWSER_ONLY=noBOOTPROTO=noneDEFROUTE=yesIPV4_FAILURE_FATAL=noIPV6INIT=yesIPV6_AUTOCONF=yesIPV6_DEFROUTE=yesIPV6_FAILURE_FATAL=noIPV6_ADDR_GEN_MODE=stable-privacyNAME=ens192UUID=64e7784d-8183-4db5-af4c-120203391708DEVICE=ens192ONBOOT=yesIPADDR=192.168.66.80PREFIX=24GATEWAY=192.168.66.254IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p><pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre><h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p><pre><code>      Local time: 四 2014-12-25 10:52:10 CST  Universal time: 四 2014-12-25 02:52:10 UTC        RTC time: 四 2014-12-25 02:52:10        Timezone: Asia/Shanghai (CST, +0800)     NTP enabled: yesNTP synchronized: yes RTC in local TZ: no      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre><h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre><h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre><h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre><h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p><pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre><p>增加：</p><pre><code>nameserver 8.8.8.8nameserver 8.8.4.4</code></pre>]]></content>
+      
+      
       <categories>
-        <category>Java,DataBase</category>
+          
+          <category> Linux,centos </category>
+          
       </categories>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（六）——项目部署</title>
-    <url>/posts/c68d7a69.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。</p>
-<a id="more"></a>
-
-<h4 id="关于部署"><a href="#关于部署" class="headerlink" title="关于部署"></a>关于部署</h4><p>常见部署在github上，如果有自己独立的服务器也可以部署在服务上，此处用的腾讯云服务器。</p>
-<p>整理中…</p>
-<p>1.github上部署</p>
-<p>2.云服务器部署</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> centos配置 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
+      <link href="/posts/dc390855.html"/>
+      <url>/posts/dc390855.html</url>
+      
+        <content type="html"><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p><a id="more"></a><p><img src="/medias/cool-loading-animated-gif-3.gif" data-original="/images/db_jdbcType.jpg" alt="Image text"></p>]]></content>
+      
+      
       <categories>
-        <category>Hexo</category>
+          
+          <category> Java,DataBase </category>
+          
       </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> DataBase </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>

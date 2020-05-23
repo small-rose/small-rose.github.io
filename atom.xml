@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>小菜技术笔记</title>
+  <title>Small-Rose</title>
   
   <subtitle>学而后思，思而后学。</subtitle>
   <link href="/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://zhangxiaocai.cn/</id>
   
   <author>
-    <name>张小菜</name>
+    <name>Small Rose | 张小菜</name>
     
   </author>
   
