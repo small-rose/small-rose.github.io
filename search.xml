@@ -113,12 +113,60 @@ nameserver 8.8.4.4</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
-    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
-    <url>/posts/dc390855.html</url>
-    <content><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
+    <title>Hexo搭建静态博客（一）——基础搭建</title>
+    <url>/posts/9f117b.html</url>
+    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
 <a id="more"></a>
-
-<p><img src="/medias/cool-loading-animated-gif-3.gif" data-original="/images/db_jdbcType.jpg" alt="Image text"></p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
+<pre><code>$ hexo -v
+hexo：4.2.1
+hexo-cli：3.1.0
+os：Windows_NT 10.0.18362 win32 x64
+http_parser：2.8.0
+node：8.12.0
+v8：6.2.414.66
+uv：1.19.2
+zlib：1.2.11
+ares：1.10.1-DEV
+modules：57
+nghttp2：1.32.0
+napi： 3
+openssl：1.0.2p
+icu：60.1
+unicode：10.0
+cldr：32.0
+tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
+<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
+<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
+<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
+$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
+$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
+$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
+<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
+<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
+<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
+hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
+hexo s 或  hexo server     //启动服务预览 http://localhost:4000
+hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
+<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开发常用传送门列表</title>
+    <url>/posts/2d1a17c5.html</url>
+    <content><![CDATA[<p>开发常用传送门列表</p>
+<a id="more"></a>
+<p> <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
 ]]></content>
       <categories>
         <category>Java,DataBase</category>
@@ -128,11 +176,12 @@ nameserver 8.8.4.4</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
-    <title>开发常用传送门列表</title>
-    <url>/posts/2d1a17c5.html</url>
-    <content><![CDATA[<p>开发常用传送门列表</p>
+    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
+    <url>/posts/dc390855.html</url>
+    <content><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
 <a id="more"></a>
-<p> <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
+
+<p><img src="/medias/cool-loading-animated-gif-3.gif" data-original="/images/db_jdbcType.jpg" alt="Image text"></p>
 ]]></content>
       <categories>
         <category>Java,DataBase</category>
@@ -191,55 +240,6 @@ tags: Hexo
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（一）——基础搭建</title>
-    <url>/posts/9f117b.html</url>
-    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
-<a id="more"></a>
-<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
-<pre><code>$ hexo -v
-hexo：4.2.1
-hexo-cli：3.1.0
-os：Windows_NT 10.0.18362 win32 x64
-http_parser：2.8.0
-node：8.12.0
-v8：6.2.414.66
-uv：1.19.2
-zlib：1.2.11
-ares：1.10.1-DEV
-modules：57
-nghttp2：1.32.0
-napi： 3
-openssl：1.0.2p
-icu：60.1
-unicode：10.0
-cldr：32.0
-tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
-<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
-<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
-<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
-$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
-$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
-$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
-<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
-<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
-<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
-hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
-hexo s 或  hexo server     //启动服务预览 http://localhost:4000
-hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
-<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建静态博客（三）——主题更换</title>
     <url>/posts/a5bf7e18.html</url>
     <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
@@ -259,29 +259,6 @@ theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启�
 <p>浏览器访问：<br>大功告成。</p>
 <p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
 <p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <url>/posts/ce4a93ff.html</url>
-    <content><![CDATA[<p>Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。</p>
-<a id="more"></a>
-
-<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
-<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
-YAMLException: end of the stream or a document separator is expected at line x, column y:
-at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
-<pre><code>---
-key: value
----</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
-<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
-<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)其他后续再补充</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -350,6 +327,29 @@ abbrlink:
   alg: crc32  # 算法：crc16(default) and crc32
   rep: hex    # 进制：dec(default) and hex</code></pre><h4 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h4><pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> heox g <span class="token operator">&amp;</span> hexo s</code></pre>
 <p>点击一篇文章，检查浏览器地址看看是不是发生变化了？</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（五）——踩坑问题</title>
+    <url>/posts/ce4a93ff.html</url>
+    <content><![CDATA[<p>Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。</p>
+<a id="more"></a>
+
+<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
+<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
+YAMLException: end of the stream or a document separator is expected at line x, column y:
+at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
+<pre><code>---
+key: value
+---</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
+<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
+<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)其他后续再补充</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
