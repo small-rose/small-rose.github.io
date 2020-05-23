@@ -1,60 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Centos相关配置</title>
-    <url>/posts/42e4f857.html</url>
-    <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
-<a id="more"></a>
-
-<h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre>
-<p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p>
-<pre><code>TYPE=Ethernet
-PROXY_METHOD=none
-BROWSER_ONLY=no
-BOOTPROTO=none
-DEFROUTE=yes
-IPV4_FAILURE_FATAL=no
-IPV6INIT=yes
-IPV6_AUTOCONF=yes
-IPV6_DEFROUTE=yes
-IPV6_FAILURE_FATAL=no
-IPV6_ADDR_GEN_MODE=stable-privacy
-NAME=ens192
-UUID=64e7784d-8183-4db5-af4c-120203391708
-DEVICE=ens192
-ONBOOT=yes
-IPADDR=192.168.66.80
-PREFIX=24
-GATEWAY=192.168.66.254
-IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre>
-<h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p>
-<pre><code>      Local time: 四 2014-12-25 10:52:10 CST
-  Universal time: 四 2014-12-25 02:52:10 UTC
-        RTC time: 四 2014-12-25 02:52:10
-        Timezone: Asia/Shanghai (CST, +0800)
-     NTP enabled: yes
-NTP synchronized: yes
- RTC in local TZ: no
-      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre>
-<h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre>
-<h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre>
-<h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre>
-<h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p>
-<pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre>
-<p>增加：</p>
-<pre><code>nameserver 8.8.8.8
-nameserver 8.8.4.4</code></pre>]]></content>
-      <categories>
-        <category>Linux,centos</category>
-      </categories>
-      <tags>
-        <tag>centos配置</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Centos-jdk安装配置环境变量</title>
     <url>/posts/9064540a.html</url>
     <content><![CDATA[<p> Centos上安装jdk，配置环境变量的方法</p>
@@ -128,6 +74,60 @@ export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href=
       </tags>
   </entry>
   <entry>
+    <title>Centos相关配置</title>
+    <url>/posts/42e4f857.html</url>
+    <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
+<a id="more"></a>
+
+<h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre>
+<p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p>
+<pre><code>TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens192
+UUID=64e7784d-8183-4db5-af4c-120203391708
+DEVICE=ens192
+ONBOOT=yes
+IPADDR=192.168.66.80
+PREFIX=24
+GATEWAY=192.168.66.254
+IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre>
+<h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p>
+<pre><code>      Local time: 四 2014-12-25 10:52:10 CST
+  Universal time: 四 2014-12-25 02:52:10 UTC
+        RTC time: 四 2014-12-25 02:52:10
+        Timezone: Asia/Shanghai (CST, +0800)
+     NTP enabled: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre>
+<h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre>
+<h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre>
+<h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre>
+<h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p>
+<pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre>
+<p>增加：</p>
+<pre><code>nameserver 8.8.8.8
+nameserver 8.8.4.4</code></pre>]]></content>
+      <categories>
+        <category>Linux,centos</category>
+      </categories>
+      <tags>
+        <tag>centos配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>开发常用传送门列表</title>
     <url>/posts/2d1a17c5.html</url>
     <content><![CDATA[<p>开发常用传送门列表</p>
@@ -139,83 +139,6 @@ export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href=
       </categories>
       <tags>
         <tag>DataBase</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（一）——基础搭建</title>
-    <url>/posts/9f117b.html</url>
-    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
-<a id="more"></a>
-<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
-<pre><code>$ hexo -v
-hexo：4.2.1
-hexo-cli：3.1.0
-os：Windows_NT 10.0.18362 win32 x64
-http_parser：2.8.0
-node：8.12.0
-v8：6.2.414.66
-uv：1.19.2
-zlib：1.2.11
-ares：1.10.1-DEV
-modules：57
-nghttp2：1.32.0
-napi： 3
-openssl：1.0.2p
-icu：60.1
-unicode：10.0
-cldr：32.0
-tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
-<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
-<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
-<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
-$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
-$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
-$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
-<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
-<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
-<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
-hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
-hexo s 或  hexo server     //启动服务预览 http://localhost:4000
-hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
-<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（三）——主题更换</title>
-    <url>/posts/a5bf7e18.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
- <a id="more"></a>
-
-<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
-<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
-<p>如我安装主题hexo-theme-xoxo-plus。</p>
-<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
-<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
-<pre><code># Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-# landscape
-theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>浏览器访问：<br>大功告成。</p>
-<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -258,6 +181,83 @@ tags: Hexo
 ---
  this is my article ...
 </code></pre><p>是不是很简单呢？</p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（三）——主题更换</title>
+    <url>/posts/a5bf7e18.html</url>
+    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
+ <a id="more"></a>
+
+<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
+<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
+<p>如我安装主题hexo-theme-xoxo-plus。</p>
+<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
+<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
+<pre><code># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# landscape
+theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>浏览器访问：<br>大功告成。</p>
+<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（一）——基础搭建</title>
+    <url>/posts/9f117b.html</url>
+    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
+<a id="more"></a>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
+<pre><code>$ hexo -v
+hexo：4.2.1
+hexo-cli：3.1.0
+os：Windows_NT 10.0.18362 win32 x64
+http_parser：2.8.0
+node：8.12.0
+v8：6.2.414.66
+uv：1.19.2
+zlib：1.2.11
+ares：1.10.1-DEV
+modules：57
+nghttp2：1.32.0
+napi： 3
+openssl：1.0.2p
+icu：60.1
+unicode：10.0
+cldr：32.0
+tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
+<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
+<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
+<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
+$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
+$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
+$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
+<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
+<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
+<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
+hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
+hexo s 或  hexo server     //启动服务预览 http://localhost:4000
+hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
+<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
 <p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
 ]]></content>
       <categories>
