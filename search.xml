@@ -231,31 +231,6 @@
     
     
     <entry>
-      <title>Centos相关配置</title>
-      <link href="/posts/42e4f857.html"/>
-      <url>/posts/42e4f857.html</url>
-      
-        <content type="html"><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p><a id="more"></a><h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre><p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p><pre><code>TYPE=EthernetPROXY_METHOD=noneBROWSER_ONLY=noBOOTPROTO=noneDEFROUTE=yesIPV4_FAILURE_FATAL=noIPV6INIT=yesIPV6_AUTOCONF=yesIPV6_DEFROUTE=yesIPV6_FAILURE_FATAL=noIPV6_ADDR_GEN_MODE=stable-privacyNAME=ens192UUID=64e7784d-8183-4db5-af4c-120203391708DEVICE=ens192ONBOOT=yesIPADDR=192.168.66.80PREFIX=24GATEWAY=192.168.66.254IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p><pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre><h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p><pre><code>      Local time: 四 2014-12-25 10:52:10 CST  Universal time: 四 2014-12-25 02:52:10 UTC        RTC time: 四 2014-12-25 02:52:10        Timezone: Asia/Shanghai (CST, +0800)     NTP enabled: yesNTP synchronized: yes RTC in local TZ: no      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre><h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre><h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre><h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre><h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p><pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre><p>增加：</p><pre><code>nameserver 8.8.8.8nameserver 8.8.4.4</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux,centos </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> centos配置 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
       <link href="/posts/dc390855.html"/>
       <url>/posts/dc390855.html</url>
@@ -273,6 +248,31 @@
         <tags>
             
             <tag> DataBase </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Centos相关配置</title>
+      <link href="/posts/42e4f857.html"/>
+      <url>/posts/42e4f857.html</url>
+      
+        <content type="html"><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p><a id="more"></a><h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre><p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p><pre><code>TYPE=EthernetPROXY_METHOD=noneBROWSER_ONLY=noBOOTPROTO=noneDEFROUTE=yesIPV4_FAILURE_FATAL=noIPV6INIT=yesIPV6_AUTOCONF=yesIPV6_DEFROUTE=yesIPV6_FAILURE_FATAL=noIPV6_ADDR_GEN_MODE=stable-privacyNAME=ens192UUID=64e7784d-8183-4db5-af4c-120203391708DEVICE=ens192ONBOOT=yesIPADDR=192.168.66.80PREFIX=24GATEWAY=192.168.66.254IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p><pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre><h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p><pre><code>      Local time: 四 2014-12-25 10:52:10 CST  Universal time: 四 2014-12-25 02:52:10 UTC        RTC time: 四 2014-12-25 02:52:10        Timezone: Asia/Shanghai (CST, +0800)     NTP enabled: yesNTP synchronized: yes RTC in local TZ: no      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre><h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre><h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre><h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre><h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p><pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre><p>增加：</p><pre><code>nameserver 8.8.8.8nameserver 8.8.4.4</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux,centos </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> centos配置 </tag>
             
         </tags>
       
