@@ -59,6 +59,20 @@ export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href=
       </tags>
   </entry>
   <entry>
+    <title>开发常用传送门列表</title>
+    <url>/posts/2d1a17c5.html</url>
+    <content><![CDATA[<p>开发常用传送门列表</p>
+<a id="more"></a>
+<p> <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>DataBase</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos相关配置</title>
     <url>/posts/42e4f857.html</url>
     <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
@@ -177,17 +191,31 @@ hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹
       </tags>
   </entry>
   <entry>
-    <title>开发常用传送门列表</title>
-    <url>/posts/2d1a17c5.html</url>
-    <content><![CDATA[<p>开发常用传送门列表</p>
-<a id="more"></a>
-<p> <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
+    <title>Hexo搭建静态博客（三）——主题更换</title>
+    <url>/posts/a5bf7e18.html</url>
+    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
+ <a id="more"></a>
+
+<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
+<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
+<p>如我安装主题hexo-theme-xoxo-plus。</p>
+<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
+<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
+<pre><code># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# landscape
+theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>浏览器访问：<br>大功告成。</p>
+<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
 ]]></content>
       <categories>
-        <category>Java,DataBase</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>DataBase</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -237,6 +265,59 @@ tags: Hexo
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（五）——踩坑问题</title>
+    <url>/posts/ce4a93ff.html</url>
+    <content><![CDATA[<p>Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。</p>
+<a id="more"></a>
+
+<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
+<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
+YAMLException: end of the stream or a document separator is expected at line x, column y:
+at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
+<pre><code>---
+key: value
+---</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
+<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
+<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)其他后续再补充</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js让页面自动刷新</title>
+    <url>/posts/7413f2ca.html</url>
+    <content><![CDATA[<p>js让页面自动刷新</p>
+<a id="more"></a>
+
+<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
+<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">=</span><span class="token number">0</span>
+current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">++</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
+<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -308,57 +389,6 @@ abbrlink:
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（三）——主题更换</title>
-    <url>/posts/a5bf7e18.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
- <a id="more"></a>
-
-<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a></p>
-<p>题外话，我对hexo-theme-polarbear扩展版进行补充搜索功能。</p>
-<p>如我安装主题hexo-theme-xoxo-plus。</p>
-<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
-<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
-<pre><code># Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-# landscape
-theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>浏览器访问：<br>大功告成。</p>
-<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <url>/posts/ce4a93ff.html</url>
-    <content><![CDATA[<p>Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。</p>
-<a id="more"></a>
-
-<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
-<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
-YAMLException: end of the stream or a document separator is expected at line x, column y:
-at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
-<pre><code>---
-key: value
----</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
-<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
-<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)其他后续再补充</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建静态博客（六）——项目部署</title>
     <url>/posts/c68d7a69.html</url>
     <content><![CDATA[<p>Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。</p>
@@ -374,36 +404,6 @@ key: value
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js让页面自动刷新</title>
-    <url>/posts/7413f2ca.html</url>
-    <content><![CDATA[<p>js让页面自动刷新</p>
-<a id="more"></a>
-
-<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
-<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">=</span><span class="token number">0</span>
-current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">else</span>
-location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">++</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
-<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
       </tags>
   </entry>
 </search>
