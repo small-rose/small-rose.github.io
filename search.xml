@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>Hexo搭建静态博客（五）——踩坑问题</title>
-      <link href="/posts/ce4a93ff.html"/>
-      <url>/posts/ce4a93ff.html</url>
+      <title>Hexo搭建静态博客（六）——项目部署</title>
+      <link href="/posts/c68d7a69.html"/>
+      <url>/posts/c68d7a69.html</url>
       
-        <content type="html"><![CDATA[<p>Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。</p><a id="more"></a><p>常见报错多在 <code>hexo g</code> 的时候报错</p><h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.mdYAMLException: end of the stream or a document separator is expected at line x, column y:at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p><pre><code>---key: value---</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p><h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p><pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)其他后续再补充</p>]]></content>
+        <content type="html"><![CDATA[<p>Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。</p><a id="more"></a><h4 id="关于部署"><a href="#关于部署" class="headerlink" title="关于部署"></a>关于部署</h4><p>常见部署在github上，如果有自己独立的服务器也可以部署在服务上，此处用的腾讯云服务器。</p><p>整理中…</p><p>1.github上部署</p><p>2.云服务器部署</p>]]></content>
       
       
       <categories>
@@ -29,11 +29,11 @@
     
     
     <entry>
-      <title>Hexo搭建静态博客（六）——项目部署</title>
-      <link href="/posts/c68d7a69.html"/>
-      <url>/posts/c68d7a69.html</url>
+      <title>Hexo搭建静态博客（五）——踩坑问题</title>
+      <link href="/posts/ce4a93ff.html"/>
+      <url>/posts/ce4a93ff.html</url>
       
-        <content type="html"><![CDATA[<p>Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。</p><a id="more"></a><h4 id="关于部署"><a href="#关于部署" class="headerlink" title="关于部署"></a>关于部署</h4><p>常见部署在github上，如果有自己独立的服务器也可以部署在服务上，此处用的腾讯云服务器。</p><p>整理中…</p><p>1.github上部署</p><p>2.云服务器部署</p>]]></content>
+        <content type="html"><![CDATA[<p>Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。</p><a id="more"></a><p>常见报错多在 <code>hexo g</code> 的时候报错</p><h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.mdYAMLException: end of the stream or a document separator is expected at line x, column y:at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p><pre><code>---key: value---</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p><h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p><pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)其他后续再补充</p>]]></content>
       
       
       <categories>
