@@ -5,9 +5,9 @@
   <subtitle>Small Rose</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://small-rose.github.io/"/>
+  <link href="http://yoursite.com/"/>
   <updated>2020-05-16T16:00:00.000Z</updated>
-  <id>https://small-rose.github.io/</id>
+  <id>http://yoursite.com/</id>
   
   <author>
     <name>Small Rose / 张小菜</name>
@@ -17,30 +17,9 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <link href="https://small-rose.github.io/posts/ce4a93ff.html"/>
-    <id>https://small-rose.github.io/posts/ce4a93ff.html</id>
-    <published>2020-05-16T16:00:00.000Z</published>
-    <updated>2020-05-16T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://small-rose.github.io/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://small-rose.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hexo搭建静态博客（六）——项目部署</title>
-    <link href="https://small-rose.github.io/posts/c68d7a69.html"/>
-    <id>https://small-rose.github.io/posts/c68d7a69.html</id>
+    <link href="http://yoursite.com/posts/c68d7a69.html"/>
+    <id>http://yoursite.com/posts/c68d7a69.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
@@ -51,17 +30,38 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://small-rose.github.io/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://small-rose.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建静态博客（五）——踩坑问题</title>
+    <link href="http://yoursite.com/posts/ce4a93ff.html"/>
+    <id>http://yoursite.com/posts/ce4a93ff.html</id>
+    <published>2020-05-16T16:00:00.000Z</published>
+    <updated>2020-05-16T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（四）——插件安装</title>
-    <link href="https://small-rose.github.io/posts/cda13ebe.html"/>
-    <id>https://small-rose.github.io/posts/cda13ebe.html</id>
+    <link href="http://yoursite.com/posts/cda13ebe.html"/>
+    <id>http://yoursite.com/posts/cda13ebe.html</id>
     <published>2020-05-15T16:00:00.000Z</published>
     <updated>2020-05-15T16:00:00.000Z</updated>
     
@@ -72,17 +72,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://small-rose.github.io/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://small-rose.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（三）——主题更换</title>
-    <link href="https://small-rose.github.io/posts/a5bf7e18.html"/>
-    <id>https://small-rose.github.io/posts/a5bf7e18.html</id>
+    <link href="http://yoursite.com/posts/a5bf7e18.html"/>
+    <id>http://yoursite.com/posts/a5bf7e18.html</id>
     <published>2020-05-14T16:00:00.000Z</published>
     <updated>2020-05-14T16:00:00.000Z</updated>
     
@@ -93,17 +93,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://small-rose.github.io/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://small-rose.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（二）——创建页面</title>
-    <link href="https://small-rose.github.io/posts/c1358fc8.html"/>
-    <id>https://small-rose.github.io/posts/c1358fc8.html</id>
+    <link href="http://yoursite.com/posts/c1358fc8.html"/>
+    <id>http://yoursite.com/posts/c1358fc8.html</id>
     <published>2020-05-13T16:00:00.000Z</published>
     <updated>2020-05-13T16:00:00.000Z</updated>
     
@@ -114,17 +114,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://small-rose.github.io/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://small-rose.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（一）——基础搭建</title>
-    <link href="https://small-rose.github.io/posts/9f117b.html"/>
-    <id>https://small-rose.github.io/posts/9f117b.html</id>
+    <link href="http://yoursite.com/posts/9f117b.html"/>
+    <id>http://yoursite.com/posts/9f117b.html</id>
     <published>2020-05-12T16:00:00.000Z</published>
     <updated>2020-05-12T16:00:00.000Z</updated>
     
@@ -135,17 +135,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://small-rose.github.io/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://small-rose.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>js让页面自动刷新</title>
-    <link href="https://small-rose.github.io/posts/7413f2ca.html"/>
-    <id>https://small-rose.github.io/posts/7413f2ca.html</id>
+    <link href="http://yoursite.com/posts/7413f2ca.html"/>
+    <id>http://yoursite.com/posts/7413f2ca.html</id>
     <published>2019-11-08T16:00:00.000Z</published>
     <updated>2019-11-08T16:00:00.000Z</updated>
     
@@ -156,17 +156,17 @@
     </summary>
     
     
-      <category term="Java,DataBase" scheme="https://small-rose.github.io/categories/Java-DataBase/"/>
+      <category term="Java,DataBase" scheme="http://yoursite.com/categories/Java-DataBase/"/>
     
     
-      <category term="javascript" scheme="https://small-rose.github.io/tags/javascript/"/>
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>开发常用传送门列表</title>
-    <link href="https://small-rose.github.io/posts/2d1a17c5.html"/>
-    <id>https://small-rose.github.io/posts/2d1a17c5.html</id>
+    <link href="http://yoursite.com/posts/2d1a17c5.html"/>
+    <id>http://yoursite.com/posts/2d1a17c5.html</id>
     <published>2019-05-12T16:00:00.000Z</published>
     <updated>2019-05-12T16:00:00.000Z</updated>
     
@@ -177,17 +177,17 @@
     </summary>
     
     
-      <category term="Java,DataBase" scheme="https://small-rose.github.io/categories/Java-DataBase/"/>
+      <category term="Java,DataBase" scheme="http://yoursite.com/categories/Java-DataBase/"/>
     
     
-      <category term="DataBase" scheme="https://small-rose.github.io/tags/DataBase/"/>
+      <category term="DataBase" scheme="http://yoursite.com/tags/DataBase/"/>
     
   </entry>
   
   <entry>
     <title>Centos-jdk安装配置环境变量</title>
-    <link href="https://small-rose.github.io/posts/9064540a.html"/>
-    <id>https://small-rose.github.io/posts/9064540a.html</id>
+    <link href="http://yoursite.com/posts/9064540a.html"/>
+    <id>http://yoursite.com/posts/9064540a.html</id>
     <published>2018-09-09T16:00:00.000Z</published>
     <updated>2018-09-09T16:00:00.000Z</updated>
     
@@ -198,40 +198,19 @@
     </summary>
     
     
-      <category term="Linux,Java" scheme="https://small-rose.github.io/categories/Linux-Java/"/>
+      <category term="Linux,Java" scheme="http://yoursite.com/categories/Linux-Java/"/>
     
     
-      <category term="centos" scheme="https://small-rose.github.io/tags/centos/"/>
+      <category term="centos" scheme="http://yoursite.com/tags/centos/"/>
     
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
-    <link href="https://small-rose.github.io/posts/dc390855.html"/>
-    <id>https://small-rose.github.io/posts/dc390855.html</id>
-    <published>2018-05-12T16:00:00.000Z</published>
-    <updated>2018-05-12T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;不同类型数据库字段类型和JAVA类型、sql类型对应关系。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Java,DataBase" scheme="https://small-rose.github.io/categories/Java-DataBase/"/>
-    
-    
-      <category term="DataBase" scheme="https://small-rose.github.io/tags/DataBase/"/>
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Centos相关配置</title>
-    <link href="https://small-rose.github.io/posts/42e4f857.html"/>
-    <id>https://small-rose.github.io/posts/42e4f857.html</id>
+    <link href="http://yoursite.com/posts/42e4f857.html"/>
+    <id>http://yoursite.com/posts/42e4f857.html</id>
     <published>2018-05-12T16:00:00.000Z</published>
     <updated>2018-05-12T16:00:00.000Z</updated>
     
@@ -242,10 +221,31 @@
     </summary>
     
     
-      <category term="Linux,centos" scheme="https://small-rose.github.io/categories/Linux-centos/"/>
+      <category term="Linux,centos" scheme="http://yoursite.com/categories/Linux-centos/"/>
     
     
-      <category term="centos配置" scheme="https://small-rose.github.io/tags/centos%E9%85%8D%E7%BD%AE/"/>
+      <category term="centos配置" scheme="http://yoursite.com/tags/centos%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
+    <link href="http://yoursite.com/posts/dc390855.html"/>
+    <id>http://yoursite.com/posts/dc390855.html</id>
+    <published>2018-05-12T16:00:00.000Z</published>
+    <updated>2018-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不同类型数据库字段类型和JAVA类型、sql类型对应关系。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java,DataBase" scheme="http://yoursite.com/categories/Java-DataBase/"/>
+    
+    
+      <category term="DataBase" scheme="http://yoursite.com/tags/DataBase/"/>
     
   </entry>
   
