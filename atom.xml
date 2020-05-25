@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-16T16:00:00.000Z</updated>
+  <updated>2020-05-23T16:00:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,12 +20,44 @@
     <title>Hexo搭建静态博客（六）——项目部署</title>
     <link href="http://yoursite.com/posts/c68d7a69.html"/>
     <id>http://yoursite.com/posts/c68d7a69.html</id>
+    <published>2020-05-23T16:00:00.000Z</published>
+    <updated>2020-05-23T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;本文记录关于Git的免密使用，连接Github免密和 云服务器或私有服务器免密。&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;一-Github的Git免密使用&quot;&gt;&lt;a href=&quot;#一-Github的Git免密使用&quot; class=&quot;headerlink&quot; tit
+      
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
+    
+      <category term="免密" scheme="http://yoursite.com/tags/%E5%85%8D%E5%AF%86/"/>
+    
+      <category term="云服务器" scheme="http://yoursite.com/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="私有服务器" scheme="http://yoursite.com/tags/%E7%A7%81%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建静态博客（六）——项目部署</title>
+    <link href="http://yoursite.com/posts/c68d7a69.html"/>
+    <id>http://yoursite.com/posts/c68d7a69.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Hexo静态博客已经都完善了，想部署到服务器怎么办呢？本文记录项目部署相关内容。&lt;/p&gt;
+      &lt;p&gt;本文记录将hexo博客部署到github、云服务器上的相关操作操作。&lt;/p&gt;
     
     </summary>
     
@@ -46,7 +78,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Hexo静态博客在捣鼓过程中容易报错怎么办呢？本文记录踩坑问题相关内容。&lt;/p&gt;
+      &lt;p&gt; 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。&lt;/p&gt;
     
     </summary>
     
@@ -67,7 +99,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Hexo静态博客已经搭建好了，链接页面有了，主题也换了，还是想要一些小功能或小改变怎么办呢？本文记录插件安装相关内容。&lt;/p&gt;
+      &lt;p&gt;Hexo静态博客插件安装相关内容，本文以安装search和abbrlink插件为例。&lt;/p&gt;
     
     </summary>
     
@@ -109,7 +141,7 @@
     
     <summary type="html">
     
-      &lt;p&gt; Hexo已经搭建好了，很多链接都没有页面，那么怎么生成页面呢？本文记录创建页面相关内容。&lt;/p&gt;
+      &lt;p&gt;本文记录将hexo博客创建页面相关操作操作。&lt;/p&gt;
     
     </summary>
     
@@ -164,7 +196,7 @@
   </entry>
   
   <entry>
-    <title>开发常用传送门列表</title>
+    <title>开发常用的网站收藏列表</title>
     <link href="http://yoursite.com/posts/2d1a17c5.html"/>
     <id>http://yoursite.com/posts/2d1a17c5.html</id>
     <published>2019-05-12T16:00:00.000Z</published>
@@ -172,7 +204,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;开发常用传送门列表&lt;/p&gt;
+      &lt;p&gt;开发常用的网站收藏列表&lt;/p&gt;
     
     </summary>
     
