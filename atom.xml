@@ -33,39 +33,18 @@
     </summary>
     
     
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+      <category term="Git" scheme="http://yoursite.com/categories/Git/"/>
     
     
       <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
     
       <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
     
-      <category term="免密" scheme="http://yoursite.com/tags/%E5%85%8D%E5%AF%86/"/>
+      <category term="SSH免密" scheme="http://yoursite.com/tags/SSH%E5%85%8D%E5%AF%86/"/>
     
       <category term="云服务器" scheme="http://yoursite.com/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
       <category term="私有服务器" scheme="http://yoursite.com/tags/%E7%A7%81%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建静态博客（六）——项目部署</title>
-    <link href="http://yoursite.com/posts/c68d7a69.html"/>
-    <id>http://yoursite.com/posts/c68d7a69.html</id>
-    <published>2020-05-16T16:00:00.000Z</published>
-    <updated>2020-05-16T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文记录将hexo博客部署到github、云服务器上的相关操作操作。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
@@ -79,6 +58,27 @@
     <summary type="html">
     
       &lt;p&gt; 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建静态博客（六）——项目部署</title>
+    <link href="http://yoursite.com/posts/c68d7a69.html"/>
+    <id>http://yoursite.com/posts/c68d7a69.html</id>
+    <published>2020-05-16T16:00:00.000Z</published>
+    <updated>2020-05-16T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文记录将hexo博客部署到github、云服务器上的相关操作操作。&lt;/p&gt;
     
     </summary>
     
