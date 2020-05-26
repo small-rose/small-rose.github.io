@@ -240,27 +240,6 @@
   </entry>
   
   <entry>
-    <title>Centos相关配置</title>
-    <link href="https://small-rose.github.io/posts/42e4f857.html"/>
-    <id>https://small-rose.github.io/posts/42e4f857.html</id>
-    <published>2018-05-12T16:00:00.000Z</published>
-    <updated>2018-05-12T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; Centos网络配置 | Centos时间配置 | DNS解析问题&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux,centos" scheme="https://small-rose.github.io/categories/Linux-centos/"/>
-    
-    
-      <category term="centos配置" scheme="https://small-rose.github.io/tags/centos%E9%85%8D%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
     <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
     <link href="https://small-rose.github.io/posts/dc390855.html"/>
     <id>https://small-rose.github.io/posts/dc390855.html</id>
@@ -278,6 +257,27 @@
     
     
       <category term="DataBase" scheme="https://small-rose.github.io/tags/DataBase/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos相关配置</title>
+    <link href="https://small-rose.github.io/posts/42e4f857.html"/>
+    <id>https://small-rose.github.io/posts/42e4f857.html</id>
+    <published>2018-05-12T16:00:00.000Z</published>
+    <updated>2018-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; Centos网络配置 | Centos时间配置 | DNS解析问题&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux,centos" scheme="https://small-rose.github.io/categories/Linux-centos/"/>
+    
+    
+      <category term="centos配置" scheme="https://small-rose.github.io/tags/centos%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
