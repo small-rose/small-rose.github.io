@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
+    <url>/posts/dc390855.html</url>
+    <content><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
+<a id="more"></a>
+
+<p><img src="/medias/loading-animated.gif" data-original="/images/db_jdbcType.jpg" alt="Image text"></p>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>DataBase</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git的SSH免密使用</title>
+    <url>/posts/c68d7a69.html</url>
+    <content><![CDATA[<pre><code>本文记录关于Git的免密使用，连接Github免密和 云服务器或私有服务器免密。</code></pre><h3 id="一-Github的Git免密使用"><a href="#一-Github的Git免密使用" class="headerlink" title="一  Github的Git免密使用"></a>一  <code>Github</code>的Git免密使用</h3><h4 id="1-客户端生成密钥"><a href="#1-客户端生成密钥" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
+<pre><code>1. 确认秘钥的保存路径（如果不需要改路径则直接回车）；
+2. 如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
+3. 创建密码（如果不需要密码则直接回车）；
+4. 确认密码；</code></pre><p>要免密登录请输密码的时候回车即可。根据提示找到密钥所在文件：</p>
+<pre><code>id_rsa  #私钥
+id_rsa.pub  #公钥</code></pre><h4 id="2-Github配置SSH公钥"><a href="#2-Github配置SSH公钥" class="headerlink" title="2  Github配置SSH公钥"></a>2  <code>Github</code>配置SSH公钥</h4><p> 登录git账户，<code>Setting</code>，<code>SSH and GPG keys</code>, <code>New ssh key</code></p>
+<p>把<code>id_rsa.pub</code>的内容粘贴到key的文本域，点击<code>Add SSH key</code>完成。</p>
+<p>后续的客户端git操作就不要密码了。</p>
+<h3 id="二-Git服务器配置SSH免密"><a href="#二-Git服务器配置SSH免密" class="headerlink" title="二 Git服务器配置SSH免密"></a>二 <code>Git</code>服务器配置SSH免密</h3><p>注意：这里的Git服务器可以是云服务器或者自己的私服务器。本次操作环境是<code>Centos 7</code>。</p>
+<h4 id="1-客户端生成密钥-1"><a href="#1-客户端生成密钥-1" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><p>注意：同上，如果已经配置过<code>Github</code>的ssh免密上面已经有了可以不用重复生成，可以直接跳到第二步。</p>
+<pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
+<pre><code>1. 确认秘钥的保存路径（如果不需要改路径则直接回车）；
+2. 如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
+3. 创建密码（如果不需要密码则直接回车）；
+4. 确认密码；</code></pre><p>要免密登录请输密码的时候回车即可。根据提示找到密钥所在文件：</p>
+<pre><code>id_rsa  #私钥
+id_rsa.pub  #公钥</code></pre><h4 id="2-服务端导入客户端公钥"><a href="#2-服务端导入客户端公钥" class="headerlink" title="2  服务端导入客户端公钥"></a>2  服务端导入客户端公钥</h4><p>在/home/git下已经创建.ssh目录，然后创建authorized_keys文件，并将客户端生成的公钥导入进去。</p>
+<pre><code>cd /home/git/
+mkdir .ssh
+chmod 755 .ssh
+touch .ssh/authorized_keys
+chmod 644 .ssh/authorized_keys</code></pre><p>将 <code>id_rsa.pub</code> 文件的内容写入<code>authorized_keys</code></p>
+<h4 id="3-服务端SSH开启RSA认证"><a href="#3-服务端SSH开启RSA认证" class="headerlink" title="3  服务端SSH开启RSA认证"></a>3  服务端<code>SSH</code>开启<code>RSA</code>认证</h4><p>如果没有安装SSH服务，请先安装SSH服务。</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/ssh/sshd_config</code></pre>
+<p>其中三个地方的设置要确认如下：</p>
+<pre><code>RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys</code></pre><p>git用户不允许登录shell</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/passwd</code></pre>
+<p>将</p>
+<pre><code>git:x:502:502::/home/git:/bin/bash</code></pre><p> 改为</p>
+<pre><code>git:x:502:502::/home/git:/usr/local/git/bin/git-shell</code></pre>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Github</tag>
+        <tag>SSH免密</tag>
+        <tag>云服务器</tag>
+        <tag>私有服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos-jdk安装配置环境变量</title>
     <url>/posts/9064540a.html</url>
     <content><![CDATA[<p> Centos上安装jdk，配置环境变量的方法</p>
@@ -59,75 +121,6 @@ export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href=
       </tags>
   </entry>
   <entry>
-    <title>Centos相关配置</title>
-    <url>/posts/42e4f857.html</url>
-    <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
-<a id="more"></a>
-
-<h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre>
-<p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p>
-<pre><code>TYPE=Ethernet
-PROXY_METHOD=none
-BROWSER_ONLY=no
-BOOTPROTO=none
-DEFROUTE=yes
-IPV4_FAILURE_FATAL=no
-IPV6INIT=yes
-IPV6_AUTOCONF=yes
-IPV6_DEFROUTE=yes
-IPV6_FAILURE_FATAL=no
-IPV6_ADDR_GEN_MODE=stable-privacy
-NAME=ens192
-UUID=64e7784d-8183-4db5-af4c-120203391708
-DEVICE=ens192
-ONBOOT=yes
-IPADDR=192.168.66.80
-PREFIX=24
-GATEWAY=192.168.66.254
-IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre>
-<h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p>
-<pre><code>      Local time: 四 2014-12-25 10:52:10 CST
-  Universal time: 四 2014-12-25 02:52:10 UTC
-        RTC time: 四 2014-12-25 02:52:10
-        Timezone: Asia/Shanghai (CST, +0800)
-     NTP enabled: yes
-NTP synchronized: yes
- RTC in local TZ: no
-      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre>
-<h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre>
-<h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre>
-<h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre>
-<h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p>
-<pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre>
-<p>增加：</p>
-<pre><code>nameserver 8.8.8.8
-nameserver 8.8.4.4</code></pre>]]></content>
-      <categories>
-        <category>Linux,centos</category>
-      </categories>
-      <tags>
-        <tag>centos配置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
-    <url>/posts/dc390855.html</url>
-    <content><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
-<a id="more"></a>
-
-<p><img src="/medias/loading-animated.gif" data-original="/images/db_jdbcType.jpg" alt="Image text"></p>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>DataBase</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建静态博客（一）——基础搭建</title>
     <url>/posts/9f117b.html</url>
     <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
@@ -177,6 +170,30 @@ hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹
       </tags>
   </entry>
   <entry>
+    <title>Hexo搭建静态博客（五）——踩坑问题</title>
+    <url>/posts/ce4a93ff.html</url>
+    <content><![CDATA[<p> 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。</p>
+<a id="more"></a>
+
+<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
+<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
+YAMLException: end of the stream or a document separator is expected at line x, column y:
+at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
+<pre><code>---
+key: value
+---</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
+<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
+<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)使用主题的时候注意先阅读相关使用文档，有些主题需要一些插件</p>
+<h5 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h5><p>后续补充</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo搭建静态博客（二）——创建页面</title>
     <url>/posts/c1358fc8.html</url>
     <content><![CDATA[<p>本文记录将hexo博客创建页面相关操作操作。</p>
@@ -217,77 +234,6 @@ tags: Hexo
  this is my article ...
 </code></pre><p>是不是很简单呢？</p>
 <p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git的SSH免密使用</title>
-    <url>/posts/c68d7a69.html</url>
-    <content><![CDATA[<pre><code>本文记录关于Git的免密使用，连接Github免密和 云服务器或私有服务器免密。</code></pre><h3 id="一-Github的Git免密使用"><a href="#一-Github的Git免密使用" class="headerlink" title="一  Github的Git免密使用"></a>一  <code>Github</code>的Git免密使用</h3><h4 id="1-客户端生成密钥"><a href="#1-客户端生成密钥" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
-<pre><code>1. 确认秘钥的保存路径（如果不需要改路径则直接回车）；
-2. 如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
-3. 创建密码（如果不需要密码则直接回车）；
-4. 确认密码；</code></pre><p>要免密登录请输密码的时候回车即可。根据提示找到密钥所在文件：</p>
-<pre><code>id_rsa  #私钥
-id_rsa.pub  #公钥</code></pre><h4 id="2-Github配置SSH公钥"><a href="#2-Github配置SSH公钥" class="headerlink" title="2  Github配置SSH公钥"></a>2  <code>Github</code>配置SSH公钥</h4><p> 登录git账户，<code>Setting</code>，<code>SSH and GPG keys</code>, <code>New ssh key</code></p>
-<p>把<code>id_rsa.pub</code>的内容粘贴到key的文本域，点击<code>Add SSH key</code>完成。</p>
-<p>后续的客户端git操作就不要密码了。</p>
-<h3 id="二-Git服务器配置SSH免密"><a href="#二-Git服务器配置SSH免密" class="headerlink" title="二 Git服务器配置SSH免密"></a>二 <code>Git</code>服务器配置SSH免密</h3><p>注意：这里的Git服务器可以是云服务器或者自己的私服务器。本次操作环境是<code>Centos 7</code>。</p>
-<h4 id="1-客户端生成密钥-1"><a href="#1-客户端生成密钥-1" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><p>注意：同上，如果已经配置过<code>Github</code>的ssh免密上面已经有了可以不用重复生成，可以直接跳到第二步。</p>
-<pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
-<pre><code>1. 确认秘钥的保存路径（如果不需要改路径则直接回车）；
-2. 如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
-3. 创建密码（如果不需要密码则直接回车）；
-4. 确认密码；</code></pre><p>要免密登录请输密码的时候回车即可。根据提示找到密钥所在文件：</p>
-<pre><code>id_rsa  #私钥
-id_rsa.pub  #公钥</code></pre><h4 id="2-服务端导入客户端公钥"><a href="#2-服务端导入客户端公钥" class="headerlink" title="2  服务端导入客户端公钥"></a>2  服务端导入客户端公钥</h4><p>在/home/git下已经创建.ssh目录，然后创建authorized_keys文件，并将客户端生成的公钥导入进去。</p>
-<pre><code>cd /home/git/
-mkdir .ssh
-chmod 755 .ssh
-touch .ssh/authorized_keys
-chmod 644 .ssh/authorized_keys</code></pre><p>将 <code>id_rsa.pub</code> 文件的内容写入<code>authorized_keys</code></p>
-<h4 id="3-服务端SSH开启RSA认证"><a href="#3-服务端SSH开启RSA认证" class="headerlink" title="3  服务端SSH开启RSA认证"></a>3  服务端<code>SSH</code>开启<code>RSA</code>认证</h4><p>如果没有安装SSH服务，请先安装SSH服务。</p>
-<pre class=" language-bash"><code class="language-bash">vim /etc/ssh/sshd_config</code></pre>
-<p>其中三个地方的设置要确认如下：</p>
-<pre><code>RSAAuthentication yes
-PubkeyAuthentication yes
-AuthorizedKeysFile .ssh/authorized_keys</code></pre><p>git用户不允许登录shell</p>
-<pre class=" language-bash"><code class="language-bash">vim /etc/passwd</code></pre>
-<p>将</p>
-<pre><code>git:x:502:502::/home/git:/bin/bash</code></pre><p> 改为</p>
-<pre><code>git:x:502:502::/home/git:/usr/local/git/bin/git-shell</code></pre>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>Github</tag>
-        <tag>SSH免密</tag>
-        <tag>云服务器</tag>
-        <tag>私有服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <url>/posts/ce4a93ff.html</url>
-    <content><![CDATA[<p> 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。</p>
-<a id="more"></a>
-
-<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
-<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
-YAMLException: end of the stream or a document separator is expected at line x, column y:
-at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
-<pre><code>---
-key: value
----</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
-<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
-<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)使用主题的时候注意先阅读相关使用文档，有些主题需要一些插件</p>
-<h5 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h5><p>后续补充</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -366,31 +312,57 @@ abbrlink:
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（三）——主题更换</title>
-    <url>/posts/a5bf7e18.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
- <a id="more"></a>
+    <title>Centos相关配置</title>
+    <url>/posts/42e4f857.html</url>
+    <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
+<a id="more"></a>
 
-<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a><br>漂亮主题推荐：<br>[hexo-theme-matery]（<a href="https://github.com/blinkfox/hexo-theme-matery）" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery）</a><br>[hexo-theme-ayer]（<a href="https://github.com/Shen-Yu/hexo-theme-ayer）" target="_blank" rel="noopener">https://github.com/Shen-Yu/hexo-theme-ayer）</a></p>
-<p>其中极简主题有些没有search功能，如需要自己安装search插件，参考Hexo搭建静态博客（四）——插件安装<br>极简主题我比较喜欢hexo-theme-polarbear，对扩展版进行补充搜索功能。</p>
-<p>如安装主题hexo-theme-xoxo-plus。</p>
-<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
-<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
-<pre><code># Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-# landscape
-theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>浏览器访问：<br>大功告成。</p>
-<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
-<p>如有问题请参考本系列：<a href="/post/ce4a93ff.html">Hexo搭建静态博客（五）——踩坑问题</a></p>
-]]></content>
+<h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre>
+<p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p>
+<pre><code>TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens192
+UUID=64e7784d-8183-4db5-af4c-120203391708
+DEVICE=ens192
+ONBOOT=yes
+IPADDR=192.168.66.80
+PREFIX=24
+GATEWAY=192.168.66.254
+IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre>
+<h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p>
+<pre><code>      Local time: 四 2014-12-25 10:52:10 CST
+  Universal time: 四 2014-12-25 02:52:10 UTC
+        RTC time: 四 2014-12-25 02:52:10
+        Timezone: Asia/Shanghai (CST, +0800)
+     NTP enabled: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre>
+<h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre>
+<h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre>
+<h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre>
+<h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p>
+<pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre>
+<p>增加：</p>
+<pre><code>nameserver 8.8.8.8
+nameserver 8.8.4.4</code></pre>]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>Linux,centos</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>centos配置</tag>
       </tags>
   </entry>
   <entry>
@@ -444,6 +416,34 @@ fr4me<span class="token operator">+</span><span class="token operator">=</span><
       </categories>
       <tags>
         <tag>DataBase</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（三）——主题更换</title>
+    <url>/posts/a5bf7e18.html</url>
+    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
+ <a id="more"></a>
+
+<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a><br>漂亮主题推荐：<br>[hexo-theme-matery]（<a href="https://github.com/blinkfox/hexo-theme-matery）" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery）</a><br>[hexo-theme-ayer]（<a href="https://github.com/Shen-Yu/hexo-theme-ayer）" target="_blank" rel="noopener">https://github.com/Shen-Yu/hexo-theme-ayer）</a></p>
+<p>其中极简主题有些没有search功能，如需要自己安装search插件，参考Hexo搭建静态博客（四）——插件安装<br>极简主题我比较喜欢hexo-theme-polarbear，对扩展版进行补充搜索功能。</p>
+<p>如安装主题hexo-theme-xoxo-plus。</p>
+<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
+<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
+<pre><code># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# landscape
+theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>浏览器访问：<br>大功告成。</p>
+<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
+<p>如有问题请参考本系列：<a href="/post/ce4a93ff.html">Hexo搭建静态博客（五）——踩坑问题</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
