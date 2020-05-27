@@ -49,15 +49,15 @@
   </entry>
   
   <entry>
-    <title>Hexo搭建静态博客（六）——项目部署</title>
-    <link href="http://yoursite.com/posts/c68d7a69.html"/>
-    <id>http://yoursite.com/posts/c68d7a69.html</id>
+    <title>Hexo搭建静态博客（五）——踩坑问题</title>
+    <link href="http://yoursite.com/posts/ce4a93ff.html"/>
+    <id>http://yoursite.com/posts/ce4a93ff.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;本文记录将hexo博客部署到github、云服务器上的相关操作操作。&lt;/p&gt;
+      &lt;p&gt; 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。&lt;/p&gt;
     
     </summary>
     
@@ -70,15 +70,15 @@
   </entry>
   
   <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <link href="http://yoursite.com/posts/ce4a93ff.html"/>
-    <id>http://yoursite.com/posts/ce4a93ff.html</id>
+    <title>Hexo搭建静态博客（六）——项目部署</title>
+    <link href="http://yoursite.com/posts/c68d7a69.html"/>
+    <id>http://yoursite.com/posts/c68d7a69.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt; 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。&lt;/p&gt;
+      &lt;p&gt;本文记录将hexo博客部署到github、云服务器上的相关操作操作。&lt;/p&gt;
     
     </summary>
     
@@ -240,27 +240,6 @@
   </entry>
   
   <entry>
-    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
-    <link href="http://yoursite.com/posts/dc390855.html"/>
-    <id>http://yoursite.com/posts/dc390855.html</id>
-    <published>2018-05-12T16:00:00.000Z</published>
-    <updated>2018-05-12T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;不同类型数据库字段类型和JAVA类型、sql类型对应关系。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Java,DataBase" scheme="http://yoursite.com/categories/Java-DataBase/"/>
-    
-    
-      <category term="DataBase" scheme="http://yoursite.com/tags/DataBase/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Centos相关配置</title>
     <link href="http://yoursite.com/posts/42e4f857.html"/>
     <id>http://yoursite.com/posts/42e4f857.html</id>
@@ -278,6 +257,27 @@
     
     
       <category term="centos配置" scheme="http://yoursite.com/tags/centos%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
+    <link href="http://yoursite.com/posts/dc390855.html"/>
+    <id>http://yoursite.com/posts/dc390855.html</id>
+    <published>2018-05-12T16:00:00.000Z</published>
+    <updated>2018-05-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不同类型数据库字段类型和JAVA类型、sql类型对应关系。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java,DataBase" scheme="http://yoursite.com/categories/Java-DataBase/"/>
+    
+    
+      <category term="DataBase" scheme="http://yoursite.com/tags/DataBase/"/>
     
   </entry>
   

@@ -59,117 +59,6 @@ export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href=
       </tags>
   </entry>
   <entry>
-    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
-    <url>/posts/dc390855.html</url>
-    <content><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
-<a id="more"></a>
-
-<p><img src="/medias/loading-animated.gif" data-original="/images/db_jdbcType.jpg" alt="Image text"></p>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>DataBase</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git的SSH免密使用</title>
-    <url>/posts/c68d7a69.html</url>
-    <content><![CDATA[<pre><code>本文记录关于Git的免密使用，连接Github免密和 云服务器或私有服务器免密。</code></pre><h3 id="一-Github的Git免密使用"><a href="#一-Github的Git免密使用" class="headerlink" title="一  Github的Git免密使用"></a>一  <code>Github</code>的Git免密使用</h3><h4 id="1-客户端生成密钥"><a href="#1-客户端生成密钥" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
-<pre><code>1. 确认秘钥的保存路径（如果不需要改路径则直接回车）；
-2. 如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
-3. 创建密码（如果不需要密码则直接回车）；
-4. 确认密码；</code></pre><p>要免密登录请输密码的时候回车即可。根据提示找到密钥所在文件：</p>
-<pre><code>id_rsa  #私钥
-id_rsa.pub  #公钥</code></pre><h4 id="2-Github配置SSH公钥"><a href="#2-Github配置SSH公钥" class="headerlink" title="2  Github配置SSH公钥"></a>2  <code>Github</code>配置SSH公钥</h4><p> 登录git账户，<code>Setting</code>，<code>SSH and GPG keys</code>, <code>New ssh key</code></p>
-<p>把<code>id_rsa.pub</code>的内容粘贴到key的文本域，点击<code>Add SSH key</code>完成。</p>
-<p>后续的客户端git操作就不要密码了。</p>
-<h3 id="二-Git服务器配置SSH免密"><a href="#二-Git服务器配置SSH免密" class="headerlink" title="二 Git服务器配置SSH免密"></a>二 <code>Git</code>服务器配置SSH免密</h3><p>注意：这里的Git服务器可以是云服务器或者自己的私服务器。本次操作环境是<code>Centos 7</code>。</p>
-<h4 id="1-客户端生成密钥-1"><a href="#1-客户端生成密钥-1" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><p>注意：同上，如果已经配置过<code>Github</code>的ssh免密上面已经有了可以不用重复生成，可以直接跳到第二步。</p>
-<pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
-<pre><code>1. 确认秘钥的保存路径（如果不需要改路径则直接回车）；
-2. 如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
-3. 创建密码（如果不需要密码则直接回车）；
-4. 确认密码；</code></pre><p>要免密登录请输密码的时候回车即可。根据提示找到密钥所在文件：</p>
-<pre><code>id_rsa  #私钥
-id_rsa.pub  #公钥</code></pre><h4 id="2-服务端导入客户端公钥"><a href="#2-服务端导入客户端公钥" class="headerlink" title="2  服务端导入客户端公钥"></a>2  服务端导入客户端公钥</h4><p>在/home/git下已经创建.ssh目录，然后创建authorized_keys文件，并将客户端生成的公钥导入进去。</p>
-<pre><code>cd /home/git/
-mkdir .ssh
-chmod 755 .ssh
-touch .ssh/authorized_keys
-chmod 644 .ssh/authorized_keys</code></pre><p>将 <code>id_rsa.pub</code> 文件的内容写入<code>authorized_keys</code></p>
-<h4 id="3-服务端SSH开启RSA认证"><a href="#3-服务端SSH开启RSA认证" class="headerlink" title="3  服务端SSH开启RSA认证"></a>3  服务端<code>SSH</code>开启<code>RSA</code>认证</h4><p>如果没有安装SSH服务，请先安装SSH服务。</p>
-<pre class=" language-bash"><code class="language-bash">vim /etc/ssh/sshd_config</code></pre>
-<p>其中三个地方的设置要确认如下：</p>
-<pre><code>RSAAuthentication yes
-PubkeyAuthentication yes
-AuthorizedKeysFile .ssh/authorized_keys</code></pre><p>git用户不允许登录shell</p>
-<pre class=" language-bash"><code class="language-bash">vim /etc/passwd</code></pre>
-<p>将</p>
-<pre><code>git:x:502:502::/home/git:/bin/bash</code></pre><p> 改为</p>
-<pre><code>git:x:502:502::/home/git:/usr/local/git/bin/git-shell</code></pre>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>Github</tag>
-        <tag>SSH免密</tag>
-        <tag>云服务器</tag>
-        <tag>私有服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（一）——基础搭建</title>
-    <url>/posts/9f117b.html</url>
-    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
-<a id="more"></a>
-<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
-<pre><code>$ hexo -v
-hexo：4.2.1
-hexo-cli：3.1.0
-os：Windows_NT 10.0.18362 win32 x64
-http_parser：2.8.0
-node：8.12.0
-v8：6.2.414.66
-uv：1.19.2
-zlib：1.2.11
-ares：1.10.1-DEV
-modules：57
-nghttp2：1.32.0
-napi： 3
-openssl：1.0.2p
-icu：60.1
-unicode：10.0
-cldr：32.0
-tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
-<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
-<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
-<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
-$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
-$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
-$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
-<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
-<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
-<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
-hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
-hexo s 或  hexo server     //启动服务预览 http://localhost:4000
-hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
-<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Centos相关配置</title>
     <url>/posts/42e4f857.html</url>
     <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
@@ -224,27 +113,65 @@ nameserver 8.8.4.4</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <url>/posts/ce4a93ff.html</url>
-    <content><![CDATA[<p> 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。</p>
-<a id="more"></a>
-
-<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
-<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
-YAMLException: end of the stream or a document separator is expected at line x, column y:
-at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
-<pre><code>---
-key: value
----</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
-<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
-<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)使用主题的时候注意先阅读相关使用文档，有些主题需要一些插件</p>
-<h5 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h5><p>后续补充</p>
-]]></content>
+    <title>Git的SSH免密使用</title>
+    <url>/posts/c68d7a69.html</url>
+    <content><![CDATA[<pre><code>本文记录关于Git的免密使用，连接Github免密和 云服务器或私有服务器免密。</code></pre><h3 id="一-Github的Git免密使用"><a href="#一-Github的Git免密使用" class="headerlink" title="一  Github的Git免密使用"></a>一  <code>Github</code>的Git免密使用</h3><h4 id="1-客户端生成密钥"><a href="#1-客户端生成密钥" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
+<pre><code>1. 确认秘钥的保存路径（如果不需要改路径则直接回车）；
+2. 如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
+3. 创建密码（如果不需要密码则直接回车）；
+4. 确认密码；</code></pre><p>要免密登录请输密码的时候回车即可。根据提示找到密钥所在文件：</p>
+<pre><code>id_rsa  #私钥
+id_rsa.pub  #公钥</code></pre><h4 id="2-Github配置SSH公钥"><a href="#2-Github配置SSH公钥" class="headerlink" title="2  Github配置SSH公钥"></a>2  <code>Github</code>配置SSH公钥</h4><p> 登录git账户，<code>Setting</code>，<code>SSH and GPG keys</code>, <code>New ssh key</code></p>
+<p>把<code>id_rsa.pub</code>的内容粘贴到key的文本域，点击<code>Add SSH key</code>完成。</p>
+<p>后续的客户端git操作就不要密码了。</p>
+<h3 id="二-Git服务器配置SSH免密"><a href="#二-Git服务器配置SSH免密" class="headerlink" title="二 Git服务器配置SSH免密"></a>二 <code>Git</code>服务器配置SSH免密</h3><p>注意：这里的Git服务器可以是云服务器或者自己的私服务器。本次操作环境是<code>Centos 7</code>。</p>
+<h4 id="1-客户端生成密钥-1"><a href="#1-客户端生成密钥-1" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><p>注意：同上，如果已经配置过<code>Github</code>的ssh免密上面已经有了可以不用重复生成，可以直接跳到第二步。</p>
+<pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
+<pre><code>1. 确认秘钥的保存路径（如果不需要改路径则直接回车）；
+2. 如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
+3. 创建密码（如果不需要密码则直接回车）；
+4. 确认密码；</code></pre><p>要免密登录请输密码的时候回车即可。根据提示找到密钥所在文件：</p>
+<pre><code>id_rsa  #私钥
+id_rsa.pub  #公钥</code></pre><h4 id="2-服务端导入客户端公钥"><a href="#2-服务端导入客户端公钥" class="headerlink" title="2  服务端导入客户端公钥"></a>2  服务端导入客户端公钥</h4><p>在/home/git下已经创建.ssh目录，然后创建authorized_keys文件，并将客户端生成的公钥导入进去。</p>
+<pre><code>cd /home/git/
+mkdir .ssh
+chmod 755 .ssh
+touch .ssh/authorized_keys
+chmod 644 .ssh/authorized_keys</code></pre><p>将 <code>id_rsa.pub</code> 文件的内容写入<code>authorized_keys</code></p>
+<h4 id="3-服务端SSH开启RSA认证"><a href="#3-服务端SSH开启RSA认证" class="headerlink" title="3  服务端SSH开启RSA认证"></a>3  服务端<code>SSH</code>开启<code>RSA</code>认证</h4><p>如果没有安装SSH服务，请先安装SSH服务。</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/ssh/sshd_config</code></pre>
+<p>其中三个地方的设置要确认如下：</p>
+<pre><code>RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys</code></pre><p>git用户不允许登录shell</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/passwd</code></pre>
+<p>将</p>
+<pre><code>git:x:502:502::/home/git:/bin/bash</code></pre><p> 改为</p>
+<pre><code>git:x:502:502::/home/git:/usr/local/git/bin/git-shell</code></pre>]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>Git</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>Git</tag>
+        <tag>Github</tag>
+        <tag>SSH免密</tag>
+        <tag>云服务器</tag>
+        <tag>私有服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
+    <url>/posts/dc390855.html</url>
+    <content><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
+<a id="more"></a>
+
+<p><img src="/medias/loading-animated.gif" data-original="/images/db_jdbcType.jpg" alt="Image text"></p>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>DataBase</tag>
       </tags>
   </entry>
   <entry>
@@ -294,6 +221,113 @@ tags: Hexo
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（三）——主题更换</title>
+    <url>/posts/a5bf7e18.html</url>
+    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
+ <a id="more"></a>
+
+<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a><br>漂亮主题推荐：<br>[hexo-theme-matery]（<a href="https://github.com/blinkfox/hexo-theme-matery）" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery）</a><br>[hexo-theme-ayer]（<a href="https://github.com/Shen-Yu/hexo-theme-ayer）" target="_blank" rel="noopener">https://github.com/Shen-Yu/hexo-theme-ayer）</a></p>
+<p>其中极简主题有些没有search功能，如需要自己安装search插件，参考Hexo搭建静态博客（四）——插件安装<br>极简主题我比较喜欢hexo-theme-polarbear，对扩展版进行补充搜索功能。</p>
+<p>如安装主题hexo-theme-xoxo-plus。</p>
+<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
+<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
+<pre><code># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# landscape
+theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>浏览器访问：<br>大功告成。</p>
+<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
+<p>如有问题请参考本系列：[Hexo搭建静态博客（五）——踩坑问题]（post/ce4a93ff.html）</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（一）——基础搭建</title>
+    <url>/posts/9f117b.html</url>
+    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
+<a id="more"></a>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
+<pre><code>$ hexo -v
+hexo：4.2.1
+hexo-cli：3.1.0
+os：Windows_NT 10.0.18362 win32 x64
+http_parser：2.8.0
+node：8.12.0
+v8：6.2.414.66
+uv：1.19.2
+zlib：1.2.11
+ares：1.10.1-DEV
+modules：57
+nghttp2：1.32.0
+napi： 3
+openssl：1.0.2p
+icu：60.1
+unicode：10.0
+cldr：32.0
+tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
+<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
+<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
+<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
+$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
+$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
+$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
+<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
+<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
+<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
+hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
+hexo s 或  hexo server     //启动服务预览 http://localhost:4000
+hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
+<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js让页面自动刷新</title>
+    <url>/posts/7413f2ca.html</url>
+    <content><![CDATA[<p>js让页面自动刷新</p>
+<a id="more"></a>
+
+<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
+<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">=</span><span class="token number">0</span>
+current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">++</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
+<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -363,87 +397,6 @@ abbrlink:
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（三）——主题更换</title>
-    <url>/posts/a5bf7e18.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
- <a id="more"></a>
-
-<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a><br>漂亮主题推荐：<br>[hexo-theme-matery]（<a href="https://github.com/blinkfox/hexo-theme-matery）" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery）</a><br>[hexo-theme-ayer]（<a href="https://github.com/Shen-Yu/hexo-theme-ayer）" target="_blank" rel="noopener">https://github.com/Shen-Yu/hexo-theme-ayer）</a></p>
-<p>其中极简主题有些没有search功能，如需要自己安装search插件，参考Hexo搭建静态博客（四）——插件安装<br>极简主题我比较喜欢hexo-theme-polarbear，对扩展版进行补充搜索功能。</p>
-<p>如安装主题hexo-theme-xoxo-plus。</p>
-<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
-<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
-<pre><code># Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-# landscape
-theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>浏览器访问：<br>大功告成。</p>
-<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
-<p>如有问题请参考本系列：[Hexo搭建静态博客（五）——踩坑问题]（post/ce4a93ff.html）</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>开发常用的网站收藏列表</title>
-    <url>/posts/2d1a17c5.html</url>
-    <content><![CDATA[<p>开发常用的网站收藏列表</p>
-<a id="more"></a>
-
-<h4 id="开源网站"><a href="#开源网站" class="headerlink" title="开源网站"></a>开源网站</h4><p>github网站     <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>码云 : <a href="https://gitee.com/" target="_blank" rel="noopener">https://gitee.com/</a><br>一起开源官网 : <a href="http://www.17ky.net/" target="_blank" rel="noopener">http://www.17ky.net/</a></p>
-<h4 id="开发相关"><a href="#开发相关" class="headerlink" title="开发相关"></a>开发相关</h4><p>ORICLE官网 : <a href="https://www.oracle.com/downloads/" target="_blank" rel="noopener">https://www.oracle.com/downloads/</a><br>ECLIPSE官网 : <a href="https://www.eclipse.org/downloads/" target="_blank" rel="noopener">https://www.eclipse.org/downloads/</a><br>Spring Tools 官网 : <a href="https://spring.io/tools" target="_blank" rel="noopener">https://spring.io/tools</a><br>IntelliJ IDEA官网 : <a href="http://www.jetbrains.com/" target="_blank" rel="noopener">http://www.jetbrains.com/</a><br>APACHE官网 : <a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a><br>Python官网 : <a href="https://www.python.org/" target="_blank" rel="noopener">https://www.python.org/</a></p>
-<p>JAVA官网     <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase-downloads.html</a><br>Tomcat官网     <a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a><br>eclipse官网     <a href="https://www.eclipse.org/downloads/" target="_blank" rel="noopener">https://www.eclipse.org/downloads/</a><br>idea官网     <a href="http://www.jetbrains.com/" target="_blank" rel="noopener">http://www.jetbrains.com/</a><br>Maven官网     <a href="https://maven.apache.org/" target="_blank" rel="noopener">https://maven.apache.org/</a><br>Maven仓库     <a href="https://mvnrepository.com/" target="_blank" rel="noopener">https://mvnrepository.com/</a><br>Nexus官网     <a href="https://www.nexusmods.com/" target="_blank" rel="noopener">https://www.nexusmods.com/</a><br>Ant官网     <a href="https://ant.apache.org/" target="_blank" rel="noopener">https://ant.apache.org/</a><br>SVN官网     <a href="https://tortoisesvn.net/" target="_blank" rel="noopener">https://tortoisesvn.net/</a><br>Git官网     <a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a></p>
-<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>Linux     <a href="https://www.linux.org/" target="_blank" rel="noopener">https://www.linux.org/</a><br>Linux开源社区     <a href="https://linux.cn/" target="_blank" rel="noopener">https://linux.cn/</a><br>Linux公社     <a href="https://www.linuxidc.com/" target="_blank" rel="noopener">https://www.linuxidc.com/</a></p>
-<h4 id="数据库相关"><a href="#数据库相关" class="headerlink" title="数据库相关"></a>数据库相关</h4><p>Mysql官网     <a href="https://www.mysql.com/" target="_blank" rel="noopener">https://www.mysql.com/</a><br>SQL SERVER官网 : <a href="https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads</a><br>ORICLE官网 : <a href="https://www.oracle.com/downloads/" target="_blank" rel="noopener">https://www.oracle.com/downloads/</a><br>DB2官网 : <a href="https://www.ibm.com/analytics/cn/zh/technology/db2/" target="_blank" rel="noopener">https://www.ibm.com/analytics/cn/zh/technology/db2/</a><br>TOAD官网 : <a href="https://www.toadworld.com/" target="_blank" rel="noopener">https://www.toadworld.com/</a><br>Navicat官网 : <a href="https://www.navicat.com.cn/" target="_blank" rel="noopener">https://www.navicat.com.cn/</a><br>DataGrip官网 : <a href="https://www.jetbrains.com/zh/datagrip/specials/datagrip/datagrip.html" target="_blank" rel="noopener">https://www.jetbrains.com/zh/datagrip/specials/datagrip/datagrip.html</a><br>Redis官网 : <a href="https://redis.io/" target="_blank" rel="noopener">https://redis.io/</a><br>Redis中文网 : <a href="http://www.redis.cn/" target="_blank" rel="noopener">http://www.redis.cn/</a><br>MongoDB官网 : <a href="https://www.mongodb.com/Nginx" target="_blank" rel="noopener">https://www.mongodb.com/Nginx</a>  <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
-<h4 id="前端相关"><a href="#前端相关" class="headerlink" title="前端相关"></a>前端相关</h4><p>w3school官网 : <a href="http://www.w3school.com.cn/" target="_blank" rel="noopener">http://www.w3school.com.cn/</a><br>jQuery官网 : <a href="https://jquery.com/" target="_blank" rel="noopener">https://jquery.com/</a><br>jQuery api     非官网: <a href="http://jquery.cuishifeng.cn/" target="_blank" rel="noopener">http://jquery.cuishifeng.cn/</a><br>easyui官网: <a href="http://www.jeasyui.net/" target="_blank" rel="noopener">http://www.jeasyui.net/</a><br>Bootstrap官网: <a href="https://www.bootcss.com/" target="_blank" rel="noopener">https://www.bootcss.com/</a><br>Amaze ~ 妹子 UI官网: <a href="http://amazeui.org/" target="_blank" rel="noopener">http://amazeui.org/</a><br>Vue官网: <a href="https://cn.vuejs.org/" target="_blank" rel="noopener">https://cn.vuejs.org/</a><br>AngularJS中文网: <a href="https://www.angularjs.net.cn/" target="_blank" rel="noopener">https://www.angularjs.net.cn/</a></p>
-<h4 id="远程或传输"><a href="#远程或传输" class="headerlink" title="远程或传输"></a>远程或传输</h4><p>SecureCRT官网: <a href="https://www.vandyke.com/products/securecrt/" target="_blank" rel="noopener">https://www.vandyke.com/products/securecrt/</a><br>XSHELL官网 : <a href="https://xshell.en.softonic.com/" target="_blank" rel="noopener">https://xshell.en.softonic.com/</a><br>WinSCP官网 : <a href="https://winscp.net/eng/docs/lang:chs" target="_blank" rel="noopener">https://winscp.net/eng/docs/lang:chs</a><br>File-Zilla官网 :<a href="https://filezilla-project.org/" target="_blank" rel="noopener">https://filezilla-project.org/</a><br>File-Zilla中文网 : <a href="https://www.filezilla.cn/" target="_blank" rel="noopener">https://www.filezilla.cn/</a><br>flashfxp官网 : <a href="https://www.flashfxp.com/" target="_blank" rel="noopener">https://www.flashfxp.com/</a></p>
-<h4 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h4><p>7z     <a href="https://www.7-zip.org/" target="_blank" rel="noopener">https://www.7-zip.org/</a><br>WINRAR官网 : <a href="http://www.winrar.com.cn/" target="_blank" rel="noopener">http://www.winrar.com.cn/</a><br>图片压缩TinyPNG : <a href="https://tinypng.com/" target="_blank" rel="noopener">https://tinypng.com/</a><br>图片去背景：<a href="http://www.aigei.com/bgremover/" target="_blank" rel="noopener">http://www.aigei.com/bgremover/</a><br>在线工具箱：<a href="https://tool.lu/" target="_blank" rel="noopener">https://tool.lu/</a></p>
-<h4 id="图床工具："><a href="#图床工具：" class="headerlink" title="图床工具："></a>图床工具：</h4><p>PicGo：<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">https://github.com/Molunerfinn/PicGo</a><br>MPic-图床神器：<a href="http://mpic.lzhaofu.cn" target="_blank" rel="noopener">http://mpic.lzhaofu.cn</a><br>PicPlus -手机图床：<a href="https://www.coolapk.com/apk/name.gudong.pic" target="_blank" rel="noopener">https://www.coolapk.com/apk/name.gudong.pic</a></p>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>DataBase</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js让页面自动刷新</title>
-    <url>/posts/7413f2ca.html</url>
-    <content><![CDATA[<p>js让页面自动刷新</p>
-<a id="more"></a>
-
-<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
-<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">=</span><span class="token number">0</span>
-current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">else</span>
-location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">++</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
-<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -596,6 +549,53 @@ nginx: configuration <span class="token function">file</span> /etc/nginx/nginx.c
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（五）——踩坑问题</title>
+    <url>/posts/ce4a93ff.html</url>
+    <content><![CDATA[<p> 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。</p>
+<a id="more"></a>
+
+<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
+<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
+YAMLException: end of the stream or a document separator is expected at line x, column y:
+at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
+<pre><code>---
+key: value
+---</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
+<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
+<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)使用主题的时候注意先阅读相关使用文档，有些主题需要一些插件</p>
+<h5 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h5><p>后续补充</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开发常用的网站收藏列表</title>
+    <url>/posts/2d1a17c5.html</url>
+    <content><![CDATA[<p>开发常用的网站收藏列表</p>
+<a id="more"></a>
+
+<h4 id="开源网站"><a href="#开源网站" class="headerlink" title="开源网站"></a>开源网站</h4><p>github网站     <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>码云 : <a href="https://gitee.com/" target="_blank" rel="noopener">https://gitee.com/</a><br>一起开源官网 : <a href="http://www.17ky.net/" target="_blank" rel="noopener">http://www.17ky.net/</a></p>
+<h4 id="开发相关"><a href="#开发相关" class="headerlink" title="开发相关"></a>开发相关</h4><p>ORICLE官网 : <a href="https://www.oracle.com/downloads/" target="_blank" rel="noopener">https://www.oracle.com/downloads/</a><br>ECLIPSE官网 : <a href="https://www.eclipse.org/downloads/" target="_blank" rel="noopener">https://www.eclipse.org/downloads/</a><br>Spring Tools 官网 : <a href="https://spring.io/tools" target="_blank" rel="noopener">https://spring.io/tools</a><br>IntelliJ IDEA官网 : <a href="http://www.jetbrains.com/" target="_blank" rel="noopener">http://www.jetbrains.com/</a><br>APACHE官网 : <a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a><br>Python官网 : <a href="https://www.python.org/" target="_blank" rel="noopener">https://www.python.org/</a></p>
+<p>JAVA官网     <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase-downloads.html</a><br>Tomcat官网     <a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a><br>eclipse官网     <a href="https://www.eclipse.org/downloads/" target="_blank" rel="noopener">https://www.eclipse.org/downloads/</a><br>idea官网     <a href="http://www.jetbrains.com/" target="_blank" rel="noopener">http://www.jetbrains.com/</a><br>Maven官网     <a href="https://maven.apache.org/" target="_blank" rel="noopener">https://maven.apache.org/</a><br>Maven仓库     <a href="https://mvnrepository.com/" target="_blank" rel="noopener">https://mvnrepository.com/</a><br>Nexus官网     <a href="https://www.nexusmods.com/" target="_blank" rel="noopener">https://www.nexusmods.com/</a><br>Ant官网     <a href="https://ant.apache.org/" target="_blank" rel="noopener">https://ant.apache.org/</a><br>SVN官网     <a href="https://tortoisesvn.net/" target="_blank" rel="noopener">https://tortoisesvn.net/</a><br>Git官网     <a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a></p>
+<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>Linux     <a href="https://www.linux.org/" target="_blank" rel="noopener">https://www.linux.org/</a><br>Linux开源社区     <a href="https://linux.cn/" target="_blank" rel="noopener">https://linux.cn/</a><br>Linux公社     <a href="https://www.linuxidc.com/" target="_blank" rel="noopener">https://www.linuxidc.com/</a></p>
+<h4 id="数据库相关"><a href="#数据库相关" class="headerlink" title="数据库相关"></a>数据库相关</h4><p>Mysql官网     <a href="https://www.mysql.com/" target="_blank" rel="noopener">https://www.mysql.com/</a><br>SQL SERVER官网 : <a href="https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads</a><br>ORICLE官网 : <a href="https://www.oracle.com/downloads/" target="_blank" rel="noopener">https://www.oracle.com/downloads/</a><br>DB2官网 : <a href="https://www.ibm.com/analytics/cn/zh/technology/db2/" target="_blank" rel="noopener">https://www.ibm.com/analytics/cn/zh/technology/db2/</a><br>TOAD官网 : <a href="https://www.toadworld.com/" target="_blank" rel="noopener">https://www.toadworld.com/</a><br>Navicat官网 : <a href="https://www.navicat.com.cn/" target="_blank" rel="noopener">https://www.navicat.com.cn/</a><br>DataGrip官网 : <a href="https://www.jetbrains.com/zh/datagrip/specials/datagrip/datagrip.html" target="_blank" rel="noopener">https://www.jetbrains.com/zh/datagrip/specials/datagrip/datagrip.html</a><br>Redis官网 : <a href="https://redis.io/" target="_blank" rel="noopener">https://redis.io/</a><br>Redis中文网 : <a href="http://www.redis.cn/" target="_blank" rel="noopener">http://www.redis.cn/</a><br>MongoDB官网 : <a href="https://www.mongodb.com/Nginx" target="_blank" rel="noopener">https://www.mongodb.com/Nginx</a>  <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
+<h4 id="前端相关"><a href="#前端相关" class="headerlink" title="前端相关"></a>前端相关</h4><p>w3school官网 : <a href="http://www.w3school.com.cn/" target="_blank" rel="noopener">http://www.w3school.com.cn/</a><br>jQuery官网 : <a href="https://jquery.com/" target="_blank" rel="noopener">https://jquery.com/</a><br>jQuery api     非官网: <a href="http://jquery.cuishifeng.cn/" target="_blank" rel="noopener">http://jquery.cuishifeng.cn/</a><br>easyui官网: <a href="http://www.jeasyui.net/" target="_blank" rel="noopener">http://www.jeasyui.net/</a><br>Bootstrap官网: <a href="https://www.bootcss.com/" target="_blank" rel="noopener">https://www.bootcss.com/</a><br>Amaze ~ 妹子 UI官网: <a href="http://amazeui.org/" target="_blank" rel="noopener">http://amazeui.org/</a><br>Vue官网: <a href="https://cn.vuejs.org/" target="_blank" rel="noopener">https://cn.vuejs.org/</a><br>AngularJS中文网: <a href="https://www.angularjs.net.cn/" target="_blank" rel="noopener">https://www.angularjs.net.cn/</a></p>
+<h4 id="远程或传输"><a href="#远程或传输" class="headerlink" title="远程或传输"></a>远程或传输</h4><p>SecureCRT官网: <a href="https://www.vandyke.com/products/securecrt/" target="_blank" rel="noopener">https://www.vandyke.com/products/securecrt/</a><br>XSHELL官网 : <a href="https://xshell.en.softonic.com/" target="_blank" rel="noopener">https://xshell.en.softonic.com/</a><br>WinSCP官网 : <a href="https://winscp.net/eng/docs/lang:chs" target="_blank" rel="noopener">https://winscp.net/eng/docs/lang:chs</a><br>File-Zilla官网 :<a href="https://filezilla-project.org/" target="_blank" rel="noopener">https://filezilla-project.org/</a><br>File-Zilla中文网 : <a href="https://www.filezilla.cn/" target="_blank" rel="noopener">https://www.filezilla.cn/</a><br>flashfxp官网 : <a href="https://www.flashfxp.com/" target="_blank" rel="noopener">https://www.flashfxp.com/</a></p>
+<h4 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h4><p>7z     <a href="https://www.7-zip.org/" target="_blank" rel="noopener">https://www.7-zip.org/</a><br>WINRAR官网 : <a href="http://www.winrar.com.cn/" target="_blank" rel="noopener">http://www.winrar.com.cn/</a><br>图片压缩TinyPNG : <a href="https://tinypng.com/" target="_blank" rel="noopener">https://tinypng.com/</a><br>图片去背景：<a href="http://www.aigei.com/bgremover/" target="_blank" rel="noopener">http://www.aigei.com/bgremover/</a><br>在线工具箱：<a href="https://tool.lu/" target="_blank" rel="noopener">https://tool.lu/</a></p>
+<h4 id="图床工具："><a href="#图床工具：" class="headerlink" title="图床工具："></a>图床工具：</h4><p>PicGo：<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">https://github.com/Molunerfinn/PicGo</a><br>MPic-图床神器：<a href="http://mpic.lzhaofu.cn" target="_blank" rel="noopener">http://mpic.lzhaofu.cn</a><br>PicPlus -手机图床：<a href="https://www.coolapk.com/apk/name.gudong.pic" target="_blank" rel="noopener">https://www.coolapk.com/apk/name.gudong.pic</a></p>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>DataBase</tag>
       </tags>
   </entry>
 </search>
