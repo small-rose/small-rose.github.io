@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Centos相关配置</title>
+    <url>/posts/42e4f857.html</url>
+    <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
+<a id="more"></a>
+
+<h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre>
+<p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p>
+<pre><code>TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens192
+UUID=64e7784d-8183-4db5-af4c-120203391708
+DEVICE=ens192
+ONBOOT=yes
+IPADDR=192.168.66.80
+PREFIX=24
+GATEWAY=192.168.66.254
+IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre>
+<h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p>
+<pre><code>      Local time: 四 2014-12-25 10:52:10 CST
+  Universal time: 四 2014-12-25 02:52:10 UTC
+        RTC time: 四 2014-12-25 02:52:10
+        Timezone: Asia/Shanghai (CST, +0800)
+     NTP enabled: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre>
+<h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre>
+<h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre>
+<h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre>
+<h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p>
+<pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre>
+<p>增加：</p>
+<pre><code>nameserver 8.8.8.8
+nameserver 8.8.4.4</code></pre>]]></content>
+      <categories>
+        <category>Linux,centos</category>
+      </categories>
+      <tags>
+        <tag>centos配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos-jdk安装配置环境变量</title>
     <url>/posts/9064540a.html</url>
     <content><![CDATA[<p> Centos上安装jdk，配置环境变量的方法</p>
@@ -56,60 +110,6 @@ export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href=
       <tags>
         <tag>centos</tag>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Centos相关配置</title>
-    <url>/posts/42e4f857.html</url>
-    <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
-<a id="more"></a>
-
-<h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre>
-<p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p>
-<pre><code>TYPE=Ethernet
-PROXY_METHOD=none
-BROWSER_ONLY=no
-BOOTPROTO=none
-DEFROUTE=yes
-IPV4_FAILURE_FATAL=no
-IPV6INIT=yes
-IPV6_AUTOCONF=yes
-IPV6_DEFROUTE=yes
-IPV6_FAILURE_FATAL=no
-IPV6_ADDR_GEN_MODE=stable-privacy
-NAME=ens192
-UUID=64e7784d-8183-4db5-af4c-120203391708
-DEVICE=ens192
-ONBOOT=yes
-IPADDR=192.168.66.80
-PREFIX=24
-GATEWAY=192.168.66.254
-IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre>
-<h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p>
-<pre><code>      Local time: 四 2014-12-25 10:52:10 CST
-  Universal time: 四 2014-12-25 02:52:10 UTC
-        RTC time: 四 2014-12-25 02:52:10
-        Timezone: Asia/Shanghai (CST, +0800)
-     NTP enabled: yes
-NTP synchronized: yes
- RTC in local TZ: no
-      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre>
-<h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre>
-<h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre>
-<h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre>
-<h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p>
-<pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre>
-<p>增加：</p>
-<pre><code>nameserver 8.8.8.8
-nameserver 8.8.4.4</code></pre>]]></content>
-      <categories>
-        <category>Linux,centos</category>
-      </categories>
-      <tags>
-        <tag>centos配置</tag>
       </tags>
   </entry>
   <entry>
@@ -1606,7 +1606,7 @@ Nashorn定义了大量对ECMAScript标准的语言和API扩展。但是首先让
   </entry>
   <entry>
     <title>深入理解JVM结构学习（第三版）</title>
-    <url>/posts/c68d7a69.html</url>
+    <url>/posts/2a1a7c1f.html</url>
     <content><![CDATA[<pre><code>本文记录关于深入理解JVM（第三版）学习笔记，连接Github免密和 云服务器或私有服务器免密。</code></pre><h4 id="java虚拟机内存自动管理"><a href="#java虚拟机内存自动管理" class="headerlink" title="java虚拟机内存自动管理"></a>java虚拟机内存自动管理</h4><ol>
 <li><p>JVM内存自动管理中的的内存结构。</p>
 <p> 程序计数器<br> java堆（Heap）<br> 方法区<br> 虚拟机栈<br> 本地方法栈</p>
@@ -1707,103 +1707,8 @@ Nashorn定义了大量对ECMAScript标准的语言和API扩展。但是首先让
       </tags>
   </entry>
   <entry>
-    <title>jvm/jvm-2-gc-object-create</title>
-    <url>/posts/9bda3f48.html</url>
-    <content><![CDATA[<h2 id="HotSpot-虚拟机对象创建于布局"><a href="#HotSpot-虚拟机对象创建于布局" class="headerlink" title="HotSpot 虚拟机对象创建于布局"></a>HotSpot 虚拟机对象创建于布局</h2><pre><code>HotSpot虚拟机在Java堆中对象分配、布局和访问的全过程。
-创建对象的三种方式：new关键字、复制、反序列化。</code></pre><h3 id="一-对象的创建"><a href="#一-对象的创建" class="headerlink" title="一. 对象的创建"></a>一. 对象的创建</h3><pre><code>此处提及的对象创建，只是普通Java对象，不包括数组和Class对象。</code></pre><h4 id="1-检查符合引用和类加载情况"><a href="#1-检查符合引用和类加载情况" class="headerlink" title="1. 检查符合引用和类加载情况"></a>1. 检查符合引用和类加载情况</h4><p>当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。</p>
-<h4 id="2-为新生对象分配内存"><a href="#2-为新生对象分配内存" class="headerlink" title="2. 为新生对象分配内存"></a>2. 为新生对象分配内存</h4><p>在类加载检查通过后，接下来虚拟机将为新生对象分配内存。对象所需内存的大小在类加载完成后便可完全确定，为对象分配空间的任务其实就是把一块确定大小的内存块从Java堆中划分出来存放该对象。</p>
-<p>关于对象内存分配方式：<br>（1）“指针碰撞”（Bump The Pointer）</p>
-<pre><code>假设Java堆中内存是绝对规整的，所有被使用过的内存都被放在一边，空闲的内存被放在另一边，中间放着一个指针作为分界点的指示器，那所分配内存就仅仅是把那个指针向空闲空间方向挪动一段与对象大小相等的距离，这种分配方式称为“指针碰撞”（Bump The Pointer）</code></pre><p>（2）“空闲列表”（Free List）:</p>
-<pre><code>Java堆中的内存并不是规整的，已被使用的内存和空闲的内存相互交错在一起，那就没有办法简单地进行指针碰撞了，虚拟机就必须维护一个列表，记录上哪些内存块是可用的，在分配的时候从列表中找到一块足够大的空间划分给对象实例，并更新列表上的记录，这种分配方式称为“空闲列表”（Free List）</code></pre><p>选择哪种分配方式，取决于Java堆是否规整决定，而Java堆是否规整又由所采用的垃圾收集器是否带有空间压缩整理（Compact）的能力决定。因此：</p>
-<pre><code>当使用Serial、ParNew等带压缩整理过程的收集器时，系统采用的分配算法是指针碰撞，既简单又高效；
-当使用CMS这种基于清除（Sweep）算法的收集器时，理论上就只能采用较为复杂的空闲列表来分配内存。</code></pre><p>考虑对象内存分配的线程安全问题：</p>
-<p>把内存分配的动作按照线程划分在不同的空间之中进行，即每个线程在Java堆中预先分配一小块内存，称为<code>本地线程分配缓冲（Thread Local Allocation Buffer，TLAB）</code>，哪个线程要分配内存，就在哪个线程的本地缓冲区中分配，只有本地缓冲区用完了，分配新的缓存区时才需要同步锁定【对分配内存空间的动作进行同步处理——实际上虚拟机是采用<code>CAS</code>配上失败重试的方式保证更新操作的原子性】。虚拟机是否使用<code>TLAB</code>，可以通过<code>-XX：+/-UseTLAB</code>参数来设定。</p>
-<p>每个线程在堆中都会有私有的<code>分配缓冲区(TLAB)</code>，这样可以很大程度避免在并发情况下频繁创建对象造成的线程不安全。</p>
-<h4 id="3-将分配的内存初始化为零值"><a href="#3-将分配的内存初始化为零值" class="headerlink" title="3. 将分配的内存初始化为零值"></a>3. 将分配的内存初始化为零值</h4><p>内存分配完成之后，虚拟机必须将分配到的内存空间（但不包括对象头）都初始化为零值，如果使用了TLAB的话，这一项工作也可以提前至<code>TLAB</code>分配时顺便进行。这步操作保证了对象的实例字段在Java代码中可以不赋初始值就直接使用，使程序能访问到这些字段的数据类型所对应的零值。</p>
-<h4 id="4-对新生的对象进行设置"><a href="#4-对新生的对象进行设置" class="headerlink" title="4. 对新生的对象进行设置"></a>4. 对新生的对象进行设置</h4><p>对象的元数据信息、对象的哈希码（实际上对象的哈希码会延后到真正调用<code>Object::hashCode()</code>方法时才计算）、对象的<code>GC</code>分代年龄等信息。这些信息存放在对象的对象头（Object Header）之中。根据虚拟机当前运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。</p>
-<h4 id="5-执行-lt-init-gt-方法。"><a href="#5-执行-lt-init-gt-方法。" class="headerlink" title="5. 执行&lt;init&gt;()方法。"></a>5. 执行<code>&lt;init&gt;()</code>方法。</h4><p>new指令之后会接着执行<init>()方法，按照程序员的意愿对对象进行初始化，这样一个真正可用的对象才算完全被构造出来。</p>
-<h3 id="二、对象的布局"><a href="#二、对象的布局" class="headerlink" title="二、对象的布局"></a>二、对象的布局</h3><p><code>HotSpot</code>虚拟机里，对象在堆内存中的存储布局可以划分为三个部分：</p>
-<pre><code>对象头（Header）、
-实例数据（Instance Data）
-对齐填充（Padding）。</code></pre><h4 id="1-对象头"><a href="#1-对象头" class="headerlink" title="1. 对象头"></a>1. 对象头</h4><p>对象头部分包括两类信息：</p>
-<p>（1）第一类是用于存储对象自身的运行时数据，如哈希码<code>（HashCode）</code>、<code>GC分代年龄</code>、<code>锁状态标志</code>、<code>线程持有的锁</code>、<code>偏向线程ID</code>、<code>偏向时间戳</code>等，这部分数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32个比特和64个比特，官方称它为“Mark Word”。</p>
-<p>（2）第二类是类型指针，即对象指向它的类型元数据的指针，Java虚拟机通过这个指针来确定该对象是哪个类的实例。</p>
-<pre><code>并不是所有的虚拟机实现都必须在对象数据上保留类型指针，即，查找对象的元数据信息并不一定要经过对象本身</code></pre><h4 id="2-实例数据："><a href="#2-实例数据：" class="headerlink" title="2. 实例数据："></a>2. 实例数据：</h4><p>实例数据部分是对象真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录起来。</p>
-<pre><code>这部分的存储顺序会受到虚拟机分配策略参数（-XX：FieldsAllocationStyle参数）和字段在Java源码中定义顺序的影响。
-
-HotSpot虚拟机默认的分配顺序为longs/doubles、ints、shorts/chars、bytes/booleans、oops（Ordinary Object Pointers，OOPs）。
-相同宽度的字段总是被分配到一起存放，在满足这个前提条件的情况下，在父类中定义的变量会出现在子类之前。
-
-如果HotSpot虚拟机的+XX：CompactFields参数值为true（默认就为true），那子类之中较窄的变量也允许插入父类变量的空隙之中，以节省出一点点空间</code></pre><h4 id="3-对齐填充"><a href="#3-对齐填充" class="headerlink" title="3.对齐填充"></a>3.对齐填充</h4><p>对齐填充，这并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。由于<code>HotSpot虚拟机</code>的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说就是任何对象的大小都必须是8字节的整数倍。对象头部分已经被精心设计成正好是8字节的倍数（1倍或者2倍），因此，如果对象实例数据部分没有对齐的话，就需要通过对齐填充来补全。</p>
-<h3 id="三、对象的访问定位"><a href="#三、对象的访问定位" class="headerlink" title="三、对象的访问定位"></a>三、对象的访问定位</h3><p>Java程序会通过栈上的reference数据来操作堆上的具体对象。</p>
-<p>对象访问主流的访问方式主要有使用句柄和直接指针两种：</p>
-<p>（1）使用句柄访问的话，Java堆中将可能会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自具体的地址信息：</p>
-<p>![]/jvm-images/jvm-obj-ref-1.jpg</p>
-<p>（2）使用直接指针访问的话，Java堆中对象的内存布局就必须考虑如何放置访问类型数据的相关信息，reference中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销。</p>
-<p>![]/jvm-images/jvm-obj-ref-2.jpg</p>
-<p>二者相比较：</p>
-<pre><code>使用句柄的最大好处是 reference 中存储的是稳定的句柄地址，在对象移动(GC)是只改变实例数据指针地址，reference 自身不需要修改。
-直接指针访问的最大好处是速度快，节省了一次指针定位的时间开销。如果是对象频繁 GC 那么句柄方法好，如果是对象频繁访问则直接指针访问好。</code></pre><p><code>HotSpot</code>而言，它主要使用第二种方式进行对象访问。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>jvm/jvm-1-memory structure</title>
-    <url>/posts/f1b1e09c.html</url>
-    <content><![CDATA[<h2 id="jvm-内存管理机制"><a href="#jvm-内存管理机制" class="headerlink" title="jvm 内存管理机制"></a>jvm 内存管理机制</h2><pre><code>参考资料：
-《深入理解Java虚拟机 JVM高级特性与最佳实践 第3版》
-《Java虚拟机规范（Java SE 7）》</code></pre><h3 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h3><p>根据《Java虚拟机规范》的规定，Java虚拟机所管理的内存将会包括以下几个运行时数据区域.<br>jvm-pic-1.jpg</p>
-<ol>
-<li><p>程序计数器</p>
-<pre><code>程序计数器（Program Counter Register）是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</code></pre><p>程序计数器特征：<br>（1）是“线程私有”的内存。每条线程都需要有一个独立的程序计数器，各条线程之间计数器互不影响，独立存储。<br>（2）如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是本地（Native）方法，这个计数器值则应为空（Undefined）。<br>（3）此内存区域是唯一一个在《Java虚拟机规范》中没有规定任何OutOfMemoryError情况的区域。</p>
-</li>
-<li><p>Java虚拟机栈</p>
-<pre><code>Java虚拟机栈（Java Virtual Machine Stack）也是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是Java方法执行的线程内存模型：每个方法被执行的时候，Java虚拟机都会同步创建一个栈帧[栈帧是方法运行期间很重要的基础数据结构]（Stack Frame）用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</code></pre><p>局部变量表相关：</p>
-<pre><code>局部变量表存放了编译期可知的各种Java虚拟机基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，它并不等同于对象本身，可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或者其他与此对象相关的位置）和returnAddress类型（指向了一条字节码指令的地址）。</code></pre></li>
-</ol>
-<p>在《Java虚拟机规范》中， Java虚拟机栈可能出现两类异常状况：</p>
-<pre><code>（1）如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常；
-（2）如果Java虚拟机栈容量可以动态扩展[Hotspot的虚拟机栈不允许扩展]，当栈扩展时无法申请到足够的内存会抛出OutOfMemoryError异常。</code></pre><ol start="3">
-<li><p>本地方法栈<br>本地方法栈（Native Method Stacks）与虚拟机栈所发挥的作用是非常相似的，区别:</p>
-<pre><code>虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，
-本地方法栈则是为虚拟机使用到的本地（Native）方法服务。</code></pre><p>有的Java虚拟机（譬如Hot-Spot虚拟机）直接就把本地方法栈和虚拟机栈合二为一。<br>本地方法栈也可能出现两类异常状况：</p>
-<pre><code>（1）本地方法栈也会在栈深度溢出时抛出StackOverflowError
-（2）本地方法栈扩展失败时抛出OutOfMemoryError。</code></pre></li>
-<li><p>Java堆</p>
-<pre><code>Java堆（Java Heap）是虚拟机所管理的内存中最大的一块。Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，Java世界里“**几乎**”所有的对象实例都在这里分配内存。</code></pre><p>Java堆是垃圾收集器管理的内存区域，因此一些资料中它也被称作“GC堆”。</p>
-</li>
-</ol>
-<p>从回收内存的角度看，由于现代垃圾收集器大部分都是基于分代收集理论设计的，所以Java堆中经常会出现“新生代”“老年代”、“永久代”、“Eden空间”、“From Survivor空间”、“To Survivor空间”等。</p>
-<p>如果从分配内存的角度看，所有线程共享的Java堆中可以划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer，TLAB），以提升对象分配时的效率。</p>
-<p>Java堆可以处于物理上不连续的内存空间中，但在逻辑上它应该被视为连续的。</p>
-<p>Java堆既可以被实现成固定大小的，也可以是可扩展的，不过当前主流的Java虚拟机都是按照可扩展来实现的（通过参数-Xmx和-Xms设定）。</p>
-<p>如果在Java堆中没有内存完成实例分配，并且堆也无法再扩展时，Java虚拟机将会抛出OutOfMemoryError异常。</p>
-<ol start="5">
-<li>方法区<pre><code>方法区（Method Area）与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。</code></pre>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”（Non-Heap），目的是与Java堆区分开来。</li>
-</ol>
-<p>在JDK 6的时候HotSpot开发团队就有放弃永久代，逐步改为采用<code>本地内存（Native Memory）</code>来实现方法区的计划。<br>到了JDK 7的HotSpot，已经把原本放在永久代的字符串常量池、静态变量等移至堆内存。</p>
-<pre><code>jdk7开始方法区的逐渐移除：符号引用(Symbols)移至native heap，字面量(interned strings)和静态变量(class statics)移至java heap。</code></pre><p>到了JDK 8，终于完全废弃了永久代的概念，改用与JRockit、J9一样在本地内存中实现的<code>元空间（Meta-space）</code>来代替，把JDK 7中永久代还剩余的内容（主要是类型信息）全部移到元空间中。</p>
-<pre><code>JDK1.8以前的HotSpot JVM有方法区，也叫永久代(permanent generation)。
-方法区用于存放已被虚拟机加载的类信息、常量、静态变量，即编译器编译后的代码。
-方法区是一片连续的堆空间，通过-XX:MaxPermSize来设定永久代最大可分配空间，当JVM加载的类信息容量超过了这个值，会报OOM:PermGen错误。
-永久代的GC是和老年代(old generation)捆绑在一起的，无论谁满了，都会触发永久代和老年代的垃圾收集。
-
-为什么要用Metaspace替代方法区？</code></pre><p>随着动态类加载的情况越来越多，这块内存变得不太可控，如果设置小了，系统运行过程中就容易出现内存溢出，设置大了又浪费内存。</p>
-<pre><code>方法区的内存回收目标主要是针对常量池的回收和对类型的卸载，卸载条件相当苛刻。
-方法区无法满足新的内存分配需求时，将抛出OutOfMemoryError异常。</code></pre><ol start="6">
-<li>运行时常量池<pre><code>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表（Constant Pool Table），用于存放编译期生成的各种字面量与符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。</code></pre>运行时常量池特征：<br>（1）存储数据条件宽松。（保存Class文件中描述的符号引用，把由符号引用翻译出来的直接引用，均可放入运行时常量池）<br>（2）具备动态性。（预置入Class文件中常量池的内容，或运行期间新的常量[如String类的intern()方法]，均可放入）</li>
-</ol>
-<p>运行时常量池是方法区的一部分，受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</p>
-<ol start="7">
-<li>直接内存<br>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。但是这部分内存也被频繁地使用，而且也可能导致OutOfMemoryError异常出现。</li>
-</ol>
-<p>在JDK 1.4中新加入了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
-<p>本机直接内存的分配不会受Java堆大小的限制，但受到本机总内存（包括物理内存、SWAP分区或者分页文件）大小以及处理器寻址空间的限制。<br>配置虚拟机参数时，设置-Xmx等参数信息，若使得各个内存区域总和大于物理内存限制（包括物理的和操作系统级的限制），就会导致动态扩展时出现OutOfMemoryError。</p>
-<p>8. </p>
-]]></content>
-  </entry>
-  <entry>
-    <title>jvm/jvm-3-gc-object-life</title>
-    <url>/posts/59338de5.html</url>
+    <title>jvm之对象生死</title>
+    <url>/posts/bce48291.html</url>
     <content><![CDATA[<h2 id="jvm-检测判断对象的生死"><a href="#jvm-检测判断对象的生死" class="headerlink" title="jvm 检测判断对象的生死"></a>jvm 检测判断对象的生死</h2><pre><code>垃圾收集（Garbage Collection，简称GC）</code></pre><p>对象生死</p>
 <pre><code>堆里面存放着Java世界中几乎所有的对象实例，垃圾收集器在对堆进行回收前，第一件事情就是要确定这些对象之中哪些还“存活”着，哪些已经“死去”（“死去”即不可能再被任何途径使用的对象）了。对象是否存活的算法各不相同。</code></pre><h4 id="1-引用计数算法"><a href="#1-引用计数算法" class="headerlink" title="1. 引用计数算法"></a>1. 引用计数算法</h4><p>引用计数算法:</p>
 <pre><code>在对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加一；当引用失效时，计数器值就减一；任何时刻计数器为零的对象就是不可能再被使用的</code></pre><p>引用计数算法（Reference Counting）虽然占用了一些额外的内存空间来进行计数，但它的原理简单，判定效率也很高，在大多数情况下它都是一个不错的算法。</p>
@@ -1848,7 +1753,7 @@ Heap
     the space 21248K,  14% used [0x00000000069e0000, 0x0000000006cd2398, 0x0000000006cd2400, 0x0000000007ea0000)
     No shared spaces configured.</code></pre><p>内存回收日志中包含<code>“4603K-&gt;210K”</code>，意味着虚拟机并没有因为这两个对象互相引用就放弃回收它们，这也从侧面说明了Java虚拟机并不是通过引用计数算法来判断对象是否存活的。</p>
 <h4 id="2-可达性分析算法"><a href="#2-可达性分析算法" class="headerlink" title="2.可达性分析算法"></a>2.可达性分析算法</h4><p>当前主流的商用程序语言（Java、C#，上溯至前面提到的古老的Lisp）的内存管理子系统，都是通过可达性分析（Reachability Analysis）算法来判定对象是否存活的。这个算法的基本思路:</p>
-<pre><code>通过一系列称为“GC Roots”的根对象作为起始节点集，从这些节点开始，根据引用关系向下搜索，搜索过程所走过的路径称为“引用链”（Reference Chain），如果某个对象到GCRoots间没有任何引用链相连，或者用图论的话来说就是从GC Roots到这个对象不可达时，则证明此对象是不可能再被使用的。</code></pre><p>![]/jvm-images/jvm-gc-1.jpg</p>
+<pre><code>通过一系列称为“GC Roots”的根对象作为起始节点集，从这些节点开始，根据引用关系向下搜索，搜索过程所走过的路径称为“引用链”（Reference Chain），如果某个对象到GCRoots间没有任何引用链相连，或者用图论的话来说就是从GC Roots到这个对象不可达时，则证明此对象是不可能再被使用的。</code></pre><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-1.jpg" alt="Image "></p>
 <p>在Java技术体系里面，固定可作为GC Roots的对象包括以下几种：</p>
 <pre><code>（1）在虚拟机栈（栈帧中的本地变量表）中引用的对象，譬如各个线程被调用的方法堆栈中使用到的参数、局部变量、临时变量等。
 （2）在方法区中类静态属性引用的对象，譬如Java类的引用类型静态变量。
@@ -1924,10 +1829,127 @@ no, i am dead :(</code></pre><p>结论</p>
 <p>（2）不再使用的类型</p>
 <p>需要同时满足下面三个条件:<br>A. 该类所有的实例都已经被回收，Java堆中不存在该类及其任何派生子类的实例<br>B. 加载该类的类加载器已经被回收。（难达成）<br>C. 该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。 </p>
 ]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>对象生死</tag>
+      </tags>
   </entry>
   <entry>
-    <title>jvm/jvm-4-gc-algorithm</title>
-    <url>/posts/3720b408.html</url>
+    <title>jvm之内存结构</title>
+    <url>/posts/9f103da7.html</url>
+    <content><![CDATA[<h2 id="jvm-内存管理机制"><a href="#jvm-内存管理机制" class="headerlink" title="jvm 内存管理机制"></a>jvm 内存管理机制</h2><pre><code>参考资料：
+《深入理解Java虚拟机 JVM高级特性与最佳实践 第3版》
+《Java虚拟机规范（Java SE 7）》</code></pre><h3 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h3><p>根据《Java虚拟机规范》的规定，Java虚拟机所管理的内存将会包括以下几个运行时数据区域.<br><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-pic-1.jpg" alt="Image jvm-pic-1"></p>
+<ol>
+<li><p>程序计数器</p>
+<pre><code>程序计数器（Program Counter Register）是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</code></pre><p>程序计数器特征：<br>（1）是“线程私有”的内存。每条线程都需要有一个独立的程序计数器，各条线程之间计数器互不影响，独立存储。<br>（2）如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是本地（Native）方法，这个计数器值则应为空（Undefined）。<br>（3）此内存区域是唯一一个在《Java虚拟机规范》中没有规定任何OutOfMemoryError情况的区域。</p>
+</li>
+<li><p>Java虚拟机栈</p>
+<pre><code>Java虚拟机栈（Java Virtual Machine Stack）也是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是Java方法执行的线程内存模型：每个方法被执行的时候，Java虚拟机都会同步创建一个栈帧[栈帧是方法运行期间很重要的基础数据结构]（Stack Frame）用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</code></pre><p>局部变量表相关：</p>
+<pre><code>局部变量表存放了编译期可知的各种Java虚拟机基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，它并不等同于对象本身，可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或者其他与此对象相关的位置）和returnAddress类型（指向了一条字节码指令的地址）。</code></pre></li>
+</ol>
+<p>在《Java虚拟机规范》中， Java虚拟机栈可能出现两类异常状况：</p>
+<pre><code>（1）如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常；
+（2）如果Java虚拟机栈容量可以动态扩展[Hotspot的虚拟机栈不允许扩展]，当栈扩展时无法申请到足够的内存会抛出OutOfMemoryError异常。</code></pre><ol start="3">
+<li><p>本地方法栈<br>本地方法栈（Native Method Stacks）与虚拟机栈所发挥的作用是非常相似的，区别:</p>
+<pre><code>虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，
+本地方法栈则是为虚拟机使用到的本地（Native）方法服务。</code></pre><p>有的Java虚拟机（譬如Hot-Spot虚拟机）直接就把本地方法栈和虚拟机栈合二为一。<br>本地方法栈也可能出现两类异常状况：</p>
+<pre><code>（1）本地方法栈也会在栈深度溢出时抛出StackOverflowError
+（2）本地方法栈扩展失败时抛出OutOfMemoryError。</code></pre></li>
+<li><p>Java堆</p>
+<pre><code>Java堆（Java Heap）是虚拟机所管理的内存中最大的一块。Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，Java世界里“**几乎**”所有的对象实例都在这里分配内存。</code></pre><p>Java堆是垃圾收集器管理的内存区域，因此一些资料中它也被称作“GC堆”。</p>
+</li>
+</ol>
+<p>从回收内存的角度看，由于现代垃圾收集器大部分都是基于分代收集理论设计的，所以Java堆中经常会出现“新生代”“老年代”、“永久代”、“Eden空间”、“From Survivor空间”、“To Survivor空间”等。</p>
+<p>如果从分配内存的角度看，所有线程共享的Java堆中可以划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer，TLAB），以提升对象分配时的效率。</p>
+<p>Java堆可以处于物理上不连续的内存空间中，但在逻辑上它应该被视为连续的。</p>
+<p>Java堆既可以被实现成固定大小的，也可以是可扩展的，不过当前主流的Java虚拟机都是按照可扩展来实现的（通过参数-Xmx和-Xms设定）。</p>
+<p>如果在Java堆中没有内存完成实例分配，并且堆也无法再扩展时，Java虚拟机将会抛出OutOfMemoryError异常。</p>
+<ol start="5">
+<li>方法区<pre><code>方法区（Method Area）与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。</code></pre>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”（Non-Heap），目的是与Java堆区分开来。</li>
+</ol>
+<p>在JDK 6的时候HotSpot开发团队就有放弃永久代，逐步改为采用<code>本地内存（Native Memory）</code>来实现方法区的计划。<br>到了JDK 7的HotSpot，已经把原本放在永久代的字符串常量池、静态变量等移至堆内存。</p>
+<pre><code>jdk7开始方法区的逐渐移除：符号引用(Symbols)移至native heap，字面量(interned strings)和静态变量(class statics)移至java heap。</code></pre><p>到了JDK 8，终于完全废弃了永久代的概念，改用与JRockit、J9一样在本地内存中实现的<code>元空间（Meta-space）</code>来代替，把JDK 7中永久代还剩余的内容（主要是类型信息）全部移到元空间中。</p>
+<pre><code>JDK1.8以前的HotSpot JVM有方法区，也叫永久代(permanent generation)。
+方法区用于存放已被虚拟机加载的类信息、常量、静态变量，即编译器编译后的代码。
+方法区是一片连续的堆空间，通过-XX:MaxPermSize来设定永久代最大可分配空间，当JVM加载的类信息容量超过了这个值，会报OOM:PermGen错误。
+永久代的GC是和老年代(old generation)捆绑在一起的，无论谁满了，都会触发永久代和老年代的垃圾收集。
+
+为什么要用Metaspace替代方法区？</code></pre><p>随着动态类加载的情况越来越多，这块内存变得不太可控，如果设置小了，系统运行过程中就容易出现内存溢出，设置大了又浪费内存。</p>
+<pre><code>方法区的内存回收目标主要是针对常量池的回收和对类型的卸载，卸载条件相当苛刻。
+方法区无法满足新的内存分配需求时，将抛出OutOfMemoryError异常。</code></pre><ol start="6">
+<li>运行时常量池<pre><code>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表（Constant Pool Table），用于存放编译期生成的各种字面量与符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。</code></pre>运行时常量池特征：<br>（1）存储数据条件宽松。（保存Class文件中描述的符号引用，把由符号引用翻译出来的直接引用，均可放入运行时常量池）<br>（2）具备动态性。（预置入Class文件中常量池的内容，或运行期间新的常量[如String类的intern()方法]，均可放入）</li>
+</ol>
+<p>运行时常量池是方法区的一部分，受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</p>
+<ol start="7">
+<li>直接内存<br>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。但是这部分内存也被频繁地使用，而且也可能导致OutOfMemoryError异常出现。</li>
+</ol>
+<p>在JDK 1.4中新加入了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
+<p>本机直接内存的分配不会受Java堆大小的限制，但受到本机总内存（包括物理内存、SWAP分区或者分页文件）大小以及处理器寻址空间的限制。<br>配置虚拟机参数时，设置-Xmx等参数信息，若使得各个内存区域总和大于物理内存限制（包括物理的和操作系统级的限制），就会导致动态扩展时出现OutOfMemoryError。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>内存结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jvm之对象创建</title>
+    <url>/posts/b287f556.html</url>
+    <content><![CDATA[<h2 id="HotSpot-虚拟机对象创建于布局"><a href="#HotSpot-虚拟机对象创建于布局" class="headerlink" title="HotSpot 虚拟机对象创建于布局"></a>HotSpot 虚拟机对象创建于布局</h2><pre><code>HotSpot虚拟机在Java堆中对象分配、布局和访问的全过程。
+创建对象的三种方式：new关键字、复制、反序列化。</code></pre><h3 id="一-对象的创建"><a href="#一-对象的创建" class="headerlink" title="一. 对象的创建"></a>一. 对象的创建</h3><pre><code>此处提及的对象创建，只是普通Java对象，不包括数组和Class对象。</code></pre><h4 id="1-检查符合引用和类加载情况"><a href="#1-检查符合引用和类加载情况" class="headerlink" title="1. 检查符合引用和类加载情况"></a>1. 检查符合引用和类加载情况</h4><p>当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。</p>
+<h4 id="2-为新生对象分配内存"><a href="#2-为新生对象分配内存" class="headerlink" title="2. 为新生对象分配内存"></a>2. 为新生对象分配内存</h4><p>在类加载检查通过后，接下来虚拟机将为新生对象分配内存。对象所需内存的大小在类加载完成后便可完全确定，为对象分配空间的任务其实就是把一块确定大小的内存块从Java堆中划分出来存放该对象。</p>
+<p>关于对象内存分配方式：<br>（1）“指针碰撞”（Bump The Pointer）</p>
+<pre><code>假设Java堆中内存是绝对规整的，所有被使用过的内存都被放在一边，空闲的内存被放在另一边，中间放着一个指针作为分界点的指示器，那所分配内存就仅仅是把那个指针向空闲空间方向挪动一段与对象大小相等的距离，这种分配方式称为“指针碰撞”（Bump The Pointer）</code></pre><p>（2）“空闲列表”（Free List）:</p>
+<pre><code>Java堆中的内存并不是规整的，已被使用的内存和空闲的内存相互交错在一起，那就没有办法简单地进行指针碰撞了，虚拟机就必须维护一个列表，记录上哪些内存块是可用的，在分配的时候从列表中找到一块足够大的空间划分给对象实例，并更新列表上的记录，这种分配方式称为“空闲列表”（Free List）</code></pre><p>选择哪种分配方式，取决于Java堆是否规整决定，而Java堆是否规整又由所采用的垃圾收集器是否带有空间压缩整理（Compact）的能力决定。因此：</p>
+<pre><code>当使用Serial、ParNew等带压缩整理过程的收集器时，系统采用的分配算法是指针碰撞，既简单又高效；
+当使用CMS这种基于清除（Sweep）算法的收集器时，理论上就只能采用较为复杂的空闲列表来分配内存。</code></pre><p>考虑对象内存分配的线程安全问题：</p>
+<p>把内存分配的动作按照线程划分在不同的空间之中进行，即每个线程在Java堆中预先分配一小块内存，称为<code>本地线程分配缓冲（Thread Local Allocation Buffer，TLAB）</code>，哪个线程要分配内存，就在哪个线程的本地缓冲区中分配，只有本地缓冲区用完了，分配新的缓存区时才需要同步锁定【对分配内存空间的动作进行同步处理——实际上虚拟机是采用<code>CAS</code>配上失败重试的方式保证更新操作的原子性】。虚拟机是否使用<code>TLAB</code>，可以通过<code>-XX：+/-UseTLAB</code>参数来设定。</p>
+<p>每个线程在堆中都会有私有的<code>分配缓冲区(TLAB)</code>，这样可以很大程度避免在并发情况下频繁创建对象造成的线程不安全。</p>
+<h4 id="3-将分配的内存初始化为零值"><a href="#3-将分配的内存初始化为零值" class="headerlink" title="3. 将分配的内存初始化为零值"></a>3. 将分配的内存初始化为零值</h4><p>内存分配完成之后，虚拟机必须将分配到的内存空间（但不包括对象头）都初始化为零值，如果使用了TLAB的话，这一项工作也可以提前至<code>TLAB</code>分配时顺便进行。这步操作保证了对象的实例字段在Java代码中可以不赋初始值就直接使用，使程序能访问到这些字段的数据类型所对应的零值。</p>
+<h4 id="4-对新生的对象进行设置"><a href="#4-对新生的对象进行设置" class="headerlink" title="4. 对新生的对象进行设置"></a>4. 对新生的对象进行设置</h4><p>对象的元数据信息、对象的哈希码（实际上对象的哈希码会延后到真正调用<code>Object::hashCode()</code>方法时才计算）、对象的<code>GC</code>分代年龄等信息。这些信息存放在对象的对象头（Object Header）之中。根据虚拟机当前运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。</p>
+<h4 id="5-执行-lt-init-gt-方法。"><a href="#5-执行-lt-init-gt-方法。" class="headerlink" title="5. 执行&lt;init&gt;()方法。"></a>5. 执行<code>&lt;init&gt;()</code>方法。</h4><p>new指令之后会接着执行<init>()方法，按照程序员的意愿对对象进行初始化，这样一个真正可用的对象才算完全被构造出来。</p>
+<h3 id="二、对象的布局"><a href="#二、对象的布局" class="headerlink" title="二、对象的布局"></a>二、对象的布局</h3><p><code>HotSpot</code>虚拟机里，对象在堆内存中的存储布局可以划分为三个部分：</p>
+<pre><code>对象头（Header）、
+实例数据（Instance Data）
+对齐填充（Padding）。</code></pre><h4 id="1-对象头"><a href="#1-对象头" class="headerlink" title="1. 对象头"></a>1. 对象头</h4><p>对象头部分包括两类信息：</p>
+<p>（1）第一类是用于<strong>存储对象自身的运行时数据</strong>，如哈希码<code>（HashCode）</code>、<code>GC分代年龄</code>、<code>锁状态标志</code>、<code>线程持有的锁</code>、<code>偏向线程ID</code>、<code>偏向时间戳</code>等，这部分数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32个比特和64个比特，官方称它为“Mark Word”。</p>
+<p>（2）第二类是<strong>类型指针</strong>，即对象指向它的类型元数据的指针，Java虚拟机通过这个指针来确定该对象是哪个类的实例。</p>
+<pre><code>并不是所有的虚拟机实现都必须在对象数据上保留类型指针，即，查找对象的元数据信息并不一定要经过对象本身</code></pre><h4 id="2-实例数据："><a href="#2-实例数据：" class="headerlink" title="2. 实例数据："></a>2. 实例数据：</h4><p>实例数据部分是对象真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录起来。</p>
+<pre><code>这部分的存储顺序会受到虚拟机分配策略参数（-XX：FieldsAllocationStyle参数）和字段在Java源码中定义顺序的影响。
+
+HotSpot虚拟机默认的分配顺序为longs/doubles、ints、shorts/chars、bytes/booleans、oops（Ordinary Object Pointers，OOPs）。
+相同宽度的字段总是被分配到一起存放，在满足这个前提条件的情况下，在父类中定义的变量会出现在子类之前。
+
+如果HotSpot虚拟机的+XX：CompactFields参数值为true（默认就为true），那子类之中较窄的变量也允许插入父类变量的空隙之中，以节省出一点点空间</code></pre><h4 id="3-对齐填充"><a href="#3-对齐填充" class="headerlink" title="3.对齐填充"></a>3.对齐填充</h4><p>对齐填充，这并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。由于<code>HotSpot虚拟机</code>的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说就是任何对象的大小都必须是8字节的整数倍。对象头部分已经被精心设计成正好是8字节的倍数（1倍或者2倍），因此，如果对象实例数据部分没有对齐的话，就需要通过对齐填充来补全。</p>
+<h3 id="三、对象的访问定位"><a href="#三、对象的访问定位" class="headerlink" title="三、对象的访问定位"></a>三、对象的访问定位</h3><p>Java程序会通过栈上的reference数据来操作堆上的具体对象。</p>
+<p>对象访问主流的访问方式主要有使用句柄和直接指针两种：</p>
+<p>（1）使用句柄访问的话，Java堆中将可能会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自具体的地址信息：</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-obj-ref-1.jpg" alt="Image jvm-obj-ref-1"></p>
+<p>（2）使用直接指针访问的话，Java堆中对象的内存布局就必须考虑如何放置访问类型数据的相关信息，reference中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销。</p>
+<p><img src="/medias/loading-animated.gif" data-original="/jvm-images/jvm-obj-ref-2.jpg" alt="Image jvm-obj-ref-2"></p>
+<p>二者相比较：</p>
+<pre><code>使用句柄的最大好处是 reference 中存储的是稳定的句柄地址，在对象移动(GC)是只改变实例数据指针地址，reference 自身不需要修改。
+直接指针访问的最大好处是速度快，节省了一次指针定位的时间开销。如果是对象频繁 GC 那么句柄方法好，如果是对象频繁访问则直接指针访问好。</code></pre><p><code>HotSpot</code>而言，它主要使用第二种方式进行对象访问。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jvm之垃圾收集器算法</title>
+    <url>/posts/50b49e8d.html</url>
     <content><![CDATA[<h2 id="jvm-垃圾收集算法"><a href="#jvm-垃圾收集算法" class="headerlink" title="jvm 垃圾收集算法"></a>jvm 垃圾收集算法</h2><p>垃圾收集算法基本分类：<br>（1）“引用计数式垃圾收集”（Reference Counting GC）—直接垃圾收集<br>（2）“追踪式垃圾收集”（Tracing GC）—间接垃圾收集</p>
 <ol>
 <li>分代收集理论</li>
@@ -1942,7 +1964,7 @@ no, i am dead :(</code></pre><p>结论</p>
 <li>标记-清除算法（Mark-Sweep）</li>
 </ol>
 <p>最早出现也是最基础的垃圾收集算法是“标记-清除”（Mark-Sweep）算法。</p>
-<pre><code>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象，也可以反过来，标记存活的对象，统一回收所有未被标记的对象</code></pre><p>jvm-images/jvm-gc-mark-sweep.jpg</p>
+<pre><code>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象，也可以反过来，标记存活的对象，统一回收所有未被标记的对象</code></pre><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-mark-sweep.jpg" alt="image "></p>
 <p>主要缺点:<br>（1）执行效率不稳定，随着对象增加执行效率降低。</p>
 <pre><code>如果Java堆中包含大量对象，而且其中大部分是需要被回收的，这时必须进行大量标记和清除的动作，导致标记和清除两个过程的执行效率都随对象数量增长而降低；</code></pre><p>（2）内存空间碎片化问题，遇到较大对象男分配，重新GC。</p>
 <pre><code>第二个是内存空间的碎片化问题，标记、清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致当以后在程序运行过程中需要分配较大对象时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</code></pre><ol start="3">
@@ -1953,7 +1975,7 @@ no, i am dead :(</code></pre><p>结论</p>
 <pre><code>实现简单，运行高效。
 分配内存时也就不用考虑有空间碎片的复杂情况，只要移动堆顶指针，按顺序分配即可</code></pre><p>缺点：</p>
 <pre><code>如果内存中多数对象都是存活的，这种算法将会产生大量的内存间复制的开销。
-将可用内存缩小为了原来的一半。</code></pre><p>jvm-gc-Semispace Copying.jpg</p>
+将可用内存缩小为了原来的一半。</code></pre><p>![image ](/images/jvm-images/jvm-gc-Semispace Copying.jpg)</p>
 <pre><code>现在的商用Java虚拟机大多都优先采用了这种收集算法去回收新生代。
 在1989年，Andrew Appel针对具备“朝生夕灭”特点的对象，提出了一种更优化的半区复制分代策略，现在称为“Appel式回收”。HotSpot虚拟机的Serial、ParNew等新生代收集器均采用了这种策略来设计新生代的内存布局。
 
@@ -1963,7 +1985,7 @@ Appel式回收的具体做法是把新生代分为一块较大的Eden空间和�
 <li>标记-整理算法（Mark-Compact）</li>
 </ol>
 <p>不同于针对新生代的复制算法，针对老年代的特点，1974年Edward Lueders提出了另外一种有针对性的“标记-整理”（Mark-Compact）算法。其中的标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存。</p>
-<p>jvm-gc-Mark-Compact.jpg</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-Mark-Compact.jpg" alt="image "></p>
 <p>标记-清除算法与标记-整理算法的本质差异在于前者是一种非移动式的回收算法，而后者是移动式的。</p>
 <p>优缺点：</p>
 <pre><code>如果移动存活对象，尤其是在老年代这种每次回收都有大量对象存活区域，移动存活对象并更新所有引用这些对象的地方将会是一种极为负重的操作，而且这种对象移动操作必须全程暂停用户应用程序才能进行（Stop The World）。
@@ -1971,11 +1993,19 @@ Appel式回收的具体做法是把新生代分为一块较大的Eden空间和�
 如果跟标记-清除算法那样完全不考虑移动和整理存活对象的话，弥散于堆中的存活对象导致的空间碎片化问题就只能依赖更为复杂的内存分配器和内存访问器来解决。
 
 是否移动对象都存在弊端，移动则内存回收时会更复杂，不移动则内存分配时会更复杂。从垃圾收集的停顿时间来看，不移动对象停顿时间会更短，甚至可以不需要停顿，但是从整个程序的吞吐量来看，移动对象会更划算。此语境中，吞吐量的实质是赋值器（Mutator，可以理解为使用垃圾收集的用户程序，本书为便于理解，多数地方用“用户程序”或“用户线程”代替）与收集器的效率总和。即使不移动对象会使得收集器的效率提升一些，但因内存分配和访问相比垃圾收集频率要高得多，这部分的耗时增加，总吞吐量仍然是下降的。HotSpot虚拟机里面关注吞吐量的Parallel Scavenge收集器是基于标记-整理算法的，而关注延迟的CMS收集器则是基于标记-清除算法的。</code></pre>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>垃圾收集器算法</tag>
+      </tags>
   </entry>
   <entry>
-    <title>jvm/jvm-5-gc-garbage-collector</title>
-    <url>/posts/7df04735.html</url>
-    <content><![CDATA[<h2 id="jvm-垃圾收集器"><a href="#jvm-垃圾收集器" class="headerlink" title="jvm 垃圾收集器"></a>jvm 垃圾收集器</h2><h3 id="1-关于垃圾收集器"><a href="#1-关于垃圾收集器" class="headerlink" title="1. 关于垃圾收集器"></a>1. 关于垃圾收集器</h3><pre><code>垃圾收集器是垃圾回收算法（标记-清除算法、标记-复制算法、标记-整理算法、半复制算法）的具体实现，不同商家、不同版本的JVM所提供的垃圾收集器可能会有很在差别，本文主要介绍HotSpot虚拟机中的垃圾收集器。</code></pre><h3 id="2-Hotspot七种垃圾收集器"><a href="#2-Hotspot七种垃圾收集器" class="headerlink" title="2. Hotspot七种垃圾收集器"></a>2. Hotspot七种垃圾收集器</h3><p>jvm-gcr-1.jpg<br>（图片来自《深入理解java虚拟机:jvm高级特性与最佳实践 》第三版。）</p>
+    <title>jvm之垃圾收集器（1）</title>
+    <url>/posts/d01dbbb1.html</url>
+    <content><![CDATA[<h2 id="jvm-垃圾收集器"><a href="#jvm-垃圾收集器" class="headerlink" title="jvm 垃圾收集器"></a>jvm 垃圾收集器</h2><h3 id="1-关于垃圾收集器"><a href="#1-关于垃圾收集器" class="headerlink" title="1. 关于垃圾收集器"></a>1. 关于垃圾收集器</h3><pre><code>垃圾收集器是垃圾回收算法（标记-清除算法、标记-复制算法、标记-整理算法、半复制算法）的具体实现，不同商家、不同版本的JVM所提供的垃圾收集器可能会有很在差别，本文主要介绍HotSpot虚拟机中的垃圾收集器。</code></pre><h3 id="2-Hotspot七种垃圾收集器"><a href="#2-Hotspot七种垃圾收集器" class="headerlink" title="2. Hotspot七种垃圾收集器"></a>2. Hotspot七种垃圾收集器</h3><p><img src="/medias/loading-animated.gif" data-original="images/jvm-images/jvm-gcr-1.jpg" alt="image "><br>（图片来自《深入理解java虚拟机:jvm高级特性与最佳实践 》第三版。）</p>
 <p>图中是七种作用于不同分代的收集器。<br>如果两个收集器之间存在连线，就说明它们可以搭配使用。<br>图中收集器所处的区域，则表示它是属于新生代收集器抑或是老年代收集器。<br>其中Serial Old作为CMS出现”Concurrent Mode Failure”失败的后备预案。</p>
 <p>整理成表格如下：</p>
 <table>
@@ -2034,5 +2064,13 @@ Appel式回收的具体做法是把新生代分为一块较大的Eden空间和�
 <p>​      可以获得更好的空间局部性；</p>
 <p>三者共同构成了一个“不可能三角”。三者总体的表现会随技术进步而越来越好，但是要在这三个方面同时具有卓越表现的“完美”几乎不可能，一款优秀的收集器通常最多可以同时达成其中的两项。（与分布式里CAP理论相似）（扩展阅读了解<a href="https://wiki.mbalib.com/wiki/%E4%B8%89%E5%85%83%E6%82%96%E8%AE%BA" target="_blank" rel="noopener">不可能三角</a>）</p>
 ]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>垃圾收集器</tag>
+      </tags>
   </entry>
 </search>
