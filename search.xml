@@ -1,60 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Centos相关配置</title>
-    <url>/posts/42e4f857.html</url>
-    <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
-<a id="more"></a>
-
-<h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre>
-<p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p>
-<pre><code>TYPE=Ethernet
-PROXY_METHOD=none
-BROWSER_ONLY=no
-BOOTPROTO=none
-DEFROUTE=yes
-IPV4_FAILURE_FATAL=no
-IPV6INIT=yes
-IPV6_AUTOCONF=yes
-IPV6_DEFROUTE=yes
-IPV6_FAILURE_FATAL=no
-IPV6_ADDR_GEN_MODE=stable-privacy
-NAME=ens192
-UUID=64e7784d-8183-4db5-af4c-120203391708
-DEVICE=ens192
-ONBOOT=yes
-IPADDR=192.168.66.80
-PREFIX=24
-GATEWAY=192.168.66.254
-IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre>
-<h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p>
-<pre><code>      Local time: 四 2014-12-25 10:52:10 CST
-  Universal time: 四 2014-12-25 02:52:10 UTC
-        RTC time: 四 2014-12-25 02:52:10
-        Timezone: Asia/Shanghai (CST, +0800)
-     NTP enabled: yes
-NTP synchronized: yes
- RTC in local TZ: no
-      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre>
-<h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre>
-<h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre>
-<h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre>
-<h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p>
-<pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre>
-<p>增加：</p>
-<pre><code>nameserver 8.8.8.8
-nameserver 8.8.4.4</code></pre>]]></content>
-      <categories>
-        <category>Linux,centos</category>
-      </categories>
-      <tags>
-        <tag>centos配置</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Centos-jdk安装配置环境变量</title>
     <url>/posts/9064540a.html</url>
     <content><![CDATA[<p> Centos上安装jdk，配置环境变量的方法</p>
@@ -128,6 +74,90 @@ export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href=
       </tags>
   </entry>
   <entry>
+    <title>Centos相关配置</title>
+    <url>/posts/42e4f857.html</url>
+    <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
+<a id="more"></a>
+
+<h2 id="Centos各种配置"><a href="#Centos各种配置" class="headerlink" title="Centos各种配置"></a>Centos各种配置</h2><h2 id="1-Centos网络配置"><a href="#1-Centos网络配置" class="headerlink" title="1.Centos网络配置"></a>1.Centos网络配置</h2><h4 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h4><p>有图形界面可以直接界面操作，没有界面可以参考一下：<br>（1）修改配置</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> /etc/sysconfig/network-scripts/</code></pre>
+<p>修改对应网卡的配置，可以ifconfig看看用的网卡名。<br>修改相关配置：</p>
+<pre><code>TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens192
+UUID=64e7784d-8183-4db5-af4c-120203391708
+DEVICE=ens192
+ONBOOT=yes
+IPADDR=192.168.66.80
+PREFIX=24
+GATEWAY=192.168.66.254
+IPV6_PRIVACY=no</code></pre><p>（2）重启网络服务</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">service</span> network restart</code></pre>
+<h2 id="2-Centos时间配置"><a href="#2-Centos时间配置" class="headerlink" title="2.Centos时间配置"></a>2.Centos时间配置</h2><p>设置时区同样,在 CentOS 7 中, 引入了一个叫 timedatectl 的设置设置程序.<br>用法很简单:<code>timedatectl # 查看系统时间方面的各种状态</code></p>
+<pre><code>      Local time: 四 2014-12-25 10:52:10 CST
+  Universal time: 四 2014-12-25 02:52:10 UTC
+        RTC time: 四 2014-12-25 02:52:10
+        Timezone: Asia/Shanghai (CST, +0800)
+     NTP enabled: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: n/a</code></pre><h4 id="列出所有时区"><a href="#列出所有时区" class="headerlink" title="列出所有时区"></a>列出所有时区</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl list-timezones </code></pre>
+<h4 id="将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间"><a href="#将硬件时钟调整为与本地时钟一致-0-为设置为-UTC-时间" class="headerlink" title="将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间"></a>将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-local-rtc 1 </code></pre>
+<h4 id="设置系统时区为上海"><a href="#设置系统时区为上海" class="headerlink" title="设置系统时区为上海"></a>设置系统时区为上海</h4><pre class=" language-bash"><code class="language-bash">$ timedatectl set-timezone Asia/Shanghai </code></pre>
+<h4 id="直接修改时间时区"><a href="#直接修改时间时区" class="headerlink" title="直接修改时间时区"></a>直接修改时间时区</h4><p>其实不考虑各个发行版的差异化, 从更底层出发的话, 直接修改时间时区:</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></pre>
+<h2 id="3-DNS解析问题"><a href="#3-DNS解析问题" class="headerlink" title="3.DNS解析问题"></a>3.DNS解析问题</h2><p>ping IP可以 ping 域名不通的时候</p>
+<pre class=" language-bash"><code class="language-bash">$ vim /etc/resolve.conf</code></pre>
+<p>增加：</p>
+<pre><code>nameserver 8.8.8.8
+nameserver 8.8.4.4</code></pre>]]></content>
+      <categories>
+        <category>Linux,centos</category>
+      </categories>
+      <tags>
+        <tag>centos配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js让页面自动刷新</title>
+    <url>/posts/7413f2ca.html</url>
+    <content><![CDATA[<p>js让页面自动刷新</p>
+<a id="more"></a>
+
+<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
+<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">=</span><span class="token number">0</span>
+current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">++</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
+<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git的SSH免密使用</title>
     <url>/posts/c68d7a69.html</url>
     <content><![CDATA[<pre><code>本文记录关于Git的免密使用，连接Github免密和 云服务器或私有服务器免密。</code></pre><h3 id="一-Github的Git免密使用"><a href="#一-Github的Git免密使用" class="headerlink" title="一  Github的Git免密使用"></a>一  <code>Github</code>的Git免密使用</h3><h4 id="1-客户端生成密钥"><a href="#1-客户端生成密钥" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
@@ -172,36 +202,6 @@ AuthorizedKeysFile .ssh/authorized_keys</code></pre><p>git用户不允许登录s
         <tag>SSH免密</tag>
         <tag>云服务器</tag>
         <tag>私有服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js让页面自动刷新</title>
-    <url>/posts/7413f2ca.html</url>
-    <content><![CDATA[<p>js让页面自动刷新</p>
-<a id="more"></a>
-
-<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
-<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">=</span><span class="token number">0</span>
-current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">else</span>
-location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">++</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
-<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -625,74 +625,46 @@ fr4me<span class="token operator">+</span><span class="token operator">=</span><
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（一）——基础搭建</title>
-    <url>/posts/9f117b.html</url>
-    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
+    <title>Hexo搭建静态博客（二）——创建页面</title>
+    <url>/posts/c1358fc8.html</url>
+    <content><![CDATA[<p>本文记录将hexo博客创建页面相关操作操作。</p>
 <a id="more"></a>
-<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
-<pre><code>$ hexo -v
-hexo：4.2.1
-hexo-cli：3.1.0
-os：Windows_NT 10.0.18362 win32 x64
-http_parser：2.8.0
-node：8.12.0
-v8：6.2.414.66
-uv：1.19.2
-zlib：1.2.11
-ares：1.10.1-DEV
-modules：57
-nghttp2：1.32.0
-napi： 3
-openssl：1.0.2p
-icu：60.1
-unicode：10.0
-cldr：32.0
-tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
-<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
-<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
-<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
-$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
-$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
-$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
-<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
-<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
-<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
-hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
-hexo s 或  hexo server     //启动服务预览 http://localhost:4000
-hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
-<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（三）——主题更换</title>
-    <url>/posts/a5bf7e18.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
- <a id="more"></a>
 
-<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a><br>漂亮主题推荐：<br>[hexo-theme-matery]（<a href="https://github.com/blinkfox/hexo-theme-matery）" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery）</a><br>[hexo-theme-ayer]（<a href="https://github.com/Shen-Yu/hexo-theme-ayer）" target="_blank" rel="noopener">https://github.com/Shen-Yu/hexo-theme-ayer）</a></p>
-<p>其中极简主题有些没有search功能，如需要自己安装search插件，参考Hexo搭建静态博客（四）——插件安装<br>极简主题我比较喜欢hexo-theme-polarbear，对扩展版进行补充搜索功能。</p>
-<p>如安装主题hexo-theme-xoxo-plus。</p>
-<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
-<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
-<pre><code># Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-# landscape
-theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>浏览器访问：<br>大功告成。</p>
-<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
-<p>如有问题请参考本系列：<a href="/post/ce4a93ff.html">Hexo搭建静态博客（五）——踩坑问题</a></p>
+<p>作者：阿兰那</p>
+<h2 id="1-创建链接页面的基本命令"><a href="#1-创建链接页面的基本命令" class="headerlink" title="1.创建链接页面的基本命令"></a>1.创建链接页面的基本命令</h2><font color=red>
+```
+hexo new page  yourpagename
+```
+</font>
+
+<h4 id="2-创建about页面"><a href="#2-创建about页面" class="headerlink" title="2.创建about页面"></a>2.创建about页面</h4><pre><code>hexo new page about</code></pre><p>修改source/about/index.md文件即可。文件内可以使用markdown或html语法。</p>
+<h4 id="3-创建分类"><a href="#3-创建分类" class="headerlink" title="3.创建分类"></a>3.创建分类</h4><pre><code>hexo new page categories   //创建分类</code></pre><p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p>
+<pre><code>---
+title: categories
+date: 2020-05-14 21:51:42
+type: categories
+---</code></pre><p>那么在写文章的时候就可以在头部使用分类了，如：</p>
+<pre><code>---
+title: Hexo搭建静态博客及踩坑问题
+date: 2020-05-13
+categories: Hexo
+---
+ this is my article ...
+</code></pre><h4 id="4-创建标签"><a href="#4-创建标签" class="headerlink" title="4.创建标签"></a>4.创建标签</h4><pre><code>hexo new page tags         //创建标签</code></pre><p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p>
+<pre><code>---
+title: tags
+date: 2020-05-14 21:51:42
+type: tags
+---</code></pre><p>那么在写文章的时候就可以在头部使用标签了，如：</p>
+<pre><code>---
+title: Hexo搭建静态博客及踩坑问题
+date: 2020-05-13
+categories: Hexo
+tags: Hexo
+---
+ this is my article ...
+</code></pre><p>是不是很简单呢？</p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -771,45 +743,45 @@ abbrlink:
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（二）——创建页面</title>
-    <url>/posts/c1358fc8.html</url>
-    <content><![CDATA[<p>本文记录将hexo博客创建页面相关操作操作。</p>
+    <title>Hexo搭建静态博客（一）——基础搭建</title>
+    <url>/posts/9f117b.html</url>
+    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
 <a id="more"></a>
-
-<p>作者：阿兰那</p>
-<h2 id="1-创建链接页面的基本命令"><a href="#1-创建链接页面的基本命令" class="headerlink" title="1.创建链接页面的基本命令"></a>1.创建链接页面的基本命令</h2><font color=red>
-```
-hexo new page  yourpagename
-```
-</font>
-
-<h4 id="2-创建about页面"><a href="#2-创建about页面" class="headerlink" title="2.创建about页面"></a>2.创建about页面</h4><pre><code>hexo new page about</code></pre><p>修改source/about/index.md文件即可。文件内可以使用markdown或html语法。</p>
-<h4 id="3-创建分类"><a href="#3-创建分类" class="headerlink" title="3.创建分类"></a>3.创建分类</h4><pre><code>hexo new page categories   //创建分类</code></pre><p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p>
-<pre><code>---
-title: categories
-date: 2020-05-14 21:51:42
-type: categories
----</code></pre><p>那么在写文章的时候就可以在头部使用分类了，如：</p>
-<pre><code>---
-title: Hexo搭建静态博客及踩坑问题
-date: 2020-05-13
-categories: Hexo
----
- this is my article ...
-</code></pre><h4 id="4-创建标签"><a href="#4-创建标签" class="headerlink" title="4.创建标签"></a>4.创建标签</h4><pre><code>hexo new page tags         //创建标签</code></pre><p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p>
-<pre><code>---
-title: tags
-date: 2020-05-14 21:51:42
-type: tags
----</code></pre><p>那么在写文章的时候就可以在头部使用标签了，如：</p>
-<pre><code>---
-title: Hexo搭建静态博客及踩坑问题
-date: 2020-05-13
-categories: Hexo
-tags: Hexo
----
- this is my article ...
-</code></pre><p>是不是很简单呢？</p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
+<pre><code>$ hexo -v
+hexo：4.2.1
+hexo-cli：3.1.0
+os：Windows_NT 10.0.18362 win32 x64
+http_parser：2.8.0
+node：8.12.0
+v8：6.2.414.66
+uv：1.19.2
+zlib：1.2.11
+ares：1.10.1-DEV
+modules：57
+nghttp2：1.32.0
+napi： 3
+openssl：1.0.2p
+icu：60.1
+unicode：10.0
+cldr：32.0
+tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
+<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
+<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
+<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
+$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
+$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
+$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
+<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
+<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
+<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
+hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
+hexo s 或  hexo server     //启动服务预览 http://localhost:4000
+hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
+<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
 <p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
 ]]></content>
       <categories>
@@ -835,6 +807,34 @@ key: value
 <h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
 <pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)使用主题的时候注意先阅读相关使用文档，有些主题需要一些插件</p>
 <h5 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h5><p>后续补充</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（三）——主题更换</title>
+    <url>/posts/a5bf7e18.html</url>
+    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
+ <a id="more"></a>
+
+<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a><br>漂亮主题推荐：<br>[hexo-theme-matery]（<a href="https://github.com/blinkfox/hexo-theme-matery）" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery）</a><br>[hexo-theme-ayer]（<a href="https://github.com/Shen-Yu/hexo-theme-ayer）" target="_blank" rel="noopener">https://github.com/Shen-Yu/hexo-theme-ayer）</a></p>
+<p>其中极简主题有些没有search功能，如需要自己安装search插件，参考Hexo搭建静态博客（四）——插件安装<br>极简主题我比较喜欢hexo-theme-polarbear，对扩展版进行补充搜索功能。</p>
+<p>如安装主题hexo-theme-xoxo-plus。</p>
+<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
+<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
+<pre><code># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# landscape
+theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>浏览器访问：<br>大功告成。</p>
+<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
+<p>如有问题请参考本系列：<a href="/post/ce4a93ff.html">Hexo搭建静态博客（五）——踩坑问题</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -993,179 +993,6 @@ nginx: configuration <span class="token function">file</span> /etc/nginx/nginx.c
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java 查漏补缺-java8里的日期时间API</title>
-    <url>/posts/c68d7a69.html</url>
-    <content><![CDATA[<h3 id="Java-8-日期时间-API"><a href="#Java-8-日期时间-API" class="headerlink" title="Java 8 日期时间 API"></a>Java 8 日期时间 API</h3><p>Java 8通过发布新的Date-Time API (JSR 310)来进一步加强对日期与时间的处理。 旧版的<code>java.util.Date</code>是非线程安全的。</p>
-<h4 id="1-java8日期时间相关API"><a href="#1-java8日期时间相关API" class="headerlink" title="1. java8日期时间相关API"></a>1. java8日期时间相关API</h4><p>Java 8 在 java.time 包下提供了很多新的 API：</p>
-<pre><code>Local(本地) − 简化了日期时间的处理，没有时区的问题。
-Zoned(时区) − 通过制定的时区处理日期时间。
-
-Instant（时间戳）-精确到纳秒的的某个时间点，不包含时区，允许加减运算。该方法默认使用的是UTC(协调世界时——由原子钟提供)时间，可以使用equeal 和 compareTo来比较两个时间点的值。支持旧版时间转换新版时间戳。
-
-LocalDate（本地日期）− 简化了日期处理，不带时间。
-LocalTime（本地时间）− 简化了时间处理，不带日期且没有偏移信息、无时区的时间。
-LocalDateTime（本地日期时间）− 日期+时间的处理。
-
-ZoneDateTime（时区日期时间）- 包含时区的完整的日期时间，偏移量是以UTC/格林威治时间为基准的。。 
-
-MonthDay- 月日组合。它是一个值类（value class）,由，不包含年信息，可以用来代表每年重复出现的一些日期或其他组合。
-YearMonth - 年月组合。
-WeekFields(周) - 处理周的计算。
-
-DateTimeFormatter − 提供格式化和解析功能。下面详细的介绍使用方法。
-任何修改操作都会返回一个新的实例。
-
-Clock - 时钟。可以获取某个时区下（对时区是敏感的）当前的瞬时时间、日期。用来代替System.currentTimelnMillis()与TimeZone.getDefault()方法。</code></pre><h4 id="2-基本获取与简单计算。"><a href="#2-基本获取与简单计算。" class="headerlink" title="2. 基本获取与简单计算。"></a>2. 基本获取与简单计算。</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Clock<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>DayOfWeek<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Duration<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Instant<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDate<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalTime<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Period<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>temporal<span class="token punctuation">.</span>ChronoUnit<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>temporal<span class="token punctuation">.</span>WeekFields<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Date<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateTimeTest</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 时间戳</span>
-        Instant now <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" now = "</span> <span class="token operator">+</span> now<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        LocalDate date <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//日期</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date = "</span> <span class="token operator">+</span> date<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        LocalTime time <span class="token operator">=</span> LocalTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span>Clock<span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//时间</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" time = "</span> <span class="token operator">+</span> time<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        LocalDateTime dttm <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm = "</span> <span class="token operator">+</span> dttm<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 将java.util.Date转换为Instant</span>
-        Instant instant1 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">ofEpochMilli</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>instant1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 从字符串类型中创建Instant类型的时间</span>
-        Instant instant2 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"1995-10-23T10:12:35Z"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        Instant instant3 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 将现在的时间加上2个小时10分钟</span>
-        Instant changeIns <span class="token operator">=</span> instant3<span class="token punctuation">.</span><span class="token function">plus</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofHours</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">plusMinutes</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>changeIns<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 使用instant计算7天前</span>
-        instant3<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span>DAYS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法1</span>
-        instant3<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofDays</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法2</span>
-
-        <span class="token comment" spellcheck="true">// 计算两个Instant之间的分钟数</span>
-        Instant instant4 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// long diffAsMinutes = instant.periodUntil(instant3, ChronoUnit.MINUTES); //</span>
-        <span class="token comment" spellcheck="true">// 方法1</span>
-        <span class="token keyword">long</span> diffAsMinutes1 <span class="token operator">=</span> ChronoUnit<span class="token punctuation">.</span>MINUTES<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>instant1<span class="token punctuation">,</span> instant4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法2</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>diffAsMinutes1 <span class="token operator">/</span> <span class="token number">60</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 一周从周日开始</span>
-        WeekFields weekFields <span class="token operator">=</span> WeekFields<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>DayOfWeek<span class="token punctuation">.</span>SUNDAY<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LocalDate today <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"今天是今年第"</span> <span class="token operator">+</span> today<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>weekFields<span class="token punctuation">.</span><span class="token function">weekOfYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"周"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 计算date的相差天数</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 计算date的相差月数</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">until</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span>MONTHS<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 计算date的相差月天，（相差0年1月24天）</span>
-        LocalDate date1 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LocalDate date2 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Period period <span class="token operator">=</span> Period<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>date1<span class="token punctuation">,</span> date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>period<span class="token punctuation">.</span><span class="token function">getYears</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getMonths</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getDays</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        Clock utc_cl <span class="token operator">=</span> Clock<span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" utc_cl :"</span> <span class="token operator">+</span>utc_cl<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Clock def_cl <span class="token operator">=</span> Clock<span class="token punctuation">.</span><span class="token function">systemDefaultZone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" def_cl :"</span> <span class="token operator">+</span>def_cl<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span></code></pre>
-<h4 id="3-日期判断与比较"><a href="#3-日期判断与比较" class="headerlink" title="3. 日期判断与比较"></a>3. 日期判断与比较</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDate<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateTimeCompareTest</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-        <span class="token comment" spellcheck="true">// 日期比较</span>
-        LocalDate date1 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LocalDate date2 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// isBefore</span>
-        <span class="token keyword">boolean</span> b1 <span class="token operator">=</span> date1<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date1 在date2的前面 ："</span> <span class="token operator">+</span> b1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// isAfter</span>
-        <span class="token keyword">boolean</span> b2 <span class="token operator">=</span> date1<span class="token punctuation">.</span><span class="token function">isAfter</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date1 在date2的后面 ："</span> <span class="token operator">+</span> b2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">boolean</span> b3 <span class="token operator">=</span> date1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date1   equals  date2  ? "</span> <span class="token operator">+</span> b3<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 日期时间比较</span>
-        LocalDateTime dttm1 <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm1 = "</span> <span class="token operator">+</span> dttm1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LocalDateTime dttm2 <span class="token operator">=</span> dttm1<span class="token punctuation">.</span><span class="token function">plusDays</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm2 = "</span> <span class="token operator">+</span> dttm2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">boolean</span> b4 <span class="token operator">=</span> dttm1<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span>dttm2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm1 在 dttm2 的前面 ："</span> <span class="token operator">+</span> b4<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<h4 id="4-时区处理"><a href="#4-时区处理" class="headerlink" title="4. 时区处理"></a>4. 时区处理</h4><p>ZonId代表的是某个特定时区，ZonedDateTime代表带时区的时间，等同于以前的GregorianCalendar类。使用该类，可以将本地时间转换成另一个时区中的对应时间。</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>ZoneId<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>ZonedDateTime<span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TimeZoneTest</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-        LocalDateTime localDateTime <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" localDateTime = "</span> <span class="token operator">+</span> localDateTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        ZoneId zone <span class="token operator">=</span> ZoneId<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>ZoneId<span class="token punctuation">.</span>SHORT_IDS<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"CTT"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//取定义好的时区</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" zone = "</span> <span class="token operator">+</span> zone<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//包含时区的时间</span>
-        ZonedDateTime dtWithZone <span class="token operator">=</span> ZonedDateTime<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>localDateTime<span class="token punctuation">,</span> zone<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dtWithZone = "</span> <span class="token operator">+</span> dtWithZone<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>输出</p>
-<pre><code> localDateTime = 2020-05-31T23:54:42.831
- zone = Asia/Shanghai
- dtWithZone = 2020-05-31T23:54:42.831+08:00[Asia/Shanghai]</code></pre><p> 注意：对应时区的文本可以直接手动填写，也可以调用系统默认定义的。</p>
-<h4 id="4-其他"><a href="#4-其他" class="headerlink" title="4. 其他"></a>4. 其他</h4><p>可以参考<a href="https://www.matools.com/api/java8" target="_blank" rel="noopener">java 8 API</a>,在实际遇到再补充。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-        <tag>Java虚拟机</tag>
       </tags>
   </entry>
   <entry>
@@ -1592,8 +1419,181 @@ Nashorn定义了大量对ECMAScript标准的语言和API扩展。但是首先让
       </tags>
   </entry>
   <entry>
-    <title>java 查漏补缺-Java8 中的 Optional</title>
+    <title>java 查漏补缺-java8里的日期时间API</title>
     <url>/posts/c68d7a69.html</url>
+    <content><![CDATA[<h3 id="Java-8-日期时间-API"><a href="#Java-8-日期时间-API" class="headerlink" title="Java 8 日期时间 API"></a>Java 8 日期时间 API</h3><p>Java 8通过发布新的Date-Time API (JSR 310)来进一步加强对日期与时间的处理。 旧版的<code>java.util.Date</code>是非线程安全的。</p>
+<h4 id="1-java8日期时间相关API"><a href="#1-java8日期时间相关API" class="headerlink" title="1. java8日期时间相关API"></a>1. java8日期时间相关API</h4><p>Java 8 在 java.time 包下提供了很多新的 API：</p>
+<pre><code>Local(本地) − 简化了日期时间的处理，没有时区的问题。
+Zoned(时区) − 通过制定的时区处理日期时间。
+
+Instant（时间戳）-精确到纳秒的的某个时间点，不包含时区，允许加减运算。该方法默认使用的是UTC(协调世界时——由原子钟提供)时间，可以使用equeal 和 compareTo来比较两个时间点的值。支持旧版时间转换新版时间戳。
+
+LocalDate（本地日期）− 简化了日期处理，不带时间。
+LocalTime（本地时间）− 简化了时间处理，不带日期且没有偏移信息、无时区的时间。
+LocalDateTime（本地日期时间）− 日期+时间的处理。
+
+ZoneDateTime（时区日期时间）- 包含时区的完整的日期时间，偏移量是以UTC/格林威治时间为基准的。。 
+
+MonthDay- 月日组合。它是一个值类（value class）,由，不包含年信息，可以用来代表每年重复出现的一些日期或其他组合。
+YearMonth - 年月组合。
+WeekFields(周) - 处理周的计算。
+
+DateTimeFormatter − 提供格式化和解析功能。下面详细的介绍使用方法。
+任何修改操作都会返回一个新的实例。
+
+Clock - 时钟。可以获取某个时区下（对时区是敏感的）当前的瞬时时间、日期。用来代替System.currentTimelnMillis()与TimeZone.getDefault()方法。</code></pre><h4 id="2-基本获取与简单计算。"><a href="#2-基本获取与简单计算。" class="headerlink" title="2. 基本获取与简单计算。"></a>2. 基本获取与简单计算。</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Clock<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>DayOfWeek<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Duration<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Instant<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDate<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalTime<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Period<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>temporal<span class="token punctuation">.</span>ChronoUnit<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>temporal<span class="token punctuation">.</span>WeekFields<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Date<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateTimeTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 时间戳</span>
+        Instant now <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" now = "</span> <span class="token operator">+</span> now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        LocalDate date <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//日期</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date = "</span> <span class="token operator">+</span> date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        LocalTime time <span class="token operator">=</span> LocalTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span>Clock<span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//时间</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" time = "</span> <span class="token operator">+</span> time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        LocalDateTime dttm <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm = "</span> <span class="token operator">+</span> dttm<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 将java.util.Date转换为Instant</span>
+        Instant instant1 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">ofEpochMilli</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>instant1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 从字符串类型中创建Instant类型的时间</span>
+        Instant instant2 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"1995-10-23T10:12:35Z"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Instant instant3 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将现在的时间加上2个小时10分钟</span>
+        Instant changeIns <span class="token operator">=</span> instant3<span class="token punctuation">.</span><span class="token function">plus</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofHours</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">plusMinutes</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>changeIns<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 使用instant计算7天前</span>
+        instant3<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span>DAYS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法1</span>
+        instant3<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofDays</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法2</span>
+
+        <span class="token comment" spellcheck="true">// 计算两个Instant之间的分钟数</span>
+        Instant instant4 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// long diffAsMinutes = instant.periodUntil(instant3, ChronoUnit.MINUTES); //</span>
+        <span class="token comment" spellcheck="true">// 方法1</span>
+        <span class="token keyword">long</span> diffAsMinutes1 <span class="token operator">=</span> ChronoUnit<span class="token punctuation">.</span>MINUTES<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>instant1<span class="token punctuation">,</span> instant4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法2</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>diffAsMinutes1 <span class="token operator">/</span> <span class="token number">60</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 一周从周日开始</span>
+        WeekFields weekFields <span class="token operator">=</span> WeekFields<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>DayOfWeek<span class="token punctuation">.</span>SUNDAY<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDate today <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"今天是今年第"</span> <span class="token operator">+</span> today<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>weekFields<span class="token punctuation">.</span><span class="token function">weekOfYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"周"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 计算date的相差天数</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 计算date的相差月数</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">until</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span>MONTHS<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 计算date的相差月天，（相差0年1月24天）</span>
+        LocalDate date1 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDate date2 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Period period <span class="token operator">=</span> Period<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>date1<span class="token punctuation">,</span> date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>period<span class="token punctuation">.</span><span class="token function">getYears</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getMonths</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getDays</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Clock utc_cl <span class="token operator">=</span> Clock<span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" utc_cl :"</span> <span class="token operator">+</span>utc_cl<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Clock def_cl <span class="token operator">=</span> Clock<span class="token punctuation">.</span><span class="token function">systemDefaultZone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" def_cl :"</span> <span class="token operator">+</span>def_cl<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h4 id="3-日期判断与比较"><a href="#3-日期判断与比较" class="headerlink" title="3. 日期判断与比较"></a>3. 日期判断与比较</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDate<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateTimeCompareTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">// 日期比较</span>
+        LocalDate date1 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDate date2 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// isBefore</span>
+        <span class="token keyword">boolean</span> b1 <span class="token operator">=</span> date1<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date1 在date2的前面 ："</span> <span class="token operator">+</span> b1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// isAfter</span>
+        <span class="token keyword">boolean</span> b2 <span class="token operator">=</span> date1<span class="token punctuation">.</span><span class="token function">isAfter</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date1 在date2的后面 ："</span> <span class="token operator">+</span> b2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">boolean</span> b3 <span class="token operator">=</span> date1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date1   equals  date2  ? "</span> <span class="token operator">+</span> b3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 日期时间比较</span>
+        LocalDateTime dttm1 <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm1 = "</span> <span class="token operator">+</span> dttm1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDateTime dttm2 <span class="token operator">=</span> dttm1<span class="token punctuation">.</span><span class="token function">plusDays</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm2 = "</span> <span class="token operator">+</span> dttm2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> b4 <span class="token operator">=</span> dttm1<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span>dttm2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm1 在 dttm2 的前面 ："</span> <span class="token operator">+</span> b4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="4-时区处理"><a href="#4-时区处理" class="headerlink" title="4. 时区处理"></a>4. 时区处理</h4><p>ZonId代表的是某个特定时区，ZonedDateTime代表带时区的时间，等同于以前的GregorianCalendar类。使用该类，可以将本地时间转换成另一个时区中的对应时间。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>ZoneId<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>ZonedDateTime<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TimeZoneTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        LocalDateTime localDateTime <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" localDateTime = "</span> <span class="token operator">+</span> localDateTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        ZoneId zone <span class="token operator">=</span> ZoneId<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>ZoneId<span class="token punctuation">.</span>SHORT_IDS<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"CTT"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//取定义好的时区</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" zone = "</span> <span class="token operator">+</span> zone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//包含时区的时间</span>
+        ZonedDateTime dtWithZone <span class="token operator">=</span> ZonedDateTime<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>localDateTime<span class="token punctuation">,</span> zone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dtWithZone = "</span> <span class="token operator">+</span> dtWithZone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>输出</p>
+<pre><code> localDateTime = 2020-05-31T23:54:42.831
+ zone = Asia/Shanghai
+ dtWithZone = 2020-05-31T23:54:42.831+08:00[Asia/Shanghai]</code></pre><p> 注意：对应时区的文本可以直接手动填写，也可以调用系统默认定义的。</p>
+<h4 id="4-其他"><a href="#4-其他" class="headerlink" title="4. 其他"></a>4. 其他</h4><p>可以参考<a href="https://www.matools.com/api/java8" target="_blank" rel="noopener">java 8 API</a>,在实际遇到再补充。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>Java虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java 查漏补缺-Java8 中的 Optional</title>
+    <url>/posts/e748f349.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>Java</category>
@@ -1602,6 +1602,68 @@ Nashorn定义了大量对ECMAScript标准的语言和API扩展。但是首先让
         <tag>Java</tag>
         <tag>JVM</tag>
         <tag>Java虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jvm之内存结构</title>
+    <url>/posts/9f103da7.html</url>
+    <content><![CDATA[<h2 id="jvm-内存管理机制"><a href="#jvm-内存管理机制" class="headerlink" title="jvm 内存管理机制"></a>jvm 内存管理机制</h2><pre><code>参考资料：
+《深入理解Java虚拟机 JVM高级特性与最佳实践 第3版》
+《Java虚拟机规范（Java SE 7）》</code></pre><h3 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h3><p>根据《Java虚拟机规范》的规定，Java虚拟机所管理的内存将会包括以下几个运行时数据区域.<br><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-pic-1.jpg" alt="Image jvm-pic-1"></p>
+<ol>
+<li><p>程序计数器</p>
+<pre><code>程序计数器（Program Counter Register）是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</code></pre><p>程序计数器特征：<br>（1）是“线程私有”的内存。每条线程都需要有一个独立的程序计数器，各条线程之间计数器互不影响，独立存储。<br>（2）如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是本地（Native）方法，这个计数器值则应为空（Undefined）。<br>（3）此内存区域是唯一一个在《Java虚拟机规范》中没有规定任何OutOfMemoryError情况的区域。</p>
+</li>
+<li><p>Java虚拟机栈</p>
+<pre><code>Java虚拟机栈（Java Virtual Machine Stack）也是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是Java方法执行的线程内存模型：每个方法被执行的时候，Java虚拟机都会同步创建一个栈帧[栈帧是方法运行期间很重要的基础数据结构]（Stack Frame）用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</code></pre><p>局部变量表相关：</p>
+<pre><code>局部变量表存放了编译期可知的各种Java虚拟机基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，它并不等同于对象本身，可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或者其他与此对象相关的位置）和returnAddress类型（指向了一条字节码指令的地址）。</code></pre></li>
+</ol>
+<p>在《Java虚拟机规范》中， Java虚拟机栈可能出现两类异常状况：</p>
+<pre><code>（1）如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常；
+（2）如果Java虚拟机栈容量可以动态扩展[Hotspot的虚拟机栈不允许扩展]，当栈扩展时无法申请到足够的内存会抛出OutOfMemoryError异常。</code></pre><ol start="3">
+<li><p>本地方法栈<br>本地方法栈（Native Method Stacks）与虚拟机栈所发挥的作用是非常相似的，区别:</p>
+<pre><code>虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，
+本地方法栈则是为虚拟机使用到的本地（Native）方法服务。</code></pre><p>有的Java虚拟机（譬如Hot-Spot虚拟机）直接就把本地方法栈和虚拟机栈合二为一。<br>本地方法栈也可能出现两类异常状况：</p>
+<pre><code>（1）本地方法栈也会在栈深度溢出时抛出StackOverflowError
+（2）本地方法栈扩展失败时抛出OutOfMemoryError。</code></pre></li>
+<li><p>Java堆</p>
+<pre><code>Java堆（Java Heap）是虚拟机所管理的内存中最大的一块。Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，Java世界里“**几乎**”所有的对象实例都在这里分配内存。</code></pre><p>Java堆是垃圾收集器管理的内存区域，因此一些资料中它也被称作“GC堆”。</p>
+</li>
+</ol>
+<p>从回收内存的角度看，由于现代垃圾收集器大部分都是基于分代收集理论设计的，所以Java堆中经常会出现“新生代”“老年代”、“永久代”、“Eden空间”、“From Survivor空间”、“To Survivor空间”等。</p>
+<p>如果从分配内存的角度看，所有线程共享的Java堆中可以划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer，TLAB），以提升对象分配时的效率。</p>
+<p>Java堆可以处于物理上不连续的内存空间中，但在逻辑上它应该被视为连续的。</p>
+<p>Java堆既可以被实现成固定大小的，也可以是可扩展的，不过当前主流的Java虚拟机都是按照可扩展来实现的（通过参数-Xmx和-Xms设定）。</p>
+<p>如果在Java堆中没有内存完成实例分配，并且堆也无法再扩展时，Java虚拟机将会抛出OutOfMemoryError异常。</p>
+<ol start="5">
+<li>方法区<pre><code>方法区（Method Area）与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。</code></pre>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”（Non-Heap），目的是与Java堆区分开来。</li>
+</ol>
+<p>在JDK 6的时候HotSpot开发团队就有放弃永久代，逐步改为采用<code>本地内存（Native Memory）</code>来实现方法区的计划。<br>到了JDK 7的HotSpot，已经把原本放在永久代的字符串常量池、静态变量等移至堆内存。</p>
+<pre><code>jdk7开始方法区的逐渐移除：符号引用(Symbols)移至native heap，字面量(interned strings)和静态变量(class statics)移至java heap。</code></pre><p>到了JDK 8，终于完全废弃了永久代的概念，改用与JRockit、J9一样在本地内存中实现的<code>元空间（Meta-space）</code>来代替，把JDK 7中永久代还剩余的内容（主要是类型信息）全部移到元空间中。</p>
+<pre><code>JDK1.8以前的HotSpot JVM有方法区，也叫永久代(permanent generation)。
+方法区用于存放已被虚拟机加载的类信息、常量、静态变量，即编译器编译后的代码。
+方法区是一片连续的堆空间，通过-XX:MaxPermSize来设定永久代最大可分配空间，当JVM加载的类信息容量超过了这个值，会报OOM:PermGen错误。
+永久代的GC是和老年代(old generation)捆绑在一起的，无论谁满了，都会触发永久代和老年代的垃圾收集。
+
+为什么要用Metaspace替代方法区？</code></pre><p>随着动态类加载的情况越来越多，这块内存变得不太可控，如果设置小了，系统运行过程中就容易出现内存溢出，设置大了又浪费内存。</p>
+<pre><code>方法区的内存回收目标主要是针对常量池的回收和对类型的卸载，卸载条件相当苛刻。
+方法区无法满足新的内存分配需求时，将抛出OutOfMemoryError异常。</code></pre><ol start="6">
+<li>运行时常量池<pre><code>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表（Constant Pool Table），用于存放编译期生成的各种字面量与符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。</code></pre>运行时常量池特征：<br>（1）存储数据条件宽松。（保存Class文件中描述的符号引用，把由符号引用翻译出来的直接引用，均可放入运行时常量池）<br>（2）具备动态性。（预置入Class文件中常量池的内容，或运行期间新的常量[如String类的intern()方法]，均可放入）</li>
+</ol>
+<p>运行时常量池是方法区的一部分，受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</p>
+<ol start="7">
+<li>直接内存<br>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。但是这部分内存也被频繁地使用，而且也可能导致OutOfMemoryError异常出现。</li>
+</ol>
+<p>在JDK 1.4中新加入了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
+<p>本机直接内存的分配不会受Java堆大小的限制，但受到本机总内存（包括物理内存、SWAP分区或者分页文件）大小以及处理器寻址空间的限制。<br>配置虚拟机参数时，设置-Xmx等参数信息，若使得各个内存区域总和大于物理内存限制（包括物理的和操作系统级的限制），就会导致动态扩展时出现OutOfMemoryError。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>内存结构</tag>
       </tags>
   </entry>
   <entry>
@@ -1839,68 +1901,6 @@ no, i am dead :(</code></pre><p>结论</p>
       </tags>
   </entry>
   <entry>
-    <title>jvm之内存结构</title>
-    <url>/posts/9f103da7.html</url>
-    <content><![CDATA[<h2 id="jvm-内存管理机制"><a href="#jvm-内存管理机制" class="headerlink" title="jvm 内存管理机制"></a>jvm 内存管理机制</h2><pre><code>参考资料：
-《深入理解Java虚拟机 JVM高级特性与最佳实践 第3版》
-《Java虚拟机规范（Java SE 7）》</code></pre><h3 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h3><p>根据《Java虚拟机规范》的规定，Java虚拟机所管理的内存将会包括以下几个运行时数据区域.<br><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-pic-1.jpg" alt="Image jvm-pic-1"></p>
-<ol>
-<li><p>程序计数器</p>
-<pre><code>程序计数器（Program Counter Register）是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</code></pre><p>程序计数器特征：<br>（1）是“线程私有”的内存。每条线程都需要有一个独立的程序计数器，各条线程之间计数器互不影响，独立存储。<br>（2）如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是本地（Native）方法，这个计数器值则应为空（Undefined）。<br>（3）此内存区域是唯一一个在《Java虚拟机规范》中没有规定任何OutOfMemoryError情况的区域。</p>
-</li>
-<li><p>Java虚拟机栈</p>
-<pre><code>Java虚拟机栈（Java Virtual Machine Stack）也是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是Java方法执行的线程内存模型：每个方法被执行的时候，Java虚拟机都会同步创建一个栈帧[栈帧是方法运行期间很重要的基础数据结构]（Stack Frame）用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</code></pre><p>局部变量表相关：</p>
-<pre><code>局部变量表存放了编译期可知的各种Java虚拟机基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，它并不等同于对象本身，可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或者其他与此对象相关的位置）和returnAddress类型（指向了一条字节码指令的地址）。</code></pre></li>
-</ol>
-<p>在《Java虚拟机规范》中， Java虚拟机栈可能出现两类异常状况：</p>
-<pre><code>（1）如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常；
-（2）如果Java虚拟机栈容量可以动态扩展[Hotspot的虚拟机栈不允许扩展]，当栈扩展时无法申请到足够的内存会抛出OutOfMemoryError异常。</code></pre><ol start="3">
-<li><p>本地方法栈<br>本地方法栈（Native Method Stacks）与虚拟机栈所发挥的作用是非常相似的，区别:</p>
-<pre><code>虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，
-本地方法栈则是为虚拟机使用到的本地（Native）方法服务。</code></pre><p>有的Java虚拟机（譬如Hot-Spot虚拟机）直接就把本地方法栈和虚拟机栈合二为一。<br>本地方法栈也可能出现两类异常状况：</p>
-<pre><code>（1）本地方法栈也会在栈深度溢出时抛出StackOverflowError
-（2）本地方法栈扩展失败时抛出OutOfMemoryError。</code></pre></li>
-<li><p>Java堆</p>
-<pre><code>Java堆（Java Heap）是虚拟机所管理的内存中最大的一块。Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，Java世界里“**几乎**”所有的对象实例都在这里分配内存。</code></pre><p>Java堆是垃圾收集器管理的内存区域，因此一些资料中它也被称作“GC堆”。</p>
-</li>
-</ol>
-<p>从回收内存的角度看，由于现代垃圾收集器大部分都是基于分代收集理论设计的，所以Java堆中经常会出现“新生代”“老年代”、“永久代”、“Eden空间”、“From Survivor空间”、“To Survivor空间”等。</p>
-<p>如果从分配内存的角度看，所有线程共享的Java堆中可以划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer，TLAB），以提升对象分配时的效率。</p>
-<p>Java堆可以处于物理上不连续的内存空间中，但在逻辑上它应该被视为连续的。</p>
-<p>Java堆既可以被实现成固定大小的，也可以是可扩展的，不过当前主流的Java虚拟机都是按照可扩展来实现的（通过参数-Xmx和-Xms设定）。</p>
-<p>如果在Java堆中没有内存完成实例分配，并且堆也无法再扩展时，Java虚拟机将会抛出OutOfMemoryError异常。</p>
-<ol start="5">
-<li>方法区<pre><code>方法区（Method Area）与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。</code></pre>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”（Non-Heap），目的是与Java堆区分开来。</li>
-</ol>
-<p>在JDK 6的时候HotSpot开发团队就有放弃永久代，逐步改为采用<code>本地内存（Native Memory）</code>来实现方法区的计划。<br>到了JDK 7的HotSpot，已经把原本放在永久代的字符串常量池、静态变量等移至堆内存。</p>
-<pre><code>jdk7开始方法区的逐渐移除：符号引用(Symbols)移至native heap，字面量(interned strings)和静态变量(class statics)移至java heap。</code></pre><p>到了JDK 8，终于完全废弃了永久代的概念，改用与JRockit、J9一样在本地内存中实现的<code>元空间（Meta-space）</code>来代替，把JDK 7中永久代还剩余的内容（主要是类型信息）全部移到元空间中。</p>
-<pre><code>JDK1.8以前的HotSpot JVM有方法区，也叫永久代(permanent generation)。
-方法区用于存放已被虚拟机加载的类信息、常量、静态变量，即编译器编译后的代码。
-方法区是一片连续的堆空间，通过-XX:MaxPermSize来设定永久代最大可分配空间，当JVM加载的类信息容量超过了这个值，会报OOM:PermGen错误。
-永久代的GC是和老年代(old generation)捆绑在一起的，无论谁满了，都会触发永久代和老年代的垃圾收集。
-
-为什么要用Metaspace替代方法区？</code></pre><p>随着动态类加载的情况越来越多，这块内存变得不太可控，如果设置小了，系统运行过程中就容易出现内存溢出，设置大了又浪费内存。</p>
-<pre><code>方法区的内存回收目标主要是针对常量池的回收和对类型的卸载，卸载条件相当苛刻。
-方法区无法满足新的内存分配需求时，将抛出OutOfMemoryError异常。</code></pre><ol start="6">
-<li>运行时常量池<pre><code>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表（Constant Pool Table），用于存放编译期生成的各种字面量与符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。</code></pre>运行时常量池特征：<br>（1）存储数据条件宽松。（保存Class文件中描述的符号引用，把由符号引用翻译出来的直接引用，均可放入运行时常量池）<br>（2）具备动态性。（预置入Class文件中常量池的内容，或运行期间新的常量[如String类的intern()方法]，均可放入）</li>
-</ol>
-<p>运行时常量池是方法区的一部分，受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</p>
-<ol start="7">
-<li>直接内存<br>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。但是这部分内存也被频繁地使用，而且也可能导致OutOfMemoryError异常出现。</li>
-</ol>
-<p>在JDK 1.4中新加入了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
-<p>本机直接内存的分配不会受Java堆大小的限制，但受到本机总内存（包括物理内存、SWAP分区或者分页文件）大小以及处理器寻址空间的限制。<br>配置虚拟机参数时，设置-Xmx等参数信息，若使得各个内存区域总和大于物理内存限制（包括物理的和操作系统级的限制），就会导致动态扩展时出现OutOfMemoryError。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-        <tag>内存结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>jvm之对象创建</title>
     <url>/posts/b287f556.html</url>
     <content><![CDATA[<h2 id="HotSpot-虚拟机对象创建于布局"><a href="#HotSpot-虚拟机对象创建于布局" class="headerlink" title="HotSpot 虚拟机对象创建于布局"></a>HotSpot 虚拟机对象创建于布局</h2><pre><code>HotSpot虚拟机在Java堆中对象分配、布局和访问的全过程。
@@ -1945,61 +1945,6 @@ HotSpot虚拟机默认的分配顺序为longs/doubles、ints、shorts/chars、by
       <tags>
         <tag>Java</tag>
         <tag>JVM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jvm之垃圾收集器算法</title>
-    <url>/posts/50b49e8d.html</url>
-    <content><![CDATA[<h2 id="jvm-垃圾收集算法"><a href="#jvm-垃圾收集算法" class="headerlink" title="jvm 垃圾收集算法"></a>jvm 垃圾收集算法</h2><p>垃圾收集算法基本分类：<br>（1）“引用计数式垃圾收集”（Reference Counting GC）—直接垃圾收集<br>（2）“追踪式垃圾收集”（Tracing GC）—间接垃圾收集</p>
-<ol>
-<li>分代收集理论</li>
-</ol>
-<p>1）弱分代假说（Weak Generational Hypothesis）：绝大多数对象都是朝生夕灭的。<br>2）强分代假说（Strong Generational Hypothesis）：熬过越多次垃圾收集过程的对象就越难以消亡。<br>3）跨代引用假说（Intergenerational Reference Hypothesis）：跨代引用相对于同代引用来说仅占极少数。</p>
-<p>常用名词：</p>
-<pre><code>·部分收集（Partial GC）：指目标不是完整收集整个Java堆的垃圾收集，其中又分为：
-    ■新生代收集（Minor GC/Young GC）：指目标只是新生代的垃圾收集。
-    ■老年代收集（Major GC/Old GC）：指目标只是老年代的垃圾收集。目前只有CMS收集器会有单独收集老年代的行为。另外请注意“Major GC”这个说法现在有点混淆，在不同资料上常有不同所指，读者需按上下文区分到底是指老年代的收集还是整堆收集。
-    ■混合收集（Mixed GC）：指目标是收集整个新生代以及部分老年代的垃圾收集。目前只有G1收集器会有这种行为。
-·整堆收集（Full GC）：收集整个Java堆和方法区的垃圾收集。</code></pre><ol start="2">
-<li>标记-清除算法（Mark-Sweep）</li>
-</ol>
-<p>最早出现也是最基础的垃圾收集算法是“标记-清除”（Mark-Sweep）算法。</p>
-<pre><code>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象，也可以反过来，标记存活的对象，统一回收所有未被标记的对象</code></pre><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-mark-sweep.jpg" alt="image "></p>
-<p>主要缺点:<br>（1）执行效率不稳定，随着对象增加执行效率降低。</p>
-<pre><code>如果Java堆中包含大量对象，而且其中大部分是需要被回收的，这时必须进行大量标记和清除的动作，导致标记和清除两个过程的执行效率都随对象数量增长而降低；</code></pre><p>（2）内存空间碎片化问题，遇到较大对象男分配，重新GC。</p>
-<pre><code>第二个是内存空间的碎片化问题，标记、清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致当以后在程序运行过程中需要分配较大对象时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</code></pre><ol start="3">
-<li>标记-复制算法（Semispace Copying）</li>
-</ol>
-<p>标记-复制算法常被简称为复制算法。为了解决标记-清除算法面对大量可回收对象时执行效率低的问题。1969年Fenichel提出了一种称为“半区复制”（Semispace Copying）的垃圾收集算法：</p>
-<pre><code>将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。</code></pre><p>优点：</p>
-<pre><code>实现简单，运行高效。
-分配内存时也就不用考虑有空间碎片的复杂情况，只要移动堆顶指针，按顺序分配即可</code></pre><p>缺点：</p>
-<pre><code>如果内存中多数对象都是存活的，这种算法将会产生大量的内存间复制的开销。
-将可用内存缩小为了原来的一半。</code></pre><p>![image ](/images/jvm-images/jvm-gc-Semispace Copying.jpg)</p>
-<pre><code>现在的商用Java虚拟机大多都优先采用了这种收集算法去回收新生代。
-在1989年，Andrew Appel针对具备“朝生夕灭”特点的对象，提出了一种更优化的半区复制分代策略，现在称为“Appel式回收”。HotSpot虚拟机的Serial、ParNew等新生代收集器均采用了这种策略来设计新生代的内存布局。
-
-Appel式回收的具体做法是把新生代分为一块较大的Eden空间和两块较小的Survivor空间（HotSpot虚拟机默认Eden和Survivor的大小比例是8∶1）每次分配内存只使用Eden和其中一块Survivor。发生垃圾搜集时，将Eden和Survivor中仍然存活的对象一次性复制到另外一块Survivor空间上，然后直接清理掉Eden和已用过的那块Survivor空间。每次新生代中可用内存空间为整个新生代容量的90%（Eden的80%加上一个Survivor的10%），只有一个Survivor空间，即10%的新生代是会被“浪费”的。
-
-当复制目标的Survivor空间不足以容纳一次Minor GC之后存活的对象时，采用一种分配担保策略：多出来的对象直接进入老年代。 </code></pre><ol start="4">
-<li>标记-整理算法（Mark-Compact）</li>
-</ol>
-<p>不同于针对新生代的复制算法，针对老年代的特点，1974年Edward Lueders提出了另外一种有针对性的“标记-整理”（Mark-Compact）算法。其中的标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存。</p>
-<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-Mark-Compact.jpg" alt="image "></p>
-<p>标记-清除算法与标记-整理算法的本质差异在于前者是一种非移动式的回收算法，而后者是移动式的。</p>
-<p>优缺点：</p>
-<pre><code>如果移动存活对象，尤其是在老年代这种每次回收都有大量对象存活区域，移动存活对象并更新所有引用这些对象的地方将会是一种极为负重的操作，而且这种对象移动操作必须全程暂停用户应用程序才能进行（Stop The World）。
-
-如果跟标记-清除算法那样完全不考虑移动和整理存活对象的话，弥散于堆中的存活对象导致的空间碎片化问题就只能依赖更为复杂的内存分配器和内存访问器来解决。
-
-是否移动对象都存在弊端，移动则内存回收时会更复杂，不移动则内存分配时会更复杂。从垃圾收集的停顿时间来看，不移动对象停顿时间会更短，甚至可以不需要停顿，但是从整个程序的吞吐量来看，移动对象会更划算。此语境中，吞吐量的实质是赋值器（Mutator，可以理解为使用垃圾收集的用户程序，本书为便于理解，多数地方用“用户程序”或“用户线程”代替）与收集器的效率总和。即使不移动对象会使得收集器的效率提升一些，但因内存分配和访问相比垃圾收集频率要高得多，这部分的耗时增加，总吞吐量仍然是下降的。HotSpot虚拟机里面关注吞吐量的Parallel Scavenge收集器是基于标记-整理算法的，而关注延迟的CMS收集器则是基于标记-清除算法的。</code></pre>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-        <tag>垃圾收集器算法</tag>
       </tags>
   </entry>
   <entry>
@@ -2071,6 +2016,61 @@ Appel式回收的具体做法是把新生代分为一块较大的Eden空间和�
         <tag>Java</tag>
         <tag>JVM</tag>
         <tag>垃圾收集器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jvm之垃圾收集器算法</title>
+    <url>/posts/50b49e8d.html</url>
+    <content><![CDATA[<h2 id="jvm-垃圾收集算法"><a href="#jvm-垃圾收集算法" class="headerlink" title="jvm 垃圾收集算法"></a>jvm 垃圾收集算法</h2><p>垃圾收集算法基本分类：<br>（1）“引用计数式垃圾收集”（Reference Counting GC）—直接垃圾收集<br>（2）“追踪式垃圾收集”（Tracing GC）—间接垃圾收集</p>
+<ol>
+<li>分代收集理论</li>
+</ol>
+<p>1）弱分代假说（Weak Generational Hypothesis）：绝大多数对象都是朝生夕灭的。<br>2）强分代假说（Strong Generational Hypothesis）：熬过越多次垃圾收集过程的对象就越难以消亡。<br>3）跨代引用假说（Intergenerational Reference Hypothesis）：跨代引用相对于同代引用来说仅占极少数。</p>
+<p>常用名词：</p>
+<pre><code>·部分收集（Partial GC）：指目标不是完整收集整个Java堆的垃圾收集，其中又分为：
+    ■新生代收集（Minor GC/Young GC）：指目标只是新生代的垃圾收集。
+    ■老年代收集（Major GC/Old GC）：指目标只是老年代的垃圾收集。目前只有CMS收集器会有单独收集老年代的行为。另外请注意“Major GC”这个说法现在有点混淆，在不同资料上常有不同所指，读者需按上下文区分到底是指老年代的收集还是整堆收集。
+    ■混合收集（Mixed GC）：指目标是收集整个新生代以及部分老年代的垃圾收集。目前只有G1收集器会有这种行为。
+·整堆收集（Full GC）：收集整个Java堆和方法区的垃圾收集。</code></pre><ol start="2">
+<li>标记-清除算法（Mark-Sweep）</li>
+</ol>
+<p>最早出现也是最基础的垃圾收集算法是“标记-清除”（Mark-Sweep）算法。</p>
+<pre><code>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象，也可以反过来，标记存活的对象，统一回收所有未被标记的对象</code></pre><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-mark-sweep.jpg" alt="image "></p>
+<p>主要缺点:<br>（1）执行效率不稳定，随着对象增加执行效率降低。</p>
+<pre><code>如果Java堆中包含大量对象，而且其中大部分是需要被回收的，这时必须进行大量标记和清除的动作，导致标记和清除两个过程的执行效率都随对象数量增长而降低；</code></pre><p>（2）内存空间碎片化问题，遇到较大对象男分配，重新GC。</p>
+<pre><code>第二个是内存空间的碎片化问题，标记、清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致当以后在程序运行过程中需要分配较大对象时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</code></pre><ol start="3">
+<li>标记-复制算法（Semispace Copying）</li>
+</ol>
+<p>标记-复制算法常被简称为复制算法。为了解决标记-清除算法面对大量可回收对象时执行效率低的问题。1969年Fenichel提出了一种称为“半区复制”（Semispace Copying）的垃圾收集算法：</p>
+<pre><code>将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。</code></pre><p>优点：</p>
+<pre><code>实现简单，运行高效。
+分配内存时也就不用考虑有空间碎片的复杂情况，只要移动堆顶指针，按顺序分配即可</code></pre><p>缺点：</p>
+<pre><code>如果内存中多数对象都是存活的，这种算法将会产生大量的内存间复制的开销。
+将可用内存缩小为了原来的一半。</code></pre><p>![image ](/images/jvm-images/jvm-gc-Semispace Copying.jpg)</p>
+<pre><code>现在的商用Java虚拟机大多都优先采用了这种收集算法去回收新生代。
+在1989年，Andrew Appel针对具备“朝生夕灭”特点的对象，提出了一种更优化的半区复制分代策略，现在称为“Appel式回收”。HotSpot虚拟机的Serial、ParNew等新生代收集器均采用了这种策略来设计新生代的内存布局。
+
+Appel式回收的具体做法是把新生代分为一块较大的Eden空间和两块较小的Survivor空间（HotSpot虚拟机默认Eden和Survivor的大小比例是8∶1）每次分配内存只使用Eden和其中一块Survivor。发生垃圾搜集时，将Eden和Survivor中仍然存活的对象一次性复制到另外一块Survivor空间上，然后直接清理掉Eden和已用过的那块Survivor空间。每次新生代中可用内存空间为整个新生代容量的90%（Eden的80%加上一个Survivor的10%），只有一个Survivor空间，即10%的新生代是会被“浪费”的。
+
+当复制目标的Survivor空间不足以容纳一次Minor GC之后存活的对象时，采用一种分配担保策略：多出来的对象直接进入老年代。 </code></pre><ol start="4">
+<li>标记-整理算法（Mark-Compact）</li>
+</ol>
+<p>不同于针对新生代的复制算法，针对老年代的特点，1974年Edward Lueders提出了另外一种有针对性的“标记-整理”（Mark-Compact）算法。其中的标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存。</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-Mark-Compact.jpg" alt="image "></p>
+<p>标记-清除算法与标记-整理算法的本质差异在于前者是一种非移动式的回收算法，而后者是移动式的。</p>
+<p>优缺点：</p>
+<pre><code>如果移动存活对象，尤其是在老年代这种每次回收都有大量对象存活区域，移动存活对象并更新所有引用这些对象的地方将会是一种极为负重的操作，而且这种对象移动操作必须全程暂停用户应用程序才能进行（Stop The World）。
+
+如果跟标记-清除算法那样完全不考虑移动和整理存活对象的话，弥散于堆中的存活对象导致的空间碎片化问题就只能依赖更为复杂的内存分配器和内存访问器来解决。
+
+是否移动对象都存在弊端，移动则内存回收时会更复杂，不移动则内存分配时会更复杂。从垃圾收集的停顿时间来看，不移动对象停顿时间会更短，甚至可以不需要停顿，但是从整个程序的吞吐量来看，移动对象会更划算。此语境中，吞吐量的实质是赋值器（Mutator，可以理解为使用垃圾收集的用户程序，本书为便于理解，多数地方用“用户程序”或“用户线程”代替）与收集器的效率总和。即使不移动对象会使得收集器的效率提升一些，但因内存分配和访问相比垃圾收集频率要高得多，这部分的耗时增加，总吞吐量仍然是下降的。HotSpot虚拟机里面关注吞吐量的Parallel Scavenge收集器是基于标记-整理算法的，而关注延迟的CMS收集器则是基于标记-清除算法的。</code></pre>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>垃圾收集器算法</tag>
       </tags>
   </entry>
 </search>

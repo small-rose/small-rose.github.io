@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://small-rose.github.io/"/>
-  <updated>2020-05-23T16:00:00.000Z</updated>
+  <updated>2020-06-02T16:00:00.000Z</updated>
   <id>https://small-rose.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>深入理解JVM结构学习（第三版）</title>
+    <link href="https://small-rose.github.io/posts/2a1a7c1f.html"/>
+    <id>https://small-rose.github.io/posts/2a1a7c1f.html</id>
+    <published>2020-06-02T16:00:00.000Z</published>
+    <updated>2020-06-02T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;本文记录关于深入理解JVM（第三版）学习笔记，连接Github免密和 云服务器或私有服务器免密。&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;java虚拟机内存自动管理&quot;&gt;&lt;a href=&quot;#java虚拟机内存自动管理&quot; class=&quot;headerlink&quot; t
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
+    
+      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
+    
+      <category term="Java虚拟机" scheme="https://small-rose.github.io/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>jvm之垃圾收集器（1）</title>
     <link href="https://small-rose.github.io/posts/d01dbbb1.html"/>
     <id>https://small-rose.github.io/posts/d01dbbb1.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-23T16:00:00.000Z</updated>
+    <published>2020-05-31T16:00:00.000Z</published>
+    <updated>2020-05-31T16:00:00.000Z</updated>
     
     <summary type="html">
     
@@ -48,8 +76,8 @@
     <title>jvm之垃圾收集器算法</title>
     <link href="https://small-rose.github.io/posts/50b49e8d.html"/>
     <id>https://small-rose.github.io/posts/50b49e8d.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-23T16:00:00.000Z</updated>
+    <published>2020-05-30T16:00:00.000Z</published>
+    <updated>2020-05-30T16:00:00.000Z</updated>
     
     <summary type="html">
     
@@ -69,6 +97,117 @@
       <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
     
       <category term="垃圾收集器算法" scheme="https://small-rose.github.io/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm之对象生死</title>
+    <link href="https://small-rose.github.io/posts/bce48291.html"/>
+    <id>https://small-rose.github.io/posts/bce48291.html</id>
+    <published>2020-05-29T16:00:00.000Z</published>
+    <updated>2020-05-29T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;jvm-检测判断对象的生死&quot;&gt;&lt;a href=&quot;#jvm-检测判断对象的生死&quot; class=&quot;headerlink&quot; title=&quot;jvm 检测判断对象的生死&quot;&gt;&lt;/a&gt;jvm 检测判断对象的生死&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;垃圾收集（Garbage Colle
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
+    
+      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
+    
+      <category term="对象生死" scheme="https://small-rose.github.io/tags/%E5%AF%B9%E8%B1%A1%E7%94%9F%E6%AD%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm之对象创建</title>
+    <link href="https://small-rose.github.io/posts/b287f556.html"/>
+    <id>https://small-rose.github.io/posts/b287f556.html</id>
+    <published>2020-05-27T16:00:00.000Z</published>
+    <updated>2020-05-27T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HotSpot-虚拟机对象创建于布局&quot;&gt;&lt;a href=&quot;#HotSpot-虚拟机对象创建于布局&quot; class=&quot;headerlink&quot; title=&quot;HotSpot 虚拟机对象创建于布局&quot;&gt;&lt;/a&gt;HotSpot 虚拟机对象创建于布局&lt;/h2&gt;&lt;pre&gt;&lt;cod
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
+    
+      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm之内存结构</title>
+    <link href="https://small-rose.github.io/posts/9f103da7.html"/>
+    <id>https://small-rose.github.io/posts/9f103da7.html</id>
+    <published>2020-05-25T16:00:00.000Z</published>
+    <updated>2020-05-25T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;jvm-内存管理机制&quot;&gt;&lt;a href=&quot;#jvm-内存管理机制&quot; class=&quot;headerlink&quot; title=&quot;jvm 内存管理机制&quot;&gt;&lt;/a&gt;jvm 内存管理机制&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;参考资料：
+《深入理解Java虚拟机 JVM高级特性与最佳实
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
+    
+      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
+    
+      <category term="内存结构" scheme="https://small-rose.github.io/tags/%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java 查漏补缺-java8里的日期时间API</title>
+    <link href="https://small-rose.github.io/posts/c68d7a69.html"/>
+    <id>https://small-rose.github.io/posts/c68d7a69.html</id>
+    <published>2020-05-23T16:00:00.000Z</published>
+    <updated>2020-05-23T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Java-8-日期时间-API&quot;&gt;&lt;a href=&quot;#Java-8-日期时间-API&quot; class=&quot;headerlink&quot; title=&quot;Java 8 日期时间 API&quot;&gt;&lt;/a&gt;Java 8 日期时间 API&lt;/h3&gt;&lt;p&gt;Java 8通过发布新的Date-T
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
+    
+      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
+    
+      <category term="Java虚拟机" scheme="https://small-rose.github.io/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
@@ -105,140 +244,6 @@
   </entry>
   
   <entry>
-    <title>jvm之对象创建</title>
-    <link href="https://small-rose.github.io/posts/b287f556.html"/>
-    <id>https://small-rose.github.io/posts/b287f556.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-23T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HotSpot-虚拟机对象创建于布局&quot;&gt;&lt;a href=&quot;#HotSpot-虚拟机对象创建于布局&quot; class=&quot;headerlink&quot; title=&quot;HotSpot 虚拟机对象创建于布局&quot;&gt;&lt;/a&gt;HotSpot 虚拟机对象创建于布局&lt;/h2&gt;&lt;pre&gt;&lt;cod
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
-    
-      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jvm之内存结构</title>
-    <link href="https://small-rose.github.io/posts/9f103da7.html"/>
-    <id>https://small-rose.github.io/posts/9f103da7.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-23T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jvm-内存管理机制&quot;&gt;&lt;a href=&quot;#jvm-内存管理机制&quot; class=&quot;headerlink&quot; title=&quot;jvm 内存管理机制&quot;&gt;&lt;/a&gt;jvm 内存管理机制&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;参考资料：
-《深入理解Java虚拟机 JVM高级特性与最佳实
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
-    
-      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
-    
-      <category term="内存结构" scheme="https://small-rose.github.io/tags/%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jvm之对象生死</title>
-    <link href="https://small-rose.github.io/posts/bce48291.html"/>
-    <id>https://small-rose.github.io/posts/bce48291.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-23T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jvm-检测判断对象的生死&quot;&gt;&lt;a href=&quot;#jvm-检测判断对象的生死&quot; class=&quot;headerlink&quot; title=&quot;jvm 检测判断对象的生死&quot;&gt;&lt;/a&gt;jvm 检测判断对象的生死&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;垃圾收集（Garbage Colle
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
-    
-      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
-    
-      <category term="对象生死" scheme="https://small-rose.github.io/tags/%E5%AF%B9%E8%B1%A1%E7%94%9F%E6%AD%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深入理解JVM结构学习（第三版）</title>
-    <link href="https://small-rose.github.io/posts/2a1a7c1f.html"/>
-    <id>https://small-rose.github.io/posts/2a1a7c1f.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-23T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;本文记录关于深入理解JVM（第三版）学习笔记，连接Github免密和 云服务器或私有服务器免密。&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;java虚拟机内存自动管理&quot;&gt;&lt;a href=&quot;#java虚拟机内存自动管理&quot; class=&quot;headerlink&quot; t
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
-    
-      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
-    
-      <category term="Java虚拟机" scheme="https://small-rose.github.io/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java 查漏补缺-Java8 中的 Optional</title>
-    <link href="https://small-rose.github.io/posts/c68d7a69.html"/>
-    <id>https://small-rose.github.io/posts/c68d7a69.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-23T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
-    
-      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
-    
-      <category term="Java虚拟机" scheme="https://small-rose.github.io/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
     <title>java 查漏补缺-jdk版本版本变化补充学习</title>
     <link href="https://small-rose.github.io/posts/c68d7a69.html"/>
     <id>https://small-rose.github.io/posts/c68d7a69.html</id>
@@ -264,18 +269,13 @@
   </entry>
   
   <entry>
-    <title>java 查漏补缺-java8里的日期时间API</title>
-    <link href="https://small-rose.github.io/posts/c68d7a69.html"/>
-    <id>https://small-rose.github.io/posts/c68d7a69.html</id>
+    <title>java 查漏补缺-Java8 中的 Optional</title>
+    <link href="https://small-rose.github.io/posts/e748f349.html"/>
+    <id>https://small-rose.github.io/posts/e748f349.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
     <updated>2020-05-23T16:00:00.000Z</updated>
     
     <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Java-8-日期时间-API&quot;&gt;&lt;a href=&quot;#Java-8-日期时间-API&quot; class=&quot;headerlink&quot; title=&quot;Java 8 日期时间 API&quot;&gt;&lt;/a&gt;Java 8 日期时间 API&lt;/h3&gt;&lt;p&gt;Java 8通过发布新的Date-T
-      
     
     </summary>
     
@@ -292,15 +292,15 @@
   </entry>
   
   <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <link href="https://small-rose.github.io/posts/ce4a93ff.html"/>
-    <id>https://small-rose.github.io/posts/ce4a93ff.html</id>
+    <title>Hexo搭建静态博客（六）——项目部署</title>
+    <link href="https://small-rose.github.io/posts/c68d7a69.html"/>
+    <id>https://small-rose.github.io/posts/c68d7a69.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt; 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。&lt;/p&gt;
+      &lt;p&gt;本文记录将hexo博客部署到github、云服务器上的相关操作操作。&lt;/p&gt;
     
     </summary>
     
@@ -313,15 +313,15 @@
   </entry>
   
   <entry>
-    <title>Hexo搭建静态博客（六）——项目部署</title>
-    <link href="https://small-rose.github.io/posts/c68d7a69.html"/>
-    <id>https://small-rose.github.io/posts/c68d7a69.html</id>
+    <title>Hexo搭建静态博客（五）——踩坑问题</title>
+    <link href="https://small-rose.github.io/posts/ce4a93ff.html"/>
+    <id>https://small-rose.github.io/posts/ce4a93ff.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;本文记录将hexo博客部署到github、云服务器上的相关操作操作。&lt;/p&gt;
+      &lt;p&gt; 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。&lt;/p&gt;
     
     </summary>
     
