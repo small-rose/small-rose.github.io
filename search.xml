@@ -1,64 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Centos-jdk安装配置环境变量</title>
-    <url>/posts/9064540a.html</url>
-    <content><![CDATA[<p> Centos上安装jdk，配置环境变量的方法</p>
-<a id="more"></a>
-<h2 id="Centos上jdk配置"><a href="#Centos上jdk配置" class="headerlink" title="Centos上jdk配置"></a>Centos上jdk配置</h2><p>[TOC]</p>
-<h2 id="1-检查环境"><a href="#1-检查环境" class="headerlink" title="1.检查环境"></a>1.检查环境</h2><p>查看java版本</p>
-<pre class=" language-bash"><code class="language-bash">java -version</code></pre>
-<p> 检查是否已经安装jdk，通常默认自认openjdk</p>
-<pre class=" language-bash"><code class="language-bash">java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
-java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
-java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
-java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</code></pre>
-<p> 如果要卸载,需要root用户权限才可以执行：</p>
-<pre class=" language-bash"><code class="language-bash">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
-rpm -e --nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
-rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
-rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</code></pre>
-<p>再次查看java版本，如提示未找到命令则删除成功。</p>
-<h2 id="2-上传jdk安装文件"><a href="#2-上传jdk安装文件" class="headerlink" title="2.上传jdk安装文件"></a>2.上传jdk安装文件</h2><h4 id="上传方法"><a href="#上传方法" class="headerlink" title="上传方法"></a>上传方法</h4><p>（1）可以联网直接下载即可<br>（2）ssh可以安装用rz/sz上传下载<br>（3）ftp自行安装ftp服务，关于安装教程可到：</p>
-<p>上传jdk-7u80-linux-x64.tar.gz到你的目录后，<br>解压后移动到 <code>/usr/jdk1.7.0_80</code></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf jdk-7u80-linux-x64.tar.gz
-<span class="token function">cp</span>  jdk-7u80 /usr/jdk1.7.0_80</code></pre>
-<p>【关于解压命令大全可以移步：】</p>
-<h2 id="2-配置关变量"><a href="#2-配置关变量" class="headerlink" title="2.配置关变量"></a>2.配置关变量</h2><p>/etc/profile全局变量配置</p>
-<pre class=" language-bash"><code class="language-bash">vim /etc/profile</code></pre>
-<p>.bash_profile为root用户的环境变量。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /root/
-<span class="token function">ls</span> -a
-<span class="token function">vi</span> .bash_profile</code></pre>
-<p>二者均可，建议修改用户环境变量。<br>在文件末尾增加java环境变量即可,听说CentOS6上面的是JAVAHOME，CentOS7是{JAVA_HOME}</p>
-<pre><code># .bash_profile
-
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-        . ~/.bashrc
-fi
-
-# User specific environment and startup programs
-
-export JAVA_HOME=/usr/jdk1.7.0_80
-export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
-
-export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href="#3-让刚刚设置的环境变量生效" class="headerlink" title="3.让刚刚设置的环境变量生效"></a>3.让刚刚设置的环境变量生效</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile</code></pre>
-<p>或者</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> .bash_profile</code></pre>
-<h2 id="4-再次验证是否配置成功"><a href="#4-再次验证是否配置成功" class="headerlink" title="4.再次验证是否配置成功"></a>4.再次验证是否配置成功</h2><pre class=" language-bash"><code class="language-bash">java -version</code></pre>
-<p>出现java版本号代表安装成功。</p>
-]]></content>
-      <categories>
-        <category>Linux,Java</category>
-      </categories>
-      <tags>
-        <tag>centos</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
     <url>/posts/dc390855.html</url>
     <content><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
@@ -128,36 +70,6 @@ nameserver 8.8.4.4</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
-    <title>js让页面自动刷新</title>
-    <url>/posts/7413f2ca.html</url>
-    <content><![CDATA[<p>js让页面自动刷新</p>
-<a id="more"></a>
-
-<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
-<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">=</span><span class="token number">0</span>
-current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">else</span>
-location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">++</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
-<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git的SSH免密使用</title>
     <url>/posts/c68d7a69.html</url>
     <content><![CDATA[<pre><code>本文记录关于Git的免密使用，连接Github免密和 云服务器或私有服务器免密。</code></pre><h3 id="一-Github的Git免密使用"><a href="#一-Github的Git免密使用" class="headerlink" title="一  Github的Git免密使用"></a>一  <code>Github</code>的Git免密使用</h3><h4 id="1-客户端生成密钥"><a href="#1-客户端生成密钥" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
@@ -202,6 +114,94 @@ AuthorizedKeysFile .ssh/authorized_keys</code></pre><p>git用户不允许登录s
         <tag>SSH免密</tag>
         <tag>云服务器</tag>
         <tag>私有服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos-jdk安装配置环境变量</title>
+    <url>/posts/9064540a.html</url>
+    <content><![CDATA[<p> Centos上安装jdk，配置环境变量的方法</p>
+<a id="more"></a>
+<h2 id="Centos上jdk配置"><a href="#Centos上jdk配置" class="headerlink" title="Centos上jdk配置"></a>Centos上jdk配置</h2><p>[TOC]</p>
+<h2 id="1-检查环境"><a href="#1-检查环境" class="headerlink" title="1.检查环境"></a>1.检查环境</h2><p>查看java版本</p>
+<pre class=" language-bash"><code class="language-bash">java -version</code></pre>
+<p> 检查是否已经安装jdk，通常默认自认openjdk</p>
+<pre class=" language-bash"><code class="language-bash">java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
+java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
+java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
+java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</code></pre>
+<p> 如果要卸载,需要root用户权限才可以执行：</p>
+<pre class=" language-bash"><code class="language-bash">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
+rpm -e --nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
+rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
+rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</code></pre>
+<p>再次查看java版本，如提示未找到命令则删除成功。</p>
+<h2 id="2-上传jdk安装文件"><a href="#2-上传jdk安装文件" class="headerlink" title="2.上传jdk安装文件"></a>2.上传jdk安装文件</h2><h4 id="上传方法"><a href="#上传方法" class="headerlink" title="上传方法"></a>上传方法</h4><p>（1）可以联网直接下载即可<br>（2）ssh可以安装用rz/sz上传下载<br>（3）ftp自行安装ftp服务，关于安装教程可到：</p>
+<p>上传jdk-7u80-linux-x64.tar.gz到你的目录后，<br>解压后移动到 <code>/usr/jdk1.7.0_80</code></p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf jdk-7u80-linux-x64.tar.gz
+<span class="token function">cp</span>  jdk-7u80 /usr/jdk1.7.0_80</code></pre>
+<p>【关于解压命令大全可以移步：】</p>
+<h2 id="2-配置关变量"><a href="#2-配置关变量" class="headerlink" title="2.配置关变量"></a>2.配置关变量</h2><p>/etc/profile全局变量配置</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/profile</code></pre>
+<p>.bash_profile为root用户的环境变量。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /root/
+<span class="token function">ls</span> -a
+<span class="token function">vi</span> .bash_profile</code></pre>
+<p>二者均可，建议修改用户环境变量。<br>在文件末尾增加java环境变量即可,听说CentOS6上面的是JAVAHOME，CentOS7是{JAVA_HOME}</p>
+<pre><code># .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+export JAVA_HOME=/usr/jdk1.7.0_80
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
+
+export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href="#3-让刚刚设置的环境变量生效" class="headerlink" title="3.让刚刚设置的环境变量生效"></a>3.让刚刚设置的环境变量生效</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile</code></pre>
+<p>或者</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> .bash_profile</code></pre>
+<h2 id="4-再次验证是否配置成功"><a href="#4-再次验证是否配置成功" class="headerlink" title="4.再次验证是否配置成功"></a>4.再次验证是否配置成功</h2><pre class=" language-bash"><code class="language-bash">java -version</code></pre>
+<p>出现java版本号代表安装成功。</p>
+]]></content>
+      <categories>
+        <category>Linux,Java</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js让页面自动刷新</title>
+    <url>/posts/7413f2ca.html</url>
+    <content><![CDATA[<p>js让页面自动刷新</p>
+<a id="more"></a>
+
+<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
+<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">=</span><span class="token number">0</span>
+current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">++</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
+<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -625,124 +625,6 @@ AuthorizedKeysFile .ssh/authorized_keys</code></pre><p>git用户不允许登录s
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（二）——创建页面</title>
-    <url>/posts/c1358fc8.html</url>
-    <content><![CDATA[<p>本文记录将hexo博客创建页面相关操作操作。</p>
-<a id="more"></a>
-
-<p>作者：阿兰那</p>
-<h2 id="1-创建链接页面的基本命令"><a href="#1-创建链接页面的基本命令" class="headerlink" title="1.创建链接页面的基本命令"></a>1.创建链接页面的基本命令</h2><font color=red>
-```
-hexo new page  yourpagename
-```
-</font>
-
-<h4 id="2-创建about页面"><a href="#2-创建about页面" class="headerlink" title="2.创建about页面"></a>2.创建about页面</h4><pre><code>hexo new page about</code></pre><p>修改source/about/index.md文件即可。文件内可以使用markdown或html语法。</p>
-<h4 id="3-创建分类"><a href="#3-创建分类" class="headerlink" title="3.创建分类"></a>3.创建分类</h4><pre><code>hexo new page categories   //创建分类</code></pre><p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p>
-<pre><code>---
-title: categories
-date: 2020-05-14 21:51:42
-type: categories
----</code></pre><p>那么在写文章的时候就可以在头部使用分类了，如：</p>
-<pre><code>---
-title: Hexo搭建静态博客及踩坑问题
-date: 2020-05-13
-categories: Hexo
----
- this is my article ...
-</code></pre><h4 id="4-创建标签"><a href="#4-创建标签" class="headerlink" title="4.创建标签"></a>4.创建标签</h4><pre><code>hexo new page tags         //创建标签</code></pre><p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p>
-<pre><code>---
-title: tags
-date: 2020-05-14 21:51:42
-type: tags
----</code></pre><p>那么在写文章的时候就可以在头部使用标签了，如：</p>
-<pre><code>---
-title: Hexo搭建静态博客及踩坑问题
-date: 2020-05-13
-categories: Hexo
-tags: Hexo
----
- this is my article ...
-</code></pre><p>是不是很简单呢？</p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（四）——插件安装</title>
-    <url>/posts/cda13ebe.html</url>
-    <content><![CDATA[<p>Hexo静态博客插件安装相关内容，本文以安装search和abbrlink插件为例。</p>
-<a id="more"></a>
-
-<p>注意：安装插件不是非必须，除了部分插件跟着主题必须安装之外，其他插件属于可选。</p>
-<h3 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h3><pre><code>npm install   hexo-generator-feed  --save   #订阅
-npm install   hexo-generator-search --save  #搜索</code></pre><h3 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h3><p>这里说一下添加本地搜索，有的主题已经自己带了搜索功能，只要配置开启即可。如果没有带主题可以自己加上。<br><font color=red>特别说明：如果主题自带搜索，看自带搜索操作说明即可，如果主题无搜索看自定义模式说明即可。</font></p>
-<h4 id="步骤一-安装插件"><a href="#步骤一-安装插件" class="headerlink" title="步骤一 安装插件"></a>步骤一 安装插件</h4><p>第一步：安装搜索插件 <code>npm install hexo-generator-searchdb --save</code></p>
-<h4 id="步骤二-修改配置"><a href="#步骤二-修改配置" class="headerlink" title="步骤二 修改配置"></a>步骤二 修改配置</h4><p>第二步：根目录_config.yml文件配置添加</p>
-<pre><code>search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000</code></pre><p>主题配置_config.yml添加</p>
-<pre><code>local_search: 
-  enable: true</code></pre><h4 id="步骤三-添加搜索"><a href="#步骤三-添加搜索" class="headerlink" title="步骤三 添加搜索"></a>步骤三 添加搜索</h4><p>第三步:添加搜索框</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>search-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-input<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>q<span class="token punctuation">"</span></span> <span class="token attr-name">results</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">autocomplete</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>off<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>搜索<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-input pure-input-1<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">204</span>, <span class="token number">232</span>, <span class="token number">207</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-result<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
-<p>第1种，主题自带搜索模式，有独立的search页面,生成页面前面已经讲到了，把代码放到source/search/index.md文件中即可。</p>
-<p>第2种，自定义模式，直接加在首页，想加哪个位置看自己喜好，位置找主题下的布局文件夹_layout或layout/partials之类的文件夹下,里面有head.ejs或head.swig文件（如果不是请自己查找节点，文件反正就那些）,添加html代码</p>
-<h4 id="步骤四-引入js文件"><a href="#步骤四-引入js文件" class="headerlink" title="步骤四 引入js文件"></a>步骤四 引入js文件</h4><p>第四步：引入js</p>
-<p>第1种，主题自带搜索模式，主题下的配置文件一般有scripts设置，直接配置路径，一般都有示例如</p>
-<pre><code>scripts:
-#- //cdn.bootcss.com/zepto/1.2.0/zepto.min.js
-#- /js/xoxo.js
-  - /js/search.js</code></pre><p>第2种，自定义模式，没有scripts配置,就在找主题下的布局文件夹_layout或layout/中，有js.ejs或srcipt.ejs，<br>文件可以从这里拿：<a href="https://github.com/zhzy2017/hexo-search-plugin-snippets" target="_blank" rel="noopener">https://github.com/zhzy2017/hexo-search-plugin-snippets</a><br>把search.js 放到source\js目录下,引入使用也有不同的方法</p>
-<h4 id="步骤五-引入css文件"><a href="#步骤五-引入css文件" class="headerlink" title="步骤五 引入css文件"></a>步骤五 引入css文件</h4><p>第五步：css设置<br>有的带搜索的无须操作，没有的从下载hexo-search-plugin-snippets里面拿拷贝到source/css里面，引入即可，</p>
-<p>第1种，主题自带搜索模式，一般不需要配置写在公共文件中，如果没有样式可以在主题下的配置文件一般有stylesheets设置，直接配置路径，一般都有示例：</p>
-<pre><code>stylesheets:
-# - /css/normalize.css
- - //cdn.bootcss.com/pure/1.0.0/pure-min.css
- - /css/xoxo.css
-</code></pre><p>第2种，自定义模式，跟配引入js类似，找一下主题目录ejs或swig文件引入，或者直接用css或less文件放到source/css目录下的某个文件中，这样不需要引文件</p>
-<p>其他插件，具体使用自行搜索，一般是修改配置或添加代码</p>
-<pre><code>npm install hexo-generator-index-pin-top –save  #文章置顶插件 
-npm uninstall hexo-generator-index –save     #文章置顶插件 
-npm i –save hexo-wordcount        #文章字数+阅读时长统计     
-npm install hexo-baidu-url-submit –save     #百度链接主动推送     
-npm install hexo-deployer-ftpsync –save     #hexo上传至FTP服务器     
-npm install hexo-deployer-cos –save     #hexo上传至腾讯云COS     
-npm install hexo-deployer-aliyun –save     #hexo上传至阿里云     
-npm install –save hexo-admin     #hexo管理插件     
-hexo-blog-encrypt(请看文档)     #hexo文章加密码 
-npm install leancloud-storage –save     #Valine评论     
-Valine评论邮件通知     Valine评论提醒 
-npm install hexo-deployer-git –save hexo安装git（允许使用git命令）</code></pre><p>更多插件请访问插件中心：<a href="https://hexo.io/plugins/" target="_blank" rel="noopener">https://hexo.io/plugins/</a><br>使用参考链接参考<a href="https://blog.csdn.net/q2158798/article/details/82354154" target="_blank" rel="noopener">幻凡ss</a></p>
-<h3 id="修改修改永久链接"><a href="#修改修改永久链接" class="headerlink" title="修改修改永久链接"></a>修改修改永久链接</h3><p>Hexo修改修改永久链接的默认格式,方便SEO.<br><code>npm install hexo-abbrlink --save</code>  #文章永久链接 <a href="https://github.com/Rozbo/hexo-abbrlink" target="_blank" rel="noopener">项目地址在这里</a></p>
-<h4 id="1-安装插件"><a href="#1-安装插件" class="headerlink" title="1.安装插件"></a>1.安装插件</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><pre><code># permalink: :year/:month/:day/:title/
-# permalink_defaults:
-permalink: posts/:abbrlink.html
-abbrlink:
-  alg: crc32  # 算法：crc16(default) and crc32
-  rep: hex    # 进制：dec(default) and hex</code></pre><h4 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h4><pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> heox g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>点击一篇文章，检查浏览器地址看看是不是发生变化了？</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建静态博客（一）——基础搭建</title>
     <url>/posts/9f117b.html</url>
     <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
@@ -792,30 +674,6 @@ hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <url>/posts/ce4a93ff.html</url>
-    <content><![CDATA[<p> 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。</p>
-<a id="more"></a>
-
-<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
-<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
-YAMLException: end of the stream or a document separator is expected at line x, column y:
-at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
-<pre><code>---
-key: value
----</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
-<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
-<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)使用主题的时候注意先阅读相关使用文档，有些主题需要一些插件</p>
-<h5 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h5><p>后续补充</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建静态博客（三）——主题更换</title>
     <url>/posts/a5bf7e18.html</url>
     <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
@@ -835,6 +693,79 @@ theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启�
 <p>浏览器访问：<br>大功告成。</p>
 <p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
 <p>如有问题请参考本系列：<a href="/post/ce4a93ff.html">Hexo搭建静态博客（五）——踩坑问题</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（二）——创建页面</title>
+    <url>/posts/c1358fc8.html</url>
+    <content><![CDATA[<p>本文记录将hexo博客创建页面相关操作操作。</p>
+<a id="more"></a>
+
+<p>作者：阿兰那</p>
+<h2 id="1-创建链接页面的基本命令"><a href="#1-创建链接页面的基本命令" class="headerlink" title="1.创建链接页面的基本命令"></a>1.创建链接页面的基本命令</h2><font color=red>
+```
+hexo new page  yourpagename
+```
+</font>
+
+<h4 id="2-创建about页面"><a href="#2-创建about页面" class="headerlink" title="2.创建about页面"></a>2.创建about页面</h4><pre><code>hexo new page about</code></pre><p>修改source/about/index.md文件即可。文件内可以使用markdown或html语法。</p>
+<h4 id="3-创建分类"><a href="#3-创建分类" class="headerlink" title="3.创建分类"></a>3.创建分类</h4><pre><code>hexo new page categories   //创建分类</code></pre><p>修改source/categories/index.md文件即可.<br>补充红色字体内容： <font color=red><code>type: &quot;categories&quot;</code></font></p>
+<pre><code>---
+title: categories
+date: 2020-05-14 21:51:42
+type: categories
+---</code></pre><p>那么在写文章的时候就可以在头部使用分类了，如：</p>
+<pre><code>---
+title: Hexo搭建静态博客及踩坑问题
+date: 2020-05-13
+categories: Hexo
+---
+ this is my article ...
+</code></pre><h4 id="4-创建标签"><a href="#4-创建标签" class="headerlink" title="4.创建标签"></a>4.创建标签</h4><pre><code>hexo new page tags         //创建标签</code></pre><p>修改source/tags/index.md文件即可:<br>补充红色字体内容： <font color=red><code>type: &quot;tags&quot;</code></font></p>
+<pre><code>---
+title: tags
+date: 2020-05-14 21:51:42
+type: tags
+---</code></pre><p>那么在写文章的时候就可以在头部使用标签了，如：</p>
+<pre><code>---
+title: Hexo搭建静态博客及踩坑问题
+date: 2020-05-13
+categories: Hexo
+tags: Hexo
+---
+ this is my article ...
+</code></pre><p>是不是很简单呢？</p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（五）——踩坑问题</title>
+    <url>/posts/ce4a93ff.html</url>
+    <content><![CDATA[<p> 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。</p>
+<a id="more"></a>
+
+<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
+<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
+YAMLException: end of the stream or a document separator is expected at line x, column y:
+at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
+<pre><code>---
+key: value
+---</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
+<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
+<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)使用主题的时候注意先阅读相关使用文档，有些主题需要一些插件</p>
+<h5 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h5><p>后续补充</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -997,13 +928,11 @@ nginx: configuration <span class="token function">file</span> /etc/nginx/nginx.c
   </entry>
   <entry>
     <title>java 查漏补缺-jdk版本版本变化补充学习</title>
-    <url>/posts/c68d7a69.html</url>
+    <url>/posts/80dc9555.html</url>
     <content><![CDATA[<pre><code>主要是为了补充学习。</code></pre><a id="more"></a>
-<pre><code>主要是为了补充学习。</code></pre><h3 id="JDK各个版本的变化补宠"><a href="#JDK各个版本的变化补宠" class="headerlink" title="JDK各个版本的变化补宠"></a>JDK各个版本的变化补宠</h3><h5 id="JDK1-5"><a href="#JDK1-5" class="headerlink" title="JDK1.5"></a>JDK1.5</h5><ol>
-<li>类包装器，自动装箱与拆箱。实际操作中比较常见。</li>
-<li>枚举类型使用。实际中按需使用。我也在实际中使用过，需要注意的是使用枚举类型与扩展性的问题，比如性别永远只有”男”和”女”，不会增加扩展第三种，那么枚举是推荐使用的，如果枚举内容是扩展的，不建议使用枚举类型。</li>
-<li>静态方法倒入。说实话，这个我在实际中真没有用过。语法<code>import static</code><br>大致分两种：<br>（1）导入指定类的某个静态成员变量、方法。<br>（2）导入指定类的全部的静态成员变量、方法。</li>
-</ol>
+<pre><code>主要是为了补充学习。</code></pre><h3 id="JDK各个版本的变化补宠"><a href="#JDK各个版本的变化补宠" class="headerlink" title="JDK各个版本的变化补宠"></a>JDK各个版本的变化补宠</h3><h4 id="JDK1-5"><a href="#JDK1-5" class="headerlink" title="JDK1.5"></a>JDK1.5</h4><h5 id="1-类包装器"><a href="#1-类包装器" class="headerlink" title="1. 类包装器."></a>1. 类包装器.</h5><p>自动装箱与拆箱。实际操作中比较常见。</p>
+<h5 id="2-枚举类型使用。"><a href="#2-枚举类型使用。" class="headerlink" title="2. 枚举类型使用。"></a>2. 枚举类型使用。</h5><p>实际中按需使用。我也在实际中使用过，需要注意的是使用枚举类型与扩展性的问题，比如性别永远只有”男”和”女”，不会增加扩展第三种，那么枚举是推荐使用的，如果枚举内容是扩展的，不建议使用枚举类型。</p>
+<h5 id="3-静态方法倒入。"><a href="#3-静态方法倒入。" class="headerlink" title="3. 静态方法倒入。"></a>3. 静态方法倒入。</h5><p>说实话，这个我在实际中真没有用过。语法<code>import static</code><br>大致分两种：<br>   （1）导入指定类的某个静态成员变量、方法。<br>   （2）导入指定类的全部的静态成员变量、方法。</p>
 <p>示例如下：</p>
 <pre class=" language-JAVA"><code class="language-JAVA">/*
  * 使用import static,导入java.lang.System下的out这个静态成员变量
@@ -1043,10 +972,9 @@ public class ImptTest {
         <span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<ol start="4">
-<li>可变参数使用。该特征在实际中使用过，实用性还是非常不错的。<br>主要特征：<br>（1）一个方法中只能指定一个可变参数，<br>（2）可变参数必须是方法的最后一个参数。<br>（3）可变参数类型必须一致.</li>
-</ol>
-<p>（4）拥有可变参数的方法可以被重载，在调用方法的时，如果能够和固定参数的方法匹配，也能够与可变长参数的方法匹配，则会调用固定参数的方法。<br>（5）被调用的方法不允许和两个可变参数匹配，否则出现错误。<br>调用特点：<br>（1）可以不写参数，即传入空参。<br>（2）可以直接在里边写入参数，参数间用逗号隔开；<br>（3）可变参数兼容数组，数组不能兼容可变参数；<br>（4）注意参数里的null<br>如示例：</p>
+<h5 id="4-可变参数使用。"><a href="#4-可变参数使用。" class="headerlink" title="4. 可变参数使用。"></a>4. 可变参数使用。</h5><p>该特征在实际中使用过，实用性还是非常不错的。</p>
+<p>主要特征：<br>（1）一个方法中只能指定一个可变参数，<br>（2）可变参数必须是方法的最后一个参数。<br>（3）可变参数类型必须一致.<br>（4）拥有可变参数的方法可以被重载，在调用方法的时，如果能够和固定参数的方法匹配，也能够与可变长参数的方法匹配，则会调用固定参数的方法。<br>（5）被调用的方法不允许和两个可变参数匹配，否则出现错误。</p>
+<p>调用特点：<br>（1）可以不写参数，即传入空参。<br>（2）可以直接在里边写入参数，参数间用逗号隔开；<br>（3）可变参数兼容数组，数组不能兼容可变参数；<br>（4）注意参数里的null<br>如示例：</p>
 <pre class=" language-JAVA"><code class="language-JAVA">public static void say(String...names) { 
     for(String name : names) {
         System.out.print(name + ",hello! "); 
@@ -1075,53 +1003,61 @@ public class ImptTest {
 <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">say</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>names<span class="token punctuation">,</span>Sring date<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
       <span class="token comment" spellcheck="true">//可变参数必须是最后一个参数</span>
 <span class="token punctuation">}</span></code></pre>
-<ol start="5">
-<li>内省(Introspector) 是Java 语言对 JavaBean 类属性、事件的一种缺省处理方法。</li>
-</ol>
-<p>　　JavaBean是一种特殊的类，主要用于传递数据信息，这种类中的方法主要用于访问私有的字段，且方法名符合某种命名规则。如果在两个模块之间传递信息，可以将信息封装进JavaBean中，这种对象称为“值对象”(Value Object)，或“VO”。方法比较少。这些信息储存在类的私有变量中，通过set()、get()获得。</p>
-<pre><code>实际使用引入apache的BeanUtils工具包：</code></pre><p>　　 BeanUtils工具包：下载：<a href="http://commons.apache.org/beanutils/" target="_blank" rel="noopener">http://commons.apache.org/beanutils/</a>　<br>    (应用的时候还需要一个logging包 <a href="http://commons.apache.org/logging/" target="_blank" rel="noopener">http://commons.apache.org/logging/</a>)<br>6.    泛型(Generic).简单的说就是可以指定集合里元素的类型。<br>7. for-each循环。比较常用。语法<code>for(类型 变量 ： 集合){}</code></p>
-<h5 id="JDK1-6"><a href="#JDK1-6" class="headerlink" title="JDK1.6"></a>JDK1.6</h5><ol>
-<li>JAXB2来实现对象与XML之间的映射<br>JAXB 是Java Architecture for XML Binding的缩写，可以将一个Java对象和XML格式对象相互转换。JAXB2在底层是用StAX(JSR 173)来处理XML文档。<pre><code>StAX(JSR 173)是JDK6.0中除了DOM和SAX之外的又一种处理XML文档的API。
-</code></pre></li>
-</ol>
+<h5 id="5-内省-Introspector-是Java-语言对-JavaBean-类属性、事件的一种缺省处理方法。"><a href="#5-内省-Introspector-是Java-语言对-JavaBean-类属性、事件的一种缺省处理方法。" class="headerlink" title="5. 内省(Introspector) 是Java 语言对 JavaBean 类属性、事件的一种缺省处理方法。"></a>5. 内省(Introspector) 是Java 语言对 JavaBean 类属性、事件的一种缺省处理方法。</h5><p>　　JavaBean是一种特殊的类，主要用于传递数据信息，这种类中的方法主要用于访问私有的字段，且方法名符合某种命名规则。如果在两个模块之间传递信息，可以将信息封装进JavaBean中，这种对象称为“值对象”(Value Object)，或“VO”。方法比较少。这些信息储存在类的私有变量中，通过set()、get()获得。</p>
+<p>实际使用引入apache的BeanUtils工具包：<br>　　 BeanUtils工具包：下载：<a href="http://commons.apache.org/beanutils/" target="_blank" rel="noopener">http://commons.apache.org/beanutils/</a>　<br>    (应用的时候还需要一个logging包 <a href="http://commons.apache.org/logging/" target="_blank" rel="noopener">http://commons.apache.org/logging/</a>)</p>
+<h5 id="6-泛型-Generic"><a href="#6-泛型-Generic" class="headerlink" title="6.泛型(Generic)."></a>6.泛型(Generic).</h5><p>简单的说就是可以指定集合里元素的类型。</p>
+<h5 id="7-for-each循环。"><a href="#7-for-each循环。" class="headerlink" title="7. for-each循环。"></a>7. for-each循环。</h5><p>比较常用。语法<code>for(类型 变量 ： 集合){}</code></p>
+<p>示例：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ForEachTest</span> <span class="token punctuation">{</span>
+
+     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> JAXBException<span class="token punctuation">,</span> IOException <span class="token punctuation">{</span>
+         String<span class="token punctuation">[</span><span class="token punctuation">]</span> names <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"tom"</span><span class="token punctuation">,</span><span class="token string">"jerry"</span><span class="token punctuation">,</span><span class="token string">"mike"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+          <span class="token keyword">for</span><span class="token punctuation">(</span>String str <span class="token operator">:</span> names<span class="token punctuation">)</span><span class="token punctuation">{</span>
+              System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"str:"</span><span class="token operator">+</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="JDK1-6"><a href="#JDK1-6" class="headerlink" title="JDK1.6"></a>JDK1.6</h4><h5 id="1-JAXB2来实现对象与XML之间的映射"><a href="#1-JAXB2来实现对象与XML之间的映射" class="headerlink" title="1. JAXB2来实现对象与XML之间的映射"></a>1. JAXB2来实现对象与XML之间的映射</h5><p>JAXB:<br>    是Java Architecture for XML Binding的缩写，可以将一个Java对象和XML格式对象相互转换。JAXB2在底层是用StAX(JSR 173)来处理XML文档。</p>
+<p>StAX(JSR 173)是JDK6.0中除了DOM和SAX之外的又一种处理XML文档的API。</p>
 <p>StAX 的来历 ：在JAXP1.3(JSR 206)有两种处理XML文档的方法:DOM(Document Object Model)和SAX(Simple API for XML).</p>
 <p>由 于JDK6.0中的JAXB2(JSR 222)和JAX-WS 2.0(JSR 224)都会用到StAX，所以Sun决定把StAX加入到JAXP家族当中来，并将JAXP的版本升级到1.4(JAXP1.4是JAXP1.3的维护版本). JDK6里面JAXP的版本就是1.4. 。</p>
 <p>StAX是The Streaming API for XML的缩写，一种利用拉模式解析(pull-parsing)XML文档的API.StAX通过提供一种基于事件迭代器(Iterator)的API让程序员去控制xml文档解析过程,程序遍历这个事件迭代器去处理每一个解析事件，解析事件可以看做是程序拉出来的，也就是程序促使解析器产生一个解析事件，然后处理该事件，之后又促使解析器产生下一个解析事件，如此循环直到碰到文档结束符；</p>
 <p>SAX也是基于事件处理xml文档，但却是用推模式解析，解析器解析完整个xml文档后，才产生解析事件，然后推给程序去处理这些事件；DOM 采用的方式是将整个xml文档映射到一颗内存树，这样就可以很容易地得到父节点和子结点以及兄弟节点的数据，但如果文档很大，将会严重影响性能。<br>更多学习可以参考1：<a href="https://blog.csdn.net/visant/java/article/details/79778967" target="_blank" rel="noopener">https://blog.csdn.net/visant/java/article/details/79778967</a><br>更多学习可以参考2：<a href="http://www.blogjava.net/hsith/archive/2006/06/29/55817.html" target="_blank" rel="noopener">http://www.blogjava.net/hsith/archive/2006/06/29/55817.html</a></p>
-<pre><code>示例代码：
-```java
-package com.zxc.jdk5;
+<p>示例代码：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk5<span class="token punctuation">;</span>
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Calendar;
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>FileReader<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>FileWriter<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IOException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Calendar<span class="token punctuation">;</span>
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>xml<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>JAXBContext<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>xml<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>JAXBException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>xml<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>Marshaller<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>xml<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>Unmarshaller<span class="token punctuation">;</span>
 
-public class Jaxb2Test {
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Jaxb2Test</span> <span class="token punctuation">{</span>
 
-    public static void main(String[] args) throws JAXBException, IOException {
-        // TODO Auto-generated method stub
-        JAXBContext context = JAXBContext.newInstance(User.class);
-        //下面代码演示将对象转变为xml
-        Marshaller m = context.createMarshaller();
-        Address address = new Address(&quot;China&quot;,&quot;Shanghai&quot;,&quot;Shanghai&quot;,&quot; xuhui&quot;,&quot;100080&quot;);
-        User user = new User(&quot;小菜&quot;,18,Calendar.getInstance(), address);
-        FileWriter fw = new FileWriter(&quot;D:\\user.xml&quot;);
-        m.marshal(user,fw);
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> JAXBException<span class="token punctuation">,</span> IOException <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// TODO Auto-generated method stub</span>
+        JAXBContext context <span class="token operator">=</span> JAXBContext<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span>User<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//下面代码演示将对象转变为xml</span>
+        Marshaller m <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">createMarshaller</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Address address <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Address</span><span class="token punctuation">(</span><span class="token string">"China"</span><span class="token punctuation">,</span><span class="token string">"Shanghai"</span><span class="token punctuation">,</span><span class="token string">"Shanghai"</span><span class="token punctuation">,</span><span class="token string">" xuhui"</span><span class="token punctuation">,</span><span class="token string">"100080"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token string">"小菜"</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">,</span>Calendar<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        FileWriter fw <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileWriter</span><span class="token punctuation">(</span><span class="token string">"D:\\user.xml"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        m<span class="token punctuation">.</span><span class="token function">marshal</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span>fw<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //下面代码演示将上面生成的xml转换为对象
-        FileReader fr = new FileReader(&quot;D:\user.xml&quot;);
-        Unmarshaller um = context.createUnmarshaller();
-        User user2 = (User)um.unmarshal(fr);
-        System.out.println(&quot;Country:&quot;+user2.getAddress().getCountry());//输入China
-    }
-
-}</code></pre><p>user类</p>
+        <span class="token comment" spellcheck="true">//下面代码演示将上面生成的xml转换为对象</span>
+        FileReader fr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token string">"D:\user.xml"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Unmarshaller um <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">createUnmarshaller</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        User user2 <span class="token operator">=</span> <span class="token punctuation">(</span>User<span class="token punctuation">)</span>um<span class="token punctuation">.</span><span class="token function">unmarshal</span><span class="token punctuation">(</span>fr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Country:"</span><span class="token operator">+</span>user2<span class="token punctuation">.</span><span class="token function">getAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCountry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输入China</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>user类:</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk5<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Calendar<span class="token punctuation">;</span>
@@ -1154,7 +1090,7 @@ public class Jaxb2Test {
         <span class="token keyword">return</span> address<span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<p>user类</p>
+<p>Address类</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk5<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> javax<span class="token punctuation">.</span>xml<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>XmlAttribute<span class="token punctuation">;</span>
@@ -1195,7 +1131,7 @@ public class Jaxb2Test {
 <pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>小菜<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>18<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>birthDay</span><span class="token punctuation">></span></span>2020-02-20T22:09:03.019+08:00<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>birthDay</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>birthDay</span><span class="token punctuation">></span></span>2020-02-24T22:09:03.019+08:00<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>birthDay</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>address</span> <span class="token attr-name">country</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>China<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>province</span><span class="token punctuation">></span></span>Shanghai<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>province</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>city</span><span class="token punctuation">></span></span>Shanghai<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>city</span><span class="token punctuation">></span></span>
@@ -1204,24 +1140,27 @@ public class Jaxb2Test {
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>user</span><span class="token punctuation">></span></span></code></pre>
 <p>注意@XmlAccessorType注解。<br>另Castor实现XML与Java的互转 <a href="http://www.castor.org/" target="_blank" rel="noopener">http://www.castor.org/</a></p>
 <p>另外还有 Compiler API，Http Server API，插入式注解处理API(Pluggable Annotation Processing API)，对脚本语言的支持如: ruby, groovy, javascript，Common Annotations 涉及内容较多篇幅较长，后续单独学习。</p>
-<h5 id="JDK1-7"><a href="#JDK1-7" class="headerlink" title="JDK1.7"></a>JDK1.7</h5><ol>
-<li>switch中可以使用字符串。非常实用。</li>
-<li>泛型实例化类型自动推断。</li>
-<li>数值字面量改进.<br> 数字前面加”0B”或”0b”表示二进制数。如：int binary = 0b1001_1001;<br> 数值中可以添加”_”。 如： int one_million = 1_000_000;</li>
-<li>try-with-resources语句中会被自动调用，用于自动释放资源。自动关闭接口AutoCloseable。<pre class=" language-java"><code class="language-java"><span class="token keyword">try</span><span class="token punctuation">(</span>OutputStream fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"D:/file"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
- <span class="token comment" spellcheck="true">// 不需要再次指明fos.close();</span>
+<h4 id="JDK1-7"><a href="#JDK1-7" class="headerlink" title="JDK1.7"></a>JDK1.7</h4><h5 id="1-switch中可以使用字符串。"><a href="#1-switch中可以使用字符串。" class="headerlink" title="1. switch中可以使用字符串。"></a>1. switch中可以使用字符串。</h5><pre><code>非常实用的。</code></pre><h5 id="2-泛型实例化类型自动推断。"><a href="#2-泛型实例化类型自动推断。" class="headerlink" title="2. 泛型实例化类型自动推断。"></a>2. 泛型实例化类型自动推断。</h5><p>指定类型:</p>
+<pre class=" language-java"><code class="language-java">    Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> myMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre>
+<p>自动推断:</p>
+<pre class=" language-java"><code class="language-java">    Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> myMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre>
+<h5 id="3-数值字面量改进"><a href="#3-数值字面量改进" class="headerlink" title="3. 数值字面量改进."></a>3. 数值字面量改进.</h5><p>数字前面加”0B”或”0b”表示二进制数。如：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> binary <span class="token operator">=</span> <span class="token number">0b10011001</span><span class="token punctuation">;</span></code></pre>
+<p>数值中可以添加”_”。 如： </p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> one_million <span class="token operator">=</span> 1_000_000<span class="token punctuation">;</span></code></pre>
+<h5 id="4-try-with-resources语句。"><a href="#4-try-with-resources语句。" class="headerlink" title="4. try-with-resources语句。"></a>4. try-with-resources语句。</h5><p>try-with-resources语句中会被自动调用，用于自动释放资源。自动关闭接口AutoCloseable。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">try</span><span class="token punctuation">(</span>OutputStream fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"D:/file"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 不需要再次指明fos.close();</span>
 <span class="token punctuation">}</span></code></pre>
-</li>
-<li>优化异常处理<pre class=" language-java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">{</span>
-result <span class="token operator">=</span> field<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<ol start="5">
+<li>优化异常处理</li>
+</ol>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">{</span>
+   result <span class="token operator">=</span> field<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IllegalArgumentException</span> <span class="token operator">|</span> IllegalAccessException e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-</li>
-</ol>
-<h5 id="JDK1-8"><a href="#JDK1-8" class="headerlink" title="JDK1.8"></a>JDK1.8</h5><ol>
-<li>Lambda 表达式<br>Lambda表达式（也称为闭包）是整个Java 8发行版中最受期待的在Java语言层面上的改变，Lambda允许把函数作为一个方法的参数进行传递。</li>
-</ol>
+<h4 id="JDK1-8"><a href="#JDK1-8" class="headerlink" title="JDK1.8"></a>JDK1.8</h4><h5 id="1-Lambda-表达式"><a href="#1-Lambda-表达式" class="headerlink" title="1. Lambda 表达式"></a>1. Lambda 表达式</h5><p>Lambda表达式（也称为闭包）是整个Java 8发行版中最受期待的在Java语言层面上的改变，Lambda允许把函数作为一个方法的参数进行传递。</p>
 <p>Lambda 表达式的标准格式：</p>
 <pre><code>(参数类型 参数名) -&gt; {
     方法体;
@@ -1303,111 +1242,121 @@ e<span class="token punctuation">.</span><span class="token function">printStack
         race2<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<ol start="2">
-<li>函数式接口<br>JDK 8之前就有的函数式接口（使用@FunctionalInterface定义 ）<pre class=" language-java"><code class="language-java">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>Runnable
-</code></pre>
-</li>
-</ol>
-<p>java.util.concurrent.Callable</p>
-<p>java.security.PrivilegedAction</p>
-<p>java.util.Comparator</p>
-<p>java.io.FileFilter</p>
-<p>java.nio.file.PathMatcher </p>
-<p>java.lang.reflect.InvocationHandler</p>
-<p>java.beans.PropertyChangeListener</p>
-<p>java.awt.event.ActionListener  </p>
-<p>javax.swing.event.ChangeListener </p>
-<pre><code>3. 接口默认方法与静态方法
-接口默认方法，用`default`关键字。
-接口静态方法，用`static`关键字：
-```java
-package com.zxc.jdk8;
+<h5 id="2-函数式接口"><a href="#2-函数式接口" class="headerlink" title="2. 函数式接口"></a>2. 函数式接口</h5><p>JDK 8之前就有的函数式接口（使用@FunctionalInterface定义 ）</p>
+<pre class=" language-java"><code class="language-java">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>Runnable
 
-public interface MyInterface {
+java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>Callable
 
-    void printStr(String string);
+java<span class="token punctuation">.</span>security<span class="token punctuation">.</span>PrivilegedAction
 
-    default void log() {
-        System.out.println(&quot; this is default method&quot;);
-    }
+java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Comparator
 
-    static boolean isNull(String str) {
-         System.out.println(&quot;Interface Null Check&quot;);
-         return str == null ? true : &quot;&quot;.equals(str) ? true : false;
-   } 
-}</code></pre><p>注意：类继承多个Interface接口同名方法(如show())时，必须在子类中@Override重写父类show()方法。</p>
+java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>FileFilter
+
+java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>file<span class="token punctuation">.</span>PathMatcher 
+
+java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>InvocationHandler
+
+java<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>PropertyChangeListener
+
+java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span>ActionListener  
+
+javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span>event<span class="token punctuation">.</span>ChangeListener </code></pre>
+<h5 id="3-接口默认方法与静态方法"><a href="#3-接口默认方法与静态方法" class="headerlink" title="3. 接口默认方法与静态方法"></a>3. 接口默认方法与静态方法</h5><p>接口默认方法，用<code>default</code>关键字。<br>接口静态方法，用<code>static</code>关键字：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterface</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">void</span> <span class="token function">printStr</span><span class="token punctuation">(</span>String string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" this is default method"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">isNull</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Interface Null Check"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token keyword">return</span> str <span class="token operator">==</span> null <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span></code></pre>
+<p>注意：类继承多个Interface接口同名方法(如show())时，必须在子类中@Override重写父类show()方法。</p>
 <p>特性说明：</p>
 <pre><code>1,函数式接口仅仅只有一个方法(非默认或静态方法)，用于显示转换成ladbma表达式。
 2, java.lang.Runnable接口 java.util.concurrent.Callable接口是两个最典型的函数式接口。
 3.如果一个函数式接口添加一个普通方法，就变成了非函数式接口（一般定义的接口）。
 4.Jdk8 规范里添加了注解@FunctionalInterface来限制函数式接口不能修改为普通的接口.</code></pre><p>jdk8新增了四个重要的函数式接口：函数形接口 、供给形接口、消费型接口、判断型接口 </p>
-<ol start="4">
-<li>日期时间的API.<br>新的时间及日期API类在java.time包中，不可变且线程安全的。<br>Instant获取时间戳, LocalDate只处理日期、LocalTime只处理时间,LocalDateTime只处理日期时间，ZonedDateTime包含时区的日期时间<br>TemporalAdjusters 日期调整<br>DateTimeFormatter 替代之前版本的SimpleDateFormat类<br>YearMonth年月组合,MonthDay月日组合<br>Clockdeng<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
-</code></pre>
-</li>
-</ol>
-<p>import java.time.Clock;<br>import java.time.LocalDate;<br>import java.time.LocalDateTime;<br>import java.time.LocalTime;<br>import static java.lang.System.out;<br>public class DateTimeTest {</p>
-<pre><code>public static void main(String[] args) {
+<h5 id="4-日期时间的API"><a href="#4-日期时间的API" class="headerlink" title="4. 日期时间的API."></a>4. 日期时间的API.</h5><p>新的时间及日期API类在java.time包中，不可变且线程安全的。<br>Instant获取时间戳, LocalDate只处理日期、LocalTime只处理时间,LocalDateTime只处理日期时间，ZonedDateTime包含时区的日期时间<br>TemporalAdjusters 日期调整<br>DateTimeFormatter 替代之前版本的SimpleDateFormat类<br>YearMonth年月组合,MonthDay月日组合<br>Clockdeng</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
 
-     LocalDate date = LocalDate.now(); 
-     LocalTime time = LocalTime.now(Clock.systemUTC());
-     LocalDateTime dttm = LocalDateTime.now();
-     out.println(&quot; date = &quot; +date);
-     out.println(&quot; time = &quot; +time);
-     out.println(&quot; dttm = &quot; +dttm);
-}</code></pre><p>}</p>
-<pre><code>控制台输出：</code></pre><p> date = 2020-05-31<br> time = 16:29:41.010<br> dttm = 2020-05-31T00:29:41.010</p>
-<pre><code>5. Optional 类
-Optional 是个容器，它可以保存类型T的值，或者仅仅保存null。Optional提供很多有用的方法，这样我们就不用显式进行空值检测。比较友好的的解决空指针异常。Optional.of()或者Optional.ofNullable()：创建Optional对象，差别在于of不允许参数是null，而ofNullable则无限制。
-```java
-package com.zxc.jdk8;
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Clock<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDate<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalTime<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateTimeTest</span> <span class="token punctuation">{</span>
 
-import java.util.Optional;
-import static java.lang.System.out;
-public class OptionalTest {
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    public static void main(String[] args) {
-        // 参数不能是null
-        Optional&lt;Integer&gt; opt1 = Optional.of(1);
-         out.println(opt1);
-        // 参数可以是null
-        Optional&lt;Integer&gt; opt2 = Optional.ofNullable(null);
-        out.println(opt2);
-        // 参数可以是非null
-        Optional&lt;Integer&gt; opt3 = Optional.ofNullable(2);
-        Optional&lt;String&gt; opt4 = Optional.ofNullable(&quot;&quot;);
-        out.println(opt3);
-        out.println(opt4.isPresent());
+         LocalDate date <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+         LocalTime time <span class="token operator">=</span> LocalTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span>Clock<span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         LocalDateTime dttm <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date = "</span> <span class="token operator">+</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" time = "</span> <span class="token operator">+</span>time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm = "</span> <span class="token operator">+</span>dttm<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>控制台输出：</p>
+<pre><code> date = 2020-05-31
+ time = 16:29:41.010
+ dttm = 2020-05-31T00:29:41.010</code></pre><p>更多内容参考<a href="/post/d0e15f60.html">《java 查漏补缺-java8里的日期时间API》</a></p>
+<h5 id="5-Optional-类"><a href="#5-Optional-类" class="headerlink" title="5. Optional 类"></a>5. Optional 类</h5><p>Optional 是个容器，它可以保存类型T的值，或者仅仅保存null。Optional提供很多有用的方法，这样我们就不用显式进行空值检测。比较友好的的解决空指针异常。Optional.of()或者Optional.ofNullable()：创建Optional对象，差别在于of不允许参数是null，而ofNullable则无限制。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
 
-        // orElse
-        out.println(opt1.orElse(1000) == 1);// true
-        out.println(opt4.orElse(&quot;1000&quot;).equals(&quot;1000&quot;));// true
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Optional<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OptionalTest</span> <span class="token punctuation">{</span>
 
-        out.println(optional1.orElseGet(() -&gt; { return 1000;}) == 1);//true
-    }
-}</code></pre><ol start="6">
-<li>Nashorn, JavaScript引擎。<br>Java 8提供了一个新的Nashorn javascript引擎，它允许我们在JVM上运行特定的javascript应用。<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
-</code></pre>
-</li>
-</ol>
-<p>import javax.script.ScriptEngine;<br>import javax.script.ScriptEngineManager;<br>import javax.script.ScriptException;</p>
-<p>public class NashornTest {</p>
-<pre><code>public static void main(String[] args) throws ScriptException {
-    ScriptEngine engine = new ScriptEngineManager().getEngineByName(&quot;nashorn&quot;);
-    engine.eval(&quot;print(&#39;Hello World!&#39;);&quot;);
-}</code></pre><p>}</p>
-<pre><code>Nashorn JavaScript基于ECMAScript 5.1，但是它的后续版本会对ES6提供支持：
-Nashorn的当前策略遵循ECMAScript规范。当我们在JDK8中发布它时，它将基于ECMAScript 5.1。Nashorn未来的主要发布基于ECMAScript 6。
-Nashorn定义了大量对ECMAScript标准的语言和API扩展。但是首先让我们看一看Java和JavaScript代码如何交互。
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 参数不能是null</span>
+        Optional<span class="token operator">&lt;</span>Integer<span class="token operator">></span> opt1 <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>opt1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 参数可以是null</span>
+        Optional<span class="token operator">&lt;</span>Integer<span class="token operator">></span> opt2 <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>opt2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 参数可以是非null</span>
+        Optional<span class="token operator">&lt;</span>Integer<span class="token operator">></span> opt3 <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Optional<span class="token operator">&lt;</span>String<span class="token operator">></span> opt4 <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>opt3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>opt4<span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-注意：</code></pre><p>该引擎在java11是被弃用。ECMAScript语言标准的快速发展，维护Nashorn引擎变得越发挑战，因此该引擎将在Java中废弃。<br>两个模块将会被最终弃用，被标注为@Deprecated(forRemoval=true)。</p>
+        <span class="token comment" spellcheck="true">// orElse</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>opt1<span class="token punctuation">.</span><span class="token function">orElse</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// true</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>opt4<span class="token punctuation">.</span><span class="token function">orElse</span><span class="token punctuation">(</span><span class="token string">"1000"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"1000"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// true</span>
+
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>optional1<span class="token punctuation">.</span><span class="token function">orElseGet</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">1000</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//true</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h5 id="6-Nashorn-JavaScript引擎。"><a href="#6-Nashorn-JavaScript引擎。" class="headerlink" title="6. Nashorn, JavaScript引擎。"></a>6. Nashorn, JavaScript引擎。</h5><p>Java 8提供了一个新的Nashorn javascript引擎，它允许我们在JVM上运行特定的javascript应用。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>script<span class="token punctuation">.</span>ScriptEngine<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>script<span class="token punctuation">.</span>ScriptEngineManager<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>script<span class="token punctuation">.</span>ScriptException<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NashornTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> ScriptException <span class="token punctuation">{</span>
+        ScriptEngine engine <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScriptEngineManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getEngineByName</span><span class="token punctuation">(</span><span class="token string">"nashorn"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        engine<span class="token punctuation">.</span><span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">"print('Hello World!');"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>Nashorn JavaScript基于ECMAScript 5.1，但是它的后续版本会对ES6提供支持：<br>Nashorn的当前策略遵循ECMAScript规范。当我们在JDK8中发布它时，它将基于ECMAScript 5.1。Nashorn未来的主要发布基于ECMAScript 6。<br>Nashorn定义了大量对ECMAScript标准的语言和API扩展。但是首先让我们看一看Java和JavaScript代码如何交互。</p>
+<p>注意：</p>
+<p>该引擎在java11是被弃用。ECMAScript语言标准的快速发展，维护Nashorn引擎变得越发挑战，因此该引擎将在Java中废弃。<br>两个模块将会被最终弃用，被标注为@Deprecated(forRemoval=true)。</p>
 <p>jdk.scripting.nashorn模块，包含dk.nashorn.api.scripting和jdk.nashorn.api.tree包。jdk.scripting.nashorn.shell模块，包含jjs工具，运行jjs将显示警告。</p>
 <p>需要注意的是，java.scripting模块中javax.script包下的相关API不受影响。</p>
-<p>```</p>
-<ol start="7">
-<li>新工具</li>
-</ol>
-<p>新的编译工具，如：Nashorn引擎 jjs、 类依赖分析器jdeps。<br>Nashorn引擎jjs：<br>jjs是一个基于标准Nashorn引擎的命令行工具，可以接受js源码并执行。<br>类依赖分析器jdeps：<br>jdeps是一个命令行工具，它可以展示包层级和类层级的Java类依赖关系，它以.class文件、目录或者Jar文件为输入，然后会把依赖关系输出到控制台。<br>JVM的新特性<br>使用Metaspace（JEP 122）代替持久代（PermGen space）。在JVM参数方面，使用<code>-XX:MetaSpaceSize</code>和<code>-XX:MaxMetaspaceSize</code>代替原来的<code>-XX:PermSize</code>和<code>-XX:MaxPermSize</code>。</p>
+<h5 id="7-新工具"><a href="#7-新工具" class="headerlink" title="7. 新工具"></a>7. 新工具</h5><p>新的编译工具，如：Nashorn引擎 jjs、 类依赖分析器jdeps。<br>Nashorn引擎jjs：<br>jjs是一个基于标准Nashorn引擎的命令行工具，可以接受js源码并执行。<br>类依赖分析器jdeps：<br>jdeps是一个命令行工具，它可以展示包层级和类层级的Java类依赖关系，它以.class文件、目录或者Jar文件为输入，然后会把依赖关系输出到控制台。<br>JVM的新特性<br>使用Metaspace（JEP 122）代替持久代（PermGen space）。在JVM参数方面，使用<code>-XX:MetaSpaceSize</code>和<code>-XX:MaxMetaspaceSize</code>代替原来的<code>-XX:PermSize</code>和<code>-XX:MaxPermSize</code>。</p>
+<h5 id="8-其他"><a href="#8-其他" class="headerlink" title="8. 其他"></a>8. 其他</h5><p>若遇到随时补充学习。</p>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -1419,8 +1368,90 @@ Nashorn定义了大量对ECMAScript标准的语言和API扩展。但是首先让
       </tags>
   </entry>
   <entry>
+    <title>Hexo搭建静态博客（四）——插件安装</title>
+    <url>/posts/cda13ebe.html</url>
+    <content><![CDATA[<p>Hexo静态博客插件安装相关内容，本文以安装search和abbrlink插件为例。</p>
+<a id="more"></a>
+
+<p>注意：安装插件不是非必须，除了部分插件跟着主题必须安装之外，其他插件属于可选。</p>
+<h3 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h3><pre><code>npm install   hexo-generator-feed  --save   #订阅
+npm install   hexo-generator-search --save  #搜索</code></pre><h3 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h3><p>这里说一下添加本地搜索，有的主题已经自己带了搜索功能，只要配置开启即可。如果没有带主题可以自己加上。<br><font color=red>特别说明：如果主题自带搜索，看自带搜索操作说明即可，如果主题无搜索看自定义模式说明即可。</font></p>
+<h4 id="步骤一-安装插件"><a href="#步骤一-安装插件" class="headerlink" title="步骤一 安装插件"></a>步骤一 安装插件</h4><p>第一步：安装搜索插件 <code>npm install hexo-generator-searchdb --save</code></p>
+<h4 id="步骤二-修改配置"><a href="#步骤二-修改配置" class="headerlink" title="步骤二 修改配置"></a>步骤二 修改配置</h4><p>第二步：根目录_config.yml文件配置添加</p>
+<pre><code>search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000</code></pre><p>主题配置_config.yml添加</p>
+<pre><code>local_search: 
+  enable: true</code></pre><h4 id="步骤三-添加搜索"><a href="#步骤三-添加搜索" class="headerlink" title="步骤三 添加搜索"></a>步骤三 添加搜索</h4><p>第三步:添加搜索框</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>search-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-input<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>q<span class="token punctuation">"</span></span> <span class="token attr-name">results</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">autocomplete</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>off<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>搜索<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-input pure-input-1<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">204</span>, <span class="token number">232</span>, <span class="token number">207</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-result<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>第1种，主题自带搜索模式，有独立的search页面,生成页面前面已经讲到了，把代码放到source/search/index.md文件中即可。</p>
+<p>第2种，自定义模式，直接加在首页，想加哪个位置看自己喜好，位置找主题下的布局文件夹_layout或layout/partials之类的文件夹下,里面有head.ejs或head.swig文件（如果不是请自己查找节点，文件反正就那些）,添加html代码</p>
+<h4 id="步骤四-引入js文件"><a href="#步骤四-引入js文件" class="headerlink" title="步骤四 引入js文件"></a>步骤四 引入js文件</h4><p>第四步：引入js</p>
+<p>第1种，主题自带搜索模式，主题下的配置文件一般有scripts设置，直接配置路径，一般都有示例如</p>
+<pre><code>scripts:
+#- //cdn.bootcss.com/zepto/1.2.0/zepto.min.js
+#- /js/xoxo.js
+  - /js/search.js</code></pre><p>第2种，自定义模式，没有scripts配置,就在找主题下的布局文件夹_layout或layout/中，有js.ejs或srcipt.ejs，<br>文件可以从这里拿：<a href="https://github.com/zhzy2017/hexo-search-plugin-snippets" target="_blank" rel="noopener">https://github.com/zhzy2017/hexo-search-plugin-snippets</a><br>把search.js 放到source\js目录下,引入使用也有不同的方法</p>
+<h4 id="步骤五-引入css文件"><a href="#步骤五-引入css文件" class="headerlink" title="步骤五 引入css文件"></a>步骤五 引入css文件</h4><p>第五步：css设置<br>有的带搜索的无须操作，没有的从下载hexo-search-plugin-snippets里面拿拷贝到source/css里面，引入即可，</p>
+<p>第1种，主题自带搜索模式，一般不需要配置写在公共文件中，如果没有样式可以在主题下的配置文件一般有stylesheets设置，直接配置路径，一般都有示例：</p>
+<pre><code>stylesheets:
+# - /css/normalize.css
+ - //cdn.bootcss.com/pure/1.0.0/pure-min.css
+ - /css/xoxo.css
+</code></pre><p>第2种，自定义模式，跟配引入js类似，找一下主题目录ejs或swig文件引入，或者直接用css或less文件放到source/css目录下的某个文件中，这样不需要引文件</p>
+<p>其他插件，具体使用自行搜索，一般是修改配置或添加代码</p>
+<pre><code>npm install hexo-generator-index-pin-top –save  #文章置顶插件 
+npm uninstall hexo-generator-index –save     #文章置顶插件 
+npm i –save hexo-wordcount        #文章字数+阅读时长统计     
+npm install hexo-baidu-url-submit –save     #百度链接主动推送     
+npm install hexo-deployer-ftpsync –save     #hexo上传至FTP服务器     
+npm install hexo-deployer-cos –save     #hexo上传至腾讯云COS     
+npm install hexo-deployer-aliyun –save     #hexo上传至阿里云     
+npm install –save hexo-admin     #hexo管理插件     
+hexo-blog-encrypt(请看文档)     #hexo文章加密码 
+npm install leancloud-storage –save     #Valine评论     
+Valine评论邮件通知     Valine评论提醒 
+npm install hexo-deployer-git –save hexo安装git（允许使用git命令）</code></pre><p>更多插件请访问插件中心：<a href="https://hexo.io/plugins/" target="_blank" rel="noopener">https://hexo.io/plugins/</a><br>使用参考链接参考<a href="https://blog.csdn.net/q2158798/article/details/82354154" target="_blank" rel="noopener">幻凡ss</a></p>
+<h3 id="修改修改永久链接"><a href="#修改修改永久链接" class="headerlink" title="修改修改永久链接"></a>修改修改永久链接</h3><p>Hexo修改修改永久链接的默认格式,方便SEO.<br><code>npm install hexo-abbrlink --save</code>  #文章永久链接 <a href="https://github.com/Rozbo/hexo-abbrlink" target="_blank" rel="noopener">项目地址在这里</a></p>
+<h4 id="1-安装插件"><a href="#1-安装插件" class="headerlink" title="1.安装插件"></a>1.安装插件</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save</code></pre>
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><pre><code># permalink: :year/:month/:day/:title/
+# permalink_defaults:
+permalink: posts/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex</code></pre><h4 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h4><pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> heox g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>点击一篇文章，检查浏览器地址看看是不是发生变化了？</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java 查漏补缺-Java8 中的 Optional</title>
+    <url>/posts/e748f349.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>Java虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>java 查漏补缺-java8里的日期时间API</title>
-    <url>/posts/c68d7a69.html</url>
+    <url>/posts/d0e15f60.html</url>
     <content><![CDATA[<h3 id="Java-8-日期时间-API"><a href="#Java-8-日期时间-API" class="headerlink" title="Java 8 日期时间 API"></a>Java 8 日期时间 API</h3><p>Java 8通过发布新的Date-Time API (JSR 310)来进一步加强对日期与时间的处理。 旧版的<code>java.util.Date</code>是非线程安全的。</p>
 <h4 id="1-java8日期时间相关API"><a href="#1-java8日期时间相关API" class="headerlink" title="1. java8日期时间相关API"></a>1. java8日期时间相关API</h4><p>Java 8 在 java.time 包下提供了很多新的 API：</p>
 <pre><code>Local(本地) − 简化了日期时间的处理，没有时区的问题。
@@ -1592,82 +1623,7 @@ Clock - 时钟。可以获取某个时区下（对时区是敏感的）当前的
       </tags>
   </entry>
   <entry>
-    <title>java 查漏补缺-Java8 中的 Optional</title>
-    <url>/posts/e748f349.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-        <tag>Java虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jvm之内存结构</title>
-    <url>/posts/9f103da7.html</url>
-    <content><![CDATA[<h2 id="jvm-内存管理机制"><a href="#jvm-内存管理机制" class="headerlink" title="jvm 内存管理机制"></a>jvm 内存管理机制</h2><pre><code>参考资料：
-《深入理解Java虚拟机 JVM高级特性与最佳实践 第3版》
-《Java虚拟机规范（Java SE 7）》</code></pre><h3 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h3><p>根据《Java虚拟机规范》的规定，Java虚拟机所管理的内存将会包括以下几个运行时数据区域.<br><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-pic-1.jpg" alt="Image jvm-pic-1"></p>
-<ol>
-<li><p>程序计数器</p>
-<pre><code>程序计数器（Program Counter Register）是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</code></pre><p>程序计数器特征：<br>（1）是“线程私有”的内存。每条线程都需要有一个独立的程序计数器，各条线程之间计数器互不影响，独立存储。<br>（2）如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是本地（Native）方法，这个计数器值则应为空（Undefined）。<br>（3）此内存区域是唯一一个在《Java虚拟机规范》中没有规定任何OutOfMemoryError情况的区域。</p>
-</li>
-<li><p>Java虚拟机栈</p>
-<pre><code>Java虚拟机栈（Java Virtual Machine Stack）也是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是Java方法执行的线程内存模型：每个方法被执行的时候，Java虚拟机都会同步创建一个栈帧[栈帧是方法运行期间很重要的基础数据结构]（Stack Frame）用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</code></pre><p>局部变量表相关：</p>
-<pre><code>局部变量表存放了编译期可知的各种Java虚拟机基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，它并不等同于对象本身，可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或者其他与此对象相关的位置）和returnAddress类型（指向了一条字节码指令的地址）。</code></pre></li>
-</ol>
-<p>在《Java虚拟机规范》中， Java虚拟机栈可能出现两类异常状况：</p>
-<pre><code>（1）如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常；
-（2）如果Java虚拟机栈容量可以动态扩展[Hotspot的虚拟机栈不允许扩展]，当栈扩展时无法申请到足够的内存会抛出OutOfMemoryError异常。</code></pre><ol start="3">
-<li><p>本地方法栈<br>本地方法栈（Native Method Stacks）与虚拟机栈所发挥的作用是非常相似的，区别:</p>
-<pre><code>虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，
-本地方法栈则是为虚拟机使用到的本地（Native）方法服务。</code></pre><p>有的Java虚拟机（譬如Hot-Spot虚拟机）直接就把本地方法栈和虚拟机栈合二为一。<br>本地方法栈也可能出现两类异常状况：</p>
-<pre><code>（1）本地方法栈也会在栈深度溢出时抛出StackOverflowError
-（2）本地方法栈扩展失败时抛出OutOfMemoryError。</code></pre></li>
-<li><p>Java堆</p>
-<pre><code>Java堆（Java Heap）是虚拟机所管理的内存中最大的一块。Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，Java世界里“**几乎**”所有的对象实例都在这里分配内存。</code></pre><p>Java堆是垃圾收集器管理的内存区域，因此一些资料中它也被称作“GC堆”。</p>
-</li>
-</ol>
-<p>从回收内存的角度看，由于现代垃圾收集器大部分都是基于分代收集理论设计的，所以Java堆中经常会出现“新生代”“老年代”、“永久代”、“Eden空间”、“From Survivor空间”、“To Survivor空间”等。</p>
-<p>如果从分配内存的角度看，所有线程共享的Java堆中可以划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer，TLAB），以提升对象分配时的效率。</p>
-<p>Java堆可以处于物理上不连续的内存空间中，但在逻辑上它应该被视为连续的。</p>
-<p>Java堆既可以被实现成固定大小的，也可以是可扩展的，不过当前主流的Java虚拟机都是按照可扩展来实现的（通过参数-Xmx和-Xms设定）。</p>
-<p>如果在Java堆中没有内存完成实例分配，并且堆也无法再扩展时，Java虚拟机将会抛出OutOfMemoryError异常。</p>
-<ol start="5">
-<li>方法区<pre><code>方法区（Method Area）与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。</code></pre>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”（Non-Heap），目的是与Java堆区分开来。</li>
-</ol>
-<p>在JDK 6的时候HotSpot开发团队就有放弃永久代，逐步改为采用<code>本地内存（Native Memory）</code>来实现方法区的计划。<br>到了JDK 7的HotSpot，已经把原本放在永久代的字符串常量池、静态变量等移至堆内存。</p>
-<pre><code>jdk7开始方法区的逐渐移除：符号引用(Symbols)移至native heap，字面量(interned strings)和静态变量(class statics)移至java heap。</code></pre><p>到了JDK 8，终于完全废弃了永久代的概念，改用与JRockit、J9一样在本地内存中实现的<code>元空间（Meta-space）</code>来代替，把JDK 7中永久代还剩余的内容（主要是类型信息）全部移到元空间中。</p>
-<pre><code>JDK1.8以前的HotSpot JVM有方法区，也叫永久代(permanent generation)。
-方法区用于存放已被虚拟机加载的类信息、常量、静态变量，即编译器编译后的代码。
-方法区是一片连续的堆空间，通过-XX:MaxPermSize来设定永久代最大可分配空间，当JVM加载的类信息容量超过了这个值，会报OOM:PermGen错误。
-永久代的GC是和老年代(old generation)捆绑在一起的，无论谁满了，都会触发永久代和老年代的垃圾收集。
-
-为什么要用Metaspace替代方法区？</code></pre><p>随着动态类加载的情况越来越多，这块内存变得不太可控，如果设置小了，系统运行过程中就容易出现内存溢出，设置大了又浪费内存。</p>
-<pre><code>方法区的内存回收目标主要是针对常量池的回收和对类型的卸载，卸载条件相当苛刻。
-方法区无法满足新的内存分配需求时，将抛出OutOfMemoryError异常。</code></pre><ol start="6">
-<li>运行时常量池<pre><code>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表（Constant Pool Table），用于存放编译期生成的各种字面量与符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。</code></pre>运行时常量池特征：<br>（1）存储数据条件宽松。（保存Class文件中描述的符号引用，把由符号引用翻译出来的直接引用，均可放入运行时常量池）<br>（2）具备动态性。（预置入Class文件中常量池的内容，或运行期间新的常量[如String类的intern()方法]，均可放入）</li>
-</ol>
-<p>运行时常量池是方法区的一部分，受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</p>
-<ol start="7">
-<li>直接内存<br>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。但是这部分内存也被频繁地使用，而且也可能导致OutOfMemoryError异常出现。</li>
-</ol>
-<p>在JDK 1.4中新加入了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
-<p>本机直接内存的分配不会受Java堆大小的限制，但受到本机总内存（包括物理内存、SWAP分区或者分页文件）大小以及处理器寻址空间的限制。<br>配置虚拟机参数时，设置-Xmx等参数信息，若使得各个内存区域总和大于物理内存限制（包括物理的和操作系统级的限制），就会导致动态扩展时出现OutOfMemoryError。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-        <tag>内存结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>深入理解JVM结构学习（第三版）</title>
+    <title>深入理解JVM（第三版）</title>
     <url>/posts/2a1a7c1f.html</url>
     <content><![CDATA[<pre><code>本文记录关于深入理解JVM（第三版）学习笔记，连接Github免密和 云服务器或私有服务器免密。</code></pre><h4 id="java虚拟机内存自动管理"><a href="#java虚拟机内存自动管理" class="headerlink" title="java虚拟机内存自动管理"></a>java虚拟机内存自动管理</h4><ol>
 <li><p>JVM内存自动管理中的的内存结构。</p>
@@ -1766,6 +1722,68 @@ Clock - 时钟。可以获取某个时区下（对时区是敏感的）当前的
         <tag>Java</tag>
         <tag>JVM</tag>
         <tag>Java虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jvm之内存结构</title>
+    <url>/posts/9f103da7.html</url>
+    <content><![CDATA[<h2 id="jvm-内存管理机制"><a href="#jvm-内存管理机制" class="headerlink" title="jvm 内存管理机制"></a>jvm 内存管理机制</h2><pre><code>参考资料：
+《深入理解Java虚拟机 JVM高级特性与最佳实践 第3版》
+《Java虚拟机规范（Java SE 7）》</code></pre><h3 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h3><p>根据《Java虚拟机规范》的规定，Java虚拟机所管理的内存将会包括以下几个运行时数据区域.<br><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-pic-1.jpg" alt="Image jvm-pic-1"></p>
+<ol>
+<li><p>程序计数器</p>
+<pre><code>程序计数器（Program Counter Register）是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</code></pre><p>程序计数器特征：<br>（1）是“线程私有”的内存。每条线程都需要有一个独立的程序计数器，各条线程之间计数器互不影响，独立存储。<br>（2）如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是本地（Native）方法，这个计数器值则应为空（Undefined）。<br>（3）此内存区域是唯一一个在《Java虚拟机规范》中没有规定任何OutOfMemoryError情况的区域。</p>
+</li>
+<li><p>Java虚拟机栈</p>
+<pre><code>Java虚拟机栈（Java Virtual Machine Stack）也是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是Java方法执行的线程内存模型：每个方法被执行的时候，Java虚拟机都会同步创建一个栈帧[栈帧是方法运行期间很重要的基础数据结构]（Stack Frame）用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</code></pre><p>局部变量表相关：</p>
+<pre><code>局部变量表存放了编译期可知的各种Java虚拟机基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，它并不等同于对象本身，可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或者其他与此对象相关的位置）和returnAddress类型（指向了一条字节码指令的地址）。</code></pre></li>
+</ol>
+<p>在《Java虚拟机规范》中， Java虚拟机栈可能出现两类异常状况：</p>
+<pre><code>（1）如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常；
+（2）如果Java虚拟机栈容量可以动态扩展[Hotspot的虚拟机栈不允许扩展]，当栈扩展时无法申请到足够的内存会抛出OutOfMemoryError异常。</code></pre><ol start="3">
+<li><p>本地方法栈<br>本地方法栈（Native Method Stacks）与虚拟机栈所发挥的作用是非常相似的，区别:</p>
+<pre><code>虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，
+本地方法栈则是为虚拟机使用到的本地（Native）方法服务。</code></pre><p>有的Java虚拟机（譬如Hot-Spot虚拟机）直接就把本地方法栈和虚拟机栈合二为一。<br>本地方法栈也可能出现两类异常状况：</p>
+<pre><code>（1）本地方法栈也会在栈深度溢出时抛出StackOverflowError
+（2）本地方法栈扩展失败时抛出OutOfMemoryError。</code></pre></li>
+<li><p>Java堆</p>
+<pre><code>Java堆（Java Heap）是虚拟机所管理的内存中最大的一块。Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，Java世界里“**几乎**”所有的对象实例都在这里分配内存。</code></pre><p>Java堆是垃圾收集器管理的内存区域，因此一些资料中它也被称作“GC堆”。</p>
+</li>
+</ol>
+<p>从回收内存的角度看，由于现代垃圾收集器大部分都是基于分代收集理论设计的，所以Java堆中经常会出现“新生代”“老年代”、“永久代”、“Eden空间”、“From Survivor空间”、“To Survivor空间”等。</p>
+<p>如果从分配内存的角度看，所有线程共享的Java堆中可以划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer，TLAB），以提升对象分配时的效率。</p>
+<p>Java堆可以处于物理上不连续的内存空间中，但在逻辑上它应该被视为连续的。</p>
+<p>Java堆既可以被实现成固定大小的，也可以是可扩展的，不过当前主流的Java虚拟机都是按照可扩展来实现的（通过参数-Xmx和-Xms设定）。</p>
+<p>如果在Java堆中没有内存完成实例分配，并且堆也无法再扩展时，Java虚拟机将会抛出OutOfMemoryError异常。</p>
+<ol start="5">
+<li>方法区<pre><code>方法区（Method Area）与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。</code></pre>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”（Non-Heap），目的是与Java堆区分开来。</li>
+</ol>
+<p>在JDK 6的时候HotSpot开发团队就有放弃永久代，逐步改为采用<code>本地内存（Native Memory）</code>来实现方法区的计划。<br>到了JDK 7的HotSpot，已经把原本放在永久代的字符串常量池、静态变量等移至堆内存。</p>
+<pre><code>jdk7开始方法区的逐渐移除：符号引用(Symbols)移至native heap，字面量(interned strings)和静态变量(class statics)移至java heap。</code></pre><p>到了JDK 8，终于完全废弃了永久代的概念，改用与JRockit、J9一样在本地内存中实现的<code>元空间（Meta-space）</code>来代替，把JDK 7中永久代还剩余的内容（主要是类型信息）全部移到元空间中。</p>
+<pre><code>JDK1.8以前的HotSpot JVM有方法区，也叫永久代(permanent generation)。
+方法区用于存放已被虚拟机加载的类信息、常量、静态变量，即编译器编译后的代码。
+方法区是一片连续的堆空间，通过-XX:MaxPermSize来设定永久代最大可分配空间，当JVM加载的类信息容量超过了这个值，会报OOM:PermGen错误。
+永久代的GC是和老年代(old generation)捆绑在一起的，无论谁满了，都会触发永久代和老年代的垃圾收集。
+
+为什么要用Metaspace替代方法区？</code></pre><p>随着动态类加载的情况越来越多，这块内存变得不太可控，如果设置小了，系统运行过程中就容易出现内存溢出，设置大了又浪费内存。</p>
+<pre><code>方法区的内存回收目标主要是针对常量池的回收和对类型的卸载，卸载条件相当苛刻。
+方法区无法满足新的内存分配需求时，将抛出OutOfMemoryError异常。</code></pre><ol start="6">
+<li>运行时常量池<pre><code>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表（Constant Pool Table），用于存放编译期生成的各种字面量与符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。</code></pre>运行时常量池特征：<br>（1）存储数据条件宽松。（保存Class文件中描述的符号引用，把由符号引用翻译出来的直接引用，均可放入运行时常量池）<br>（2）具备动态性。（预置入Class文件中常量池的内容，或运行期间新的常量[如String类的intern()方法]，均可放入）</li>
+</ol>
+<p>运行时常量池是方法区的一部分，受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</p>
+<ol start="7">
+<li>直接内存<br>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。但是这部分内存也被频繁地使用，而且也可能导致OutOfMemoryError异常出现。</li>
+</ol>
+<p>在JDK 1.4中新加入了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
+<p>本机直接内存的分配不会受Java堆大小的限制，但受到本机总内存（包括物理内存、SWAP分区或者分页文件）大小以及处理器寻址空间的限制。<br>配置虚拟机参数时，设置-Xmx等参数信息，若使得各个内存区域总和大于物理内存限制（包括物理的和操作系统级的限制），就会导致动态扩展时出现OutOfMemoryError。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>内存结构</tag>
       </tags>
   </entry>
   <entry>
@@ -1901,6 +1919,61 @@ no, i am dead :(</code></pre><p>结论</p>
       </tags>
   </entry>
   <entry>
+    <title>jvm之垃圾收集器算法</title>
+    <url>/posts/50b49e8d.html</url>
+    <content><![CDATA[<h2 id="jvm-垃圾收集算法"><a href="#jvm-垃圾收集算法" class="headerlink" title="jvm 垃圾收集算法"></a>jvm 垃圾收集算法</h2><p>垃圾收集算法基本分类：<br>（1）“引用计数式垃圾收集”（Reference Counting GC）—直接垃圾收集<br>（2）“追踪式垃圾收集”（Tracing GC）—间接垃圾收集</p>
+<ol>
+<li>分代收集理论</li>
+</ol>
+<p>1）弱分代假说（Weak Generational Hypothesis）：绝大多数对象都是朝生夕灭的。<br>2）强分代假说（Strong Generational Hypothesis）：熬过越多次垃圾收集过程的对象就越难以消亡。<br>3）跨代引用假说（Intergenerational Reference Hypothesis）：跨代引用相对于同代引用来说仅占极少数。</p>
+<p>常用名词：</p>
+<pre><code>·部分收集（Partial GC）：指目标不是完整收集整个Java堆的垃圾收集，其中又分为：
+    ■新生代收集（Minor GC/Young GC）：指目标只是新生代的垃圾收集。
+    ■老年代收集（Major GC/Old GC）：指目标只是老年代的垃圾收集。目前只有CMS收集器会有单独收集老年代的行为。另外请注意“Major GC”这个说法现在有点混淆，在不同资料上常有不同所指，读者需按上下文区分到底是指老年代的收集还是整堆收集。
+    ■混合收集（Mixed GC）：指目标是收集整个新生代以及部分老年代的垃圾收集。目前只有G1收集器会有这种行为。
+·整堆收集（Full GC）：收集整个Java堆和方法区的垃圾收集。</code></pre><ol start="2">
+<li>标记-清除算法（Mark-Sweep）</li>
+</ol>
+<p>最早出现也是最基础的垃圾收集算法是“标记-清除”（Mark-Sweep）算法。</p>
+<pre><code>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象，也可以反过来，标记存活的对象，统一回收所有未被标记的对象</code></pre><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-mark-sweep.jpg" alt="image "></p>
+<p>主要缺点:<br>（1）执行效率不稳定，随着对象增加执行效率降低。</p>
+<pre><code>如果Java堆中包含大量对象，而且其中大部分是需要被回收的，这时必须进行大量标记和清除的动作，导致标记和清除两个过程的执行效率都随对象数量增长而降低；</code></pre><p>（2）内存空间碎片化问题，遇到较大对象男分配，重新GC。</p>
+<pre><code>第二个是内存空间的碎片化问题，标记、清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致当以后在程序运行过程中需要分配较大对象时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</code></pre><ol start="3">
+<li>标记-复制算法（Semispace Copying）</li>
+</ol>
+<p>标记-复制算法常被简称为复制算法。为了解决标记-清除算法面对大量可回收对象时执行效率低的问题。1969年Fenichel提出了一种称为“半区复制”（Semispace Copying）的垃圾收集算法：</p>
+<pre><code>将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。</code></pre><p>优点：</p>
+<pre><code>实现简单，运行高效。
+分配内存时也就不用考虑有空间碎片的复杂情况，只要移动堆顶指针，按顺序分配即可</code></pre><p>缺点：</p>
+<pre><code>如果内存中多数对象都是存活的，这种算法将会产生大量的内存间复制的开销。
+将可用内存缩小为了原来的一半。</code></pre><p>![image ](/images/jvm-images/jvm-gc-Semispace Copying.jpg)</p>
+<pre><code>现在的商用Java虚拟机大多都优先采用了这种收集算法去回收新生代。
+在1989年，Andrew Appel针对具备“朝生夕灭”特点的对象，提出了一种更优化的半区复制分代策略，现在称为“Appel式回收”。HotSpot虚拟机的Serial、ParNew等新生代收集器均采用了这种策略来设计新生代的内存布局。
+
+Appel式回收的具体做法是把新生代分为一块较大的Eden空间和两块较小的Survivor空间（HotSpot虚拟机默认Eden和Survivor的大小比例是8∶1）每次分配内存只使用Eden和其中一块Survivor。发生垃圾搜集时，将Eden和Survivor中仍然存活的对象一次性复制到另外一块Survivor空间上，然后直接清理掉Eden和已用过的那块Survivor空间。每次新生代中可用内存空间为整个新生代容量的90%（Eden的80%加上一个Survivor的10%），只有一个Survivor空间，即10%的新生代是会被“浪费”的。
+
+当复制目标的Survivor空间不足以容纳一次Minor GC之后存活的对象时，采用一种分配担保策略：多出来的对象直接进入老年代。 </code></pre><ol start="4">
+<li>标记-整理算法（Mark-Compact）</li>
+</ol>
+<p>不同于针对新生代的复制算法，针对老年代的特点，1974年Edward Lueders提出了另外一种有针对性的“标记-整理”（Mark-Compact）算法。其中的标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存。</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-Mark-Compact.jpg" alt="image "></p>
+<p>标记-清除算法与标记-整理算法的本质差异在于前者是一种非移动式的回收算法，而后者是移动式的。</p>
+<p>优缺点：</p>
+<pre><code>如果移动存活对象，尤其是在老年代这种每次回收都有大量对象存活区域，移动存活对象并更新所有引用这些对象的地方将会是一种极为负重的操作，而且这种对象移动操作必须全程暂停用户应用程序才能进行（Stop The World）。
+
+如果跟标记-清除算法那样完全不考虑移动和整理存活对象的话，弥散于堆中的存活对象导致的空间碎片化问题就只能依赖更为复杂的内存分配器和内存访问器来解决。
+
+是否移动对象都存在弊端，移动则内存回收时会更复杂，不移动则内存分配时会更复杂。从垃圾收集的停顿时间来看，不移动对象停顿时间会更短，甚至可以不需要停顿，但是从整个程序的吞吐量来看，移动对象会更划算。此语境中，吞吐量的实质是赋值器（Mutator，可以理解为使用垃圾收集的用户程序，本书为便于理解，多数地方用“用户程序”或“用户线程”代替）与收集器的效率总和。即使不移动对象会使得收集器的效率提升一些，但因内存分配和访问相比垃圾收集频率要高得多，这部分的耗时增加，总吞吐量仍然是下降的。HotSpot虚拟机里面关注吞吐量的Parallel Scavenge收集器是基于标记-整理算法的，而关注延迟的CMS收集器则是基于标记-清除算法的。</code></pre>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>垃圾收集器算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>jvm之对象创建</title>
     <url>/posts/b287f556.html</url>
     <content><![CDATA[<h2 id="HotSpot-虚拟机对象创建于布局"><a href="#HotSpot-虚拟机对象创建于布局" class="headerlink" title="HotSpot 虚拟机对象创建于布局"></a>HotSpot 虚拟机对象创建于布局</h2><pre><code>HotSpot虚拟机在Java堆中对象分配、布局和访问的全过程。
@@ -2016,61 +2089,6 @@ HotSpot虚拟机默认的分配顺序为longs/doubles、ints、shorts/chars、by
         <tag>Java</tag>
         <tag>JVM</tag>
         <tag>垃圾收集器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jvm之垃圾收集器算法</title>
-    <url>/posts/50b49e8d.html</url>
-    <content><![CDATA[<h2 id="jvm-垃圾收集算法"><a href="#jvm-垃圾收集算法" class="headerlink" title="jvm 垃圾收集算法"></a>jvm 垃圾收集算法</h2><p>垃圾收集算法基本分类：<br>（1）“引用计数式垃圾收集”（Reference Counting GC）—直接垃圾收集<br>（2）“追踪式垃圾收集”（Tracing GC）—间接垃圾收集</p>
-<ol>
-<li>分代收集理论</li>
-</ol>
-<p>1）弱分代假说（Weak Generational Hypothesis）：绝大多数对象都是朝生夕灭的。<br>2）强分代假说（Strong Generational Hypothesis）：熬过越多次垃圾收集过程的对象就越难以消亡。<br>3）跨代引用假说（Intergenerational Reference Hypothesis）：跨代引用相对于同代引用来说仅占极少数。</p>
-<p>常用名词：</p>
-<pre><code>·部分收集（Partial GC）：指目标不是完整收集整个Java堆的垃圾收集，其中又分为：
-    ■新生代收集（Minor GC/Young GC）：指目标只是新生代的垃圾收集。
-    ■老年代收集（Major GC/Old GC）：指目标只是老年代的垃圾收集。目前只有CMS收集器会有单独收集老年代的行为。另外请注意“Major GC”这个说法现在有点混淆，在不同资料上常有不同所指，读者需按上下文区分到底是指老年代的收集还是整堆收集。
-    ■混合收集（Mixed GC）：指目标是收集整个新生代以及部分老年代的垃圾收集。目前只有G1收集器会有这种行为。
-·整堆收集（Full GC）：收集整个Java堆和方法区的垃圾收集。</code></pre><ol start="2">
-<li>标记-清除算法（Mark-Sweep）</li>
-</ol>
-<p>最早出现也是最基础的垃圾收集算法是“标记-清除”（Mark-Sweep）算法。</p>
-<pre><code>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象，也可以反过来，标记存活的对象，统一回收所有未被标记的对象</code></pre><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-mark-sweep.jpg" alt="image "></p>
-<p>主要缺点:<br>（1）执行效率不稳定，随着对象增加执行效率降低。</p>
-<pre><code>如果Java堆中包含大量对象，而且其中大部分是需要被回收的，这时必须进行大量标记和清除的动作，导致标记和清除两个过程的执行效率都随对象数量增长而降低；</code></pre><p>（2）内存空间碎片化问题，遇到较大对象男分配，重新GC。</p>
-<pre><code>第二个是内存空间的碎片化问题，标记、清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致当以后在程序运行过程中需要分配较大对象时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</code></pre><ol start="3">
-<li>标记-复制算法（Semispace Copying）</li>
-</ol>
-<p>标记-复制算法常被简称为复制算法。为了解决标记-清除算法面对大量可回收对象时执行效率低的问题。1969年Fenichel提出了一种称为“半区复制”（Semispace Copying）的垃圾收集算法：</p>
-<pre><code>将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。</code></pre><p>优点：</p>
-<pre><code>实现简单，运行高效。
-分配内存时也就不用考虑有空间碎片的复杂情况，只要移动堆顶指针，按顺序分配即可</code></pre><p>缺点：</p>
-<pre><code>如果内存中多数对象都是存活的，这种算法将会产生大量的内存间复制的开销。
-将可用内存缩小为了原来的一半。</code></pre><p>![image ](/images/jvm-images/jvm-gc-Semispace Copying.jpg)</p>
-<pre><code>现在的商用Java虚拟机大多都优先采用了这种收集算法去回收新生代。
-在1989年，Andrew Appel针对具备“朝生夕灭”特点的对象，提出了一种更优化的半区复制分代策略，现在称为“Appel式回收”。HotSpot虚拟机的Serial、ParNew等新生代收集器均采用了这种策略来设计新生代的内存布局。
-
-Appel式回收的具体做法是把新生代分为一块较大的Eden空间和两块较小的Survivor空间（HotSpot虚拟机默认Eden和Survivor的大小比例是8∶1）每次分配内存只使用Eden和其中一块Survivor。发生垃圾搜集时，将Eden和Survivor中仍然存活的对象一次性复制到另外一块Survivor空间上，然后直接清理掉Eden和已用过的那块Survivor空间。每次新生代中可用内存空间为整个新生代容量的90%（Eden的80%加上一个Survivor的10%），只有一个Survivor空间，即10%的新生代是会被“浪费”的。
-
-当复制目标的Survivor空间不足以容纳一次Minor GC之后存活的对象时，采用一种分配担保策略：多出来的对象直接进入老年代。 </code></pre><ol start="4">
-<li>标记-整理算法（Mark-Compact）</li>
-</ol>
-<p>不同于针对新生代的复制算法，针对老年代的特点，1974年Edward Lueders提出了另外一种有针对性的“标记-整理”（Mark-Compact）算法。其中的标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存。</p>
-<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-Mark-Compact.jpg" alt="image "></p>
-<p>标记-清除算法与标记-整理算法的本质差异在于前者是一种非移动式的回收算法，而后者是移动式的。</p>
-<p>优缺点：</p>
-<pre><code>如果移动存活对象，尤其是在老年代这种每次回收都有大量对象存活区域，移动存活对象并更新所有引用这些对象的地方将会是一种极为负重的操作，而且这种对象移动操作必须全程暂停用户应用程序才能进行（Stop The World）。
-
-如果跟标记-清除算法那样完全不考虑移动和整理存活对象的话，弥散于堆中的存活对象导致的空间碎片化问题就只能依赖更为复杂的内存分配器和内存访问器来解决。
-
-是否移动对象都存在弊端，移动则内存回收时会更复杂，不移动则内存分配时会更复杂。从垃圾收集的停顿时间来看，不移动对象停顿时间会更短，甚至可以不需要停顿，但是从整个程序的吞吐量来看，移动对象会更划算。此语境中，吞吐量的实质是赋值器（Mutator，可以理解为使用垃圾收集的用户程序，本书为便于理解，多数地方用“用户程序”或“用户线程”代替）与收集器的效率总和。即使不移动对象会使得收集器的效率提升一些，但因内存分配和访问相比垃圾收集频率要高得多，这部分的耗时增加，总吞吐量仍然是下降的。HotSpot虚拟机里面关注吞吐量的Parallel Scavenge收集器是基于标记-整理算法的，而关注延迟的CMS收集器则是基于标记-清除算法的。</code></pre>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-        <tag>垃圾收集器算法</tag>
       </tags>
   </entry>
 </search>
