@@ -117,94 +117,6 @@ AuthorizedKeysFile .ssh/authorized_keys</code></pre><p>git用户不允许登录s
       </tags>
   </entry>
   <entry>
-    <title>Centos-jdk安装配置环境变量</title>
-    <url>/posts/9064540a.html</url>
-    <content><![CDATA[<p> Centos上安装jdk，配置环境变量的方法</p>
-<a id="more"></a>
-<h2 id="Centos上jdk配置"><a href="#Centos上jdk配置" class="headerlink" title="Centos上jdk配置"></a>Centos上jdk配置</h2><p>[TOC]</p>
-<h2 id="1-检查环境"><a href="#1-检查环境" class="headerlink" title="1.检查环境"></a>1.检查环境</h2><p>查看java版本</p>
-<pre class=" language-bash"><code class="language-bash">java -version</code></pre>
-<p> 检查是否已经安装jdk，通常默认自认openjdk</p>
-<pre class=" language-bash"><code class="language-bash">java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
-java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
-java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
-java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</code></pre>
-<p> 如果要卸载,需要root用户权限才可以执行：</p>
-<pre class=" language-bash"><code class="language-bash">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
-rpm -e --nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
-rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
-rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</code></pre>
-<p>再次查看java版本，如提示未找到命令则删除成功。</p>
-<h2 id="2-上传jdk安装文件"><a href="#2-上传jdk安装文件" class="headerlink" title="2.上传jdk安装文件"></a>2.上传jdk安装文件</h2><h4 id="上传方法"><a href="#上传方法" class="headerlink" title="上传方法"></a>上传方法</h4><p>（1）可以联网直接下载即可<br>（2）ssh可以安装用rz/sz上传下载<br>（3）ftp自行安装ftp服务，关于安装教程可到：</p>
-<p>上传jdk-7u80-linux-x64.tar.gz到你的目录后，<br>解压后移动到 <code>/usr/jdk1.7.0_80</code></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf jdk-7u80-linux-x64.tar.gz
-<span class="token function">cp</span>  jdk-7u80 /usr/jdk1.7.0_80</code></pre>
-<p>【关于解压命令大全可以移步：】</p>
-<h2 id="2-配置关变量"><a href="#2-配置关变量" class="headerlink" title="2.配置关变量"></a>2.配置关变量</h2><p>/etc/profile全局变量配置</p>
-<pre class=" language-bash"><code class="language-bash">vim /etc/profile</code></pre>
-<p>.bash_profile为root用户的环境变量。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /root/
-<span class="token function">ls</span> -a
-<span class="token function">vi</span> .bash_profile</code></pre>
-<p>二者均可，建议修改用户环境变量。<br>在文件末尾增加java环境变量即可,听说CentOS6上面的是JAVAHOME，CentOS7是{JAVA_HOME}</p>
-<pre><code># .bash_profile
-
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-        . ~/.bashrc
-fi
-
-# User specific environment and startup programs
-
-export JAVA_HOME=/usr/jdk1.7.0_80
-export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
-
-export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href="#3-让刚刚设置的环境变量生效" class="headerlink" title="3.让刚刚设置的环境变量生效"></a>3.让刚刚设置的环境变量生效</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile</code></pre>
-<p>或者</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> .bash_profile</code></pre>
-<h2 id="4-再次验证是否配置成功"><a href="#4-再次验证是否配置成功" class="headerlink" title="4.再次验证是否配置成功"></a>4.再次验证是否配置成功</h2><pre class=" language-bash"><code class="language-bash">java -version</code></pre>
-<p>出现java版本号代表安装成功。</p>
-]]></content>
-      <categories>
-        <category>Linux,Java</category>
-      </categories>
-      <tags>
-        <tag>centos</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js让页面自动刷新</title>
-    <url>/posts/7413f2ca.html</url>
-    <content><![CDATA[<p>js让页面自动刷新</p>
-<a id="more"></a>
-
-<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
-<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">=</span><span class="token number">0</span>
-current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">else</span>
-location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">++</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
-<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>开发常用的网站收藏列表</title>
     <url>/posts/2d1a17c5.html</url>
     <content><![CDATA[<p>开发常用的网站收藏列表</p>
@@ -625,6 +537,36 @@ fr4me<span class="token operator">+</span><span class="token operator">=</span><
       </tags>
   </entry>
   <entry>
+    <title>js让页面自动刷新</title>
+    <url>/posts/7413f2ca.html</url>
+    <content><![CDATA[<p>js让页面自动刷新</p>
+<a id="more"></a>
+
+<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
+<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">=</span><span class="token number">0</span>
+current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">++</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
+<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo搭建静态博客（一）——基础搭建</title>
     <url>/posts/9f117b.html</url>
     <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
@@ -665,34 +607,6 @@ hexo s 或  hexo server     //启动服务预览 http://localhost:4000
 hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
 <p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
 <p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（三）——主题更换</title>
-    <url>/posts/a5bf7e18.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
- <a id="more"></a>
-
-<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a><br>漂亮主题推荐：<br>[hexo-theme-matery]（<a href="https://github.com/blinkfox/hexo-theme-matery）" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery）</a><br>[hexo-theme-ayer]（<a href="https://github.com/Shen-Yu/hexo-theme-ayer）" target="_blank" rel="noopener">https://github.com/Shen-Yu/hexo-theme-ayer）</a></p>
-<p>其中极简主题有些没有search功能，如需要自己安装search插件，参考Hexo搭建静态博客（四）——插件安装<br>极简主题我比较喜欢hexo-theme-polarbear，对扩展版进行补充搜索功能。</p>
-<p>如安装主题hexo-theme-xoxo-plus。</p>
-<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
-<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
-<pre><code># Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-# landscape
-theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>浏览器访问：<br>大功告成。</p>
-<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
-<p>如有问题请参考本系列：<a href="/post/ce4a93ff.html">Hexo搭建静态博客（五）——踩坑问题</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -751,21 +665,66 @@ tags: Hexo
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <url>/posts/ce4a93ff.html</url>
-    <content><![CDATA[<p> 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。</p>
+    <title>Hexo搭建静态博客（四）——插件安装</title>
+    <url>/posts/cda13ebe.html</url>
+    <content><![CDATA[<p>Hexo静态博客插件安装相关内容，本文以安装search和abbrlink插件为例。</p>
 <a id="more"></a>
 
-<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
-<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
-YAMLException: end of the stream or a document separator is expected at line x, column y:
-at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
-<pre><code>---
-key: value
----</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
-<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
-<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)使用主题的时候注意先阅读相关使用文档，有些主题需要一些插件</p>
-<h5 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h5><p>后续补充</p>
+<p>注意：安装插件不是非必须，除了部分插件跟着主题必须安装之外，其他插件属于可选。</p>
+<h3 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h3><pre><code>npm install   hexo-generator-feed  --save   #订阅
+npm install   hexo-generator-search --save  #搜索</code></pre><h3 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h3><p>这里说一下添加本地搜索，有的主题已经自己带了搜索功能，只要配置开启即可。如果没有带主题可以自己加上。<br><font color=red>特别说明：如果主题自带搜索，看自带搜索操作说明即可，如果主题无搜索看自定义模式说明即可。</font></p>
+<h4 id="步骤一-安装插件"><a href="#步骤一-安装插件" class="headerlink" title="步骤一 安装插件"></a>步骤一 安装插件</h4><p>第一步：安装搜索插件 <code>npm install hexo-generator-searchdb --save</code></p>
+<h4 id="步骤二-修改配置"><a href="#步骤二-修改配置" class="headerlink" title="步骤二 修改配置"></a>步骤二 修改配置</h4><p>第二步：根目录_config.yml文件配置添加</p>
+<pre><code>search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000</code></pre><p>主题配置_config.yml添加</p>
+<pre><code>local_search: 
+  enable: true</code></pre><h4 id="步骤三-添加搜索"><a href="#步骤三-添加搜索" class="headerlink" title="步骤三 添加搜索"></a>步骤三 添加搜索</h4><p>第三步:添加搜索框</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>search-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-input<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>q<span class="token punctuation">"</span></span> <span class="token attr-name">results</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">autocomplete</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>off<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>搜索<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-input pure-input-1<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">204</span>, <span class="token number">232</span>, <span class="token number">207</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-result<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>第1种，主题自带搜索模式，有独立的search页面,生成页面前面已经讲到了，把代码放到source/search/index.md文件中即可。</p>
+<p>第2种，自定义模式，直接加在首页，想加哪个位置看自己喜好，位置找主题下的布局文件夹_layout或layout/partials之类的文件夹下,里面有head.ejs或head.swig文件（如果不是请自己查找节点，文件反正就那些）,添加html代码</p>
+<h4 id="步骤四-引入js文件"><a href="#步骤四-引入js文件" class="headerlink" title="步骤四 引入js文件"></a>步骤四 引入js文件</h4><p>第四步：引入js</p>
+<p>第1种，主题自带搜索模式，主题下的配置文件一般有scripts设置，直接配置路径，一般都有示例如</p>
+<pre><code>scripts:
+#- //cdn.bootcss.com/zepto/1.2.0/zepto.min.js
+#- /js/xoxo.js
+  - /js/search.js</code></pre><p>第2种，自定义模式，没有scripts配置,就在找主题下的布局文件夹_layout或layout/中，有js.ejs或srcipt.ejs，<br>文件可以从这里拿：<a href="https://github.com/zhzy2017/hexo-search-plugin-snippets" target="_blank" rel="noopener">https://github.com/zhzy2017/hexo-search-plugin-snippets</a><br>把search.js 放到source\js目录下,引入使用也有不同的方法</p>
+<h4 id="步骤五-引入css文件"><a href="#步骤五-引入css文件" class="headerlink" title="步骤五 引入css文件"></a>步骤五 引入css文件</h4><p>第五步：css设置<br>有的带搜索的无须操作，没有的从下载hexo-search-plugin-snippets里面拿拷贝到source/css里面，引入即可，</p>
+<p>第1种，主题自带搜索模式，一般不需要配置写在公共文件中，如果没有样式可以在主题下的配置文件一般有stylesheets设置，直接配置路径，一般都有示例：</p>
+<pre><code>stylesheets:
+# - /css/normalize.css
+ - //cdn.bootcss.com/pure/1.0.0/pure-min.css
+ - /css/xoxo.css
+</code></pre><p>第2种，自定义模式，跟配引入js类似，找一下主题目录ejs或swig文件引入，或者直接用css或less文件放到source/css目录下的某个文件中，这样不需要引文件</p>
+<p>其他插件，具体使用自行搜索，一般是修改配置或添加代码</p>
+<pre><code>npm install hexo-generator-index-pin-top –save  #文章置顶插件 
+npm uninstall hexo-generator-index –save     #文章置顶插件 
+npm i –save hexo-wordcount        #文章字数+阅读时长统计     
+npm install hexo-baidu-url-submit –save     #百度链接主动推送     
+npm install hexo-deployer-ftpsync –save     #hexo上传至FTP服务器     
+npm install hexo-deployer-cos –save     #hexo上传至腾讯云COS     
+npm install hexo-deployer-aliyun –save     #hexo上传至阿里云     
+npm install –save hexo-admin     #hexo管理插件     
+hexo-blog-encrypt(请看文档)     #hexo文章加密码 
+npm install leancloud-storage –save     #Valine评论     
+Valine评论邮件通知     Valine评论提醒 
+npm install hexo-deployer-git –save hexo安装git（允许使用git命令）</code></pre><p>更多插件请访问插件中心：<a href="https://hexo.io/plugins/" target="_blank" rel="noopener">https://hexo.io/plugins/</a><br>使用参考链接参考<a href="https://blog.csdn.net/q2158798/article/details/82354154" target="_blank" rel="noopener">幻凡ss</a></p>
+<h3 id="修改修改永久链接"><a href="#修改修改永久链接" class="headerlink" title="修改修改永久链接"></a>修改修改永久链接</h3><p>Hexo修改修改永久链接的默认格式,方便SEO.<br><code>npm install hexo-abbrlink --save</code>  #文章永久链接 <a href="https://github.com/Rozbo/hexo-abbrlink" target="_blank" rel="noopener">项目地址在这里</a></p>
+<h4 id="1-安装插件"><a href="#1-安装插件" class="headerlink" title="1.安装插件"></a>1.安装插件</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save</code></pre>
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><pre><code># permalink: :year/:month/:day/:title/
+# permalink_defaults:
+permalink: posts/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex</code></pre><h4 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h4><pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> heox g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>点击一篇文章，检查浏览器地址看看是不是发生变化了？</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -918,6 +877,30 @@ nginx: configuration <span class="token function">file</span> /etc/nginx/nginx.c
     repo: git@你的云服务器的IP地址:/home/git/myHexoBlog.git
     branch: master</code></pre><p>清理-生成-部署</p>
 <pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> hexo g <span class="token operator">&amp;</span> hexo d</code></pre>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（五）——踩坑问题</title>
+    <url>/posts/ce4a93ff.html</url>
+    <content><![CDATA[<p> 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。</p>
+<a id="more"></a>
+
+<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
+<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
+YAMLException: end of the stream or a document separator is expected at line x, column y:
+at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
+<pre><code>---
+key: value
+---</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
+<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
+<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)使用主题的时候注意先阅读相关使用文档，有些主题需要一些插件</p>
+<h5 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h5><p>后续补充</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -1368,78 +1351,111 @@ javax<span class="token punctuation">.</span>swing<span class="token punctuation
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（四）——插件安装</title>
-    <url>/posts/cda13ebe.html</url>
-    <content><![CDATA[<p>Hexo静态博客插件安装相关内容，本文以安装search和abbrlink插件为例。</p>
-<a id="more"></a>
-
-<p>注意：安装插件不是非必须，除了部分插件跟着主题必须安装之外，其他插件属于可选。</p>
-<h3 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h3><pre><code>npm install   hexo-generator-feed  --save   #订阅
-npm install   hexo-generator-search --save  #搜索</code></pre><h3 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h3><p>这里说一下添加本地搜索，有的主题已经自己带了搜索功能，只要配置开启即可。如果没有带主题可以自己加上。<br><font color=red>特别说明：如果主题自带搜索，看自带搜索操作说明即可，如果主题无搜索看自定义模式说明即可。</font></p>
-<h4 id="步骤一-安装插件"><a href="#步骤一-安装插件" class="headerlink" title="步骤一 安装插件"></a>步骤一 安装插件</h4><p>第一步：安装搜索插件 <code>npm install hexo-generator-searchdb --save</code></p>
-<h4 id="步骤二-修改配置"><a href="#步骤二-修改配置" class="headerlink" title="步骤二 修改配置"></a>步骤二 修改配置</h4><p>第二步：根目录_config.yml文件配置添加</p>
-<pre><code>search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000</code></pre><p>主题配置_config.yml添加</p>
-<pre><code>local_search: 
-  enable: true</code></pre><h4 id="步骤三-添加搜索"><a href="#步骤三-添加搜索" class="headerlink" title="步骤三 添加搜索"></a>步骤三 添加搜索</h4><p>第三步:添加搜索框</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>search-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-input<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>q<span class="token punctuation">"</span></span> <span class="token attr-name">results</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">autocomplete</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>off<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>搜索<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-input pure-input-1<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">204</span>, <span class="token number">232</span>, <span class="token number">207</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-result<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
-<p>第1种，主题自带搜索模式，有独立的search页面,生成页面前面已经讲到了，把代码放到source/search/index.md文件中即可。</p>
-<p>第2种，自定义模式，直接加在首页，想加哪个位置看自己喜好，位置找主题下的布局文件夹_layout或layout/partials之类的文件夹下,里面有head.ejs或head.swig文件（如果不是请自己查找节点，文件反正就那些）,添加html代码</p>
-<h4 id="步骤四-引入js文件"><a href="#步骤四-引入js文件" class="headerlink" title="步骤四 引入js文件"></a>步骤四 引入js文件</h4><p>第四步：引入js</p>
-<p>第1种，主题自带搜索模式，主题下的配置文件一般有scripts设置，直接配置路径，一般都有示例如</p>
-<pre><code>scripts:
-#- //cdn.bootcss.com/zepto/1.2.0/zepto.min.js
-#- /js/xoxo.js
-  - /js/search.js</code></pre><p>第2种，自定义模式，没有scripts配置,就在找主题下的布局文件夹_layout或layout/中，有js.ejs或srcipt.ejs，<br>文件可以从这里拿：<a href="https://github.com/zhzy2017/hexo-search-plugin-snippets" target="_blank" rel="noopener">https://github.com/zhzy2017/hexo-search-plugin-snippets</a><br>把search.js 放到source\js目录下,引入使用也有不同的方法</p>
-<h4 id="步骤五-引入css文件"><a href="#步骤五-引入css文件" class="headerlink" title="步骤五 引入css文件"></a>步骤五 引入css文件</h4><p>第五步：css设置<br>有的带搜索的无须操作，没有的从下载hexo-search-plugin-snippets里面拿拷贝到source/css里面，引入即可，</p>
-<p>第1种，主题自带搜索模式，一般不需要配置写在公共文件中，如果没有样式可以在主题下的配置文件一般有stylesheets设置，直接配置路径，一般都有示例：</p>
-<pre><code>stylesheets:
-# - /css/normalize.css
- - //cdn.bootcss.com/pure/1.0.0/pure-min.css
- - /css/xoxo.css
-</code></pre><p>第2种，自定义模式，跟配引入js类似，找一下主题目录ejs或swig文件引入，或者直接用css或less文件放到source/css目录下的某个文件中，这样不需要引文件</p>
-<p>其他插件，具体使用自行搜索，一般是修改配置或添加代码</p>
-<pre><code>npm install hexo-generator-index-pin-top –save  #文章置顶插件 
-npm uninstall hexo-generator-index –save     #文章置顶插件 
-npm i –save hexo-wordcount        #文章字数+阅读时长统计     
-npm install hexo-baidu-url-submit –save     #百度链接主动推送     
-npm install hexo-deployer-ftpsync –save     #hexo上传至FTP服务器     
-npm install hexo-deployer-cos –save     #hexo上传至腾讯云COS     
-npm install hexo-deployer-aliyun –save     #hexo上传至阿里云     
-npm install –save hexo-admin     #hexo管理插件     
-hexo-blog-encrypt(请看文档)     #hexo文章加密码 
-npm install leancloud-storage –save     #Valine评论     
-Valine评论邮件通知     Valine评论提醒 
-npm install hexo-deployer-git –save hexo安装git（允许使用git命令）</code></pre><p>更多插件请访问插件中心：<a href="https://hexo.io/plugins/" target="_blank" rel="noopener">https://hexo.io/plugins/</a><br>使用参考链接参考<a href="https://blog.csdn.net/q2158798/article/details/82354154" target="_blank" rel="noopener">幻凡ss</a></p>
-<h3 id="修改修改永久链接"><a href="#修改修改永久链接" class="headerlink" title="修改修改永久链接"></a>修改修改永久链接</h3><p>Hexo修改修改永久链接的默认格式,方便SEO.<br><code>npm install hexo-abbrlink --save</code>  #文章永久链接 <a href="https://github.com/Rozbo/hexo-abbrlink" target="_blank" rel="noopener">项目地址在这里</a></p>
-<h4 id="1-安装插件"><a href="#1-安装插件" class="headerlink" title="1.安装插件"></a>1.安装插件</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><pre><code># permalink: :year/:month/:day/:title/
-# permalink_defaults:
-permalink: posts/:abbrlink.html
-abbrlink:
-  alg: crc32  # 算法：crc16(default) and crc32
-  rep: hex    # 进制：dec(default) and hex</code></pre><h4 id="3-重启"><a href="#3-重启" class="headerlink" title="3.重启"></a>3.重启</h4><pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> heox g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>点击一篇文章，检查浏览器地址看看是不是发生变化了？</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java 查漏补缺-Java8 中的 Optional</title>
     <url>/posts/e748f349.html</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>Java虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深入理解JVM（第三版）</title>
+    <url>/posts/2a1a7c1f.html</url>
+    <content><![CDATA[<pre><code>本文记录关于深入理解JVM（第三版）学习笔记，连接Github免密和 云服务器或私有服务器免密。</code></pre><h4 id="java虚拟机内存自动管理"><a href="#java虚拟机内存自动管理" class="headerlink" title="java虚拟机内存自动管理"></a>java虚拟机内存自动管理</h4><ol>
+<li><p>JVM内存自动管理中的的内存结构。</p>
+<p> 程序计数器<br> java堆（Heap）<br> 方法区<br> 虚拟机栈<br> 本地方法栈</p>
+<p> SOF,OOM</p>
+</li>
+</ol>
+<ol start="2">
+<li><p>JVM中对象的创建过程</p>
+<p> 检查堆中的类符号<br> 检查类加载<br> 分配新对象内存空间——指针碰撞，空闲列表<br> 初始化零值<br> 执行<init>()方法</p>
+</li>
+<li><p>垃圾收集器算法</p>
+<p>分代回收理论<br>标记——清除算法<br>标记——复制算法<br>标记——整理算法<br>半复制算法</p>
+</li>
+<li><p>常见的垃圾收集器</p>
+<p> Serial收集器<br> ParNew收集器<br> Parallel Scavenge收集器<br> Serial Old收集器<br> Parallel Old收集器<br> CMS收集器<br> Garbage First收集器</p>
+</li>
+<li><p>低延迟垃圾收集器</p>
+<p> Shenandoah收集器<br> ZGC收集器</p>
+</li>
+<li><p>内存分配回收策略</p>
+<p> 对象优先在Eden分配<br> 大对象直接进入老年代<br> 长期存活的对象将进入老年代<br> 动态对象年龄判定<br> 空间分配担保</p>
+</li>
+<li><p>性能监控、故障处理工具</p>
+<p> 基础故障处理工具<br> 可视化故障处理工具<br> Hotspot虚拟机插件及工具</p>
+</li>
+<li><p>调休分析学习</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>文章</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>JVM内存结构</td>
+</tr>
+<tr>
+<td>2</td>
+<td>JVM的对象创建</td>
+</tr>
+<tr>
+<td>3</td>
+<td>JVM垃圾收集器算法</td>
+</tr>
+<tr>
+<td>4</td>
+<td>JVM常见的垃圾收集器</td>
+</tr>
+<tr>
+<td>5</td>
+<td>JVM低延迟垃圾收集器</td>
+</tr>
+<tr>
+<td>6</td>
+<td>JVM低内存分配回收策略</td>
+</tr>
+</tbody></table>
+<!--
+#### java虚拟机执行子系统
+
+1. jvm类文件结构
+
+    class类文件结构
+    字节码指令
+    公有设计私有实现
+    class类文件结构发展
+
+2. jvm类加载机制
+
+
+3. 字节码执行引擎
+
+
+#### 程序编译与代码优化
+
+1. 前端编译与优化
+
+
+2. 后端编译与优化
+
+     即时编译
+     提前编译
+     编译器优化技术
+     深入理解编译器
+
+
+-->]]></content>
       <categories>
         <category>Java</category>
       </categories>
@@ -1623,108 +1639,6 @@ Clock - 时钟。可以获取某个时区下（对时区是敏感的）当前的
       </tags>
   </entry>
   <entry>
-    <title>深入理解JVM（第三版）</title>
-    <url>/posts/2a1a7c1f.html</url>
-    <content><![CDATA[<pre><code>本文记录关于深入理解JVM（第三版）学习笔记，连接Github免密和 云服务器或私有服务器免密。</code></pre><h4 id="java虚拟机内存自动管理"><a href="#java虚拟机内存自动管理" class="headerlink" title="java虚拟机内存自动管理"></a>java虚拟机内存自动管理</h4><ol>
-<li><p>JVM内存自动管理中的的内存结构。</p>
-<p> 程序计数器<br> java堆（Heap）<br> 方法区<br> 虚拟机栈<br> 本地方法栈</p>
-<p> SOF,OOM</p>
-</li>
-</ol>
-<ol start="2">
-<li><p>JVM中对象的创建过程</p>
-<p> 检查堆中的类符号<br> 检查类加载<br> 分配新对象内存空间——指针碰撞，空闲列表<br> 初始化零值<br> 执行<init>()方法</p>
-</li>
-<li><p>垃圾收集器算法</p>
-<p>分代回收理论<br>标记——清除算法<br>标记——复制算法<br>标记——整理算法<br>半复制算法</p>
-</li>
-<li><p>常见的垃圾收集器</p>
-<p> Serial收集器<br> ParNew收集器<br> Parallel Scavenge收集器<br> Serial Old收集器<br> Parallel Old收集器<br> CMS收集器<br> Garbage First收集器</p>
-</li>
-<li><p>低延迟垃圾收集器</p>
-<p> Shenandoah收集器<br> ZGC收集器</p>
-</li>
-<li><p>内存分配回收策略</p>
-<p> 对象优先在Eden分配<br> 大对象直接进入老年代<br> 长期存活的对象将进入老年代<br> 动态对象年龄判定<br> 空间分配担保</p>
-</li>
-<li><p>性能监控、故障处理工具</p>
-<p> 基础故障处理工具<br> 可视化故障处理工具<br> Hotspot虚拟机插件及工具</p>
-</li>
-<li><p>调休分析学习</p>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>编号</th>
-<th>文章</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>JVM内存结构</td>
-</tr>
-<tr>
-<td>2</td>
-<td>JVM的对象创建</td>
-</tr>
-<tr>
-<td>3</td>
-<td>JVM垃圾收集器算法</td>
-</tr>
-<tr>
-<td>4</td>
-<td>JVM常见的垃圾收集器</td>
-</tr>
-<tr>
-<td>5</td>
-<td>JVM低延迟垃圾收集器</td>
-</tr>
-<tr>
-<td>6</td>
-<td>JVM低内存分配回收策略</td>
-</tr>
-</tbody></table>
-<!--
-#### java虚拟机执行子系统
-
-1. jvm类文件结构
-
-    class类文件结构
-    字节码指令
-    公有设计私有实现
-    class类文件结构发展
-
-2. jvm类加载机制
-
-
-3. 字节码执行引擎
-
-
-#### 程序编译与代码优化
-
-1. 前端编译与优化
-
-
-2. 后端编译与优化
-
-     即时编译
-     提前编译
-     编译器优化技术
-     深入理解编译器
-
-
--->]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-        <tag>Java虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>jvm之内存结构</title>
     <url>/posts/9f103da7.html</url>
     <content><![CDATA[<h2 id="jvm-内存管理机制"><a href="#jvm-内存管理机制" class="headerlink" title="jvm 内存管理机制"></a>jvm 内存管理机制</h2><pre><code>参考资料：
@@ -1784,6 +1698,53 @@ Clock - 时钟。可以获取某个时区下（对时区是敏感的）当前的
         <tag>Java</tag>
         <tag>JVM</tag>
         <tag>内存结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jvm之对象创建</title>
+    <url>/posts/b287f556.html</url>
+    <content><![CDATA[<h2 id="HotSpot-虚拟机对象创建于布局"><a href="#HotSpot-虚拟机对象创建于布局" class="headerlink" title="HotSpot 虚拟机对象创建于布局"></a>HotSpot 虚拟机对象创建于布局</h2><pre><code>HotSpot虚拟机在Java堆中对象分配、布局和访问的全过程。
+创建对象的三种方式：new关键字、复制、反序列化。</code></pre><h3 id="一-对象的创建"><a href="#一-对象的创建" class="headerlink" title="一. 对象的创建"></a>一. 对象的创建</h3><pre><code>此处提及的对象创建，只是普通Java对象，不包括数组和Class对象。</code></pre><h4 id="1-检查符合引用和类加载情况"><a href="#1-检查符合引用和类加载情况" class="headerlink" title="1. 检查符合引用和类加载情况"></a>1. 检查符合引用和类加载情况</h4><p>当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。</p>
+<h4 id="2-为新生对象分配内存"><a href="#2-为新生对象分配内存" class="headerlink" title="2. 为新生对象分配内存"></a>2. 为新生对象分配内存</h4><p>在类加载检查通过后，接下来虚拟机将为新生对象分配内存。对象所需内存的大小在类加载完成后便可完全确定，为对象分配空间的任务其实就是把一块确定大小的内存块从Java堆中划分出来存放该对象。</p>
+<p>关于对象内存分配方式：<br>（1）“指针碰撞”（Bump The Pointer）</p>
+<pre><code>假设Java堆中内存是绝对规整的，所有被使用过的内存都被放在一边，空闲的内存被放在另一边，中间放着一个指针作为分界点的指示器，那所分配内存就仅仅是把那个指针向空闲空间方向挪动一段与对象大小相等的距离，这种分配方式称为“指针碰撞”（Bump The Pointer）</code></pre><p>（2）“空闲列表”（Free List）:</p>
+<pre><code>Java堆中的内存并不是规整的，已被使用的内存和空闲的内存相互交错在一起，那就没有办法简单地进行指针碰撞了，虚拟机就必须维护一个列表，记录上哪些内存块是可用的，在分配的时候从列表中找到一块足够大的空间划分给对象实例，并更新列表上的记录，这种分配方式称为“空闲列表”（Free List）</code></pre><p>选择哪种分配方式，取决于Java堆是否规整决定，而Java堆是否规整又由所采用的垃圾收集器是否带有空间压缩整理（Compact）的能力决定。因此：</p>
+<pre><code>当使用Serial、ParNew等带压缩整理过程的收集器时，系统采用的分配算法是指针碰撞，既简单又高效；
+当使用CMS这种基于清除（Sweep）算法的收集器时，理论上就只能采用较为复杂的空闲列表来分配内存。</code></pre><p>考虑对象内存分配的线程安全问题：</p>
+<p>把内存分配的动作按照线程划分在不同的空间之中进行，即每个线程在Java堆中预先分配一小块内存，称为<code>本地线程分配缓冲（Thread Local Allocation Buffer，TLAB）</code>，哪个线程要分配内存，就在哪个线程的本地缓冲区中分配，只有本地缓冲区用完了，分配新的缓存区时才需要同步锁定【对分配内存空间的动作进行同步处理——实际上虚拟机是采用<code>CAS</code>配上失败重试的方式保证更新操作的原子性】。虚拟机是否使用<code>TLAB</code>，可以通过<code>-XX：+/-UseTLAB</code>参数来设定。</p>
+<p>每个线程在堆中都会有私有的<code>分配缓冲区(TLAB)</code>，这样可以很大程度避免在并发情况下频繁创建对象造成的线程不安全。</p>
+<h4 id="3-将分配的内存初始化为零值"><a href="#3-将分配的内存初始化为零值" class="headerlink" title="3. 将分配的内存初始化为零值"></a>3. 将分配的内存初始化为零值</h4><p>内存分配完成之后，虚拟机必须将分配到的内存空间（但不包括对象头）都初始化为零值，如果使用了TLAB的话，这一项工作也可以提前至<code>TLAB</code>分配时顺便进行。这步操作保证了对象的实例字段在Java代码中可以不赋初始值就直接使用，使程序能访问到这些字段的数据类型所对应的零值。</p>
+<h4 id="4-对新生的对象进行设置"><a href="#4-对新生的对象进行设置" class="headerlink" title="4. 对新生的对象进行设置"></a>4. 对新生的对象进行设置</h4><p>对象的元数据信息、对象的哈希码（实际上对象的哈希码会延后到真正调用<code>Object::hashCode()</code>方法时才计算）、对象的<code>GC</code>分代年龄等信息。这些信息存放在对象的对象头（Object Header）之中。根据虚拟机当前运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。</p>
+<h4 id="5-执行-lt-init-gt-方法。"><a href="#5-执行-lt-init-gt-方法。" class="headerlink" title="5. 执行&lt;init&gt;()方法。"></a>5. 执行<code>&lt;init&gt;()</code>方法。</h4><p>new指令之后会接着执行<init>()方法，按照程序员的意愿对对象进行初始化，这样一个真正可用的对象才算完全被构造出来。</p>
+<h3 id="二、对象的布局"><a href="#二、对象的布局" class="headerlink" title="二、对象的布局"></a>二、对象的布局</h3><p><code>HotSpot</code>虚拟机里，对象在堆内存中的存储布局可以划分为三个部分：</p>
+<pre><code>对象头（Header）、
+实例数据（Instance Data）
+对齐填充（Padding）。</code></pre><h4 id="1-对象头"><a href="#1-对象头" class="headerlink" title="1. 对象头"></a>1. 对象头</h4><p>对象头部分包括两类信息：</p>
+<p>（1）第一类是用于<strong>存储对象自身的运行时数据</strong>，如哈希码<code>（HashCode）</code>、<code>GC分代年龄</code>、<code>锁状态标志</code>、<code>线程持有的锁</code>、<code>偏向线程ID</code>、<code>偏向时间戳</code>等，这部分数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32个比特和64个比特，官方称它为“Mark Word”。</p>
+<p>（2）第二类是<strong>类型指针</strong>，即对象指向它的类型元数据的指针，Java虚拟机通过这个指针来确定该对象是哪个类的实例。</p>
+<pre><code>并不是所有的虚拟机实现都必须在对象数据上保留类型指针，即，查找对象的元数据信息并不一定要经过对象本身</code></pre><h4 id="2-实例数据："><a href="#2-实例数据：" class="headerlink" title="2. 实例数据："></a>2. 实例数据：</h4><p>实例数据部分是对象真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录起来。</p>
+<pre><code>这部分的存储顺序会受到虚拟机分配策略参数（-XX：FieldsAllocationStyle参数）和字段在Java源码中定义顺序的影响。
+
+HotSpot虚拟机默认的分配顺序为longs/doubles、ints、shorts/chars、bytes/booleans、oops（Ordinary Object Pointers，OOPs）。
+相同宽度的字段总是被分配到一起存放，在满足这个前提条件的情况下，在父类中定义的变量会出现在子类之前。
+
+如果HotSpot虚拟机的+XX：CompactFields参数值为true（默认就为true），那子类之中较窄的变量也允许插入父类变量的空隙之中，以节省出一点点空间</code></pre><h4 id="3-对齐填充"><a href="#3-对齐填充" class="headerlink" title="3.对齐填充"></a>3.对齐填充</h4><p>对齐填充，这并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。由于<code>HotSpot虚拟机</code>的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说就是任何对象的大小都必须是8字节的整数倍。对象头部分已经被精心设计成正好是8字节的倍数（1倍或者2倍），因此，如果对象实例数据部分没有对齐的话，就需要通过对齐填充来补全。</p>
+<h3 id="三、对象的访问定位"><a href="#三、对象的访问定位" class="headerlink" title="三、对象的访问定位"></a>三、对象的访问定位</h3><p>Java程序会通过栈上的reference数据来操作堆上的具体对象。</p>
+<p>对象访问主流的访问方式主要有使用句柄和直接指针两种：</p>
+<p>（1）使用句柄访问的话，Java堆中将可能会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自具体的地址信息：</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-obj-ref-1.jpg" alt="Image jvm-obj-ref-1"></p>
+<p>（2）使用直接指针访问的话，Java堆中对象的内存布局就必须考虑如何放置访问类型数据的相关信息，reference中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销。</p>
+<p><img src="/medias/loading-animated.gif" data-original="/jvm-images/jvm-obj-ref-2.jpg" alt="Image jvm-obj-ref-2"></p>
+<p>二者相比较：</p>
+<pre><code>使用句柄的最大好处是 reference 中存储的是稳定的句柄地址，在对象移动(GC)是只改变实例数据指针地址，reference 自身不需要修改。
+直接指针访问的最大好处是速度快，节省了一次指针定位的时间开销。如果是对象频繁 GC 那么句柄方法好，如果是对象频繁访问则直接指针访问好。</code></pre><p><code>HotSpot</code>而言，它主要使用第二种方式进行对象访问。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
       </tags>
   </entry>
   <entry>
@@ -1974,53 +1935,6 @@ Appel式回收的具体做法是把新生代分为一块较大的Eden空间和�
       </tags>
   </entry>
   <entry>
-    <title>jvm之对象创建</title>
-    <url>/posts/b287f556.html</url>
-    <content><![CDATA[<h2 id="HotSpot-虚拟机对象创建于布局"><a href="#HotSpot-虚拟机对象创建于布局" class="headerlink" title="HotSpot 虚拟机对象创建于布局"></a>HotSpot 虚拟机对象创建于布局</h2><pre><code>HotSpot虚拟机在Java堆中对象分配、布局和访问的全过程。
-创建对象的三种方式：new关键字、复制、反序列化。</code></pre><h3 id="一-对象的创建"><a href="#一-对象的创建" class="headerlink" title="一. 对象的创建"></a>一. 对象的创建</h3><pre><code>此处提及的对象创建，只是普通Java对象，不包括数组和Class对象。</code></pre><h4 id="1-检查符合引用和类加载情况"><a href="#1-检查符合引用和类加载情况" class="headerlink" title="1. 检查符合引用和类加载情况"></a>1. 检查符合引用和类加载情况</h4><p>当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。</p>
-<h4 id="2-为新生对象分配内存"><a href="#2-为新生对象分配内存" class="headerlink" title="2. 为新生对象分配内存"></a>2. 为新生对象分配内存</h4><p>在类加载检查通过后，接下来虚拟机将为新生对象分配内存。对象所需内存的大小在类加载完成后便可完全确定，为对象分配空间的任务其实就是把一块确定大小的内存块从Java堆中划分出来存放该对象。</p>
-<p>关于对象内存分配方式：<br>（1）“指针碰撞”（Bump The Pointer）</p>
-<pre><code>假设Java堆中内存是绝对规整的，所有被使用过的内存都被放在一边，空闲的内存被放在另一边，中间放着一个指针作为分界点的指示器，那所分配内存就仅仅是把那个指针向空闲空间方向挪动一段与对象大小相等的距离，这种分配方式称为“指针碰撞”（Bump The Pointer）</code></pre><p>（2）“空闲列表”（Free List）:</p>
-<pre><code>Java堆中的内存并不是规整的，已被使用的内存和空闲的内存相互交错在一起，那就没有办法简单地进行指针碰撞了，虚拟机就必须维护一个列表，记录上哪些内存块是可用的，在分配的时候从列表中找到一块足够大的空间划分给对象实例，并更新列表上的记录，这种分配方式称为“空闲列表”（Free List）</code></pre><p>选择哪种分配方式，取决于Java堆是否规整决定，而Java堆是否规整又由所采用的垃圾收集器是否带有空间压缩整理（Compact）的能力决定。因此：</p>
-<pre><code>当使用Serial、ParNew等带压缩整理过程的收集器时，系统采用的分配算法是指针碰撞，既简单又高效；
-当使用CMS这种基于清除（Sweep）算法的收集器时，理论上就只能采用较为复杂的空闲列表来分配内存。</code></pre><p>考虑对象内存分配的线程安全问题：</p>
-<p>把内存分配的动作按照线程划分在不同的空间之中进行，即每个线程在Java堆中预先分配一小块内存，称为<code>本地线程分配缓冲（Thread Local Allocation Buffer，TLAB）</code>，哪个线程要分配内存，就在哪个线程的本地缓冲区中分配，只有本地缓冲区用完了，分配新的缓存区时才需要同步锁定【对分配内存空间的动作进行同步处理——实际上虚拟机是采用<code>CAS</code>配上失败重试的方式保证更新操作的原子性】。虚拟机是否使用<code>TLAB</code>，可以通过<code>-XX：+/-UseTLAB</code>参数来设定。</p>
-<p>每个线程在堆中都会有私有的<code>分配缓冲区(TLAB)</code>，这样可以很大程度避免在并发情况下频繁创建对象造成的线程不安全。</p>
-<h4 id="3-将分配的内存初始化为零值"><a href="#3-将分配的内存初始化为零值" class="headerlink" title="3. 将分配的内存初始化为零值"></a>3. 将分配的内存初始化为零值</h4><p>内存分配完成之后，虚拟机必须将分配到的内存空间（但不包括对象头）都初始化为零值，如果使用了TLAB的话，这一项工作也可以提前至<code>TLAB</code>分配时顺便进行。这步操作保证了对象的实例字段在Java代码中可以不赋初始值就直接使用，使程序能访问到这些字段的数据类型所对应的零值。</p>
-<h4 id="4-对新生的对象进行设置"><a href="#4-对新生的对象进行设置" class="headerlink" title="4. 对新生的对象进行设置"></a>4. 对新生的对象进行设置</h4><p>对象的元数据信息、对象的哈希码（实际上对象的哈希码会延后到真正调用<code>Object::hashCode()</code>方法时才计算）、对象的<code>GC</code>分代年龄等信息。这些信息存放在对象的对象头（Object Header）之中。根据虚拟机当前运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。</p>
-<h4 id="5-执行-lt-init-gt-方法。"><a href="#5-执行-lt-init-gt-方法。" class="headerlink" title="5. 执行&lt;init&gt;()方法。"></a>5. 执行<code>&lt;init&gt;()</code>方法。</h4><p>new指令之后会接着执行<init>()方法，按照程序员的意愿对对象进行初始化，这样一个真正可用的对象才算完全被构造出来。</p>
-<h3 id="二、对象的布局"><a href="#二、对象的布局" class="headerlink" title="二、对象的布局"></a>二、对象的布局</h3><p><code>HotSpot</code>虚拟机里，对象在堆内存中的存储布局可以划分为三个部分：</p>
-<pre><code>对象头（Header）、
-实例数据（Instance Data）
-对齐填充（Padding）。</code></pre><h4 id="1-对象头"><a href="#1-对象头" class="headerlink" title="1. 对象头"></a>1. 对象头</h4><p>对象头部分包括两类信息：</p>
-<p>（1）第一类是用于<strong>存储对象自身的运行时数据</strong>，如哈希码<code>（HashCode）</code>、<code>GC分代年龄</code>、<code>锁状态标志</code>、<code>线程持有的锁</code>、<code>偏向线程ID</code>、<code>偏向时间戳</code>等，这部分数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32个比特和64个比特，官方称它为“Mark Word”。</p>
-<p>（2）第二类是<strong>类型指针</strong>，即对象指向它的类型元数据的指针，Java虚拟机通过这个指针来确定该对象是哪个类的实例。</p>
-<pre><code>并不是所有的虚拟机实现都必须在对象数据上保留类型指针，即，查找对象的元数据信息并不一定要经过对象本身</code></pre><h4 id="2-实例数据："><a href="#2-实例数据：" class="headerlink" title="2. 实例数据："></a>2. 实例数据：</h4><p>实例数据部分是对象真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录起来。</p>
-<pre><code>这部分的存储顺序会受到虚拟机分配策略参数（-XX：FieldsAllocationStyle参数）和字段在Java源码中定义顺序的影响。
-
-HotSpot虚拟机默认的分配顺序为longs/doubles、ints、shorts/chars、bytes/booleans、oops（Ordinary Object Pointers，OOPs）。
-相同宽度的字段总是被分配到一起存放，在满足这个前提条件的情况下，在父类中定义的变量会出现在子类之前。
-
-如果HotSpot虚拟机的+XX：CompactFields参数值为true（默认就为true），那子类之中较窄的变量也允许插入父类变量的空隙之中，以节省出一点点空间</code></pre><h4 id="3-对齐填充"><a href="#3-对齐填充" class="headerlink" title="3.对齐填充"></a>3.对齐填充</h4><p>对齐填充，这并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。由于<code>HotSpot虚拟机</code>的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说就是任何对象的大小都必须是8字节的整数倍。对象头部分已经被精心设计成正好是8字节的倍数（1倍或者2倍），因此，如果对象实例数据部分没有对齐的话，就需要通过对齐填充来补全。</p>
-<h3 id="三、对象的访问定位"><a href="#三、对象的访问定位" class="headerlink" title="三、对象的访问定位"></a>三、对象的访问定位</h3><p>Java程序会通过栈上的reference数据来操作堆上的具体对象。</p>
-<p>对象访问主流的访问方式主要有使用句柄和直接指针两种：</p>
-<p>（1）使用句柄访问的话，Java堆中将可能会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自具体的地址信息：</p>
-<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-obj-ref-1.jpg" alt="Image jvm-obj-ref-1"></p>
-<p>（2）使用直接指针访问的话，Java堆中对象的内存布局就必须考虑如何放置访问类型数据的相关信息，reference中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销。</p>
-<p><img src="/medias/loading-animated.gif" data-original="/jvm-images/jvm-obj-ref-2.jpg" alt="Image jvm-obj-ref-2"></p>
-<p>二者相比较：</p>
-<pre><code>使用句柄的最大好处是 reference 中存储的是稳定的句柄地址，在对象移动(GC)是只改变实例数据指针地址，reference 自身不需要修改。
-直接指针访问的最大好处是速度快，节省了一次指针定位的时间开销。如果是对象频繁 GC 那么句柄方法好，如果是对象频繁访问则直接指针访问好。</code></pre><p><code>HotSpot</code>而言，它主要使用第二种方式进行对象访问。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>jvm之垃圾收集器（1）</title>
     <url>/posts/d01dbbb1.html</url>
     <content><![CDATA[<h2 id="jvm-垃圾收集器"><a href="#jvm-垃圾收集器" class="headerlink" title="jvm 垃圾收集器"></a>jvm 垃圾收集器</h2><h3 id="1-关于垃圾收集器"><a href="#1-关于垃圾收集器" class="headerlink" title="1. 关于垃圾收集器"></a>1. 关于垃圾收集器</h3><pre><code>垃圾收集器是垃圾回收算法（标记-清除算法、标记-复制算法、标记-整理算法、半复制算法）的具体实现，不同商家、不同版本的JVM所提供的垃圾收集器可能会有很在差别，本文主要介绍HotSpot虚拟机中的垃圾收集器。</code></pre><h3 id="2-Hotspot七种垃圾收集器"><a href="#2-Hotspot七种垃圾收集器" class="headerlink" title="2. Hotspot七种垃圾收集器"></a>2. Hotspot七种垃圾收集器</h3><p><img src="/medias/loading-animated.gif" data-original="images/jvm-images/jvm-gcr-1.jpg" alt="image "><br>（图片来自《深入理解java虚拟机:jvm高级特性与最佳实践 》第三版。）</p>
@@ -2089,6 +2003,92 @@ HotSpot虚拟机默认的分配顺序为longs/doubles、ints、shorts/chars、by
         <tag>Java</tag>
         <tag>JVM</tag>
         <tag>垃圾收集器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（三）——主题更换</title>
+    <url>/posts/a5bf7e18.html</url>
+    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
+ <a id="more"></a>
+
+<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a><br>漂亮主题推荐：<br>[hexo-theme-matery]（<a href="https://github.com/blinkfox/hexo-theme-matery）" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery）</a><br>[hexo-theme-ayer]（<a href="https://github.com/Shen-Yu/hexo-theme-ayer）" target="_blank" rel="noopener">https://github.com/Shen-Yu/hexo-theme-ayer）</a></p>
+<p>其中极简主题有些没有search功能，如需要自己安装search插件，参考Hexo搭建静态博客（四）——插件安装<br>极简主题我比较喜欢hexo-theme-polarbear，对扩展版进行补充搜索功能。</p>
+<p>如安装主题hexo-theme-xoxo-plus。</p>
+<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
+<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
+<pre><code># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# landscape
+theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>浏览器访问：<br>大功告成。</p>
+<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
+<p>如有问题请参考本系列：<a href="/post/ce4a93ff.html">Hexo搭建静态博客（五）——踩坑问题</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos-jdk安装配置环境变量</title>
+    <url>/posts/9064540a.html</url>
+    <content><![CDATA[<p> Centos上安装jdk，配置环境变量的方法</p>
+<a id="more"></a>
+<h2 id="Centos上jdk配置"><a href="#Centos上jdk配置" class="headerlink" title="Centos上jdk配置"></a>Centos上jdk配置</h2><p>[TOC]</p>
+<h2 id="1-检查环境"><a href="#1-检查环境" class="headerlink" title="1.检查环境"></a>1.检查环境</h2><p>查看java版本</p>
+<pre class=" language-bash"><code class="language-bash">java -version</code></pre>
+<p> 检查是否已经安装jdk，通常默认自认openjdk</p>
+<pre class=" language-bash"><code class="language-bash">java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
+java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
+java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
+java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</code></pre>
+<p> 如果要卸载,需要root用户权限才可以执行：</p>
+<pre class=" language-bash"><code class="language-bash">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
+rpm -e --nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
+rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
+rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</code></pre>
+<p>再次查看java版本，如提示未找到命令则删除成功。</p>
+<h2 id="2-上传jdk安装文件"><a href="#2-上传jdk安装文件" class="headerlink" title="2.上传jdk安装文件"></a>2.上传jdk安装文件</h2><h4 id="上传方法"><a href="#上传方法" class="headerlink" title="上传方法"></a>上传方法</h4><p>（1）可以联网直接下载即可<br>（2）ssh可以安装用rz/sz上传下载<br>（3）ftp自行安装ftp服务，关于安装教程可到：</p>
+<p>上传jdk-7u80-linux-x64.tar.gz到你的目录后，<br>解压后移动到 <code>/usr/jdk1.7.0_80</code></p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf jdk-7u80-linux-x64.tar.gz
+<span class="token function">cp</span>  jdk-7u80 /usr/jdk1.7.0_80</code></pre>
+<p>【关于解压命令大全可以移步：】</p>
+<h2 id="2-配置关变量"><a href="#2-配置关变量" class="headerlink" title="2.配置关变量"></a>2.配置关变量</h2><p>/etc/profile全局变量配置</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/profile</code></pre>
+<p>.bash_profile为root用户的环境变量。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /root/
+<span class="token function">ls</span> -a
+<span class="token function">vi</span> .bash_profile</code></pre>
+<p>二者均可，建议修改用户环境变量。<br>在文件末尾增加java环境变量即可,听说CentOS6上面的是JAVAHOME，CentOS7是{JAVA_HOME}</p>
+<pre><code># .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+export JAVA_HOME=/usr/jdk1.7.0_80
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
+
+export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href="#3-让刚刚设置的环境变量生效" class="headerlink" title="3.让刚刚设置的环境变量生效"></a>3.让刚刚设置的环境变量生效</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile</code></pre>
+<p>或者</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> .bash_profile</code></pre>
+<h2 id="4-再次验证是否配置成功"><a href="#4-再次验证是否配置成功" class="headerlink" title="4.再次验证是否配置成功"></a>4.再次验证是否配置成功</h2><pre class=" language-bash"><code class="language-bash">java -version</code></pre>
+<p>出现java版本号代表安装成功。</p>
+]]></content>
+      <categories>
+        <category>Linux,Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>centos</tag>
       </tags>
   </entry>
 </search>
