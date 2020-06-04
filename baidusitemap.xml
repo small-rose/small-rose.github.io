@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/posts/2a1a7c1f.html</loc>
+    <lastmod>2020-06-04</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/posts/f8161112.html</loc>
+    <lastmod>2020-06-02</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/posts/e3d9aed7.html</loc>
+    <lastmod>2020-06-02</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/posts/d01dbbb1.html</loc>
+    <lastmod>2020-05-31</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/posts/50b49e8d.html</loc>
+    <lastmod>2020-05-30</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/posts/bce48291.html</loc>
+    <lastmod>2020-05-29</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/posts/b287f556.html</loc>
+    <lastmod>2020-05-27</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/posts/9f103da7.html</loc>
+    <lastmod>2020-05-25</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/posts/d0e15f60.html</loc>
+    <lastmod>2020-05-23</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/posts/80dc9555.html</loc>
+    <lastmod>2020-05-23</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/posts/c68d7a69.html</loc>
+    <lastmod>2020-05-23</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/posts/c68d7a69.html</loc>
     <lastmod>2020-05-23</lastmod>
   </url>  <url>
@@ -26,15 +59,15 @@
     <lastmod>2019-11-08</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/posts/2d1a17c5.html</loc>
-    <lastmod>2019-05-12</lastmod>
+    <lastmod>2019-06-01</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/posts/9064540a.html</loc>
     <lastmod>2018-09-09</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/posts/42e4f857.html</loc>
+    <loc>http://yoursite.com/posts/dc390855.html</loc>
     <lastmod>2018-05-12</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/posts/dc390855.html</loc>
+    <loc>http://yoursite.com/posts/42e4f857.html</loc>
     <lastmod>2018-05-12</lastmod>
   </url>
 </urlset>
