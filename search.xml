@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
+    <url>/posts/dc390855.html</url>
+    <content><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
+<a id="more"></a>
+
+<p><img src="/medias/loading-animated.gif" data-original="/images/db_jdbcType.jpg" alt="Image text"></p>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>DataBase</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos相关配置</title>
     <url>/posts/42e4f857.html</url>
     <content><![CDATA[<p> Centos网络配置 | Centos时间配置 | DNS解析问题</p>
@@ -113,6 +128,36 @@ export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href=
       </tags>
   </entry>
   <entry>
+    <title>js让页面自动刷新</title>
+    <url>/posts/7413f2ca.html</url>
+    <content><![CDATA[<p>js让页面自动刷新</p>
+<a id="more"></a>
+
+<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
+<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">=</span><span class="token number">0</span>
+current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+count<span class="token operator">++</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
+fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
+<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+]]></content>
+      <categories>
+        <category>Java,DataBase</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git的SSH免密使用</title>
     <url>/posts/c68d7a69.html</url>
     <content><![CDATA[<pre><code>本文记录关于Git的免密使用，连接Github免密和 云服务器或私有服务器免密。</code></pre><h3 id="一-Github的Git免密使用"><a href="#一-Github的Git免密使用" class="headerlink" title="一  Github的Git免密使用"></a>一  <code>Github</code>的Git免密使用</h3><h4 id="1-客户端生成密钥"><a href="#1-客户端生成密钥" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
@@ -157,51 +202,6 @@ AuthorizedKeysFile .ssh/authorized_keys</code></pre><p>git用户不允许登录s
         <tag>SSH免密</tag>
         <tag>云服务器</tag>
         <tag>私有服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js让页面自动刷新</title>
-    <url>/posts/7413f2ca.html</url>
-    <content><![CDATA[<p>js让页面自动刷新</p>
-<a id="more"></a>
-
-<h6 id="想让页面自动刷新"><a href="#想让页面自动刷新" class="headerlink" title="想让页面自动刷新?"></a>想让页面自动刷新?</h6><p>F12 —– 控制台 —– 使用下面代码，OK。</p>
-<pre class=" language-javascript"><code class="language-javascript">timeout<span class="token operator">=</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Set timeout (Second):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">=</span><span class="token number">0</span>
-current<span class="token operator">=</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>timeout<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">else</span>
-location<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'reload()'</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token operator">*</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-count<span class="token operator">++</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'每（'</span><span class="token operator">+</span>timeout<span class="token operator">+</span><span class="token string">'）秒自动刷新,刷新次数：'</span><span class="token operator">+</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">=</span><span class="token string">'&lt;frameset cols=\'*\'>\n&lt;frame src=\''</span><span class="token operator">+</span>current<span class="token operator">+</span><span class="token string">'\'/>'</span><span class="token punctuation">;</span>
-fr4me<span class="token operator">+</span><span class="token operator">=</span><span class="token string">'&lt;/frameset>'</span><span class="token punctuation">;</span>
-<span class="token keyword">with</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">write</span><span class="token punctuation">(</span>fr4me<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">void</span><span class="token punctuation">(</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>不同类型数据库字段类型和JAVA类型、sql类型对应关系</title>
-    <url>/posts/dc390855.html</url>
-    <content><![CDATA[<p>不同类型数据库字段类型和JAVA类型、sql类型对应关系。</p>
-<a id="more"></a>
-
-<p><img src="/medias/loading-animated.gif" data-original="/images/db_jdbcType.jpg" alt="Image text"></p>
-]]></content>
-      <categories>
-        <category>Java,DataBase</category>
-      </categories>
-      <tags>
-        <tag>DataBase</tag>
       </tags>
   </entry>
   <entry>
@@ -646,55 +646,6 @@ fr4me<span class="token operator">+</span><span class="token operator">=</span><
       </tags>
   </entry>
   <entry>
-    <title>Hexo搭建静态博客（一）——基础搭建</title>
-    <url>/posts/9f117b.html</url>
-    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
-<a id="more"></a>
-<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
-<pre><code>$ hexo -v
-hexo：4.2.1
-hexo-cli：3.1.0
-os：Windows_NT 10.0.18362 win32 x64
-http_parser：2.8.0
-node：8.12.0
-v8：6.2.414.66
-uv：1.19.2
-zlib：1.2.11
-ares：1.10.1-DEV
-modules：57
-nghttp2：1.32.0
-napi： 3
-openssl：1.0.2p
-icu：60.1
-unicode：10.0
-cldr：32.0
-tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
-<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
-<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
-<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
-<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
-$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
-$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
-$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
-<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
-<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
-<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
-hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
-hexo s 或  hexo server     //启动服务预览 http://localhost:4000
-hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
-<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
-<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建静态博客（二）——创建页面</title>
     <url>/posts/c1358fc8.html</url>
     <content><![CDATA[<p>本文记录将hexo博客创建页面相关操作操作。</p>
@@ -734,6 +685,55 @@ tags: Hexo
 ---
  this is my article ...
 </code></pre><p>是不是很简单呢？</p>
+<p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（一）——基础搭建</title>
+    <url>/posts/9f117b.html</url>
+    <content><![CDATA[<p> 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。</p>
+<a id="more"></a>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>本文环境如下</p>
+<pre><code>$ hexo -v
+hexo：4.2.1
+hexo-cli：3.1.0
+os：Windows_NT 10.0.18362 win32 x64
+http_parser：2.8.0
+node：8.12.0
+v8：6.2.414.66
+uv：1.19.2
+zlib：1.2.11
+ares：1.10.1-DEV
+modules：57
+nghttp2：1.32.0
+napi： 3
+openssl：1.0.2p
+icu：60.1
+unicode：10.0
+cldr：32.0
+tz：2017c</code></pre><h4 id="1-安装git环境"><a href="#1-安装git环境" class="headerlink" title="1.安装git环境"></a>1.安装git环境</h4><p>安装git for windows（或者其它git客户端）[git下载]（<a href="https://git-scm.com/downloads）" target="_blank" rel="noopener">https://git-scm.com/downloads）</a><br>验证git安装命令(可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
+<h4 id="2-安装Node"><a href="#2-安装Node" class="headerlink" title="2.安装Node"></a>2.安装Node</h4><p>安装Node<a href="http://nodejs.cn/" target="_blank" rel="noopener">Node下载</a><br>验证node安装命令 (可以用Windows的cmd窗口或鼠标右键菜单的git bash 窗口)</p>
+<pre class=" language-bash"><code class="language-bash">node --version</code></pre>
+<h4 id="3-github账号"><a href="#3-github账号" class="headerlink" title="3.github账号"></a>3.github账号</h4><p>如果没有注册一个：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>主要是方便从git上下载各种东东。</p>
+<h3 id="安装hexo及初始化"><a href="#安装hexo及初始化" class="headerlink" title="安装hexo及初始化"></a>安装hexo及初始化</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">cd</span> D:hexo/    //换成你的目录
+$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli   //安装hexo脚手架
+$ hexo init     //Hexo 初始化 会自动在当前文件夹下下载搭建网站所需的所有文件
+$ <span class="token function">npm</span> <span class="token function">install</span>   //安装依赖包命令</code></pre>
+<h3 id="编译生成静态页面"><a href="#编译生成静态页面" class="headerlink" title="编译生成静态页面"></a>编译生成静态页面</h3><pre class=" language-bash"><code class="language-bash">hexo g</code></pre>
+<h3 id="启动服务预览"><a href="#启动服务预览" class="headerlink" title="启动服务预览"></a>启动服务预览</h3><pre class=" language-bash"><code class="language-bash">hexo s</code></pre>
+<p>打开浏览器访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>如果正常出现页面说明搭建成功。</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class=" language-bash"><code class="language-bash">hexo clean      //清空public文件夹内容
+hexo g 或  hexo generate   //在hexo站点根目录下生成public文件夹，相关静态网页文件
+hexo s 或  hexo server     //启动服务预览 http://localhost:4000
+hexo d 或  hexo deploy     //部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 Git远程仓库，如github或自己搭建的远程服务器。</code></pre>
+<p>也可以连起来使用：<font face="console" color="red" bgcolor='#fff'><code>hexo clean &amp; hexo g &amp; hexo s &amp;  hexo d</code></font></p>
 <p>如有问题请参考本系列：Hexo搭建静态博客（五）——踩坑问题</p>
 ]]></content>
       <categories>
@@ -810,381 +810,6 @@ abbrlink:
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（三）——主题更换</title>
-    <url>/posts/a5bf7e18.html</url>
-    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
- <a id="more"></a>
-
-<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a><br>漂亮主题推荐：<br>[hexo-theme-matery]（<a href="https://github.com/blinkfox/hexo-theme-matery）" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery）</a><br>[hexo-theme-ayer]（<a href="https://github.com/Shen-Yu/hexo-theme-ayer）" target="_blank" rel="noopener">https://github.com/Shen-Yu/hexo-theme-ayer）</a></p>
-<p>其中极简主题有些没有search功能，如需要自己安装search插件，参考Hexo搭建静态博客（四）——插件安装<br>极简主题我比较喜欢hexo-theme-polarbear，对扩展版进行补充搜索功能。</p>
-<p>如安装主题hexo-theme-xoxo-plus。</p>
-<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
-<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
-<pre><code># Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-# landscape
-theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
-<p>浏览器访问：<br>大功告成。</p>
-<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
-<p>如有问题请参考本系列：<a href="/post/ce4a93ff.html">Hexo搭建静态博客（五）——踩坑问题</a></p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（六）——项目部署</title>
-    <url>/posts/c68d7a69.html</url>
-    <content><![CDATA[<p>本文记录将hexo博客部署到github、云服务器上的相关操作操作。</p>
-<a id="more"></a>
-
-<h4 id="关于部署"><a href="#关于部署" class="headerlink" title="关于部署"></a>关于部署</h4><p>常见部署在github上，如果有自己独立的服务器也可以部署在服务上，此处用的腾讯云服务器。</p>
-<h3 id="一-Github上部署"><a href="#一-Github上部署" class="headerlink" title="一  Github上部署"></a>一  Github上部署</h3><h4 id="1-准备环境："><a href="#1-准备环境：" class="headerlink" title="1 准备环境："></a>1 准备环境：</h4><p>​    有github账户</p>
-<p>​    在账户里创建仓库, New repository，仓库名固定格式： <code>你的github账户名.github.io</code></p>
-<p>​    git免密登陆（可选，非必须）</p>
-<h4 id="2-安装部署插件"><a href="#2-安装部署插件" class="headerlink" title="2  安装部署插件"></a>2  安装部署插件</h4><p>​    安装部署插件deploy-git </p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save</code></pre>
-<h4 id="3-Hexo修改根目录配置文件"><a href="#3-Hexo修改根目录配置文件" class="headerlink" title="3  Hexo修改根目录配置文件"></a>3  Hexo修改根目录配置文件</h4><pre class=" language-yml"><code class="language-yml">deploy:
-  type: git
-  repo: https://github.com/your_github_name/your_github_name.github.io.git
-  branch: master</code></pre>
-<p>如果配置了免密登录: </p>
-<pre><code>git@github.com:yourgithubName/your_github_name.github.io.git</code></pre><p>没有配置请使用：</p>
-<pre><code>https://github.com/your_github_name/your_github_name.github.io.git</code></pre><p><code>https</code>开头每次要输入密码，<code>git</code>开头表示是用ssh方式连接。</p>
-<h4 id="4-生成并部署"><a href="#4-生成并部署" class="headerlink" title="4  生成并部署"></a>4  生成并部署</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo d</code></pre>
-<p>如果没有配置免密登陆，部署的时候可能会用到git的用户名和密码。</p>
-<h4 id="5-访问验证"><a href="#5-访问验证" class="headerlink" title="5  访问验证"></a>5  访问验证</h4><p>打开浏览器访问：<a href="https://YourgithubName.github.io" target="_blank" rel="noopener">https://YourgithubName.github.io</a></p>
-<p>如我<code>github</code>博客地址：<a href="https://small-rose.github.io">https://small-rose.github.io</a></p>
-<h3 id="二-云服务器部署"><a href="#二-云服务器部署" class="headerlink" title="二  云服务器部署"></a>二  云服务器部署</h3><p>部署到云服务有两种方式，一种是利用git仓库配合hooks自动部署更新，另一种是插件的方式，插件的话可以参考如下：</p>
-<table>
-<thead>
-<tr>
-<th>插件安装命令</th>
-<th>功能</th>
-<th>文档</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>npm install hexo-deployer-cos –save</td>
-<td>hexo上传至腾讯云COS</td>
-<td><a href="https://github.com/sdlzhd/hexo-deployer-cos#user-content-options" target="_blank" rel="noopener">https://github.com/sdlzhd/hexo-deployer-cos#user-content-options</a></td>
-</tr>
-<tr>
-<td>npm install hexo-deployer-aliyun –save</td>
-<td>hexo上传至阿里云</td>
-<td><a href="https://github.com/yedaodao/hexo-deployer-aliyun" target="_blank" rel="noopener">https://github.com/yedaodao/hexo-deployer-aliyun</a></td>
-</tr>
-</tbody></table>
-<h4 id="1-准备环境：-1"><a href="#1-准备环境：-1" class="headerlink" title="1  准备环境："></a>1  准备环境：</h4><p>​    有一台云服务器，本文是腾讯云服务器</p>
-<p>​    准备工作大概如下</p>
-<pre class=" language-html"><code class="language-html">（1）服务器安装git服务并创建仓库
-
-（2）配置hooks
-
-（3）安装及配置Nginx</code></pre>
-<h4 id="2-安装git"><a href="#2-安装git" class="headerlink" title="2  安装git"></a>2  安装git</h4><p>安装命令：</p>
-<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> <span class="token function">git</span> </code></pre>
-<p>如果你的服务器不能直接yum安装，可以参考    git安装教程：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span>  /usr/local/src   <span class="token comment" spellcheck="true">#进入你的下载目录           </span>
-<span class="token function">wget</span> https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.24.0.tar.gz    <span class="token comment" spellcheck="true">#下载，不能下载就自己上传一下</span>
-<span class="token function">tar</span> -zvxf git-2.24.0.tar.gz    <span class="token comment" spellcheck="true">#解压</span>
-<span class="token function">cd</span> git-2.24.0                
-<span class="token function">make</span> all prefix<span class="token operator">=</span>/usr/local/git    <span class="token comment" spellcheck="true">#编译</span>
-<span class="token function">make</span> <span class="token function">install</span> prefix<span class="token operator">=</span>/usr/local/git    <span class="token comment" spellcheck="true">#安装git到指定目录</span>
-<span class="token keyword">echo</span> <span class="token string">'export PATH=<span class="token variable">$PATH</span>:/usr/local/git/bin'</span> <span class="token operator">>></span> /etc/bashrc  <span class="token comment" spellcheck="true">#配置环境变量</span>
-<span class="token function">source</span> /etc/bashrc       <span class="token comment" spellcheck="true">#刷新环境变量</span></code></pre>
-<p>验证Git是否安装成功：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
-<p>添加git用户并授权：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">useradd</span> -r -s /bin/bash -c <span class="token string">'git version control'</span> -d /home/git <span class="token function">git</span> 
-<span class="token function">passwd</span> <span class="token function">git</span> 
-<span class="token function">mkdir</span> -p /home/git  
-<span class="token function">chown</span> git:git /home/git </code></pre>
-<p>创建仓库：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /home/git/
-<span class="token function">git</span> init --bare myHexoBlog.git</code></pre>
-<p>如果要配置SSH免登录：</p>
-<p>a.客户端生成密钥</p>
-<pre class=" language-bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"这里换上你的邮箱"</span></code></pre>
-<p>然后会出现询问，大概意思如下：</p>
-<pre><code>1. 确认秘钥的保存路径（如果不需要改路径则直接回车）；
-2. 如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
-3. 创建密码（如果不需要密码则直接回车）；
-4. 确认密码；</code></pre><p>要免密登录请输密码的时候回车即可。根据提示找到密钥所在文件：</p>
-<pre><code>id_rsa  #私钥
-id_rsa.pub  #公钥</code></pre><p>b.服务端导入客户端公钥</p>
-<p>在/home/git下已经创建.ssh目录，然后创建authorized_keys文件，并将客户端生成的公钥导入进去。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /home/git/
-<span class="token function">mkdir</span> .ssh
-<span class="token function">chmod</span> 755 .ssh
-<span class="token function">touch</span> .ssh/authorized_keys
-<span class="token function">chmod</span> 644 .ssh/authorized_keys</code></pre>
-<p>将 <code>id_rsa.pub</code> 文件的内容写入<code>authorized_keys</code></p>
-<p>c. 服务端SSH将RSA认证打开</p>
-<pre class=" language-bash"><code class="language-bash">vim /etc/ssh/sshd_config</code></pre>
-<p>其中三个地方的设置要确认如下：</p>
-<pre><code>RSAAuthentication yes
-PubkeyAuthentication yes
-AuthorizedKeysFile .ssh/authorized_keys</code></pre><p>git用户不允许登录shell</p>
-<pre class=" language-bash"><code class="language-bash">vim /etc/passwd</code></pre>
-<p>将</p>
-<pre><code>git:x:502:502::/home/git:/bin/bash</code></pre><p> 改为</p>
-<pre><code>git:x:502:502::/home/git:/usr/local/git/bin/git-shell</code></pre><h4 id="3-配置hooks自动部署"><a href="#3-配置hooks自动部署" class="headerlink" title="3 配置hooks自动部署"></a>3 配置hooks自动部署</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p /home/hexoBlog
-<span class="token function">chown</span> git:git /home/hexoBlog 
-
-<span class="token function">cd</span> /home/hexoBlog
-<span class="token function">cd</span> /home/git/myHexoBlog.git/hooks
-vim  post-receive  <span class="token comment" spellcheck="true">#创建hooks执行文件</span></code></pre>
-<p>配置hooks，指定 Git 的工作树（源代码）和 Git 目录（配置文件等）</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-<span class="token function">git</span> --work-tree<span class="token operator">=</span>/home/hexoBlog --git-dir<span class="token operator">=</span>/home/git/myHexoBlog.git checkout -f</code></pre>
-<p>如果是使用Apache服务,可以直接把work-tree目录指向/var/www/html</p>
-<h4 id="4-安装Nginx服务"><a href="#4-安装Nginx服务" class="headerlink" title="4 安装Nginx服务"></a>4 安装Nginx服务</h4><pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> -y nginx</code></pre>
-<p>如果你不能直接安装，请先配置安装源</p>
-<pre class=" language-bahs"><code class="language-bahs">sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre>
-<p>启动Nginx</p>
-<pre class=" language-bash"><code class="language-bash">systemctl start nginx.service</code></pre>
-<p>浏览器输入你的域名或者IP，出现欢迎页面代表安装启动成功。</p>
-<p>修改配置：</p>
-<pre class=" language-bash"><code class="language-bash">nginx -t  <span class="token comment" spellcheck="true">#查看nginx安装路径 配置文件路径</span>
-vim /etc/nginx/nginx.conf</code></pre>
-<p>找到server部分</p>
-<pre><code>server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    root /home/hexoBlog;    #需要修改
-
-    server_name www.zhangxiaocai.cn; #需要修改
-
-    include /etc/nginx/default.d/*.conf;
-    location / {
-    }
-    error_page 404 /404.html;
-        location = /40x.html {
-    }
-}</code></pre><p>修改好之后<code>ESC</code> 输入<code>:wq</code>保存退出。接下来验证配置</p>
-<pre class=" language-bash"><code class="language-bash">nginx -t</code></pre>
-<p>如果出现以下内容代表配置成功：</p>
-<pre class=" language-bash"><code class="language-bash">nginx: the configuration <span class="token function">file</span> /etc/nginx/nginx.conf syntax is ok
-nginx: configuration <span class="token function">file</span> /etc/nginx/nginx.conf <span class="token function">test</span> is successful</code></pre>
-<p>重新加载配置或重启nginx服务</p>
-<pre class=" language-bash"><code class="language-bash">nginx -s reload</code></pre>
-<p>更多<code>Nginx</code>相关内容，访问<code>Nginx</code></p>
-<h4 id="5-本地配置修改"><a href="#5-本地配置修改" class="headerlink" title="5 本地配置修改"></a>5 本地配置修改</h4><p>修改项目根目录的配置文件</p>
-<pre><code>deploy:
-    type: git
-    repo: git@你的云服务器的IP地址:/home/git/myHexoBlog.git
-    branch: master</code></pre><p>清理-生成-部署</p>
-<pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> hexo g <span class="token operator">&amp;</span> hexo d</code></pre>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <url>/posts/ce4a93ff.html</url>
-    <content><![CDATA[<p> 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。</p>
-<a id="more"></a>
-
-<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
-<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
-YAMLException: end of the stream or a document separator is expected at line x, column y:
-at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
-<pre><code>---
-key: value
----</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
-<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
-<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)使用主题的时候注意先阅读相关使用文档，有些主题需要一些插件</p>
-<h5 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h5><p>后续补充</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java 查漏补缺-java8里的日期时间API</title>
-    <url>/posts/d0e15f60.html</url>
-    <content><![CDATA[<h3 id="Java-8-日期时间-API"><a href="#Java-8-日期时间-API" class="headerlink" title="Java 8 日期时间 API"></a>Java 8 日期时间 API</h3><p>Java 8通过发布新的Date-Time API (JSR 310)来进一步加强对日期与时间的处理。 旧版的<code>java.util.Date</code>是非线程安全的。</p>
-<h4 id="1-java8日期时间相关API"><a href="#1-java8日期时间相关API" class="headerlink" title="1. java8日期时间相关API"></a>1. java8日期时间相关API</h4><p>Java 8 在 java.time 包下提供了很多新的 API：</p>
-<div>
-Local (本地) − 简化了日期时间的处理，没有时区的问题。
-
-<p>Zoned (时区) − 通过制定的时区处理日期时间。</p>
-<p>Instant（时间戳）-精确到纳秒的的某个时间点，不包含时区，允许加减运算。该方法默认使用的是UTC(协调世界时——由原子钟提供)时间，可以使用equeal 和 compareTo来比较两个时间点的值。支持旧版时间转换新版时间戳。</p>
-<p>LocalDate（本地日期）− 简化了日期处理，不带时间。</p>
-<p>LocalTime（本地时间）− 简化了时间处理，不带日期且没有偏移信息、无时区的时间。</p>
-<p>LocalDateTime（本地日期时间）− 日期+时间的处理。</p>
-<p>ZoneDateTime（时区日期时间）- 包含时区的完整的日期时间，偏移量是以UTC/格林威治时间为基准的。</p>
-<p>MonthDay- 月日组合。它是一个值类（value class）,由，不包含年信息，可以用来代表每年重复出现的一些日期或其他组合。</p>
-<p>YearMonth - 年月组合。</p>
-<p>WeekFields(周) - 处理周的计算。</p>
-<p>DateTimeFormatter − 提供格式化和解析功能。下面详细的介绍使用方法。<br>任何修改操作都会返回一个新的实例。</p>
-<p>Clock - 时钟。可以获取某个时区下（对时区是敏感的）当前的瞬时时间、日期。用来代替System.currentTimelnMillis()与TimeZone.getDefault()方法。</p>
-</div>
-
-<h4 id="2-基本获取与简单计算。"><a href="#2-基本获取与简单计算。" class="headerlink" title="2. 基本获取与简单计算。"></a>2. 基本获取与简单计算。</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Clock<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>DayOfWeek<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Duration<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Instant<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDate<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalTime<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Period<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>temporal<span class="token punctuation">.</span>ChronoUnit<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>temporal<span class="token punctuation">.</span>WeekFields<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Date<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateTimeTest</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 时间戳</span>
-        Instant now <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" now = "</span> <span class="token operator">+</span> now<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        LocalDate date <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//日期</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date = "</span> <span class="token operator">+</span> date<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        LocalTime time <span class="token operator">=</span> LocalTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span>Clock<span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//时间</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" time = "</span> <span class="token operator">+</span> time<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        LocalDateTime dttm <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm = "</span> <span class="token operator">+</span> dttm<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 将java.util.Date转换为Instant</span>
-        Instant instant1 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">ofEpochMilli</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>instant1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 从字符串类型中创建Instant类型的时间</span>
-        Instant instant2 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"1995-10-23T10:12:35Z"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        Instant instant3 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 将现在的时间加上2个小时10分钟</span>
-        Instant changeIns <span class="token operator">=</span> instant3<span class="token punctuation">.</span><span class="token function">plus</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofHours</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">plusMinutes</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>changeIns<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 使用instant计算7天前</span>
-        instant3<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span>DAYS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法1</span>
-        instant3<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofDays</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法2</span>
-
-        <span class="token comment" spellcheck="true">// 计算两个Instant之间的分钟数</span>
-        Instant instant4 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// long diffAsMinutes = instant.periodUntil(instant3, ChronoUnit.MINUTES); //</span>
-        <span class="token comment" spellcheck="true">// 方法1</span>
-        <span class="token keyword">long</span> diffAsMinutes1 <span class="token operator">=</span> ChronoUnit<span class="token punctuation">.</span>MINUTES<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>instant1<span class="token punctuation">,</span> instant4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法2</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>diffAsMinutes1 <span class="token operator">/</span> <span class="token number">60</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 一周从周日开始</span>
-        WeekFields weekFields <span class="token operator">=</span> WeekFields<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>DayOfWeek<span class="token punctuation">.</span>SUNDAY<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LocalDate today <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"今天是今年第"</span> <span class="token operator">+</span> today<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>weekFields<span class="token punctuation">.</span><span class="token function">weekOfYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"周"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 计算date的相差天数</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 计算date的相差月数</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">until</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span>MONTHS<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 计算date的相差月天，（相差0年1月24天）</span>
-        LocalDate date1 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LocalDate date2 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Period period <span class="token operator">=</span> Period<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>date1<span class="token punctuation">,</span> date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>period<span class="token punctuation">.</span><span class="token function">getYears</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getMonths</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getDays</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        Clock utc_cl <span class="token operator">=</span> Clock<span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" utc_cl :"</span> <span class="token operator">+</span>utc_cl<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Clock def_cl <span class="token operator">=</span> Clock<span class="token punctuation">.</span><span class="token function">systemDefaultZone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" def_cl :"</span> <span class="token operator">+</span>def_cl<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span></code></pre>
-<h4 id="3-日期判断与比较"><a href="#3-日期判断与比较" class="headerlink" title="3. 日期判断与比较"></a>3. 日期判断与比较</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDate<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateTimeCompareTest</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-        <span class="token comment" spellcheck="true">// 日期比较</span>
-        LocalDate date1 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LocalDate date2 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// isBefore</span>
-        <span class="token keyword">boolean</span> b1 <span class="token operator">=</span> date1<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date1 在date2的前面 ："</span> <span class="token operator">+</span> b1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// isAfter</span>
-        <span class="token keyword">boolean</span> b2 <span class="token operator">=</span> date1<span class="token punctuation">.</span><span class="token function">isAfter</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date1 在date2的后面 ："</span> <span class="token operator">+</span> b2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">boolean</span> b3 <span class="token operator">=</span> date1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date1   equals  date2  ? "</span> <span class="token operator">+</span> b3<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 日期时间比较</span>
-        LocalDateTime dttm1 <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm1 = "</span> <span class="token operator">+</span> dttm1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LocalDateTime dttm2 <span class="token operator">=</span> dttm1<span class="token punctuation">.</span><span class="token function">plusDays</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm2 = "</span> <span class="token operator">+</span> dttm2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">boolean</span> b4 <span class="token operator">=</span> dttm1<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span>dttm2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm1 在 dttm2 的前面 ："</span> <span class="token operator">+</span> b4<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<h4 id="4-时区处理"><a href="#4-时区处理" class="headerlink" title="4. 时区处理"></a>4. 时区处理</h4><p>ZonId代表的是某个特定时区，ZonedDateTime代表带时区的时间，等同于以前的GregorianCalendar类。使用该类，可以将本地时间转换成另一个时区中的对应时间。</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>ZoneId<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>ZonedDateTime<span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TimeZoneTest</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-        LocalDateTime localDateTime <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" localDateTime = "</span> <span class="token operator">+</span> localDateTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        ZoneId zone <span class="token operator">=</span> ZoneId<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>ZoneId<span class="token punctuation">.</span>SHORT_IDS<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"CTT"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//取定义好的时区</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" zone = "</span> <span class="token operator">+</span> zone<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//包含时区的时间</span>
-        ZonedDateTime dtWithZone <span class="token operator">=</span> ZonedDateTime<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>localDateTime<span class="token punctuation">,</span> zone<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dtWithZone = "</span> <span class="token operator">+</span> dtWithZone<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>输出</p>
-<pre><code> localDateTime = 2020-05-31T23:54:42.831
- zone = Asia/Shanghai
- dtWithZone = 2020-05-31T23:54:42.831+08:00[Asia/Shanghai]</code></pre><p> 注意：对应时区的文本可以直接手动填写，也可以调用系统默认定义的。</p>
-<h4 id="4-其他"><a href="#4-其他" class="headerlink" title="4. 其他"></a>4. 其他</h4><p>可以参考<a href="https://www.matools.com/api/java8" target="_blank" rel="noopener">java 8 API</a>,在实际遇到再补充。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-        <tag>Java虚拟机</tag>
       </tags>
   </entry>
   <entry>
@@ -1647,6 +1272,177 @@ javax<span class="token punctuation">.</span>swing<span class="token punctuation
       </tags>
   </entry>
   <entry>
+    <title>java 查漏补缺-java8里的日期时间API</title>
+    <url>/posts/d0e15f60.html</url>
+    <content><![CDATA[<h3 id="Java-8-日期时间-API"><a href="#Java-8-日期时间-API" class="headerlink" title="Java 8 日期时间 API"></a>Java 8 日期时间 API</h3><p>Java 8通过发布新的Date-Time API (JSR 310)来进一步加强对日期与时间的处理。 旧版的<code>java.util.Date</code>是非线程安全的。</p>
+<h4 id="1-java8日期时间相关API"><a href="#1-java8日期时间相关API" class="headerlink" title="1. java8日期时间相关API"></a>1. java8日期时间相关API</h4><p>Java 8 在 java.time 包下提供了很多新的 API：</p>
+<div>
+Local (本地) − 简化了日期时间的处理，没有时区的问题。
+
+<p>Zoned (时区) − 通过制定的时区处理日期时间。</p>
+<p>Instant（时间戳）-精确到纳秒的的某个时间点，不包含时区，允许加减运算。该方法默认使用的是UTC(协调世界时——由原子钟提供)时间，可以使用equeal 和 compareTo来比较两个时间点的值。支持旧版时间转换新版时间戳。</p>
+<p>LocalDate（本地日期）− 简化了日期处理，不带时间。</p>
+<p>LocalTime（本地时间）− 简化了时间处理，不带日期且没有偏移信息、无时区的时间。</p>
+<p>LocalDateTime（本地日期时间）− 日期+时间的处理。</p>
+<p>ZoneDateTime（时区日期时间）- 包含时区的完整的日期时间，偏移量是以UTC/格林威治时间为基准的。</p>
+<p>MonthDay- 月日组合。它是一个值类（value class）,由，不包含年信息，可以用来代表每年重复出现的一些日期或其他组合。</p>
+<p>YearMonth - 年月组合。</p>
+<p>WeekFields(周) - 处理周的计算。</p>
+<p>DateTimeFormatter − 提供格式化和解析功能。下面详细的介绍使用方法。<br>任何修改操作都会返回一个新的实例。</p>
+<p>Clock - 时钟。可以获取某个时区下（对时区是敏感的）当前的瞬时时间、日期。用来代替System.currentTimelnMillis()与TimeZone.getDefault()方法。</p>
+</div>
+
+<h4 id="2-基本获取与简单计算。"><a href="#2-基本获取与简单计算。" class="headerlink" title="2. 基本获取与简单计算。"></a>2. 基本获取与简单计算。</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Clock<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>DayOfWeek<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Duration<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Instant<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDate<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalTime<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Period<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>temporal<span class="token punctuation">.</span>ChronoUnit<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>temporal<span class="token punctuation">.</span>WeekFields<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Date<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateTimeTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 时间戳</span>
+        Instant now <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" now = "</span> <span class="token operator">+</span> now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        LocalDate date <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//日期</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date = "</span> <span class="token operator">+</span> date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        LocalTime time <span class="token operator">=</span> LocalTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span>Clock<span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//时间</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" time = "</span> <span class="token operator">+</span> time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        LocalDateTime dttm <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm = "</span> <span class="token operator">+</span> dttm<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 将java.util.Date转换为Instant</span>
+        Instant instant1 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">ofEpochMilli</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>instant1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 从字符串类型中创建Instant类型的时间</span>
+        Instant instant2 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"1995-10-23T10:12:35Z"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Instant instant3 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将现在的时间加上2个小时10分钟</span>
+        Instant changeIns <span class="token operator">=</span> instant3<span class="token punctuation">.</span><span class="token function">plus</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofHours</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">plusMinutes</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>changeIns<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 使用instant计算7天前</span>
+        instant3<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span>DAYS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法1</span>
+        instant3<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofDays</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法2</span>
+
+        <span class="token comment" spellcheck="true">// 计算两个Instant之间的分钟数</span>
+        Instant instant4 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// long diffAsMinutes = instant.periodUntil(instant3, ChronoUnit.MINUTES); //</span>
+        <span class="token comment" spellcheck="true">// 方法1</span>
+        <span class="token keyword">long</span> diffAsMinutes1 <span class="token operator">=</span> ChronoUnit<span class="token punctuation">.</span>MINUTES<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>instant1<span class="token punctuation">,</span> instant4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法2</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>diffAsMinutes1 <span class="token operator">/</span> <span class="token number">60</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 一周从周日开始</span>
+        WeekFields weekFields <span class="token operator">=</span> WeekFields<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>DayOfWeek<span class="token punctuation">.</span>SUNDAY<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDate today <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"今天是今年第"</span> <span class="token operator">+</span> today<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>weekFields<span class="token punctuation">.</span><span class="token function">weekOfYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"周"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 计算date的相差天数</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 计算date的相差月数</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">until</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span>MONTHS<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 计算date的相差月天，（相差0年1月24天）</span>
+        LocalDate date1 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDate date2 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Period period <span class="token operator">=</span> Period<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>date1<span class="token punctuation">,</span> date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>period<span class="token punctuation">.</span><span class="token function">getYears</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getMonths</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getDays</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Clock utc_cl <span class="token operator">=</span> Clock<span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" utc_cl :"</span> <span class="token operator">+</span>utc_cl<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Clock def_cl <span class="token operator">=</span> Clock<span class="token punctuation">.</span><span class="token function">systemDefaultZone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" def_cl :"</span> <span class="token operator">+</span>def_cl<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h4 id="3-日期判断与比较"><a href="#3-日期判断与比较" class="headerlink" title="3. 日期判断与比较"></a>3. 日期判断与比较</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDate<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateTimeCompareTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">// 日期比较</span>
+        LocalDate date1 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDate date2 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// isBefore</span>
+        <span class="token keyword">boolean</span> b1 <span class="token operator">=</span> date1<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date1 在date2的前面 ："</span> <span class="token operator">+</span> b1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// isAfter</span>
+        <span class="token keyword">boolean</span> b2 <span class="token operator">=</span> date1<span class="token punctuation">.</span><span class="token function">isAfter</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date1 在date2的后面 ："</span> <span class="token operator">+</span> b2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">boolean</span> b3 <span class="token operator">=</span> date1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date1   equals  date2  ? "</span> <span class="token operator">+</span> b3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 日期时间比较</span>
+        LocalDateTime dttm1 <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm1 = "</span> <span class="token operator">+</span> dttm1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDateTime dttm2 <span class="token operator">=</span> dttm1<span class="token punctuation">.</span><span class="token function">plusDays</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm2 = "</span> <span class="token operator">+</span> dttm2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> b4 <span class="token operator">=</span> dttm1<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span>dttm2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm1 在 dttm2 的前面 ："</span> <span class="token operator">+</span> b4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="4-时区处理"><a href="#4-时区处理" class="headerlink" title="4. 时区处理"></a>4. 时区处理</h4><p>ZonId代表的是某个特定时区，ZonedDateTime代表带时区的时间，等同于以前的GregorianCalendar类。使用该类，可以将本地时间转换成另一个时区中的对应时间。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>ZoneId<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>ZonedDateTime<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TimeZoneTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        LocalDateTime localDateTime <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" localDateTime = "</span> <span class="token operator">+</span> localDateTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        ZoneId zone <span class="token operator">=</span> ZoneId<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>ZoneId<span class="token punctuation">.</span>SHORT_IDS<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"CTT"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//取定义好的时区</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" zone = "</span> <span class="token operator">+</span> zone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//包含时区的时间</span>
+        ZonedDateTime dtWithZone <span class="token operator">=</span> ZonedDateTime<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>localDateTime<span class="token punctuation">,</span> zone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dtWithZone = "</span> <span class="token operator">+</span> dtWithZone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>输出</p>
+<pre><code> localDateTime = 2020-05-31T23:54:42.831
+ zone = Asia/Shanghai
+ dtWithZone = 2020-05-31T23:54:42.831+08:00[Asia/Shanghai]</code></pre><p> 注意：对应时区的文本可以直接手动填写，也可以调用系统默认定义的。</p>
+<h4 id="4-其他"><a href="#4-其他" class="headerlink" title="4. 其他"></a>4. 其他</h4><p>可以参考<a href="https://www.matools.com/api/java8" target="_blank" rel="noopener">java 8 API</a>,在实际遇到再补充。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>Java虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>java 查漏补缺-Java8 中的 Optional</title>
     <url>/posts/c68d7a69.html</url>
     <content><![CDATA[]]></content>
@@ -1779,6 +1575,148 @@ javax<span class="token punctuation">.</span>swing<span class="token punctuation
         <tag>Java</tag>
         <tag>JVM</tag>
         <tag>Java虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jvm之对象创建与布局</title>
+    <url>/posts/b287f556.html</url>
+    <content><![CDATA[<h2 id="HotSpot-虚拟机对象创建与布局"><a href="#HotSpot-虚拟机对象创建与布局" class="headerlink" title="HotSpot 虚拟机对象创建与布局"></a>HotSpot 虚拟机对象创建与布局</h2><p>HotSpot虚拟机在Java堆中对象分配、布局和访问的全过程。<br>创建对象的三种方式：new关键字、复制、反序列化。</p>
+<h3 id="一-对象的创建"><a href="#一-对象的创建" class="headerlink" title="一. 对象的创建"></a>一. 对象的创建</h3><p>此处提及的对象创建，只是普通Java对象，不包括数组和Class对象。</p>
+<h4 id="1-检查符合引用和类加载情况"><a href="#1-检查符合引用和类加载情况" class="headerlink" title="1. 检查符合引用和类加载情况"></a>1. 检查符合引用和类加载情况</h4><p>当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。</p>
+<h4 id="2-为新生对象分配内存"><a href="#2-为新生对象分配内存" class="headerlink" title="2. 为新生对象分配内存"></a>2. 为新生对象分配内存</h4><p>在类加载检查通过后，接下来虚拟机将为新生对象分配内存。对象所需内存的大小在类加载完成后便可完全确定，为对象分配空间的任务其实就是把一块确定大小的内存块从Java堆中划分出来存放该对象。</p>
+<p>关于对象内存分配方式：<br>（1）“指针碰撞”（Bump The Pointer）</p>
+<blockquote>
+<p>假设Java堆中内存是绝对规整的，所有被使用过的内存都被放在一边，空闲的内存被放在另一边，中间放着一个指针作为分界点的指示器，那所分配内存就仅仅是把那个指针向空闲空间方向挪动一段与对象大小相等的距离，这种分配方式称为“指针碰撞”（Bump The Pointer）</p>
+</blockquote>
+<p>（2）“空闲列表”（Free List）:</p>
+<blockquote>
+<p>Java堆中的内存并不是规整的，已被使用的内存和空闲的内存相互交错在一起，那就没有办法简单地进行指针碰撞了，虚拟机就必须维护一个列表，记录上哪些内存块是可用的，在分配的时候从列表中找到一块足够大的空间划分给对象实例，并更新列表上的记录，这种分配方式称为“空闲列表”（Free List）</p>
+</blockquote>
+<p>选择哪种分配方式，取决于Java堆是否规整决定，而Java堆是否规整又由所采用的垃圾收集器是否带有空间压缩整理（Compact）的能力决定。因此：</p>
+<p>（A）当使用Serial、ParNew等带压缩整理过程的收集器时，系统采用的分配算法是指针碰撞，既简单又高效；<br>（B）当使用CMS这种基于清除（Sweep）算法的收集器时，理论上就只能采用较为复杂的空闲列表来分配内存。</p>
+<p>考虑对象内存分配的线程安全问题：</p>
+<blockquote>
+<p>把内存分配的动作按照线程划分在不同的空间之中进行，即每个线程在Java堆中预先分配一小块内存，称为<code>本地线程分配缓冲（Thread Local Allocation Buffer，TLAB）</code>，哪个线程要分配内存，就在哪个线程的本地缓冲区中分配，只有本地缓冲区用完了，分配新的缓存区时才需要同步锁定【对分配内存空间的动作进行同步处理——实际上虚拟机是采用<code>CAS</code>配上失败重试的方式保证更新操作的原子性】。虚拟机是否使用<code>TLAB</code>，可以通过<code>-XX：+/-UseTLAB</code>参数来设定。</p>
+</blockquote>
+<p>每个线程在堆中都会有私有的<code>分配缓冲区(TLAB)</code>，这样可以很大程度避免在并发情况下频繁创建对象造成的线程不安全。</p>
+<h4 id="3-将分配的内存初始化为零值"><a href="#3-将分配的内存初始化为零值" class="headerlink" title="3. 将分配的内存初始化为零值"></a>3. 将分配的内存初始化为零值</h4><p>内存分配完成之后，虚拟机必须将分配到的内存空间（但不包括对象头）都初始化为零值，如果使用了TLAB的话，这一项工作也可以提前至<code>TLAB</code>分配时顺便进行。这步操作保证了对象的实例字段在Java代码中可以不赋初始值就直接使用，使程序能访问到这些字段的数据类型所对应的零值。</p>
+<h4 id="4-对新生的对象进行设置"><a href="#4-对新生的对象进行设置" class="headerlink" title="4. 对新生的对象进行设置"></a>4. 对新生的对象进行设置</h4><p>对象的元数据信息、对象的哈希码（实际上对象的哈希码会延后到真正调用<code>Object::hashCode()</code>方法时才计算）、对象的<code>GC</code>分代年龄等信息。这些信息存放在对象的对象头（Object Header）之中。根据虚拟机当前运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。</p>
+<h4 id="5-执行-lt-init-gt-方法。"><a href="#5-执行-lt-init-gt-方法。" class="headerlink" title="5. 执行&lt;init&gt;()方法。"></a>5. 执行<code>&lt;init&gt;()</code>方法。</h4><p>new指令之后会接着执行<code>&lt;init&gt;()</code>方法，按照程序员的意愿对对象进行初始化，这样一个真正可用的对象才算完全被构造出来。</p>
+<p><code>&lt;init&gt;()</code>方法是 对象构造时用以初始化对象的，构造器以及非静态初始化块中的代码。</p>
+<p>区别与类加载的<code>&lt;clinit&gt;()</code>方法</p>
+<h3 id="二、对象的布局"><a href="#二、对象的布局" class="headerlink" title="二、对象的布局"></a>二、对象的布局</h3><p><code>HotSpot</code>虚拟机里，对象在堆内存中的存储布局可以划分为三个部分：</p>
+<pre><code>对象头（Header）、
+实例数据（Instance Data）
+对齐填充（Padding）。</code></pre><h4 id="1-对象头"><a href="#1-对象头" class="headerlink" title="1. 对象头"></a>1. 对象头</h4><p>对象头部分包括两类信息：</p>
+<p>（1）第一类是用于存储对象自身的运行时数据，如哈希码<code>（HashCode）</code>、<code>GC分代年龄</code>、<code>锁状态标志</code>、<code>线程持有的锁</code>、<code>偏向线程ID</code>、<code>偏向时间戳</code>等，这部分数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32个比特和64个比特，官方称它为“Mark Word”。</p>
+<p>（2）第二类是类型指针，即对象指向它的类型元数据的指针，Java虚拟机通过这个指针来确定该对象是哪个类的实例。</p>
+<pre><code>并不是所有的虚拟机实现都必须在对象数据上保留类型指针，即，查找对象的元数据信息并不一定要经过对象本身</code></pre><h4 id="2-实例数据："><a href="#2-实例数据：" class="headerlink" title="2. 实例数据："></a>2. 实例数据：</h4><p>实例数据部分是对象真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录起来。</p>
+<blockquote>
+<p>这部分的存储顺序会受到虚拟机分配策略参数（-XX：FieldsAllocationStyle参数）和字段在Java源码中定义顺序的影响。</p>
+<p>HotSpot虚拟机默认的分配顺序为longs/doubles、ints、shorts/chars、bytes/booleans、oops（Ordinary Object Pointers，OOPs）。<br>相同宽度的字段总是被分配到一起存放，在满足这个前提条件的情况下，在父类中定义的变量会出现在子类之前。</p>
+<p>如果HotSpot虚拟机的+XX：CompactFields参数值为true（默认就为true），那子类之中较窄的变量也允许插入父类变量的空隙之中，以节省出一点点空间</p>
+</blockquote>
+<h4 id="3-对齐填充"><a href="#3-对齐填充" class="headerlink" title="3.对齐填充"></a>3.对齐填充</h4><p>（A）非必然，无特殊含义，仅作占位符使用。</p>
+<p>（B）对象实例数据没有对齐时需要对齐填充。</p>
+<blockquote>
+<p>对齐填充，这并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。由于<code>HotSpot虚拟机</code>的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说就是任何对象的大小都必须是8字节的整数倍。对象头部分已经被精心设计成正好是8字节的倍数（1倍或者2倍），因此，如果对象实例数据部分没有对齐的话，就需要通过对齐填充来补全。</p>
+</blockquote>
+<h3 id="三、对象的访问定位"><a href="#三、对象的访问定位" class="headerlink" title="三、对象的访问定位"></a>三、对象的访问定位</h3><p>Java程序会通过栈上的reference数据来操作堆上的具体对象。</p>
+<p>对象访问主流的访问方式主要有使用句柄和直接指针两种：</p>
+<p>（1）使用句柄访问的话，Java堆中将可能会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自具体的地址信息：</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images//jvm-images/jvm-obj-ref-1.jpg" alt="句柄访问示意图"></p>
+<p>（2）使用直接指针访问的话，Java堆中对象的内存布局就必须考虑如何放置访问类型数据的相关信息，reference中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销。</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-obj-ref-2.jpg" alt="直接指针访问示意图"></p>
+<p><strong>句柄访问</strong> 与 <strong>直接指针</strong> 比较：</p>
+<p>（A）使用句柄的最大好处是 reference 中存储的是稳定的句柄地址，在对象移动(GC)是只改变实例数据指针地址，reference 自身不需要修改。<br>（B）直接指针访问的最大好处是速度快，节省了一次指针定位的时间开销。如果是对象频繁 GC 那么句柄方法好，如果是对象频繁访问则直接指针访问好。</p>
+<p><code>HotSpot</code>而言，它主要使用第二种方式进行对象访问。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jvm之内存结构</title>
+    <url>/posts/9f103da7.html</url>
+    <content><![CDATA[<h2 id="jvm-内存管理机制"><a href="#jvm-内存管理机制" class="headerlink" title="jvm 内存管理机制"></a>jvm 内存管理机制</h2><blockquote>
+<p>参考资料：<br>《深入理解Java虚拟机 JVM高级特性与最佳实践 第3版》<br>《Java虚拟机规范（Java SE 7）》</p>
+</blockquote>
+<h3 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h3><p>根据《Java虚拟机规范》的规定，Java虚拟机所管理的内存将会包括以下几个运行时数据区域.<br>jvm-pic-1.jpg</p>
+<h4 id="1-程序计数器"><a href="#1-程序计数器" class="headerlink" title="1. 程序计数器"></a>1. 程序计数器</h4><blockquote>
+<p>程序计数器（Program Counter Register）是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</p>
+</blockquote>
+<p>程序计数器特征：<br>（1）是“线程私有”的内存。每条线程都需要有一个独立的程序计数器，各条线程之间计数器互不影响，独立存储。<br>（2）如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是本地（Native）方法，这个计数器值则应为空（Undefined）。<br>（3）此内存区域是唯一一个在《Java虚拟机规范》中没有规定任何OutOfMemoryError情况的区域。</p>
+<h4 id="2-Java虚拟机栈"><a href="#2-Java虚拟机栈" class="headerlink" title="2. Java虚拟机栈"></a>2. Java虚拟机栈</h4><blockquote>
+<p>Java虚拟机栈（Java Virtual Machine Stack）也是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是Java方法执行的线程内存模型：每个方法被执行的时候，Java虚拟机都会同步创建一个栈帧[栈帧是方法运行期间很重要的基础数据结构]（Stack Frame）用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
+</blockquote>
+<p>局部变量表相关：</p>
+<blockquote>
+<p>局部变量表存放了编译期可知的各种Java虚拟机基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，它并不等同于对象本身，可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或者其他与此对象相关的位置）和returnAddress类型（指向了一条字节码指令的地址）。</p>
+</blockquote>
+<p>在《Java虚拟机规范》中， Java虚拟机栈可能出现两类异常状况：</p>
+<blockquote>
+<p>（1）如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常；<br>（2）如果Java虚拟机栈容量可以动态扩展[Hotspot的虚拟机栈不允许扩展]，当栈扩展时无法申请到足够的内存会抛出OutOfMemoryError异常。</p>
+</blockquote>
+<h4 id="3-本地方法栈"><a href="#3-本地方法栈" class="headerlink" title="3. 本地方法栈"></a>3. 本地方法栈</h4><p>本地方法栈（Native Method Stacks）与虚拟机栈所发挥的作用是非常相似的，区别:</p>
+<blockquote>
+<p>虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，<br>本地方法栈则是为虚拟机使用到的本地（Native）方法服务。</p>
+</blockquote>
+<p>有的Java虚拟机（譬如Hot-Spot虚拟机）直接就把本地方法栈和虚拟机栈合二为一。<br>本地方法栈也可能出现两类异常状况：</p>
+<blockquote>
+<p>（1）本地方法栈也会在栈深度溢出时抛出StackOverflowError<br>（2）本地方法栈扩展失败时抛出OutOfMemoryError。</p>
+</blockquote>
+<h4 id="4-Java堆"><a href="#4-Java堆" class="headerlink" title="4. Java堆"></a>4. Java堆</h4><blockquote>
+<p>Java堆（Java Heap）是虚拟机所管理的内存中最大的一块。Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，Java世界里“<strong>几乎</strong>”所有的对象实例都在这里分配内存。</p>
+</blockquote>
+<p>Java堆是垃圾收集器管理的内存区域，因此一些资料中它也被称作“GC堆”。</p>
+<p>从回收内存的角度看，由于现代垃圾收集器大部分都是基于分代收集理论设计的，所以Java堆中经常会出现“新生代”“老年代”、“永久代”、“Eden空间”、“From Survivor空间”、“To Survivor空间”等。</p>
+<p>如果从分配内存的角度看，所有线程共享的Java堆中可以划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer，TLAB），以提升对象分配时的效率。</p>
+<p>Java堆可以处于物理上不连续的内存空间中，但在逻辑上它应该被视为连续的。</p>
+<p>Java堆既可以被实现成固定大小的，也可以是可扩展的，不过当前主流的Java虚拟机都是按照可扩展来实现的（通过参数-Xmx和-Xms设定）。</p>
+<p>如果在Java堆中没有内存完成实例分配，并且堆也无法再扩展时，Java虚拟机将会抛出OutOfMemoryError异常。</p>
+<h4 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5. 方法区"></a>5. 方法区</h4><blockquote>
+<p>方法区（Method Area）与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。</p>
+</blockquote>
+<p>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”（Non-Heap），目的是与Java堆区分开来。</p>
+<p>在JDK 6的时候HotSpot开发团队就有放弃永久代，逐步改为采用<code>本地内存（Native Memory）</code>来实现方法区的计划。<br>到了JDK 7的HotSpot，已经把原本放在永久代的字符串常量池、静态变量等移至堆内存。</p>
+<blockquote>
+<p>jdk7开始方法区的逐渐移除：符号引用(Symbols)移至native heap，字面量(interned strings)和静态变量(class statics)移至java heap。</p>
+</blockquote>
+<p>到了JDK 8，终于完全废弃了永久代的概念，改用与JRockit、J9一样在本地内存中实现的<code>元空间（Meta-space）</code>来代替，把JDK 7中永久代还剩余的内容（主要是类型信息）全部移到元空间中。</p>
+<blockquote>
+<p>JDK1.8以前的HotSpot JVM有方法区，也叫永久代(permanent generation)。<br>方法区用于存放已被虚拟机加载的类信息、常量、静态变量，即编译器编译后的代码。<br>方法区是一片连续的堆空间，通过-XX:MaxPermSize来设定永久代最大可分配空间，当JVM加载的类信息容量超过了这个值，会报OOM:PermGen错误。<br>永久代的GC是和老年代(old generation)捆绑在一起的，无论谁满了，都会触发永久代和老年代的垃圾收集。</p>
+</blockquote>
+<p>为什么要用Metaspace替代方法区？</p>
+<p>随着动态类加载的情况越来越多，这块内存变得不太可控，如果设置小了，系统运行过程中就容易出现内存溢出，设置大了又浪费内存。</p>
+<blockquote>
+<p>方法区的内存回收目标主要是针对常量池的回收和对类型的卸载，卸载条件相当苛刻。<br>方法区无法满足新的内存分配需求时，将抛出OutOfMemoryError异常。</p>
+</blockquote>
+<h4 id="6-运行时常量池"><a href="#6-运行时常量池" class="headerlink" title="6. 运行时常量池"></a>6. 运行时常量池</h4><blockquote>
+<p>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表（Constant Pool Table），用于存放编译期生成的各种字面量与符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。</p>
+</blockquote>
+<p>运行时常量池特征：<br>（1）存储数据条件宽松。（保存Class文件中描述的符号引用，把由符号引用翻译出来的直接引用，均可放入运行时常量池）<br>（2）具备动态性。（预置入Class文件中常量池的内容，或运行期间新的常量[如String类的intern()方法]，均可放入）</p>
+<p>运行时常量池是方法区的一部分，受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</p>
+<h4 id="7-直接内存"><a href="#7-直接内存" class="headerlink" title="7. 直接内存"></a>7. 直接内存</h4><blockquote>
+<p>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。但是这部分内存也被频繁地使用，而且也可能导致OutOfMemoryError异常出现。</p>
+</blockquote>
+<blockquote>
+<p>在JDK 1.4中新加入了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
+</blockquote>
+<blockquote>
+<p>本机直接内存的分配不会受Java堆大小的限制，但受到本机总内存（包括物理内存、SWAP分区或者分页文件）大小以及处理器寻址空间的限制。<br>配置虚拟机参数时，设置-Xmx等参数信息，若使得各个内存区域总和大于物理内存限制（包括物理的和操作系统级的限制），就会导致动态扩展时出现OutOfMemoryError。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>内存结构</tag>
       </tags>
   </entry>
   <entry>
@@ -1936,148 +1874,6 @@ no, i am dead :(</code></pre><p>结论</p>
       </tags>
   </entry>
   <entry>
-    <title>jvm之对象创建与布局</title>
-    <url>/posts/b287f556.html</url>
-    <content><![CDATA[<h2 id="HotSpot-虚拟机对象创建与布局"><a href="#HotSpot-虚拟机对象创建与布局" class="headerlink" title="HotSpot 虚拟机对象创建与布局"></a>HotSpot 虚拟机对象创建与布局</h2><p>HotSpot虚拟机在Java堆中对象分配、布局和访问的全过程。<br>创建对象的三种方式：new关键字、复制、反序列化。</p>
-<h3 id="一-对象的创建"><a href="#一-对象的创建" class="headerlink" title="一. 对象的创建"></a>一. 对象的创建</h3><p>此处提及的对象创建，只是普通Java对象，不包括数组和Class对象。</p>
-<h4 id="1-检查符合引用和类加载情况"><a href="#1-检查符合引用和类加载情况" class="headerlink" title="1. 检查符合引用和类加载情况"></a>1. 检查符合引用和类加载情况</h4><p>当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。</p>
-<h4 id="2-为新生对象分配内存"><a href="#2-为新生对象分配内存" class="headerlink" title="2. 为新生对象分配内存"></a>2. 为新生对象分配内存</h4><p>在类加载检查通过后，接下来虚拟机将为新生对象分配内存。对象所需内存的大小在类加载完成后便可完全确定，为对象分配空间的任务其实就是把一块确定大小的内存块从Java堆中划分出来存放该对象。</p>
-<p>关于对象内存分配方式：<br>（1）“指针碰撞”（Bump The Pointer）</p>
-<blockquote>
-<p>假设Java堆中内存是绝对规整的，所有被使用过的内存都被放在一边，空闲的内存被放在另一边，中间放着一个指针作为分界点的指示器，那所分配内存就仅仅是把那个指针向空闲空间方向挪动一段与对象大小相等的距离，这种分配方式称为“指针碰撞”（Bump The Pointer）</p>
-</blockquote>
-<p>（2）“空闲列表”（Free List）:</p>
-<blockquote>
-<p>Java堆中的内存并不是规整的，已被使用的内存和空闲的内存相互交错在一起，那就没有办法简单地进行指针碰撞了，虚拟机就必须维护一个列表，记录上哪些内存块是可用的，在分配的时候从列表中找到一块足够大的空间划分给对象实例，并更新列表上的记录，这种分配方式称为“空闲列表”（Free List）</p>
-</blockquote>
-<p>选择哪种分配方式，取决于Java堆是否规整决定，而Java堆是否规整又由所采用的垃圾收集器是否带有空间压缩整理（Compact）的能力决定。因此：</p>
-<p>（A）当使用Serial、ParNew等带压缩整理过程的收集器时，系统采用的分配算法是指针碰撞，既简单又高效；<br>（B）当使用CMS这种基于清除（Sweep）算法的收集器时，理论上就只能采用较为复杂的空闲列表来分配内存。</p>
-<p>考虑对象内存分配的线程安全问题：</p>
-<blockquote>
-<p>把内存分配的动作按照线程划分在不同的空间之中进行，即每个线程在Java堆中预先分配一小块内存，称为<code>本地线程分配缓冲（Thread Local Allocation Buffer，TLAB）</code>，哪个线程要分配内存，就在哪个线程的本地缓冲区中分配，只有本地缓冲区用完了，分配新的缓存区时才需要同步锁定【对分配内存空间的动作进行同步处理——实际上虚拟机是采用<code>CAS</code>配上失败重试的方式保证更新操作的原子性】。虚拟机是否使用<code>TLAB</code>，可以通过<code>-XX：+/-UseTLAB</code>参数来设定。</p>
-</blockquote>
-<p>每个线程在堆中都会有私有的<code>分配缓冲区(TLAB)</code>，这样可以很大程度避免在并发情况下频繁创建对象造成的线程不安全。</p>
-<h4 id="3-将分配的内存初始化为零值"><a href="#3-将分配的内存初始化为零值" class="headerlink" title="3. 将分配的内存初始化为零值"></a>3. 将分配的内存初始化为零值</h4><p>内存分配完成之后，虚拟机必须将分配到的内存空间（但不包括对象头）都初始化为零值，如果使用了TLAB的话，这一项工作也可以提前至<code>TLAB</code>分配时顺便进行。这步操作保证了对象的实例字段在Java代码中可以不赋初始值就直接使用，使程序能访问到这些字段的数据类型所对应的零值。</p>
-<h4 id="4-对新生的对象进行设置"><a href="#4-对新生的对象进行设置" class="headerlink" title="4. 对新生的对象进行设置"></a>4. 对新生的对象进行设置</h4><p>对象的元数据信息、对象的哈希码（实际上对象的哈希码会延后到真正调用<code>Object::hashCode()</code>方法时才计算）、对象的<code>GC</code>分代年龄等信息。这些信息存放在对象的对象头（Object Header）之中。根据虚拟机当前运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。</p>
-<h4 id="5-执行-lt-init-gt-方法。"><a href="#5-执行-lt-init-gt-方法。" class="headerlink" title="5. 执行&lt;init&gt;()方法。"></a>5. 执行<code>&lt;init&gt;()</code>方法。</h4><p>new指令之后会接着执行<code>&lt;init&gt;()</code>方法，按照程序员的意愿对对象进行初始化，这样一个真正可用的对象才算完全被构造出来。</p>
-<p><code>&lt;init&gt;()</code>方法是 对象构造时用以初始化对象的，构造器以及非静态初始化块中的代码。</p>
-<p>区别与类加载的<code>&lt;clinit&gt;()</code>方法</p>
-<h3 id="二、对象的布局"><a href="#二、对象的布局" class="headerlink" title="二、对象的布局"></a>二、对象的布局</h3><p><code>HotSpot</code>虚拟机里，对象在堆内存中的存储布局可以划分为三个部分：</p>
-<pre><code>对象头（Header）、
-实例数据（Instance Data）
-对齐填充（Padding）。</code></pre><h4 id="1-对象头"><a href="#1-对象头" class="headerlink" title="1. 对象头"></a>1. 对象头</h4><p>对象头部分包括两类信息：</p>
-<p>（1）第一类是用于存储对象自身的运行时数据，如哈希码<code>（HashCode）</code>、<code>GC分代年龄</code>、<code>锁状态标志</code>、<code>线程持有的锁</code>、<code>偏向线程ID</code>、<code>偏向时间戳</code>等，这部分数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32个比特和64个比特，官方称它为“Mark Word”。</p>
-<p>（2）第二类是类型指针，即对象指向它的类型元数据的指针，Java虚拟机通过这个指针来确定该对象是哪个类的实例。</p>
-<pre><code>并不是所有的虚拟机实现都必须在对象数据上保留类型指针，即，查找对象的元数据信息并不一定要经过对象本身</code></pre><h4 id="2-实例数据："><a href="#2-实例数据：" class="headerlink" title="2. 实例数据："></a>2. 实例数据：</h4><p>实例数据部分是对象真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录起来。</p>
-<blockquote>
-<p>这部分的存储顺序会受到虚拟机分配策略参数（-XX：FieldsAllocationStyle参数）和字段在Java源码中定义顺序的影响。</p>
-<p>HotSpot虚拟机默认的分配顺序为longs/doubles、ints、shorts/chars、bytes/booleans、oops（Ordinary Object Pointers，OOPs）。<br>相同宽度的字段总是被分配到一起存放，在满足这个前提条件的情况下，在父类中定义的变量会出现在子类之前。</p>
-<p>如果HotSpot虚拟机的+XX：CompactFields参数值为true（默认就为true），那子类之中较窄的变量也允许插入父类变量的空隙之中，以节省出一点点空间</p>
-</blockquote>
-<h4 id="3-对齐填充"><a href="#3-对齐填充" class="headerlink" title="3.对齐填充"></a>3.对齐填充</h4><p>（A）非必然，无特殊含义，仅作占位符使用。</p>
-<p>（B）对象实例数据没有对齐时需要对齐填充。</p>
-<blockquote>
-<p>对齐填充，这并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。由于<code>HotSpot虚拟机</code>的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说就是任何对象的大小都必须是8字节的整数倍。对象头部分已经被精心设计成正好是8字节的倍数（1倍或者2倍），因此，如果对象实例数据部分没有对齐的话，就需要通过对齐填充来补全。</p>
-</blockquote>
-<h3 id="三、对象的访问定位"><a href="#三、对象的访问定位" class="headerlink" title="三、对象的访问定位"></a>三、对象的访问定位</h3><p>Java程序会通过栈上的reference数据来操作堆上的具体对象。</p>
-<p>对象访问主流的访问方式主要有使用句柄和直接指针两种：</p>
-<p>（1）使用句柄访问的话，Java堆中将可能会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自具体的地址信息：</p>
-<p><img src="/medias/loading-animated.gif" data-original="/images//jvm-images/jvm-obj-ref-1.jpg" alt="句柄访问示意图"></p>
-<p>（2）使用直接指针访问的话，Java堆中对象的内存布局就必须考虑如何放置访问类型数据的相关信息，reference中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销。</p>
-<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-obj-ref-2.jpg" alt="直接指针访问示意图"></p>
-<p><strong>句柄访问</strong> 与 <strong>直接指针</strong> 比较：</p>
-<p>（A）使用句柄的最大好处是 reference 中存储的是稳定的句柄地址，在对象移动(GC)是只改变实例数据指针地址，reference 自身不需要修改。<br>（B）直接指针访问的最大好处是速度快，节省了一次指针定位的时间开销。如果是对象频繁 GC 那么句柄方法好，如果是对象频繁访问则直接指针访问好。</p>
-<p><code>HotSpot</code>而言，它主要使用第二种方式进行对象访问。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jvm之内存结构</title>
-    <url>/posts/9f103da7.html</url>
-    <content><![CDATA[<h2 id="jvm-内存管理机制"><a href="#jvm-内存管理机制" class="headerlink" title="jvm 内存管理机制"></a>jvm 内存管理机制</h2><blockquote>
-<p>参考资料：<br>《深入理解Java虚拟机 JVM高级特性与最佳实践 第3版》<br>《Java虚拟机规范（Java SE 7）》</p>
-</blockquote>
-<h3 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h3><p>根据《Java虚拟机规范》的规定，Java虚拟机所管理的内存将会包括以下几个运行时数据区域.<br>jvm-pic-1.jpg</p>
-<h4 id="1-程序计数器"><a href="#1-程序计数器" class="headerlink" title="1. 程序计数器"></a>1. 程序计数器</h4><blockquote>
-<p>程序计数器（Program Counter Register）是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</p>
-</blockquote>
-<p>程序计数器特征：<br>（1）是“线程私有”的内存。每条线程都需要有一个独立的程序计数器，各条线程之间计数器互不影响，独立存储。<br>（2）如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是本地（Native）方法，这个计数器值则应为空（Undefined）。<br>（3）此内存区域是唯一一个在《Java虚拟机规范》中没有规定任何OutOfMemoryError情况的区域。</p>
-<h4 id="2-Java虚拟机栈"><a href="#2-Java虚拟机栈" class="headerlink" title="2. Java虚拟机栈"></a>2. Java虚拟机栈</h4><blockquote>
-<p>Java虚拟机栈（Java Virtual Machine Stack）也是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是Java方法执行的线程内存模型：每个方法被执行的时候，Java虚拟机都会同步创建一个栈帧[栈帧是方法运行期间很重要的基础数据结构]（Stack Frame）用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
-</blockquote>
-<p>局部变量表相关：</p>
-<blockquote>
-<p>局部变量表存放了编译期可知的各种Java虚拟机基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，它并不等同于对象本身，可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或者其他与此对象相关的位置）和returnAddress类型（指向了一条字节码指令的地址）。</p>
-</blockquote>
-<p>在《Java虚拟机规范》中， Java虚拟机栈可能出现两类异常状况：</p>
-<blockquote>
-<p>（1）如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常；<br>（2）如果Java虚拟机栈容量可以动态扩展[Hotspot的虚拟机栈不允许扩展]，当栈扩展时无法申请到足够的内存会抛出OutOfMemoryError异常。</p>
-</blockquote>
-<h4 id="3-本地方法栈"><a href="#3-本地方法栈" class="headerlink" title="3. 本地方法栈"></a>3. 本地方法栈</h4><p>本地方法栈（Native Method Stacks）与虚拟机栈所发挥的作用是非常相似的，区别:</p>
-<blockquote>
-<p>虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，<br>本地方法栈则是为虚拟机使用到的本地（Native）方法服务。</p>
-</blockquote>
-<p>有的Java虚拟机（譬如Hot-Spot虚拟机）直接就把本地方法栈和虚拟机栈合二为一。<br>本地方法栈也可能出现两类异常状况：</p>
-<blockquote>
-<p>（1）本地方法栈也会在栈深度溢出时抛出StackOverflowError<br>（2）本地方法栈扩展失败时抛出OutOfMemoryError。</p>
-</blockquote>
-<h4 id="4-Java堆"><a href="#4-Java堆" class="headerlink" title="4. Java堆"></a>4. Java堆</h4><blockquote>
-<p>Java堆（Java Heap）是虚拟机所管理的内存中最大的一块。Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，Java世界里“<strong>几乎</strong>”所有的对象实例都在这里分配内存。</p>
-</blockquote>
-<p>Java堆是垃圾收集器管理的内存区域，因此一些资料中它也被称作“GC堆”。</p>
-<p>从回收内存的角度看，由于现代垃圾收集器大部分都是基于分代收集理论设计的，所以Java堆中经常会出现“新生代”“老年代”、“永久代”、“Eden空间”、“From Survivor空间”、“To Survivor空间”等。</p>
-<p>如果从分配内存的角度看，所有线程共享的Java堆中可以划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer，TLAB），以提升对象分配时的效率。</p>
-<p>Java堆可以处于物理上不连续的内存空间中，但在逻辑上它应该被视为连续的。</p>
-<p>Java堆既可以被实现成固定大小的，也可以是可扩展的，不过当前主流的Java虚拟机都是按照可扩展来实现的（通过参数-Xmx和-Xms设定）。</p>
-<p>如果在Java堆中没有内存完成实例分配，并且堆也无法再扩展时，Java虚拟机将会抛出OutOfMemoryError异常。</p>
-<h4 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5. 方法区"></a>5. 方法区</h4><blockquote>
-<p>方法区（Method Area）与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。</p>
-</blockquote>
-<p>虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”（Non-Heap），目的是与Java堆区分开来。</p>
-<p>在JDK 6的时候HotSpot开发团队就有放弃永久代，逐步改为采用<code>本地内存（Native Memory）</code>来实现方法区的计划。<br>到了JDK 7的HotSpot，已经把原本放在永久代的字符串常量池、静态变量等移至堆内存。</p>
-<blockquote>
-<p>jdk7开始方法区的逐渐移除：符号引用(Symbols)移至native heap，字面量(interned strings)和静态变量(class statics)移至java heap。</p>
-</blockquote>
-<p>到了JDK 8，终于完全废弃了永久代的概念，改用与JRockit、J9一样在本地内存中实现的<code>元空间（Meta-space）</code>来代替，把JDK 7中永久代还剩余的内容（主要是类型信息）全部移到元空间中。</p>
-<blockquote>
-<p>JDK1.8以前的HotSpot JVM有方法区，也叫永久代(permanent generation)。<br>方法区用于存放已被虚拟机加载的类信息、常量、静态变量，即编译器编译后的代码。<br>方法区是一片连续的堆空间，通过-XX:MaxPermSize来设定永久代最大可分配空间，当JVM加载的类信息容量超过了这个值，会报OOM:PermGen错误。<br>永久代的GC是和老年代(old generation)捆绑在一起的，无论谁满了，都会触发永久代和老年代的垃圾收集。</p>
-</blockquote>
-<p>为什么要用Metaspace替代方法区？</p>
-<p>随着动态类加载的情况越来越多，这块内存变得不太可控，如果设置小了，系统运行过程中就容易出现内存溢出，设置大了又浪费内存。</p>
-<blockquote>
-<p>方法区的内存回收目标主要是针对常量池的回收和对类型的卸载，卸载条件相当苛刻。<br>方法区无法满足新的内存分配需求时，将抛出OutOfMemoryError异常。</p>
-</blockquote>
-<h4 id="6-运行时常量池"><a href="#6-运行时常量池" class="headerlink" title="6. 运行时常量池"></a>6. 运行时常量池</h4><blockquote>
-<p>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表（Constant Pool Table），用于存放编译期生成的各种字面量与符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。</p>
-</blockquote>
-<p>运行时常量池特征：<br>（1）存储数据条件宽松。（保存Class文件中描述的符号引用，把由符号引用翻译出来的直接引用，均可放入运行时常量池）<br>（2）具备动态性。（预置入Class文件中常量池的内容，或运行期间新的常量[如String类的intern()方法]，均可放入）</p>
-<p>运行时常量池是方法区的一部分，受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</p>
-<h4 id="7-直接内存"><a href="#7-直接内存" class="headerlink" title="7. 直接内存"></a>7. 直接内存</h4><blockquote>
-<p>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。但是这部分内存也被频繁地使用，而且也可能导致OutOfMemoryError异常出现。</p>
-</blockquote>
-<blockquote>
-<p>在JDK 1.4中新加入了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆里面的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
-</blockquote>
-<blockquote>
-<p>本机直接内存的分配不会受Java堆大小的限制，但受到本机总内存（包括物理内存、SWAP分区或者分页文件）大小以及处理器寻址空间的限制。<br>配置虚拟机参数时，设置-Xmx等参数信息，若使得各个内存区域总和大于物理内存限制（包括物理的和操作系统级的限制），就会导致动态扩展时出现OutOfMemoryError。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-        <tag>内存结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>jvm之垃圾收集器算法</title>
     <url>/posts/50b49e8d.html</url>
     <content><![CDATA[<h2 id="jvm-垃圾收集算法"><a href="#jvm-垃圾收集算法" class="headerlink" title="jvm 垃圾收集算法"></a>jvm 垃圾收集算法</h2><p>垃圾收集算法基本分类：<br>（1）“引用计数式垃圾收集”（Reference Counting GC）—直接垃圾收集<br>（2）“追踪式垃圾收集”（Tracing GC）—间接垃圾收集</p>
@@ -2140,134 +1936,6 @@ no, i am dead :(</code></pre><p>结论</p>
         <tag>Java</tag>
         <tag>JVM</tag>
         <tag>垃圾收集器算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JVM LLGC：Shenandoah</title>
-    <url>/posts/f8161112.html</url>
-    <content><![CDATA[<h2 id="JVM低延迟垃圾收集器：Shenandoah"><a href="#JVM低延迟垃圾收集器：Shenandoah" class="headerlink" title="JVM低延迟垃圾收集器：Shenandoah"></a>JVM低延迟垃圾收集器：Shenandoah</h2><p>EN： JVM Low-Latency Garbage Collector : Shenandoah</p>
-<h3 id="一-、Shenandoah简介"><a href="#一-、Shenandoah简介" class="headerlink" title="一 、Shenandoah简介"></a>一 、Shenandoah简介</h3><blockquote>
-<p>一款不由Oracle（包括以前的Sun）公司的虚拟机团队所领导开发的HotSpot垃圾收集器。只有OpenJDK才会包含，而OracleJDK里反而不存在的收集器，“免费开源版”比“收费商业版”功能更多。</p>
-</blockquote>
-<blockquote>
-<p>2014年RedHat把Shenandoah贡献给了OpenJDK，并推动它成为OpenJDK 12的正式特性之一，也就是后来的JEP 189。</p>
-</blockquote>
-<p>目标：<strong>实现一种能在任何堆内存大小下都可以把垃圾收集的停顿时间限制在十毫秒以内的垃圾收集器。</strong></p>
-<h3 id="二-ZGC主要特征："><a href="#二-ZGC主要特征：" class="headerlink" title="二 ZGC主要特征："></a>二 ZGC主要特征：</h3><p>（1）基于Region的堆内存布局</p>
-<p>（2）回收策略优先处理回收价值最大的Region</p>
-<p>（3）支持并发的整理算法。</p>
-<h3 id="三、-Shenandoah收集器的工作过程（九阶段划分）："><a href="#三、-Shenandoah收集器的工作过程（九阶段划分）：" class="headerlink" title="三、 Shenandoah收集器的工作过程（九阶段划分）："></a>三、 Shenandoah收集器的工作过程（九阶段划分）：</h3><h4 id="1-始标记（Initial-Marking）"><a href="#1-始标记（Initial-Marking）" class="headerlink" title="1. 始标记（Initial Marking）"></a>1. 始标记（Initial Marking）</h4><p>​    （A）与G1一样，首先标记与GC Roots直接关联的对象.</p>
-<p>​    （B）需要“Stop The World”，有停顿，但停顿时间与堆大小无关，只与GC Roots的数量相关。</p>
-<h4 id="2-并发标记（Concurrent-Marking）"><a href="#2-并发标记（Concurrent-Marking）" class="headerlink" title="2. 并发标记（Concurrent Marking）"></a>2. 并发标记（Concurrent Marking）</h4><p>​    （A）<strong>重要的并发过程之一。</strong></p>
-<p>​    （B）与G1一样，遍历对象图，标记出全部可达的对象。可达性分析。</p>
-<p>​    （C）与用户线程并发执行，时间长短取决于堆中存活对象的数量以及对象图的结构复杂程度。</p>
-<h4 id="3-最终标记（Final-Marking）"><a href="#3-最终标记（Final-Marking）" class="headerlink" title="3. 最终标记（Final Marking）"></a>3. 最终标记（Final Marking）</h4><p>​    （A）与G1一样，处理剩余的SATB扫描，并在这个阶段统计出回收价值最高的Region，将这些Region构成一组回收集（Collection Set）。</p>
-<p>​    （B）会有一小段短暂的停顿。</p>
-<h4 id="4-并发清理（Concurrent-Cleanup）"><a href="#4-并发清理（Concurrent-Cleanup）" class="headerlink" title="4. 并发清理（Concurrent Cleanup）"></a>4. 并发清理（Concurrent Cleanup）</h4><p>​    （A）清理那些整个区域内连一个存活对象都没有找到的Region（这类Region被称为Immediate Garbage Region）。</p>
-<h4 id="5-并发回收（Concurrent-Evacuation）"><a href="#5-并发回收（Concurrent-Evacuation）" class="headerlink" title="5. 并发回收（Concurrent Evacuation）"></a>5. 并发回收（Concurrent Evacuation）</h4><p>​    （A）<strong>重要的并发过程之一。</strong>并发回收阶段是Shenandoah与之前HotSpot中其他收集器的核心差异。</p>
-<p>​    （B）Shenandoah要把回收集里面的存活对象先复制一份到其他未被使用的Region之中。</p>
-<p>​     （C）使用读屏障<strong>和被称为“Brooks Pointers”的</strong>转发指针**实现并发过程，并发回收阶段运行的时间长短取。</p>
-<h4 id="6-初始引用更新（Initial-Update-Reference）"><a href="#6-初始引用更新（Initial-Update-Reference）" class="headerlink" title="6. 初始引用更新（Initial Update Reference）"></a>6. 初始引用更新（Initial Update Reference）</h4><p>​    （A）并发回收阶段复制对象结束后，把堆中所有指向旧对象的引用修正到复制后的新地址，这个操作称为引用更新。</p>
-<p>​    （B）此阶段实际上并未做什么具体的处理，设立这个阶段只是为了建立一个线程集合点，确保所有并发回收阶段中进行的收集器线程都已完成分配给它们的对象移动任务而已。</p>
-<p>​    （B）初始引用更新时间很短，会产生一个非常短暂的停顿。</p>
-<h4 id="7-并发引用更新（Concurrent-Update-Reference）"><a href="#7-并发引用更新（Concurrent-Update-Reference）" class="headerlink" title="7. 并发引用更新（Concurrent Update Reference）"></a>7. 并发引用更新（Concurrent Update Reference）</h4><p>​    （A）<strong>重要的并发过程之一。</strong></p>
-<p>​    （B）真正开始进行引用更新操作，与用户线程一起并发的，时间长短取决于内存中涉及的引用数量的多少。    </p>
-<p>​    （C）并发引用更新与并发标记不同，它不再需要沿着对象图来搜索，只需要按照内存物理地址的顺序，线性地搜索出引用类型，把旧值改为新值即可。</p>
-<h4 id="8-最终引用更新（Final-Update-Reference）"><a href="#8-最终引用更新（Final-Update-Reference）" class="headerlink" title="8. 最终引用更新（Final Update Reference）"></a>8. 最终引用更新（Final Update Reference）</h4><p>​    （A）解决了堆中的引用更新后，还要修正存在于GCRoots中的引用。</p>
-<p>​    （B）此阶段是Shenandoah的最后一次停顿，停顿时间只与GC Roots的数量相关。</p>
-<h4 id="9-并发清理（Concurrent-Cleanup）"><a href="#9-并发清理（Concurrent-Cleanup）" class="headerlink" title="9. 并发清理（Concurrent Cleanup）"></a>9. 并发清理（Concurrent Cleanup）</h4><p>经过并发回收和引用更新之后，整个回收集中所有的Region已再无存活对象，这些Region都变成Immediate Garbage Regions了，最后再调用一次并发清理过程来回收这些Region的内存空间，供以后新对象分配使用。</p>
-<p> Shenandoah收集器的重要的三个并发过程：</p>
-<ol>
-<li>并发标记</li>
-<li>并发回收</li>
-<li>并发引用更新</li>
-</ol>
-<p>Shenandoah收集器的工作流程图：</p>
-<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-shen-andoah-do-job.png" alt="Shenandoah收集器的工作过程"></p>
-<p>图片来源：<a href="https://shipilev.net/talks/devoxx-Nov2017-shenandoah.pdf" target="_blank" rel="noopener">《Shenandoah GC Part I: The Garbage Collector That Could》</a></p>
-<p>说明：</p>
-<p>黄色区域代表的是被选入回收集的Region。</p>
-<p>绿色部分就代表还存活的对象。</p>
-<p>蓝色区域就是用户线程可以用来分配对象的内存Region。</p>
-<h3 id="四、GC收集器比较"><a href="#四、GC收集器比较" class="headerlink" title="四、GC收集器比较"></a>四、GC收集器比较</h3><h4 id="1、Shenandoah-与其他收集器并发比较"><a href="#1、Shenandoah-与其他收集器并发比较" class="headerlink" title="1、Shenandoah 与其他收集器并发比较"></a>1、Shenandoah 与其他收集器并发比较</h4><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-shen-andoah.png" alt="Shenandoah与其他垃圾收集器比较"></p>
-<p>图片来源：<a href="https://shipilev.net/talks/devoxx-Nov2017-shenandoah.pdf" target="_blank" rel="noopener">《Shenandoah GC Part I: The Garbage Collector That Could》</a></p>
-<p>黄色：表示必须挂起用户线程</p>
-<p>绿色：表示收集器线程与用户线程并发执行。</p>
-<p>结论：</p>
-<p>（1）CMS和G1之前的全部收集器，其工作的所有步骤都会产生“Stop TheWorld”式的停顿；</p>
-<p>（2）CMS和G1分别使用增量更新和原始快照（见3.4.6节）技术，实现了标记阶段的并发，不会因管理的堆内存变大，要标记的对象变多而导致停顿时间随之增长。但是对于标记阶段之后的处理，仍未得到妥善解决。</p>
-<p>（3）CMS使用标记-清除算法，虽然避免了整理阶段收集器带来的停顿，但是清除算法不论如何优化改进，在设计原理上避免不了空间碎片的产生，随着空间碎片不断淤积最终依然逃不过“Stop The World”的命运。</p>
-<p>（4）G1虽然可以按更小的粒度进行回收，从而抑制整理阶段出现时间过长的停顿，也有暂停。</p>
-<h4 id="2、Shenandoah-与G1比较"><a href="#2、Shenandoah-与G1比较" class="headerlink" title="2、Shenandoah 与G1比较"></a>2、Shenandoah 与G1比较</h4><table>
-    <th>
-        <td width="46%">Shenandoah</td>
-        <td width="46%">G1（Garbage First）</td>
-    </th>
-    <tr>
-    <td rowspan="3">不同</td>
-    <td >Shenandoah（目前）是默认不使用分代收集的,不会有专门的新生代Region或者老年代Region的存在，没有实现分代。
-     </td>
-    <td >G1仍然保留新生代和老年代概况，只是变成Region区组成的逻辑连续的动态集合。
-     </td>
-  </tr>
-<tr>
-    <td >使用“连接矩阵”（Connection Matrix）的全局数据结构来记录跨Region的引用关系。</td>
-    <td >使用记忆集（Rember Set）避免全堆作为GC Roots扫描,每个Region都维护有自己的记忆集。</td>
-  </tr>
-<tr>
-    <td >Shenandoah通过读屏障和被称为“Brooks Pointers”的转发指针实现并发回收,支持与用户线程并发。 </td>
-    <td >G1的回收阶段是可以多线程并行的，但却不能与用户线程并发。 </td>
-  </tr>
-<tr>
-    <td>相同</td>
-    <td colspan="2"> （1）都是基于Region的堆内存布局，都有用于存放大对象的Humongous Region<br/> （2）并发回收思路高度一致，<br/> （3）默认的回收策略都是优先处理回收价值最大的Region<br/> （4） 都采用标记-整理，标记-复制算法回收。<br/></td>
-   </tr>
-</table>
-
-
-
-
-<h3 id="四、相关概念"><a href="#四、相关概念" class="headerlink" title="四、相关概念"></a>四、相关概念</h3><p><span id="jump">读屏障 ：</span></p>
-<p>​      //待补充</p>
-<p>写屏障：</p>
-<p>​    在赋值操作前后，加入一些处理（类似针对写操作进行AOP的处理）</p>
-<p>目的通常是为了记录对象引用的变动情况</p>
-<p><span id="jump">指针转发</span> Brooks Pointer（Forwarding Pointer / Indirection Pointer）</p>
-<p>相关历史简介：</p>
-<p>1984年，Brooks提出使用转发指针来实现对象移动与用户程序并发的一种解决方案。</p>
-<p>Brooks提出的新方案不需要用到内存保护陷阱，而是在原有对象布局结构的最前面统一增加一个新的引用字段，在正常不处于并发移动的情况下，该引用指向对象自己。</p>
-<p><strong>转发指针和句柄定位比较</strong>：</p>
-<table>
-    <th>
-        <td>转发指针</td>
-        <td>句柄定位</td>
-    </th>
-    <tr>
-        <td rowspan="2">不同</td>
-        <td>分散存放在每一个对象头前面</td>
-        <td>统一存储在专门的句柄池中</td>
-    </tr>
-    <tr><td>出现多线程竞争问题</td>
-    <td></td>
-</tr>
-<tr>
-    <td>相同</td>
-    <td colspan="2">间接性的对象访问方式；对象访问会带来一次额外的转向开销</td>
-</tr>
-    </table>
-
-
-
-<p>扩展了解：</p>
-<p>在此之前，实现类似的并发操作，通常是在被移动对象原有的内存上设置保护陷阱（Memory Protection Trap），一旦用户程序访问到归属于旧对象的内存空间就会产生自陷中段，进入预设好的异常处理器中，再由其中的代码逻辑把访问转发到复制后的新对象上。虽然确实能够实现对象移动与用户线程并发，但是如果没有操作系统层面的直接支持，这种方案将导致用户态频繁切换到核心态。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-        <tag>垃圾收集器</tag>
       </tags>
   </entry>
   <entry>
@@ -2350,13 +2018,164 @@ no, i am dead :(</code></pre><p>结论</p>
       </tags>
   </entry>
   <entry>
+    <title>JVM LLGC：Shenandoah</title>
+    <url>/posts/f8161112.html</url>
+    <content><![CDATA[<h2 id="JVM低延迟垃圾收集器：Shenandoah"><a href="#JVM低延迟垃圾收集器：Shenandoah" class="headerlink" title="JVM低延迟垃圾收集器：Shenandoah"></a>JVM低延迟垃圾收集器：Shenandoah</h2><p>EN： JVM Low-Latency Garbage Collector : Shenandoah</p>
+<h3 id="一-、Shenandoah简介"><a href="#一-、Shenandoah简介" class="headerlink" title="一 、Shenandoah简介"></a>一 、Shenandoah简介</h3><blockquote>
+<p>一款不由Oracle（包括以前的Sun）公司的虚拟机团队所领导开发的HotSpot垃圾收集器。只有OpenJDK才会包含，而OracleJDK里反而不存在的收集器，“免费开源版”比“收费商业版”功能更多。</p>
+</blockquote>
+<blockquote>
+<p>2014年RedHat把Shenandoah贡献给了OpenJDK，并推动它成为OpenJDK 12的正式特性之一，也就是后来的JEP 189。</p>
+</blockquote>
+<p>目标：<strong>实现一种能在任何堆内存大小下都可以把垃圾收集的停顿时间限制在十毫秒以内的垃圾收集器。</strong></p>
+<h3 id="二、Shenandoah特征及实现思路："><a href="#二、Shenandoah特征及实现思路：" class="headerlink" title="二、Shenandoah特征及实现思路："></a>二、Shenandoah特征及实现思路：</h3><p><strong>Shenandoah主要特征</strong>：</p>
+<p>（1）基于Region的堆内存布局,去除传统分代。</p>
+<p>（2）回收策略优先处理回收价值最大的Region</p>
+<p>（3）支持并发的整理算法。</p>
+<p><strong>Shenandoah收集器的实现思路</strong>：</p>
+<p>（1）基于Region的堆内存布局，默认不使用分代收集，<code>(相比G1的记忆集（RemberSet）处理跨代指针时维护消耗)</code>改用名为“连接矩阵”（Connection Matrix）的全局数据结构来记录跨Region的引用关系。降低了伪共享问题的发生概率。</p>
+<blockquote>
+<p>连接矩阵可以简单理解为一张二维表格，如果RegionN有对象指向Region M，就在表格的N行M列中打上一个标记，如图3-15所示，如果Region 5中的对象Baz引用了Region 3的Foo，Foo又引用了Region 1的Bar，那连接矩阵中的5行3列、3行1列就应该被打上标记。在回收时通过这张表格就可以得出哪些Region之间产生了跨代引用。</p>
+</blockquote>
+<p>（2）使用转发指针（Brooks Pointer）和读写屏障来实现与用户线程并发的整理算法。</p>
+<blockquote>
+<p>转发指针是在原有对象布局结构的最前面统一增加一个新的引用字段，在正常不处于并发移动的情况下，该引用指向对象自己。<br>当对象拥有了一份新的副本时，只需要修改一处指针的值，即旧对象上转发指针的引用位置，使其指向新对象，便可将所有对该对象的访问转发到新的副本上。这样只要旧对象的内存仍然存在，未被清理掉，虚拟机内存中所有通过旧引用地址访问的代码便仍然可用，都会被自动转发到新对象上继续工作。</p>
+</blockquote>
+<h3 id="三、Shenandoah收集器的工作过程（九阶段划分）："><a href="#三、Shenandoah收集器的工作过程（九阶段划分）：" class="headerlink" title="三、Shenandoah收集器的工作过程（九阶段划分）："></a>三、Shenandoah收集器的工作过程（九阶段划分）：</h3><h4 id="1-始标记（Initial-Marking）"><a href="#1-始标记（Initial-Marking）" class="headerlink" title="1. 始标记（Initial Marking）"></a>1. 始标记（Initial Marking）</h4><p>​    （A）与G1一样，首先标记与GC Roots直接关联的对象.</p>
+<p>​    （B）需要“Stop The World”，有停顿，但停顿时间与堆大小无关，只与GC Roots的数量相关。</p>
+<h4 id="2-并发标记（Concurrent-Marking）"><a href="#2-并发标记（Concurrent-Marking）" class="headerlink" title="2. 并发标记（Concurrent Marking）"></a>2. 并发标记（Concurrent Marking）</h4><p>​    （A）<strong>重要的并发过程之一。</strong></p>
+<p>​    （B）与G1一样，遍历对象图，标记出全部可达的对象。可达性分析。</p>
+<p>​    （C）与用户线程并发执行，时间长短取决于堆中存活对象的数量以及对象图的结构复杂程度。</p>
+<h4 id="3-最终标记（Final-Marking）"><a href="#3-最终标记（Final-Marking）" class="headerlink" title="3. 最终标记（Final Marking）"></a>3. 最终标记（Final Marking）</h4><p>（A）与G1一样，处理剩余的SATB扫描，并在这个阶段统计出回收价值最高的Region，将这些Region构成一组回收集（Collection Set）。</p>
+<p>​（B）会有一小段短暂的停顿。</p>
+<h4 id="4-并发清理（Concurrent-Cleanup）"><a href="#4-并发清理（Concurrent-Cleanup）" class="headerlink" title="4. 并发清理（Concurrent Cleanup）"></a>4. 并发清理（Concurrent Cleanup）</h4><p>​    （A）清理那些整个区域内连一个存活对象都没有找到的Region（这类Region被称为Immediate Garbage Region）。</p>
+<h4 id="5-并发回收（Concurrent-Evacuation）"><a href="#5-并发回收（Concurrent-Evacuation）" class="headerlink" title="5. 并发回收（Concurrent Evacuation）"></a>5. 并发回收（Concurrent Evacuation）</h4><p>​    （A）<strong>重要的并发过程之一。</strong>并发回收阶段是Shenandoah与之前HotSpot中其他收集器的核心差异。</p>
+<p>​    （B）Shenandoah要把回收集里面的存活对象先复制一份到其他未被使用的Region之中。</p>
+<p>  （C）使用<strong>读屏障</strong>和被称为”Brooks Pointers”的<strong>转发指针</strong>实现并发过程，并发回收阶段运行的时间长短取。</p>
+<h4 id="6-初始引用更新（Initial-Update-Reference）"><a href="#6-初始引用更新（Initial-Update-Reference）" class="headerlink" title="6. 初始引用更新（Initial Update Reference）"></a>6. 初始引用更新（Initial Update Reference）</h4><p>​    （A）并发回收阶段复制对象结束后，把堆中所有指向旧对象的引用修正到复制后的新地址，这个操作称为引用更新。</p>
+<p>​    （B）此阶段实际上并未做什么具体的处理，设立这个阶段只是为了建立一个线程集合点，确保所有并发回收阶段中进行的收集器线程都已完成分配给它们的对象移动任务而已。</p>
+<p>​    （B）初始引用更新时间很短，会产生一个非常短暂的停顿。</p>
+<h4 id="7-并发引用更新（Concurrent-Update-Reference）"><a href="#7-并发引用更新（Concurrent-Update-Reference）" class="headerlink" title="7. 并发引用更新（Concurrent Update Reference）"></a>7. 并发引用更新（Concurrent Update Reference）</h4><p>​    （A）<strong>重要的并发过程之一。</strong></p>
+<p>​    （B）真正开始进行引用更新操作，与用户线程一起并发的，时间长短取决于内存中涉及的引用数量的多少。    </p>
+<p>​    （C）并发引用更新与并发标记不同，它不再需要沿着对象图来搜索，只需要按照内存物理地址的顺序，线性地搜索出引用类型，把旧值改为新值即可。</p>
+<h4 id="8-最终引用更新（Final-Update-Reference）"><a href="#8-最终引用更新（Final-Update-Reference）" class="headerlink" title="8. 最终引用更新（Final Update Reference）"></a>8. 最终引用更新（Final Update Reference）</h4><p>​    （A）解决了堆中的引用更新后，还要修正存在于GCRoots中的引用。</p>
+<p>​    （B）此阶段是Shenandoah的最后一次停顿，停顿时间只与GC Roots的数量相关。</p>
+<h4 id="9-并发清理（Concurrent-Cleanup）"><a href="#9-并发清理（Concurrent-Cleanup）" class="headerlink" title="9. 并发清理（Concurrent Cleanup）"></a>9. 并发清理（Concurrent Cleanup）</h4><p>经过并发回收和引用更新之后，整个回收集中所有的Region已再无存活对象，这些Region都变成Immediate Garbage Regions了，最后再调用一次并发清理过程来回收这些Region的内存空间，供以后新对象分配使用。</p>
+<p> Shenandoah收集器的重要的三个并发过程：</p>
+<ol>
+<li>并发标记</li>
+<li>并发回收</li>
+<li>并发引用更新</li>
+</ol>
+<p>Shenandoah收集器的工作流程图：</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-shen-andoah-do-job.png" alt="Shenandoah收集器的工作过程"></p>
+<p>图片来源：<a href="https://shipilev.net/talks/devoxx-Nov2017-shenandoah.pdf" target="_blank" rel="noopener">《Shenandoah GC Part I: The Garbage Collector That Could》</a></p>
+<p>说明：</p>
+<p>黄色区域代表的是被选入回收集的Region。</p>
+<p>绿色部分就代表还存活的对象。</p>
+<p>蓝色区域就是用户线程可以用来分配对象的内存Region。</p>
+<h3 id="四、GC收集器比较"><a href="#四、GC收集器比较" class="headerlink" title="四、GC收集器比较"></a>四、GC收集器比较</h3><h4 id="1、Shenandoah-与其他收集器并发比较"><a href="#1、Shenandoah-与其他收集器并发比较" class="headerlink" title="1、Shenandoah 与其他收集器并发比较"></a>1、Shenandoah 与其他收集器并发比较</h4><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-shen-andoah.png" alt="Shenandoah与其他垃圾收集器比较"></p>
+<p>图片来源：<a href="https://shipilev.net/talks/devoxx-Nov2017-shenandoah.pdf" target="_blank" rel="noopener">《Shenandoah GC Part I: The Garbage Collector That Could》</a></p>
+<p>黄色：表示必须挂起用户线程</p>
+<p>绿色：表示收集器线程与用户线程并发执行。</p>
+<p>结论：</p>
+<p>（1）CMS和G1之前的全部收集器，其工作的所有步骤都会产生“Stop TheWorld”式的停顿；</p>
+<p>（2）CMS和G1分别使用增量更新和原始快照(SATB)技术，实现了标记阶段的并发，不会因管理的堆内存变大，要标记的对象变多而导致停顿时间随之增长。但是对于标记阶段之后的处理，仍未得到妥善解决。</p>
+<p>（3）CMS使用标记-清除算法，虽然避免了整理阶段收集器带来的停顿，但是清除算法不论如何优化改进，在设计原理上避免不了空间碎片的产生，随着空间碎片不断淤积最终依然逃不过“Stop The World”的命运。</p>
+<p>（4）G1虽然可以按更小的粒度进行回收，从而抑制整理阶段出现时间过长的停顿，也有暂停。</p>
+<p>（5）Shenandoah只有初始标记、最终标记这些阶段有短暂的停顿，这部分停顿的时间基本上是固定的，与堆的容量、堆中对象的数量没有正比例关系。</p>
+<h4 id="2、Shenandoah-与G1比较"><a href="#2、Shenandoah-与G1比较" class="headerlink" title="2、Shenandoah 与G1比较"></a>2、Shenandoah 与G1比较</h4><table>
+    <th>
+        <td width="46%">Shenandoah</td>
+        <td width="46%">G1（Garbage First）</td>
+    </th>
+    <tr>
+    <td rowspan="3">不同</td>
+    <td >Shenandoah（目前）是默认不使用分代收集的,不会有专门的新生代Region或者老年代Region的存在，没有实现分代。
+     </td>
+    <td >G1仍然保留新生代和老年代概况，只是变成Region区组成的逻辑连续的动态集合。
+     </td>
+  </tr>
+<tr>
+    <td >使用“连接矩阵”（Connection Matrix）的全局数据结构来记录跨Region的引用关系。</td>
+    <td >使用记忆集（Rember Set）避免全堆作为GC Roots扫描,每个Region都维护有自己的记忆集。</td>
+  </tr>
+<tr>
+    <td >Shenandoah通过读屏障和被称为“Brooks Pointers”的转发指针实现并发回收,支持与用户线程并发。 </td>
+    <td >G1的回收阶段是可以多线程并行的，但却不能与用户线程并发。 </td>
+  </tr>
+<tr>
+    <td>相同</td>
+    <td colspan="2">（1）都是基于Region的堆内存布局，都有用于存放大对象的Humongous Region<br/>（2）并发回收思路高度一致，<br/>（3）默认的回收策略都是优先处理回收价值最大的Region<br/>（4） 都采用标记-整理，标记-复制算法回收。<br/></td>
+   </tr>
+</table>
+
+
+
+
+<h3 id="四、相关概念"><a href="#四、相关概念" class="headerlink" title="四、相关概念"></a>四、相关概念</h3><p><strong>写屏障</strong>：<br>    在赋值操作前后，加入一些处理（类似针对写操作进行AOP的处理）<br>    目的通常是为了记录对象引用的变动情况</p>
+<p><strong>读屏障</strong>：</p>
+<p>​   在读值操作前后，加入一些处理（类似针对读操作进行AOP的处理）<br>   目的通常是为了读取对象更新引用后的原有直。</p>
+<blockquote>
+<p>说明：读写屏障没有找到相关科学定义，写屏障的理解来自网络，读屏障是根据写屏障的理解暂作说明的，如果不当，欢迎指正。</p>
+</blockquote>
+<p><strong><span id="jump">指针转发</span></strong> Brooks Pointer（Forwarding Pointer / Indirection Pointer）</p>
+<p>相关历史简介：</p>
+<p>1984年，Brooks提出使用转发指针来实现对象移动与用户程序并发的一种解决方案。</p>
+<p>Brooks提出的新方案不需要用到内存保护陷阱，而是在原有对象布局结构的最前面统一增加一个新的引用字段，在正常不处于并发移动的情况下，该引用指向对象自己。当对象拥有了一份新的副本时，只需要修改一处指针的值，即旧对象上转发指针的引用位置，使其指向新对象，便可将所有对该对象的访问转发到新的副本上。这样只要旧对象的内存仍然存在，未被清理掉，虚拟机内存中所有通过旧引用地址访问的代码便仍然可用，都会被自动转发到新对象上继续工作，</p>
+<p>指针转发如图：</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-shen-andoah-brooks-pointer.jpg" alt="指针转发示意图"></p>
+<blockquote>
+<p>Brooks形式的转发指针在设计上决定了它是必然会出现多线程竞争问题的，如果收集器线程与用户线程发生的只是并发读取，那无论读到旧对象还是新对象上的字段，返回的结果都应该是一样的，这个场景还可以有一些“偷懒”的处理余地；但如果发生的是并发写入，就一定必须保证写操作只能发生在新复制的对象上，而不是写入旧对象的内存中。以下三件事情并发进行时：</p>
+</blockquote>
+<p>1）收集器线程复制了新的对象副本；<br>2）用户线程更新对象的某个字段；<br>3）收集器线程更新转发指针的引用值为新副本地址。</p>
+<blockquote>
+<p>如果不做任何保护措施，让事件2在事件1、事件3之间发生的话，将导致的结果就是用户线程对对象的变更发生在旧对象上，所以这里必须针对转发指针的访问操作采取同步措施，让收集器线程或者用户线程对转发指针的访问只有其中之一能够成功，另外一个必须等待，避免两者交替进行。实际上Shenandoah收集器是通过比较并交换（Compare And Swap，CAS）操作来保证并发时对象的访问正确性的。</p>
+</blockquote>
+<blockquote>
+<p>CAS：compare and swap，解决多线程并行情况下使用锁造成性能损耗的一种机制，CAS操作包含三个操作数——内存位置（V）、预期原值（A）和新值(B)。如果内存位置的值与预期原值相匹配，那么处理器会自动将该位置值更新为新值。否则，处理器不做任何操作。无论哪种情况，它都会在CAS指令之前返回该位置的值。CAS有效地说明了“我认为位置V应该包含值A；如果包含该值，则将B放到这个位置；否则，不要更改该位置，只告诉我这个位置现在的值即可。</p>
+</blockquote>
+<p><strong>转发指针和句柄定位比较</strong>：</p>
+<table>
+    <th>
+        <td>转发指针</td>
+        <td>句柄定位</td>
+    </th>
+    <tr>
+        <td rowspan="2">不同</td>
+        <td>分散存放在每一个对象头前面</td>
+        <td>统一存储在专门的句柄池中</td>
+    </tr>
+    <tr><td>出现多线程竞争问题</td>
+    <td></td>
+</tr>
+<tr>
+    <td>相同</td>
+    <td colspan="2">间接性的对象访问方式；对象访问会带来一次额外的转向开销</td>
+</tr>
+    </table>
+
+
+<p><strong>内存保护陷阱</strong>扩展了解：</p>
+<p>在此之前，实现类似的并发操作，通常是在被移动对象原有的内存上设置保护陷阱（Memory Protection Trap），一旦用户程序访问到归属于旧对象的内存空间就会产生自陷中段，进入预设好的异常处理器中，再由其中的代码逻辑把访问转发到复制后的新对象上。虽然确实能够实现对象移动与用户线程并发，但是如果没有操作系统层面的直接支持，这种方案将导致用户态频繁切换到核心态。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>垃圾收集器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>jvm之垃圾收集器</title>
     <url>/posts/d01dbbb1.html</url>
-    <content><![CDATA[<h2 id="jvm-垃圾收集器"><a href="#jvm-垃圾收集器" class="headerlink" title="jvm 垃圾收集器"></a>jvm 垃圾收集器</h2><h3 id="一-关于垃圾收集器"><a href="#一-关于垃圾收集器" class="headerlink" title="一 关于垃圾收集器"></a>一 关于垃圾收集器</h3><blockquote>
+    <content><![CDATA[<h2 id="jvm-垃圾收集器"><a href="#jvm-垃圾收集器" class="headerlink" title="jvm 垃圾收集器"></a>jvm 垃圾收集器</h2><h2 id="一-关于垃圾收集器"><a href="#一-关于垃圾收集器" class="headerlink" title="一 关于垃圾收集器"></a>一 关于垃圾收集器</h2><blockquote>
 <p>垃圾收集器是垃圾回收算法（标记-清除算法、标记-复制算法、标记-整理算法、半复制算法）的具体实现，不同商家、不同版本的JVM所提供的垃圾收集器可能会有很在差别，本文主要介绍HotSpot虚拟机中的垃圾收集器。</p>
 </blockquote>
 <p>相关术语</p>
-<h4 id="1-并行与并发"><a href="#1-并行与并发" class="headerlink" title="1. 并行与并发"></a>1. 并行与并发</h4><table>
+<h3 id="1-并行与并发"><a href="#1-并行与并发" class="headerlink" title="1. 并行与并发"></a>1. 并行与并发</h3><table>
 <thead>
 <tr>
 <th>并行（Parallel）</th>
@@ -2368,7 +2187,7 @@ no, i am dead :(</code></pre><p>结论</p>
 <td>指用户线程与垃圾收集线程同时都在执行（但不一定是并行的，可能会交替执行）；用户程序在继续运行，未被冻结，程序仍然能响应服务请求。垃圾收集程序线程占用系统资源。如CMS、G1（也有并行）；</td>
 </tr>
 </tbody></table>
-<h4 id="2-部分收集和整堆收集"><a href="#2-部分收集和整堆收集" class="headerlink" title="2. 部分收集和整堆收集"></a>2. 部分收集和整堆收集</h4><p>（1）部分收集（Partial GC）：</p>
+<h3 id="2-部分收集和整堆收集"><a href="#2-部分收集和整堆收集" class="headerlink" title="2. 部分收集和整堆收集"></a>2. 部分收集和整堆收集</h3><p>（1）部分收集（Partial GC）：</p>
 <p>​    指目标不是完整收集整个Java堆的垃圾收集。主要三种：</p>
 <p>​    A. 新生代收集（Minor GC/Young GC）：指目标只是新生代的垃圾收集。<br>​    B. 老年代收集（Major GC/Old GC）：指目标只是老年代的垃圾收集。目前只有CMS收集器会有单独收集老年代的行为。</p>
 <p>​    C. 混合收集（Mixed GC）：指目标是收集整个新生代以及部分老年代的垃圾收集。目前只有G1收集器会有这种行为。    </p>
@@ -2376,12 +2195,12 @@ no, i am dead :(</code></pre><p>结论</p>
 <blockquote>
 <p><strong>注意</strong>：“Major GC”这个说法现在有点混淆，在不同资料上常有不同所指，请按资料上下文区分到底是指老年代的收集还是整堆收集。因为有的Major GC表示老年代GC有的表示整堆GC。</p>
 </blockquote>
-<h4 id="3-收集器的指标"><a href="#3-收集器的指标" class="headerlink" title="3. 收集器的指标"></a>3. 收集器的指标</h4><p>收集器的指标一般体现在设计它的目的上，如：Parallel Scavenge收集器首要目标是吞吐量。</p>
+<h3 id="3-收集器的指标"><a href="#3-收集器的指标" class="headerlink" title="3. 收集器的指标"></a>3. 收集器的指标</h3><p>收集器的指标一般体现在设计它的目的上，如：Parallel Scavenge收集器首要目标是吞吐量。</p>
 <p>主要权衡指标有三个：</p>
 <p>（A）低延迟</p>
 <p>（B）吞吐量</p>
 <p>（C）较小的内存占用</p>
-<h3 id="二-Hotspot七种垃圾收集器"><a href="#二-Hotspot七种垃圾收集器" class="headerlink" title="二 Hotspot七种垃圾收集器"></a>二 Hotspot七种垃圾收集器</h3><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gcr-1.jpg" alt="常见的七种垃圾收集器"><br>（图片来自《深入理解java虚拟机:jvm高级特性与最佳实践 》第三版。JVM系列黑白图均来自电子书，彩图来自网络）</p>
+<h2 id="二-Hotspot七种垃圾收集器"><a href="#二-Hotspot七种垃圾收集器" class="headerlink" title="二 Hotspot七种垃圾收集器"></a>二 Hotspot七种垃圾收集器</h2><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gcr-1.jpg" alt="常见的七种垃圾收集器"><br>（图片来自《深入理解java虚拟机:jvm高级特性与最佳实践 》第三版。JVM系列黑白图均来自电子书，彩图来自网络）</p>
 <p>图中是七种作用于不同分代的收集器。<br>如果两个收集器之间存在连线，就说明它们可以搭配使用。<br>图中收集器所处的区域，则表示它是属于新生代收集器抑或是老年代收集器。<br>其中Serial Old作为CMS出现”Concurrent Mode Failure”失败的后备预案。</p>
 <p>整理成表格如下：</p>
 <table>
@@ -2404,23 +2223,22 @@ no, i am dead :(</code></pre><p>结论</p>
 <td>G1</td>
 </tr>
 </tbody></table>
-<h4 id="1、Serial-收集器"><a href="#1、Serial-收集器" class="headerlink" title="1、Serial 收集器"></a>1、Serial 收集器</h4><p>Serial 串口，串行的意思。</p>
+<h3 id="1、Serial-收集器"><a href="#1、Serial-收集器" class="headerlink" title="1、Serial 收集器"></a>1、Serial 收集器</h3><p>Serial 串口，串行的意思。</p>
 <blockquote>
 <p>Serial收集器是一个单线程工作的收集器。是HotSpot虚拟机运行在客户端模式下的默认新生代收集器，有着优于其他收集器的地方，那就是简单而高效。（高效是指与其他收集器的单线程相比）</p>
 </blockquote>
-<h5 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h5><p>​    （1）针对新生代的收集器。</p>
-<p>​    （2）只会使用一个处理器或一条收集线程去完成垃圾收集工作，进行垃圾收集时，必须暂停其他所有工作线程，直到它收集结束。</p>
+<h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><p>​    （1）针对新生代的收集器。<br>    （2）只会使用一个处理器或一条收集线程去完成垃圾收集工作，进行垃圾收集时，必须暂停其他所有工作线程，直到它收集结束。</p>
 <p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-5-gc-serial.jpg" alt="Serial收集器运行示意图"></p>
-<h4 id="2、ParNew-收集器"><a href="#2、ParNew-收集器" class="headerlink" title="2、ParNew 收集器"></a>2、ParNew 收集器</h4><p>ParNew收集器实质上是Serial收集器的多线程并行版本。其余的行为包括Serial收集器可用的所有控制参数（例如：<code>-XX：SurvivorRatio</code>、<code>-XX：PretenureSizeThreshold</code>、<code>-XX：HandlePromotionFailure</code>等）、收集算法、Stop The World、对象分配规则、回收策略等都与Serial收集器完全一致。二者共用许多代码。</p>
-<h5 id="特点：-1"><a href="#特点：-1" class="headerlink" title="特点："></a>特点：</h5><p>​    （1）新生代收集器</p>
+<h3 id="2、ParNew-收集器"><a href="#2、ParNew-收集器" class="headerlink" title="2、ParNew 收集器"></a>2、ParNew 收集器</h3><p>ParNew收集器实质上是Serial收集器的多线程并行版本。其余的行为包括Serial收集器可用的所有控制参数（例如：<code>-XX：SurvivorRatio</code>、<code>-XX：PretenureSizeThreshold</code>、<code>-XX：HandlePromotionFailure</code>等）、收集算法、Stop The World、对象分配规则、回收策略等都与Serial收集器完全一致。二者共用许多代码。</p>
+<h4 id="特点：-1"><a href="#特点：-1" class="headerlink" title="特点："></a>特点：</h4><p>​    （1）新生代收集器</p>
 <p>​    （2）支持多线程并行收集。</p>
 <p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-5-gc-ParNew.jpg" alt="ParNew/Serial Old收集器运行示意图"></p>
 <p>ParNew收集器是激活CMS后（使用-XX：+UseConcMarkSweepGC选项）的默认新生代收集器，也可以使用-XX：+/-UseParNewGC选项来强制指定或者禁用它。</p>
-<h4 id="3、Parallel-Scavenge-收集器"><a href="#3、Parallel-Scavenge-收集器" class="headerlink" title="3、Parallel Scavenge 收集器"></a>3、Parallel Scavenge 收集器</h4><p>Parallel Scavenge收集器也是一款新生代收集器，它同样是基于标记-复制算法实现的收集器，也是能够并行收集的多线程收集器。早期只能和Serial Old搭配。不能和CMS搭配。</p>
+<h3 id="3、Parallel-Scavenge-收集器"><a href="#3、Parallel-Scavenge-收集器" class="headerlink" title="3、Parallel Scavenge 收集器"></a>3、Parallel Scavenge 收集器</h3><p>Parallel Scavenge收集器也是一款新生代收集器，它同样是基于标记-复制算法实现的收集器，也是能够并行收集的多线程收集器。早期只能和Serial Old搭配。不能和CMS搭配。</p>
 <p>目标：</p>
 <p>希望达到一个可控制的吞吐量（Throughput）。</p>
 <p>Parallel Scavenge收集器也经常被称作“吞吐量优先收集器”。</p>
-<h5 id="特点：-2"><a href="#特点：-2" class="headerlink" title="特点："></a>特点：</h5><p>（1）新生代收集器，基于标记-复制算法实现</p>
+<h4 id="特点：-2"><a href="#特点：-2" class="headerlink" title="特点："></a>特点：</h4><p>（1）新生代收集器，基于标记-复制算法实现</p>
 <p>（2）能够多线程并行收集</p>
 <p>（3）停顿-吞吐量的自适应的调节策略。可以设定目标让收集器自行调节。</p>
 <p>（4）支持NUMA(非统一内存访问架构)内存分配</p>
@@ -2442,8 +2260,8 @@ no, i am dead :(</code></pre><p>结论</p>
 <blockquote>
 <p>把基本的内存数据设置好（如<code>-Xmx</code>设置最大堆），然后使用<code>-XX：MaxGCPauseMillis</code>参数（更关注最大停顿时间）或<code>-XX：GCTimeRatio</code>（更关注吞吐量）参数给虚拟机设立一个优化目标，那具体细节参数的调节工作就由虚拟机完成了。自适应调节策略也是Parallel Scavenge收集器区别于ParNew收集器的一个重要特性。</p>
 </blockquote>
-<h4 id="4、Serial-Old-收集器"><a href="#4、Serial-Old-收集器" class="headerlink" title="4、Serial Old  收集器"></a>4、Serial Old  收集器</h4><p>Serial Old是Serial收集器的老年代版本，它同样是一个单线程收集器，使用标记-整理算法。</p>
-<h5 id="特点：-3"><a href="#特点：-3" class="headerlink" title="特点："></a>特点：</h5><p>（1）老年代收集器，</p>
+<h3 id="4、Serial-Old-收集器"><a href="#4、Serial-Old-收集器" class="headerlink" title="4、Serial Old  收集器"></a>4、Serial Old  收集器</h3><p>Serial Old是Serial收集器的老年代版本，它同样是一个单线程收集器，使用标记-整理算法。</p>
+<h4 id="特点：-3"><a href="#特点：-3" class="headerlink" title="特点："></a>特点：</h4><p>（1）老年代收集器，</p>
 <p>（2）单线程收集器，</p>
 <p>（3）使用标记-整理算法。</p>
 <p>使用环境：</p>
@@ -2451,22 +2269,24 @@ no, i am dead :(</code></pre><p>结论</p>
 <p>服务端：（A）在JDK 5以及之前的版本中与Parallel Scavenge收集器搭配使用；</p>
 <p>​    （B）作为CMS收集器发生失败时的后备预案，在并发收集发生Concurrent ModeFailure时使用。</p>
 <p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-5-gc-serial.jpg" alt="Serial/ Serial old 收集器运行示意图"></p>
-<h4 id="5、Parallel-Old-收集器"><a href="#5、Parallel-Old-收集器" class="headerlink" title="5、Parallel Old 收集器"></a>5、Parallel Old 收集器</h4><p>Parallel Old是Parallel Scavenge收集器的老年代版本，支持多线程并发收集，基于标记-整理算法实现。这个收集器是直到JDK 6时才开始提供的。</p>
-<h5 id="特点：-4"><a href="#特点：-4" class="headerlink" title="特点："></a>特点：</h5><p>同Parallel Scavenge收集器。</p>
+<h3 id="5、Parallel-Old-收集器"><a href="#5、Parallel-Old-收集器" class="headerlink" title="5、Parallel Old 收集器"></a>5、Parallel Old 收集器</h3><p>Parallel Old是Parallel Scavenge收集器的老年代版本，支持多线程并发收集，基于标记-整理算法实现。这个收集器是直到JDK 6时才开始提供的。</p>
+<h4 id="特点：-4"><a href="#特点：-4" class="headerlink" title="特点："></a>特点：</h4><p>同Parallel Scavenge收集器。</p>
 <p>“吞吐量优先”收集器：</p>
 <blockquote>
 <p>在注重吞吐量或者处理器资源较为稀缺的场合，都可以优先考虑Parallel Scavenge加Parallel Old收集器这个组合。     </p>
 </blockquote>
 <p>![Parallel Scavenge / Parallel Old收集器运行示意图](/images/jvm-images/jvm-5-gc-Parallel-Scavenge-or-Parallel Old.jpg)</p>
-<h4 id="6、CMS-收集器"><a href="#6、CMS-收集器" class="headerlink" title="6、CMS  收集器"></a>6、CMS  收集器</h4><p>CMS : Concurrent Mark Sweep</p>
+<h3 id="6、CMS-收集器"><a href="#6、CMS-收集器" class="headerlink" title="6、CMS  收集器"></a>6、CMS  收集器</h3><p>CMS : Concurrent Mark Sweep</p>
 <p>官方文档称之为：“并发低停顿收集器”（Concurrent Low Pause Collector）</p>
-<h5 id="特点：-5"><a href="#特点：-5" class="headerlink" title="特点："></a>特点：</h5><p>​    （1）以获取最短回收停顿时间为目标。</p>
+<h4 id="特点：-5"><a href="#特点：-5" class="headerlink" title="特点："></a>特点：</h4><p>​    （1）以获取最短回收停顿时间为目标。</p>
 <p>​    （2）基于标记-清除算法实现。</p>
 <blockquote>
 <p>关注服务的响应速度，希望系统停顿时间尽可能短,如B/S系统应用服务端，适合CMS收集器。</p>
 </blockquote>
+<p>CMS堆内存布局</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-5-gc-cms.png" alt="Concurrent Mark Sweep收集器运行示意图"></p>
 <h5 id="CMS收集器工作过程："><a href="#CMS收集器工作过程：" class="headerlink" title="CMS收集器工作过程："></a>CMS收集器工作过程：</h5><p>运行示意图如下</p>
-<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-5-gc-cms.jpg" alt="Concurrent Mark Sweep收集器运行示意图"></p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-5-gc-cms-workflow.jpg" alt="Concurrent Mark Sweep收集器运行示意图"></p>
 <p>1）初始标记（CMS initial mark）</p>
 <p>​    （A）标记一下GC Roots能直接关联到的对象，速度很快。</p>
 <p>​    （B）有短暂停顿</p>
@@ -2479,7 +2299,7 @@ no, i am dead :(</code></pre><p>结论</p>
 <p>4）并发清除（CMS concurrent sweep）</p>
 <p>​    （A）清理删除掉标记阶段判断的已经死亡的对象。</p>
 <p>​    （B）不需要移动存活对象，可以与用户线程同时并发执行。</p>
-<h5 id="CMS收集器优缺点："><a href="#CMS收集器优缺点：" class="headerlink" title="CMS收集器优缺点："></a>CMS收集器优缺点：</h5><p>优点：</p>
+<h4 id="CMS收集器优缺点："><a href="#CMS收集器优缺点：" class="headerlink" title="CMS收集器优缺点："></a>CMS收集器优缺点：</h4><p>优点：</p>
 <p>​    并发收集、低停顿</p>
 <p>缺点：</p>
 <p>​    （1）对处理器资源非常敏感，并发阶段线程运行占用资源。</p>
@@ -2492,51 +2312,101 @@ no, i am dead :(</code></pre><p>结论</p>
 <blockquote>
 <p>CMS收集器不能像其他收集器那样等待到老年代几乎完全被填满了再进行收集，必须预留一部分空间供并发收集时的程序运作使用。在JDK 5的默认设置下，CMS收集器当老年代使用了68%的空间后就会被激活，这是一个偏保守的设置，如果在实际应用中老年代增长并不是太快，可以适当调高参数<code>-XX：CMSInitiatingOccu-pancyFraction</code>的值来提高CMS的触发百分比，降低内存回收频率，获取更好的性能。到了JDK 6时，CMS收集器的启动阈值就已经默认提升至92%。但这又会更容易面临另一种风险：要是CMS运行期间预留的内存无法满足程序分配新对象的需要，就会出现一次“并发失败”（Concurrent Mode Failure），这时候虚拟机将不得不启动后备预案：冻结用户线程的执行，临时启用Serial Old收集器来重新进行老年代的垃圾收集，但这样停顿时间就很长了。所以参数<code>-XX：CMSInitiatingOccupancyFraction</code>设置得太高将会很容易导致大量的并发失败产生，性能反而降低，用户应在生产环境中根据实际应用情况来权衡设置。</p>
 </blockquote>
-<h4 id="7、G1垃圾收集器"><a href="#7、G1垃圾收集器" class="headerlink" title="7、G1垃圾收集器"></a>7、G1垃圾收集器</h4><p>G1 : Garbage First</p>
+<h3 id="7、G1垃圾收集器"><a href="#7、G1垃圾收集器" class="headerlink" title="7、G1垃圾收集器"></a>7、G1垃圾收集器</h3><p>G1 : Garbage First</p>
 <blockquote>
 <p>Garbage First（简称G1）收集器是垃圾收集器技术发展历史上的里程碑式的成果，它开创了收集器面向局部收集的设计思路和基于Region的内存布局形式。</p>
 <p>从JDK 6 Update 14开始就有Early Access版本的G1收集器供开发人员实验和试用，但由此开始G1收集器的“实验状态”（Experimental）持续了数年时间，直至JDK 7Update 4，Oracle才认为它达到足够成熟的商用程度，移除了“Experimental”的标识；到了JDK 8 Update 40的时候，G1提供并发的类卸载的支持，补全了其计划功能的最后一块拼图。这个版本以后的G1收集器才被Oracle官方称为“全功能的垃圾收集器”（Fully-FeaturedGarbage Collector）。</p>
 <p>JDK9发布之日，G1宣告取代Parallel Scavenge加Parallel Old组合，成为服务端模式下的默认垃圾收集器。</p>
 </blockquote>
-<p>特点：</p>
-<p>​    （1）面向服务端应用的垃圾收集器。</p>
+<p>设计思路：</p>
+<p>​    追求能够应付应用的内存分配速率（Allocation Rate），而不追求一次把整个Java堆全部清理干净。</p>
+<blockquote>
+<p>应用在分配，同时收集器在收集，只要收集的速度能跟得上对象分配的速度，那一切就能运作得很完美。这种新的收集器设计思路从工程实现上看是从G1开始兴起的。</p>
+<p>G1是收集器技术发展的一个里程碑。也是jdk11的默认垃圾收集器。</p>
+</blockquote>
+<h4 id="特点：-6"><a href="#特点：-6" class="headerlink" title="特点："></a>特点：</h4><p>​    （1）面向服务端应用的垃圾收集器。</p>
 <p>​    （2）基于Region的堆内存布局。</p>
 <p>​    （3）使用Mixed GC模式，不再按“代”进行回收。（Region布局支持）</p>
 <p>​    （4）遵循分代收集理论设计，新生代和老年代不再是固定大小与数理，只要求是逻辑连续的动态集合。</p>
 <p>​    （5）回收策略是优先处理回收价值最大的Region</p>
-<p>内存布局图：</p>
-<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-5-gc-G1.png" alt="G1收集器堆内存布局"></p>
+<h4 id="内存布局图："><a href="#内存布局图：" class="headerlink" title="内存布局图："></a>内存布局图：</h4><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-5-gc-G1.png" alt="G1收集器堆内存布局"></p>
 <blockquote>
-<p>G1不再坚持固定大小以及固定数量的分代区域划分，而是把连续的Java堆划分为多个大小相等的独立区域（Region），每一个Region都可以根据需要，扮演新生代的Eden空间、Survivor空间，或者老年代空间。收集器能够对扮演不同角色的Region采用不同的策略去处理，这样无论是新创建的对象还是已经存活了一段时间、熬过多次收集的旧对象都能获取很好的收集效果。</p>
+<p>G1不再是固定大小以及固定数量的分代区域划分，而是把连续的Java堆划分为多个大小相等的独立区域（Region），每一个Region都可以根据需要，扮演新生代的Eden空间、Survivor空间，或者老年代空间。收集器能够对扮演不同角色的Region采用不同的策略去处理。</p>
 <p>Region中还有一类特殊的Humongous区域，专门用来存储大对象。G1认为只要大小超过了一个Region容量一半的对象即可判定为大对象。每个Region的大小可以通过参数<code>-XX：G1HeapRegionSize</code>设定，取值范围为1MB～32MB，且应为2的N次幂。而对于那些超过了整个Region容量的超级大对象，将会被存放在N个连续的<code>Humongous Region</code>之中，G1的大多数行为都把<code>Humongous Region</code>作为老年代的一部分来进行看待</p>
 </blockquote>
-<p> 可预测的“停顿时间模型”（Pause Prediction Model）:</p>
+<h4 id="G1收集器实现思路："><a href="#G1收集器实现思路：" class="headerlink" title="G1收集器实现思路："></a>G1收集器实现思路：</h4><p>（1）基于Region的堆内存布局,把连续的Java堆划分为多个大小相等的独立区域（Region），每一个Region都可以根据需要，扮演新生代的Eden空间、Survivor空间，或者老年代空间。收集器能够对扮演不同角色的Region采用不同的策略去处理。</p>
+<p>（2)将堆分成多个独立Region后，使用记忆集避免全堆作为GC Roots扫描，每个Region都维护有自己的记忆集，记忆集会记录下别的Region指向自己的指针，并标记这些指针分别在哪些卡页的范围之内。</p>
+<blockquote>
+<p>G1的记忆集在存储结构的本质上是一种哈希表，Key是别的Region的起始地址，Value是一个集合，里面存储的元素是卡表的索引号。这种“双向”的卡表结构（卡表是“我指向谁”，这种结构还记录了“谁指向我”）比原来的卡表实现起来更复杂，同时由于Region数量比传统收集器的分代数量明显要多得多，因此G1收集器要比其他的传统垃圾收集器有着更高的内存占用负担。G1至少要耗费大约相当于Java堆容量10%至20%的额外内存来维持收集器工作。</p>
+</blockquote>
+<p>（3）在并发标记阶段，通过原始快照（SATB）算法来实现用户线程改变对象引用关系时，不打破原本的对象图结构。</p>
+<p>（4）在回收过程中新创建对象的内存分配上，程序要继续运行就肯定会持续有新对象被创建，G1为每一个Region设计了两个名为TAMS（Top at Mark Start）指针，把Region中的一部分空间划分出来用于并发回收过程中的新对象分配，并发回收时新分配的对象地址都必须要在这两个指针位置上。G1收集器默认在这个地址以上的对象是被隐式标记过的，即默认它们是存活的，不纳入回收范围。</p>
+<p>可预测的“停顿时间模型”（Pause Prediction Model）:</p>
 <blockquote>
 <p>G1收集器之所以能建立可预测的停顿时间模型，是因为它将Region作为单次回收的最小单元，即每次收集到的内存空间都是Region大小的整数倍，这样可以有计划地避免在整个Java堆中进行全区域的垃圾收集。更具体的处理思路是让G1收集器去跟踪各个Region里面的垃圾堆积的“价值”大小，价值即回收所获得的空间大小以及回收所需时间的经验值，然后在后台维护一个优先级列表，每次根据用户设定允许的收集停顿时间（使用参数<code>-XX：MaxGCPauseMillis</code>指定，默认值是200毫秒），优先处理回收价值收益最大的那些Region，这也就是“Garbage First”名字的由来。这种使用Region划分内存空间，以及具有优先级的区域回收方式，保证了G1收集器在有限的时间内获取尽可能高的收集效率。</p>
-<p>jdk11的默认垃圾收集器</p>
 </blockquote>
-<p>G1工作流程：</p>
-<p>流程图如下：</p>
+<blockquote>
+<p>G1收集器的停顿预测模型是以衰减均值（Decaying Average）为理论基础来实现的，在垃圾收集过程中，G1收集器会记录每个Region的回收耗时、每个Region记忆集里的脏卡数量等各个可测量的步骤花费的成本，并分析得出平均值、标准偏差、置信度等统计信息。这里强调的“衰减平均值”是指它会比普通的平均值更容易受到新数据的影响，平均值代表整体平均状态，但衰减平均值更准确地代表“最近的”平均状态。换句话说，Region的统计状态越新越能决定其回收的价值。然后通过这些信息预测现在开始回收的话，由哪些Region组成回收集才可以在不超过期望停顿时间的约束下获得最高的收益。</p>
+</blockquote>
+<p><code>-XX：MaxGCPauseMillis</code>-用户指定期望的停顿时间：</p>
+<blockquote>
+<p>用户指定期望的停顿时间是G1收集器很强大的一个功能，设置不同的期望停顿时间，可使得G1在不同应用场景中取得关注吞吐量和关注延迟之间的最佳平衡。不过，这里设置的“期望值”必须是符合实际的，不能异想天开，毕竟G1是要冻结用户线程来复制对象的，这个停顿时间再怎么低也得有个限度。它默认的停顿目标为两百毫秒，一般来说，回收阶段占到几十到一百甚至接近两百毫秒都很正常，但如果我们把停顿时间调得非常低，譬如设置为二十毫秒，很可能出现的结果就是由于停顿目标时间太短，导致每次选出来的回收集只占堆内存很小的一部分，收集器收集的速度逐渐跟不上分配器分配的速度，导致垃圾慢慢堆积。很可能一开始收集器还能从空闲的堆内存中获得一些喘息的时间，但应用运行时间一长就不行了，最终占满堆引发Full GC反而降低性能，所以通常把望期停顿时间设置为一两百毫秒或者两三百毫秒会是比较合理的。</p>
+</blockquote>
+<h4 id="G1工作流程："><a href="#G1工作流程：" class="headerlink" title="G1工作流程："></a>G1工作流程：</h4><p>流程图如下：</p>
 <p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-5-gc-G1-workflow.jpg" alt="G1收集器堆内存布局"></p>
-<h3 id="三-低延迟垃圾收集器"><a href="#三-低延迟垃圾收集器" class="headerlink" title="三 低延迟垃圾收集器"></a>三 低延迟垃圾收集器</h3><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-LLGC.jpg" alt="各款收集器的并发情况"></p>
+<p>1、初始标记（Initial Marking）：<br>（A）只是标记一下GC Roots能直接关联到的对象，并且修改TAMS指针的值，让下一阶段用户线程并发运行时，能正确地在可用的Region中分配新对象。</p>
+<p>（B）该阶段需要停顿线程，但耗时很短。</p>
+<blockquote>
+<p>初始标记是借用进行Minor GC的时候同步完成的，所以G1收集器在这个阶段实际并没有额外的停顿。</p>
+</blockquote>
+<p>2、并发标记（Concurrent Marking）：<br>（A）从GC Root开始对堆中对象进行可达性分析，递归扫描整个堆里的对象图，找出要回收的对象。</p>
+<p>（B）这阶段耗时较长，可与用户程序并发执行。</p>
+<p>（C）当对象图扫描完成以后，还要重新处理SATB记录下的在并发时有引用变动的对象。</p>
+<p>3、最终标记（Final Marking）</p>
+<p>（A）对用户线程做另一个短暂的暂停，处理并发阶段结束后仍遗留下来的最后那少量的SATB记录。</p>
+<p>4、筛选回收（Live Data Counting and Evacuation）</p>
+<p>（A）负责更新Region的统计数据，对各个Region的回收价值和成本进行排序，根据用户所期望的停顿时间来制定回收计划，可以自由选择任意多个Region构成回收集，然后把决定回收的那一部分Region的存活对象复制到空的Region中，再清理掉整个旧Region的全部空间。</p>
+<p>（B）操作涉及存活对象的移动，必须暂停用户线程。</p>
+<p>（C）筛选回收由多条收集器线程并行完成的。</p>
+<h4 id="G1与CMS比较"><a href="#G1与CMS比较" class="headerlink" title="G1与CMS比较"></a>G1与CMS比较</h4><table>
+<th><td width="50%">G1</td><td width="50%">CMS</td></th>
+<tr><td rowspan="6">不同</td> <td>G1基于Region布局，实现分代。</td><td>CMS传统的分代布局。</td></tr>
+<tr><td>G1可以设置最大停顿,关注点在吞吐量和延迟之间自行平衡或定制适应。</td><td>CMS以最小停顿为关注点。</td></tr>
+<tr><td>G1按收益动态确定回收集。</td><td>CMS传统的按代回收。</td></tr>
+<tr><td>G1整体基于“标记-整理”算法、局部（两个Region之间）基于“标记-复制”算法，运作期间不会产生内存空间碎片，利于程序长时间运行。</td><td>CMS基于“标记-清除”算法，产生空间碎片，导致Full GC ,用户线程挂起。</td></tr>
+<tr><td>G1垃圾收集产生的内存占用（Footprint）和程序运行时的额外执行负载（Overload）。
+    <br>【内存占用】：G1要维护堆中每个Region都有一份卡表。
+    <br>【执行负载】：G1使用写前屏障来跟踪并发时的指针变化情况,实现原始快照搜索（SATB）算法;使用写后屏障来来更新维护结构更复杂的卡表，类似于消息队列的结构，是异步操作。</td><td>CMS的内存占用（Footprint）和执行负载（Overload）相对低些。
+        <br>【内存占用】：CMS只维护新生代与老年代之间唯一的一份卡表。
+        <br>【执行负载】：CMS用写后屏障来更新维护卡表，是同步操作。
+<tr><td>G1相对适合大内存应用。</td><td>CMS相对适合小内存应用。临界（6G~8G）</td></tr>
+<tr><td>相同</td> <td colspan="2">（1）都非常关注停顿时间的控制。<br>（2）都使用传统的分代理论。<br>（3）都使用卡表来处理跨代指针问题。</td></tr>
+</table>
+
+
+
+
+<h2 id="三-低延迟垃圾收集器"><a href="#三-低延迟垃圾收集器" class="headerlink" title="三 低延迟垃圾收集器"></a>三 低延迟垃圾收集器</h2><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-LLGC.jpg" alt="各款收集器的并发情况"></p>
 <p>其中 <strong>Shenandoah</strong> 和 <strong>ZGC</strong> ，这两款目前仍处于实验状态的收集器，被官方命名为“低延迟垃圾收集器”（Low-Latency Garbage Collector或者Low-Pause-Time GarbageCollector）。</p>
-<h4 id="1、Shenandoah收集器"><a href="#1、Shenandoah收集器" class="headerlink" title="1、Shenandoah收集器"></a>1、Shenandoah收集器</h4><h5 id="主要目标："><a href="#主要目标：" class="headerlink" title="主要目标："></a>主要目标：</h5><blockquote>
+<h3 id="1、Shenandoah收集器"><a href="#1、Shenandoah收集器" class="headerlink" title="1、Shenandoah收集器"></a>1、Shenandoah收集器</h3><h4 id="主要目标："><a href="#主要目标：" class="headerlink" title="主要目标："></a>主要目标：</h4><blockquote>
 <p>实现一种能在任何堆内存大小下都可以把垃圾收集的停顿时间限制在十毫秒以内的垃圾收集器。</p>
 </blockquote>
 <p>特点：</p>
-<p>（1）基于Region的堆内存布局。</p>
-<h5 id="三个重要的并发阶段："><a href="#三个重要的并发阶段：" class="headerlink" title="三个重要的并发阶段："></a>三个重要的并发阶段：</h5><p>并发标记、并发回收、并发引用更新。</p>
-<p>具体更详细的：<a href="f8161112.html">《jvm垃圾收集器Shenandoah》</a></p>
-<h4 id="2、ZGC收集器"><a href="#2、ZGC收集器" class="headerlink" title="2、ZGC收集器"></a>2、<code>ZGC</code>收集器</h4><h5 id="主要目标：-1"><a href="#主要目标：-1" class="headerlink" title="主要目标："></a>主要目标：</h5><blockquote>
+<p>（1）基于Region的堆内存布局</p>
+<p>（2）回收策略优先处理回收价值最大的Region</p>
+<p>（3）支持并发的整理算法。</p>
+<h4 id="三个重要的并发阶段："><a href="#三个重要的并发阶段：" class="headerlink" title="三个重要的并发阶段："></a>三个重要的并发阶段：</h4><p>并发标记、并发回收、并发引用更新。</p>
+<p>具体更详细的学习笔记：<a href="f8161112.html">《jvm垃圾收集器Shenandoah》</a></p>
+<h3 id="2、ZGC收集器"><a href="#2、ZGC收集器" class="headerlink" title="2、ZGC收集器"></a>2、<code>ZGC</code>收集器</h3><h4 id="主要目标：-1"><a href="#主要目标：-1" class="headerlink" title="主要目标："></a>主要目标：</h4><blockquote>
 <p>尽可能对吞吐量影响不太大的前提下，实现在任意堆内存大小下都可以把垃圾收集的停顿时间限制在十毫秒以内的低延迟。</p>
 </blockquote>
-<h5 id="ZGC主要特征："><a href="#ZGC主要特征：" class="headerlink" title="ZGC主要特征："></a>ZGC主要特征：</h5><p>（1）以低延迟为首要目标。</p>
+<h4 id="ZGC主要特征："><a href="#ZGC主要特征：" class="headerlink" title="ZGC主要特征："></a>ZGC主要特征：</h4><p>（1）以低延迟为首要目标。</p>
 <p>（2）暂不支持分代的。</p>
 <p>（3）基于Region的堆内存布局。</p>
 <p>（4）染色指针实现并发整理算法。Colored Pointer。</p>
 <p>（5）内存多重映射技术。</p>
 <p>（6）支持“NUMA-Aware”的内存分配。(NUMA非统一内存访问架构)</p>
-<p>具体更详细的：<a href="e3d9aed7.html">《jvm垃圾收集器ZGC》</a></p>
+<p>具体更详细的学习笔记：<a href="e3d9aed7.html">《jvm垃圾收集器ZGC》</a></p>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -2545,6 +2415,210 @@ no, i am dead :(</code></pre><p>结论</p>
         <tag>Java</tag>
         <tag>JVM</tag>
         <tag>垃圾收集器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（三）——主题更换</title>
+    <url>/posts/a5bf7e18.html</url>
+    <content><![CDATA[<p>Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。</p>
+ <a id="more"></a>
+
+<p>选择一个自己喜欢的 Hexo 主题站：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>极简主题推荐：<br><a href="https://github.com/zhzy2017/hexo-theme-polarbear.git" target="_blank" rel="noopener">hexo-theme-polarbear</a><br><a href="https://github.com/zhzy2017/gd4Ark.github.io.git" target="_blank" rel="noopener">hexo-theme-polarbear  （gd4Ark的扩展版）</a> （下载后执行安装npm install）<br><a href="https://github.com/zhzy2017/hexo-theme-sky.git" target="_blank" rel="noopener">hexo-theme-sky</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo.git" target="_blank" rel="noopener">hexo-theme-xoxo</a><br><a href="https://github.com/zhzy2017/hexo-theme-xoxo-plus.git" target="_blank" rel="noopener">hexo-theme-xoxo-plus</a><br>漂亮主题推荐：<br>[hexo-theme-matery]（<a href="https://github.com/blinkfox/hexo-theme-matery）" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery）</a><br>[hexo-theme-ayer]（<a href="https://github.com/Shen-Yu/hexo-theme-ayer）" target="_blank" rel="noopener">https://github.com/Shen-Yu/hexo-theme-ayer）</a></p>
+<p>其中极简主题有些没有search功能，如需要自己安装search插件，参考Hexo搭建静态博客（四）——插件安装<br>极简主题我比较喜欢hexo-theme-polarbear，对扩展版进行补充搜索功能。</p>
+<p>如安装主题hexo-theme-xoxo-plus。</p>
+<h4 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> themes
+<span class="token function">git</span> clone https://github.com/zhzy2017/hexo-theme-xoxo-plus.git</code></pre>
+<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p>修改全局配置根目录_config.yml, 注意theme的值要和theme目录的主题的文件夹名字一致</p>
+<pre><code># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# landscape
+theme: hexo-theme-xoxo-plus</code></pre><h4 id="3-启动预览"><a href="#3-启动预览" class="headerlink" title="3.启动预览"></a>3.启动预览</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>浏览器访问：<br>大功告成。</p>
+<p>如果对该主题的其他设置请参考主题用法，到主题目录下修改主题的配置文件_config.yml</p>
+<p>如有问题请参考本系列：<a href="/post/ce4a93ff.html">Hexo搭建静态博客（五）——踩坑问题</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（五）——踩坑问题</title>
+    <url>/posts/ce4a93ff.html</url>
+    <content><![CDATA[<p> 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。</p>
+<a id="more"></a>
+
+<p>常见报错多在 <code>hexo g</code> 的时候报错</p>
+<h5 id="1-YAMLException"><a href="#1-YAMLException" class="headerlink" title="1. YAMLException"></a>1. YAMLException</h5><pre><code>ERROR Process failed: _posts/hexo-problem.md
+YAMLException: end of the stream or a document separator is expected at line x, column y:
+at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
+<pre><code>---
+key: value
+---</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
+<h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
+<pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)使用主题的时候注意先阅读相关使用文档，有些主题需要一些插件</p>
+<h5 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h5><p>后续补充</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（六）——项目部署</title>
+    <url>/posts/c68d7a69.html</url>
+    <content><![CDATA[<p>本文记录将hexo博客部署到github、云服务器上的相关操作操作。</p>
+<a id="more"></a>
+
+<h4 id="关于部署"><a href="#关于部署" class="headerlink" title="关于部署"></a>关于部署</h4><p>常见部署在github上，如果有自己独立的服务器也可以部署在服务上，此处用的腾讯云服务器。</p>
+<h3 id="一-Github上部署"><a href="#一-Github上部署" class="headerlink" title="一  Github上部署"></a>一  Github上部署</h3><h4 id="1-准备环境："><a href="#1-准备环境：" class="headerlink" title="1 准备环境："></a>1 准备环境：</h4><p>​    有github账户</p>
+<p>​    在账户里创建仓库, New repository，仓库名固定格式： <code>你的github账户名.github.io</code></p>
+<p>​    git免密登陆（可选，非必须）</p>
+<h4 id="2-安装部署插件"><a href="#2-安装部署插件" class="headerlink" title="2  安装部署插件"></a>2  安装部署插件</h4><p>​    安装部署插件deploy-git </p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save</code></pre>
+<h4 id="3-Hexo修改根目录配置文件"><a href="#3-Hexo修改根目录配置文件" class="headerlink" title="3  Hexo修改根目录配置文件"></a>3  Hexo修改根目录配置文件</h4><pre class=" language-yml"><code class="language-yml">deploy:
+  type: git
+  repo: https://github.com/your_github_name/your_github_name.github.io.git
+  branch: master</code></pre>
+<p>如果配置了免密登录: </p>
+<pre><code>git@github.com:yourgithubName/your_github_name.github.io.git</code></pre><p>没有配置请使用：</p>
+<pre><code>https://github.com/your_github_name/your_github_name.github.io.git</code></pre><p><code>https</code>开头每次要输入密码，<code>git</code>开头表示是用ssh方式连接。</p>
+<h4 id="4-生成并部署"><a href="#4-生成并部署" class="headerlink" title="4  生成并部署"></a>4  生成并部署</h4><pre class=" language-bash"><code class="language-bash">hexo g <span class="token operator">&amp;</span> hexo d</code></pre>
+<p>如果没有配置免密登陆，部署的时候可能会用到git的用户名和密码。</p>
+<h4 id="5-访问验证"><a href="#5-访问验证" class="headerlink" title="5  访问验证"></a>5  访问验证</h4><p>打开浏览器访问：<a href="https://YourgithubName.github.io" target="_blank" rel="noopener">https://YourgithubName.github.io</a></p>
+<p>如我<code>github</code>博客地址：<a href="https://small-rose.github.io">https://small-rose.github.io</a></p>
+<h3 id="二-云服务器部署"><a href="#二-云服务器部署" class="headerlink" title="二  云服务器部署"></a>二  云服务器部署</h3><p>部署到云服务有两种方式，一种是利用git仓库配合hooks自动部署更新，另一种是插件的方式，插件的话可以参考如下：</p>
+<table>
+<thead>
+<tr>
+<th>插件安装命令</th>
+<th>功能</th>
+<th>文档</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>npm install hexo-deployer-cos –save</td>
+<td>hexo上传至腾讯云COS</td>
+<td><a href="https://github.com/sdlzhd/hexo-deployer-cos#user-content-options" target="_blank" rel="noopener">https://github.com/sdlzhd/hexo-deployer-cos#user-content-options</a></td>
+</tr>
+<tr>
+<td>npm install hexo-deployer-aliyun –save</td>
+<td>hexo上传至阿里云</td>
+<td><a href="https://github.com/yedaodao/hexo-deployer-aliyun" target="_blank" rel="noopener">https://github.com/yedaodao/hexo-deployer-aliyun</a></td>
+</tr>
+</tbody></table>
+<h4 id="1-准备环境：-1"><a href="#1-准备环境：-1" class="headerlink" title="1  准备环境："></a>1  准备环境：</h4><p>​    有一台云服务器，本文是腾讯云服务器</p>
+<p>​    准备工作大概如下</p>
+<pre class=" language-html"><code class="language-html">（1）服务器安装git服务并创建仓库
+
+（2）配置hooks
+
+（3）安装及配置Nginx</code></pre>
+<h4 id="2-安装git"><a href="#2-安装git" class="headerlink" title="2  安装git"></a>2  安装git</h4><p>安装命令：</p>
+<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> <span class="token function">git</span> </code></pre>
+<p>如果你的服务器不能直接yum安装，可以参考    git安装教程：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span>  /usr/local/src   <span class="token comment" spellcheck="true">#进入你的下载目录           </span>
+<span class="token function">wget</span> https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.24.0.tar.gz    <span class="token comment" spellcheck="true">#下载，不能下载就自己上传一下</span>
+<span class="token function">tar</span> -zvxf git-2.24.0.tar.gz    <span class="token comment" spellcheck="true">#解压</span>
+<span class="token function">cd</span> git-2.24.0                
+<span class="token function">make</span> all prefix<span class="token operator">=</span>/usr/local/git    <span class="token comment" spellcheck="true">#编译</span>
+<span class="token function">make</span> <span class="token function">install</span> prefix<span class="token operator">=</span>/usr/local/git    <span class="token comment" spellcheck="true">#安装git到指定目录</span>
+<span class="token keyword">echo</span> <span class="token string">'export PATH=<span class="token variable">$PATH</span>:/usr/local/git/bin'</span> <span class="token operator">>></span> /etc/bashrc  <span class="token comment" spellcheck="true">#配置环境变量</span>
+<span class="token function">source</span> /etc/bashrc       <span class="token comment" spellcheck="true">#刷新环境变量</span></code></pre>
+<p>验证Git是否安装成功：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> --version</code></pre>
+<p>添加git用户并授权：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">useradd</span> -r -s /bin/bash -c <span class="token string">'git version control'</span> -d /home/git <span class="token function">git</span> 
+<span class="token function">passwd</span> <span class="token function">git</span> 
+<span class="token function">mkdir</span> -p /home/git  
+<span class="token function">chown</span> git:git /home/git </code></pre>
+<p>创建仓库：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /home/git/
+<span class="token function">git</span> init --bare myHexoBlog.git</code></pre>
+<p>如果要配置SSH免登录：</p>
+<p>a.客户端生成密钥</p>
+<pre class=" language-bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"这里换上你的邮箱"</span></code></pre>
+<p>然后会出现询问，大概意思如下：</p>
+<pre><code>1. 确认秘钥的保存路径（如果不需要改路径则直接回车）；
+2. 如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
+3. 创建密码（如果不需要密码则直接回车）；
+4. 确认密码；</code></pre><p>要免密登录请输密码的时候回车即可。根据提示找到密钥所在文件：</p>
+<pre><code>id_rsa  #私钥
+id_rsa.pub  #公钥</code></pre><p>b.服务端导入客户端公钥</p>
+<p>在/home/git下已经创建.ssh目录，然后创建authorized_keys文件，并将客户端生成的公钥导入进去。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /home/git/
+<span class="token function">mkdir</span> .ssh
+<span class="token function">chmod</span> 755 .ssh
+<span class="token function">touch</span> .ssh/authorized_keys
+<span class="token function">chmod</span> 644 .ssh/authorized_keys</code></pre>
+<p>将 <code>id_rsa.pub</code> 文件的内容写入<code>authorized_keys</code></p>
+<p>c. 服务端SSH将RSA认证打开</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/ssh/sshd_config</code></pre>
+<p>其中三个地方的设置要确认如下：</p>
+<pre><code>RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys</code></pre><p>git用户不允许登录shell</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/passwd</code></pre>
+<p>将</p>
+<pre><code>git:x:502:502::/home/git:/bin/bash</code></pre><p> 改为</p>
+<pre><code>git:x:502:502::/home/git:/usr/local/git/bin/git-shell</code></pre><h4 id="3-配置hooks自动部署"><a href="#3-配置hooks自动部署" class="headerlink" title="3 配置hooks自动部署"></a>3 配置hooks自动部署</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p /home/hexoBlog
+<span class="token function">chown</span> git:git /home/hexoBlog 
+
+<span class="token function">cd</span> /home/hexoBlog
+<span class="token function">cd</span> /home/git/myHexoBlog.git/hooks
+vim  post-receive  <span class="token comment" spellcheck="true">#创建hooks执行文件</span></code></pre>
+<p>配置hooks，指定 Git 的工作树（源代码）和 Git 目录（配置文件等）</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token function">git</span> --work-tree<span class="token operator">=</span>/home/hexoBlog --git-dir<span class="token operator">=</span>/home/git/myHexoBlog.git checkout -f</code></pre>
+<p>如果是使用Apache服务,可以直接把work-tree目录指向/var/www/html</p>
+<h4 id="4-安装Nginx服务"><a href="#4-安装Nginx服务" class="headerlink" title="4 安装Nginx服务"></a>4 安装Nginx服务</h4><pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> -y nginx</code></pre>
+<p>如果你不能直接安装，请先配置安装源</p>
+<pre class=" language-bahs"><code class="language-bahs">sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre>
+<p>启动Nginx</p>
+<pre class=" language-bash"><code class="language-bash">systemctl start nginx.service</code></pre>
+<p>浏览器输入你的域名或者IP，出现欢迎页面代表安装启动成功。</p>
+<p>修改配置：</p>
+<pre class=" language-bash"><code class="language-bash">nginx -t  <span class="token comment" spellcheck="true">#查看nginx安装路径 配置文件路径</span>
+vim /etc/nginx/nginx.conf</code></pre>
+<p>找到server部分</p>
+<pre><code>server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /home/hexoBlog;    #需要修改
+
+    server_name www.zhangxiaocai.cn; #需要修改
+
+    include /etc/nginx/default.d/*.conf;
+    location / {
+    }
+    error_page 404 /404.html;
+        location = /40x.html {
+    }
+}</code></pre><p>修改好之后<code>ESC</code> 输入<code>:wq</code>保存退出。接下来验证配置</p>
+<pre class=" language-bash"><code class="language-bash">nginx -t</code></pre>
+<p>如果出现以下内容代表配置成功：</p>
+<pre class=" language-bash"><code class="language-bash">nginx: the configuration <span class="token function">file</span> /etc/nginx/nginx.conf syntax is ok
+nginx: configuration <span class="token function">file</span> /etc/nginx/nginx.conf <span class="token function">test</span> is successful</code></pre>
+<p>重新加载配置或重启nginx服务</p>
+<pre class=" language-bash"><code class="language-bash">nginx -s reload</code></pre>
+<p>更多<code>Nginx</code>相关内容，访问<code>Nginx</code></p>
+<h4 id="5-本地配置修改"><a href="#5-本地配置修改" class="headerlink" title="5 本地配置修改"></a>5 本地配置修改</h4><p>修改项目根目录的配置文件</p>
+<pre><code>deploy:
+    type: git
+    repo: git@你的云服务器的IP地址:/home/git/myHexoBlog.git
+    branch: master</code></pre><p>清理-生成-部署</p>
+<pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> hexo g <span class="token operator">&amp;</span> hexo d</code></pre>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
