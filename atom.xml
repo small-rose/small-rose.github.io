@@ -5,9 +5,9 @@
   <subtitle>Small Rose</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://zhangxiaocai.cn/"/>
+  <link href="https://www.zhangxiaocai.cn/"/>
   <updated>2020-06-04T16:00:00.000Z</updated>
-  <id>https://zhangxiaocai.cn/</id>
+  <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
     <name>Small Rose / 张小菜</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>JVM学习导航（第三版）</title>
-    <link href="https://zhangxiaocai.cn/posts/2a1a7c1f.html"/>
-    <id>https://zhangxiaocai.cn/posts/2a1a7c1f.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/2a1a7c1f.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/2a1a7c1f.html</id>
     <published>2020-06-04T16:00:00.000Z</published>
     <updated>2020-06-04T16:00:00.000Z</updated>
     
@@ -33,21 +33,21 @@
     </summary>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/tags/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://zhangxiaocai.cn/tags/JVM/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
     
-      <category term="Java虚拟机" scheme="https://zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+      <category term="Java虚拟机" scheme="https://www.zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>JVM LLGC：Shenandoah</title>
-    <link href="https://zhangxiaocai.cn/posts/f8161112.html"/>
-    <id>https://zhangxiaocai.cn/posts/f8161112.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/f8161112.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/f8161112.html</id>
     <published>2020-06-02T16:00:00.000Z</published>
     <updated>2020-06-02T16:00:00.000Z</updated>
     
@@ -61,21 +61,21 @@
     </summary>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/tags/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://zhangxiaocai.cn/tags/JVM/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
     
-      <category term="垃圾收集器" scheme="https://zhangxiaocai.cn/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
+      <category term="垃圾收集器" scheme="https://www.zhangxiaocai.cn/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>JVM LLGC：ZGC</title>
-    <link href="https://zhangxiaocai.cn/posts/e3d9aed7.html"/>
-    <id>https://zhangxiaocai.cn/posts/e3d9aed7.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/e3d9aed7.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/e3d9aed7.html</id>
     <published>2020-06-02T16:00:00.000Z</published>
     <updated>2020-06-02T16:00:00.000Z</updated>
     
@@ -89,21 +89,21 @@
     </summary>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/tags/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://zhangxiaocai.cn/tags/JVM/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
     
-      <category term="垃圾收集器" scheme="https://zhangxiaocai.cn/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
+      <category term="垃圾收集器" scheme="https://www.zhangxiaocai.cn/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>jvm之垃圾收集器</title>
-    <link href="https://zhangxiaocai.cn/posts/d01dbbb1.html"/>
-    <id>https://zhangxiaocai.cn/posts/d01dbbb1.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/d01dbbb1.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/d01dbbb1.html</id>
     <published>2020-05-31T16:00:00.000Z</published>
     <updated>2020-05-31T16:00:00.000Z</updated>
     
@@ -117,21 +117,21 @@
     </summary>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/tags/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://zhangxiaocai.cn/tags/JVM/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
     
-      <category term="垃圾收集器" scheme="https://zhangxiaocai.cn/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
+      <category term="垃圾收集器" scheme="https://www.zhangxiaocai.cn/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>jvm之垃圾收集器算法</title>
-    <link href="https://zhangxiaocai.cn/posts/50b49e8d.html"/>
-    <id>https://zhangxiaocai.cn/posts/50b49e8d.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/50b49e8d.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/50b49e8d.html</id>
     <published>2020-05-30T16:00:00.000Z</published>
     <updated>2020-05-30T16:00:00.000Z</updated>
     
@@ -145,21 +145,21 @@
     </summary>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/tags/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://zhangxiaocai.cn/tags/JVM/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
     
-      <category term="垃圾收集器算法" scheme="https://zhangxiaocai.cn/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E7%AE%97%E6%B3%95/"/>
+      <category term="垃圾收集器算法" scheme="https://www.zhangxiaocai.cn/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>jvm之对象生死</title>
-    <link href="https://zhangxiaocai.cn/posts/bce48291.html"/>
-    <id>https://zhangxiaocai.cn/posts/bce48291.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/bce48291.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/bce48291.html</id>
     <published>2020-05-29T16:00:00.000Z</published>
     <updated>2020-05-29T16:00:00.000Z</updated>
     
@@ -173,21 +173,21 @@
     </summary>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/tags/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://zhangxiaocai.cn/tags/JVM/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
     
-      <category term="对象生死" scheme="https://zhangxiaocai.cn/tags/%E5%AF%B9%E8%B1%A1%E7%94%9F%E6%AD%BB/"/>
+      <category term="对象生死" scheme="https://www.zhangxiaocai.cn/tags/%E5%AF%B9%E8%B1%A1%E7%94%9F%E6%AD%BB/"/>
     
   </entry>
   
   <entry>
     <title>jvm之对象创建与布局</title>
-    <link href="https://zhangxiaocai.cn/posts/b287f556.html"/>
-    <id>https://zhangxiaocai.cn/posts/b287f556.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/b287f556.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/b287f556.html</id>
     <published>2020-05-27T16:00:00.000Z</published>
     <updated>2020-05-27T16:00:00.000Z</updated>
     
@@ -201,19 +201,19 @@
     </summary>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/tags/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://zhangxiaocai.cn/tags/JVM/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
     
   </entry>
   
   <entry>
     <title>jvm之内存结构</title>
-    <link href="https://zhangxiaocai.cn/posts/9f103da7.html"/>
-    <id>https://zhangxiaocai.cn/posts/9f103da7.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/9f103da7.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/9f103da7.html</id>
     <published>2020-05-25T16:00:00.000Z</published>
     <updated>2020-05-25T16:00:00.000Z</updated>
     
@@ -228,21 +228,21 @@
     </summary>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/tags/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://zhangxiaocai.cn/tags/JVM/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
     
-      <category term="内存结构" scheme="https://zhangxiaocai.cn/tags/%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/"/>
+      <category term="内存结构" scheme="https://www.zhangxiaocai.cn/tags/%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>Git的SSH免密使用</title>
-    <link href="https://zhangxiaocai.cn/posts/c68d7a69.html"/>
-    <id>https://zhangxiaocai.cn/posts/c68d7a69.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/c68d7a69.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/c68d7a69.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
     <updated>2020-05-23T16:00:00.000Z</updated>
     
@@ -256,25 +256,25 @@
     </summary>
     
     
-      <category term="Git" scheme="https://zhangxiaocai.cn/categories/Git/"/>
+      <category term="Git" scheme="https://www.zhangxiaocai.cn/categories/Git/"/>
     
     
-      <category term="Git" scheme="https://zhangxiaocai.cn/tags/Git/"/>
+      <category term="Git" scheme="https://www.zhangxiaocai.cn/tags/Git/"/>
     
-      <category term="Github" scheme="https://zhangxiaocai.cn/tags/Github/"/>
+      <category term="Github" scheme="https://www.zhangxiaocai.cn/tags/Github/"/>
     
-      <category term="SSH免密" scheme="https://zhangxiaocai.cn/tags/SSH%E5%85%8D%E5%AF%86/"/>
+      <category term="SSH免密" scheme="https://www.zhangxiaocai.cn/tags/SSH%E5%85%8D%E5%AF%86/"/>
     
-      <category term="云服务器" scheme="https://zhangxiaocai.cn/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <category term="云服务器" scheme="https://www.zhangxiaocai.cn/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-      <category term="私有服务器" scheme="https://zhangxiaocai.cn/tags/%E7%A7%81%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <category term="私有服务器" scheme="https://www.zhangxiaocai.cn/tags/%E7%A7%81%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>java 查漏补缺-Java8 中的 Optional</title>
-    <link href="https://zhangxiaocai.cn/posts/c68d7a69.html"/>
-    <id>https://zhangxiaocai.cn/posts/c68d7a69.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/c68d7a69.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/c68d7a69.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
     <updated>2020-05-23T16:00:00.000Z</updated>
     
@@ -283,21 +283,21 @@
     </summary>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/tags/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://zhangxiaocai.cn/tags/JVM/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
     
-      <category term="Java虚拟机" scheme="https://zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+      <category term="Java虚拟机" scheme="https://www.zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>java 查漏补缺-jdk版本版本变化补充学习</title>
-    <link href="https://zhangxiaocai.cn/posts/80dc9555.html"/>
-    <id>https://zhangxiaocai.cn/posts/80dc9555.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/80dc9555.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/80dc9555.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
     <updated>2020-05-23T16:00:00.000Z</updated>
     
@@ -311,21 +311,21 @@
     </summary>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/tags/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://zhangxiaocai.cn/tags/JVM/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
     
-      <category term="Java虚拟机" scheme="https://zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+      <category term="Java虚拟机" scheme="https://www.zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>java 查漏补缺-java8里的日期时间API</title>
-    <link href="https://zhangxiaocai.cn/posts/d0e15f60.html"/>
-    <id>https://zhangxiaocai.cn/posts/d0e15f60.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/d0e15f60.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/d0e15f60.html</id>
     <published>2020-05-23T16:00:00.000Z</published>
     <updated>2020-05-23T16:00:00.000Z</updated>
     
@@ -339,21 +339,21 @@
     </summary>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://zhangxiaocai.cn/tags/Java/"/>
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://zhangxiaocai.cn/tags/JVM/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
     
-      <category term="Java虚拟机" scheme="https://zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+      <category term="Java虚拟机" scheme="https://www.zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <link href="https://zhangxiaocai.cn/posts/ce4a93ff.html"/>
-    <id>https://zhangxiaocai.cn/posts/ce4a93ff.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/ce4a93ff.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/ce4a93ff.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
@@ -364,17 +364,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://zhangxiaocai.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://zhangxiaocai.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（六）——项目部署</title>
-    <link href="https://zhangxiaocai.cn/posts/c68d7a69.html"/>
-    <id>https://zhangxiaocai.cn/posts/c68d7a69.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/c68d7a69.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/c68d7a69.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
@@ -385,17 +385,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://zhangxiaocai.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://zhangxiaocai.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（四）——插件安装</title>
-    <link href="https://zhangxiaocai.cn/posts/cda13ebe.html"/>
-    <id>https://zhangxiaocai.cn/posts/cda13ebe.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/cda13ebe.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/cda13ebe.html</id>
     <published>2020-05-15T16:00:00.000Z</published>
     <updated>2020-05-15T16:00:00.000Z</updated>
     
@@ -406,17 +406,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://zhangxiaocai.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://zhangxiaocai.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（三）——主题更换</title>
-    <link href="https://zhangxiaocai.cn/posts/a5bf7e18.html"/>
-    <id>https://zhangxiaocai.cn/posts/a5bf7e18.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/a5bf7e18.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/a5bf7e18.html</id>
     <published>2020-05-14T16:00:00.000Z</published>
     <updated>2020-05-14T16:00:00.000Z</updated>
     
@@ -427,17 +427,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://zhangxiaocai.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://zhangxiaocai.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（二）——创建页面</title>
-    <link href="https://zhangxiaocai.cn/posts/c1358fc8.html"/>
-    <id>https://zhangxiaocai.cn/posts/c1358fc8.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/c1358fc8.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/c1358fc8.html</id>
     <published>2020-05-13T16:00:00.000Z</published>
     <updated>2020-05-13T16:00:00.000Z</updated>
     
@@ -448,17 +448,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://zhangxiaocai.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://zhangxiaocai.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搭建静态博客（一）——基础搭建</title>
-    <link href="https://zhangxiaocai.cn/posts/9f117b.html"/>
-    <id>https://zhangxiaocai.cn/posts/9f117b.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/9f117b.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/9f117b.html</id>
     <published>2020-05-12T16:00:00.000Z</published>
     <updated>2020-05-12T16:00:00.000Z</updated>
     
@@ -469,17 +469,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://zhangxiaocai.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://zhangxiaocai.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>js让页面自动刷新</title>
-    <link href="https://zhangxiaocai.cn/posts/7413f2ca.html"/>
-    <id>https://zhangxiaocai.cn/posts/7413f2ca.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/7413f2ca.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/7413f2ca.html</id>
     <published>2019-11-08T16:00:00.000Z</published>
     <updated>2019-11-08T16:00:00.000Z</updated>
     
@@ -490,17 +490,17 @@
     </summary>
     
     
-      <category term="Java,DataBase" scheme="https://zhangxiaocai.cn/categories/Java-DataBase/"/>
+      <category term="Java,DataBase" scheme="https://www.zhangxiaocai.cn/categories/Java-DataBase/"/>
     
     
-      <category term="javascript" scheme="https://zhangxiaocai.cn/tags/javascript/"/>
+      <category term="javascript" scheme="https://www.zhangxiaocai.cn/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>开发常用的网站收藏列表</title>
-    <link href="https://zhangxiaocai.cn/posts/2d1a17c5.html"/>
-    <id>https://zhangxiaocai.cn/posts/2d1a17c5.html</id>
+    <link href="https://www.zhangxiaocai.cn/posts/2d1a17c5.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/2d1a17c5.html</id>
     <published>2019-06-01T16:00:00.000Z</published>
     <updated>2019-06-01T16:00:00.000Z</updated>
     
@@ -521,10 +521,10 @@
     </summary>
     
     
-      <category term="收藏资源" scheme="https://zhangxiaocai.cn/categories/%E6%94%B6%E8%97%8F%E8%B5%84%E6%BA%90/"/>
+      <category term="收藏资源" scheme="https://www.zhangxiaocai.cn/categories/%E6%94%B6%E8%97%8F%E8%B5%84%E6%BA%90/"/>
     
     
-      <category term="开发常用" scheme="https://zhangxiaocai.cn/tags/%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8/"/>
+      <category term="开发常用" scheme="https://www.zhangxiaocai.cn/tags/%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8/"/>
     
   </entry>
   
