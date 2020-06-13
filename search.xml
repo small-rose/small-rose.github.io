@@ -1900,7 +1900,7 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
 </blockquote>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>JVM</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -1963,7 +1963,7 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
 <p><code>HotSpot</code>而言，它主要使用第二种方式进行对象访问。</p>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>JVM</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -2116,7 +2116,7 @@ no, i am dead :(</code></pre><p>结论</p>
 <p>需要同时满足下面三个条件:<br>A. 该类所有的实例都已经被回收，Java堆中不存在该类及其任何派生子类的实例<br>B. 加载该类的类加载器已经被回收。（难达成）<br>C. 该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。 </p>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>JVM</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -2181,7 +2181,7 @@ no, i am dead :(</code></pre><p>结论</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>JVM</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -2332,7 +2332,7 @@ no, i am dead :(</code></pre><p>结论</p>
 <p>在此之前，实现类似的并发操作，通常是在被移动对象原有的内存上设置保护陷阱（Memory Protection Trap），一旦用户程序访问到归属于旧对象的内存空间就会产生自陷中段，进入预设好的异常处理器中，再由其中的代码逻辑把访问转发到复制后的新对象上。虽然确实能够实现对象移动与用户线程并发，但是如果没有操作系统层面的直接支持，这种方案将导致用户态频繁切换到核心态。</p>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>JVM</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -2411,7 +2411,7 @@ no, i am dead :(</code></pre><p>结论</p>
 <p>（3）将会成为服务端、大内存、低延迟应用的首选收集器的有力竞争者。</p>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>JVM</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -2660,7 +2660,7 @@ no, i am dead :(</code></pre><p>结论</p>
 <p>具体更详细的学习笔记：<a href="e3d9aed7.html">《jvm垃圾收集器ZGC》</a></p>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>JVM</category>
       </categories>
       <tags>
         <tag>Java</tag>
