@@ -3559,7 +3559,7 @@ jdk.jcmd                        jdk.xml.ws*
 jdk.jconsole</code></pre>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>JVM</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -3763,7 +3763,7 @@ No shared spaces configured.</code></pre><h4 id="5、空间分配担保"><a href
 [GC [DefNew: 6378K-&gt;148K(9216K), 0.0006584 secs] 10474K-&gt;4244K(19456K), 0.0006857 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]</code></pre><p><code>-XX：HandlePromotionFailure</code>参数在实际虚拟机中已经不会再使用它。JDK 6 Update 24之后的规则变为只要老年代的连续空间大于新生代对象总大小或者历次晋升的平均大小，就会进行Minor GC，否则将进行Full GC。</p>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>JVM</category>
       </categories>
       <tags>
         <tag>Java</tag>
