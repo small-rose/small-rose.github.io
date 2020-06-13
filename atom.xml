@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-06-04T16:00:00.000Z</updated>
+  <updated>2020-06-12T16:00:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -20,14 +20,287 @@
     <title>JVM学习导航（第三版）</title>
     <link href="https://www.zhangxiaocai.cn/posts/2a1a7c1f.html"/>
     <id>https://www.zhangxiaocai.cn/posts/2a1a7c1f.html</id>
-    <published>2020-06-04T16:00:00.000Z</published>
-    <updated>2020-06-04T16:00:00.000Z</updated>
+    <published>2020-06-12T16:00:00.000Z</published>
+    <updated>2020-06-12T16:00:00.000Z</updated>
     
     <summary type="html">
     
       
       
         &lt;pre&gt;&lt;code&gt;本文记录关于深入理解JVM（第三版）相关学习导航笔记。&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;java虚拟机内存自动管理&quot;&gt;&lt;a href=&quot;#java虚拟机内存自动管理&quot; class=&quot;headerlink&quot; title=&quot;java虚拟机内存自动管理&quot;&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
+    
+      <category term="Java虚拟机" scheme="https://www.zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java模块化系统</title>
+    <link href="https://www.zhangxiaocai.cn/posts/49b8efd0.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/49b8efd0.html</id>
+    <published>2020-06-11T16:00:00.000Z</published>
+    <updated>2020-06-11T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Java模块化系统&quot;&gt;&lt;a href=&quot;#Java模块化系统&quot; class=&quot;headerlink&quot; title=&quot;Java模块化系统&quot;&gt;&lt;/a&gt;Java模块化系统&lt;/h2&gt;&lt;p&gt;Java模块化系统（Java Platform Module System，JPMS
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
+    
+      <category term="模块化系统" scheme="https://www.zhangxiaocai.cn/tags/%E6%A8%A1%E5%9D%97%E5%8C%96%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DB2常用函数</title>
+    <link href="https://www.zhangxiaocai.cn/posts/d22e90ef.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/d22e90ef.html</id>
+    <published>2020-06-09T16:00:00.000Z</published>
+    <updated>2020-06-09T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;DB2常用函数&quot;&gt;&lt;a href=&quot;#DB2常用函数&quot; class=&quot;headerlink&quot; title=&quot;DB2常用函数&quot;&gt;&lt;/a&gt;DB2常用函数&lt;/h2&gt;&lt;h3 id=&quot;一、寄存器使用&quot;&gt;&lt;a href=&quot;#一、寄存器使用&quot; class=&quot;headerlink
+      
+    
+    </summary>
+    
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
+    
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
+    
+      <category term="sql" scheme="https://www.zhangxiaocai.cn/tags/sql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm之类加载机制</title>
+    <link href="https://www.zhangxiaocai.cn/posts/22096143.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/22096143.html</id>
+    <published>2020-06-09T16:00:00.000Z</published>
+    <updated>2020-06-09T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;jvm类加载机制&quot;&gt;&lt;a href=&quot;#jvm类加载机制&quot; class=&quot;headerlink&quot; title=&quot;jvm类加载机制&quot;&gt;&lt;/a&gt;jvm类加载机制&lt;/h2&gt;&lt;p&gt;什么是类加载机制？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Java虚拟机把描述类的数据从C
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DB2常用命令</title>
+    <link href="https://www.zhangxiaocai.cn/posts/7f06fe17.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/7f06fe17.html</id>
+    <published>2020-06-09T16:00:00.000Z</published>
+    <updated>2020-06-09T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;DB2-常用命令&quot;&gt;&lt;a href=&quot;#DB2-常用命令&quot; class=&quot;headerlink&quot; title=&quot;DB2 常用命令&quot;&gt;&lt;/a&gt;DB2 常用命令&lt;/h2&gt;&lt;h3 id=&quot;1、启停命令&quot;&gt;&lt;a href=&quot;#1、启停命令&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
+    
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
+    
+      <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm之类文件结构</title>
+    <link href="https://www.zhangxiaocai.cn/posts/6698cab3.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/6698cab3.html</id>
+    <published>2020-06-08T16:00:00.000Z</published>
+    <updated>2020-06-08T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;jvm类文件结构&quot;&gt;&lt;a href=&quot;#jvm类文件结构&quot; class=&quot;headerlink&quot; title=&quot;jvm类文件结构&quot;&gt;&lt;/a&gt;jvm类文件结构&lt;/h2&gt;&lt;p&gt;各种不同平台的Java虚拟机，以及所有平台都统一支持的程序存储格式——字节码（ByteCod
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
+    
+      <category term="Jvm" scheme="https://www.zhangxiaocai.cn/tags/Jvm/"/>
+    
+      <category term="class结构" scheme="https://www.zhangxiaocai.cn/tags/class%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm之对象查询OQL</title>
+    <link href="https://www.zhangxiaocai.cn/posts/2197a49e.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/2197a49e.html</id>
+    <published>2020-06-08T16:00:00.000Z</published>
+    <updated>2020-06-08T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;jvm之对象查询OQL&quot;&gt;&lt;a href=&quot;#jvm之对象查询OQL&quot; class=&quot;headerlink&quot; title=&quot;jvm之对象查询OQL&quot;&gt;&lt;/a&gt;jvm之对象查询OQL&lt;/h2&gt;&lt;h3 id=&quot;一、SELECT子句&quot;&gt;&lt;a href=&quot;#一、SELEC
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
+    
+      <category term="Jvm" scheme="https://www.zhangxiaocai.cn/tags/Jvm/"/>
+    
+      <category term="OQL" scheme="https://www.zhangxiaocai.cn/tags/OQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm之字节码指令</title>
+    <link href="https://www.zhangxiaocai.cn/posts/a2ceb3e5.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/a2ceb3e5.html</id>
+    <published>2020-06-08T16:00:00.000Z</published>
+    <updated>2020-06-08T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;jvm字节码指令&quot;&gt;&lt;a href=&quot;#jvm字节码指令&quot; class=&quot;headerlink&quot; title=&quot;jvm字节码指令&quot;&gt;&lt;/a&gt;jvm字节码指令&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Java虚拟机的指令由一个字节长度的、代表着某种特定操作含义的数字
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
+    
+      <category term="Jvm" scheme="https://www.zhangxiaocai.cn/tags/Jvm/"/>
+    
+      <category term="字节码指令" scheme="https://www.zhangxiaocai.cn/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm字节码指令表</title>
+    <link href="https://www.zhangxiaocai.cn/posts/ee62cca5.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/ee62cca5.html</id>
+    <published>2020-06-08T16:00:00.000Z</published>
+    <updated>2020-06-08T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;JVM字节码指令表&quot;&gt;&lt;a href=&quot;#JVM字节码指令表&quot; class=&quot;headerlink&quot; title=&quot;JVM字节码指令表&quot;&gt;&lt;/a&gt;JVM字节码指令表&lt;/h2&gt;&lt;h3 id=&quot;java虚拟机字节码指令表&quot;&gt;&lt;a href=&quot;#java虚拟机字节码指令
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
+    
+      <category term="字节码指令表" scheme="https://www.zhangxiaocai.cn/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm监控调优工具</title>
+    <link href="https://www.zhangxiaocai.cn/posts/ed0fd586.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/ed0fd586.html</id>
+    <published>2020-06-08T16:00:00.000Z</published>
+    <updated>2020-06-08T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;JVM常用工具&quot;&gt;&lt;a href=&quot;#JVM常用工具&quot; class=&quot;headerlink&quot; title=&quot;JVM常用工具&quot;&gt;&lt;/a&gt;JVM常用工具&lt;/h2&gt;&lt;p&gt;之所以要使用JVM工具当然是为了定位系统问题。常见的可依赖的数据包括但不限于异常堆栈、虚拟机运行日志
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
+    
+      <category term="监控调优工具" scheme="https://www.zhangxiaocai.cn/tags/%E7%9B%91%E6%8E%A7%E8%B0%83%E4%BC%98%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm之分配与回收策略</title>
+    <link href="https://www.zhangxiaocai.cn/posts/96a9f88d.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/96a9f88d.html</id>
+    <published>2020-06-07T16:00:00.000Z</published>
+    <updated>2020-06-07T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;JVM内存分配与回收策略&quot;&gt;&lt;a href=&quot;#JVM内存分配与回收策略&quot; class=&quot;headerlink&quot; title=&quot;JVM内存分配与回收策略&quot;&gt;&lt;/a&gt;JVM内存分配与回收策略&lt;/h2&gt;&lt;p&gt;Java的自动内存管理，最根本的目标是自动化解决两个问题：自
       
     
     </summary>
@@ -40,14 +313,12 @@
     
       <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
     
-      <category term="Java虚拟机" scheme="https://www.zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
   </entry>
   
   <entry>
-    <title>JVM LLGC：Shenandoah</title>
-    <link href="https://www.zhangxiaocai.cn/posts/f8161112.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/f8161112.html</id>
+    <title>JVM LLGC：ZGC</title>
+    <link href="https://www.zhangxiaocai.cn/posts/e3d9aed7.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/e3d9aed7.html</id>
     <published>2020-06-02T16:00:00.000Z</published>
     <updated>2020-06-02T16:00:00.000Z</updated>
     
@@ -55,7 +326,7 @@
     
       
       
-        &lt;h2 id=&quot;JVM低延迟垃圾收集器：Shenandoah&quot;&gt;&lt;a href=&quot;#JVM低延迟垃圾收集器：Shenandoah&quot; class=&quot;headerlink&quot; title=&quot;JVM低延迟垃圾收集器：Shenandoah&quot;&gt;&lt;/a&gt;JVM低延迟垃圾收集器：Shenando
+        &lt;h2 id=&quot;jvm低延迟垃圾收集器-ZGC&quot;&gt;&lt;a href=&quot;#jvm低延迟垃圾收集器-ZGC&quot; class=&quot;headerlink&quot; title=&quot;jvm低延迟垃圾收集器 ZGC&quot;&gt;&lt;/a&gt;jvm低延迟垃圾收集器 ZGC&lt;/h2&gt;&lt;p&gt;EN： JVM Low-Latenc
       
     
     </summary>
@@ -73,9 +344,9 @@
   </entry>
   
   <entry>
-    <title>JVM LLGC：ZGC</title>
-    <link href="https://www.zhangxiaocai.cn/posts/e3d9aed7.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/e3d9aed7.html</id>
+    <title>JVM LLGC：Shenandoah</title>
+    <link href="https://www.zhangxiaocai.cn/posts/f8161112.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/f8161112.html</id>
     <published>2020-06-02T16:00:00.000Z</published>
     <updated>2020-06-02T16:00:00.000Z</updated>
     
@@ -83,7 +354,7 @@
     
       
       
-        &lt;h2 id=&quot;jvm低延迟垃圾收集器-ZGC&quot;&gt;&lt;a href=&quot;#jvm低延迟垃圾收集器-ZGC&quot; class=&quot;headerlink&quot; title=&quot;jvm低延迟垃圾收集器 ZGC&quot;&gt;&lt;/a&gt;jvm低延迟垃圾收集器 ZGC&lt;/h2&gt;&lt;p&gt;EN： JVM Low-Latenc
+        &lt;h2 id=&quot;JVM低延迟垃圾收集器：Shenandoah&quot;&gt;&lt;a href=&quot;#JVM低延迟垃圾收集器：Shenandoah&quot; class=&quot;headerlink&quot; title=&quot;JVM低延迟垃圾收集器：Shenandoah&quot;&gt;&lt;/a&gt;JVM低延迟垃圾收集器：Shenando
       
     
     </summary>
@@ -240,6 +511,29 @@
   </entry>
   
   <entry>
+    <title>java 查漏补缺-Java8 中的 Optional</title>
+    <link href="https://www.zhangxiaocai.cn/posts/c68d7a69.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/c68d7a69.html</id>
+    <published>2020-05-23T16:00:00.000Z</published>
+    <updated>2020-05-23T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
+    
+      <category term="Java虚拟机" scheme="https://www.zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Git的SSH免密使用</title>
     <link href="https://www.zhangxiaocai.cn/posts/c68d7a69.html"/>
     <id>https://www.zhangxiaocai.cn/posts/c68d7a69.html</id>
@@ -265,266 +559,7 @@
     
       <category term="SSH免密" scheme="https://www.zhangxiaocai.cn/tags/SSH%E5%85%8D%E5%AF%86/"/>
     
-      <category term="云服务器" scheme="https://www.zhangxiaocai.cn/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-      <category term="私有服务器" scheme="https://www.zhangxiaocai.cn/tags/%E7%A7%81%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java 查漏补缺-Java8 中的 Optional</title>
-    <link href="https://www.zhangxiaocai.cn/posts/c68d7a69.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/c68d7a69.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-23T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
-    
-      <category term="Java虚拟机" scheme="https://www.zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java 查漏补缺-jdk版本版本变化补充学习</title>
-    <link href="https://www.zhangxiaocai.cn/posts/80dc9555.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/80dc9555.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-23T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;JDK各个版本的变化补充学习&quot;&gt;&lt;a href=&quot;#JDK各个版本的变化补充学习&quot; class=&quot;headerlink&quot; title=&quot;JDK各个版本的变化补充学习&quot;&gt;&lt;/a&gt;JDK各个版本的变化补充学习&lt;/h2&gt;&lt;h3 id=&quot;JDK1-5&quot;&gt;&lt;a href=&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
-    
-      <category term="Java虚拟机" scheme="https://www.zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java 查漏补缺-java8里的日期时间API</title>
-    <link href="https://www.zhangxiaocai.cn/posts/d0e15f60.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/d0e15f60.html</id>
-    <published>2020-05-23T16:00:00.000Z</published>
-    <updated>2020-05-23T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Java-8-日期时间-API&quot;&gt;&lt;a href=&quot;#Java-8-日期时间-API&quot; class=&quot;headerlink&quot; title=&quot;Java 8 日期时间 API&quot;&gt;&lt;/a&gt;Java 8 日期时间 API&lt;/h3&gt;&lt;p&gt;Java 8通过发布新的Date-T
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
-    
-      <category term="Java虚拟机" scheme="https://www.zhangxiaocai.cn/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建静态博客（五）——踩坑问题</title>
-    <link href="https://www.zhangxiaocai.cn/posts/ce4a93ff.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/ce4a93ff.html</id>
-    <published>2020-05-16T16:00:00.000Z</published>
-    <updated>2020-05-16T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; 本文记录捣鼓hexo博客时遇到的一些踩坑的记录及相关解决思路。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建静态博客（六）——项目部署</title>
-    <link href="https://www.zhangxiaocai.cn/posts/c68d7a69.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/c68d7a69.html</id>
-    <published>2020-05-16T16:00:00.000Z</published>
-    <updated>2020-05-16T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文记录将hexo博客部署到github、云服务器上的相关操作操作。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建静态博客（四）——插件安装</title>
-    <link href="https://www.zhangxiaocai.cn/posts/cda13ebe.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/cda13ebe.html</id>
-    <published>2020-05-15T16:00:00.000Z</published>
-    <updated>2020-05-15T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Hexo静态博客插件安装相关内容，本文以安装search和abbrlink插件为例。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建静态博客（三）——主题更换</title>
-    <link href="https://www.zhangxiaocai.cn/posts/a5bf7e18.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/a5bf7e18.html</id>
-    <published>2020-05-14T16:00:00.000Z</published>
-    <updated>2020-05-14T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Hexo静态博客已经搭建好了，链接页面有了，主题不好看怎么换呢？本文记录主题更换相关内容。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建静态博客（二）——创建页面</title>
-    <link href="https://www.zhangxiaocai.cn/posts/c1358fc8.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/c1358fc8.html</id>
-    <published>2020-05-13T16:00:00.000Z</published>
-    <updated>2020-05-13T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文记录将hexo博客创建页面相关操作操作。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建静态博客（一）——基础搭建</title>
-    <link href="https://www.zhangxiaocai.cn/posts/9f117b.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/9f117b.html</id>
-    <published>2020-05-12T16:00:00.000Z</published>
-    <updated>2020-05-12T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; 原来使用springboot自己捣鼓的博客，总是不够满意，就想着实在不行搞个静态博客，比较再三选择hexo,就用Hexo再捣鼓一个静态博客，折腾了几天也算有成果了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js让页面自动刷新</title>
-    <link href="https://www.zhangxiaocai.cn/posts/7413f2ca.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/7413f2ca.html</id>
-    <published>2019-11-08T16:00:00.000Z</published>
-    <updated>2019-11-08T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;js让页面自动刷新&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Java,DataBase" scheme="https://www.zhangxiaocai.cn/categories/Java-DataBase/"/>
-    
-    
-      <category term="javascript" scheme="https://www.zhangxiaocai.cn/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>开发常用的网站收藏列表</title>
-    <link href="https://www.zhangxiaocai.cn/posts/2d1a17c5.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/2d1a17c5.html</id>
-    <published>2019-06-01T16:00:00.000Z</published>
-    <updated>2019-06-01T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;API在线&quot;&gt;&lt;a href=&quot;#API在线&quot; class=&quot;headerlink&quot; title=&quot;API在线&quot;&gt;&lt;/a&gt;API在线&lt;/h4&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;网站&lt;/th&gt;
-&lt;th&gt;地址&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="收藏资源" scheme="https://www.zhangxiaocai.cn/categories/%E6%94%B6%E8%97%8F%E8%B5%84%E6%BA%90/"/>
-    
-    
-      <category term="开发常用" scheme="https://www.zhangxiaocai.cn/tags/%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8/"/>
+      <category term="服务器" scheme="https://www.zhangxiaocai.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
