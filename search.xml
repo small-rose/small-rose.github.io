@@ -743,6 +743,8 @@ log<span class="token punctuation">.</span><span class="token function">setLogMs
 <p>N —就是我们要查询的N条记录。</p>
 <p>示例默认查询前10条记录。</p>
 <p>语法演示的都是简单查询，如果有条件和排序请自行添加，示例默认为无条件和默认排序。</p>
+<p>想了解各个数据库SQL分页？请参考<a href="2cbe04e7.html">《SQL之SQL分页的N种玩法》</a>。</p>
+<p>想了解Mybtatis模糊查询？请参考<a href="4c7816b.html">《Mybatis-模糊查询的N种玩法》</a>。</p>
 </blockquote>
 <h4 id="1、TOP-关键字"><a href="#1、TOP-关键字" class="headerlink" title="1、TOP 关键字"></a>1、TOP 关键字</h4><p>TOP 关键字支持的数据库： <code>SQL Server</code> 、 <code>Access</code> 。</p>
 <p>语法：</p>
@@ -806,7 +808,8 @@ log<span class="token punctuation">.</span><span class="token function">setLogMs
 <p>大概以取前3页为例。</p>
 <p>page_size — &gt;每页显示条数 10，后面不再重复说明。</p>
 <p>page_num  —&gt; 页码  1,2,3 取前面的2页或3页</p>
-<p>从<a href=".html">《SQL查询前N条记录》</a>一文整理的<code>“数据库和分页关键字/函数对应关系表”</code>可以看到分页大致分4类数据库，就以代表性的数据库来列举，相同关键字或函数的数据库用法相似，不再单列。</p>
+<p>从<a href="3c74f69f.html">《SQL之查询前N条记录》</a>一文整理的<code>“数据库和分页关键字/函数对应关系表”</code>可以看到分页大致分4类数据库，就以代表性的数据库来列举，相同关键字或函数的数据库用法相似，不再单列。</p>
+<p>想了解Mybtatis模糊查询？请参考<a href="4c7816b.html">《Mybatis-模糊查询的N种玩法》</a>。</p>
 </blockquote>
 <h3 id="一、SQL-Server-分页"><a href="#一、SQL-Server-分页" class="headerlink" title="一、SQL Server 分页"></a>一、SQL Server 分页</h3><h4 id="（1）TOP方式"><a href="#（1）TOP方式" class="headerlink" title="（1）TOP方式"></a>（1）TOP方式</h4><p>查询第一页的时候，用top方法，效率最高。</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span>  <span class="token keyword">top</span> <span class="token number">10</span>  pagesize   <span class="token keyword">from</span> table_name 
