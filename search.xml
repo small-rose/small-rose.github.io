@@ -108,7 +108,7 @@ nameserver 8.8.4.4</code></pre>]]></content>
   </entry>
   <entry>
     <title>Git的SSH免密使用</title>
-    <url>/posts/c68d7a69.html</url>
+    <url>/posts/6ac07d1a.html</url>
     <content><![CDATA[<pre><code>本文记录关于Git的免密使用，连接Github免密和 云服务器或私有服务器免密。</code></pre><h3 id="一-Github的Git免密使用"><a href="#一-Github的Git免密使用" class="headerlink" title="一  Github的Git免密使用"></a>一  <code>Github</code>的Git免密使用</h3><h4 id="1-客户端生成密钥"><a href="#1-客户端生成密钥" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
 <pre><code>1. 确认秘钥的保存路径（如果不需要改路径则直接回车）；
 2. 如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
@@ -1682,8 +1682,133 @@ nginx: configuration <span class="token function">file</span> /etc/nginx/nginx.c
   </entry>
   <entry>
     <title>java 查漏补缺-Java8 中的 Optional</title>
-    <url>/posts/c68d7a69.html</url>
-    <content><![CDATA[]]></content>
+    <url>/posts/e748f349.html</url>
+    <content><![CDATA[<h2 id="Java8-中的-Optional"><a href="#Java8-中的-Optional" class="headerlink" title="Java8 中的 Optional"></a>Java8 中的 Optional</h2><h3 id="关于Optional"><a href="#关于Optional" class="headerlink" title="关于Optional"></a>关于Optional</h3><p>该类位于java.util下，属于final类，其实就是一个工具类。<br>主要是为了预防运行时抛出 <code>NullPointException</code></p>
+<p>使用示例：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>xiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>optional<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Optional<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OptionalTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         Optional<span class="token operator">&lt;</span>String<span class="token operator">></span> optionalS <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>optionalS<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">//输出： zhangxiaocai</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h3 id="Optional主要方法API"><a href="#Optional主要方法API" class="headerlink" title="Optional主要方法API"></a>Optional主要方法API</h3><p>|方法API     | 说明 |<br>|of(T value)     | 把指定的值封装为Optional对象，如果指定的值为null，则抛出NullPointerException |<br>|ofNullable(T value)  | 把指定的值封装为Optional对象，如果指定的值为null，则创建一个空的Optional对象 |<br>|get()     | 如果创建的Optional中有值存在，则返回此值，否则抛出NoSuchElementException |<br>|isPresent()     | 如果创建的Optional中的值存在，返回true，否则返回false |<br>|ifPresent(Consumer&lt;? super T&gt; consumer)     | 如果创建的Optional中的值存在，则执行该方法的调用，否则什么也不做 |<br>|orElse(T value)     | 如果创建的Optional中有值存在，则返回此值，否则返回一个默认值 |<br>|orElseGet(Supplier&lt;? extends T&gt; other)     | 如果创建的Optional中有值存在，则返回此值，否则返回一个由Supplier接口生成的值 |<br>|orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier)    | 如果存在该值，返回包含的值，否则抛出由 Supplier 继承的异常 |<br>|empty()     | 创建一个空的Optional对象 |<br>|orElseThrow     | 如果创建的Optional中有值存在，则返回此值，否则抛出一个由指定的Supplier接口生成的异常 |<br>|filter(Predicate&lt;? super <T> predicate)     | 如果创建的Optional中的值满足filter中的条件，则返回包含该值的Optional对象，否则返回一个空的Optional对象 |<br>|map(Function&lt;? super T,? extends U&gt; mapper)     | 如果创建的Optional中的值存在，对该值执行提供的Function函数调用 |<br>|flagMap(Function&lt;? super T,Optional<U>&gt; mapper)     | 如果创建的Optional中的值存在，就对该值执行提供的Function函数调用，返回一个Optional类型的值，否则就返回一个空的Optional对象 |</p>
+<h3 id="普通思维实例演示"><a href="#普通思维实例演示" class="headerlink" title="普通思维实例演示"></a>普通思维实例演示</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>xiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>optional<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Optional<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OptionalTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         Optional<span class="token operator">&lt;</span>String<span class="token operator">></span> optionalS <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>optionalS<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+         UserModel user <span class="token operator">=</span> null<span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">//Optional&lt;UserModel> userOption1 = Optional.of(user);//会抛异常</span>
+         <span class="token comment" spellcheck="true">//out.println(userOption1.get());</span>
+         Optional<span class="token operator">&lt;</span>UserModel<span class="token operator">></span> userOption2 <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//不会抛异常</span>
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//调用的时候会抛异常，因此调用需要先判断</span>
+
+
+         user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UserModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         user<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         user<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"xiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         user<span class="token punctuation">.</span><span class="token function">setEmail</span><span class="token punctuation">(</span><span class="token string">"small-rose@qq.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token comment" spellcheck="true">//即使使用了之前的变量名，依旧是一个新的对象</span>
+         userOption2 <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token keyword">if</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+             out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+             Optional<span class="token operator">&lt;</span>Integer<span class="token operator">></span> uid <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword">if</span><span class="token punctuation">(</span>uid<span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                 out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"user  id is "</span><span class="token operator">+</span>uid<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span>
+             Optional<span class="token operator">&lt;</span>String<span class="token operator">></span> email <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword">if</span><span class="token punctuation">(</span>email<span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                 out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"you can send mail to "</span><span class="token operator">+</span>email<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span>
+
+             <span class="token comment" spellcheck="true">//Optional.orElse - 如果值存在，返回它，否则返回提供的默认值</span>
+             Optional<span class="token operator">&lt;</span>String<span class="token operator">></span> nameopt <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             String name <span class="token operator">=</span> nameopt<span class="token punctuation">.</span><span class="token function">orElse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"user name is "</span><span class="token operator">+</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+             out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"user is null "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h3 id="函数式编程演示"><a href="#函数式编程演示" class="headerlink" title="函数式编程演示"></a>函数式编程演示</h3><p>函数式编程注意方法API中传的参数。<br>留意带参数的几个API:<br><code>ifPresent(Consumer&lt;? super T&gt; consumer</code>、<br><code>orElseGet(Supplier&lt;? extends T&gt; other)</code><br><code>orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier)</code><br><code>map(Function&lt;? super T,? extends U&gt; mapper)</code><br><code>flagMap(Function&lt;? super T,Optional&lt;U&gt;&gt; mapper)</code></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>xiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>optional<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Optional<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>function<span class="token punctuation">.</span>Supplier<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OptionalFuncTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+         UserModel user1 <span class="token operator">=</span> null <span class="token punctuation">;</span>
+         Optional<span class="token operator">&lt;</span>UserModel<span class="token operator">></span> userop1 <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>user1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token comment" spellcheck="true">//如果user1为null，就实例化一个</span>
+         <span class="token comment" spellcheck="true">//orElse 与之前相同 写法1</span>
+         UserModel defuser1 <span class="token operator">=</span>userop1<span class="token punctuation">.</span><span class="token function">orElse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">UserModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>defuser1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">//函数式 orElseGet 写法2</span>
+         UserModel defuser2 <span class="token operator">=</span> userop1<span class="token punctuation">.</span><span class="token function">orElseGet</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span> <span class="token keyword">new</span> <span class="token class-name">UserModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">//if(userop1.isPresent()){ defuser2 = userop1.get(); }else{ defuser2 = new UserModel(); }</span>
+
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>defuser2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         UserModel user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UserModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         user<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         user<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"xiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         user<span class="token punctuation">.</span><span class="token function">setEmail</span><span class="token punctuation">(</span><span class="token string">"small-rose@qq.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+         Optional<span class="token operator">&lt;</span>UserModel<span class="token operator">></span> userop2 <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">//如果 userop 里的对象不为空，则取出名称并打印</span>
+         <span class="token comment" spellcheck="true">//函数式ifPresent 是无返回值的 Consumer消费型接口</span>
+         userop2<span class="token punctuation">.</span><span class="token function">ifPresent</span><span class="token punctuation">(</span>u <span class="token operator">-</span><span class="token operator">></span>  out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>u<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">// if(userop2.isPresent()){ out.println(userop2.get().getName()); }</span>
+
+         <span class="token comment" spellcheck="true">//user1如果是空的，就实例化一个，但是名称也是空的，为了测试orElseGet</span>
+         Optional<span class="token operator">&lt;</span>String<span class="token operator">></span> nameop <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>userop1<span class="token punctuation">.</span><span class="token function">orElseGet</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span> <span class="token keyword">new</span> <span class="token class-name">UserModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token comment" spellcheck="true">//函数式orElseGet 是有返回值的 Supplier供给型接口</span>
+         String userName <span class="token operator">=</span> nameop<span class="token punctuation">.</span><span class="token function">orElseGet</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">// if(nameop.isPresent()){ userName = nameop.get(); }else{ userName = "zhangxiaocai"; }</span>
+
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"user name is "</span> <span class="token operator">+</span>userName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token comment" spellcheck="true">//如果要求不允许随便实例化怎么办呢？那就可以判断，是否为空，若为空抛出异常即可</span>
+         userop1<span class="token punctuation">.</span><span class="token function">orElseThrow</span><span class="token punctuation">(</span>IllegalArgumentException<span class="token operator">:</span><span class="token operator">:</span><span class="token keyword">new</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// userop2.map(  uOptionalFuncTest::sendEmail (u));</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sendEmail</span><span class="token punctuation">(</span>UserModel u<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" send email to "</span> <span class="token operator">+</span> u<span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+]]></content>
       <categories>
         <category>Java</category>
       </categories>
