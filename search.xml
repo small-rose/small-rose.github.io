@@ -96,7 +96,7 @@ fr4me<span class="token operator">+</span><span class="token operator">=</span><
 <span class="token punctuation">}</span></code></pre>
 ]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>Javascript</category>
       </categories>
       <tags>
         <tag>javascript</tag>
@@ -150,12 +150,12 @@ nameserver 8.8.4.4</code></pre>]]></content>
         <category>Centos</category>
       </categories>
       <tags>
-        <tag>Centos配置</tag>
+        <tag>Centos</tag>
       </tags>
   </entry>
   <entry>
     <title>Git的SSH免密使用</title>
-    <url>/posts/c68d7a69.html</url>
+    <url>/posts/6ac07d1a.html</url>
     <content><![CDATA[<pre><code>本文记录关于Git的免密使用，连接Github免密和 云服务器或私有服务器免密。</code></pre><h3 id="一-Github的Git免密使用"><a href="#一-Github的Git免密使用" class="headerlink" title="一  Github的Git免密使用"></a>一  <code>Github</code>的Git免密使用</h3><h4 id="1-客户端生成密钥"><a href="#1-客户端生成密钥" class="headerlink" title="1 客户端生成密钥"></a>1 客户端生成密钥</h4><pre><code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></pre><p>然后会出现询问，大概意思如下：</p>
 <pre><code>1. 确认秘钥的保存路径（如果不需要改路径则直接回车）；
 2. 如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；
@@ -1122,7 +1122,8 @@ days<span class="token punctuation">(</span><span class="token punctuation">)</s
 <p>大概以取前3页为例。</p>
 <p>page_size — &gt;每页显示条数 10，后面不再重复说明。</p>
 <p>page_num  —&gt; 页码  1,2,3 取前面的2页或3页</p>
-<p>从<a href=".html">《SQL查询前N条记录》</a>一文整理的<code>“数据库和分页关键字/函数对应关系表”</code>可以看到分页大致分4类数据库，就以代表性的数据库来列举，相同关键字或函数的数据库用法相似，不再单列。</p>
+<p>从<a href="3c74f69f.html">《SQL之查询前N条记录》</a>一文整理的<code>“数据库和分页关键字/函数对应关系表”</code>可以看到分页大致分4类数据库，就以代表性的数据库来列举，相同关键字或函数的数据库用法相似，不再单列。</p>
+<p>想了解Mybtatis模糊查询？请参考<a href="4c7816b.html">《Mybatis-模糊查询的N种玩法》</a>。</p>
 </blockquote>
 <h3 id="一、SQL-Server-分页"><a href="#一、SQL-Server-分页" class="headerlink" title="一、SQL Server 分页"></a>一、SQL Server 分页</h3><h4 id="（1）TOP方式"><a href="#（1）TOP方式" class="headerlink" title="（1）TOP方式"></a>（1）TOP方式</h4><p>查询第一页的时候，用top方法，效率最高。</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span>  <span class="token keyword">top</span> <span class="token number">10</span>  pagesize   <span class="token keyword">from</span> table_name 
@@ -1320,6 +1321,8 @@ minus
 <p>N —就是我们要查询的N条记录。</p>
 <p>示例默认查询前10条记录。</p>
 <p>语法演示的都是简单查询，如果有条件和排序请自行添加，示例默认为无条件和默认排序。</p>
+<p>想了解各个数据库SQL分页？请参考<a href="2cbe04e7.html">《SQL之SQL分页的N种玩法》</a>。</p>
+<p>想了解Mybtatis模糊查询？请参考<a href="4c7816b.html">《Mybatis-模糊查询的N种玩法》</a>。</p>
 </blockquote>
 <h4 id="1、TOP-关键字"><a href="#1、TOP-关键字" class="headerlink" title="1、TOP 关键字"></a>1、TOP 关键字</h4><p>TOP 关键字支持的数据库： <code>SQL Server</code> 、 <code>Access</code> 。</p>
 <p>语法：</p>
@@ -1905,8 +1908,133 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
   </entry>
   <entry>
     <title>java 查漏补缺-Java8 中的 Optional</title>
-    <url>/posts/c68d7a69.html</url>
-    <content><![CDATA[]]></content>
+    <url>/posts/e748f349.html</url>
+    <content><![CDATA[<h2 id="Java8-中的-Optional"><a href="#Java8-中的-Optional" class="headerlink" title="Java8 中的 Optional"></a>Java8 中的 Optional</h2><h3 id="关于Optional"><a href="#关于Optional" class="headerlink" title="关于Optional"></a>关于Optional</h3><p>该类位于java.util下，属于final类，其实就是一个工具类。<br>主要是为了预防运行时抛出 <code>NullPointException</code></p>
+<p>使用示例：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>xiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>optional<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Optional<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OptionalTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         Optional<span class="token operator">&lt;</span>String<span class="token operator">></span> optionalS <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>optionalS<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">//输出： zhangxiaocai</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h3 id="Optional主要方法API"><a href="#Optional主要方法API" class="headerlink" title="Optional主要方法API"></a>Optional主要方法API</h3><p>|方法API     | 说明 |<br>|of(T value)     | 把指定的值封装为Optional对象，如果指定的值为null，则抛出NullPointerException |<br>|ofNullable(T value)  | 把指定的值封装为Optional对象，如果指定的值为null，则创建一个空的Optional对象 |<br>|get()     | 如果创建的Optional中有值存在，则返回此值，否则抛出NoSuchElementException |<br>|isPresent()     | 如果创建的Optional中的值存在，返回true，否则返回false |<br>|ifPresent(Consumer&lt;? super T&gt; consumer)     | 如果创建的Optional中的值存在，则执行该方法的调用，否则什么也不做 |<br>|orElse(T value)     | 如果创建的Optional中有值存在，则返回此值，否则返回一个默认值 |<br>|orElseGet(Supplier&lt;? extends T&gt; other)     | 如果创建的Optional中有值存在，则返回此值，否则返回一个由Supplier接口生成的值 |<br>|orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier)    | 如果存在该值，返回包含的值，否则抛出由 Supplier 继承的异常 |<br>|empty()     | 创建一个空的Optional对象 |<br>|orElseThrow     | 如果创建的Optional中有值存在，则返回此值，否则抛出一个由指定的Supplier接口生成的异常 |<br>|filter(Predicate&lt;? super <T> predicate)     | 如果创建的Optional中的值满足filter中的条件，则返回包含该值的Optional对象，否则返回一个空的Optional对象 |<br>|map(Function&lt;? super T,? extends U&gt; mapper)     | 如果创建的Optional中的值存在，对该值执行提供的Function函数调用 |<br>|flagMap(Function&lt;? super T,Optional<U>&gt; mapper)     | 如果创建的Optional中的值存在，就对该值执行提供的Function函数调用，返回一个Optional类型的值，否则就返回一个空的Optional对象 |</p>
+<h3 id="普通思维实例演示"><a href="#普通思维实例演示" class="headerlink" title="普通思维实例演示"></a>普通思维实例演示</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>xiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>optional<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Optional<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OptionalTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         Optional<span class="token operator">&lt;</span>String<span class="token operator">></span> optionalS <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>optionalS<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+         UserModel user <span class="token operator">=</span> null<span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">//Optional&lt;UserModel> userOption1 = Optional.of(user);//会抛异常</span>
+         <span class="token comment" spellcheck="true">//out.println(userOption1.get());</span>
+         Optional<span class="token operator">&lt;</span>UserModel<span class="token operator">></span> userOption2 <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//不会抛异常</span>
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//调用的时候会抛异常，因此调用需要先判断</span>
+
+
+         user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UserModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         user<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         user<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"xiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         user<span class="token punctuation">.</span><span class="token function">setEmail</span><span class="token punctuation">(</span><span class="token string">"small-rose@qq.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token comment" spellcheck="true">//即使使用了之前的变量名，依旧是一个新的对象</span>
+         userOption2 <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token keyword">if</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+             out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+             Optional<span class="token operator">&lt;</span>Integer<span class="token operator">></span> uid <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword">if</span><span class="token punctuation">(</span>uid<span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                 out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"user  id is "</span><span class="token operator">+</span>uid<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span>
+             Optional<span class="token operator">&lt;</span>String<span class="token operator">></span> email <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword">if</span><span class="token punctuation">(</span>email<span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                 out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"you can send mail to "</span><span class="token operator">+</span>email<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span>
+
+             <span class="token comment" spellcheck="true">//Optional.orElse - 如果值存在，返回它，否则返回提供的默认值</span>
+             Optional<span class="token operator">&lt;</span>String<span class="token operator">></span> nameopt <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>userOption2<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             String name <span class="token operator">=</span> nameopt<span class="token punctuation">.</span><span class="token function">orElse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"user name is "</span><span class="token operator">+</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+             out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"user is null "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h3 id="函数式编程演示"><a href="#函数式编程演示" class="headerlink" title="函数式编程演示"></a>函数式编程演示</h3><p>函数式编程注意方法API中传的参数。<br>留意带参数的几个API:<br><code>ifPresent(Consumer&lt;? super T&gt; consumer</code>、<br><code>orElseGet(Supplier&lt;? extends T&gt; other)</code><br><code>orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier)</code><br><code>map(Function&lt;? super T,? extends U&gt; mapper)</code><br><code>flagMap(Function&lt;? super T,Optional&lt;U&gt;&gt; mapper)</code></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>xiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>optional<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Optional<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>function<span class="token punctuation">.</span>Supplier<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OptionalFuncTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+         UserModel user1 <span class="token operator">=</span> null <span class="token punctuation">;</span>
+         Optional<span class="token operator">&lt;</span>UserModel<span class="token operator">></span> userop1 <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>user1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token comment" spellcheck="true">//如果user1为null，就实例化一个</span>
+         <span class="token comment" spellcheck="true">//orElse 与之前相同 写法1</span>
+         UserModel defuser1 <span class="token operator">=</span>userop1<span class="token punctuation">.</span><span class="token function">orElse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">UserModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>defuser1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">//函数式 orElseGet 写法2</span>
+         UserModel defuser2 <span class="token operator">=</span> userop1<span class="token punctuation">.</span><span class="token function">orElseGet</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span> <span class="token keyword">new</span> <span class="token class-name">UserModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">//if(userop1.isPresent()){ defuser2 = userop1.get(); }else{ defuser2 = new UserModel(); }</span>
+
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>defuser2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         UserModel user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UserModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         user<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         user<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"xiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         user<span class="token punctuation">.</span><span class="token function">setEmail</span><span class="token punctuation">(</span><span class="token string">"small-rose@qq.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+         Optional<span class="token operator">&lt;</span>UserModel<span class="token operator">></span> userop2 <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">//如果 userop 里的对象不为空，则取出名称并打印</span>
+         <span class="token comment" spellcheck="true">//函数式ifPresent 是无返回值的 Consumer消费型接口</span>
+         userop2<span class="token punctuation">.</span><span class="token function">ifPresent</span><span class="token punctuation">(</span>u <span class="token operator">-</span><span class="token operator">></span>  out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>u<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">// if(userop2.isPresent()){ out.println(userop2.get().getName()); }</span>
+
+         <span class="token comment" spellcheck="true">//user1如果是空的，就实例化一个，但是名称也是空的，为了测试orElseGet</span>
+         Optional<span class="token operator">&lt;</span>String<span class="token operator">></span> nameop <span class="token operator">=</span> Optional<span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>userop1<span class="token punctuation">.</span><span class="token function">orElseGet</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span> <span class="token keyword">new</span> <span class="token class-name">UserModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token comment" spellcheck="true">//函数式orElseGet 是有返回值的 Supplier供给型接口</span>
+         String userName <span class="token operator">=</span> nameop<span class="token punctuation">.</span><span class="token function">orElseGet</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment" spellcheck="true">// if(nameop.isPresent()){ userName = nameop.get(); }else{ userName = "zhangxiaocai"; }</span>
+
+         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"user name is "</span> <span class="token operator">+</span>userName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token comment" spellcheck="true">//如果要求不允许随便实例化怎么办呢？那就可以判断，是否为空，若为空抛出异常即可</span>
+         userop1<span class="token punctuation">.</span><span class="token function">orElseThrow</span><span class="token punctuation">(</span>IllegalArgumentException<span class="token operator">:</span><span class="token operator">:</span><span class="token keyword">new</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// userop2.map(  uOptionalFuncTest::sendEmail (u));</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sendEmail</span><span class="token punctuation">(</span>UserModel u<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" send email to "</span> <span class="token operator">+</span> u<span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+]]></content>
       <categories>
         <category>Java</category>
       </categories>
@@ -3931,9 +4059,9 @@ son choose qq</code></pre>
 </blockquote>
 <p>（c）实验性工具。</p>
 <blockquote>
-<p>这一类工具在它们的使用说明中被声明为“没有技术支持，并且是实验性质的”（Unsupported and Experimental）产品，日后可能会转正，也可能会在某个JDK版本中无声无息地消失。但事实上它们通常都非常稳定而且功能强大，也能在处理应用程序性能问题、定位故障时发挥很大的作用。</p>
+<p>这一类工具在它们的使用说明中被声明为”没有技术支持，并且是实验性质的”（Unsupported and Experimental）产品，日后可能会转正，也可能会在某个JDK版本中无声无息地消失。但事实上它们通常都非常稳定而且功能强大，也能在处理应用程序性能问题、定位故障时发挥很大的作用。</p>
 </blockquote>
-<p>JDK5需要手动开启JMX:“<code>-Dcom.sun.management.jmxremote</code>”开启JMX管理功能。</p>
+<p>JDK5需要手动开启JMX:”<code>-Dcom.sun.management.jmxremote</code>“开启JMX管理功能。</p>
 <h4 id="1、jps"><a href="#1、jps" class="headerlink" title="1、jps"></a>1、jps</h4><p>jps（JVMProcess Status Tool）是虚拟机进程状况工具。</p>
 <blockquote>
 <p>可以列出正在运行的虚拟机进程，并显示虚拟机执行主类（Main Class，main()函数所在的类）名称以及这些进程的本地虚拟机唯一ID（LVMID，Local Virtual Machine Identifier）。</p>
@@ -4001,7 +4129,7 @@ S0      S1      E       O        P        YGC    YGCT     FGC    FGCT     GCT
 <p>如果不使用jmap命令呢?</p>
 <p>（a）使用<code>-XX：+HeapDumpOnOutOfMemoryError</code>参，可以让虚拟机在内存溢出异常出现之后自动生成堆转储快照文件。</p>
 <p>（b）通过-XX：+HeapDumpOnCtrlBreak参数则可以使用[Ctrl]+[Break]键让虚拟机生成堆转储快照文件。</p>
-<p>（c）在Linux系统下通过<code>Kill  -3</code>命令发送进程退出信号“恐吓”一下虚拟机，也能顺利拿到堆转储快照。</p>
+<p>（c）在Linux系统下通过<code>Kill  -3</code>命令发送进程退出信号”恐吓”一下虚拟机，也能顺利拿到堆转储快照。</p>
 <blockquote>
 <p>jmap有部分功能在Windows平台下是受限的，除了生成堆转储快照的-dump选项和用于查看每个类的实例、空间占用统计的-histo选项在所有操作系统中都可以使用之外，其余选项都只能在Linux/Solaris中使用。</p>
 </blockquote>
@@ -4029,7 +4157,7 @@ Eliminating duplicate references<span class="token punctuation">..</span>.
 Snapshot resolved.
 Started HTTP server on port 7000
 Server is ready.</code></pre>
-<p>分析结果默认以包为单位进行分组显示，分析内存泄漏问题主要会使用到其中的“Heap Histogram”（与<code>jmap -histo</code>功能一样）与OQL页签的功能，前者可以找到内存中总容量最大的对象，OQL是标准的对象查询语言，使用类似SQL的语法对内存中的对象进行查询统计。关于OQL<a href=""> 《JVM的对象查询OQL》</a></p>
+<p>分析结果默认以包为单位进行分组显示，分析内存泄漏问题主要会使用到其中的”Heap Histogram”（与<code>jmap -histo</code>功能一样）与OQL页签的功能，前者可以找到内存中总容量最大的对象，OQL是标准的对象查询语言，使用类似SQL的语法对内存中的对象进行查询统计。关于OQL<a href=""> 《JVM的对象查询OQL》</a></p>
 <h4 id="6、jstack"><a href="#6、jstack" class="headerlink" title="6、jstack"></a>6、jstack</h4><p>jstack：Java堆栈跟踪工具。</p>
 <p>jstack（Stack Trace for Java）命令用于生成虚拟机当前时刻的线程快照（一般称为threaddump或者javacore文件）。</p>
 <p>线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合。</p>
@@ -4094,13 +4222,13 @@ Server is ready.</code></pre>
 <table>
 <thead>
 <tr>
-<th>名称</th>
+<th align="center">名称</th>
 <th>主要作用</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>native2ascii</td>
-<td>本地编码到ASCII编码的转换器（Native-to-ASCII Converter）用于“任意受支持的字符编码”和与之对应的“ASCII编码和Unicode转义”之间的相互转换。</td>
+<td align="center">native2ascii</td>
+<td>本地编码到ASCII编码的转换器（Native-to-ASCII Converter）用于”任意受支持的字符编码”和与之对应的”ASCII编码和Unicode转义”之间的相互转换。</td>
 </tr>
 </tbody></table>
 <p>远程方法调用：</p>
@@ -4135,7 +4263,7 @@ Server is ready.</code></pre>
 <p>这类工具主要包括JConsole、JHSDB、VisualVM和JMC四个。</p>
 <p>JConsole、JHSDB是jdk正式成员，无须独立下载，使用完全免费。</p>
 <p>VisualVM 已不是JDK中的正式成员，但仍是可以免费下载、使用。</p>
-<p>Java Mission Control ： JMC需要与HotSpot内部的“飞行记录仪”（Java Flight Recorder，JFR）配合才能工作，而在JDK 11以前，JFR的开启必须解锁OracleJDK的商业特性支持（使用JCMD的VM.unlock_commercial_features或启动时加入-XX：+UnlockCommercialFeatures参数），在生产环境中仍然是需要付费使用。</p>
+<p>Java Mission Control ： JMC需要与HotSpot内部的”飞行记录仪”（Java Flight Recorder，JFR）配合才能工作，而在JDK 11以前，JFR的开启必须解锁OracleJDK的商业特性支持（使用JCMD的VM.unlock_commercial_features或启动时加入-XX：+UnlockCommercialFeatures参数），在生产环境中仍然是需要付费使用。</p>
 <h4 id="1、JHSDB"><a href="#1、JHSDB" class="headerlink" title="1、JHSDB"></a>1、JHSDB</h4><p>JHSDB基于服务性代理的调试工具。</p>
 <p>JDK中提供了JCMD和JHSDB两个集成式的多功能工具箱，整合基础处理工具，更强大。</p>
 <p><img src="/medias/loading-animated.gif" data-original="/images/jvm-tools/jvm-tools-compare.jpg" alt="JCMD、JHSDB和基础工具的对比"></p>
@@ -4176,8 +4304,8 @@ garbage-first heap [0x00007f32c7800000, 0x00007f32c8200000] region size 1024K</c
 </blockquote>
 <p>（1）启动JConsole</p>
 <p>通过JDK/bin目录下的jconsole.exe启动JCon-sole后，会自动搜索出本机运行的所有虚拟机进程，而不需要用户自己使用jps来查询。图片就不放了。</p>
-<p>双击选择其中一个进程便可进入主界面开始监控。JMX支持跨服务器的管理，也可以使用下面的“远程进程”功能来连接远程服务器，对远程虚拟机进行监控。</p>
-<p>进入JConsole主界面，可以看到主界面里共包括“概述”“内存”“线程”“类”“VM摘要”“MBean”六个页签，“概述”页签里显示的是整个虚拟机主要运行数据的概览信息，包括“堆内存使用情况”“线程”“类”“CPU使用情况”四项信息的曲线图。</p>
+<p>双击选择其中一个进程便可进入主界面开始监控。JMX支持跨服务器的管理，也可以使用下面的”远程进程”功能来连接远程服务器，对远程虚拟机进行监控。</p>
+<p>进入JConsole主界面，可以看到主界面里共包括”概述””内存””线程””类””VM摘要””MBean”六个页签，”概述”页签里显示的是整个虚拟机主要运行数据的概览信息，包括”堆内存使用情况””线程””类””CPU使用情况”四项信息的曲线图。</p>
 <p>（2）内存监控</p>
 <p>“内存”页签的作用相当于可视化的jstat命令，用于监视被收集器管理的虚拟机内存（被收集器直接管理的Java堆和被间接管理的方法区）的变化趋势。</p>
 <p>运行测试可以设置一下虚拟机参数（也可以不设置）</p>
@@ -4202,8 +4330,8 @@ garbage-first heap [0x00007f32c7800000, 0x00007f32c8200000] region size 1024K</c
 <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
     <span class="token function">fillHeap</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<p>这段代码的作用是以64KB/50ms的速度向Java堆中填充数据，一共填充1000次，使用JConsole的“内存”页签进行监视，观察曲线和柱状指示图的变化。</p>
-<p>程序运行后，在“内存”页签中应该可以看到内存池Eden区的运行趋势呈现折线状。</p>
+<p>这段代码的作用是以64KB/50ms的速度向Java堆中填充数据，一共填充1000次，使用JConsole的”内存”页签进行监视，观察曲线和柱状指示图的变化。</p>
+<p>程序运行后，在”内存”页签中应该可以看到内存池Eden区的运行趋势呈现折线状。</p>
 <p>虚拟机启动参数只限制了Java堆为100MB，但没有明确使用-Xmn参数指定新生代大小，在没有设置-XX：SurvivorRadio参数时，Eden与Survivor空间比例的默认值为8∶1。</p>
 <p>一般默认情况下，新生代约占堆内存的的1/3，老年代约占2/3。</p>
 <p>可以从页签的信息上得到验证。</p>
@@ -4250,7 +4378,7 @@ public static void main(String[] args) throws Exception {
     br.readLine();
     Object obj = new Object();
     createLockThread(obj);
-}</code></pre><p>程序运行后，首先在“线程”页签中选择main线程。</p>
+}</code></pre><p>程序运行后，首先在”线程”页签中选择main线程。</p>
 <blockquote>
 <p>堆栈追踪显示BufferedReader的readBytes()方法正在等待System.in的键盘输入，这时候线程为Runnable状态，Runnable状态的线程仍会被分配运行时间，但readBytes()方法检查到流没有更新就会立刻归还执行令牌给操作系统，这种等待只消耗很小的处理器资源。</p>
 </blockquote>
@@ -4272,32 +4400,32 @@ public static void main(String[] args) throws Exception {
 <p><img src="/medias/loading-animated.gif" data-original="/images/jvm-tools/jvm-tools-jvisVM.jpg" alt="VisualVM主要功能兼容性列表"></p>
 <p>VisualVM的插件安装：</p>
 <p>（A）手工进行安装</p>
-<p>VisualVM的插件可以手工进行安装，在网站[插图]上下载nbm包后，点击“工具-&gt;插件-&gt;已下载”菜单，然后在弹出对话框中指定nbm包路径便可完成安装。独立安装的插件存储在VisualVM的根目录，譬如JDK 9之前自带的VisulalVM，插件安装后是放在JDK_HOME/lib/visualvm中的。</p>
+<p>VisualVM的插件可以手工进行安装，在网站[插图]上下载nbm包后，点击”工具-&gt;插件-&gt;已下载”菜单，然后在弹出对话框中指定nbm包路径便可完成安装。独立安装的插件存储在VisualVM的根目录，譬如JDK 9之前自带的VisulalVM，插件安装后是放在JDK_HOME/lib/visualvm中的。</p>
 <p>（B）自动安装</p>
-<p>VisualVM的自动安装功能已可找到大多数所需的插件，在有网络连接的环境下，点击“工具-&gt;插件菜单”，在页签的“可用插件”及“已安装”中列举了当前版本VisualVM可以使用的全部插件，选中插件后在右边窗口会显示这个插件的基本信息，如开发者、版本、功能描述等。</p>
-<p>VisualVM中“概述”“监视”“线程”“MBeans”的功能与Jconsole相似。</p>
+<p>VisualVM的自动安装功能已可找到大多数所需的插件，在有网络连接的环境下，点击”工具-&gt;插件菜单”，在页签的”可用插件”及”已安装”中列举了当前版本VisualVM可以使用的全部插件，选中插件后在右边窗口会显示这个插件的基本信息，如开发者、版本、功能描述等。</p>
+<p>VisualVM中”概述””监视””线程””MBeans”的功能与Jconsole相似。</p>
 <p>（2）生成、浏览堆转储快照</p>
 <p>在VisualVM中生成堆转储快照文件有两种方式，</p>
-<p>​    a）在“应用程序”窗口中右键单击应用程序节点，然后选择“堆Dump”。</p>
-<p>​    b）在“应用程序”窗口中双击应用程序节点以打开应用程序标签，然后在“监视”标签中单击“堆Dump”。</p>
+<p>​    a）在”应用程序”窗口中右键单击应用程序节点，然后选择”堆Dump”。</p>
+<p>​    b）在”应用程序”窗口中双击应用程序节点以打开应用程序标签，然后在”监视”标签中单击”堆Dump”。</p>
 <p>生成堆转储快照文件之后，应用程序页签会在该堆的应用程序下增加一个以[heap-dump]开头的子节点，并且在主页签中打开该转储快照。</p>
 <blockquote>
-<p>如果需要把堆转储快照保存或发送出去，就应在heapdump节点上右键选择“另存为”菜单，否则当VisualVM关闭时，生成的堆转储快照文件会被当作临时文件自动清理掉。要打开一个由已经存在的堆转储快照文件，通过文件菜单中的“装入”功能，选择文件即可。</p>
+<p>如果需要把堆转储快照保存或发送出去，就应在heapdump节点上右键选择”另存为”菜单，否则当VisualVM关闭时，生成的堆转储快照文件会被当作临时文件自动清理掉。要打开一个由已经存在的堆转储快照文件，通过文件菜单中的”装入”功能，选择文件即可。</p>
 </blockquote>
-<p>堆页签中的“摘要”面板可以看到应用程序dump时的运行时参数、System.getPro-perties()的内容、线程堆栈等信息；</p>
+<p>堆页签中的”摘要”面板可以看到应用程序dump时的运行时参数、System.getPro-perties()的内容、线程堆栈等信息；</p>
 <p>“类”面板则是以类为统计口径统计类的实例数量、容量信息；</p>
-<p>“实例”面板不能直接使用，因为VisualVM在此时还无法确定用户想查看哪个类的实例，所以需要通过“类”面板进入，在“类”中选择一个需要查看的类，然后双击即可在“实例”里面看到此类的其中500个实例的具体属性信息；</p>
+<p>“实例”面板不能直接使用，因为VisualVM在此时还无法确定用户想查看哪个类的实例，所以需要通过”类”面板进入，在”类”中选择一个需要查看的类，然后双击即可在”实例”里面看到此类的其中500个实例的具体属性信息；</p>
 <p>“OQL控制台”面板则是运行OQL查询语句的，同jhat中介绍的OQL功能一样。</p>
 <p>（3）分析程序性能</p>
 <p>在Profiler页签中，VisualVM提供了程序运行期间方法级的处理器执行时间分析以及内存分析。做Profiling分析肯定会对程序运行性能有比较大的影响，所以一般不在生产环境使用这项功能，或者改用JMC来完成，JMC的Profiling能力更强，对应用的影响非常轻微。</p>
-<p>要开始性能分析，先选择“CPU”和“内存”按钮中的一个，然后切换到应用程序中对程序进行操作，VisualVM会记录这段时间中应用程序执行过的所有方法。如果是进行处理器执行时间分析，将会统计每个方法的执行次数、执行耗时；如果是内存分析，则会统计每个方法关联的对象数以及这些对象所占的空间。等要分析的操作执行结束后，点击“停止”按钮结束监控过程。</p>
+<p>要开始性能分析，先选择”CPU”和”内存”按钮中的一个，然后切换到应用程序中对程序进行操作，VisualVM会记录这段时间中应用程序执行过的所有方法。如果是进行处理器执行时间分析，将会统计每个方法的执行次数、执行耗时；如果是内存分析，则会统计每个方法关联的对象数以及这些对象所占的空间。等要分析的操作执行结束后，点击”停止”按钮结束监控过程。</p>
 <blockquote>
 <p>在JDK 5之后，在客户端模式下的虚拟机加入并且自动开启了类共享——这是一个在多虚拟机进程共享rt.jar中类数据以提高加载速度和节省内存的优化，而根据相关Bug报告的反映，VisualVM的Profiler功能会因为类共享而导致被监视的应用程序崩溃，所进行Profiling前，最好在被监视程序中使用-Xshare：off参数来关闭类共享优化。</p>
 </blockquote>
 <p>（4）BTrace动态日志跟踪</p>
 <p>BTrace是一个很神奇的VisualVM插件，它本身也是一个可运行的独立程序。</p>
 <p>BTrace的作用是在不中断目标程序运行的前提下，通过HotSpot虚拟机的Instrument功能[插图]动态加入原本并不存在的调试代码。这项功能对实际生产中的程序很有意义：如当程序出现问题时，排查错误的一些必要信息时（譬如方法参数、返回值等），在开发时并没有打印到日志之中以至于不得不停掉服务时，都可以通过调试增量来加入日志代码以解决问题。</p>
-<p>在VisualVM中安装了BTrace插件后，在应用程序面板中右击要调试的程序，会出现“Trace Application…”菜单，点击将进入BTrace面板。</p>
+<p>在VisualVM中安装了BTrace插件后，在应用程序面板中右击要调试的程序，会出现”Trace Application…”菜单，点击将进入BTrace面板。</p>
 <p>BTrace的功能演示：产生两个1000以内的随机整数，输出这两个数字相加的结果</p>
 <pre class=" language-java"><code class="language-java">
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BTraceTest</span> <span class="token punctuation">{</span>
@@ -4337,7 +4465,7 @@ public static void func(@Self org.fenixsoft.monitoring.BTraceTest instance,int a
     println(strcat(&quot;方法参数B:&quot;,str(b)));
     println(strcat(&quot;方法结果:&quot;,str(result)));
 }
-}</code></pre><p>点击Start按钮后稍等片刻，编译完成后，Output面板中会出现“BTracecode successfuly deployed”的字样。当程序运行时将会在Output面板输出调试信息。</p>
+}</code></pre><p>点击Start按钮后稍等片刻，编译完成后，Output面板中会出现”BTracecode successfuly deployed”的字样。当程序运行时将会在Output面板输出调试信息。</p>
 <p>BTrace的用途很广泛，打印调用堆栈、参数、返回值只是它最基础的使用形式，使用BTrace进行性能监视、定位连接泄漏、内存泄漏、解决多线程竞争问题等。</p>
 <p>BTrace能够实现动态修改程序行为，是因为它是基于Java虚拟机的Instrument开发的。Instrument是Java虚拟机工具接口（Java VirtualMachine Tool Interface，JVMTI）的重要组件，提供了一套代理（Agent）机制，使得第三方工具程序可以以代理的方式访问和修改Java虚拟机内部的数据。</p>
 <blockquote>
@@ -4347,7 +4475,7 @@ public static void func(@Self org.fenixsoft.monitoring.BTraceTest instance,int a
 <p>Java Mission Control：可持续在线的监控工具。</p>
 <p>Oracle Java SE Advanced &amp; Suite[插图]与普通OracleJava SE在功能上的主要差别是前者包含了一系列的监控、管理工具，譬如用于企业JRE定制管理的AMC（Java Advanced ManagementConsole）控制台、JUT（Java Usage Tracker）跟踪系统，用于持续收集数据的JFR（Java Flight Recorder）飞行记录仪和用于监控Java虚拟机的JMC（Java Mission Control）。这些功能全部都是需要商业授权才能在生产环境中使用，但根据Oracle Binary Code协议，在个人开发环境中，允许免费使用JMC和JFR。</p>
 <p>JFR特点：</p>
-<p>（1）JFR是一套内建在HotSpot虚拟机里面的监控和基于事件的信息搜集框架，与其他的监控工具（如JProfiling）相比，它具有“可持续在线”（Always-On）的特性。</p>
+<p>（1）JFR是一套内建在HotSpot虚拟机里面的监控和基于事件的信息搜集框架，与其他的监控工具（如JProfiling）相比，它具有”可持续在线”（Always-On）的特性。</p>
 <p>（2）JFR在生产环境中对吞吐量的影响一般不会高于1%（甚至号称是Zero Performance Overhead）。</p>
 <p>（3）JFR监控过程的开始、停止都是完全可动态的，即不需要重启应用。</p>
 <p>（4）JFR的监控对应用也是完全透明的，即不需要对应用程序的源码做任何修改，或者基于特定的代理来运行。</p>
@@ -4357,7 +4485,7 @@ public static void func(@Self org.fenixsoft.monitoring.BTraceTest instance,int a
 <p>（3）JMC与虚拟机之间同样采取JMX协议进行通信，作为JMX控制台显示来自虚拟机MBean提供的数据。</p>
 <p>（4）JMC还可以作为JFR的分析工具，展示来自JFR的数据。</p>
 <p><img src="/medias/loading-animated.gif" data-original="/images/jvm-tools/jvm-tools-jmc.jpg" alt="JMC主界面"></p>
-<p>打开界面之后，双击“飞行记录器”，将会出现“启动飞行记录”窗口。</p>
+<p>打开界面之后，双击”飞行记录器”，将会出现”启动飞行记录”窗口。</p>
 <p>飞行记录报告里包含以下几类信息：</p>
 <p>（a）一般信息：关于虚拟机、操作系统和记录的一般信息。</p>
 <p>（b）内存：关于内存管理和垃圾收集的信息。</p>
@@ -4369,7 +4497,7 @@ public static void func(@Self org.fenixsoft.monitoring.BTraceTest instance,int a
 <p>JFR工作过程：</p>
 <p>JFR开启一系列事件的录制动作，当某个事件发生时，这个事件的所有上下文数据将会以循环日志的形式被保存至内存或者指定的某个文件当中，循环日志相当于数据流被保留在一个环形缓存中，所以只有最近发生的事件的数据才是可用的。JMC从虚拟机内存或者文件中读取并展示这些事件数据，并通过这些数据进行性能分析。</p>
 <blockquote>
-<p>JFR提供的数据质量通常也要比其他工具通过代理形式采样获得或者从MBean中取得的数据高得多。以垃圾搜集为例，HotSpot的MBean中一般有各个分代大小、收集次数、时间、占用率等数据（根据收集器不同有所差别），这些都属于“结果”类的信息，而JFR中还可以看到内存中这段时间分配了哪些对象、哪些在TLAB中（或外部）分配、分配速率和压力大小如何、分配归属的线程、收集时对象分代晋升的情况等，这些就是属于“过程”类的信息，对排查问题的价值是难以估量的。</p>
+<p>JFR提供的数据质量通常也要比其他工具通过代理形式采样获得或者从MBean中取得的数据高得多。以垃圾搜集为例，HotSpot的MBean中一般有各个分代大小、收集次数、时间、占用率等数据（根据收集器不同有所差别），这些都属于”结果”类的信息，而JFR中还可以看到内存中这段时间分配了哪些对象、哪些在TLAB中（或外部）分配、分配速率和压力大小如何、分配归属的线程、收集时对象分代晋升的情况等，这些就是属于”过程”类的信息，对排查问题的价值是难以估量的。</p>
 </blockquote>
 <h3 id="三、HotSpot虚拟机插件及工具"><a href="#三、HotSpot虚拟机插件及工具" class="headerlink" title="三、HotSpot虚拟机插件及工具"></a>三、HotSpot虚拟机插件及工具</h3><p>虚拟机的插件和辅助工具存放在HotSpot源码hotspot/src/share/tools目录下：</p>
 <p>主要有：</p>
@@ -4403,7 +4531,7 @@ public static void func(@Self org.fenixsoft.monitoring.BTraceTest instance,int a
 <p>在JITWatch中加载日志后，就可以看到执行期间使用过的各种对象类型和对应调用过的方法了，选择想要查看的类和方法，即可查看对应的Java源代码、字节码和即时编译器生成的汇编代码。</p>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>JVM</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -6253,6 +6381,244 @@ public class TestCp {
         <tag>Java</tag>
         <tag>Jvm</tag>
         <tag>class结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql-常用命令与授权</title>
+    <url>/posts/523aed6c.html</url>
+    <content><![CDATA[<h2 id="Mysql-常用命令"><a href="#Mysql-常用命令" class="headerlink" title="Mysql 常用命令"></a>Mysql 常用命令</h2><blockquote>
+<p>虽然现在已经有很多界面化的连接工具可以直接鼠标操作。但是若环境不允许远程连接怎么呢？所以常用命令还是有用武之地的。整理一下。</p>
+</blockquote>
+<h3 id="一、连接命令"><a href="#一、连接命令" class="headerlink" title="一、连接命令"></a>一、连接命令</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">## mysql终端连接</span>
+mysql  <span class="token punctuation">[</span> -h  <span class="token operator">&lt;</span>hostname <span class="token operator">|</span> ip<span class="token operator">></span> <span class="token punctuation">]</span> -u <span class="token operator">&lt;</span>username<span class="token operator">></span> <span class="token punctuation">[</span>-P <span class="token operator">&lt;</span>port<span class="token operator">></span><span class="token punctuation">]</span> -p <span class="token punctuation">[</span><span class="token operator">&lt;</span>userpass<span class="token operator">></span><span class="token punctuation">]</span></code></pre>
+<p><strong>-h:</strong> 主机名，表示连接的目标数据库主机名或者IP地址。</p>
+<p><strong>-u:</strong> 用户名，表示连接的目标数据库的用户名。</p>
+<p><strong>-P:</strong> 端口，表示连接的目标数据库的端口，不写默认是3306，非默认须确定端口号。</p>
+<p><strong>-p:</strong> 表示连接的目标数据库的密码，-p后面可以直接输入密码，也可以不写执行命令的时候输入密码，下文同理。</p>
+<p>关于 <code>-u</code>和<code>username</code>是否一定要连在一起，并没有找到答案。</p>
+<h3 id="二、基础查询命令"><a href="#二、基础查询命令" class="headerlink" title="二、基础查询命令"></a>二、基础查询命令</h3><p>执行登录之后使用。</p>
+<pre class=" language-mysql"><code class="language-mysql">## 列出全部已有数据库
+show databases;
+
+## 创建新数据库
+create database <database_name>; 
+
+## 创建指定数据库
+drop database <database_name>;
+
+## 打开/使用指定数据库
+use <database_name>;
+
+##列出打开的数据库所有的表名
+show tables;
+
+##查看数据库指定的表结构
+desc <table_name>;
+
+##删除表
+drop table <table_name>;</code></pre>
+<h3 id="三、数据库备份"><a href="#三、数据库备份" class="headerlink" title="三、数据库备份"></a>三、数据库备份</h3><h4 id="1、直接备份库"><a href="#1、直接备份库" class="headerlink" title="1、直接备份库"></a>1、直接备份库</h4><p>（A）备份一个库</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">## 备份指定主机某个库</span>
+mysqldump -h host_name -P port -u user_name -p user_pass –database database_name <span class="token operator">></span> bak_file_name.sql
+
+<span class="token comment" spellcheck="true">## 备份本地数据库，执行时输密码</span>
+mysqldump -u user_name –p –database database_name  <span class="token operator">></span>  bak_file_name.suffix</code></pre>
+<p>实例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">##备份192.168.66.82上的数据库DBCM</span>
+mysqldump -h 192.168.66.82 -u root –p123456  –database dbcm  <span class="token operator">></span>  dbcm_20200617.sql
+
+<span class="token comment" spellcheck="true">##备份数据库DBCM，执行时输密码</span>
+mysqldump -u root –p  –database dbcm  <span class="token operator">></span>  dbcm_20200617.sql</code></pre>
+<p>（B）备份多个库:</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">##备份指定主机里的多个库</span>
+mysqldump -h <span class="token function">hostname</span> -u username -p user_pass –databases db_name1 db_name2 db_name3 <span class="token operator">></span> more_dbname_file.suffix</code></pre>
+<p>如备份系统自带库：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">##备份192.168.66.82上的数据库自带系统库</span>
+mysqldump -h 192.168.66.82 -u root –p123456  –databases information_schema mysql <span class="token operator">></span> sys_bak.sql</code></pre>
+<p>说明：后续列举就不再分别列远程与本地了，区别只是<code>-h host_name</code>及<code>-P host_port</code>，统一用本地列举。</p>
+<h4 id="2、直接备份库的表"><a href="#2、直接备份库的表" class="headerlink" title="2、直接备份库的表"></a>2、直接备份库的表</h4><p>备份指定库的指定表 </p>
+<pre class=" language-bash"><code class="language-bash">mysqldump -u user_name –p –database database_name  table_name1  table_name2 <span class="token operator">></span>  bak_fileName.suffix</code></pre>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">##备份数据库DBCM里的loginfo表</span>
+mysqldump -u root –p –database dbcm loginfo  <span class="token operator">></span>  dbcm_loginfo_20200617.sql
+<span class="token comment" spellcheck="true">## 多张表</span>
+mysqldump -u root –p –database dbcm loginfo user <span class="token operator">></span>  dbcm_log_user_20200617.sql</code></pre>
+<h4 id="3、压缩备份"><a href="#3、压缩备份" class="headerlink" title="3、压缩备份"></a>3、压缩备份</h4><pre class=" language-bash"><code class="language-bash">mysqldump -h host_name -u user_name -p user_pass -database db_name <span class="token operator">|</span> <span class="token function">gzip</span> <span class="token operator">></span> backup_file.sql.gz</code></pre>
+<h4 id="4、只备份数据库表结构"><a href="#4、只备份数据库表结构" class="headerlink" title="4、只备份数据库表结构"></a>4、只备份数据库表结构</h4><pre class=" language-bash"><code class="language-bash">mysqldump  –no-data -u user_name -p user_pass –databases db_name1 db_name2 db_name3 <span class="token operator">></span> db_table_bak.sql</code></pre>
+<h4 id="5、备份所有数据库"><a href="#5、备份所有数据库" class="headerlink" title="5、备份所有数据库"></a>5、备份所有数据库</h4><pre class=" language-bash"><code class="language-bash">mysqldump –all-databases -u user_name -p user_pass <span class="token operator">></span> all_db.sql</code></pre>
+<h4 id="6、带删除的备份"><a href="#6、带删除的备份" class="headerlink" title="6、带删除的备份"></a>6、带删除的备份</h4><p>备份<code>MySQL</code>数据库为带删除表的格式，能够让该备份覆盖已有数据库而不需要手动删除原有数据库</p>
+<p>通俗的说就是<code>CREATE TABLE table_name</code>之前有<code>DROP TABLE IF EXISTS table_name</code>的动作。mysql默认备份就支持。</p>
+<pre class=" language-bash"><code class="language-bash">mysqldump --add-drop-table -u username -p password -database databasename <span class="token operator">></span> backup_file.sql</code></pre>
+<h4 id="7、binlog增量备份"><a href="#7、binlog增量备份" class="headerlink" title="7、binlog增量备份"></a>7、binlog增量备份</h4><p>增量备份是使用<code>mysql</code>的<code>binlog</code>日志作为记录新增的变化。</p>
+<p><code>--master-data</code>：</p>
+<p>在<code>mysqldump</code>命令中使用<code>--master-data=2</code>，会记录<code>binlog</code>文件和<code>position</code>的信息。</p>
+<p><code>--single-transaction</code>：</p>
+<p><code>--single-transaction</code>会将隔离级别设置成<code>repeatable-commited</code></p>
+<p>首先进行全备</p>
+<pre><code>mysqldump -u username -p password --single-transaction --master-data=2 db_name &gt; backup_all_file.sql</code></pre><p>备份文件中会有</p>
+<p><code>-- CHANGE MASTER TO MASTER_LOG_FILE=&#39;bin-log.000002&#39;, MASTER_LOG_POS=xxx;</code></p>
+<p>是指备份后所有的更改将会保存到新文件bin-log.000002二进制文件中。</p>
+<h3 id="四、数据库还原"><a href="#四、数据库还原" class="headerlink" title="四、数据库还原"></a>四、数据库还原</h3><h4 id="1、直接还原"><a href="#1、直接还原" class="headerlink" title="1、直接还原"></a>1、直接还原</h4><pre class=" language-bash"><code class="language-bash">mysql -h <span class="token function">hostname</span> -u user_name -p user_pass database_name <span class="token operator">&lt;</span> backup_file.sql</code></pre>
+<h4 id="2、压缩还原"><a href="#2、压缩还原" class="headerlink" title="2、压缩还原"></a>2、压缩还原</h4><pre class=" language-bash"><code class="language-bash">gunzip <span class="token operator">&lt;</span> backup_file.sql.gz <span class="token operator">|</span> mysql -u user_pass -p password database_name</code></pre>
+<h4 id="3、source导入"><a href="#3、source导入" class="headerlink" title="3、source导入"></a>3、source导入</h4><p>使用source命令，需要使用命令登录mysql，用use进入到某个数据库后执行</p>
+<pre class=" language-mysql"><code class="language-mysql">source d:\backup_file.sql</code></pre>
+<h4 id="4、数据库转移"><a href="#4、数据库转移" class="headerlink" title="4、数据库转移"></a>4、数据库转移</h4><pre class=" language-bash"><code class="language-bash">mysqldump -u user_name -p user_pass db_name <span class="token operator">|</span> mysql –host<span class="token operator">=</span>*.*.*.* -C db_name</code></pre>
+<h4 id="5、增量还原-恢复"><a href="#5、增量还原-恢复" class="headerlink" title="5、增量还原/恢复"></a>5、增量还原/恢复</h4><p>首先导入全备数据，source亦可。</p>
+<pre class=" language-bash"><code class="language-bash">mysql -h host_name -u usert_name -p user_pass  <span class="token operator">&lt;</span> backup_all_file.sql</code></pre>
+<p>然后，恢复bin-log.000002</p>
+<pre class=" language-bash"><code class="language-bash">mysqlbinlog bin-log.000002 <span class="token operator">|</span> mysql -h host_name -u usert_name -p user_pass</code></pre>
+<p>如果还有后续新增同理恢复。</p>
+<p>恢复部分，恢复到某个操作的前面一个position点。</p>
+<p>控制<code>binlog</code>的区间的参数有：</p>
+<pre class=" language-mysql"><code class="language-mysql">--start-position  # 开始点 
+--stop-position # 结束点
+--start-date  # 开始时间 
+--stop-date  # 结束时间</code></pre>
+<p>找到需要操的恢复点，后进行恢复</p>
+<pre class=" language-bash"><code class="language-bash">mysqlbinlog mysql-bin.000003 --stop-position<span class="token operator">=</span>308 <span class="token operator">|</span>mysql -h host_name -u usert_name -p user_pass </code></pre>
+<p>找到需要的恢复时间区间，进行恢复指定时间区间数据</p>
+<pre class=" language-bash"><code class="language-bash">mysqlbinlog mysql-bin.000003 --start-datetime<span class="token operator">=</span><span class="token string">'2019-12-01 00:00:00'</span> --stop-datetime<span class="token operator">=</span><span class="token string">'2019-12-31 23:59:59'</span> <span class="token operator">|</span>mysql -h host_name -u usert_name -p user_pass</code></pre>
+<p>查看<code>binlog</code>内容，可以将<code>binlog</code>内容写入到临时文件查看：</p>
+<pre><code>mysqlbinlog --no-defaults --database=db   --base64-output=decode-rows -v --start-datetime=&#39;2019-12-01 00:00:00&#39; --stop-datetime=&#39;2019-12-31 23:59:59&#39;  mysql-bin.000003 &gt;  binlog003.sql</code></pre><h3 id="五、授权管理"><a href="#五、授权管理" class="headerlink" title="五、授权管理"></a>五、授权管理</h3><p>经常见到或自己设置使用的授权长这样：</p>
+<pre class=" language-mysql"><code class="language-mysql">##给指定root用户在本机登录连接及操作所有Schema的所有表的权限
+grant all privileges on *.* to 'root'@'localhost' identified by 'user_pass';
+## 刷新权限设置
+flush privileges;</code></pre>
+<p>实际使用的时候可能会进行一些更细节的授权限制，那么怎么办呢？</p>
+<h4 id="1、查看用户权限"><a href="#1、查看用户权限" class="headerlink" title="1、查看用户权限"></a>1、查看用户权限</h4><pre class=" language-mysql"><code class="language-mysql">##查看当前登录用户权限
+show grants;
+## 查看其他 MySQL 用户权限：
+show grants for user_name@localhost;</code></pre>
+<h4 id="2、基本授权命令"><a href="#2、基本授权命令" class="headerlink" title="2、基本授权命令"></a>2、基本授权命令</h4><pre class=" language-mysql"><code class="language-mysql">grant <privileges>  on schema.table to user_name@host_name identified by user_pass</code></pre>
+<p><strong>privileges</strong> ：包括常见的查询、插入、更新、删除操作外，还包括创建表、索引、视图、存储过程、函数等权限。使用时关键字 “privileges” 可以省略。</p>
+<p><strong>schema.table</strong> ：可以细节到指定库指定表，<code>*.*</code> 表示所有的库下所有的表。</p>
+<p><strong>user_name@host_name identified by user_pass</strong>：表示允许哪个用户使用指定密码从哪个主机登录；常见的写法如下：（<code>identified by user_pass</code>实际使用时记得加上）</p>
+<table>
+<thead>
+<tr>
+<th>写法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘root’@’localhost’</td>
+<td>允许root用户从本机连接登录</td>
+</tr>
+<tr>
+<td>‘root’@’%’</td>
+<td>允许root用户从任意机器连接登录</td>
+</tr>
+<tr>
+<td>‘root’@’192.168.0.221’</td>
+<td>允许root用户从<code>IP</code>为<code>192.168.0.221</code>的机器连接登录</td>
+</tr>
+<tr>
+<td>‘root’@’192.168.0.%’</td>
+<td>允许root用户从<code>IP</code>网段为<code>192.168.0.*</code>的机器连接登录</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>不写@选项时，效果与加@’%’是一样。</p>
+<p>‘%’从名义上包括任何主机，据说有些版本’%’不包括<code>localhost</code>，则需要单独对<code>@&#39;localhost&#39;</code>进行赋值。</p>
+</blockquote>
+<p>（1）给普通用户授权</p>
+<p>普通用户一般可以授权基本数据的查询、写入、修改、删除操作，修改、删除视实际要求情况授权。</p>
+<p><code>bus_dbname</code> ：表示业务数据库。<code>common_user</code>：普通用户连接账户。</p>
+<pre class=" language-mysql"><code class="language-mysql">## 分别授权
+grant select on bus_dbname.* to common_user@'%'
+grant insert on bus_dbname.* to common_user@'%'
+grant update on bus_dbname.* to common_user@'%'
+grant delete on bus_dbname.* to common_user@'%'
+
+## 合并操作，使用英文逗号分隔
+grant select, insert, update, delete on bus_dbname.* to common_user@'%'</code></pre>
+<p>（2）给高权用户授权</p>
+<p>如开发人员，<code>DBA</code>等，允许建表结构，删表，改表结构，改外键，建视图，临时表，索引，存储过程等。</p>
+<p><code>bus_dbname</code> ：表示业务数据库。<code>dev_userr</code>：开发或管理用户连接账户。</p>
+<pre class=" language-mysql"><code class="language-mysql">## 授权dev_user用户 在MySQL的数据库bus_dbname中建表操作 
+grant create on bus_dbname.* to dev_user@'192.168.0.%';
+## 授权 改表
+grant alter on bus_dbname.* to dev_user@'192.168.0.%';
+## 授权 删表
+grant drop on bus_dbname.* to dev_user@'192.168.0.%';
+
+## 授权 外键权限。
+grant references on bus_dbname.* to dev_user@'192.168.0.%';
+
+## 授权 临时表权限。
+grant create temporary tables on bus_dbname.* to dev_user@'192.168.0.%';
+## 授权 索引权限。
+grant index on bus_dbname.* to dev_user@'192.168.0.%';
+
+## 授权 视图创建。
+grant create view on bus_dbname.* to dev_user@'192.168.0.%';
+## 授权 视图查看代码。
+grant show view on bus_dbname.* to dev_user@'192.168.0.%';
+
+##给普通 DBA/dev_user授权
+grant all privileges on bus_dbname.* to dev_user@'localhost'
+##可以省略privileges
+grant all on bus_dbname.* to dev_user@'localhost' 
+
+##其实是给dev_user授权所有库和所以表，一般可以给DBA
+grant all on *.* to dev_user@'localhost'</code></pre>
+<p>关于存储过程和函数的使用关键字：<code>create routine</code>。</p>
+<p>授权<code>create  routine</code>表示可以创建<code>procedure</code> 和<code>function</code> 。</p>
+<p>如果用户创建了<code>procedure</code>或<code>function</code>那么<code>mysql</code>会自动赋予该用户对<code>procedure</code> 或 <code>function</code> 的<code>alter routine</code>和<code>execute</code> 权限。</p>
+<pre class=" language-mysql"><code class="language-mysql">grant create routine on bus_dbname.* to dev_user@'192.168.0.%'; </code></pre>
+<p>创建存储过程：</p>
+<pre class=" language-mysql"><code class="language-mysql">delimiter $
+create procedure sp_hello_mysql()
+begin
+    select 'hello mysql';
+end 
+$</code></pre>
+<p>再去查询授权</p>
+<pre class=" language-mysql"><code class="language-mysql">show grants;</code></pre>
+<p>就可以看到用户<code>alter routine</code>和<code>execute</code> 权限。</p>
+<p>（3）授权分层</p>
+<p><code>grant</code>的授权可以授权给整个<code>mysql</code>库，也可以指定某个库，指定某个库的某个表，指定表的列，指定视图、指定函数、指定存储过程等</p>
+<pre class=" language-mysql"><code class="language-mysql">## 授权 MySQL中的所有数据库下的所有表，也就是完整的全部权限
+grant all on *.* to 'root'@'localhost'; 
+
+## 授权user_name 给某个指定的数据库的查询权限
+grant select  on bus_dbname.* to user_name@localhost; 
+
+## 授权 给某个指定的数据库的指定表select, insert, update, delete权限
+grant select, insert, update, delete on bus_dbname.table_name to user_name@localhost; 
+
+## 授权 给某个指定的数据库的指定表查询指定列的权限
+grant select(id, name, rank) on bus_dbname.table_name to user_name@localhost;
+
+## 授权 指定的存储过程执行权限
+grant execute on procedure bus_dbname.pr_procname to user_name@localhost;
+## 授权 指定的函数执行权限
+grant execute on function bus_dbname.fn_funcname to user_name@localhost;</code></pre>
+<h4 id="3、撤销授权命令"><a href="#3、撤销授权命令" class="headerlink" title="3、撤销授权命令"></a>3、撤销授权命令</h4><p>撤销授权使用<code>revoke</code>命令。</p>
+<p><code>revoke</code> 和<code>grant</code> 的语法相似，需要把关键字 <code>to</code> 换成 <code>from</code>,命令格式：</p>
+<pre class=" language-mysql"><code class="language-mysql">## 授权dev_user用户在本地登录后的 操作所有库所有表的所有权限
+grant all on *.* to dev_user@localhost ;
+## 撤销dev_user用户在本地登录后的 操作所有库所有表的所有权限
+revoke all on *.* from dev_user@localhost;</code></pre>
+<h4 id="4、注意事项"><a href="#4、注意事项" class="headerlink" title="4、注意事项"></a>4、注意事项</h4><p>（1）执行<code>grant</code>,<code>revoke</code> 操作权限后，相关用户，重新连接<code>MySQL</code> 数据库后，权限才能生效。</p>
+<p>（2）用户被授予了某个权限，那么默认情况下，该用户是不能把这个权限授予给其他人的.。</p>
+<p>可以使用<code>WITH GRANT OPTION</code>这个子句来让该用户可以将权限再授予给其他人。</p>
+<p><code>WITH GRANT OPTION</code>：表示允许权限传递。用于对象授权。区别于 用于系统权限授权的<code>with admin option</code>。</p>
+<p>还可以通过直接授予GRANT OPTION权限来达到这个效果。</p>
+<pre class=" language-mysql"><code class="language-mysql">##使用 WITH GRANT OPTION允许权限传递
+grant select, insert, update, delete on bus_dbname.table_name to user_name@localhost WITH  GRANT OPTION; 
+
+## 直接授权GRANT OPTION
+grant select,grant option on bus_dbname.table_name to user_name@localhost ; </code></pre>
+<p>（3）权限传递<code>WITH  GRANT OPTION</code>用户的权限被收回时，其他被传递的相同权限自动收回。</p>
+<p>（4）权限信息用user、db、host、<code>tables_priv</code>和columns_<code>priv</code>表被存储在<code>mysql</code>数据库中</p>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+        <tag>Mysql</tag>
       </tags>
   </entry>
 </search>
