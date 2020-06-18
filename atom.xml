@@ -206,9 +206,9 @@
   </entry>
   
   <entry>
-    <title>DB2常用命令</title>
-    <link href="https://small-rose.github.io/posts/7f06fe17.html"/>
-    <id>https://small-rose.github.io/posts/7f06fe17.html</id>
+    <title>jvm之类加载机制</title>
+    <link href="https://small-rose.github.io/posts/22096143.html"/>
+    <id>https://small-rose.github.io/posts/22096143.html</id>
     <published>2020-06-09T16:00:00.000Z</published>
     <updated>2020-06-09T16:00:00.000Z</updated>
     
@@ -216,18 +216,20 @@
     
       
       
-        &lt;h2 id=&quot;DB2-常用命令&quot;&gt;&lt;a href=&quot;#DB2-常用命令&quot; class=&quot;headerlink&quot; title=&quot;DB2 常用命令&quot;&gt;&lt;/a&gt;DB2 常用命令&lt;/h2&gt;&lt;h3 id=&quot;1、启停命令&quot;&gt;&lt;a href=&quot;#1、启停命令&quot; class=&quot;headerli
+        &lt;h2 id=&quot;jvm类加载机制&quot;&gt;&lt;a href=&quot;#jvm类加载机制&quot; class=&quot;headerlink&quot; title=&quot;jvm类加载机制&quot;&gt;&lt;/a&gt;jvm类加载机制&lt;/h2&gt;&lt;p&gt;什么是类加载机制？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Java虚拟机把描述类的数据从C
       
     
     </summary>
     
     
-      <category term="DB2" scheme="https://small-rose.github.io/categories/DB2/"/>
+      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
     
     
-      <category term="SQL" scheme="https://small-rose.github.io/tags/SQL/"/>
+      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
     
-      <category term="DB2" scheme="https://small-rose.github.io/tags/DB2/"/>
+      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
     
   </entry>
   
@@ -258,9 +260,9 @@
   </entry>
   
   <entry>
-    <title>jvm之类加载机制</title>
-    <link href="https://small-rose.github.io/posts/22096143.html"/>
-    <id>https://small-rose.github.io/posts/22096143.html</id>
+    <title>DB2常用命令</title>
+    <link href="https://small-rose.github.io/posts/7f06fe17.html"/>
+    <id>https://small-rose.github.io/posts/7f06fe17.html</id>
     <published>2020-06-09T16:00:00.000Z</published>
     <updated>2020-06-09T16:00:00.000Z</updated>
     
@@ -268,46 +270,18 @@
     
       
       
-        &lt;h2 id=&quot;jvm类加载机制&quot;&gt;&lt;a href=&quot;#jvm类加载机制&quot; class=&quot;headerlink&quot; title=&quot;jvm类加载机制&quot;&gt;&lt;/a&gt;jvm类加载机制&lt;/h2&gt;&lt;p&gt;什么是类加载机制？&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Java虚拟机把描述类的数据从C
+        &lt;h2 id=&quot;DB2-常用命令&quot;&gt;&lt;a href=&quot;#DB2-常用命令&quot; class=&quot;headerlink&quot; title=&quot;DB2 常用命令&quot;&gt;&lt;/a&gt;DB2 常用命令&lt;/h2&gt;&lt;h3 id=&quot;1、启停命令&quot;&gt;&lt;a href=&quot;#1、启停命令&quot; class=&quot;headerli
       
     
     </summary>
     
     
-      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
+      <category term="DB2" scheme="https://small-rose.github.io/categories/DB2/"/>
     
     
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
+      <category term="SQL" scheme="https://small-rose.github.io/tags/SQL/"/>
     
-      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jvm之对象查询OQL</title>
-    <link href="https://small-rose.github.io/posts/2197a49e.html"/>
-    <id>https://small-rose.github.io/posts/2197a49e.html</id>
-    <published>2020-06-08T16:00:00.000Z</published>
-    <updated>2020-06-08T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jvm之对象查询OQL&quot;&gt;&lt;a href=&quot;#jvm之对象查询OQL&quot; class=&quot;headerlink&quot; title=&quot;jvm之对象查询OQL&quot;&gt;&lt;/a&gt;jvm之对象查询OQL&lt;/h2&gt;&lt;h3 id=&quot;一、SELECT子句&quot;&gt;&lt;a href=&quot;#一、SELEC
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
-    
-    
-      <category term="Jvm" scheme="https://small-rose.github.io/tags/Jvm/"/>
-    
-      <category term="OQL" scheme="https://small-rose.github.io/tags/OQL/"/>
+      <category term="DB2" scheme="https://small-rose.github.io/tags/DB2/"/>
     
   </entry>
   
@@ -334,6 +308,32 @@
       <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
     
       <category term="字节码指令表" scheme="https://small-rose.github.io/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm之对象查询OQL</title>
+    <link href="https://small-rose.github.io/posts/2197a49e.html"/>
+    <id>https://small-rose.github.io/posts/2197a49e.html</id>
+    <published>2020-06-08T16:00:00.000Z</published>
+    <updated>2020-06-08T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;jvm之对象查询OQL&quot;&gt;&lt;a href=&quot;#jvm之对象查询OQL&quot; class=&quot;headerlink&quot; title=&quot;jvm之对象查询OQL&quot;&gt;&lt;/a&gt;jvm之对象查询OQL&lt;/h2&gt;&lt;h3 id=&quot;一、SELECT子句&quot;&gt;&lt;a href=&quot;#一、SELEC
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
+    
+    
+      <category term="Jvm" scheme="https://small-rose.github.io/tags/Jvm/"/>
+    
+      <category term="OQL" scheme="https://small-rose.github.io/tags/OQL/"/>
     
   </entry>
   
