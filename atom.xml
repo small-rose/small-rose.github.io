@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://small-rose.github.io/"/>
-  <updated>2020-06-17T15:00:00.000Z</updated>
+  <updated>2020-06-21T14:00:00.000Z</updated>
   <id>https://small-rose.github.io/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DB2-常见ERRORCODE</title>
+    <link href="https://small-rose.github.io/posts/9f154069.html"/>
+    <id>https://small-rose.github.io/posts/9f154069.html</id>
+    <published>2020-06-21T14:00:00.000Z</published>
+    <updated>2020-06-21T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;a href=&quot;#DB2-常见ERRORCODE&quot; class=&quot;headerlink&quot; title=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;/a&gt;DB2-常见ERRORCODE&lt;/h2&gt;&lt;p&gt;对于常见的错误码，熟悉之后就可以快速
+      
+    
+    </summary>
+    
+    
+      <category term="DB2" scheme="https://small-rose.github.io/categories/DB2/"/>
+    
+    
+      <category term="DB2" scheme="https://small-rose.github.io/tags/DB2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql-Access denied for</title>
+    <link href="https://small-rose.github.io/posts/7c170969.html"/>
+    <id>https://small-rose.github.io/posts/7c170969.html</id>
+    <published>2020-06-21T14:00:00.000Z</published>
+    <updated>2020-06-21T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Linux下MySQL的Access-denied-for-user&quot;&gt;&lt;a href=&quot;#Linux下MySQL的Access-denied-for-user&quot; class=&quot;headerlink&quot; title=&quot;Linux下MySQL的Access denie
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://small-rose.github.io/categories/Mysql/"/>
+    
+    
+      <category term="Mysql" scheme="https://small-rose.github.io/tags/Mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>Mysql-常用命令与授权</title>
@@ -34,7 +82,7 @@
     </summary>
     
     
-      <category term="SQL" scheme="https://small-rose.github.io/categories/SQL/"/>
+      <category term="Mysql" scheme="https://small-rose.github.io/categories/Mysql/"/>
     
     
       <category term="SQL" scheme="https://small-rose.github.io/tags/SQL/"/>
@@ -164,7 +212,7 @@
     
       
       
-        &lt;pre&gt;&lt;code&gt;本文记录关于深入理解JVM（第三版）相关学习导航笔记。&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;java虚拟机内存自动管理&quot;&gt;&lt;a href=&quot;#java虚拟机内存自动管理&quot; class=&quot;headerlink&quot; title=&quot;java虚拟机内存自动管理&quot;&gt;
+        &lt;pre&gt;&lt;code&gt;本文记录关于深入理解JVM（第三版）相关学习导航笔记。&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;JVM学习导航&quot;&gt;&lt;a href=&quot;#JVM学习导航&quot; class=&quot;headerlink&quot; title=&quot;JVM学习导航&quot;&gt;&lt;/a&gt;JVM学习导航&lt;/h2&gt;&lt;p
       
     
     </summary>
@@ -225,9 +273,9 @@
       <category term="DB2" scheme="https://small-rose.github.io/categories/DB2/"/>
     
     
-      <category term="SQL" scheme="https://small-rose.github.io/tags/SQL/"/>
-    
       <category term="DB2" scheme="https://small-rose.github.io/tags/DB2/"/>
+    
+      <category term="SQL" scheme="https://small-rose.github.io/tags/SQL/"/>
     
   </entry>
   
@@ -251,9 +299,9 @@
       <category term="DB2" scheme="https://small-rose.github.io/categories/DB2/"/>
     
     
-      <category term="SQL" scheme="https://small-rose.github.io/tags/SQL/"/>
-    
       <category term="DB2" scheme="https://small-rose.github.io/tags/DB2/"/>
+    
+      <category term="SQL" scheme="https://small-rose.github.io/tags/SQL/"/>
     
   </entry>
   
@@ -286,6 +334,32 @@
   </entry>
   
   <entry>
+    <title>jvm之对象查询OQL</title>
+    <link href="https://small-rose.github.io/posts/2197a49e.html"/>
+    <id>https://small-rose.github.io/posts/2197a49e.html</id>
+    <published>2020-06-08T16:00:00.000Z</published>
+    <updated>2020-06-08T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;jvm之对象查询OQL&quot;&gt;&lt;a href=&quot;#jvm之对象查询OQL&quot; class=&quot;headerlink&quot; title=&quot;jvm之对象查询OQL&quot;&gt;&lt;/a&gt;jvm之对象查询OQL&lt;/h2&gt;&lt;h3 id=&quot;一、SELECT子句&quot;&gt;&lt;a href=&quot;#一、SELEC
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
+    
+    
+      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
+    
+      <category term="OQL" scheme="https://small-rose.github.io/tags/OQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>jvm监控调优工具</title>
     <link href="https://small-rose.github.io/posts/ed0fd586.html"/>
     <id>https://small-rose.github.io/posts/ed0fd586.html</id>
@@ -314,9 +388,9 @@
   </entry>
   
   <entry>
-    <title>jvm之对象查询OQL</title>
-    <link href="https://small-rose.github.io/posts/2197a49e.html"/>
-    <id>https://small-rose.github.io/posts/2197a49e.html</id>
+    <title>jvm之字节码指令</title>
+    <link href="https://small-rose.github.io/posts/a2ceb3e5.html"/>
+    <id>https://small-rose.github.io/posts/a2ceb3e5.html</id>
     <published>2020-06-08T16:00:00.000Z</published>
     <updated>2020-06-08T16:00:00.000Z</updated>
     
@@ -324,7 +398,8 @@
     
       
       
-        &lt;h2 id=&quot;jvm之对象查询OQL&quot;&gt;&lt;a href=&quot;#jvm之对象查询OQL&quot; class=&quot;headerlink&quot; title=&quot;jvm之对象查询OQL&quot;&gt;&lt;/a&gt;jvm之对象查询OQL&lt;/h2&gt;&lt;h3 id=&quot;一、SELECT子句&quot;&gt;&lt;a href=&quot;#一、SELEC
+        &lt;h2 id=&quot;jvm字节码指令&quot;&gt;&lt;a href=&quot;#jvm字节码指令&quot; class=&quot;headerlink&quot; title=&quot;jvm字节码指令&quot;&gt;&lt;/a&gt;jvm字节码指令&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Java虚拟机的指令由一个字节长度的、代表着某种特定操作含义的数字
       
     
     </summary>
@@ -333,9 +408,11 @@
       <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
     
     
-      <category term="Jvm" scheme="https://small-rose.github.io/tags/Jvm/"/>
+      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
     
-      <category term="OQL" scheme="https://small-rose.github.io/tags/OQL/"/>
+      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
+    
+      <category term="字节码指令" scheme="https://small-rose.github.io/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4/"/>
     
   </entry>
   
@@ -366,35 +443,6 @@
   </entry>
   
   <entry>
-    <title>jvm之字节码指令</title>
-    <link href="https://small-rose.github.io/posts/a2ceb3e5.html"/>
-    <id>https://small-rose.github.io/posts/a2ceb3e5.html</id>
-    <published>2020-06-08T16:00:00.000Z</published>
-    <updated>2020-06-08T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jvm字节码指令&quot;&gt;&lt;a href=&quot;#jvm字节码指令&quot; class=&quot;headerlink&quot; title=&quot;jvm字节码指令&quot;&gt;&lt;/a&gt;jvm字节码指令&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Java虚拟机的指令由一个字节长度的、代表着某种特定操作含义的数字
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
-    
-      <category term="Jvm" scheme="https://small-rose.github.io/tags/Jvm/"/>
-    
-      <category term="字节码指令" scheme="https://small-rose.github.io/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
     <title>jvm之类文件结构</title>
     <link href="https://small-rose.github.io/posts/6698cab3.html"/>
     <id>https://small-rose.github.io/posts/6698cab3.html</id>
@@ -416,7 +464,7 @@
     
       <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
     
-      <category term="Jvm" scheme="https://small-rose.github.io/tags/Jvm/"/>
+      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
     
       <category term="class结构" scheme="https://small-rose.github.io/tags/class%E7%BB%93%E6%9E%84/"/>
     
@@ -501,62 +549,6 @@
       <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
     
       <category term="垃圾收集器" scheme="https://small-rose.github.io/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jvm之垃圾收集器</title>
-    <link href="https://small-rose.github.io/posts/d01dbbb1.html"/>
-    <id>https://small-rose.github.io/posts/d01dbbb1.html</id>
-    <published>2020-05-31T16:00:00.000Z</published>
-    <updated>2020-05-31T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jvm-垃圾收集器&quot;&gt;&lt;a href=&quot;#jvm-垃圾收集器&quot; class=&quot;headerlink&quot; title=&quot;jvm 垃圾收集器&quot;&gt;&lt;/a&gt;jvm 垃圾收集器&lt;/h2&gt;&lt;h2 id=&quot;一-关于垃圾收集器&quot;&gt;&lt;a href=&quot;#一-关于垃圾收集器&quot; class
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
-    
-      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
-    
-      <category term="垃圾收集器" scheme="https://small-rose.github.io/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jvm之垃圾收集器算法</title>
-    <link href="https://small-rose.github.io/posts/50b49e8d.html"/>
-    <id>https://small-rose.github.io/posts/50b49e8d.html</id>
-    <published>2020-05-30T16:00:00.000Z</published>
-    <updated>2020-05-30T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jvm-垃圾收集算法&quot;&gt;&lt;a href=&quot;#jvm-垃圾收集算法&quot; class=&quot;headerlink&quot; title=&quot;jvm 垃圾收集算法&quot;&gt;&lt;/a&gt;jvm 垃圾收集算法&lt;/h2&gt;&lt;p&gt;垃圾收集算法基本分类：&lt;br&gt;（1）“引用计数式垃圾收集”（Referenc
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
-    
-      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
-    
-      <category term="垃圾收集器算法" scheme="https://small-rose.github.io/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
