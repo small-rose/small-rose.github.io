@@ -17,30 +17,6 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>DB2-常见ERRORCODE</title>
-    <link href="https://www.zhangxiaocai.cn/posts/9f154069.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/9f154069.html</id>
-    <published>2020-06-21T14:00:00.000Z</published>
-    <updated>2020-06-21T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;a href=&quot;#DB2-常见ERRORCODE&quot; class=&quot;headerlink&quot; title=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;/a&gt;DB2-常见ERRORCODE&lt;/h2&gt;&lt;p&gt;对于常见的错误码，熟悉之后就可以快速
-      
-    
-    </summary>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Mysql-Access denied for</title>
     <link href="https://www.zhangxiaocai.cn/posts/7c170969.html"/>
     <id>https://www.zhangxiaocai.cn/posts/7c170969.html</id>
@@ -61,6 +37,30 @@
     
     
       <category term="Mysql" scheme="https://www.zhangxiaocai.cn/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DB2-常见ERRORCODE</title>
+    <link href="https://www.zhangxiaocai.cn/posts/9f154069.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/9f154069.html</id>
+    <published>2020-06-21T14:00:00.000Z</published>
+    <updated>2020-06-21T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;a href=&quot;#DB2-常见ERRORCODE&quot; class=&quot;headerlink&quot; title=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;/a&gt;DB2-常见ERRORCODE&lt;/h2&gt;&lt;p&gt;对于常见的错误码，熟悉之后就可以快速
+      
+    
+    </summary>
+    
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
+    
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
     
   </entry>
   
@@ -251,32 +251,6 @@
   </entry>
   
   <entry>
-    <title>DB2常用命令</title>
-    <link href="https://www.zhangxiaocai.cn/posts/7f06fe17.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/7f06fe17.html</id>
-    <published>2020-06-09T16:00:00.000Z</published>
-    <updated>2020-06-09T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;DB2-常用命令&quot;&gt;&lt;a href=&quot;#DB2-常用命令&quot; class=&quot;headerlink&quot; title=&quot;DB2 常用命令&quot;&gt;&lt;/a&gt;DB2 常用命令&lt;/h2&gt;&lt;h3 id=&quot;1、启停命令&quot;&gt;&lt;a href=&quot;#1、启停命令&quot; class=&quot;headerli
-      
-    
-    </summary>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
-    
-      <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
-    
-  </entry>
-  
-  <entry>
     <title>jvm之类加载机制</title>
     <link href="https://www.zhangxiaocai.cn/posts/22096143.html"/>
     <id>https://www.zhangxiaocai.cn/posts/22096143.html</id>
@@ -305,30 +279,28 @@
   </entry>
   
   <entry>
-    <title>jvm之类文件结构</title>
-    <link href="https://www.zhangxiaocai.cn/posts/6698cab3.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/6698cab3.html</id>
-    <published>2020-06-08T16:00:00.000Z</published>
-    <updated>2020-06-08T16:00:00.000Z</updated>
+    <title>DB2常用命令</title>
+    <link href="https://www.zhangxiaocai.cn/posts/7f06fe17.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/7f06fe17.html</id>
+    <published>2020-06-09T16:00:00.000Z</published>
+    <updated>2020-06-09T16:00:00.000Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;jvm类文件结构&quot;&gt;&lt;a href=&quot;#jvm类文件结构&quot; class=&quot;headerlink&quot; title=&quot;jvm类文件结构&quot;&gt;&lt;/a&gt;jvm类文件结构&lt;/h2&gt;&lt;p&gt;各种不同平台的Java虚拟机，以及所有平台都统一支持的程序存储格式——字节码（ByteCod
+        &lt;h2 id=&quot;DB2-常用命令&quot;&gt;&lt;a href=&quot;#DB2-常用命令&quot; class=&quot;headerlink&quot; title=&quot;DB2 常用命令&quot;&gt;&lt;/a&gt;DB2 常用命令&lt;/h2&gt;&lt;h3 id=&quot;1、启停命令&quot;&gt;&lt;a href=&quot;#1、启停命令&quot; class=&quot;headerli
       
     
     </summary>
     
     
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
     
     
-      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
     
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
-    
-      <category term="class结构" scheme="https://www.zhangxiaocai.cn/tags/class%E7%BB%93%E6%9E%84/"/>
+      <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
     
   </entry>
   
@@ -361,9 +333,9 @@
   </entry>
   
   <entry>
-    <title>jvm之字节码指令</title>
-    <link href="https://www.zhangxiaocai.cn/posts/a2ceb3e5.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/a2ceb3e5.html</id>
+    <title>jvm字节码指令表</title>
+    <link href="https://www.zhangxiaocai.cn/posts/ee62cca5.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/ee62cca5.html</id>
     <published>2020-06-08T16:00:00.000Z</published>
     <updated>2020-06-08T16:00:00.000Z</updated>
     
@@ -371,8 +343,7 @@
     
       
       
-        &lt;h2 id=&quot;jvm字节码指令&quot;&gt;&lt;a href=&quot;#jvm字节码指令&quot; class=&quot;headerlink&quot; title=&quot;jvm字节码指令&quot;&gt;&lt;/a&gt;jvm字节码指令&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Java虚拟机的指令由一个字节长度的、代表着某种特定操作含义的数字
+        &lt;h2 id=&quot;JVM字节码指令表&quot;&gt;&lt;a href=&quot;#JVM字节码指令表&quot; class=&quot;headerlink&quot; title=&quot;JVM字节码指令表&quot;&gt;&lt;/a&gt;JVM字节码指令表&lt;/h2&gt;&lt;h3 id=&quot;java虚拟机字节码指令表&quot;&gt;&lt;a href=&quot;#java虚拟机字节码指令
       
     
     </summary>
@@ -383,9 +354,7 @@
     
       <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
-    
-      <category term="字节码指令" scheme="https://www.zhangxiaocai.cn/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4/"/>
+      <category term="字节码指令表" scheme="https://www.zhangxiaocai.cn/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E8%A1%A8/"/>
     
   </entry>
   
@@ -416,9 +385,9 @@
   </entry>
   
   <entry>
-    <title>jvm字节码指令表</title>
-    <link href="https://www.zhangxiaocai.cn/posts/ee62cca5.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/ee62cca5.html</id>
+    <title>jvm之类文件结构</title>
+    <link href="https://www.zhangxiaocai.cn/posts/6698cab3.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/6698cab3.html</id>
     <published>2020-06-08T16:00:00.000Z</published>
     <updated>2020-06-08T16:00:00.000Z</updated>
     
@@ -426,7 +395,7 @@
     
       
       
-        &lt;h2 id=&quot;JVM字节码指令表&quot;&gt;&lt;a href=&quot;#JVM字节码指令表&quot; class=&quot;headerlink&quot; title=&quot;JVM字节码指令表&quot;&gt;&lt;/a&gt;JVM字节码指令表&lt;/h2&gt;&lt;h3 id=&quot;java虚拟机字节码指令表&quot;&gt;&lt;a href=&quot;#java虚拟机字节码指令
+        &lt;h2 id=&quot;jvm类文件结构&quot;&gt;&lt;a href=&quot;#jvm类文件结构&quot; class=&quot;headerlink&quot; title=&quot;jvm类文件结构&quot;&gt;&lt;/a&gt;jvm类文件结构&lt;/h2&gt;&lt;p&gt;各种不同平台的Java虚拟机，以及所有平台都统一支持的程序存储格式——字节码（ByteCod
       
     
     </summary>
@@ -437,7 +406,38 @@
     
       <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="字节码指令表" scheme="https://www.zhangxiaocai.cn/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E8%A1%A8/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
+    
+      <category term="class结构" scheme="https://www.zhangxiaocai.cn/tags/class%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm之字节码指令</title>
+    <link href="https://www.zhangxiaocai.cn/posts/a2ceb3e5.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/a2ceb3e5.html</id>
+    <published>2020-06-08T16:00:00.000Z</published>
+    <updated>2020-06-08T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;jvm字节码指令&quot;&gt;&lt;a href=&quot;#jvm字节码指令&quot; class=&quot;headerlink&quot; title=&quot;jvm字节码指令&quot;&gt;&lt;/a&gt;jvm字节码指令&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Java虚拟机的指令由一个字节长度的、代表着某种特定操作含义的数字
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
+    
+      <category term="字节码指令" scheme="https://www.zhangxiaocai.cn/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4/"/>
     
   </entry>
   
