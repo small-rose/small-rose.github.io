@@ -331,9 +331,9 @@
   </entry>
   
   <entry>
-    <title>jvm字节码指令表</title>
-    <link href="https://www.zhangxiaocai.cn/posts/ee62cca5.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/ee62cca5.html</id>
+    <title>jvm之类文件结构</title>
+    <link href="https://www.zhangxiaocai.cn/posts/6698cab3.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/6698cab3.html</id>
     <published>2020-06-08T16:00:00.000Z</published>
     <updated>2020-06-08T16:00:00.000Z</updated>
     
@@ -341,7 +341,7 @@
     
       
       
-        &lt;h2 id=&quot;JVM字节码指令表&quot;&gt;&lt;a href=&quot;#JVM字节码指令表&quot; class=&quot;headerlink&quot; title=&quot;JVM字节码指令表&quot;&gt;&lt;/a&gt;JVM字节码指令表&lt;/h2&gt;&lt;h3 id=&quot;java虚拟机字节码指令表&quot;&gt;&lt;a href=&quot;#java虚拟机字节码指令
+        &lt;h2 id=&quot;jvm类文件结构&quot;&gt;&lt;a href=&quot;#jvm类文件结构&quot; class=&quot;headerlink&quot; title=&quot;jvm类文件结构&quot;&gt;&lt;/a&gt;jvm类文件结构&lt;/h2&gt;&lt;p&gt;各种不同平台的Java虚拟机，以及所有平台都统一支持的程序存储格式——字节码（ByteCod
       
     
     </summary>
@@ -352,7 +352,9 @@
     
       <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="字节码指令表" scheme="https://www.zhangxiaocai.cn/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E8%A1%A8/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
+    
+      <category term="class结构" scheme="https://www.zhangxiaocai.cn/tags/class%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
@@ -385,9 +387,9 @@
   </entry>
   
   <entry>
-    <title>jvm之类文件结构</title>
-    <link href="https://www.zhangxiaocai.cn/posts/6698cab3.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/6698cab3.html</id>
+    <title>jvm字节码指令表</title>
+    <link href="https://www.zhangxiaocai.cn/posts/ee62cca5.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/ee62cca5.html</id>
     <published>2020-06-08T16:00:00.000Z</published>
     <updated>2020-06-08T16:00:00.000Z</updated>
     
@@ -395,7 +397,7 @@
     
       
       
-        &lt;h2 id=&quot;jvm类文件结构&quot;&gt;&lt;a href=&quot;#jvm类文件结构&quot; class=&quot;headerlink&quot; title=&quot;jvm类文件结构&quot;&gt;&lt;/a&gt;jvm类文件结构&lt;/h2&gt;&lt;p&gt;各种不同平台的Java虚拟机，以及所有平台都统一支持的程序存储格式——字节码（ByteCod
+        &lt;h2 id=&quot;JVM字节码指令表&quot;&gt;&lt;a href=&quot;#JVM字节码指令表&quot; class=&quot;headerlink&quot; title=&quot;JVM字节码指令表&quot;&gt;&lt;/a&gt;JVM字节码指令表&lt;/h2&gt;&lt;h3 id=&quot;java虚拟机字节码指令表&quot;&gt;&lt;a href=&quot;#java虚拟机字节码指令
       
     
     </summary>
@@ -406,9 +408,7 @@
     
       <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
     
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
-    
-      <category term="class结构" scheme="https://www.zhangxiaocai.cn/tags/class%E7%BB%93%E6%9E%84/"/>
+      <category term="字节码指令表" scheme="https://www.zhangxiaocai.cn/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E8%A1%A8/"/>
     
   </entry>
   
@@ -468,9 +468,9 @@
   </entry>
   
   <entry>
-    <title>JVM LLGC：ZGC</title>
-    <link href="https://www.zhangxiaocai.cn/posts/e3d9aed7.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/e3d9aed7.html</id>
+    <title>JVM LLGC：Shenandoah</title>
+    <link href="https://www.zhangxiaocai.cn/posts/f8161112.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/f8161112.html</id>
     <published>2020-06-02T16:00:00.000Z</published>
     <updated>2020-06-02T16:00:00.000Z</updated>
     
@@ -478,7 +478,7 @@
     
       
       
-        &lt;h2 id=&quot;jvm低延迟垃圾收集器-ZGC&quot;&gt;&lt;a href=&quot;#jvm低延迟垃圾收集器-ZGC&quot; class=&quot;headerlink&quot; title=&quot;jvm低延迟垃圾收集器 ZGC&quot;&gt;&lt;/a&gt;jvm低延迟垃圾收集器 ZGC&lt;/h2&gt;&lt;p&gt;EN： JVM Low-Latenc
+        &lt;h2 id=&quot;JVM低延迟垃圾收集器：Shenandoah&quot;&gt;&lt;a href=&quot;#JVM低延迟垃圾收集器：Shenandoah&quot; class=&quot;headerlink&quot; title=&quot;JVM低延迟垃圾收集器：Shenandoah&quot;&gt;&lt;/a&gt;JVM低延迟垃圾收集器：Shenando
       
     
     </summary>
@@ -496,9 +496,9 @@
   </entry>
   
   <entry>
-    <title>JVM LLGC：Shenandoah</title>
-    <link href="https://www.zhangxiaocai.cn/posts/f8161112.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/f8161112.html</id>
+    <title>JVM LLGC：ZGC</title>
+    <link href="https://www.zhangxiaocai.cn/posts/e3d9aed7.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/e3d9aed7.html</id>
     <published>2020-06-02T16:00:00.000Z</published>
     <updated>2020-06-02T16:00:00.000Z</updated>
     
@@ -506,7 +506,7 @@
     
       
       
-        &lt;h2 id=&quot;JVM低延迟垃圾收集器：Shenandoah&quot;&gt;&lt;a href=&quot;#JVM低延迟垃圾收集器：Shenandoah&quot; class=&quot;headerlink&quot; title=&quot;JVM低延迟垃圾收集器：Shenandoah&quot;&gt;&lt;/a&gt;JVM低延迟垃圾收集器：Shenando
+        &lt;h2 id=&quot;jvm低延迟垃圾收集器-ZGC&quot;&gt;&lt;a href=&quot;#jvm低延迟垃圾收集器-ZGC&quot; class=&quot;headerlink&quot; title=&quot;jvm低延迟垃圾收集器 ZGC&quot;&gt;&lt;/a&gt;jvm低延迟垃圾收集器 ZGC&lt;/h2&gt;&lt;p&gt;EN： JVM Low-Latenc
       
     
     </summary>
