@@ -464,6 +464,10 @@ nameserver 8.8.4.4</code></pre>]]></content>
 <td>图片去背景</td>
 <td><a href="http://www.aigei.com/bgremover/" target="_blank" rel="noopener">http://www.aigei.com/bgremover/</a></td>
 </tr>
+<tr>
+<td>出现一张随机图片</td>
+<td><a href="https://api.uomg.com/api/image.lofter?format=images" target="_blank" rel="noopener">https://api.uomg.com/api/image.lofter?format=images</a></td>
+</tr>
 </tbody></table>
 <h4 id="图床工具："><a href="#图床工具：" class="headerlink" title="图床工具："></a>图床工具：</h4><table>
 <thead>
