@@ -2156,7 +2156,7 @@ fjs<span class="token punctuation">.</span>parentNode<span class="token punctuat
 <p>如果你部署之后发现不推送？</p>
 <p>首先检查浏览器通知是否禁用，如果禁用了，是无法通知的。</p>
 <p>其次检查你的<code>public/newPost.json</code>文件，看看键值是否齐全。如果你的summary是空字符串，那么你遇到了跟我一样的问题。</p>
-<p>解决： 修改 <code>node_modules/hexo-web-push-notification/index.js</code>文件中第22行<code>&#39;summary&#39;: util.stripHTML(newPost.excerpt),</code>这里取值取的是excerpt，该成summary即可。</p>
+<p>解决： 修改 <code>node_modules/hexo-web-push-notification/index.js</code>文件中第22行<code>&#39;summary&#39;: util.stripHTML(newPost.excerpt),</code>这里取值取的是excerpt，改成summary即可。</p>
 <pre class=" language-java"><code class="language-java">var JSONFeed <span class="token operator">=</span> <span class="token punctuation">{</span>
         <span class="token string">'title'</span><span class="token operator">:</span> newPost<span class="token punctuation">.</span>title<span class="token punctuation">,</span>
         <span class="token string">'id'</span><span class="token operator">:</span> newPost<span class="token punctuation">.</span>path<span class="token punctuation">,</span>
