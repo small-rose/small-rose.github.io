@@ -1782,17 +1782,17 @@ minus
 <a id="more"></a>
 
 <p>注意：安装插件不是非必须，除了部分插件跟着主题必须安装之外，其他插件属于可选。</p>
-<h3 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h3><pre><code>npm install   hexo-generator-feed  --save   #订阅
-npm install   hexo-generator-search --save  #搜索</code></pre><h3 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h3><p>这里说一下添加本地搜索，有的主题已经自己带了搜索功能，只要配置开启即可。如果没有带主题可以自己加上。<br><font color=red>特别说明：如果主题自带搜索，看自带搜索操作说明即可，如果主题无搜索看自定义模式说明即可。</font></p>
-<h4 id="步骤一-安装插件"><a href="#步骤一-安装插件" class="headerlink" title="步骤一 安装插件"></a>步骤一 安装插件</h4><p>第一步：安装搜索插件 <code>npm install hexo-generator-searchdb --save</code></p>
-<h4 id="步骤二-修改配置"><a href="#步骤二-修改配置" class="headerlink" title="步骤二 修改配置"></a>步骤二 修改配置</h4><p>第二步：根目录_config.yml文件配置添加</p>
+<h2 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h2><pre><code>npm install   hexo-generator-feed  --save   #订阅
+npm install   hexo-generator-search --save  #搜索</code></pre><h2 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h2><p>这里说一下添加本地搜索，有的主题已经自己带了搜索功能，只要配置开启即可。如果没有带主题可以自己加上。<br><font color=red>特别说明：如果主题自带搜索，看自带搜索操作说明即可，如果主题无搜索看自定义模式说明即可。</font></p>
+<h3 id="步骤一-安装插件"><a href="#步骤一-安装插件" class="headerlink" title="步骤一 安装插件"></a>步骤一 安装插件</h3><p>第一步：安装搜索插件 <code>npm install hexo-generator-searchdb --save</code></p>
+<h3 id="步骤二-修改配置"><a href="#步骤二-修改配置" class="headerlink" title="步骤二 修改配置"></a>步骤二 修改配置</h3><p>第二步：根目录_config.yml文件配置添加</p>
 <pre><code>search:
   path: search.xml
   field: post
   format: html
   limit: 10000</code></pre><p>主题配置_config.yml添加</p>
 <pre><code>local_search: 
-  enable: true</code></pre><h4 id="步骤三-添加搜索"><a href="#步骤三-添加搜索" class="headerlink" title="步骤三 添加搜索"></a>步骤三 添加搜索</h4><p>第三步:添加搜索框</p>
+  enable: true</code></pre><h3 id="步骤三-添加搜索"><a href="#步骤三-添加搜索" class="headerlink" title="步骤三 添加搜索"></a>步骤三 添加搜索</h3><p>第三步:添加搜索框</p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>search-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>local-search-input<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>q<span class="token punctuation">"</span></span> <span class="token attr-name">results</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">autocomplete</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>off<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>搜索<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pure-input pure-input-1<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">204</span>, <span class="token number">232</span>, <span class="token number">207</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -1801,13 +1801,13 @@ npm install   hexo-generator-search --save  #搜索</code></pre><h3 id="本地�
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <p>第1种，主题自带搜索模式，有独立的search页面,生成页面前面已经讲到了，把代码放到source/search/index.md文件中即可。</p>
 <p>第2种，自定义模式，直接加在首页，想加哪个位置看自己喜好，位置找主题下的布局文件夹_layout或layout/partials之类的文件夹下,里面有head.ejs或head.swig文件（如果不是请自己查找节点，文件反正就那些）,添加html代码</p>
-<h4 id="步骤四-引入js文件"><a href="#步骤四-引入js文件" class="headerlink" title="步骤四 引入js文件"></a>步骤四 引入js文件</h4><p>第四步：引入js</p>
+<h3 id="步骤四-引入js文件"><a href="#步骤四-引入js文件" class="headerlink" title="步骤四 引入js文件"></a>步骤四 引入js文件</h3><p>第四步：引入js</p>
 <p>第1种，主题自带搜索模式，主题下的配置文件一般有scripts设置，直接配置路径，一般都有示例如</p>
 <pre><code>scripts:
 #- //cdn.bootcss.com/zepto/1.2.0/zepto.min.js
 #- /js/xoxo.js
   - /js/search.js</code></pre><p>第2种，自定义模式，没有scripts配置,就在找主题下的布局文件夹_layout或layout/中，有js.ejs或srcipt.ejs，<br>文件可以从这里拿：<a href="https://github.com/zhzy2017/hexo-search-plugin-snippets" target="_blank" rel="noopener">https://github.com/zhzy2017/hexo-search-plugin-snippets</a><br>把search.js 放到source\js目录下,引入使用也有不同的方法</p>
-<h4 id="步骤五-引入css文件"><a href="#步骤五-引入css文件" class="headerlink" title="步骤五 引入css文件"></a>步骤五 引入css文件</h4><p>第五步：css设置<br>有的带搜索的无须操作，没有的从下载hexo-search-plugin-snippets里面拿拷贝到source/css里面，引入即可，</p>
+<h3 id="步骤五-引入css文件"><a href="#步骤五-引入css文件" class="headerlink" title="步骤五 引入css文件"></a>步骤五 引入css文件</h3><p>第五步：css设置<br>有的带搜索的无须操作，没有的从下载hexo-search-plugin-snippets里面拿拷贝到source/css里面，引入即可，</p>
 <p>第1种，主题自带搜索模式，一般不需要配置写在公共文件中，如果没有样式可以在主题下的配置文件一般有stylesheets设置，直接配置路径，一般都有示例：</p>
 <pre><code>stylesheets:
 # - /css/normalize.css
@@ -2688,8 +2688,6 @@ tags: Hexo
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>JVM</tag>
-        <tag>Java虚拟机</tag>
       </tags>
   </entry>
   <entry>
@@ -3107,7 +3105,6 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JVM</tag>
         <tag>内存结构</tag>
       </tags>
@@ -3172,7 +3169,6 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JVM</tag>
         <tag>垃圾收集器算法</tag>
       </tags>
@@ -3235,7 +3231,6 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JVM</tag>
       </tags>
   </entry>
@@ -3388,7 +3383,6 @@ no, i am dead :(</code></pre><p>结论</p>
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JVM</tag>
         <tag>对象生死</tag>
       </tags>
@@ -3539,7 +3533,6 @@ no, i am dead :(</code></pre><p>结论</p>
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JVM</tag>
         <tag>垃圾收集器</tag>
       </tags>
@@ -3618,7 +3611,6 @@ no, i am dead :(</code></pre><p>结论</p>
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JVM</tag>
         <tag>垃圾收集器</tag>
       </tags>
@@ -3763,7 +3755,6 @@ FromTo Target Type
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JVM</tag>
         <tag>字节码指令</tag>
       </tags>
@@ -4130,7 +4121,6 @@ jdk.jconsole</code></pre>
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JVM</tag>
         <tag>垃圾收集器</tag>
       </tags>
@@ -4866,7 +4856,6 @@ Returns the class loader for the class.  Some implementations may use null to re
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JVM</tag>
       </tags>
   </entry>
@@ -5070,7 +5059,6 @@ No shared spaces configured.</code></pre><h4 id="5、空间分配担保"><a href
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JVM</tag>
       </tags>
   </entry>
@@ -5564,7 +5552,6 @@ public static void func(@Self org.fenixsoft.monitoring.BTraceTest instance,int a
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JVM</tag>
         <tag>监控调优工具</tag>
       </tags>
@@ -5673,7 +5660,6 @@ s<span class="token punctuation">.</span><span class="token variable">@retainedH
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>字节码指令表</tag>
       </tags>
   </entry>
@@ -6730,9 +6716,69 @@ public class TestCp {
         <category>JVM</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JVM</tag>
         <tag>class结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建静态博客（七）——客服与推送</title>
+    <url>/posts/1c633c7e.html</url>
+    <content><![CDATA[<h2 id="一、客服聊天窗口"><a href="#一、客服聊天窗口" class="headerlink" title="一、客服聊天窗口"></a>一、客服聊天窗口</h2><blockquote>
+<p>这个是我在Sky03的博客发现的，最初感觉问问题方面，我实际使用之后，主要感觉还是可以监控是否有人访问网站。</p>
+</blockquote>
+<p>1、在官网注册账号</p>
+<p>官网地址：<a href="https://app.crisp.chat/initiate/signup/" target="_blank" rel="noopener">点我去crisp官网注册</a></p>
+<p>2、注册完成后设置</p>
+<p>登录刚才注册的账户——设置——网站设置——添加网站。</p>
+<p>添加完成之后就多了一行网站信息。点网站整合，就有不同的站的整合方式。</p>
+<p>比如：html方式</p>
+<p>就是复制JS代码片段到你的到<code>head</code>标签里。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>window<span class="token punctuation">.</span>$crisp<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>window<span class="token punctuation">.</span>CRISP_WEBSITE_ID<span class="token operator">=</span><span class="token string">"xxxxxxx-097e-402f-bb6b-xxxxxxx"</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>d<span class="token operator">=</span>document<span class="token punctuation">;</span>s<span class="token operator">=</span>d<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"script"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>s<span class="token punctuation">.</span>src<span class="token operator">=</span><span class="token string">"https://client.crisp.chat/l.js"</span><span class="token punctuation">;</span>s<span class="token punctuation">.</span><span class="token keyword">async</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>d<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"head"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<p>3、其他的设置也<br>登录刚才注册的账户——设置——网站设置。<br>网站信息行——设置，自己根据需要设置即可，比如显示位置，颜色，自己的头像等。</p>
+<p>整个使用非常简单的。</p>
+<h2 id="二、网页推送插件"><a href="#二、网页推送插件" class="headerlink" title="二、网页推送插件"></a>二、网页推送插件</h2><blockquote>
+<p>这个是我在过客励む的博客发现的，感觉还是很不错的。 Web Push Notification ,浏览器通知推送</p>
+</blockquote>
+<p>1、安装插件</p>
+<p>插件的GitHub仓库: <a href="https://github.com/glazec/hexo-web-push-notification" target="_blank" rel="noopener">hexo-web-push-notification</a></p>
+<p>执行命令安装：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> i hexo-web-push-notification --save</code></pre>
+<p>特别说明：如果你不喜欢安装插件，也可以跳过。直接调到注册步骤。只是没有安装和配置，就需要采用复制JS代码片段的方式到你的html的head里面，一样可以实现效果。</p>
+<p>2、修改根目录的<code>_config.yml</code>配置文件</p>
+<pre class=" language-yml"><code class="language-yml">webPushNotification:
+  webpushrKey: "your webpushr rest api key"
+  webpushrAuthToken: "your webpushr authorize token"
+  trackingCode: "AEGlpbdgvBCWXqXI6PtsUzobY7TLV9gwJU8bzMktrwfrSERg_xnLVbjpCw8x2GmFmi1ZcLTz0ni6OnX5MAwoM88"
+</code></pre>
+<p>其中<code>webpushrKey</code>,<code>webpushrAuthToken</code>和<code>trackingCode</code>的值在官网注册得到。</p>
+<p>3、注册webpushr</p>
+<p>注册官网：<a href="https://app.webpushr.com/signup" target="_blank" rel="noopener">点我去webpushr注册也</a></p>
+<p><strong>特别说明：</strong><br>注册账号和登录需要进行人机身份验证，这个需要使用过客励む的插件，永久破解版的。</p>
+<p>插件地址： [大佬的插件]（<a href="https://72k.us/file/19365016-441665146）" target="_blank" rel="noopener">https://72k.us/file/19365016-441665146）</a></p>
+<p>如果上面链接失效就来<a href="https://pan.baidu.com/s/1D7n6xvPZUxRuZsGP9doarw" target="_blank" rel="noopener">百度云链接</a></p>
+<p>提取码：bp7s</p>
+<p>然后放在浏览器的扩展中，在强制刷新网站(Ctrl + F5),应该就可以看到了。如果看不懂就先点注册或登录，就可以自己出来了。</p>
+<p>4、安装</p>
+<p>就是按顺序，填写信息，上传图片，三步走。</p>
+<p>安装成功后，进入主界面。</p>
+<p>点击<code>Integration</code>下的 <code>REST API密钥</code>就可以看到<code>webpushrKey</code>和<code>webpushrAuthToken</code>的值了。</p>
+<p>点击<code>Setting</code>下的 <code>Tracking code</code></p>
+<p>有个 <code>Step 2: Add Tracking Code</code>地下也是JS代码片段</p>
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- start webpushr tracking code --></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span>d<span class="token punctuation">,</span> s<span class="token punctuation">,</span> id<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span><span class="token punctuation">(</span>w<span class="token punctuation">.</span>webpushr<span class="token punctuation">)</span><span class="token operator">!==</span><span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>w<span class="token punctuation">.</span>webpushr<span class="token operator">=</span>w<span class="token punctuation">.</span>webpushr<span class="token operator">||</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">(</span>w<span class="token punctuation">.</span>webpushr<span class="token punctuation">.</span>q<span class="token operator">=</span>w<span class="token punctuation">.</span>webpushr<span class="token punctuation">.</span>q<span class="token operator">||</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">var</span> js<span class="token punctuation">,</span> fjs <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>js <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span> js<span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>js<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">"https://cdn.webpushr.com/app.min.js"</span><span class="token punctuation">;</span>
+fjs<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>js<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span>document<span class="token punctuation">,</span> <span class="token string">'script'</span><span class="token punctuation">,</span> <span class="token string">'webpushr-jssdk'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">webpushr</span><span class="token punctuation">(</span><span class="token string">'setup'</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">'key'</span><span class="token punctuation">:</span><span class="token string">'xxxx_BJKMKcoDBNWov5xxxhl3p0eFxxxxgogE5bQRheUA7eytp5rcZXYHdodyiVfbOxxxxPfv4'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>最后key的值就是 <code>trackingCode</code>。</p>
+<p>5、设置推送相关</p>
+<p>主要设置在<code>Setting</code>下的前面三个，分别是：<br>（A）Opt-In Prompts —-选择加入提示<br>（B）Subscription Bell   —-订阅铃<br>（C）Welcome Push   ——欢迎推送</p>
+<p>因为我已经操作完成就不截图了，只做了一个记录。使用谷歌有谷歌翻译，应该没有看不懂的。<br>如果不想自己摸索，可以参考过客励む写的细节操作的截图文<a href="https://yafine-blog.cn/posts/ebb2.html" target="_blank" rel="noopener">《Hexo博客订阅文章通知功能》</a>。</p>
+<p>最后感谢大佬让我见识了新技术。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
