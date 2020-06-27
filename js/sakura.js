@@ -36,7 +36,7 @@ Sakura.prototype.update = function () {
         }
     }
 }
-SakuraList = function () {
+let SakuraList = function () {
     this.list = [];
 }
 SakuraList.prototype.push = function (sakura) {
