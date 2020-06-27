@@ -1,3 +1,43 @@
-// build time:Sat Jun 27 2020 20:48:00 GMT+0800 (中国标准时间)
-(function(n){n.fn.snow=function(o){var e=n('<div id="snowbox" />').css({position:"absolute","z-index":"9999",top:"-50px"}).html("&#10052;"),t=n(document).height(),i=n(document).width(),a={minSize:10,maxSize:20,newOn:1e3,flakeColor:"#AFDAEF"},o=n.extend({},a,o);var m=setInterval(function(){var a=Math.random()*i-100,m=.5+Math.random(),r=o.minSize+Math.random()*o.maxSize,d=t-200,c=a-500+Math.random()*500,f=t*10+Math.random()*5e3;e.clone().appendTo("body").css({left:a,opacity:m,"font-size":r,color:o.flakeColor}).animate({top:d,left:c,opacity:.2},f,"linear",function(){n(this).remove()})},o.newOn)}})(jQuery);$(function(){$.fn.snow({minSize:5,maxSize:50,newOn:500})});
-//rebuild by neat 
+/*æ ·å¼ä¸€*/
+//èƒŒæ™¯é›ªèŠ±é£˜è½ç‰¹æ•ˆ
+(function($){
+	$.fn.snow = function(options){
+	var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'9999', 'top': '-50px'}).html('&#10052;'),
+	documentHeight 	= $(document).height(),
+	documentWidth	= $(document).width(),
+	defaults = {
+		minSize		: 10,
+		maxSize		: 20,
+		newOn		: 1000,
+		flakeColor	: "#AFDAEF" /* æ­¤å¤„å¯ä»¥å®šä¹‰é›ªèŠ±é¢œè‰²ï¼Œè‹¥è¦ç™½è‰²å¯ä»¥æ”¹ä¸º#FFFFFF */
+	},
+	options	= $.extend({}, defaults, options);
+	var interval= setInterval( function(){
+	var startPositionLeft = Math.random() * documentWidth - 100,
+	startOpacity = 0.5 + Math.random(),
+	sizeFlake = options.minSize + Math.random() * options.maxSize,
+	endPositionTop = documentHeight - 200,
+	endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
+	durationFall = documentHeight * 10 + Math.random() * 5000;
+	$flake.clone().appendTo('body').css({
+		left: startPositionLeft,
+		opacity: startOpacity,
+		'font-size': sizeFlake,
+		color: options.flakeColor
+	}).animate({
+		top: endPositionTop,
+		left: endPositionLeft,
+		opacity: 0.2
+	},durationFall,'linear',function(){
+		$(this).remove()
+	});
+	}, options.newOn);
+    };
+})(jQuery);
+$(function(){
+    $.fn.snow({ 
+	    minSize: 5, /* å®šä¹‰é›ªèŠ±æœ€å°å°ºå¯¸ */
+	    maxSize: 50,/* å®šä¹‰é›ªèŠ±æœ€å¤§å°ºå¯¸ */
+	    newOn: 500  /* å®šä¹‰å¯†é›†ç¨‹åº¦ï¼Œæ•°å­—è¶Šå°è¶Šå¯†é›† */
+    });
+});
