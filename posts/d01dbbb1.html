@@ -1173,12 +1173,9 @@
 <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/libs/valine/av-min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/libs/valine/Valine.min.js"></script>
 <script>
-    let friends = 'c08508165c8eba9a77f87285c046d09e,901345d4c91ddfd8db0f975bbceaf0c8,1512958e18378c98b498d5ef8e3e763f'.split(',')
-    let master = '68c4c9e1b9a3d34317dc6faefe2ea00e'.split(',')
-    let tagMeta = '管理员,小伙伴,访客'.split(',')
-    let requiredFields = 'nick,mail'.split(',')
-    let guestInfo = 'nick,mail,link'split(',')
-    let metaPlaceholder = '{"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}'
+    
+ 
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}
 
 
     new Valine({
@@ -1190,17 +1187,16 @@
         visitor: 'true' === 'true',
         avatar: 'monsterid',
         pageSize: '10',
-        lang: 'zh-cn',
+        lang: 'zh-CN',
         placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-        meta: guestInfo,
-        pageSize: '10',
+        meta: ["nick", "mail", "link"],
         recordIP: 'true' === 'true',
         enableQQ: 'monsterid',
-        requiredFields: requiredFields,
-        master: master,
-        friends: friends,
-        tagMeta: tagMeta,
-        metaPlaceholder: metaPlaceholder
+        requiredFields: ["68c4c9e1b9a3d34317dc6faefe2ea00e"],
+        master: ["68c4c9e1b9a3d34317dc6faefe2ea00e"],
+        friends: ["c08508165c8eba9a77f87285c046d09e", "901345d4c91ddfd8db0f975bbceaf0c8", "1512958e18378c98b498d5ef8e3e763f"],
+        tagMeta: ["博主", "小伙伴", "访客"],
+        metaPlaceholder: metaPlaceholder,
 
     });
 
@@ -1276,18 +1272,18 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/e3d9aed7.html">
+                <a href="/posts/f8161112.html">
                     <div class="card-image">
                         
-                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="JVM LLGC：ZGC">
+                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="JVM LLGC：Shenandoah">
                         
-                        <span class="card-title">JVM LLGC：ZGC</span>
+                        <span class="card-title">JVM LLGC：Shenandoah</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JVM低延迟垃圾收集器：ZGC。
+                            VM低延迟垃圾收集器：Shenandoah。
                         
                     </div>
                     <div class="publish-info">

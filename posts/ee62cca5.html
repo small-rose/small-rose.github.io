@@ -936,12 +936,9 @@
 <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/libs/valine/av-min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/libs/valine/Valine.min.js"></script>
 <script>
-    let friends = 'c08508165c8eba9a77f87285c046d09e,901345d4c91ddfd8db0f975bbceaf0c8,1512958e18378c98b498d5ef8e3e763f'.split(',')
-    let master = '68c4c9e1b9a3d34317dc6faefe2ea00e'.split(',')
-    let tagMeta = '管理员,小伙伴,访客'.split(',')
-    let requiredFields = 'nick,mail'.split(',')
-    let guestInfo = 'nick,mail,link'split(',')
-    let metaPlaceholder = '{"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}'
+    
+ 
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}
 
 
     new Valine({
@@ -953,17 +950,16 @@
         visitor: 'true' === 'true',
         avatar: 'monsterid',
         pageSize: '10',
-        lang: 'zh-cn',
+        lang: 'zh-CN',
         placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-        meta: guestInfo,
-        pageSize: '10',
+        meta: ["nick", "mail", "link"],
         recordIP: 'true' === 'true',
         enableQQ: 'monsterid',
-        requiredFields: requiredFields,
-        master: master,
-        friends: friends,
-        tagMeta: tagMeta,
-        metaPlaceholder: metaPlaceholder
+        requiredFields: ["68c4c9e1b9a3d34317dc6faefe2ea00e"],
+        master: ["68c4c9e1b9a3d34317dc6faefe2ea00e"],
+        friends: ["c08508165c8eba9a77f87285c046d09e", "901345d4c91ddfd8db0f975bbceaf0c8", "1512958e18378c98b498d5ef8e3e763f"],
+        tagMeta: ["博主", "小伙伴", "访客"],
+        metaPlaceholder: metaPlaceholder,
 
     });
 
@@ -1039,19 +1035,18 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/d22e90ef.html">
+                <a href="/posts/22096143.html">
                     <div class="card-image">
                         
+                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="jvm之类加载机制">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/medias/featureimages/9.jpg" class="responsive-img" alt="DB2常用函数">
-                        
-                        <span class="card-title">DB2常用函数</span>
+                        <span class="card-title">jvm之类加载机制</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文记录整理DB2常用命令。
+                            JVM类加载机制与双亲委派模型。
                         
                     </div>
                     <div class="publish-info">
@@ -1062,8 +1057,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/DB2/" class="post-category">
-                                    DB2
+                            <a href="/categories/JVM/" class="post-category">
+                                    JVM
                                 </a>
                             
                             
@@ -1073,12 +1068,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/DB2/">
-                        <span class="chip bg-color">DB2</span>
-                    </a>
-                    
-                    <a href="/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -1092,18 +1083,18 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/a2ceb3e5.html">
+                <a href="/posts/2197a49e.html">
                     <div class="card-image">
                         
-                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="jvm之字节码指令">
+                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="jvm之对象查询OQL">
                         
-                        <span class="card-title">jvm之字节码指令</span>
+                        <span class="card-title">jvm之对象查询OQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文记录jvm之字节码指令学习。
+                            本文记录jvm对象查询OQL学习。
                         
                     </div>
                     <div class="publish-info">
@@ -1129,8 +1120,8 @@
                         <span class="chip bg-color">JVM</span>
                     </a>
                     
-                    <a href="/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4/">
-                        <span class="chip bg-color">字节码指令</span>
+                    <a href="/tags/OQL/">
+                        <span class="chip bg-color">OQL</span>
                     </a>
                     
                 </div>

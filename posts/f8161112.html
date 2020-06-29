@@ -1075,12 +1075,9 @@
 <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/libs/valine/av-min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/libs/valine/Valine.min.js"></script>
 <script>
-    let friends = 'c08508165c8eba9a77f87285c046d09e,901345d4c91ddfd8db0f975bbceaf0c8,1512958e18378c98b498d5ef8e3e763f'.split(',')
-    let master = '68c4c9e1b9a3d34317dc6faefe2ea00e'.split(',')
-    let tagMeta = '管理员,小伙伴,访客'.split(',')
-    let requiredFields = 'nick,mail'.split(',')
-    let guestInfo = 'nick,mail,link'split(',')
-    let metaPlaceholder = '{"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}'
+    
+ 
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}
 
 
     new Valine({
@@ -1092,17 +1089,16 @@
         visitor: 'true' === 'true',
         avatar: 'monsterid',
         pageSize: '10',
-        lang: 'zh-cn',
+        lang: 'zh-CN',
         placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-        meta: guestInfo,
-        pageSize: '10',
+        meta: ["nick", "mail", "link"],
         recordIP: 'true' === 'true',
         enableQQ: 'monsterid',
-        requiredFields: requiredFields,
-        master: master,
-        friends: friends,
-        tagMeta: tagMeta,
-        metaPlaceholder: metaPlaceholder
+        requiredFields: ["68c4c9e1b9a3d34317dc6faefe2ea00e"],
+        master: ["68c4c9e1b9a3d34317dc6faefe2ea00e"],
+        friends: ["c08508165c8eba9a77f87285c046d09e", "901345d4c91ddfd8db0f975bbceaf0c8", "1512958e18378c98b498d5ef8e3e763f"],
+        tagMeta: ["博主", "小伙伴", "访客"],
+        metaPlaceholder: metaPlaceholder,
 
     });
 
@@ -1178,23 +1174,23 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/96a9f88d.html">
+                <a href="/posts/e3d9aed7.html">
                     <div class="card-image">
                         
-                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="jvm之分配与回收策略">
+                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="JVM LLGC：ZGC">
                         
-                        <span class="card-title">jvm之分配与回收策略</span>
+                        <span class="card-title">JVM LLGC：ZGC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JVM内存分配与回收策略。
+                            JVM低延迟垃圾收集器：ZGC。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-08
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-03
                         </span>
                         <span class="publish-author">
                             
@@ -1215,6 +1211,10 @@
                         <span class="chip bg-color">JVM</span>
                     </a>
                     
+                    <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
+                        <span class="chip bg-color">垃圾收集器</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1226,23 +1226,23 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/e3d9aed7.html">
+                <a href="/posts/d01dbbb1.html">
                     <div class="card-image">
                         
-                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="JVM LLGC：ZGC">
+                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="jvm之垃圾收集器">
                         
-                        <span class="card-title">JVM LLGC：ZGC</span>
+                        <span class="card-title">jvm之垃圾收集器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JVM低延迟垃圾收集器：ZGC。
+                            本文记录jvm垃圾收集器相关学习。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-01
                             </span>
                         <span class="publish-author">
                             
