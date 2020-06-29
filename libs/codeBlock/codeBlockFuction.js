@@ -1,3 +1,5 @@
-// build time:Sun Jun 28 2020 21:26:44 GMT+0800 (中国标准时间)
-$(function(){$("pre").wrap('<div class="code-area" style="position: relative"></div>')});
-//rebuild by neat 
+// 代码块功能依赖
+
+$(function () {
+    $('pre').wrap('<div class="code-area" style="position: relative"></div>');
+});
