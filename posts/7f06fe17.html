@@ -828,7 +828,7 @@ db2level</code></pre>
 
     #vcomments textarea {
         box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+        background: url("/null") 100% 100% no-repeat;
     }
 
     #vcomments p {
@@ -1051,6 +1051,13 @@ db2level</code></pre>
         left: unset;
         visibility: visible;
     }
+
+    #vcomments .vbtn{
+        /* 
+        background-color: #0bb7fbd6;
+        */
+
+    }
 </style>
 
 <div class="card valine-card" data-aos="fade-up">
@@ -1099,7 +1106,7 @@ db2level</code></pre>
     if (e.target.classList.contains('vsubmit')) {
         const email = document.querySelector('input[type=email]');
         const nick = document.querySelector('input[name=nick]');
-        const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        const reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
         if (!email.value || !nick.value || !reg.test(email.value)) {
             const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
             const vmark = document.querySelector('.vmark');
@@ -1167,23 +1174,23 @@ db2level</code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/49b8efd0.html">
+                <a href="/posts/22096143.html">
                     <div class="card-image">
                         
-                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="java模块化系统">
+                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="jvm之类加载机制">
                         
-                        <span class="card-title">java模块化系统</span>
+                        <span class="card-title">jvm之类加载机制</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文记录学习Java模块化系统变动相关。
+                            JVM类加载机制与双亲委派模型。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-10
                         </span>
                         <span class="publish-author">
                             
@@ -1200,12 +1207,8 @@ db2level</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">模块化系统</span>
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -1432,37 +1435,6 @@ db2level</code></pre>
 
 
 
-<!-- waifu-tips.js 依赖 JQuery 库  头部引用了-->
- 
-    
-<!-- 实现拖动效果，需引入 JQuery UI -->
-<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/js/jquery-ui.min.js"></script>
-
-<div class="waifu">
-   <div class="waifu-tips"></div>
-    <canvas id="live2d" class="live2d"></canvas>
-    <div class="waifu-tool">
-        <span class="fui-home"></span>
-        <span class="fui-chat"></span>
-        <span class="fui-eye"></span>
-        <span class="fui-user"></span>
-        <span class="fui-photo"></span>
-        <span class="fui-info-circle"></span>
-        <span class="fui-cross"></span>
-     </div>
-</div>
-    
-<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/js/live2d_assets/waifu-tips.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/js/live2d_assets/live2d.js"></script>
-    
- <script type="text/javascript">
-    live2d_settings['modelId'] = 1;
-    live2d_settings['modelTexturesId'] = 87;
-
-     var waifuTips = "https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/js/live2d_assets/waifu-tips.json";
-    initModel(waifuTips)
- </script>
-
 
     <footer class="page-footer bg-color">
     
@@ -1526,7 +1498,7 @@ db2level</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">89.1k</span>&nbsp;字
+                class="white-color">92.5k</span>&nbsp;字
             
             
             
