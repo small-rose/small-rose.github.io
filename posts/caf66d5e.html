@@ -440,14 +440,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -567,36 +567,37 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
 <h3 id="三、Matery下手动插件化"><a href="#三、Matery下手动插件化" class="headerlink" title="三、Matery下手动插件化"></a>三、Matery下手动插件化</h3><p>前提：手动安装方式中下载了源码，将代码放到主题目录下。如放置到：<code>/source/js/live2d_assets/</code>,下面的引入，以此路径为例。</p>
 <p>说是Matery主题，其实其他主题原理一样。</p>
 <h4 id="1、增加模块文件"><a href="#1、增加模块文件" class="headerlink" title="1、增加模块文件"></a>1、增加模块文件</h4><p>在<code>layout/_partial</code>目录新建<code>live2d.ejs</code>,内容如下：</p>
-<pre class=" language-txt"><code class="language-txt"><!-- waifu-tips.js 依赖 JQuery 库  头部已经引用了-->
+<p>(ejs代码块不能显示，所以改用html代码块)</p>
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- waifu-tips.js 依赖 JQuery 库  头部已经引用了--></span>
 
 
-<!-- 实现拖动效果，需引入 JQuery UI -->
-<script src="<%- theme.jsDelivr.url %><%- url_for('/js/jquery-ui.min.js') %>"></script>
+<span class="token comment" spellcheck="true">&lt;!-- 实现拖动效果，需引入 JQuery UI --></span>
+&lt;script src="<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%-</span> <span class="token attr-name">theme.jsDelivr.url</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token script language-javascript"><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">url_for</span><span class="token punctuation">(</span><span class="token string">'/js/jquery-ui.min.js'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>"<span class="token operator">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 
-<div class="waifu">
-   <div class="waifu-tips"></div>
-    <canvas id="live2d" class="live2d"></canvas>
-    <div class="waifu-tool">
-        <span class="fui-home"></span>
-        <span class="fui-chat"></span>
-        <span class="fui-eye"></span>
-        <span class="fui-user"></span>
-        <span class="fui-photo"></span>
-        <span class="fui-info-circle"></span>
-        <span class="fui-cross"></span>
-     </div>
-</div>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>waifu<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>waifu-tips<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>canvas</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>live2d<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>live2d<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>canvas</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>waifu-tool<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fui-home<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fui-chat<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fui-eye<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fui-user<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fui-photo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fui-info-circle<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fui-cross<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 
-<script src="<%- theme.jsDelivr.url %><%- url_for('/js/live2d_assets/waifu-tips.js') %>"></script>
-<script src="<%- theme.jsDelivr.url %><%- url_for('/js/live2d_assets/live2d.js') %>"></script>
+&lt;script src="<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%-</span> <span class="token attr-name">theme.jsDelivr.url</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token script language-javascript"><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">url_for</span><span class="token punctuation">(</span><span class="token string">'/js/live2d_assets/waifu-tips.js'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>"<span class="token operator">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+&lt;script src="<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%-</span> <span class="token attr-name">theme.jsDelivr.url</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token script language-javascript"><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">url_for</span><span class="token punctuation">(</span><span class="token string">'/js/live2d_assets/live2d.js'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>"<span class="token operator">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 
- <script type="text/javascript">
-    live2d_settings['modelId'] = 1;
-    live2d_settings['modelTexturesId'] = 87;
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+    live2d_settings<span class="token punctuation">[</span><span class="token string">'modelId'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    live2d_settings<span class="token punctuation">[</span><span class="token string">'modelTexturesId'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">87</span><span class="token punctuation">;</span>
 
-     var waifuTips = "<%- theme.jsDelivr.url %><%- url_for('/js/live2d_assets/waifu-tips.json') %>";
-    initModel(waifuTips)
- </script></code></pre>
+     <span class="token keyword">var</span> waifuTips <span class="token operator">=</span> <span class="token string">"&lt;%- theme.jsDelivr.url %>&lt;%- url_for('/js/live2d_assets/waifu-tips.json') %>"</span><span class="token punctuation">;</span>
+    <span class="token function">initModel</span><span class="token punctuation">(</span>waifuTips<span class="token punctuation">)</span>
+ </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <h4 id="2、增加配置"><a href="#2、增加配置" class="headerlink" title="2、增加配置"></a>2、增加配置</h4><p>在主题目录的<code>_config.yml</code> 中增加：</p>
 <pre class=" language-yml"><code class="language-yml">live2d:
   enable: true</code></pre>
@@ -1539,7 +1540,7 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">92.7k</span>&nbsp;字
+                class="white-color">92.9k</span>&nbsp;字
             
             
             
