@@ -440,14 +440,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -462,9 +462,12 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Hexo添加Live2D二次元老婆"><a href="#Hexo添加Live2D二次元老婆" class="headerlink" title="Hexo添加Live2D二次元老婆"></a>Hexo添加Live2D二次元老婆</h2><blockquote>
-<p>添加主要有2种方式<br>(A)使用hexo插件；（B）手动添加</p>
+                <h2 id="Hexo添加Live2D二次元老婆"><a href="#Hexo添加Live2D二次元老婆" class="headerlink" title="Hexo添加Live2D二次元老婆"></a>Hexo添加Live2D二次元老婆</h2><p>本文主要内容：</p>
+<p>Hexo博客在网页添加live2d。</p>
+<blockquote>
+<p>添加主要有2种方式：<br>（1）使用hexo插件；使用该种方式添加，需要选择某一样模型，仅显示live2d，无提示语、无一言、今日诗词等附加功能。<br>（2）手动添加; 使用该种方式添加，显示live2d，可以切换模型、皮肤，有提示语、一言、今日诗词等附加功能。<br>（3）将手动添加并入matery主题插件化。</p>
 </blockquote>
+<p>本文主要围绕以上三点介绍。感谢<code>Tokisaki Galaxy</code>提示补充优缺点介绍。</p>
 <h3 id="一、使用Hexo插件"><a href="#一、使用Hexo插件" class="headerlink" title="一、使用Hexo插件"></a>一、使用Hexo插件</h3><h4 id="1、安装插件"><a href="#1、安装插件" class="headerlink" title="1、安装插件"></a>1、安装插件</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save hexo-helper-live2d</code></pre>
 <h4 id="2、添加配置"><a href="#2、添加配置" class="headerlink" title="2、添加配置"></a>2、添加配置</h4><p>hexo的配置文件<code>_config.yml</code>中添加如下配置:</p>
 <pre class=" language-yml"><code class="language-yml">live2d:
@@ -556,7 +559,7 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
 <p>（2）autoload.js 引入<br> 可以在页面最下底或foot元素里引入<code>autoload.js</code>即可。</p>
-<p>（3）直接写到页面</p>
+<p>（3）直接嵌入到页面</p>
 <p> 代码较多，下载后有三个引入示例，可以参考引入示例。</p>
 <h4 id="3、定制个性化"><a href="#3、定制个性化" class="headerlink" title="3、定制个性化"></a>3、定制个性化</h4><p>修改 waifu-tips.js 顶部的设置参数(或初始化前设置)，均有注释，看注释即可理解意思，不行就改过然后运行看效果。</p>
 <p>修改 waifu-tips.json，定制live2d的提示语，可以自己修改成个性化提示语。</p>
@@ -1241,15 +1244,15 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="Valine-Admin安装使用">
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="Valine-Admin踩坑记录">
                         
-                        <span class="card-title">Valine-Admin安装使用</span>
+                        <span class="card-title">Valine-Admin踩坑记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Matery主题评论功能valine使用与升级。
+                            本文主要记录valine-admin踩坑记录。
                         
                     </div>
                     <div class="publish-info">
@@ -1470,8 +1473,8 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
 <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/live2d_assets/live2d.js"></script>
     
  <script type="text/javascript">
-    live2d_settings['modelId'] = 1;
-    live2d_settings['modelTexturesId'] = 87;
+    live2d_settings['modelId'] = 6;
+    live2d_settings['modelTexturesId'] = 2;
 
      var waifuTips = "https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/live2d_assets/waifu-tips.json";
     initModel(waifuTips)
@@ -1540,7 +1543,7 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">92.9k</span>&nbsp;字
+                class="white-color">93k</span>&nbsp;字
             
             
             
