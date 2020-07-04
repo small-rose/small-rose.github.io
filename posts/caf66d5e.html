@@ -28,16 +28,290 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/matery.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/my.css">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/live2d_assets/waifu.css">
+
+    
+           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/live2d_assets/waifu.css">
+    
+    
 
     <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/jquery/jquery.min.js"></script>
 
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="bf3c468c-2fd7-4dcc-866d-3b008127fff0";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="张小菜苔" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+    
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+    
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+    
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+    
+   
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            //document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1200); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script><meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="张小菜苔" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+    
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+    
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+    
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+    
+   
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            //document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1200); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script></head>
 
 
-<body>
+
+ <div id="loading-container">
+     <p class="loading-text">玩命加载中 . . . </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -424,7 +698,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-03
+                    2020-06-30
                 </div>
                 
                 <!--添加作者信息--> 
@@ -440,14 +714,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    13 分
                 </div>
                 
 
@@ -467,6 +741,7 @@
 <blockquote>
 <p>添加主要有2种方式：<br>（1）使用hexo插件；使用该种方式添加，需要选择某一样模型，仅显示live2d，无提示语、无一言、今日诗词等附加功能。<br>（2）手动添加; 使用该种方式添加，显示live2d，可以切换模型、皮肤，有提示语、一言、今日诗词等附加功能。<br>（3）将手动添加并入matery主题插件化。</p>
 </blockquote>
+<p><strong>特别说明：</strong>如果你既想安装Hexo的Live2d插件，又想手动引入的方式添加，为了防止造成不可预知冲突，我不建议这么做。如果一定要尝试，也可以摸索一下，我没有试过2个live2d同时显示，有兴趣可以试试，毕竟这样你就可以有两个老婆了~</p>
 <p>本文主要围绕以上三点介绍。感谢<code>Tokisaki Galaxy</code>提示补充优缺点介绍。</p>
 <h3 id="一、使用Hexo插件"><a href="#一、使用Hexo插件" class="headerlink" title="一、使用Hexo插件"></a>一、使用Hexo插件</h3><h4 id="1、安装插件"><a href="#1、安装插件" class="headerlink" title="1、安装插件"></a>1、安装插件</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save hexo-helper-live2d</code></pre>
 <h4 id="2、添加配置"><a href="#2、添加配置" class="headerlink" title="2、添加配置"></a>2、添加配置</h4><p>hexo的配置文件<code>_config.yml</code>中添加如下配置:</p>
@@ -568,13 +843,21 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
 <p>live2d_settings[‘waifuDraggable’] =’disable’；</p>
 <p>拖拽样式，可选 ‘disable’ (禁用)，’axis-x’ (只能水平拖拽)，’unlimited’ (自由拖拽)，如果想要自由拖拽，需要引入jquery-ui脚步，<code>jquery-ui.js</code>或压缩版<code>jquery-ui.min.js</code></p>
 <h3 id="三、Matery下手动插件化"><a href="#三、Matery下手动插件化" class="headerlink" title="三、Matery下手动插件化"></a>三、Matery下手动插件化</h3><p>前提：手动安装方式中下载了源码，将代码放到主题目录下。如放置到：<code>/source/js/live2d_assets/</code>,下面的引入，以此路径为例。</p>
-<p>说是Matery主题，其实其他主题原理一样。</p>
-<h4 id="1、增加模块文件"><a href="#1、增加模块文件" class="headerlink" title="1、增加模块文件"></a>1、增加模块文件</h4><p>在<code>layout/_partial</code>目录新建<code>live2d.ejs</code>,内容如下：</p>
+<p>说是Matery主题，其实其他主题原理一样。为了将手动方式插件化，也设置一个启动开关。</p>
+<h4 id="1、增加live2d配置"><a href="#1、增加live2d配置" class="headerlink" title="1、增加live2d配置"></a>1、增加live2d配置</h4><p>在主题目录的<code>_config.yml</code> 中增加：</p>
+<pre class=" language-yml"><code class="language-yml">live2d:
+  enable: true</code></pre>
+<p><code>true</code>表示启用二次元老婆，<code>false</code>表示不启用二次元老婆。</p>
+<h4 id="2、头部引入CSS文件"><a href="#2、头部引入CSS文件" class="headerlink" title="2、头部引入CSS文件"></a>2、头部引入CSS文件</h4><p>因为CSS文件一般在头部引入，在<code>layout/_partial</code>目录找到<code>head.ejs</code>,添加live2d的样式文章<code>waifu.css</code>,因为有了开关，可以根据开关是否引入<code>waifu.css</code>文件，代码如下：</p>
+<pre class=" language-ejs"><code class="language-ejs">    <% if (theme.live2d && theme.live2d.enable) { %>
+           <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/js/live2d_assets/waifu.css') %>">
+    <% } %></code></pre>
+<h4 id="3、增加模块文件"><a href="#3、增加模块文件" class="headerlink" title="3、增加模块文件"></a>3、增加模块文件</h4><p>在<code>layout/_partial</code>目录新建<code>live2d.ejs</code>,内容如下：</p>
 <p>(ejs代码块不能显示，所以改用html代码块)</p>
-<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- waifu-tips.js 依赖 JQuery 库  头部已经引用了--></span>
-
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- waifu-tips.js 依赖 JQuery 库  头部已经引用了JQuery，此处不引入--></span>
 
 <span class="token comment" spellcheck="true">&lt;!-- 实现拖动效果，需引入 JQuery UI --></span>
+
 &lt;script src="<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%-</span> <span class="token attr-name">theme.jsDelivr.url</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token script language-javascript"><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">url_for</span><span class="token punctuation">(</span><span class="token string">'/js/jquery-ui.min.js'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>"<span class="token operator">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>waifu<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -601,18 +884,222 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
      <span class="token keyword">var</span> waifuTips <span class="token operator">=</span> <span class="token string">"&lt;%- theme.jsDelivr.url %>&lt;%- url_for('/js/live2d_assets/waifu-tips.json') %>"</span><span class="token punctuation">;</span>
     <span class="token function">initModel</span><span class="token punctuation">(</span>waifuTips<span class="token punctuation">)</span>
  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
-<h4 id="2、增加配置"><a href="#2、增加配置" class="headerlink" title="2、增加配置"></a>2、增加配置</h4><p>在主题目录的<code>_config.yml</code> 中增加：</p>
-<pre class=" language-yml"><code class="language-yml">live2d:
-  enable: true</code></pre>
-<p><code>true</code>表示启用二次元老婆，<code>false</code>表示不启用二次元老婆。</p>
-<h4 id="3、引入模块使用"><a href="#3、引入模块使用" class="headerlink" title="3、引入模块使用"></a>3、引入模块使用</h4><p>在你想展示二次元老婆的页面的末尾增加以下代码：</p>
+<h4 id="4、引入模块使用"><a href="#4、引入模块使用" class="headerlink" title="4、引入模块使用"></a>4、引入模块使用</h4><p>在你想展示二次元老婆的页面的末尾增加以下代码：</p>
 <pre class=" language-ejs"><code class="language-ejs"><% if (theme.live2d.enable) { %>
     <%- partial('_partial/live2d') %>
 <% } %></code></pre>
-<p>如：<br>在首页展示二次元老婆就找的主题下的<code>layout/index.ejs</code>文件，在index.ejs末尾加上以上代码即可。<br>如果要在其他页面也展示，比如标签也，就找到<code>layout/tag.ejs</code>文件，在tag.ejs末尾加上以上代码，其他页面同样的操作。</p>
+<p>如：<br>在首页展示二次元老婆就找的主题下的<code>layout/index.ejs</code>文件，在index.ejs末尾加上上述代码片段即可。<br>如果要在其他页面也展示，比如标签也，就找到<code>layout/tag.ejs</code>文件，在tag.ejs末尾加上上述代码片段，其他你想展示的页面同样的操作。</p>
 <h4 id="4、重新编译启动"><a href="#4、重新编译启动" class="headerlink" title="4、重新编译启动"></a>4、重新编译启动</h4><pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
+<p>看看有没有效果吧！</p>
+<h4 id="5、live2d加载调整"><a href="#5、live2d加载调整" class="headerlink" title="5、live2d加载调整"></a>5、live2d加载调整</h4><p>因为引入手动添加的版本附加功能比较多，博客部署之后可能会存在卡顿问题。</p>
+<p>解决办法：</p>
+<p>（1）第一步，调整附加功能，把不必要的或者不喜欢的暂时关闭。</p>
+<p>我最开的时候，有人反映的博客特别卡，滑动时还存在卡顿，因为鼠标的滑动触发了live2d的事件，调用了后台API，所以我就调整了一下，情况有所好转，如果你也想这样，可以参考我的配置，或者自己看<code>waifu.js</code>文件的参数说明自己调试优化.</p>
+<p>我修改之后<code>waifu.js</code>文件的参数配置如下：</p>
+<pre class=" language-js"><code class="language-js">
+<span class="token comment" spellcheck="true">// 工具栏设置</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'showToolMenu'</span><span class="token punctuation">]</span>         <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示 工具栏          ，可选 true(真), false(假)</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'canCloseLive2d'</span><span class="token punctuation">]</span>       <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示 关闭看板娘  按钮，可选 true(真), false(假)</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'canSwitchModel'</span><span class="token punctuation">]</span>       <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示 模型切换    按钮，可选 true(真), false(假)</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'canSwitchTextures'</span><span class="token punctuation">]</span>    <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示 材质切换    按钮，可选 true(真), false(假)</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'canSwitchHitokoto'</span><span class="token punctuation">]</span>    <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示 一言切换    按钮，可选 true(真), false(假)</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'canTakeScreenshot'</span><span class="token punctuation">]</span>    <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示 看板娘截图  按钮，可选 true(真), false(假)</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'canTurnToHomePage'</span><span class="token punctuation">]</span>    <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示 返回首页    按钮，可选 true(真), false(假)</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'canTurnToAboutPage'</span><span class="token punctuation">]</span>   <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示 跳转关于页  按钮，可选 true(真), false(假)</span>
+
+<span class="token comment" spellcheck="true">// 模型切换模式</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'modelStorage'</span><span class="token punctuation">]</span>         <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 记录 ID (刷新后恢复)，可选 true(真), false(假)</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'modelRandMode'</span><span class="token punctuation">]</span>        <span class="token operator">=</span> <span class="token string">'switch'</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 模型切换，可选 'rand'(随机), 'switch'(顺序)</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'modelTexturesRandMode'</span><span class="token punctuation">]</span><span class="token operator">=</span> <span class="token string">'switch'</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 材质切换，可选 'rand'(随机), 'switch'(顺序)</span>
+
+<span class="token comment" spellcheck="true">// 提示消息选项</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'showHitokoto'</span><span class="token punctuation">]</span>         <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示一言</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'showF12Status'</span><span class="token punctuation">]</span>        <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示加载状态</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'showF12Message'</span><span class="token punctuation">]</span>       <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">// 显示看板娘消息</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'showF12OpenMsg'</span><span class="token punctuation">]</span>       <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示控制台打开提示</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'showCopyMessage'</span><span class="token punctuation">]</span>      <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示 复制内容 提示</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'showWelcomeMessage'</span><span class="token punctuation">]</span>   <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 显示进入面页欢迎词</span>
+
+<span class="token comment" spellcheck="true">//看板娘样式设置</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'waifuSize'</span><span class="token punctuation">]</span>            <span class="token operator">=</span> <span class="token string">'280x250'</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 看板娘大小，例如 '280x250', '600x535'</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'waifuTipsSize'</span><span class="token punctuation">]</span>        <span class="token operator">=</span> <span class="token string">'250x70'</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 提示框大小，例如 '250x70', '570x150'</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'waifuFontSize'</span><span class="token punctuation">]</span>        <span class="token operator">=</span> <span class="token string">'12px'</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 提示框字体，例如 '12px', '30px'</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'waifuToolFont'</span><span class="token punctuation">]</span>        <span class="token operator">=</span> <span class="token string">'14px'</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 工具栏字体，例如 '14px', '36px'</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'waifuToolLine'</span><span class="token punctuation">]</span>        <span class="token operator">=</span> <span class="token string">'20px'</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 工具栏行高，例如 '20px', '36px'</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'waifuToolTop'</span><span class="token punctuation">]</span>         <span class="token operator">=</span> <span class="token string">'0px'</span>         <span class="token comment" spellcheck="true">// 工具栏顶部边距，例如 '0px', '-60px'</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'waifuMinWidth'</span><span class="token punctuation">]</span>        <span class="token operator">=</span> <span class="token string">'768px'</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// 面页小于 指定宽度 隐藏看板娘，例如 'disable'(禁用), '768px'</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'waifuEdgeSide'</span><span class="token punctuation">]</span>        <span class="token operator">=</span> <span class="token string">'left:0'</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 看板娘贴边方向，例如 'left:0'(靠左 0px), 'right:30'(靠右 30px)</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'waifuDraggable'</span><span class="token punctuation">]</span>       <span class="token operator">=</span> <span class="token string">'unlimited'</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 拖拽样式，例如 'disable'(禁用), 'axis-x'(只能水平拖拽), 'unlimited'(自由拖拽)</span>
+live2d_settings<span class="token punctuation">[</span><span class="token string">'waifuDraggableRevert'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 松开鼠标还原拖拽位置，可选 true(真), false(假)</span>
+</code></pre>
+<p>如果只是是加载也卡顿，就来继续第二步。</p>
+<p>（2）第二步，添加博客加载动画 。</p>
+<p>需要说明，加载动画只是为了延迟进入页面 ，如果是鼠标滑动带来的卡顿，还是老老实实改第一步的参数吧，不不必要功能能关就关点吧。</p>
+<p>在你的工作空间，也有称之为站点根目录的位置，新建一个<code>scripts</code>文件夹，下面放入l<code>oading-pages.js</code>,文件内容如下：</p>
+<pre class=" language-js"><code class="language-js">
+<span class="token comment" spellcheck="true">/* global hexo */</span>
+<span class="token string">"use strict"</span><span class="token punctuation">;</span>
+hexo<span class="token punctuation">.</span>extend<span class="token punctuation">.</span>filter<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token string">'after_render:html'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>htmlContent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">const</span> injectHead <span class="token operator">=</span>
+ <span class="token template-string"><span class="token string">`&lt;style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ &lt;/style>
+ &lt;script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2000); 
+        },2000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ &lt;/script>`</span></span><span class="token punctuation">;</span>
+     <span class="token keyword">const</span> injectBody <span class="token operator">=</span> <span class="token template-string"><span class="token string">`
+ &lt;div id="loading-container">
+     &lt;p class="loading-text">玩命加载中 . . . &lt;/p> 
+     &lt;div class="loading-image">
+         &lt;div>&lt;/div>
+         &lt;div>&lt;/div>
+         &lt;div>&lt;/div>
+         &lt;div>&lt;/div> 
+         &lt;div>&lt;/div>
+     &lt;/div>
+ &lt;/div>`</span></span><span class="token punctuation">;</span>
+     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token regex">/&lt;\/head>/gi</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>htmlContent<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">let</span> lastIndex <span class="token operator">=</span> htmlContent<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">'&lt;/head>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         htmlContent <span class="token operator">=</span> htmlContent<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> lastIndex<span class="token punctuation">)</span> <span class="token operator">+</span> injectHead <span class="token operator">+</span> htmlContent<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>lastIndex<span class="token punctuation">,</span> htmlContent<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token regex">/&lt;body>/gi</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>htmlContent<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">let</span> index <span class="token operator">=</span> htmlContent<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'&lt;body>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         htmlContent <span class="token operator">=</span> htmlContent<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">+</span> injectBody <span class="token operator">+</span> htmlContent<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> htmlContent<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     <span class="token keyword">return</span> htmlContent<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<p>关于页面加载动画，我是参考过客～励む<a href="https://yafine-blog.cn/posts/7400.html" target="_blank" rel="noopener">《Matery 主题添加 loading-pages》</a>一文。</p>
+<p>(3)重新编译启动测试一下</p>
+<pre class=" language-bash"><code class="language-bash">hexo clean <span class="token operator">&amp;</span> hexo g <span class="token operator">&amp;</span> hexo s</code></pre>
 <p>参考文章：</p>
-<p><a href="https://www.jianshu.com/p/4b61d8702cfa" target="_blank" rel="noopener">《在Hexo博客上添加可爱的Live 2D模型》</a><br><a href="https://blog.hclonely.com/posts/e1f9f17c/" target="_blank" rel="noopener">《给网页添加一个Live2D看板娘（前端）》</a></p>
+<p><a href="https://www.jianshu.com/p/4b61d8702cfa" target="_blank" rel="noopener">《在Hexo博客上添加可爱的Live 2D模型》</a><br><a href="https://blog.hclonely.com/posts/e1f9f17c/" target="_blank" rel="noopener">《给网页添加一个Live2D看板娘（前端）》</a><br><a href="https://yafine-blog.cn/posts/7400.html" target="_blank" rel="noopener">《Matery 主题添加 loading-pages》</a></p>
 
             </div>
             <hr/>
@@ -1143,33 +1630,6 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
     
 
     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: 'c4b13546843299882555',
-        clientSecret: '8c2fdb2fba55e11c786191c7920a39ce3246f4b7',
-        repo: 'small-rose.github.io',
-        owner: 'small-rose',
-        admin: "small-rose",
-        id: '2020-07-03T23-20-00',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-
-    
 
     
 
@@ -1186,48 +1646,46 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/caf66d5e.html">
+                <a href="/posts/6ec5c6dc.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="Hexo添加Live2D二次元老婆">
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="只是为了测试文章推送">
                         
-                        <span class="card-title">Hexo添加Live2D二次元老婆</span>
+                        <span class="card-title">只是为了测试文章推送</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Matery主题评论功能valine使用与升级。
+                            只是为了测试文章推送
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-03
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-04
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
+                            <a href="/categories/Test/" class="post-category">
+                                    Test
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Test/">
+                        <span class="chip bg-color">Test</span>
                     </a>
                     
                 </div>
@@ -1544,7 +2002,7 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">93k</span>&nbsp;字
+                class="white-color">94.6k</span>&nbsp;字
             
             
             
@@ -1609,6 +2067,10 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
             </script>
             
             <br>
+            <div class="github-badge">
+            <a style="color: #fff" rel="license" href="https://valine.zhangxiaocia.cn" target="_blank" title="Valine管理系统">
+            <span class="badge-subject">Powered</span><span class="badge-value bg-blue">Valine</span></a>
+          </div> 
             
             <span id="icp"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/icp.png" style="vertical-align: text-bottom;" />
                 <a href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19015637号-1</a>
