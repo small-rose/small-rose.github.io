@@ -687,8 +687,8 @@
     </a>
 
 
- <a href="https://valine.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="Valine管理系统" data-position="top" data-delay="50">
-        <i class="fas fa fa-comment-o"></i>
+ <a href="https://valine.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="Valine管理" data-position="top" data-delay="50">
+        <i class="fas fa fa-comments"></i>
     </a>
 
                                 </div>
@@ -729,8 +729,8 @@
     </a>
 
 
- <a href="https://valine.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="Valine管理系统" data-position="top" data-delay="50">
-        <i class="fas fa fa-comment-o"></i>
+ <a href="https://valine.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="Valine管理" data-position="top" data-delay="50">
+        <i class="fas fa fa-comments"></i>
     </a>
 
                         </div>
@@ -840,7 +840,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Java","value":5},{"name":"Centos","value":1},{"name":"Javascript","value":1},{"name":"Test","value":1},{"name":"Git","value":1},{"name":"收藏资源","value":1},{"name":"Mysql","value":2},{"name":"DB2","value":3},{"name":"SQL","value":3},{"name":"Hexo","value":10},{"name":"JVM","value":16}],
+                data: [{"name":"Java","value":5},{"name":"Centos","value":1},{"name":"Javascript","value":1},{"name":"Git","value":1},{"name":"收藏资源","value":1},{"name":"Test","value":1},{"name":"SQL","value":3},{"name":"DB2","value":3},{"name":"Mysql","value":2},{"name":"Hexo","value":10},{"name":"JVM","value":16}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -864,7 +864,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["JVM","Hexo","Java","SQL","DB2","垃圾收集器","Mybatis","centos","Mysql","服务器"]
+                data: ["JVM","Hexo","Java","SQL","垃圾收集器","DB2","Mysql","Mybatis","centos","内存结构"]
             }
         ],
         yAxis: [
@@ -995,6 +995,12 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/centos/">
+                <span class="chip center-align waves-effect waves-light chip-default">centos</span>
+            </a>
+            
+            
+            
             
             
             <a href="/tags/DB/">
@@ -1009,20 +1015,8 @@
             
             
             
-            <a href="/tags/centos/">
-                <span class="chip center-align waves-effect waves-light chip-default">centos</span>
-            </a>
-            
-            
-            
             <a href="/tags/javascript/">
                 <span class="chip center-align waves-effect waves-light chip-default">javascript</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Test/">
-                <span class="chip center-align waves-effect waves-light chip-default">Test</span>
             </a>
             
             
@@ -1057,8 +1051,16 @@
             
             
             
-            <a href="/tags/Mysql/">
-                <span class="chip center-align waves-effect waves-light chip-default">Mysql</span>
+            <a href="/tags/Test/">
+                <span class="chip center-align waves-effect waves-light chip-default">Test</span>
+            </a>
+            
+            
+            
+            
+            
+            <a href="/tags/%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/">
+                <span class="chip center-align waves-effect waves-light chip-default">模糊查询</span>
             </a>
             
             
@@ -1069,16 +1071,14 @@
             
             
             
-            
-            
-            <a href="/tags/SQL%E5%88%86%E9%A1%B5/">
-                <span class="chip center-align waves-effect waves-light chip-default">SQL分页</span>
+            <a href="/tags/Mysql/">
+                <span class="chip center-align waves-effect waves-light chip-default">Mysql</span>
             </a>
             
             
             
-            <a href="/tags/%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/">
-                <span class="chip center-align waves-effect waves-light chip-default">模糊查询</span>
+            <a href="/tags/SQL%E5%88%86%E9%A1%B5/">
+                <span class="chip center-align waves-effect waves-light chip-default">SQL分页</span>
             </a>
             
             
@@ -1091,12 +1091,6 @@
             
             <a href="/tags/JVM/">
                 <span class="chip center-align waves-effect waves-light chip-default">JVM</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E5%AF%B9%E8%B1%A1%E7%94%9F%E6%AD%BB/">
-                <span class="chip center-align waves-effect waves-light chip-default">对象生死</span>
             </a>
             
             
@@ -1115,6 +1109,12 @@
             
             <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E7%AE%97%E6%B3%95/">
                 <span class="chip center-align waves-effect waves-light chip-default">垃圾收集器算法</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%AF%B9%E8%B1%A1%E7%94%9F%E6%AD%BB/">
+                <span class="chip center-align waves-effect waves-light chip-default">对象生死</span>
             </a>
             
             
@@ -1143,14 +1143,14 @@
             
             
             
-            <a href="/tags/class%E7%BB%93%E6%9E%84/">
-                <span class="chip center-align waves-effect waves-light chip-default">class结构</span>
+            <a href="/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E8%A1%A8/">
+                <span class="chip center-align waves-effect waves-light chip-default">字节码指令表</span>
             </a>
             
             
             
-            <a href="/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E8%A1%A8/">
-                <span class="chip center-align waves-effect waves-light chip-default">字节码指令表</span>
+            <a href="/tags/class%E7%BB%93%E6%9E%84/">
+                <span class="chip center-align waves-effect waves-light chip-default">class结构</span>
             </a>
             
             
@@ -1467,8 +1467,8 @@
     </a>
 
 
- <a href="https://valine.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="Valine管理系统" data-position="top" data-delay="50">
-        <i class="fas fa fa-comment-o"></i>
+ <a href="https://valine.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="Valine管理" data-position="top" data-delay="50">
+        <i class="fas fa fa-comments"></i>
     </a>
 </div>
     </div>
