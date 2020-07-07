@@ -422,6 +422,10 @@
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
     </a>
+    <li>
+    <a href="javascript:fullscreen()" class="modal-trigger waves-effect waves-light">
+      <i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏" style="zoom: 0.75;"></i>
+    </a>
   </li>
 </ul>
 
@@ -714,14 +718,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    14 分
                 </div>
                 
 
@@ -793,7 +797,8 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
 <p>如果你下载不了，这里提供<a href="https://pan.baidu.com/s/1Ep4DhB6H6Aeb1Nio7maxYw" target="_blank" rel="noopener">百度云链接下载</a></p>
 <p>提取码：ot85</p>
 <h4 id="2、添加到网站目录"><a href="#2、添加到网站目录" class="headerlink" title="2、添加到网站目录"></a>2、添加到网站目录</h4><p>将assets文件夹解压你网站目录。<br>如路径为：<code>D:\hexo\public\live2d\assets\</code></p>
-<h4 id="3、页面引入"><a href="#3、页面引入" class="headerlink" title="3、页面引入"></a>3、页面引入</h4><p>（1）普通方式引入</p>
+<h4 id="3、页面引入"><a href="#3、页面引入" class="headerlink" title="3、页面引入"></a>3、页面引入</h4><p>页面引入方式有三种，任选其一即可。</p>
+<p>（1）普通方式引入</p>
 <pre><code>在 &quot;&lt;/head&gt;&quot; 前引入 waifu.css 样式表   
 在 &quot;&lt;/body&gt;&quot; 前引入 waifu-tips.js 和 live2d.js
 在 &quot;&lt;/body&gt;&quot; 前插入 初始化 JS，可在 初始化前 设置参数</code></pre><p>如：</p>
@@ -849,11 +854,12 @@ live2d-widget-model-z16</code></pre><p>如果你不想挨个试，可以查看�
   enable: true</code></pre>
 <p><code>true</code>表示启用二次元老婆，<code>false</code>表示不启用二次元老婆。</p>
 <h4 id="2、头部引入CSS文件"><a href="#2、头部引入CSS文件" class="headerlink" title="2、头部引入CSS文件"></a>2、头部引入CSS文件</h4><p>因为CSS文件一般在头部引入，在<code>layout/_partial</code>目录找到<code>head.ejs</code>,添加live2d的样式文章<code>waifu.css</code>,因为有了开关，可以根据开关是否引入<code>waifu.css</code>文件，代码如下：</p>
-<pre class=" language-ejs"><code class="language-ejs">    <% if (theme.live2d && theme.live2d.enable) { %>
-           <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/js/live2d_assets/waifu.css') %>">
-    <% } %></code></pre>
+<p>(ejs代码块不能显示，所以改用html代码块，不影响复制)</p>
+<pre class=" language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(theme.live2d</span> <span class="token attr-name">&amp;&amp;</span> <span class="token attr-name">theme.live2d.enable)</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>&lt;%- theme.jsDelivr.url %<span class="token punctuation">></span>&lt;%- url_for(<span class="token punctuation">'</span>/js/live2d_assets/waifu.css<span class="token punctuation">'</span>) %<span class="token punctuation">></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span></code></pre>
 <h4 id="3、增加模块文件"><a href="#3、增加模块文件" class="headerlink" title="3、增加模块文件"></a>3、增加模块文件</h4><p>在<code>layout/_partial</code>目录新建<code>live2d.ejs</code>,内容如下：</p>
-<p>(ejs代码块不能显示，所以改用html代码块)</p>
+<p>(ejs代码块不能显示，所以改用html代码块，不影响复制)</p>
 <pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- waifu-tips.js 依赖 JQuery 库  头部已经引用了JQuery，此处不引入--></span>
 
 <span class="token comment" spellcheck="true">&lt;!-- 实现拖动效果，需引入 JQuery UI --></span>
@@ -1908,37 +1914,6 @@ hexo<span class="token punctuation">.</span>extend<span class="token punctuation
 
 
 
-<!-- waifu-tips.js 依赖 JQuery 库  头部引用了-->
- 
-    
-<!-- 实现拖动效果，需引入 JQuery UI -->
-<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/jquery-ui.min.js"></script>
-
-<div class="waifu">
-   <div class="waifu-tips"></div>
-    <canvas id="live2d" class="live2d"></canvas>
-    <div class="waifu-tool">
-        <span class="fui-home"></span>
-        <span class="fui-chat"></span>
-        <span class="fui-eye"></span>
-        <span class="fui-user"></span>
-        <span class="fui-photo"></span>
-        <span class="fui-info-circle"></span>
-        <span class="fui-cross"></span>
-     </div>
-</div>
-    
-<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/live2d_assets/waifu-tips.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/live2d_assets/live2d.js"></script>
-    
- <script type="text/javascript">
-    live2d_settings['modelId'] = 6;
-    live2d_settings['modelTexturesId'] = 2;
-
-     var waifuTips = "https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/live2d_assets/waifu-tips.json";
-    initModel(waifuTips)
- </script>
-
 
     <footer class="page-footer bg-color">
     
@@ -2003,7 +1978,7 @@ hexo<span class="token punctuation">.</span>extend<span class="token punctuation
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">94.6k</span>&nbsp;字
+                class="white-color">94.7k</span>&nbsp;字
             
             
             
@@ -2213,6 +2188,10 @@ $(function () {
     <script src="/js/sakura.js" type="module"></script>
     
 
+    
+
+     
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/fullscreen.js" type="module"></script>
     
 
 <script>
