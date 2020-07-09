@@ -1,6 +1,6 @@
 //控制全屏
 function enterfullscreen() { //进入全屏
-    $("#fullscreen").removeClass("fa-expand-arrows-alt").addClass("fa-desktop");
+    
     var docElm = document.documentElement;
     //W3C
     if(docElm.requestFullscreen) {
@@ -18,11 +18,12 @@ function enterfullscreen() { //进入全屏
     else if(elem.msRequestFullscreen) {
         elem.msRequestFullscreen();
     }
+    $("#fullscreen").removeClass("fa-expand-arrows-alt").addClass("fa-desktop");
 }
 
 function exitfullscreen() { //退出全屏
    // $("#fullscreen").html("切换全屏");
-    $("#fullscreen").removeClass("fa-desktop").addClass("fa-expand-arrows-alt");
+   
     if(document.exitFullscreen) {
         document.exitFullscreen();
     } else if(document.mozCancelFullScreen) {
@@ -32,6 +33,7 @@ function exitfullscreen() { //退出全屏
     } else if(document.msExitFullscreen) {
         document.msExitFullscreen();
     }
+    $("#fullscreen").removeClass("fa-desktop").addClass("fa-expand-arrows-alt");
 }
 
 let b = false;

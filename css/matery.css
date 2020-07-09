@@ -70,6 +70,10 @@
 
 body {
     background-color: #eaeaea;
+    
+    background: linear-gradient(60deg, rgba(224,255,125, 0.5) 5%, rgba(0, 228, 255, 0.35)) 0% 0% / cover, url("https://ae01.alicdn.com/kf/H18a4b998752a4ae68b8e85d432a5aef0l.png"), url("http://img.netbian.com/file/2020/0524/9902db821cd055cb5d64526c473280f3.jpg") 0px 0px;
+    background-attachment: fixed;
+
     margin: 0;
     color: #34495e;
 }

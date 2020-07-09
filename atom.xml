@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-07-04T16:00:00.000Z</updated>
+  <updated>2020-07-09T17:00:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -17,23 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>just for test push notification</title>
-    <link href="https://www.zhangxiaocai.cn/posts/3caa6580.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/3caa6580.html</id>
-    <published>2020-07-04T16:00:00.000Z</published>
-    <updated>2020-07-04T16:00:00.000Z</updated>
+    <title>Mybtis(五)Mapper映射器</title>
+    <link href="https://www.zhangxiaocai.cn/posts/ae8510ea.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/ae8510ea.html</id>
+    <published>2020-07-09T17:00:00.000Z</published>
+    <updated>2020-07-09T17:00:00.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;just for test push notification&lt;/p&gt;
+      
+      
+        &lt;h2 id=&quot;Mybatis映射器&quot;&gt;&lt;a href=&quot;#Mybatis映射器&quot; class=&quot;headerlink&quot; title=&quot;Mybatis映射器&quot;&gt;&lt;/a&gt;Mybatis映射器&lt;/h2&gt;&lt;p&gt;Mybatis通过映射器构造的SQL，并且通过配置生成对应的JavaBean
+      
     
     </summary>
     
     
-      <category term="Test" scheme="https://www.zhangxiaocai.cn/categories/Test/"/>
+      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/categories/Mybatis/"/>
     
     
-      <category term="Test" scheme="https://www.zhangxiaocai.cn/tags/Test/"/>
+      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/tags/Mybatis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mybtis(五)Mapper级联</title>
+    <link href="https://www.zhangxiaocai.cn/posts/44c4c800.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/44c4c800.html</id>
+    <published>2020-07-08T15:00:00.000Z</published>
+    <updated>2020-07-08T15:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Mybtis-五-Mapper级联&quot;&gt;&lt;a href=&quot;#Mybtis-五-Mapper级联&quot; class=&quot;headerlink&quot; title=&quot;Mybtis(五)Mapper级联&quot;&gt;&lt;/a&gt;Mybtis(五)Mapper级联&lt;/h2&gt;&lt;blockquote&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/categories/Mybatis/"/>
+    
+    
+      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/tags/Mybatis/"/>
     
   </entry>
   
@@ -177,6 +205,30 @@
   </entry>
   
   <entry>
+    <title>Mybtis(四)工作原理</title>
+    <link href="https://www.zhangxiaocai.cn/posts/3bfa75b5.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/3bfa75b5.html</id>
+    <published>2020-06-19T16:00:00.000Z</published>
+    <updated>2020-06-19T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Mybtis-四-工作原理&quot;&gt;&lt;a href=&quot;#Mybtis-四-工作原理&quot; class=&quot;headerlink&quot; title=&quot;Mybtis(四)工作原理&quot;&gt;&lt;/a&gt;Mybtis(四)工作原理&lt;/h2&gt;&lt;h3 id=&quot;一、Mybatis涉及技术&quot;&gt;&lt;a hre
+      
+    
+    </summary>
+    
+    
+      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/categories/Mybatis/"/>
+    
+    
+      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/tags/Mybatis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mysql-常用命令与授权</title>
     <link href="https://www.zhangxiaocai.cn/posts/523aed6c.html"/>
     <id>https://www.zhangxiaocai.cn/posts/523aed6c.html</id>
@@ -197,9 +249,9 @@
       <category term="Mysql" scheme="https://www.zhangxiaocai.cn/categories/Mysql/"/>
     
     
-      <category term="Mysql" scheme="https://www.zhangxiaocai.cn/tags/Mysql/"/>
-    
       <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
+    
+      <category term="Mysql" scheme="https://www.zhangxiaocai.cn/tags/Mysql/"/>
     
   </entry>
   
@@ -337,32 +389,6 @@
   </entry>
   
   <entry>
-    <title>jvm之类加载机制</title>
-    <link href="https://www.zhangxiaocai.cn/posts/22096143.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/22096143.html</id>
-    <published>2020-06-09T16:00:00.000Z</published>
-    <updated>2020-06-09T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jvm类加载机制&quot;&gt;&lt;a href=&quot;#jvm类加载机制&quot; class=&quot;headerlink&quot; title=&quot;jvm类加载机制&quot;&gt;&lt;/a&gt;jvm类加载机制&lt;/h2&gt;&lt;p&gt;什么是类加载机制？&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Java虚拟机把描述类的数据从C
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
     <title>DB2常用命令</title>
     <link href="https://www.zhangxiaocai.cn/posts/7f06fe17.html"/>
     <id>https://www.zhangxiaocai.cn/posts/7f06fe17.html</id>
@@ -389,6 +415,32 @@
   </entry>
   
   <entry>
+    <title>jvm之类加载机制</title>
+    <link href="https://www.zhangxiaocai.cn/posts/22096143.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/22096143.html</id>
+    <published>2020-06-09T16:00:00.000Z</published>
+    <updated>2020-06-09T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;jvm类加载机制&quot;&gt;&lt;a href=&quot;#jvm类加载机制&quot; class=&quot;headerlink&quot; title=&quot;jvm类加载机制&quot;&gt;&lt;/a&gt;jvm类加载机制&lt;/h2&gt;&lt;p&gt;什么是类加载机制？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Java虚拟机把描述类的数据从C
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+    
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DB2常用函数</title>
     <link href="https://www.zhangxiaocai.cn/posts/d22e90ef.html"/>
     <id>https://www.zhangxiaocai.cn/posts/d22e90ef.html</id>
@@ -411,58 +463,6 @@
       <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
     
       <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jvm之对象查询OQL</title>
-    <link href="https://www.zhangxiaocai.cn/posts/2197a49e.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/2197a49e.html</id>
-    <published>2020-06-08T16:00:00.000Z</published>
-    <updated>2020-06-08T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jvm之对象查询OQL&quot;&gt;&lt;a href=&quot;#jvm之对象查询OQL&quot; class=&quot;headerlink&quot; title=&quot;jvm之对象查询OQL&quot;&gt;&lt;/a&gt;jvm之对象查询OQL&lt;/h2&gt;&lt;h3 id=&quot;一、SELECT子句&quot;&gt;&lt;a href=&quot;#一、SELEC
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
-    
-      <category term="OQL" scheme="https://www.zhangxiaocai.cn/tags/OQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jvm之类文件结构</title>
-    <link href="https://www.zhangxiaocai.cn/posts/6698cab3.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/6698cab3.html</id>
-    <published>2020-06-08T16:00:00.000Z</published>
-    <updated>2020-06-08T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jvm类文件结构&quot;&gt;&lt;a href=&quot;#jvm类文件结构&quot; class=&quot;headerlink&quot; title=&quot;jvm类文件结构&quot;&gt;&lt;/a&gt;jvm类文件结构&lt;/h2&gt;&lt;p&gt;各种不同平台的Java虚拟机，以及所有平台都统一支持的程序存储格式——字节码（ByteCod
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
-    
-      <category term="class结构" scheme="https://www.zhangxiaocai.cn/tags/class%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
