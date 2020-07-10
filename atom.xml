@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-07-09T17:00:00.000Z</updated>
+  <updated>2020-07-10T16:00:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -17,37 +17,15 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Mybtis(五)Mapper映射器</title>
-    <link href="https://www.zhangxiaocai.cn/posts/ae8510ea.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/ae8510ea.html</id>
-    <published>2020-07-09T17:00:00.000Z</published>
-    <updated>2020-07-09T17:00:00.000Z</updated>
+    <title>just for test</title>
+    <link href="https://www.zhangxiaocai.cn/posts/88c82843.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/88c82843.html</id>
+    <published>2020-07-10T16:00:00.000Z</published>
+    <updated>2020-07-10T16:00:00.000Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;Mybatis映射器&quot;&gt;&lt;a href=&quot;#Mybatis映射器&quot; class=&quot;headerlink&quot; title=&quot;Mybatis映射器&quot;&gt;&lt;/a&gt;Mybatis映射器&lt;/h2&gt;&lt;p&gt;Mybatis通过映射器构造的SQL，并且通过配置生成对应的JavaBean
-      
-    
-    </summary>
-    
-    
-      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/categories/Mybatis/"/>
-    
-    
-      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/tags/Mybatis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>juest for test</title>
-    <link href="https://www.zhangxiaocai.cn/posts/9782dca7.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/9782dca7.html</id>
-    <published>2020-07-09T16:00:00.000Z</published>
-    <updated>2020-07-09T16:00:00.000Z</updated>
-    
-    <summary type="html">
+      Just for push notication test 。
     
     </summary>
     
@@ -60,6 +38,27 @@
   </entry>
   
   <entry>
+    <title>Mybtis(五)Mapper映射器</title>
+    <link href="https://www.zhangxiaocai.cn/posts/ae8510ea.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/ae8510ea.html</id>
+    <published>2020-07-09T17:00:00.000Z</published>
+    <updated>2020-07-09T17:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      Mybatis的Mapper映射器。
+    
+    </summary>
+    
+    
+      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/categories/Mybatis/"/>
+    
+    
+      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/tags/Mybatis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mybtis(六)Mapper级联</title>
     <link href="https://www.zhangxiaocai.cn/posts/44c4c800.html"/>
     <id>https://www.zhangxiaocai.cn/posts/44c4c800.html</id>
@@ -68,11 +67,7 @@
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;Mybtis-六-Mapper级联&quot;&gt;&lt;a href=&quot;#Mybtis-六-Mapper级联&quot; class=&quot;headerlink&quot; title=&quot;Mybtis(六)Mapper级联&quot;&gt;&lt;/a&gt;Mybtis(六)Mapper级联&lt;/h2&gt;&lt;blockquote&gt;
-
-      
+      Mybatis的映射器级联使用。
     
     </summary>
     
@@ -176,30 +171,6 @@
   </entry>
   
   <entry>
-    <title>DB2-常见ERRORCODE</title>
-    <link href="https://www.zhangxiaocai.cn/posts/9f154069.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/9f154069.html</id>
-    <published>2020-06-21T14:00:00.000Z</published>
-    <updated>2020-06-21T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;a href=&quot;#DB2-常见ERRORCODE&quot; class=&quot;headerlink&quot; title=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;/a&gt;DB2-常见ERRORCODE&lt;/h2&gt;&lt;p&gt;对于常见的错误码，熟悉之后就可以快速
-      
-    
-    </summary>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Mysql-Access denied for</title>
     <link href="https://www.zhangxiaocai.cn/posts/7c170969.html"/>
     <id>https://www.zhangxiaocai.cn/posts/7c170969.html</id>
@@ -220,6 +191,30 @@
     
     
       <category term="Mysql" scheme="https://www.zhangxiaocai.cn/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DB2-常见ERRORCODE</title>
+    <link href="https://www.zhangxiaocai.cn/posts/9f154069.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/9f154069.html</id>
+    <published>2020-06-21T14:00:00.000Z</published>
+    <updated>2020-06-21T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;a href=&quot;#DB2-常见ERRORCODE&quot; class=&quot;headerlink&quot; title=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;/a&gt;DB2-常见ERRORCODE&lt;/h2&gt;&lt;p&gt;对于常见的错误码，熟悉之后就可以快速
+      
+    
+    </summary>
+    
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
+    
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
     
   </entry>
   
@@ -408,6 +403,32 @@
   </entry>
   
   <entry>
+    <title>DB2常用命令</title>
+    <link href="https://www.zhangxiaocai.cn/posts/7f06fe17.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/7f06fe17.html</id>
+    <published>2020-06-09T16:00:00.000Z</published>
+    <updated>2020-06-09T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;DB2-常用命令&quot;&gt;&lt;a href=&quot;#DB2-常用命令&quot; class=&quot;headerlink&quot; title=&quot;DB2 常用命令&quot;&gt;&lt;/a&gt;DB2 常用命令&lt;/h2&gt;&lt;h3 id=&quot;1、启停命令&quot;&gt;&lt;a href=&quot;#1、启停命令&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
+    
+    
+      <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>jvm之类加载机制</title>
     <link href="https://www.zhangxiaocai.cn/posts/22096143.html"/>
     <id>https://www.zhangxiaocai.cn/posts/22096143.html</id>
@@ -434,32 +455,6 @@
   </entry>
   
   <entry>
-    <title>DB2常用命令</title>
-    <link href="https://www.zhangxiaocai.cn/posts/7f06fe17.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/7f06fe17.html</id>
-    <published>2020-06-09T16:00:00.000Z</published>
-    <updated>2020-06-09T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;DB2-常用命令&quot;&gt;&lt;a href=&quot;#DB2-常用命令&quot; class=&quot;headerlink&quot; title=&quot;DB2 常用命令&quot;&gt;&lt;/a&gt;DB2 常用命令&lt;/h2&gt;&lt;h3 id=&quot;1、启停命令&quot;&gt;&lt;a href=&quot;#1、启停命令&quot; class=&quot;headerli
-      
-    
-    </summary>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
-    
-      <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
-    
-  </entry>
-  
-  <entry>
     <title>DB2常用函数</title>
     <link href="https://www.zhangxiaocai.cn/posts/d22e90ef.html"/>
     <id>https://www.zhangxiaocai.cn/posts/d22e90ef.html</id>
@@ -479,9 +474,9 @@
       <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
     
     
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
-    
       <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
     
   </entry>
   
