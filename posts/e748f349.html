@@ -753,7 +753,66 @@
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span></code></pre>
-<h3 id="Optional主要方法API"><a href="#Optional主要方法API" class="headerlink" title="Optional主要方法API"></a>Optional主要方法API</h3><p>|方法API     | 说明 |<br>|of(T value)     | 把指定的值封装为Optional对象，如果指定的值为null，则抛出NullPointerException |<br>|ofNullable(T value)  | 把指定的值封装为Optional对象，如果指定的值为null，则创建一个空的Optional对象 |<br>|get()     | 如果创建的Optional中有值存在，则返回此值，否则抛出NoSuchElementException |<br>|isPresent()     | 如果创建的Optional中的值存在，返回true，否则返回false |<br>|ifPresent(Consumer&lt;? super T&gt; consumer)     | 如果创建的Optional中的值存在，则执行该方法的调用，否则什么也不做 |<br>|orElse(T value)     | 如果创建的Optional中有值存在，则返回此值，否则返回一个默认值 |<br>|orElseGet(Supplier&lt;? extends T&gt; other)     | 如果创建的Optional中有值存在，则返回此值，否则返回一个由Supplier接口生成的值 |<br>|orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier)    | 如果存在该值，返回包含的值，否则抛出由 Supplier 继承的异常 |<br>|empty()     | 创建一个空的Optional对象 |<br>|orElseThrow     | 如果创建的Optional中有值存在，则返回此值，否则抛出一个由指定的Supplier接口生成的异常 |<br>|filter(Predicate&lt;? super <T> predicate)     | 如果创建的Optional中的值满足filter中的条件，则返回包含该值的Optional对象，否则返回一个空的Optional对象 |<br>|map(Function&lt;? super T,? extends U&gt; mapper)     | 如果创建的Optional中的值存在，对该值执行提供的Function函数调用 |<br>|flagMap(Function&lt;? super T,Optional<U>&gt; mapper)     | 如果创建的Optional中的值存在，就对该值执行提供的Function函数调用，返回一个Optional类型的值，否则就返回一个空的Optional对象 |</p>
+<h3 id="Optional主要方法API"><a href="#Optional主要方法API" class="headerlink" title="Optional主要方法API"></a>Optional主要方法API</h3><table>
+<thead>
+<tr>
+<th>方法API</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>of(T value)</td>
+<td>把指定的值封装为Optional对象，如果指定的值为null，则抛出NullPointerException</td>
+</tr>
+<tr>
+<td>ofNullable(T value)</td>
+<td>把指定的值封装为Optional对象，如果指定的值为null，则创建一个空的Optional对象</td>
+</tr>
+<tr>
+<td>get()</td>
+<td>如果创建的Optional中有值存在，则返回此值，否则抛出NoSuchElementException</td>
+</tr>
+<tr>
+<td>isPresent()</td>
+<td>如果创建的Optional中的值存在，返回true，否则返回false</td>
+</tr>
+<tr>
+<td>ifPresent(Consumer&lt;? super T&gt; consumer)</td>
+<td>如果创建的Optional中的值存在，则执行该方法的调用，否则什么也不做</td>
+</tr>
+<tr>
+<td>orElse(T value)</td>
+<td>如果创建的Optional中有值存在，则返回此值，否则返回一个默认值</td>
+</tr>
+<tr>
+<td>orElseGet(Supplier&lt;? extends T&gt; other)</td>
+<td>如果创建的Optional中有值存在，则返回此值，否则返回一个由Supplier接口生成的值</td>
+</tr>
+<tr>
+<td>orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier)</td>
+<td>如果存在该值，返回包含的值，否则抛出由 Supplier 继承的异常</td>
+</tr>
+<tr>
+<td>empty()</td>
+<td>创建一个空的Optional对象</td>
+</tr>
+<tr>
+<td>orElseThrow</td>
+<td>如果创建的Optional中有值存在，则返回此值，否则抛出一个由指定的Supplier接口生成的异常</td>
+</tr>
+<tr>
+<td>filter(Predicate&lt;? super <T> predicate)</td>
+<td>如果创建的Optional中的值满足filter中的条件，则返回包含该值的Optional对象，否则返回一个空的Optional对象</td>
+</tr>
+<tr>
+<td>map(Function&lt;? super T,? extends U&gt; mapper)</td>
+<td>如果创建的Optional中的值存在，对该值执行提供的Function函数调用</td>
+</tr>
+<tr>
+<td>flagMap(Function&lt;? super T,Optional<U>&gt; mapper)</td>
+<td>如果创建的Optional中的值存在，就对该值执行提供的Function函数调用，返回一个Optional类型的值，否则就返回一个空的Optional对象</td>
+</tr>
+</tbody></table>
 <h3 id="普通思维实例演示"><a href="#普通思维实例演示" class="headerlink" title="普通思维实例演示"></a>普通思维实例演示</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>xiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>optional<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Optional<span class="token punctuation">;</span>
@@ -1413,58 +1472,6 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/9f103da7.html">
-                    <div class="card-image">
-                        
-                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="jvm之内存结构">
-                        
-                        <span class="card-title">jvm之内存结构</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            本文记录jvm内存结构学习。
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-26
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/JVM/" class="post-category">
-                                    JVM
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/JVM/">
-                        <span class="chip bg-color">JVM</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">内存结构</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/posts/6ac07d1a.html">
                     <div class="card-image">
                         
@@ -1480,9 +1487,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1512,6 +1519,54 @@
                     
                     <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
                         <span class="chip bg-color">服务器</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/d0e15f60.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/java-logo.jpg" class="responsive-img" alt="java 查漏补缺-java8里的日期时间API">
+                        
+                        <span class="card-title">java 查漏补缺-java8里的日期时间API</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本文记录jdk5到jdk8的特征整理，查漏补缺式学习。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
@@ -1749,7 +1804,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">121.9k</span>&nbsp;字
+                class="white-color">124.8k</span>&nbsp;字
             
             
             
