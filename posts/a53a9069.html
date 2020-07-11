@@ -840,18 +840,18 @@
     <span class="token comment" spellcheck="true">/* 动态切换背景颜色.，不想要可以全部注释，或者换成你喜欢的颜色 */</span>
 <span class="token punctuation">}</span></code></pre>
 <h3 id="首页baner图不显示或不切换"><a href="#首页baner图不显示或不切换" class="headerlink" title="首页baner图不显示或不切换"></a>首页baner图不显示或不切换</h3><p>之前的版本有<code>BUG</code>，不过作者已经修复，如果你没有同步代码，就找到主题下的<code>layout/_partial/</code>文件夹下的<code>bg-cover-content.ejs</code>文件，看文件末尾，跟下面的片段片段比较一下：</p>
-<pre class=" language-ejs"><code class="language-ejs">
-<% if (theme.banner.enable) { %>
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "<%- theme.jsDelivr.url %><%- url_for('/medias/banner/') %>" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
-<% } else { %>
-<script>
-    $('.bg-cover').css('background-image', 'url(<%- theme.jsDelivr.url %><%- url_for('/medias/banner/8.jpg') %>)');
-</script>
-<% } %></code></pre>
+<pre class=" language-html"><code class="language-html">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(theme.banner.enable)</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+    <span class="token comment" spellcheck="true">// 每天切换 banner 图.  Switch banner image every day.</span>
+    <span class="token keyword">var</span> bannerUrl <span class="token operator">=</span> <span class="token string">"&lt;%- theme.jsDelivr.url %>&lt;%- url_for('/medias/banner/') %>"</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.jpg'</span><span class="token punctuation">;</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.bg-cover'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'background-image'</span><span class="token punctuation">,</span> <span class="token string">'url('</span> <span class="token operator">+</span> bannerUrl <span class="token operator">+</span> <span class="token string">')'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">else</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.bg-cover'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'background-image'</span><span class="token punctuation">,</span> <span class="token string">'url(&lt;%- theme.jsDelivr.url %>&lt;%- url_for('</span><span class="token operator">/</span>medias<span class="token operator">/</span>banner<span class="token operator">/</span><span class="token number">8</span><span class="token punctuation">.</span>jpg<span class="token string">') %>)'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span></code></pre>
 <h3 id="不想显示英文怎么办？"><a href="#不想显示英文怎么办？" class="headerlink" title="不想显示英文怎么办？"></a>不想显示英文怎么办？</h3><p>(1) 把 Hexo 根目录的 <code>_config.yml</code> 文件语言 <code>language</code> 设置成 <code>zh-CN</code></p>
 <pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">author</span><span class="token punctuation">:</span> <span class="token string">'Small Rose / 张小菜苔'</span>
 <span class="token key atrule">language</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN
