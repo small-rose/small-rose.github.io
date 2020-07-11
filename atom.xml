@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-07-11T09:00:00.000Z</updated>
+  <updated>2020-07-11T17:00:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java8 中的Stream API</title>
+    <link href="https://www.zhangxiaocai.cn/posts/e748f349.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/e748f349.html</id>
+    <published>2020-07-11T17:00:00.000Z</published>
+    <updated>2020-07-11T17:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Java8-中的Stream-API&quot;&gt;&lt;a href=&quot;#Java8-中的Stream-API&quot; class=&quot;headerlink&quot; title=&quot;Java8 中的Stream API&quot;&gt;&lt;/a&gt;Java8 中的Stream API&lt;/h2&gt;&lt;p&gt;Stream
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Matery主题新手常见问题</title>
@@ -448,9 +472,9 @@
       <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
     
     
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
-    
       <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
     
   </entry>
   
@@ -474,35 +498,9 @@
       <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
     
     
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
-    
       <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
     
-  </entry>
-  
-  <entry>
-    <title>jvm监控调优工具</title>
-    <link href="https://www.zhangxiaocai.cn/posts/ed0fd586.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/ed0fd586.html</id>
-    <published>2020-06-08T16:00:00.000Z</published>
-    <updated>2020-06-08T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;JVM常用工具&quot;&gt;&lt;a href=&quot;#JVM常用工具&quot; class=&quot;headerlink&quot; title=&quot;JVM常用工具&quot;&gt;&lt;/a&gt;JVM常用工具&lt;/h2&gt;&lt;p&gt;之所以要使用JVM工具当然是为了定位系统问题。常见的可依赖的数据包括但不限于异常堆栈、虚拟机运行日志
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
-    
-      <category term="监控调优工具" scheme="https://www.zhangxiaocai.cn/tags/%E7%9B%91%E6%8E%A7%E8%B0%83%E4%BC%98%E5%B7%A5%E5%85%B7/"/>
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
     
   </entry>
   

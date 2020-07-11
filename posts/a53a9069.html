@@ -716,14 +716,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -741,6 +741,7 @@
                 <h2 id="Matery主题新手常见问题"><a href="#Matery主题新手常见问题" class="headerlink" title="Matery主题新手常见问题"></a>Matery主题新手常见问题</h2><p>本文主要针对新手入门的常见问题进行简单整理。大部门问题都可以阅读主题readme解决，如果你看不懂英文,点击这个链接就可以切换中文阅读:</p>
 <p><a href="https://github.com/small-rose/hexo-theme-matery/blob/develop/README_CN.md" target="_blank" rel="noopener">Matery 中文说明</a></p>
 <p><strong>遇到问题先看readme!!!</strong><br><strong>遇到问题先看readme!!!</strong><br><strong>遇到问题先看readme!!!</strong></p>
+<p>看右侧目录可以快速定位你的问题。</p>
 <h3 id="改代码不生效"><a href="#改代码不生效" class="headerlink" title="改代码不生效"></a>改代码不生效</h3><p><strong>问题描述：</strong>代码都是正确的，修改之后不生效怎么办?</p>
 <p>（1）使用 Ctrl + F5 强制刷新之后再看。</p>
 <p>（2）自己清除浏览器缓存，各个浏览器可能不一样，请自己搜索怎么清除缓存。</p>
@@ -803,7 +804,8 @@
 <p>到此基本能解决。如果还是不行，到群里咨询<code>971887688</code> ，描述或者截图你的问题，然后给出相关配置代码。</p>
 <h3 id="首页没有轮播"><a href="#首页没有轮播" class="headerlink" title="首页没有轮播"></a>首页没有轮播</h3><p><strong>问题描述：</strong>为什么别人首页可以轮播，有两个小箭头，你的只有一张图片没有轮播也没有箭头？</p>
 <p>因为你没有在文章头部设置<code>cover</code>属性。</p>
-<p><code>cover</code> 设置成 <code>true</code> ,表示该文章需要加入到首页轮播封面中。<br><code>coverImg</code>,表示该文章在首页轮播封面需要显示的图片路径，如果没有，则默认使用文章的特色图片。</p>
+<p><code>cover</code> 设置成 <code>true</code> ,表示该文章需要加入到首页轮播封面中。</p>
+<p><code>coverImg</code>,表示该文章在首页轮播封面需要显示的图片路径，如果没有，则默认使用文章的特色图片。<code>coverImg</code>就是用来设置轮播时的图片的，如果没有可以不设置，就用默认的。</p>
 <p>比如我这篇文字的头部设置：</p>
 <pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">---</span>
 <span class="token key atrule">title</span><span class="token punctuation">:</span> Matery主题新手常见问题
@@ -816,7 +818,7 @@
 <span class="token key atrule">abbrlink</span><span class="token punctuation">:</span> a53a9069
 <span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2020-06-30 22:00:00</span>
 <span class="token key atrule">cover</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-coverImg： /images/hexo/cover_1.jpg
+<span class="token key atrule">coverImg</span><span class="token punctuation">:</span> /images/hexo/cover_1.jpg
 <span class="token punctuation">---</span></code></pre>
 <p>设置完成之后，记得把图片放到 <code>images</code>,然后 <code>hexo  clean &amp; hexo g hexo s</code></p>
 <h3 id="修改主题颜色"><a href="#修改主题颜色" class="headerlink" title="修改主题颜色"></a>修改主题颜色</h3><p><strong>问题描述：</strong>不喜欢默认的颜色，想换成自己怎么改？</p>
@@ -837,7 +839,20 @@ coverImg： /images/hexo/cover_1.jpg
 <span class="token atrule"><span class="token rule">@keyframes</span> rainbow</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">/* 动态切换背景颜色.，不想要可以全部注释，或者换成你喜欢的颜色 */</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="不想显示英文咋办？"><a href="#不想显示英文咋办？" class="headerlink" title="不想显示英文咋办？"></a>不想显示英文咋办？</h3><p>(1) 把 Hexo 根目录的 <code>_config.yml</code> 文件语言 <code>language</code> 设置成 <code>zh-CN</code></p>
+<h3 id="首页baner图不显示或不切换"><a href="#首页baner图不显示或不切换" class="headerlink" title="首页baner图不显示或不切换"></a>首页baner图不显示或不切换</h3><p>之前的版本有<code>UG</code>，不过作者已经修复，如果你没有同步代码，就找到主题下的<code>layout/_partial/</code>文件夹下的<code>bg-cover-content.ejs</code>文件，看文件末尾，跟下面的片段片段比较一下：</p>
+<pre class=" language-ejs"><code class="language-ejs">
+<% if (theme.banner.enable) { %>
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "<%- theme.jsDelivr.url %><%- url_for('/medias/banner/') %>" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+<% } else { %>
+<script>
+    $('.bg-cover').css('background-image', 'url(<%- theme.jsDelivr.url %><%- url_for('/medias/banner/8.jpg') %>)');
+</script>
+<% } %></code></pre>
+<h3 id="不想显示英文怎么办？"><a href="#不想显示英文怎么办？" class="headerlink" title="不想显示英文怎么办？"></a>不想显示英文怎么办？</h3><p>(1) 把 Hexo 根目录的 <code>_config.yml</code> 文件语言 <code>language</code> 设置成 <code>zh-CN</code></p>
 <pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">author</span><span class="token punctuation">:</span> <span class="token string">'Small Rose / 张小菜苔'</span>
 <span class="token key atrule">language</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN
 <span class="token key atrule">timezone</span><span class="token punctuation">:</span> <span class="token string">'Asia/Shanghai'</span></code></pre>
@@ -918,7 +933,7 @@ coverImg： /images/hexo/cover_1.jpg
 <span class="token key atrule">checkPolicy</span><span class="token punctuation">:</span> 查看</code></pre>
 <br>
 
-<h3 id="如果有其他问题欢迎留言提问"><a href="#如果有其他问题欢迎留言提问" class="headerlink" title="如果有其他问题欢迎留言提问"></a>如果有其他问题欢迎留言提问</h3><p>QQ:970175021<br>Email:<a href="mailto:small-rose@qq.com">small-rose@qq.com</a></p>
+<h3 id="如果有其他问题欢迎留言或邮件提问"><a href="#如果有其他问题欢迎留言或邮件提问" class="headerlink" title="如果有其他问题欢迎留言或邮件提问"></a>如果有其他问题欢迎留言或邮件提问</h3><p>QQ:970175021<br>Email:<a href="mailto:small-rose@qq.com">small-rose@qq.com</a></p>
 <br/>
 
 <p><strong>相关文章</strong></p>
@@ -1469,48 +1484,45 @@ coverImg： /images/hexo/cover_1.jpg
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/a53a9069.html">
+                <a href="/posts/e748f349.html">
                     <div class="card-image">
                         
+                        <img src="/images/java-logo.jpg" class="responsive-img" alt="Java8 中的Stream API">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="Matery主题新手常见问题">
-                        
-                        <span class="card-title">Matery主题新手常见问题</span>
+                        <span class="card-title">Java8 中的Stream API</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Matery主题新手常见问题。
+                            本文记录-Java8 中的Stream API学习。
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-11
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-12
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
@@ -1797,7 +1809,7 @@ coverImg： /images/hexo/cover_1.jpg
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.8k</span>&nbsp;字
+                class="white-color">128.3k</span>&nbsp;字
             
             
             
