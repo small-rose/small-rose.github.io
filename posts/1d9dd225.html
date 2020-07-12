@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    <meta name="keywords" content="java,mysql,mysql Access denied for user,mysql无法本地登录，Access denied for user ">
+    <meta name="keywords" content="JAVA,java8,java8 接口默认方法,java8 default">
     <meta name="description" content="Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Mysql-Access denied for | 张小菜苔</title>
+    <title>Java8 接口新特征 | 张小菜苔</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/awesome/css/all.css">
@@ -550,12 +550,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/java-logo.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Mysql-Access denied for</h1>
+                    <h1 class="description center-align post-title">Java8 接口新特征</h1>
                 </div>
             </div>
         </div>
@@ -675,8 +675,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Mysql/">
-                                <span class="chip bg-color">Mysql</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -687,8 +687,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Mysql/" class="post-category">
-                                Mysql
+                            <a href="/categories/Java/" class="post-category">
+                                Java
                             </a>
                         
                     </div>
@@ -700,13 +700,13 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-21
+                    2020-07-12
                 </div>
                 
                 <!--添加作者信息--> 
                 <div class="info-break-policy"> 
                  
-                    <i class="fa fa-pencil"></i> 作者: Small-Rose /张小菜 
+                    <i class="fa fa-pencil"></i> 作者: Small-Rose / 张小菜 
                  
                  </div> 
 
@@ -716,7 +716,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    485
+                    457
                 </div>
                 
 
@@ -738,45 +738,97 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Linux下MySQL的Access-denied-for-user"><a href="#Linux下MySQL的Access-denied-for-user" class="headerlink" title="Linux下MySQL的Access denied for user"></a>Linux下MySQL的Access denied for user</h2><blockquote>
-<p>使用环境：Centos7.4 ，Mysql5.7</p>
-</blockquote>
-<h3 id="1、root不能在版本地登录"><a href="#1、root不能在版本地登录" class="headerlink" title="1、root不能在版本地登录"></a>1、root不能在版本地登录</h3><p><strong>问题描述：</strong></p>
-<p>在linux命令行用mysql -uroot -ppasswaord 登录却报了这么个错：</p>
-<p>ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using password: YES)</p>
-<p><strong>解决方法：</strong></p>
-<p>（1）首先要确定登录密码正确，如果密码不对也会出现这个错误。（可以看应用里连接配置确认）</p>
-<p>（2）如果密码正确之后还是不能连接：</p>
-<p>​    （a）编辑<code>/etc/my.cnf</code>的mysqld下 添加<code>skip-grant-tables</code></p>
-<p>​    （b）重启MySQL服务，根据版本选择。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> mysqld restart
-systemctl restart mysqld.service</code></pre>
-<p>​    （c）直接mysql -uroot 登录</p>
-<p>​    （d）修改MySQL密码</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 5.7之前</span>
-<span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> password<span class="token operator">=</span>password<span class="token punctuation">(</span><span class="token string">'your_password'</span><span class="token punctuation">)</span> <span class="token keyword">where</span> <span class="token keyword">user</span><span class="token operator">=</span><span class="token string">'root'</span> <span class="token operator">and</span> host<span class="token operator">=</span><span class="token string">'localhost'</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true"># 5.7之后</span>
-<span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> authentication_string<span class="token operator">=</span>password<span class="token punctuation">(</span><span class="token string">'your_password'</span><span class="token punctuation">)</span> <span class="token keyword">where</span> <span class="token keyword">user</span><span class="token operator">=</span><span class="token string">'root'</span> <span class="token operator">and</span> host<span class="token operator">=</span><span class="token string">'localhost'</span><span class="token punctuation">;</span>
+                <h2 id="Java8-接口新特征"><a href="#Java8-接口新特征" class="headerlink" title="Java8 接口新特征"></a>Java8 接口新特征</h2><h3 id="1-接口默认方法"><a href="#1-接口默认方法" class="headerlink" title="1. 接口默认方法"></a>1. 接口默认方法</h3><p>java 8 中允许接口中包含具有具体实现的方法，该方法使用<code>default</code>关键字修饰，称为”默认方法”。</p>
+<h4 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h4><p>定义一个接口：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zhangxiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>java8<span class="token punctuation">.</span>deft<span class="token punctuation">;</span>
 
-flush <span class="token keyword">privileges</span><span class="token punctuation">;</span></code></pre>
-<p>​    （e）注释掉<code>skip-grant-table</code>、重启MySQL服务。再次登录验证即可。</p>
-<h3 id="2、用户不能在非本地登录"><a href="#2、用户不能在非本地登录" class="headerlink" title="2、用户不能在非本地登录"></a>2、用户不能在非本地登录</h3><p><strong>问题描述：</strong></p>
-<p>一般出现在客户端连接mysql服务的时候：</p>
-<p>mysql access denied for user root@ip useing password</p>
-<p><strong>解决方法：</strong></p>
-<p>（1）首先确保密码正确</p>
-<p>（2）如果密码正确还是不能连接，说明缺少授权。</p>
-<p>​    （a）mysql -uroot 在服务端登录</p>
-<p>​    （b）查询用户登录的授权状态</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">use</span> mysql<span class="token punctuation">;</span>
-<span class="token keyword">select</span> host<span class="token punctuation">,</span><span class="token keyword">user</span> <span class="token keyword">from</span> <span class="token keyword">user</span><span class="token punctuation">;</span></code></pre>
-<p>​    （c）确认用户在指定IP没有授权，就授权</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 适用于开发账户，授权root在任意主机登录，拥有全部schema的全部表的全部权限</span>
-<span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'root'</span>@'<span class="token operator">%</span><span class="token string">' IDENTIFIED BY '</span>your_password' <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">-- 刷新权限，刷新之后客户端需要重新连接方可生效</span>
-FLUSH   <span class="token keyword">PRIVILEGES</span><span class="token punctuation">;</span></code></pre>
-<p>​    （d）客户端重新连接即可。</p>
-<p><font color="red" >特别说明：</font>如果对权限管理比较严格，可以按IP授权，也可以按网段授权，可以授权不同的权限级别，可以授权不同操作权限等相关操作，可以参考关于Mysql授权的的内容在《Mysql常用命令》中的授权部分。</p>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterface</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">default</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"xiaocaiInterface"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>定义一个子类：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zhangxiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>java8<span class="token punctuation">.</span>deft<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SubClass</span>  <span class="token keyword">implements</span> <span class="token class-name">MyInterface</span><span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> MyInterface<span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>定义一个测试类：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zhangxiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>java8<span class="token punctuation">.</span>deft<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DefaultInterfaceTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        SubClass sc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>sc<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>输出结果：</p>
+<pre class=" language-txt"><code class="language-txt">xiaocaiInterface
+接口中的静态方法</code></pre>
+<h4 id="同名方法调用原则"><a href="#同名方法调用原则" class="headerlink" title="同名方法调用原则"></a>同名方法调用原则</h4><p>接口默认方法的”类优先”原则：</p>
+<p>若一个接口中定义了一个默认方法，另一个父类或接口中也定义了一个同名方法时：</p>
+<p>（1）选择父类中的方法。如果一个父类提供了具体的实现，那么接口中具有相同名称和参数的默认方法会被忽略。</p>
+<p>（2）接口冲突。如果父接口提供一个默认方法，另一个接口也提供了一个具有相同名称和参数列表的方法（不管方法是否默认），那么必须覆盖该方法来解决冲突。</p>
+<p>如：<br>定义接口1：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterFace1</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">default</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"我是接口1"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>定义接口2：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterFace2</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">default</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"我是接口2"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>定义一个子类:</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestMyInf</span> <span class="token keyword">implements</span> <span class="token class-name">MyInterFace1</span><span class="token punctuation">,</span> MyInterFace2<span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> MyInterFace1<span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>在定义子类时，必须选择<code>getName()</code>方法进行覆盖，可以使用<code>MyInterFace1</code>或<code>MyInterFace2</code>均可。</p>
+<h3 id="2-接口静态方法"><a href="#2-接口静态方法" class="headerlink" title="2. 接口静态方法"></a>2. 接口静态方法</h3><p>java 8 中接口允许添加静态方法。</p>
+<p>如：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zhangxiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>java8<span class="token punctuation">.</span>deft<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterface</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">default</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"xiaocaiInterface"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"接口中的静态方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>调用：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zhangxiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>java8<span class="token punctuation">.</span>deft<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DefaultInterfaceTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        MyInterface<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
 
             </div>
             <hr/>
@@ -792,7 +844,7 @@ FLUSH   <span class="token keyword">PRIVILEGES</span><span class="token punctuat
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Small-Rose /张小菜</a>
+                    <a href="/about" rel="external nofollow noreferrer">Small-Rose / 张小菜</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -802,7 +854,7 @@ FLUSH   <span class="token keyword">PRIVILEGES</span><span class="token punctuat
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.zhangxiaocai.cn/posts/7c170969.html">https://www.zhangxiaocai.cn/posts/7c170969.html</a>
+                    <a href="https://www.zhangxiaocai.cn/posts/1d9dd225.html">https://www.zhangxiaocai.cn/posts/1d9dd225.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -815,7 +867,7 @@ FLUSH   <span class="token keyword">PRIVILEGES</span><span class="token punctuat
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Small-Rose /张小菜</a>
+                    <a href="/about" target="_blank">Small-Rose / 张小菜</a>
                     !
                 </span>
             </div>
@@ -840,8 +892,8 @@ FLUSH   <span class="token keyword">PRIVILEGES</span><span class="token punctuat
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Mysql/">
-                                    <span class="chip bg-color">Mysql</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -1323,46 +1375,47 @@ FLUSH   <span class="token keyword">PRIVILEGES</span><span class="token punctuat
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/1c633c7e.html">
+                <a href="/posts/1d9dd225.html">
                     <div class="card-image">
                         
+                        <img src="/images/java-logo.jpg" class="responsive-img" alt="Java8 接口新特征">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="Hexo搭建静态博客（七）——客服与推送">
-                        
-                        <span class="card-title">Hexo搭建静态博客（七）——客服与推送</span>
+                        <span class="card-title">Java8 接口新特征</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            hexo博客的客服插件和推送插件相关。
+                            Java8 接口默认方法。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
@@ -1376,31 +1429,30 @@ FLUSH   <span class="token keyword">PRIVILEGES</span><span class="token punctuat
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/9f154069.html">
+                <a href="/posts/e748f349.html">
                     <div class="card-image">
                         
+                        <img src="/images/java-logo.jpg" class="responsive-img" alt="Java8 中的Stream API">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="DB2-常见ERRORCODE">
-                        
-                        <span class="card-title">DB2-常见ERRORCODE</span>
+                        <span class="card-title">Java8 中的Stream API</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文整理DB2常见错误码及解决思路。
+                            本文记录-Java8 中的Stream API学习。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/DB2/" class="post-category">
-                                    DB2
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
@@ -1410,8 +1462,8 @@ FLUSH   <span class="token keyword">PRIVILEGES</span><span class="token punctuat
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/DB2/">
-                        <span class="chip bg-color">DB2</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>

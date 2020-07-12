@@ -2805,7 +2805,10 @@ fjs<span class="token punctuation">.</span>parentNode<span class="token punctuat
 <h3 id="改代码不生效"><a href="#改代码不生效" class="headerlink" title="改代码不生效"></a>改代码不生效</h3><p><strong>问题描述：</strong>代码都是正确的，修改之后不生效怎么办?</p>
 <p>（1）使用 Ctrl + F5 强制刷新之后再看。</p>
 <p>（2）自己清除浏览器缓存，各个浏览器可能不一样，请自己搜索怎么清除缓存。</p>
-<h3 id="文章多个标签"><a href="#文章多个标签" class="headerlink" title="文章多个标签"></a>文章多个标签</h3><p>写法一：</p>
+<p>（3）如果你使用了CDN加速，本地调试，可以先关闭加速。</p>
+<p>·</p>
+<h3 id="文章多个标签"><a href="#文章多个标签" class="headerlink" title="文章多个标签"></a>文章多个标签</h3><p><strong>问题描述：</strong>文章标签或分类想添加多个，不知道怎么写？</p>
+<p>写法一：</p>
 <pre class=" language-txt"><code class="language-txt">tags: 
   - Hexo
   - Github
@@ -2899,7 +2902,7 @@ fjs<span class="token punctuation">.</span>parentNode<span class="token punctuat
 <span class="token atrule"><span class="token rule">@keyframes</span> rainbow</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">/* 动态切换背景颜色.，不想要可以全部注释，或者换成你喜欢的颜色 */</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="首页baner图不显示或不切换"><a href="#首页baner图不显示或不切换" class="headerlink" title="首页baner图不显示或不切换"></a>首页baner图不显示或不切换</h3><p>之前的版本有<code>BUG</code>，不过作者已经修复，如果你没有同步代码，就找到主题下的<code>layout/_partial/</code>文件夹下的<code>bg-cover-content.ejs</code>文件，看文件末尾，跟下面的片段片段比较一下：</p>
+<h3 id="首页baner图不显示或不切换"><a href="#首页baner图不显示或不切换" class="headerlink" title="首页baner图不显示或不切换"></a>首页baner图不显示或不切换</h3><p>之前的版本有<code>BUG</code>，不过作者已经修复，如果你没有同步代码，就找到主题下的<code>/layout/_partial/</code>文件夹下的<code>bg-cover-content.ejs</code>文件，找到文件末尾，跟下面的片段片段比较一下：</p>
 <pre class=" language-html"><code class="language-html">
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(theme.banner.enable)</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
@@ -2909,7 +2912,7 @@ fjs<span class="token punctuation">.</span>parentNode<span class="token punctuat
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">else</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.bg-cover'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'background-image'</span><span class="token punctuation">,</span> <span class="token string">'url(&lt;%- theme.jsDelivr.url %>&lt;%- url_for('</span><span class="token operator">/</span>medias<span class="token operator">/</span>banner<span class="token operator">/</span><span class="token number">8</span><span class="token punctuation">.</span>jpg<span class="token string">') %>)'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.bg-cover'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'background-image'</span><span class="token punctuation">,</span> <span class="token string">'url(&lt;%- theme.jsDelivr.url %>&lt;%- url_for('</span><span class="token operator">/</span>medias<span class="token operator">/</span>banner<span class="token operator">/</span><span class="token number">0</span><span class="token punctuation">.</span>jpg<span class="token string">') %>)'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span></code></pre>
 <h3 id="不想显示英文怎么办？"><a href="#不想显示英文怎么办？" class="headerlink" title="不想显示英文怎么办？"></a>不想显示英文怎么办？</h3><p>(1) 把 Hexo 根目录的 <code>_config.yml</code> 文件语言 <code>language</code> 设置成 <code>zh-CN</code></p>
@@ -3464,38 +3467,81 @@ javax<span class="token punctuation">.</span>swing<span class="token punctuation
       </tags>
   </entry>
   <entry>
-    <title>java 查漏补缺-java8里的日期时间API</title>
+    <title>java8 日期时间API</title>
     <url>/posts/d0e15f60.html</url>
     <content><![CDATA[<h3 id="Java-8-日期时间-API"><a href="#Java-8-日期时间-API" class="headerlink" title="Java 8 日期时间 API"></a>Java 8 日期时间 API</h3><p>Java 8通过发布新的Date-Time API (JSR 310)来进一步加强对日期与时间的处理。 旧版的<code>java.util.Date</code>是非线程安全的。</p>
-<h4 id="1-java8日期时间相关API"><a href="#1-java8日期时间相关API" class="headerlink" title="1. java8日期时间相关API"></a>1. java8日期时间相关API</h4><p>Java 8 在 java.time 包下提供了很多新的 API：</p>
-<div>
-Local (本地) − 简化了日期时间的处理，没有时区的问题。
+<h4 id="1-java8日期时间"><a href="#1-java8日期时间" class="headerlink" title="1. java8日期时间"></a>1. java8日期时间</h4><p><code>LocalDate</code>（本地日期）− 简化了日期处理，不带时间。</p>
+<p><code>LocalTime</code>（本地时间）− 简化了时间处理，不带日期且没有偏移信息、无时区的时间。</p>
+<p><code>LocalDateTime</code>（本地日期时间）− 日期+时间的处理。</p>
+<p>上面的三个类的实例是不可变的对象，分布表示使用<code>ISO-8601</code>日历系统的日期、时间、日期时间。无时区相关信息。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>now()</td>
+<td>静态方法，根据当前时间创建对象</td>
+</tr>
+<tr>
+<td>of()</td>
+<td>静态方法，根据当前时间或日期创建对象</td>
+</tr>
+<tr>
+<td>plusDays, plusWeeks, <br/> plusMonths, plusYears</td>
+<td>向当前LocalDate 对象添加几天、几周、几个月、几年的运算</td>
+</tr>
+<tr>
+<td>minisDays, minisWeeks, <br/>minisMonths, minisYears</td>
+<td>从当前LocalDate 对象减去几天、几周、几个月、几年的运算</td>
+</tr>
+<tr>
+<td>withDayOfMonth, withDayOfYear,<br/> withMonth, withYear</td>
+<td>将月份天数、年份天数、月份年份修改为指定的值并返回新的LocalDate对象</td>
+</tr>
+<tr>
+<td>getDayOfMonth</td>
+<td>获取月份天数（1-31）</td>
+</tr>
+<tr>
+<td>getDayOfYear</td>
+<td>获取年份天数（1-366）</td>
+</tr>
+<tr>
+<td>getDayOfWeek</td>
+<td>获取星期几，返回一个DayOfWeek的枚举值</td>
+</tr>
+<tr>
+<td>getMonth</td>
+<td>获取月份，返回一个Month的枚举值</td>
+</tr>
+<tr>
+<td>getMonthValue</td>
+<td>获取月份数值（1-12）</td>
+</tr>
+<tr>
+<td>getYear</td>
+<td>获取年份</td>
+</tr>
+<tr>
+<td>unitl</td>
+<td>获取两个日期之间的 Period 对象，或者指定 ChronoUnits 的数字</td>
+</tr>
+<tr>
+<td>isBefore,isAfter</td>
+<td>比较两个LocalDate</td>
+</tr>
+<tr>
+<td>isLeapYear</td>
+<td>判断是否是闰年</td>
+</tr>
+</tbody></table>
+<pre class=" language-java"><code class="language-java">```java
+<span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
 
-<p>Zoned (时区) − 通过制定的时区处理日期时间。</p>
-<p>Instant（时间戳）-精确到纳秒的的某个时间点，不包含时区，允许加减运算。该方法默认使用的是UTC(协调世界时——由原子钟提供)时间，可以使用equeal 和 compareTo来比较两个时间点的值。支持旧版时间转换新版时间戳。</p>
-<p>LocalDate（本地日期）− 简化了日期处理，不带时间。</p>
-<p>LocalTime（本地时间）− 简化了时间处理，不带日期且没有偏移信息、无时区的时间。</p>
-<p>LocalDateTime（本地日期时间）− 日期+时间的处理。</p>
-<p>ZoneDateTime（时区日期时间）- 包含时区的完整的日期时间，偏移量是以UTC/格林威治时间为基准的。</p>
-<p>MonthDay- 月日组合。它是一个值类（value class）,由，不包含年信息，可以用来代表每年重复出现的一些日期或其他组合。</p>
-<p>YearMonth - 年月组合。</p>
-<p>WeekFields(周) - 处理周的计算。</p>
-<p>DateTimeFormatter − 提供格式化和解析功能。下面详细的介绍使用方法。<br>任何修改操作都会返回一个新的实例。</p>
-<p>Clock - 时钟。可以获取某个时区下（对时区是敏感的）当前的瞬时时间、日期。用来代替System.currentTimelnMillis()与TimeZone.getDefault()方法。</p>
-</div>
-
-<h4 id="2-基本获取与简单计算。"><a href="#2-基本获取与简单计算。" class="headerlink" title="2. 基本获取与简单计算。"></a>2. 基本获取与简单计算。</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Clock<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>DayOfWeek<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Duration<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Instant<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDate<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalTime<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Period<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>temporal<span class="token punctuation">.</span>ChronoUnit<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>temporal<span class="token punctuation">.</span>WeekFields<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Date<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
@@ -3503,74 +3549,39 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateTimeTest</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 时间戳</span>
-        Instant now <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" now = "</span> <span class="token operator">+</span> now<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        LocalDate date <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//日期</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date = "</span> <span class="token operator">+</span> date<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        LocalTime time <span class="token operator">=</span> LocalTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span>Clock<span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//时间</span>
+        LocalDate ldt <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//日期</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" ldt = "</span> <span class="token operator">+</span> ldt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        LocalTime time <span class="token operator">=</span> LocalTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//时间</span>
         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" time = "</span> <span class="token operator">+</span> time<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         LocalDateTime dttm <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm = "</span> <span class="token operator">+</span> dttm<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token comment" spellcheck="true">// 将java.util.Date转换为Instant</span>
-        Instant instant1 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">ofEpochMilli</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>instant1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token comment" spellcheck="true">// 从字符串类型中创建Instant类型的时间</span>
-        Instant instant2 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"1995-10-23T10:12:35Z"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDate date2 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">07</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//日期</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date2 = "</span> <span class="token operator">+</span> date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        Instant instant3 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 将现在的时间加上2个小时10分钟</span>
-        Instant changeIns <span class="token operator">=</span> instant3<span class="token punctuation">.</span><span class="token function">plus</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofHours</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">plusMinutes</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>changeIns<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalTime time2 <span class="token operator">=</span> LocalTime<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">33</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//时间</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" time2 = "</span> <span class="token operator">+</span> time2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token comment" spellcheck="true">// 使用instant计算7天前</span>
-        instant3<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span>DAYS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法1</span>
-        instant3<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofDays</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法2</span>
+        LocalDateTime dttm2 <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span><span class="token number">07</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">33</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm2 = "</span> <span class="token operator">+</span> dttm2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token comment" spellcheck="true">// 计算两个Instant之间的分钟数</span>
-        Instant instant4 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// long diffAsMinutes = instant.periodUntil(instant3, ChronoUnit.MINUTES); //</span>
-        <span class="token comment" spellcheck="true">// 方法1</span>
-        <span class="token keyword">long</span> diffAsMinutes1 <span class="token operator">=</span> ChronoUnit<span class="token punctuation">.</span>MINUTES<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>instant1<span class="token punctuation">,</span> instant4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法2</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>diffAsMinutes1 <span class="token operator">/</span> <span class="token number">60</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 一周从周日开始</span>
-        WeekFields weekFields <span class="token operator">=</span> WeekFields<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>DayOfWeek<span class="token punctuation">.</span>SUNDAY<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LocalDate today <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"今天是今年第"</span> <span class="token operator">+</span> today<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>weekFields<span class="token punctuation">.</span><span class="token function">weekOfYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"周"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDateTime ldt3 <span class="token operator">=</span> ld2<span class="token punctuation">.</span><span class="token function">plusYears</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ldt3<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token comment" spellcheck="true">// 计算date的相差天数</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 计算date的相差月数</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">until</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span>MONTHS<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 计算date的相差月天，（相差0年1月24天）</span>
-        LocalDate date1 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        LocalDate date2 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Period period <span class="token operator">=</span> Period<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>date1<span class="token punctuation">,</span> date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>period<span class="token punctuation">.</span><span class="token function">getYears</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getMonths</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getDays</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDateTime ldt4 <span class="token operator">=</span> ld2<span class="token punctuation">.</span><span class="token function">minusMonths</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ldt4<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        Clock utc_cl <span class="token operator">=</span> Clock<span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" utc_cl :"</span> <span class="token operator">+</span>utc_cl<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Clock def_cl <span class="token operator">=</span> Clock<span class="token punctuation">.</span><span class="token function">systemDefaultZone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" def_cl :"</span> <span class="token operator">+</span>def_cl<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span></code></pre>
-<h4 id="3-日期判断与比较"><a href="#3-日期判断与比较" class="headerlink" title="3. 日期判断与比较"></a>3. 日期判断与比较</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDate<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDateTime<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateTimeCompareTest</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ldt<span class="token punctuation">.</span><span class="token function">getYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ldt<span class="token punctuation">.</span><span class="token function">getMonthValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ldt<span class="token punctuation">.</span><span class="token function">getDayOfMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ldt<span class="token punctuation">.</span><span class="token function">getHour</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ldt<span class="token punctuation">.</span><span class="token function">getMinute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ldt<span class="token punctuation">.</span><span class="token function">getSecond</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token comment" spellcheck="true">// 日期比较</span>
         LocalDate date1 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -3592,10 +3603,96 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm2 = "</span> <span class="token operator">+</span> dttm2<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">boolean</span> b4 <span class="token operator">=</span> dttm1<span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span>dttm2<span class="token punctuation">)</span><span class="token punctuation">;</span>
         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm1 在 dttm2 的前面 ："</span> <span class="token operator">+</span> b4<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<h4 id="4-时区处理"><a href="#4-时区处理" class="headerlink" title="4. 时区处理"></a>4. 时区处理</h4><p>ZonId代表的是某个特定时区，ZonedDateTime代表带时区的时间，等同于以前的GregorianCalendar类。使用该类，可以将本地时间转换成另一个时区中的对应时间。</p>
+<h4 id="2-java8-时间戳"><a href="#2-java8-时间戳" class="headerlink" title="2. java8 时间戳"></a>2. java8 时间戳</h4><p><code>Instant</code>（时间戳）-精确到纳秒的的某个时间点，不包含时区，允许加减运算。该方法默认使用的是UTC(协调世界时——由原子钟提供)时间(Unix元年开始经历描述进行运算)，可以使用<br><code>equeal</code> 和 <code>compareTo</code> 来比较两个时间点的值。支持旧版时间转换新版时间戳。</p>
+<pre class=" language-java"><code class="language-java">    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Instant ins <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//默认使用 UTC 时区</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ins<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        OffsetDateTime odt <span class="token operator">=</span> ins<span class="token punctuation">.</span><span class="token function">atOffset</span><span class="token punctuation">(</span>ZoneOffset<span class="token punctuation">.</span><span class="token function">ofHours</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>odt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ins<span class="token punctuation">.</span><span class="token function">getNano</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Instant ins2 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">ofEpochSecond</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ins2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">// 时间戳</span>
+        Instant now <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" now = "</span> <span class="token operator">+</span> now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 将java.util.Date转换为Instant</span>
+        Instant instant1 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">ofEpochMilli</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>instant1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 从字符串类型中创建Instant类型的时间</span>
+        Instant instant2 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"1995-10-23T10:12:35Z"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token punctuation">}</span></code></pre>
+<h4 id="3-Duration-和-Period。"><a href="#3-Duration-和-Period。" class="headerlink" title="3. Duration 和 Period。"></a>3. Duration 和 Period。</h4><pre class=" language-java"><code class="language-java">    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">caculteTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        Instant instant3 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将现在的时间加上2个小时10分钟</span>
+        Instant changeIns <span class="token operator">=</span> instant3<span class="token punctuation">.</span><span class="token function">plus</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofHours</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">plusMinutes</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>changeIns<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"--------------------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 使用instant计算7天前</span>
+        instant3<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span>DAYS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法1</span>
+        instant3<span class="token punctuation">.</span><span class="token function">minus</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofDays</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法2</span>
+
+        <span class="token comment" spellcheck="true">// 计算两个Instant之间的分钟数</span>
+        Instant instant4 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// long diffAsMinutes = instant.periodUntil(instant3, ChronoUnit.MINUTES); //</span>
+        <span class="token comment" spellcheck="true">// 方法1</span>
+        <span class="token keyword">long</span> diffAsMinutes1 <span class="token operator">=</span> ChronoUnit<span class="token punctuation">.</span>MINUTES<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>instant1<span class="token punctuation">,</span> instant4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 方法2</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>diffAsMinutes1 <span class="token operator">/</span> <span class="token number">60</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"--------------------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Instant ins1 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"--------------------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        Instant ins2 <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"所耗费时间为："</span> <span class="token operator">+</span> Duration<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>ins1<span class="token punctuation">,</span> ins2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"----------------------------------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        LocalDate ld1 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDate ld2 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2011</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Period pe <span class="token operator">=</span> Period<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>ld2<span class="token punctuation">,</span> ld1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>pe<span class="token punctuation">.</span><span class="token function">getYears</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>pe<span class="token punctuation">.</span><span class="token function">getMonths</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>pe<span class="token punctuation">.</span><span class="token function">getDays</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 一周从周日开始</span>
+        WeekFields weekFields <span class="token operator">=</span> WeekFields<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>DayOfWeek<span class="token punctuation">.</span>SUNDAY<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDate today <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"今天是今年第"</span> <span class="token operator">+</span> today<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>weekFields<span class="token punctuation">.</span><span class="token function">weekOfYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"周"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 计算date的相差天数</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEpochDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 计算date的相差月数</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">until</span><span class="token punctuation">(</span>LocalDate<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minusDays</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ChronoUnit<span class="token punctuation">.</span>MONTHS<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 计算date的相差月天，（相差0年1月24天）</span>
+        LocalDate date1 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LocalDate date2 <span class="token operator">=</span> LocalDate<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Period period <span class="token operator">=</span> Period<span class="token punctuation">.</span><span class="token function">between</span><span class="token punctuation">(</span>date1<span class="token punctuation">,</span> date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>period<span class="token punctuation">.</span><span class="token function">getYears</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getMonths</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> period<span class="token punctuation">.</span><span class="token function">getDays</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<h4 id="4-时区处理"><a href="#4-时区处理" class="headerlink" title="4. 时区处理"></a>4. 时区处理</h4><p><code>Zoned</code> (时区) − 通过制定的时区处理日期时间。</p>
+<p><code>ZoneDate</code>（时区日期）- 包含时区的日期。</p>
+<p><code>ZoneTime</code>（时区时间）- 包含时区的时间。</p>
+<p><code>ZoneDateTime</code>（时区日期时间）- 包含时区的完整的日期时间，偏移量是以<code>UTC/格林威治时间</code>为基准的。ZonedDateTime代表带时区的时间，等同于以前的<code>GregorianCalendar</code>类。使用该类，可以将本地时间转换成另一个时区中的对应时间。</p>
+<p><code>ZonId</code>代表的是某个特定时区，里面的<code>getAvailableZoneIds()</code> 方法可以获取所有时区信息。里面的<code>of()</code> 方法是用指定的时区信息获取ZoneId对象</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
@@ -3607,6 +3704,9 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TimeZoneTest</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 获取全部时区列表</span>
+        Set<span class="token operator">&lt;</span>String<span class="token operator">></span> set <span class="token operator">=</span> ZoneId<span class="token punctuation">.</span><span class="token function">getAvailableZoneIds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        set<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>out<span class="token operator">:</span><span class="token operator">:</span>println<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         LocalDateTime localDateTime <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" localDateTime = "</span> <span class="token operator">+</span> localDateTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -3623,7 +3723,168 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
 <pre><code> localDateTime = 2020-05-31T23:54:42.831
  zone = Asia/Shanghai
  dtWithZone = 2020-05-31T23:54:42.831+08:00[Asia/Shanghai]</code></pre><p> 注意：对应时区的文本可以直接手动填写，也可以调用系统默认定义的。</p>
-<h4 id="4-其他"><a href="#4-其他" class="headerlink" title="4. 其他"></a>4. 其他</h4><p>可以参考<a href="https://www.matools.com/api/java8" target="_blank" rel="noopener">java 8 API</a>,在实际遇到再补充。</p>
+<h4 id="5-格式化处理"><a href="#5-格式化处理" class="headerlink" title="5. 格式化处理"></a>5. 格式化处理</h4><p><code>java.time.format.DateTimeFormatter</code>提供格式化和解析功能。有三种格式化方法：</p>
+<p>（1）预定义的标准格式，在<code>DateTimeFormatter</code>类中。<br>（2）语言环境相关的格式<br>（3）自定义格式，如带中文。</p>
+<pre class=" language-java"><code class="language-java">
+    <span class="token comment" spellcheck="true">//5. DateTimeFormatter : 解析和格式化日期或时间</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">formatterTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        DateTimeFormatter dtf <span class="token operator">=</span> DateTimeFormatter<span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy年MM月dd日 HH:mm:ss E"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        LocalDateTime ldt <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String strDate <span class="token operator">=</span> ldt<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>dtf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>strDate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        LocalDateTime newLdt <span class="token operator">=</span> ldt<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>strDate<span class="token punctuation">,</span> dtf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>newLdt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<h4 id="6-时间校正器"><a href="#6-时间校正器" class="headerlink" title="6. 时间校正器"></a>6. 时间校正器</h4><p><code>TemporalAdjuster</code>是时间校正器。有时候需要获取”下个周日”这种操作。</p>
+<p><code>TemporalAdjusters</code> 该类是通过静态方法提供大量常用的<code>TemporalAdjuster</code>的实现。</p>
+<pre class=" language-java"><code class="language-java">    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test4</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//取下个周末</span>
+        LocalDateTime ldt1 <span class="token operator">=</span> ldt<span class="token punctuation">.</span><span class="token function">with</span><span class="token punctuation">(</span>TemporalAdjusters<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span>DayOfWeek<span class="token punctuation">.</span>SUNDAY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ldt1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        LocalDateTime ldt2 <span class="token operator">=</span> ldt<span class="token punctuation">.</span><span class="token function">withDayOfMonth</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ldt2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//自定义：下一个工作日</span>
+        LocalDateTime ldt5 <span class="token operator">=</span> ldt<span class="token punctuation">.</span><span class="token function">with</span><span class="token punctuation">(</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            LocalDateTime ldt4 <span class="token operator">=</span> <span class="token punctuation">(</span>LocalDateTime<span class="token punctuation">)</span> l<span class="token punctuation">;</span>
+
+            DayOfWeek dow <span class="token operator">=</span> ldt4<span class="token punctuation">.</span><span class="token function">getDayOfWeek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span><span class="token punctuation">(</span>dow<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>DayOfWeek<span class="token punctuation">.</span>FRIDAY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> ldt4<span class="token punctuation">.</span><span class="token function">plusDays</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>dow<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>DayOfWeek<span class="token punctuation">.</span>SATURDAY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> ldt4<span class="token punctuation">.</span><span class="token function">plusDays</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> ldt4<span class="token punctuation">.</span><span class="token function">plusDays</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ldt5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span></code></pre>
+<h4 id="7-其他相关"><a href="#7-其他相关" class="headerlink" title="7. 其他相关"></a>7. 其他相关</h4><p><code>Locale</code> (本地) − 简化了日期时间的处理，没有时区的问题。</p>
+<p><code>MonthDay</code>- 月日组合。它是一个值类（value class）,由，不包含年信息，可以用来代表每年重复出现的一些日期或其他组合。</p>
+<p><code>YearMonth</code> - 年月组合。</p>
+<p><code>WeekFields</code>(周) - 处理周的计算。</p>
+<p><code>Clock</code> - 时钟。可以获取某个时区下（对时区是敏感的）当前的瞬时时间、日期。用来代替System.currentTimelnMillis()与TimeZone.getDefault()方法。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Date<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateTimeTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+
+        Locale l <span class="token operator">=</span> Locale<span class="token punctuation">.</span><span class="token function">getDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        MonthDay md <span class="token operator">=</span> MonthDay<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" md :"</span><span class="token operator">+</span>md<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        YearMonth ym <span class="token operator">=</span> YearMonth<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span> <span class="token number">07</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" ym :"</span><span class="token operator">+</span>ym<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Clock utc_cl <span class="token operator">=</span> Clock<span class="token punctuation">.</span><span class="token function">systemUTC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" utc_cl :"</span> <span class="token operator">+</span>utc_cl<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Clock def_cl <span class="token operator">=</span> Clock<span class="token punctuation">.</span><span class="token function">systemDefaultZone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" def_cl :"</span> <span class="token operator">+</span>def_cl<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h4 id="8-与传统日期转换"><a href="#8-与传统日期转换" class="headerlink" title="8 与传统日期转换"></a>8 与传统日期转换</h4><table>
+<thead>
+<tr>
+<th>类</th>
+<th>To 遗留类</th>
+<th>From 遗留类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>java.time.Instant <br/> java.util.Date</td>
+<td>Date.from(Instant it)</td>
+<td>date.toInstant()</td>
+</tr>
+<tr>
+<td>java.time.Instant <br/> java.util.Timestamp</td>
+<td>Timestamp.from(Instant it)</td>
+<td>tmestamp.toInstant()</td>
+</tr>
+<tr>
+<td>java.time.ZonedDateTime <br/> java.util.GregorianCalendar</td>
+<td>GregorianCalendar.from(ZonedDateTime zd)</td>
+<td>cal.toZonedDateTime()</td>
+</tr>
+<tr>
+<td>java.time.LocalDate <br/> java.sql.Time</td>
+<td>Date.valueOf(LocalDate ld)</td>
+<td>date.toLocalDate()</td>
+</tr>
+<tr>
+<td>java.time.LocalTime <br/> java.sql.Time</td>
+<td>Date.valueOf(LocalTime lt)</td>
+<td>date.toLocalTime()</td>
+</tr>
+<tr>
+<td>java.time.LocalDateTime<br/> java.sql.Timestamp</td>
+<td>Timestamp.valueOf(LocalDateTime ldt)</td>
+<td>tmestamp.toLocalDateTime()</td>
+</tr>
+<tr>
+<td>java.time.ZoneId <br/> java.sql.TimeZone</td>
+<td>TimeZone.getTimeZone(ZoneId ldt)</td>
+<td>tmeZone.toZoneId()</td>
+</tr>
+<tr>
+<td>java.time.format.DateTimeFormatter <br/> java.text.DateFormat</td>
+<td>formatter.toFormat()</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<p>部分示例如下。其他同理：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zhangxiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>java8<span class="token punctuation">.</span>datetime<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Timestamp<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Instant<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Date<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Locale<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestOtherDateTime</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        Locale l <span class="token operator">=</span> Locale<span class="token punctuation">.</span><span class="token function">getDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Instant it <span class="token operator">=</span> Instant<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Date date <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" date :"</span><span class="token operator">+</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Instant it2 <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token function">toInstant</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" it2 : "</span><span class="token operator">+</span>it2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Timestamp ts <span class="token operator">=</span> Timestamp<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" ts : "</span><span class="token operator">+</span>ts<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Instant ts2 <span class="token operator">=</span> ts<span class="token punctuation">.</span><span class="token function">toInstant</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" ts2 : "</span><span class="token operator">+</span>ts2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="9-其他"><a href="#9-其他" class="headerlink" title="9 其他"></a>9 其他</h4><p>可以参考<a href="https://www.matools.com/api/java8" target="_blank" rel="noopener">java 8 API</a>,在实际遇到再补充。</p>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -3633,7 +3894,7 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
       </tags>
   </entry>
   <entry>
-    <title>java 查漏补缺-Java8 中的 Optional</title>
+    <title>Java8 Optional API</title>
     <url>/posts/e748f349.html</url>
     <content><![CDATA[<h2 id="Java8-中的-Optional"><a href="#Java8-中的-Optional" class="headerlink" title="Java8 中的 Optional"></a>Java8 中的 Optional</h2><h3 id="关于Optional"><a href="#关于Optional" class="headerlink" title="关于Optional"></a>关于Optional</h3><p>该类位于java.util下，属于final类，其实就是一个工具类。<br>主要是为了预防运行时抛出 <code>NullPointException</code></p>
 <p>使用示例：</p>
@@ -3674,7 +3935,7 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
 <td>如果创建的Optional中的值存在，返回true，否则返回false</td>
 </tr>
 <tr>
-<td>ifPresent(Consumer&lt;? super T&gt; consumer)</td>
+<td>ifPresent(Consumerc)</td>
 <td>如果创建的Optional中的值存在，则执行该方法的调用，否则什么也不做</td>
 </tr>
 <tr>
@@ -3682,11 +3943,11 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
 <td>如果创建的Optional中有值存在，则返回此值，否则返回一个默认值</td>
 </tr>
 <tr>
-<td>orElseGet(Supplier&lt;? extends T&gt; other)</td>
+<td>orElseGet(Supplier s)</td>
 <td>如果创建的Optional中有值存在，则返回此值，否则返回一个由Supplier接口生成的值</td>
 </tr>
 <tr>
-<td>orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier)</td>
+<td>orElseThrow(Supplier s)</td>
 <td>如果存在该值，返回包含的值，否则抛出由 Supplier 继承的异常</td>
 </tr>
 <tr>
@@ -3698,15 +3959,15 @@ Local (本地) − 简化了日期时间的处理，没有时区的问题。
 <td>如果创建的Optional中有值存在，则返回此值，否则抛出一个由指定的Supplier接口生成的异常</td>
 </tr>
 <tr>
-<td>filter(Predicate&lt;? super <T> predicate)</td>
+<td>filter(Predicate p)</td>
 <td>如果创建的Optional中的值满足filter中的条件，则返回包含该值的Optional对象，否则返回一个空的Optional对象</td>
 </tr>
 <tr>
-<td>map(Function&lt;? super T,? extends U&gt; mapper)</td>
+<td>map(Function f)</td>
 <td>如果创建的Optional中的值存在，对该值执行提供的Function函数调用</td>
 </tr>
 <tr>
-<td>flagMap(Function&lt;? super T,Optional<U>&gt; mapper)</td>
+<td>flagMap(Function f)</td>
 <td>如果创建的Optional中的值存在，就对该值执行提供的Function函数调用，返回一个Optional类型的值，否则就返回一个空的Optional对象</td>
 </tr>
 </tbody></table>
@@ -4399,13 +4660,13 @@ users<span class="token punctuation">.</span><span class="token function">stream
             <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token number">105</span><span class="token punctuation">,</span> <span class="token string">"田七"</span><span class="token punctuation">,</span> <span class="token number">38</span><span class="token punctuation">,</span> <span class="token number">5555.55</span><span class="token punctuation">,</span> Status<span class="token punctuation">.</span>BUSY<span class="token punctuation">)</span>
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">boolean</span> bl <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">allMatch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> e<span class="token punctuation">.</span><span class="token function">getStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>Status<span class="token punctuation">.</span>BUSY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bl<span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bl<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//false</span>
 
 <span class="token keyword">boolean</span> bl1 <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">anyMatch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> e<span class="token punctuation">.</span><span class="token function">getStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>Status<span class="token punctuation">.</span>BUSY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bl1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bl1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
 
 <span class="token keyword">boolean</span> bl2 <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">noneMatch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> e<span class="token punctuation">.</span><span class="token function">getStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>Status<span class="token punctuation">.</span>BUSY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bl2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bl2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//false</span>
 
 Optional<span class="token operator">&lt;</span>User<span class="token operator">></span> op <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">sorted</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Double<span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span><span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token punctuation">.</span><span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -4628,13 +4889,13 @@ HashSet<span class="token operator">&lt;</span>String<span class="token operator
                     <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span>Collectors<span class="token punctuation">.</span><span class="token function">toCollection</span><span class="token punctuation">(</span>HashSet<span class="token operator">:</span><span class="token operator">:</span><span class="token keyword">new</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 hs<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>out<span class="token operator">:</span><span class="token operator">:</span>println<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// maxBy</span>
+<span class="token comment" spellcheck="true">// maxBy 最大值</span>
 Optional<span class="token operator">&lt;</span>Double<span class="token operator">></span> max <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>User<span class="token operator">:</span><span class="token operator">:</span>getSalary<span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span>Collectors<span class="token punctuation">.</span><span class="token function">maxBy</span><span class="token punctuation">(</span>Double<span class="token operator">:</span><span class="token operator">:</span>compare<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>max<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// minBy</span>
+<span class="token comment" spellcheck="true">// minBy 最小值</span>
 Optional<span class="token operator">&lt;</span>User<span class="token operator">></span> op <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span>Collectors<span class="token punctuation">.</span><span class="token function">minBy</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Double<span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span><span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token punctuation">.</span><span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>op<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -4644,21 +4905,23 @@ Double sum <span class="token operator">=</span> users<span class="token punctua
             <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span>Collectors<span class="token punctuation">.</span><span class="token function">summingDouble</span><span class="token punctuation">(</span>User<span class="token operator">:</span><span class="token operator">:</span>getSalary<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// averagingDouble</span>
+<span class="token comment" spellcheck="true">// averagingDouble  平均值</span>
 Double avg <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span>Collectors<span class="token punctuation">.</span><span class="token function">averagingDouble</span><span class="token punctuation">(</span>User<span class="token operator">:</span><span class="token operator">:</span>getSalary<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>avg<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// counting</span>
+<span class="token comment" spellcheck="true">// counting 总数</span>
 Long count <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span>Collectors<span class="token punctuation">.</span><span class="token function">counting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"--------------------------------------------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// summarizingDouble</span>
+<span class="token comment" spellcheck="true">// summarizingDouble  总和</span>
 DoubleSummaryStatistics dss <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span>Collectors<span class="token punctuation">.</span><span class="token function">summarizingDouble</span><span class="token punctuation">(</span>User<span class="token operator">:</span><span class="token operator">:</span>getSalary<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>dss<span class="token punctuation">.</span><span class="token function">getMax</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>dss<span class="token punctuation">.</span><span class="token function">getSum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>dss<span class="token punctuation">.</span><span class="token function">getAverage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// groupingBy 分组</span>
 Map<span class="token operator">&lt;</span>Status<span class="token punctuation">,</span> List<span class="token operator">&lt;</span>User<span class="token operator">>></span> map <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -4687,7 +4950,7 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 String str <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>User<span class="token operator">:</span><span class="token operator">:</span>getName<span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span>Collectors<span class="token punctuation">.</span><span class="token function">joining</span><span class="token punctuation">(</span><span class="token string">","</span> <span class="token punctuation">,</span> <span class="token string">"----"</span><span class="token punctuation">,</span> <span class="token string">"----"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//以逗号分隔，前后加 ------</span>
 
 <span class="token comment" spellcheck="true">// reducing 归约</span>
 Optional<span class="token operator">&lt;</span>Double<span class="token operator">></span> sum <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -4696,10 +4959,144 @@ Optional<span class="token operator">&lt;</span>Double<span class="token operato
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>sum<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <h2 id="三、并行流与串行流"><a href="#三、并行流与串行流" class="headerlink" title="三、并行流与串行流"></a>三、并行流与串行流</h2><p><strong>并行流</strong> 就是把一个内容分成多个数据库，并用不同的线程分别处理每个数据块的流。</p>
 <p>java8 中将并行进行优化，可以很容易对数据进行并行操作。Stream API 可以声明性地通过<code>parallel()</code>和<code>sequential()</code>在并行流和串行流之间进行切换。</p>
+<p>一个整数累加的示例：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">paralleltTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">long</span> start <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Long sum <span class="token operator">=</span> LongStream<span class="token punctuation">.</span><span class="token function">rangeClosed</span><span class="token punctuation">(</span>0L<span class="token punctuation">,</span> 10000000000L<span class="token punctuation">)</span>
+                             <span class="token punctuation">.</span><span class="token function">parallel</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                             <span class="token punctuation">.</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">long</span> end <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"耗费的时间为: "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>end <span class="token operator">-</span> start<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span></code></pre>
 <h2 id="四、ForK-Join-框架简介"><a href="#四、ForK-Join-框架简介" class="headerlink" title="四、ForK /Join 框架简介"></a>四、ForK /Join 框架简介</h2><p>ForK /Join 框架： 就是在比要时，可以将一个大任务，进行拆分（<code>fork</code>）成若干个小任务（拆到不可再拆时），再将一个个的小任务运算的结果进行<code>Join</code>汇总。</p>
 <p>ForK / Join 框架和传统线程池区别：</p>
 <p>ForK / Join 框架采用的是<code>“Working-Stealing（工作窃取）”</code>模式：当执行新的任务时它可以将其拆分成更小颗粒的任务执行，并将小任务添加到线程队列中，然后再从一个随机线程的队列中偷一个并把它放在自己队列中。</p>
 <p>相比于一般线程池实现，ForK / Join 的优势是在对其中包含的任务的处理方式上，在一般的线程池中，如果一个线程正在执行的任务有余某些原因无法继续执行，那么该线程会处于等待状态。而ForK / Join 框架实现中，如果某个子问题由于等待另一个子问题的完成而无法继续执行时，处理该子问题的线程会主动寻找其他尚未运行的子问题来执行。这种方式减少了线程的等待时间，可以有效的提高性能。</p>
+<p>Fork/Join框架主要类</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ForkJoinPool</td>
+<td>用来执行Task，或生成新的ForkJoinWorkerThread，执行 ForkJoinWorkerThread 间的 work-stealing 逻辑。ForkJoinPool 不是为了替代 ExecutorService，而是它的补充，在某些应用场景下性能比 ExecutorService 更好。</td>
+</tr>
+<tr>
+<td>ForkJoinTask</td>
+<td>执行具体的分支逻辑，声明以同步/异步方式进行执行</td>
+</tr>
+<tr>
+<td>ForkJoinWorkerThread</td>
+<td>是 ForkJoinPool 内的 worker thread，执行ForkJoinTask, 内部有 ForkJoinPool.WorkQueue来保存要执行的ForkJoinTask。</td>
+</tr>
+<tr>
+<td>ForkJoinPool.WorkQueue</td>
+<td>保存要执行的ForkJoinTask。</td>
+</tr>
+</tbody></table>
+<p>Fork/Join框架主要逻辑：</p>
+<p>ForkJoinPool 的每个工作线程都维护着一个工作队列（WorkQueue），这是一个双端队列（Deque），里面存放的对象是任务（ForkJoinTask）。</p>
+<p>每个工作线程在运行中产生新的任务（通常是因为调用了<br><code>fork()</code>）时，会放入工作队列的队尾，并且工作线程在处理自己的工作队列时，使用的是<code>LIFO</code>方式，也就是说每次从队尾取出任务来执行。</p>
+<p>每个工作线程在处理自己的工作队列同时，会尝试窃取一个任务（或是来自于刚刚提交到 pool 的任务，或是来自于其他工作线程的工作队列），窃取的任务位于其他线程的工作队列的队首，也就是说工作线程在窃取其他工作线程的任务时，使用的是 FIFO 方式。</p>
+<p>在遇到 join() 时，如果需要 join 的任务尚未完成，则会先处理其他任务，并等待其完成。</p>
+<p>在既没有自己的任务，也没有可以窃取的任务时，进入休眠。</p>
+<p>一个整数累加的示例：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>atguigu<span class="token punctuation">.</span>java8<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>RecursiveTask<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ForkJoinHandle</span> <span class="token keyword">extends</span> <span class="token class-name">RecursiveTask</span><span class="token operator">&lt;</span>Long<span class="token operator">></span><span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> 13475679780L<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">long</span> start<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">long</span> end<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> THRESHOLD <span class="token operator">=</span> 10000L<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//临界值</span>
+
+    <span class="token keyword">public</span> <span class="token function">ForkJoinHandle</span><span class="token punctuation">(</span><span class="token keyword">long</span> start<span class="token punctuation">,</span> <span class="token keyword">long</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>start <span class="token operator">=</span> start<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>end <span class="token operator">=</span> end<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> Long <span class="token function">compute</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">long</span> length <span class="token operator">=</span> end <span class="token operator">-</span> start<span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>length <span class="token operator">&lt;=</span> THRESHOLD<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">long</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">long</span> i <span class="token operator">=</span> start<span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> end<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                sum <span class="token operator">+=</span> i<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">long</span> middle <span class="token operator">=</span> <span class="token punctuation">(</span>start <span class="token operator">+</span> end<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+            ForkJoinHandle left <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ForkJoinHandle</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> middle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            left<span class="token punctuation">.</span><span class="token function">fork</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//拆分，并将该子任务压入线程队列</span>
+
+            ForkJoinHandle right <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ForkJoinHandle</span><span class="token punctuation">(</span>middle<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            right<span class="token punctuation">.</span><span class="token function">fork</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">return</span> left<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> right<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>测试类：</p>
+<pre class=" language-java"><code class="language-java">
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">forkJoinTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">long</span> start <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        ForkJoinPool pool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ForkJoinPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ForkJoinTask<span class="token operator">&lt;</span>Long<span class="token operator">></span> task <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ForkJoinHandle</span><span class="token punctuation">(</span>0L<span class="token punctuation">,</span> 20000000000L<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">long</span> sum <span class="token operator">=</span> pool<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">long</span> end <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"耗费的时间为: "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>end <span class="token operator">-</span> start<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">forkJoinTest2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        ForkJoinPool forkjoinPool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ForkJoinPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        ForkJoinHandle task <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ForkJoinHandle</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//执行一个任务</span>
+        Future<span class="token operator">&lt;</span>Integer<span class="token operator">></span> result <span class="token operator">=</span> forkjoinPool<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"result"</span> <span class="token operator">+</span> result<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printstacktrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+</code></pre>
+<p>注意事宜：<br>（1）ForkJoinPool 使用submit 或 invoke 提交的区别：invoke是同步执行，调用之后需要等待任务完成，才能执行后面的代码；submit是异步执行，只有在Future调用get的时候会阻塞。</p>
+<p>（2）这里继承的是RecursiveTask，还可以继承RecursiveAction。前者适用于有返回值的场景，而后者适合于没有返回值的场景</p>
+<p>（3）这里执行子任务调用fork方法并不是最佳的选择，最佳的选择是invokeAll方法。</p>
+<pre class=" language-java"><code class="language-java">left<span class="token punctuation">.</span><span class="token function">fork</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+right<span class="token punctuation">.</span><span class="token function">fork</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>替换为</p>
+<pre class=" language-java"><code class="language-java"><span class="token function">invokeAll</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>参考文章：<br><a href="https://www.imooc.com/article/24822" target="_blank" rel="noopener">《并发之Fork/Join框架使用及注意点》</a></p>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -11133,6 +11530,108 @@ public class TestCp {
       <tags>
         <tag>JVM</tag>
         <tag>class结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java8 接口新特征</title>
+    <url>/posts/1d9dd225.html</url>
+    <content><![CDATA[<h2 id="Java8-接口新特征"><a href="#Java8-接口新特征" class="headerlink" title="Java8 接口新特征"></a>Java8 接口新特征</h2><h3 id="1-接口默认方法"><a href="#1-接口默认方法" class="headerlink" title="1. 接口默认方法"></a>1. 接口默认方法</h3><p>java 8 中允许接口中包含具有具体实现的方法，该方法使用<code>default</code>关键字修饰，称为”默认方法”。</p>
+<h4 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h4><p>定义一个接口：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zhangxiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>java8<span class="token punctuation">.</span>deft<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterface</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">default</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"xiaocaiInterface"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>定义一个子类：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zhangxiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>java8<span class="token punctuation">.</span>deft<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SubClass</span>  <span class="token keyword">implements</span> <span class="token class-name">MyInterface</span><span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> MyInterface<span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>定义一个测试类：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zhangxiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>java8<span class="token punctuation">.</span>deft<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DefaultInterfaceTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        SubClass sc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SubClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>sc<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>输出结果：</p>
+<pre class=" language-txt"><code class="language-txt">xiaocaiInterface
+接口中的静态方法</code></pre>
+<h4 id="同名方法调用原则"><a href="#同名方法调用原则" class="headerlink" title="同名方法调用原则"></a>同名方法调用原则</h4><p>接口默认方法的”类优先”原则：</p>
+<p>若一个接口中定义了一个默认方法，另一个父类或接口中也定义了一个同名方法时：</p>
+<p>（1）选择父类中的方法。如果一个父类提供了具体的实现，那么接口中具有相同名称和参数的默认方法会被忽略。</p>
+<p>（2）接口冲突。如果父接口提供一个默认方法，另一个接口也提供了一个具有相同名称和参数列表的方法（不管方法是否默认），那么必须覆盖该方法来解决冲突。</p>
+<p>如：<br>定义接口1：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterFace1</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">default</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"我是接口1"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>定义接口2：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterFace2</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">default</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"我是接口2"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>定义一个子类:</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestMyInf</span> <span class="token keyword">implements</span> <span class="token class-name">MyInterFace1</span><span class="token punctuation">,</span> MyInterFace2<span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> MyInterFace1<span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>在定义子类时，必须选择<code>getName()</code>方法进行覆盖，可以使用<code>MyInterFace1</code>或<code>MyInterFace2</code>均可。</p>
+<h3 id="2-接口静态方法"><a href="#2-接口静态方法" class="headerlink" title="2. 接口静态方法"></a>2. 接口静态方法</h3><p>java 8 中接口允许添加静态方法。</p>
+<p>如：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zhangxiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>java8<span class="token punctuation">.</span>deft<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterface</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">default</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"xiaocaiInterface"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"接口中的静态方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>调用：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zhangxiaocai<span class="token punctuation">.</span>cn<span class="token punctuation">.</span>java8<span class="token punctuation">.</span>deft<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DefaultInterfaceTest</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        MyInterface<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
 </search>

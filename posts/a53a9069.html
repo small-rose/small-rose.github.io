@@ -706,7 +706,7 @@
                 <!--添加作者信息--> 
                 <div class="info-break-policy"> 
                  
-                    <i class="fa fa-pencil"></i> 作者: Small-Rose /张小菜 
+                    <i class="fa fa-pencil"></i> 作者: Small-Rose / 张小菜 
                  
                  </div> 
 
@@ -745,7 +745,10 @@
 <h3 id="改代码不生效"><a href="#改代码不生效" class="headerlink" title="改代码不生效"></a>改代码不生效</h3><p><strong>问题描述：</strong>代码都是正确的，修改之后不生效怎么办?</p>
 <p>（1）使用 Ctrl + F5 强制刷新之后再看。</p>
 <p>（2）自己清除浏览器缓存，各个浏览器可能不一样，请自己搜索怎么清除缓存。</p>
-<h3 id="文章多个标签"><a href="#文章多个标签" class="headerlink" title="文章多个标签"></a>文章多个标签</h3><p>写法一：</p>
+<p>（3）如果你使用了CDN加速，本地调试，可以先关闭加速。</p>
+<p>·</p>
+<h3 id="文章多个标签"><a href="#文章多个标签" class="headerlink" title="文章多个标签"></a>文章多个标签</h3><p><strong>问题描述：</strong>文章标签或分类想添加多个，不知道怎么写？</p>
+<p>写法一：</p>
 <pre class=" language-txt"><code class="language-txt">tags: 
   - Hexo
   - Github
@@ -839,7 +842,7 @@
 <span class="token atrule"><span class="token rule">@keyframes</span> rainbow</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">/* 动态切换背景颜色.，不想要可以全部注释，或者换成你喜欢的颜色 */</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="首页baner图不显示或不切换"><a href="#首页baner图不显示或不切换" class="headerlink" title="首页baner图不显示或不切换"></a>首页baner图不显示或不切换</h3><p>之前的版本有<code>BUG</code>，不过作者已经修复，如果你没有同步代码，就找到主题下的<code>layout/_partial/</code>文件夹下的<code>bg-cover-content.ejs</code>文件，看文件末尾，跟下面的片段片段比较一下：</p>
+<h3 id="首页baner图不显示或不切换"><a href="#首页baner图不显示或不切换" class="headerlink" title="首页baner图不显示或不切换"></a>首页baner图不显示或不切换</h3><p>之前的版本有<code>BUG</code>，不过作者已经修复，如果你没有同步代码，就找到主题下的<code>/layout/_partial/</code>文件夹下的<code>bg-cover-content.ejs</code>文件，找到文件末尾，跟下面的片段片段比较一下：</p>
 <pre class=" language-html"><code class="language-html">
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(theme.banner.enable)</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
@@ -849,7 +852,7 @@
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">else</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.bg-cover'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'background-image'</span><span class="token punctuation">,</span> <span class="token string">'url(&lt;%- theme.jsDelivr.url %>&lt;%- url_for('</span><span class="token operator">/</span>medias<span class="token operator">/</span>banner<span class="token operator">/</span><span class="token number">8</span><span class="token punctuation">.</span>jpg<span class="token string">') %>)'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.bg-cover'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'background-image'</span><span class="token punctuation">,</span> <span class="token string">'url(&lt;%- theme.jsDelivr.url %>&lt;%- url_for('</span><span class="token operator">/</span>medias<span class="token operator">/</span>banner<span class="token operator">/</span><span class="token number">0</span><span class="token punctuation">.</span>jpg<span class="token string">') %>)'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span></code></pre>
 <h3 id="不想显示英文怎么办？"><a href="#不想显示英文怎么办？" class="headerlink" title="不想显示英文怎么办？"></a>不想显示英文怎么办？</h3><p>(1) 把 Hexo 根目录的 <code>_config.yml</code> 文件语言 <code>language</code> 设置成 <code>zh-CN</code></p>
@@ -953,7 +956,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Small-Rose /张小菜</a>
+                    <a href="/about" rel="external nofollow noreferrer">Small-Rose / 张小菜</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -976,7 +979,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Small-Rose /张小菜</a>
+                    <a href="/about" target="_blank">Small-Rose / 张小菜</a>
                     !
                 </span>
             </div>
@@ -1809,7 +1812,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">128.3k</span>&nbsp;字
+                class="white-color">130.6k</span>&nbsp;字
             
             
             
