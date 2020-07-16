@@ -424,6 +424,9 @@
     <a href="javascript:fullscreen()" class="modal-trigger waves-effect waves-light">
       <i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏" style="zoom: 0.75;"></i>
     </a>
+    <!--
+    <a href="https://travellings.now.sh/" target="blank" title="开往-友链接力"><img src="https://travellings.now.sh/assets/logo.gif" alt="开往-友链接力" width="120"></a>
+    -->
   </li>
 </ul>
 
@@ -959,7 +962,7 @@
 
 <h2 id="三-低延迟垃圾收集器"><a href="#三-低延迟垃圾收集器" class="headerlink" title="三 低延迟垃圾收集器"></a>三 低延迟垃圾收集器</h2><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-LLGC.jpg" alt="各款收集器的并发情况"></p>
 <p>其中 <strong>Shenandoah</strong> 和 <strong>ZGC</strong> ，这两款目前仍处于实验状态的收集器，被官方命名为“低延迟垃圾收集器”（Low-Latency Garbage Collector或者Low-Pause-Time GarbageCollector）。</p>
-<h3 id="1、Shenandoah收集器"><a href="#1、Shenandoah收集器" class="headerlink" title="1、Shenandoah收集器"></a>1、Shenandoah收集器</h3><h4 id="主要目标："><a href="#主要目标：" class="headerlink" title="主要目标："></a>主要目标：</h4><blockquote>
+<h3 id="1、Shenandoah-收集器"><a href="#1、Shenandoah-收集器" class="headerlink" title="1、Shenandoah 收集器"></a>1、Shenandoah 收集器</h3><h4 id="主要目标："><a href="#主要目标：" class="headerlink" title="主要目标："></a>主要目标：</h4><blockquote>
 <p>实现一种能在任何堆内存大小下都可以把垃圾收集的停顿时间限制在十毫秒以内的垃圾收集器。</p>
 </blockquote>
 <p>特点：</p>
@@ -968,7 +971,7 @@
 <p>（3）支持并发的整理算法。</p>
 <h4 id="三个重要的并发阶段："><a href="#三个重要的并发阶段：" class="headerlink" title="三个重要的并发阶段："></a>三个重要的并发阶段：</h4><p>并发标记、并发回收、并发引用更新。</p>
 <p>具体更详细的学习笔记：<a href="f8161112.html">《jvm垃圾收集器Shenandoah》</a></p>
-<h3 id="2、ZGC收集器"><a href="#2、ZGC收集器" class="headerlink" title="2、ZGC收集器"></a>2、<code>ZGC</code>收集器</h3><h4 id="主要目标：-1"><a href="#主要目标：-1" class="headerlink" title="主要目标："></a>主要目标：</h4><blockquote>
+<h3 id="2、ZGC-收集器"><a href="#2、ZGC-收集器" class="headerlink" title="2、ZGC 收集器"></a>2、ZGC 收集器</h3><h4 id="主要目标：-1"><a href="#主要目标：-1" class="headerlink" title="主要目标："></a>主要目标：</h4><blockquote>
 <p>尽可能对吞吐量影响不太大的前提下，实现在任意堆内存大小下都可以把垃圾收集的停顿时间限制在十毫秒以内的低延迟。</p>
 </blockquote>
 <h4 id="ZGC主要特征："><a href="#ZGC主要特征：" class="headerlink" title="ZGC主要特征："></a>ZGC主要特征：</h4><p>（1）以低延迟为首要目标。</p>
@@ -1532,18 +1535,18 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/f8161112.html">
+                <a href="/posts/e3d9aed7.html">
                     <div class="card-image">
                         
-                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="JVM LLGC：Shenandoah">
+                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="JVM LLGC：ZGC">
                         
-                        <span class="card-title">JVM LLGC：Shenandoah</span>
+                        <span class="card-title">JVM LLGC：ZGC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            VM低延迟垃圾收集器：Shenandoah。
+                            JVM低延迟垃圾收集器：ZGC。
                         
                     </div>
                     <div class="publish-info">
@@ -1851,6 +1854,7 @@
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
+         <br>
             Copyright&nbsp;&copy;
             <span id="year">2020</span>
             <a href="/about" target="_blank">Small Rose / 张小菜苔</a>
@@ -1860,7 +1864,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">130.7k</span>&nbsp;字
+                class="white-color">132.7k</span>&nbsp;字
             
             
             
@@ -1968,6 +1972,9 @@
         <i class="fas fa fa-comments"></i>
     </a>
 --></div>
+
+        
+        
     </div>
 </footer>
 

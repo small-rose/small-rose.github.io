@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    <meta name="keywords" content="JAVA,jvm,对象生死">
+    <meta name="keywords" content="JAVA,jvm,收集器与常见参数">
     <meta name="description" content="Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>jvm之对象生死 | 张小菜苔</title>
+    <title>jvm收集器与常见参数 | 张小菜苔</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/awesome/css/all.css">
@@ -558,7 +558,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">jvm之对象生死</h1>
+                    <h1 class="description center-align post-title">jvm收集器与常见参数</h1>
                 </div>
             </div>
         </div>
@@ -682,10 +682,6 @@
                                 <span class="chip bg-color">JVM</span>
                             </a>
                         
-                            <a href="/tags/%E5%AF%B9%E8%B1%A1%E7%94%9F%E6%AD%BB/">
-                                <span class="chip bg-color">对象生死</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -707,7 +703,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-30
+                    2020-07-16
                 </div>
                 
                 <!--添加作者信息--> 
@@ -723,14 +719,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    7 分
                 </div>
                 
 
@@ -745,147 +741,156 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="jvm-检测判断对象的生死"><a href="#jvm-检测判断对象的生死" class="headerlink" title="jvm 检测判断对象的生死"></a>jvm 检测判断对象的生死</h3><p>垃圾收集（Garbage Collection，简称GC）</p>
-<p>对象生死</p>
-<blockquote>
-<p>堆里面存放着Java世界中几乎所有的对象实例，垃圾收集器在对堆进行回收前，第一件事情就是要确定这些对象之中哪些还“存活”着，哪些已经“死去”（“死去”即不可能再被任何途径使用的对象）了。对象是否存活的算法各不相同。</p>
+                <h2 id="jvm收集器与常见参数"><a href="#jvm收集器与常见参数" class="headerlink" title="jvm收集器与常见参数"></a>jvm收集器与常见参数</h2><blockquote>
+<p>主要是针对之前的学习，进行一个参数的集中整理。</p>
 </blockquote>
-<h4 id="1-引用计数算法"><a href="#1-引用计数算法" class="headerlink" title="1. 引用计数算法"></a>1. 引用计数算法</h4><p>引用计数算法:<br><P><br>在对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加一；当引用失效时，计数器值就减一；任何时刻计数器为零的对象就是不可能再被使用的<br></P><br>引用计数算法（Reference Counting）虽然占用了一些额外的内存空间来进行计数，但它的原理简单，判定效率也很高，在大多数情况下它都是一个不错的算法。</p>
-<p>引用计数算法的缺陷：两个对象相互引用，永不回收。<br>代码示例：</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * testGC()方法执行后，objA和objB会不会被GC呢？
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ReferenceCountingGC</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">public</span> Object instance <span class="token operator">=</span> null<span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> _1MB <span class="token operator">=</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 这个成员属性的唯一意义就是占点内存，以便能在GC日志中看清楚是否有回收过
-     */</span>
-    <span class="token keyword">private</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bigSize <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">byte</span><span class="token punctuation">[</span><span class="token number">2</span> <span class="token operator">*</span> _1MB<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">testGC</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ReferenceCountingGC objA <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReferenceCountingGC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ReferenceCountingGC objB <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReferenceCountingGC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        objA．instance <span class="token operator">=</span> objB<span class="token punctuation">;</span>
-        objB．instance <span class="token operator">=</span> objA<span class="token punctuation">;</span>
-
-        objA <span class="token operator">=</span> null<span class="token punctuation">;</span>
-        objB <span class="token operator">=</span> null<span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 假设在这行发生GC，objA和objB是否能被回收？</span>
-        System<span class="token punctuation">.</span><span class="token function">gc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>运行结果：</p>
-<pre><code>[Full GC (System) [Tenured: 0K-&gt;210K(10240K), 0.0149142 secs] 4603K-&gt;210K(19456K), [Perm : 2999K-&gt;2999K(21248K)], 0.0150007 secs] [Times: user=0.01 sys=0.00, real=0.02 secs]
-Heap
-    def new generation   total 9216K, used 82K [0x00000000055e0000, 0x0000000005fe0000, 0x0000000005fe0000)
-    Eden space 8192K,   1% used [0x00000000055e0000, 0x00000000055f4850, 0x0000000005de0000)
-    from space 1024K,   0% used [0x0000000005de0000, 0x0000000005de0000, 0x0000000005ee0000)
-    to   space 1024K,   0% used [0x0000000005ee0000, 0x0000000005ee0000, 0x0000000005fe0000)
-    tenured generation   total 10240K, used 210K [0x0000000005fe0000, 0x00000000069e0000, 0x00000000069e0000)
-    the space 10240K,   2% used [0x0000000005fe0000, 0x0000000006014a18, 0x0000000006014c00, 0x00000000069e0000)
-    compacting perm gen  total 21248K, used 3016K [0x00000000069e0000, 0x0000000007ea0000, 0x000000000bde0000)
-    the space 21248K,  14% used [0x00000000069e0000, 0x0000000006cd2398, 0x0000000006cd2400, 0x0000000007ea0000)
-    No shared spaces configured.</code></pre><p>内存回收日志中包含<code>“4603K-&gt;210K”</code>，意味着虚拟机并没有因为这两个对象互相引用就放弃回收它们，这也从侧面说明了Java虚拟机并不是通过引用计数算法来判断对象是否存活的。</p>
-<h4 id="2-可达性分析算法"><a href="#2-可达性分析算法" class="headerlink" title="2.可达性分析算法"></a>2.可达性分析算法</h4><p>当前主流的商用程序语言（Java、C#，上溯至前面提到的古老的Lisp）的内存管理子系统，都是通过可达性分析（Reachability Analysis）算法来判定对象是否存活的。这个算法的基本思路:</p>
-<blockquote>
-<p>通过一系列称为“GC Roots”的根对象作为起始节点集，从这些节点开始，根据引用关系向下搜索，搜索过程所走过的路径称为“引用链”（Reference Chain），如果某个对象到GCRoots间没有任何引用链相连，或者用图论的话来说就是从GC Roots到这个对象不可达时，则证明此对象是不可能再被使用的。</p>
-</blockquote>
-<p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/jvm-gc-1.jpg" alt="GC Roots 示意图"></p>
-<p>在Java技术体系里面，固定可作为GC Roots的对象包括以下几种：</p>
-<blockquote>
-<p>（1）在虚拟机栈（栈帧中的本地变量表）中引用的对象，譬如各个线程被调用的方法堆栈中使用到的参数、局部变量、临时变量等。<br>（2）在方法区中类静态属性引用的对象，譬如Java类的引用类型静态变量。<br>（3）在方法区中常量引用的对象，譬如字符串常量池（String Table）里的引用。<br>（4）在本地方法栈中JNI（即通常所说的Native方法）引用的对象。<br>（5）Java虚拟机内部的引用，如基本数据类型对应的Class对象，一些常驻的异常对象（比如NullPointExcepiton、OutOfMemoryError）等，还有系统类加载器。<br>（6）所有被同步锁（synchronized关键字）持有的对象。<br>（7）反映Java虚拟机内部情况的JMXBean、JVMTI中注册的回调、本地代码缓存等。</p>
-</blockquote>
-<p>除了这些固定的GC Roots集合以外，根据用户所选用的垃圾收集器以及当前回收的内存区域不同，还可以有其他对象“临时性”地加入，共同构成完整GC Roots集合。</p>
-<h4 id="3-对象引用及分类"><a href="#3-对象引用及分类" class="headerlink" title="3. 对象引用及分类"></a>3. 对象引用及分类</h4><p>在JDK 1.2版之后，Java对引用的概念进行了扩充，将引用分为<code>强引用（Strongly Re-ference）</code>、<code>软引用（Soft Reference）</code>、<code>弱引用（Weak Reference）</code>和<code>虚引用（PhantomReference）</code>4种，这4种引用强度依次逐渐减弱。可以简写成：</p>
-<pre><code>强引用 &gt; 软引用 &gt; 弱引用 &gt; 虚引用</code></pre><p>（1）强引用（Strongly Re-ference）</p>
-<blockquote>
-<p>强引用是最传统的“引用”的定义，是指在程序代码之中普遍存在的引用赋值，即类似<code>“Object obj=new Object()”</code>这种引用关系。无论任何情况下，只要强引用关系还存在，垃圾收集器就永远不会回收掉被引用的对象。</p>
-</blockquote>
-<p>（2）软引用（Soft Reference）</p>
-<blockquote>
-<p>软引用是用来描述一些还有用，但非必须的对象。只被软引用关联着的对象，在系统将要发生内存溢出异常前，会把这些对象列进回收范围之中进行第二次回收，如果这次回收还没有足够的内存，才会抛出内存溢出异常。在JDK 1.2版之后提供了<code>SoftReference</code>类来实现软引用。</p>
-</blockquote>
-<p>（3）弱引用（Weak Reference）</p>
-<blockquote>
-<p>弱引用也是用来描述那些非必须对象，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生为止。当垃圾收集器开始工作，无论当前内存是否足够，都会回收掉只被弱引用关联的对象。在JDK 1.2版之后提供了<code>WeakReference</code>类来实现弱引用。</p>
-</blockquote>
-<p>（4）虚引用（PhantomReference）</p>
-<blockquote>
-<p>虚引用也称为“幽灵引用”或者“幻影引用”，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用关联的唯一目的只是为了能在这个对象被收集器回收时收到一个系统通知。在JDK 1.2版之后提供了<code>PhantomReference</code>类来实现虚引用。</p>
-</blockquote>
-<h4 id="4-是生是死？"><a href="#4-是生是死？" class="headerlink" title="4. 是生是死？"></a>4. 是生是死？</h4><blockquote>
-<p>在可达性分析算法中判定为不可达的对象，也不是“非死不可”的，这时候它们暂时还处于“缓刑”阶段，要真正宣告一个对象死亡，至少要经历两次标记过程：如果对象在进行可达性分析后发现没有与GC Roots相连接的引用链，那它将会被第一次标记，随后进行一次筛选，筛选的条件是此对象是否有必要执行finalize()方法。假如对象没有覆盖finalize()方法，或者finalize()方法已经被虚拟机调用过，那么虚拟机将这两种情况都视为“没有必要执行”。</p>
-</blockquote>
-<p>如果这个对象被判定为确有必要执行finalize()方法，那么该对象将会被放置在一个名为F-Queue的队列之中，并在稍后由一条由虚拟机自动建立的、低调度优先级的Finalizer线程去执行它们的finalize()方法。这里所说的“执行”是指虚拟机会触发这个方法开始运行，但并不承诺一定会等待它运行结束。这样做的原因是，如果某个对象的finalize()方法执行缓慢，或者更极端地发生了死循环，将很可能导致F-Queue队列中的其他对象永久处于等待，甚至导致整个内存回收子系统的崩溃。</p>
-<p>finalize()方法是对象逃脱死亡命运的最后一次机会，稍后收集器将对F-Queue中的对象进行第二次小规模的标记，如果对象要在finalize()中成功拯救自己——只要重新与引用链上的任何一个对象建立关联即可，譬如把自己（this关键字）赋值给某个类变量或者对象的成员变量，那在第二次标记时它将被移出“即将回收”的集合；如果对象这时候还没有逃脱，那基本上它就真的要被回收了。</p>
-<p>书中代码示例：</p>
-<pre><code>/**
- * 此代码演示了两点：
- * 1.对象可以在被GC时自我拯救。
- * 2.这种自救的机会只有一次，因为一个对象的finalize()方法最多只会被系统自动调用一次
- */
-public class FinalizeEscapeGC {
-
-    public static FinalizeEscapeGC SAVE_HOOK = null;
-
-    public void isAlive() {
-        System.out.println(&quot;yes, i am still alive :)&quot;);
-    }
-
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
-        System.out.println(&quot;finalize method executed!&quot;);
-        FinalizeEscapeGC．SAVE_HOOK = this;
-    }
-
-    public static void main(String[] args) throws Throwable {
-        SAVE_HOOK = new FinalizeEscapeGC();
-
-        //对象第一次成功拯救自己
-        SAVE_HOOK = null;
-        System.gc();
-        // 因为Finalizer方法优先级很低，暂停0.5秒，以等待它
-        Thread.sleep(500);
-        if (SAVE_HOOK != null) {
-            SAVE_HOOK.isAlive();
-        } else {
-            System.out.println(&quot;no, i am dead :(&quot;);
-        }
-
-        // 下面这段代码与上面的完全相同，但是这次自救却失败了
-        SAVE_HOOK = null;
-        System.gc();
-        // 因为Finalizer方法优先级很低，暂停0.5秒，以等待它
-        Thread.sleep(500);
-        if (SAVE_HOOK != null) {
-            SAVE_HOOK.isAlive();
-        } else {
-            System.out.println(&quot;no, i am dead :(&quot;);
-        }
-    }
-}</code></pre><p>运行结果：</p>
-<pre><code>finalize method executed!
-yes, i am still alive :)
-no, i am dead :(</code></pre><p>结论</p>
-<blockquote>
-<p>任何一个对象的finalize()方法都只会被系统自动调用一次，如果对象面临下一次回收，它的finalize()方法不会被再次执行。</p>
-</blockquote>
-<h4 id="5-回收方法区"><a href="#5-回收方法区" class="headerlink" title="5. 回收方法区"></a>5. 回收方法区</h4><blockquote>
-<p>在Java堆中，尤其是在新生代中，对常规应用进行一次垃圾收集通常可以回收70%至99%的内存空间，方法区回收条件苛刻，回收成果极小。</p>
-</blockquote>
-<p>方法区的垃圾收集主要回收两部分内容：废弃的常量，不再使用的类型。<br>（1）废弃的常量</p>
-<blockquote>
-<p>回收废弃常量与回收Java堆中的对象非常类似。举个常量池中字面量回收的例子，假如一个字符串“java”曾经进入常量池中，但是当前系统又没有任何一个字符串对象的值是“java”，换句话说，已经没有任何字符串对象引用常量池中的“java”常量，且虚拟机中也没有其他地方引用这个字面量。如果在这时发生内存回收，而且垃圾收集器判断确有必要的话，这个“java”常量就将会被系统清理出常量池。常量池中其他类（接口）、方法、字段的符号引用也与此类似。</p>
-</blockquote>
-<p>系统和虚拟机中均没有引用改常量即可。</p>
-<p>（2）不再使用的类型</p>
-<p>需要同时满足下面三个条件:<br>A. 该类所有的实例都已经被回收，Java堆中不存在该类及其任何派生子类的实例<br>B. 加载该类的类加载器已经被回收。（难达成）<br>C. 该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。 </p>
+<h3 id="一、通用的参数"><a href="#一、通用的参数" class="headerlink" title="一、通用的参数"></a>一、通用的参数</h3><p>通用的参数是不需要区分收集器的。</p>
+<p>基本常用参数</p>
+<table>
+<thead>
+<tr>
+<th>参数关键词</th>
+<th>参数说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-Xms</code></td>
+<td>设置堆的最小值，初始内存大小</td>
+<td><code>-Xms1024m</code>  堆的初始内存为1G</td>
+</tr>
+<tr>
+<td><code>-Xmx</code></td>
+<td>设置堆的最大值 ，最大可用内存</td>
+<td><code>-Xms1024m</code>  堆的最大可用内存为1G。一般为系统可用内存的1/4大小</td>
+</tr>
+<tr>
+<td><code>-Xmn</code></td>
+<td>设置新生代（年轻代）的大小。</td>
+<td><code>-Xmn380m</code> 不设置则默认值为堆内存的1/3 。<br>增大年轻代后，将会减小年老代大小。此值对系统性能影响较大，需谨慎操作。</td>
+</tr>
+<tr>
+<td><code>-Xss</code></td>
+<td>设置每个线程的堆栈大小。</td>
+<td><code>-Xss128k</code> jdk5后单个线程堆栈大小为1M，以前单个线程堆栈大小为256K</td>
+</tr>
+<tr>
+<td><code>-XX:NewSize</code></td>
+<td>新生代初始化内存大小，该值需要小于-Xms的值</td>
+<td><code>-XX:NewSize=512m</code></td>
+</tr>
+<tr>
+<td><code>-XX:MaxNewSize</code></td>
+<td>新生代可分配内存大小，该值需要小于-Xmx的值</td>
+<td><code>-XX:MaxNewSiz=900m</code></td>
+</tr>
+<tr>
+<td><code>-XX:SurvivorRatio</code></td>
+<td>年轻代中 Eden：SFrom：STO=n:1:1</td>
+<td><code>-XX:SurvivorRatio=8</code></td>
+</tr>
+<tr>
+<td><code>-XX:PretenureSizeThreshold</code></td>
+<td>设置直接晋升到老年代的对象大小</td>
+<td><code>-XX:PretenureSizeThreshold=4m</code> 对象如果超过4M就可以直接晋升到老年代</td>
+</tr>
+<tr>
+<td><code>-XX:MaxTenuringThreshold=0</code></td>
+<td>垃圾最大年龄,置垃圾最大年龄。大于这个年龄的都会进入老年代区。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代。</td>
+<td><code>-XX:MaxTenuringThreshold=0</code><br/><code>-XX:MaxTenuringThreshold=15</code></td>
+</tr>
+</tbody></table>
+<p><strong>JVM 中最大堆大小有三方面限制：</strong></p>
+<ul>
+<li><p>相关操作系统的数据模型（32-bt还是64-bit）限制；</p>
+</li>
+<li><p>系统的可用虚拟内存限制；</p>
+</li>
+<li><p>系统的可用物理内存限制。32位系统下，一般限制在<code>1.5G ~ 2G</code>；64为操作系统对内存无限制。</p>
+</li>
+</ul>
+<p>在内存自动管理过程中，新生代中的98%对象都是”朝生夕死”的，所以并不需要按照1:1的比例来划分内存空间，而是将内存分为一块比较大的<code>Eden</code>空间和两块较小的<code>Survivor</code>空间，每次使用<code>Eden</code>和其中一块<code>Survivor</code>。当回收时，将<code>Eden</code>和<code>Survivor</code>中还存活着的对象一次性地复制到另外一块<code>Survivor</code>空间上，最后清理掉<code>Eden</code>和刚才用过的<code>Survivor</code>空间。<code>HotSpot</code>虚拟机默认<code>Eden</code>和<code>Survivor</code>的大小比例是<code>8:1</code>，也就是说，每次新生代中可用内存空间为整个新生代容量的90%（80%+10%），只有10%的空间会被浪费。</p>
+<p><strong>直接内存设置</strong></p>
+<p>直接内存，就是堆外内存</p>
+<pre><code>-XX:MaxDirectMemorySize=1024m</code></pre><p>当缓冲区分配的堆外内存到达指定大小后，即触发<code>Full GC</code>。注意该值是有上限的，默认是64M，最大为<code>sun.misc.VM.maxDirectMemory()</code>，在程序中中可以获得<code>-XX:MaxDirectMemorySize</code>的设置的值。</p>
+<p><strong>方法区/永久代/非堆区</strong></p>
+<p>jdk1.7及之前：</p>
+<pre><code>-XX:PermSize
+-XX:MaxPermSize；</code></pre><p>jdk1.8以后：</p>
+<pre><code>-XX:MetaspaceSize
+-XX:MaxMetaspaceSize</code></pre><p><code>MetaspaceSize</code> 默认20.8M左右(x86下开启c2模式)，主要是设置metaspaceGC发生的初始阈值，也是最小阈值，<br><code>MaxMetaspaceSize</code>默认基本是无穷大，建议设置，设置后参数会限制metaspace(包括了Klass Metaspace以及NoKlass Metaspace)被committed的内存大小，会保证committed的内存不会超过这个值，一旦超过就会触发GC。</p>
+<p><strong>参数使用说明：</strong></p>
+<p>参数使用是以 <code>-XX:</code>为前缀，中间以 <code>+</code> 或 <code>-</code> 连接，后面跟参数名，如果需要设置参数值的使用赋值符号 <code>=</code> 连接值。</p>
+<p><code>+</code> ：表示启用该参数； <code>-</code> ：表示禁用该参数。</p>
+<h3 id="二、垃圾回收统计信息"><a href="#二、垃圾回收统计信息" class="headerlink" title="二、垃圾回收统计信息"></a>二、垃圾回收统计信息</h3><p>统计信息参数</p>
+<table>
+<thead>
+<tr>
+<th>参数关键词</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-XX:+PrintGC</td>
+<td>显示GC</td>
+</tr>
+<tr>
+<td>-XX:+PrintGCDetails</td>
+<td>显示GC详细信息</td>
+</tr>
+<tr>
+<td>-XX:+PrintGCTimeStamps</td>
+<td>显示GC 收回时间戳</td>
+</tr>
+<tr>
+<td>-XX:+PrintGCDateStamps</td>
+<td>打印GC 操作的时间戳</td>
+</tr>
+<tr>
+<td>-Xloggc:filename</td>
+<td>把相关日志信息记录到文件以便分析</td>
+</tr>
+<tr>
+<td>-XX:PrintHeapAtGC</td>
+<td>打印GC前后的详细堆栈信息</td>
+</tr>
+</tbody></table>
+<h3 id="二、收集器参数"><a href="#二、收集器参数" class="headerlink" title="二、收集器参数"></a>二、收集器参数</h3><h4 id="Serial-串行收集器"><a href="#Serial-串行收集器" class="headerlink" title="Serial 串行收集器"></a>Serial 串行收集器</h4><p>Serial / Serial old</p>
+<p>无需多线程交互，但无法发挥出多处理器的优势，适合单处理器的机器以及数据量较小的情况。</p>
+<pre><code>-XX:+UseSerialGC</code></pre><p>虚拟机运行在Client 模式下的默认值，打开此开关后，使用 <code>(新生代)Serial + （老年代）Serial Old</code>的收集器组合进行内存回收。</p>
+<p>支持：</p>
+<pre><code>-XX：SurvivorRatio
+-XX：PretenureSizeThreshold
+-XX：HandlePromotionFailure</code></pre><h4 id="ParNew-并行收集器"><a href="#ParNew-并行收集器" class="headerlink" title="ParNew 并行收集器"></a>ParNew 并行收集器</h4><pre><code>-XX:+UseParNewGC</code></pre><p>启用该参数后，使用ParNew + Serial Old 的收集器组合进行内存回收。</p>
+<p>支持：</p>
+<pre><code>-XX：SurvivorRatio
+-XX：PretenureSizeThreshold
+-XX：HandlePromotionFailure</code></pre><h4 id="Parallel-并行收集器"><a href="#Parallel-并行收集器" class="headerlink" title="Parallel 并行收集器"></a>Parallel 并行收集器</h4><p>Parallel / Parallel old</p>
+<p>jdk5引入，用于对年轻代进行回收，一般用在多线程处理器上。使用以下设置可以开启使用。</p>
+<pre><code>-XX:+UseParallerGC</code></pre><p>虚拟机server模式，使用<code>Parallel Scavenge+Serial Old</code>的收集器组合进行内存回收。</p>
+<p>jdk6之后可对老年代进行回收，若不打开默认是单线程，使用<code>-XX:+UseParallerOldGC</code>开启使用。</p>
+<pre><code>-XX:+UseParallerOldGC</code></pre><p>打开此开关后，使用<code>Parallel Scavenge + Parallel Old</code>的收集器组合进行内存回收</p>
+<h4 id="Parallel-Scavenge-收集器"><a href="#Parallel-Scavenge-收集器" class="headerlink" title="Parallel Scavenge 收集器"></a>Parallel Scavenge 收集器</h4><p>控制最大垃圾收集停顿时间，一般<code>200 ~ 300</code>毫秒。</p>
+<pre><code>-XX：MaxGCPauseMillis=200ms</code></pre><p>直接设置吞吐量大小的</p>
+<pre><code>-XX：GCTimeRatio=99</code></pre><p>值则应当是一个大于0小于100的整数，也就是垃圾收集时间占总时间的比率，相当于吞吐量的倒数。如把此参数设置为19，那允许的最大垃圾收集时间就占总时间的5%（即1/(1+19)），默认值为99，即允许最大1%（即1/(1+99)）的垃圾收集时间。 </p>
+<p>自适应调节策略参数：</p>
+<pre><code>-XX：+UseAdaptiveSizePolicy</code></pre><p>参数被激活之后，就不需要人工指定新生代的大小（-Xmn）、Eden与Survivor区的比例（-XX：SurvivorRatio）、晋升老年代对象大小（-XX：PretenureSizeThreshold）等细节参数。虚拟机会根据当前系统的运行情况收集性能监控信息，动态调整这些参数以提供最合适的停顿时间或者最大的吞吐量。这种调节方式称为垃圾收集的自适应的调节策略（GC Ergonomics）。</p>
+<h4 id="CMS-收集器"><a href="#CMS-收集器" class="headerlink" title="CMS 收集器"></a>CMS 收集器</h4><pre><code>-XX：+UseConcMarkSweepGC</code></pre><p>打开此开关后，使用<code>ParNew + CMS + Serial Old</code>的收集器组合进行内存回收。<br><code>ParNew</code>收集器是激活CMS后（使用-XX：+UseConcMarkSweepGC选项）的默认新生代收集器。<br><code>Serial Old</code>收集器将作为 CMS 收集器出现<code>Concurrent Mode Failure</code>失败后的后备收集器使用。</p>
+<p>老年代使用多少后触发 CMS:</p>
+<pre><code>-XX：+CMSInitiatingOccupancyFraction=68%</code></pre><p>在JDK 5的默认设置下，CMS收集器当老年代使用了68%的空间后就会被激活，在实际应用中老年代增长并不是太快，可以适当调高参数<code>-XX：CMSInitiatingOccu-pancyFraction</code>的值来提高CMS的触发百分比，降低内存回收频率，获取更好的性能。</p>
+<p>CMS 在n次GC后，启动内存碎片整理。</p>
+<pre><code>-XX：+CMSFullGCsBeforeCompaction=5</code></pre><p>是用于设置执行多少次不压缩的Full GC后，跟着来一次带压缩的（默认值为0，表示每次进入FullGC时都进行碎片整理）。</p>
+<p>CMS 完成后，启动内存碎片整理:</p>
+<pre><code>-XX：+UseCMSCompactAtFullCollection   </code></pre><h4 id="G1-收集器"><a href="#G1-收集器" class="headerlink" title="G1 收集器"></a>G1 收集器</h4><p>-XX:+UseG1GC</p>
+<p>指定目标的最大停顿时间，默认值是200毫秒。G1尝试调整新生代和老年代的比例，堆大小，晋升年龄来达到这个目标时间。</p>
+<pre><code>-XX:MaxGCPauseMillis </code></pre><p>设置GC的工作线程数量参数</p>
+<pre><code>-XX:ParallerGCThreads=n</code></pre><h3 id="四、JDK-默认GC收集器"><a href="#四、JDK-默认GC收集器" class="headerlink" title="四、JDK 默认GC收集器"></a>四、JDK 默认GC收集器</h3><p>jdk1.7 和 jdk1.8 默认垃圾收集器Parallel Scavenge（新生代）+Parallel Old（老年代）。</p>
+<p>jdk1.9 默认垃圾收集器G1。</p>
+<p>如果想知道自己的运行环境的JVM使用了何种收集器，怎么办？</p>
+<p>（1）使用<code>-XX:+PrintCommandLineFlagsjvm</code>参数可查看默认设置收集器类型。</p>
+<p>（2）使用<code>-XX:+PrintGCDetails</code>参数打印的GC日志的新生代、老年代名称判断收集器类型。</p>
+<h3 id="五、参数补充"><a href="#五、参数补充" class="headerlink" title="五、参数补充"></a>五、参数补充</h3><p>如果整理遗漏，后续补充。</p>
+<p>本次整理日期：2020年7月16日。</p>
 
             </div>
             <hr/>
@@ -911,7 +916,7 @@ no, i am dead :(</code></pre><p>结论</p>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.zhangxiaocai.cn/posts/bce48291.html">https://www.zhangxiaocai.cn/posts/bce48291.html</a>
+                    <a href="https://www.zhangxiaocai.cn/posts/bb37497b.html">https://www.zhangxiaocai.cn/posts/bb37497b.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -951,10 +956,6 @@ no, i am dead :(</code></pre><p>结论</p>
                             
                                 <a href="/tags/JVM/">
                                     <span class="chip bg-color">JVM</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%AF%B9%E8%B1%A1%E7%94%9F%E6%AD%BB/">
-                                    <span class="chip bg-color">对象生死</span>
                                 </a>
                             
                         </div>
@@ -1436,79 +1437,28 @@ no, i am dead :(</code></pre><p>结论</p>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/50b49e8d.html">
+                <a href="/posts/bb37497b.html">
                     <div class="card-image">
                         
-                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="jvm之垃圾收集器算法">
+                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="jvm收集器与常见参数">
                         
-                        <span class="card-title">jvm之垃圾收集器算法</span>
+                        <span class="card-title">jvm收集器与常见参数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文记录jvm垃圾收集器算法相关学习。
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-31
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/JVM/" class="post-category">
-                                    JVM
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/JVM/">
-                        <span class="chip bg-color">JVM</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">垃圾收集器算法</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/b287f556.html">
-                    <div class="card-image">
-                        
-                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="jvm之对象创建与布局">
-                        
-                        <span class="card-title">jvm之对象创建与布局</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            本文记录jvm对象创建学习。
+                            JVM集器与常见参数。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
                             </span>
                         <span class="publish-author">
                             
@@ -1522,11 +1472,60 @@ no, i am dead :(</code></pre><p>结论</p>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/JVM/">
                         <span class="chip bg-color">JVM</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/1d9dd225.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/java-logo.jpg" class="responsive-img" alt="Java8 接口新特征">
+                        
+                        <span class="card-title">Java8 接口新特征</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Java8 接口默认方法和静态方法。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>

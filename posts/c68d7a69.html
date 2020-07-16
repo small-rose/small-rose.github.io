@@ -424,6 +424,9 @@
     <a href="javascript:fullscreen()" class="modal-trigger waves-effect waves-light">
       <i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏" style="zoom: 0.75;"></i>
     </a>
+    <!--
+    <a href="https://travellings.now.sh/" target="blank" title="开往-友链接力"><img src="https://travellings.now.sh/assets/logo.gif" alt="开往-友链接力" width="120"></a>
+    -->
   </li>
 </ul>
 
@@ -716,7 +719,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
@@ -806,7 +809,7 @@
 <p>创建仓库：</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /home/git/
 <span class="token function">git</span> init --bare myHexoBlog.git</code></pre>
-<p>如果要配置SSH免登录：</p>
+<p>如果要配置SSH免登录：（可选操作，配置之后不用每次提交都输入密码）</p>
 <p>a.客户端生成密钥</p>
 <pre class=" language-bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"这里换上你的邮箱"</span></code></pre>
 <p>然后会出现询问，大概意思如下：</p>
@@ -832,7 +835,8 @@ AuthorizedKeysFile .ssh/authorized_keys</code></pre><p>git用户不允许登录s
 <pre class=" language-bash"><code class="language-bash">vim /etc/passwd</code></pre>
 <p>将</p>
 <pre><code>git:x:502:502::/home/git:/bin/bash</code></pre><p> 改为</p>
-<pre><code>git:x:502:502::/home/git:/usr/local/git/bin/git-shell</code></pre><h4 id="3-配置hooks自动部署"><a href="#3-配置hooks自动部署" class="headerlink" title="3 配置hooks自动部署"></a>3 配置hooks自动部署</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p /home/hexoBlog
+<pre><code>git:x:502:502::/home/git:/usr/local/git/bin/git-shell</code></pre><p><code>ESC</code>退出，输入<code>:wq</code>保存退出，执行<code>Enter</code>即可。</p>
+<h4 id="3-配置hooks自动部署"><a href="#3-配置hooks自动部署" class="headerlink" title="3 配置hooks自动部署"></a>3 配置hooks自动部署</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p /home/hexoBlog
 <span class="token function">chown</span> git:git /home/hexoBlog 
 
 <span class="token function">cd</span> /home/hexoBlog
@@ -1746,6 +1750,7 @@ nginx: configuration <span class="token function">file</span> /etc/nginx/nginx.c
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
+         <br>
             Copyright&nbsp;&copy;
             <span id="year">2020</span>
             <a href="/about" target="_blank">Small Rose / 张小菜苔</a>
@@ -1755,7 +1760,7 @@ nginx: configuration <span class="token function">file</span> /etc/nginx/nginx.c
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">130.7k</span>&nbsp;字
+                class="white-color">132.7k</span>&nbsp;字
             
             
             
@@ -1863,6 +1868,9 @@ nginx: configuration <span class="token function">file</span> /etc/nginx/nginx.c
         <i class="fas fa fa-comments"></i>
     </a>
 --></div>
+
+        
+        
     </div>
 </footer>
 
