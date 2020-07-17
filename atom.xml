@@ -17,7 +17,7 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>jvm收集器与常见参数</title>
+    <title>jvm常见参数汇总</title>
     <link href="https://www.zhangxiaocai.cn/posts/bb37497b.html"/>
     <id>https://www.zhangxiaocai.cn/posts/bb37497b.html</id>
     <published>2020-07-16T10:00:00.000Z</published>
@@ -27,8 +27,9 @@
     
       
       
-        &lt;h2 id=&quot;jvm收集器与常见参数&quot;&gt;&lt;a href=&quot;#jvm收集器与常见参数&quot; class=&quot;headerlink&quot; title=&quot;jvm收集器与常见参数&quot;&gt;&lt;/a&gt;jvm收集器与常见参数&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;主要是针对之前的学习，进行一个参数的集中整
+        &lt;h2 id=&quot;jvm常见参数汇总&quot;&gt;&lt;a href=&quot;#jvm常见参数汇总&quot; class=&quot;headerlink&quot; title=&quot;jvm常见参数汇总&quot;&gt;&lt;/a&gt;jvm常见参数汇总&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;主要是针对之前的学习，进行一个参数的集中整理。&lt;/p&gt;
+&lt;
       
     
     </summary>

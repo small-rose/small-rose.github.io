@@ -332,7 +332,8 @@
     
     <a href="/" class="waves-effect waves-light">
       
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      <i class="fas fa-home" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>首页</span>
     </a>
@@ -343,7 +344,8 @@
     
     <a href="/tags" class="waves-effect waves-light">
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      <i class="fas fa-tags" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>标签</span>
     </a>
@@ -354,7 +356,8 @@
     
     <a href="/categories" class="waves-effect waves-light">
       
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      <i class="fas fa-bookmark" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>分类</span>
     </a>
@@ -365,7 +368,8 @@
     
     <a href="/archives" class="waves-effect waves-light">
       
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      <i class="fas fa-archive" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>归档</span>
     </a>
@@ -376,7 +380,8 @@
     
     <a href="/about" class="waves-effect waves-light">
       
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      <i class="fas fa-user-circle" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>关于</span>
     </a>
@@ -387,7 +392,8 @@
     
     <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>留言薄</span>
     </a>
@@ -398,7 +404,8 @@
     
     <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>友情链接</span>
     </a>
@@ -407,22 +414,45 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/navigate" class="waves-effect waves-light">
+    <a href="" class="waves-effect waves-light">
+
       
-      <i class="fas fa-location-arrow" style="zoom: 0.6;"></i>
+      <i class="fas fa-list" style=" "></i>
       
-      <span>导航</span>
+      <span>Tool</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style=""></i>
     </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px;  "></i>
+          
+          <span>快速导航</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/box">
+          
+          <i class="fas fa-map-marker" style="margin-top: -20px;  "></i>
+          
+          <span>网址收藏</span>
+        </a>
+      </li>
+      
+    </ul>
     
   </li>
   
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+      <i id="searchIcon" class="fas fa-search" title="搜索" style=" "></i> <!-- zoom: 0.85; -->
     </a>
     <li>
     <a href="javascript:fullscreen()" class="modal-trigger waves-effect waves-light">
-      <i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏" style="zoom: 0.75;"></i>
+      <i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏" style=" "></i> <!-- zoom: 0.75; -->
     </a>
     <!--
     <a href="https://travellings.now.sh/" target="blank" title="开往-友链接力"><img src="https://travellings.now.sh/assets/logo.gif" alt="开往-友链接力" width="120"></a>
@@ -528,12 +558,36 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/navigate" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-location-arrow"></i>
+				<i class="fa-fw fas fa-list"></i>
 			
-			导航
+			Tool
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>快速导航</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/box " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-map-marker" style="position: absolute;left:50px" ></i>
+			      
+		          <span>网址收藏</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -1437,55 +1491,6 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/b802139a.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="Mybatis(一)主要组件">
-                        
-                        <span class="card-title">Mybatis(一)主要组件</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Mybatis的主要组件。
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-06
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Mybatis/" class="post-category">
-                                    Mybatis
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Mybatis/">
-                        <span class="chip bg-color">Mybatis</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/posts/e3d9aed7.html">
                     <div class="card-image">
                         
@@ -1501,8 +1506,60 @@
                         
                     </div>
                     <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JVM/" class="post-category">
+                                    JVM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
+                        <span class="chip bg-color">垃圾收集器</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/d01dbbb1.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/jvm-logo.jpg" class="responsive-img" alt="jvm之垃圾收集器">
+                        
+                        <span class="card-title">jvm之垃圾收集器</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本文记录jvm垃圾收集器相关学习。
+                        
+                    </div>
+                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-01
                             </span>
                         <span class="publish-author">
                             

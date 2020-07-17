@@ -332,7 +332,8 @@
     
     <a href="/" class="waves-effect waves-light">
       
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      <i class="fas fa-home" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>首页</span>
     </a>
@@ -343,7 +344,8 @@
     
     <a href="/tags" class="waves-effect waves-light">
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      <i class="fas fa-tags" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>标签</span>
     </a>
@@ -354,7 +356,8 @@
     
     <a href="/categories" class="waves-effect waves-light">
       
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      <i class="fas fa-bookmark" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>分类</span>
     </a>
@@ -365,7 +368,8 @@
     
     <a href="/archives" class="waves-effect waves-light">
       
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      <i class="fas fa-archive" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>归档</span>
     </a>
@@ -376,7 +380,8 @@
     
     <a href="/about" class="waves-effect waves-light">
       
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      <i class="fas fa-user-circle" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>关于</span>
     </a>
@@ -387,7 +392,8 @@
     
     <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>留言薄</span>
     </a>
@@ -398,7 +404,8 @@
     
     <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>友情链接</span>
     </a>
@@ -407,22 +414,45 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/navigate" class="waves-effect waves-light">
+    <a href="" class="waves-effect waves-light">
+
       
-      <i class="fas fa-location-arrow" style="zoom: 0.6;"></i>
+      <i class="fas fa-list" style=" "></i>
       
-      <span>导航</span>
+      <span>Tool</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style=""></i>
     </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px;  "></i>
+          
+          <span>快速导航</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/box">
+          
+          <i class="fas fa-map-marker" style="margin-top: -20px;  "></i>
+          
+          <span>网址收藏</span>
+        </a>
+      </li>
+      
+    </ul>
     
   </li>
   
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+      <i id="searchIcon" class="fas fa-search" title="搜索" style=" "></i> <!-- zoom: 0.85; -->
     </a>
     <li>
     <a href="javascript:fullscreen()" class="modal-trigger waves-effect waves-light">
-      <i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏" style="zoom: 0.75;"></i>
+      <i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏" style=" "></i> <!-- zoom: 0.75; -->
     </a>
     <!--
     <a href="https://travellings.now.sh/" target="blank" title="开往-友链接力"><img src="https://travellings.now.sh/assets/logo.gif" alt="开往-友链接力" width="120"></a>
@@ -528,12 +558,36 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/navigate" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-location-arrow"></i>
+				<i class="fa-fw fas fa-list"></i>
 			
-			导航
+			Tool
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>快速导航</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/box " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-map-marker" style="position: absolute;left:50px" ></i>
+			      
+		          <span>网址收藏</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -750,7 +804,7 @@ YAMLException: end of the stream or a document separator is expected at line x, 
 at ...</code></pre><p>解决思路：<br>A. 一般是因为缺少分隔符，缺少空格，<code>key: value</code> ，英文冒号后面留空格，一般错会提示哪个文件的第几行第几列。<br>B.其次是头部yaml配置</p>
 <pre><code>---
 key: value
----</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附件标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用</p>
+---</code></pre><p>缺少也会导致文章内容报错，具体报错的行列位置如果没有问题，就检查头部或者附近标点，或分段测试，该方案适合文章报错<br>C.还有一些特殊字符，如<code>[ ]</code>也会导致报错，我在title中使用英文<code>[ ]</code>也会报错，但提示的位置没有问题，注意特殊字符使用。</p>
 <h5 id="2-某个ejs或swig文件报错"><a href="#2-某个ejs或swig文件报错" class="headerlink" title="2.  某个ejs或swig文件报错"></a>2.  某个ejs或swig文件报错</h5><p>（1）此类问题一般是使用某个主题之后会出现，注意主题下的配置文件_config.yml检查是否配置，参考（一）A的思路<br>（2）缺少相关插件如xoxo主题生成时就有readingTime的报错，安装了hexo-reading-time的插件后解决，如是其他同理网上搜一下</p>
 <pre><code>npm install   hexo-reading-time --save</code></pre><p>(3)使用主题的时候注意先阅读相关使用文档，有些主题需要一些插件</p>
 <h5 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h5><p>后续补充</p>
@@ -1308,54 +1362,6 @@ key: value
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/80dc9555.html">
-                    <div class="card-image">
-                        
-                        <img src="/images/java-logo.jpg" class="responsive-img" alt="java 查漏补缺-jdk版本版本变化补充学习">
-                        
-                        <span class="card-title">java 查漏补缺-jdk版本版本变化补充学习</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            本文记录jdk5到jdk8的特征整理，查漏补缺式学习。
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/posts/c68d7a69.html">
                     <div class="card-image">
                         
@@ -1371,8 +1377,57 @@ key: value
                         
                     </div>
                     <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hexo/" class="post-category">
+                                    Hexo
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/cda13ebe.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="Hexo搭建静态博客（四）——插件安装">
+                        
+                        <span class="card-title">Hexo搭建静态博客（四）——插件安装</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本文记录hexo博客安装相关内容，本文以安装search和abbrlink插件为例。
+                        
+                    </div>
+                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
                             </span>
                         <span class="publish-author">
                             

@@ -332,7 +332,8 @@
     
     <a href="/" class="waves-effect waves-light">
       
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      <i class="fas fa-home" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>首页</span>
     </a>
@@ -343,7 +344,8 @@
     
     <a href="/tags" class="waves-effect waves-light">
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      <i class="fas fa-tags" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>标签</span>
     </a>
@@ -354,7 +356,8 @@
     
     <a href="/categories" class="waves-effect waves-light">
       
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      <i class="fas fa-bookmark" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>分类</span>
     </a>
@@ -365,7 +368,8 @@
     
     <a href="/archives" class="waves-effect waves-light">
       
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      <i class="fas fa-archive" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>归档</span>
     </a>
@@ -376,7 +380,8 @@
     
     <a href="/about" class="waves-effect waves-light">
       
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      <i class="fas fa-user-circle" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>关于</span>
     </a>
@@ -387,7 +392,8 @@
     
     <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>留言薄</span>
     </a>
@@ -398,7 +404,8 @@
     
     <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style=" "></i>
+      <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>友情链接</span>
     </a>
@@ -407,22 +414,45 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/navigate" class="waves-effect waves-light">
+    <a href="" class="waves-effect waves-light">
+
       
-      <i class="fas fa-location-arrow" style="zoom: 0.6;"></i>
+      <i class="fas fa-list" style=" "></i>
       
-      <span>导航</span>
+      <span>Tool</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style=""></i>
     </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px;  "></i>
+          
+          <span>快速导航</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/box">
+          
+          <i class="fas fa-map-marker" style="margin-top: -20px;  "></i>
+          
+          <span>网址收藏</span>
+        </a>
+      </li>
+      
+    </ul>
     
   </li>
   
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+      <i id="searchIcon" class="fas fa-search" title="搜索" style=" "></i> <!-- zoom: 0.85; -->
     </a>
     <li>
     <a href="javascript:fullscreen()" class="modal-trigger waves-effect waves-light">
-      <i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏" style="zoom: 0.75;"></i>
+      <i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏" style=" "></i> <!-- zoom: 0.75; -->
     </a>
     <!--
     <a href="https://travellings.now.sh/" target="blank" title="开往-友链接力"><img src="https://travellings.now.sh/assets/logo.gif" alt="开往-友链接力" width="120"></a>
@@ -528,12 +558,36 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/navigate" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-location-arrow"></i>
+				<i class="fa-fw fas fa-list"></i>
 			
-			导航
+			Tool
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>快速导航</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/box " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-map-marker" style="position: absolute;left:50px" ></i>
+			      
+		          <span>网址收藏</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -604,19 +658,10 @@
             <div class="tag-chips">
                 
                 
-                <a href="/tags/centos/" title="centos: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="centos" style="background-color: #F9EBEA;">centos
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/Java/" title="Java: 9">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Java" style="background-color: #F5EEF8;">Java
+                            data-tagname="Java" style="background-color: #F9EBEA;">Java
                         <span class="tag-length">9</span>
                     </span>
                 </a>
@@ -625,7 +670,7 @@
                 <a href="/tags/DB/" title="DB: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="DB" style="background-color: #D5F5E3;">DB
+                            data-tagname="DB" style="background-color: #F5EEF8;">DB
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -634,17 +679,8 @@
                 <a href="/tags/Mybatis/" title="Mybatis: 8">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Mybatis" style="background-color: #E8F8F5;">Mybatis
+                            data-tagname="Mybatis" style="background-color: #D5F5E3;">Mybatis
                         <span class="tag-length">8</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/javascript/" title="javascript: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="javascript" style="background-color: #FEF9E7;">javascript
-                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -652,7 +688,7 @@
                 <a href="/tags/Git/" title="Git: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Git" style="background-color: #F8F9F9;">Git
+                            data-tagname="Git" style="background-color: #E8F8F5;">Git
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -661,7 +697,7 @@
                 <a href="/tags/Github/" title="Github: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Github" style="background-color: #82E0AA;">Github
+                            data-tagname="Github" style="background-color: #FEF9E7;">Github
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -670,7 +706,7 @@
                 <a href="/tags/SSH%E5%85%8D%E5%AF%86/" title="SSH免密: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="SSH免密" style="background-color: #D7BDE2;">SSH免密
+                            data-tagname="SSH免密" style="background-color: #F8F9F9;">SSH免密
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -679,7 +715,25 @@
                 <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="服务器: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="服务器" style="background-color: #A3E4D7;">服务器
+                            data-tagname="服务器" style="background-color: #82E0AA;">服务器
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/centos/" title="centos: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="centos" style="background-color: #D7BDE2;">centos
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/javascript/" title="javascript: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="javascript" style="background-color: #A3E4D7;">javascript
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -703,10 +757,19 @@
                 </a>
                 
                 
+                <a href="/tags/Mysql/" title="Mysql: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Mysql" style="background-color: #F9E79F;">Mysql
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/" title="模糊查询: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="模糊查询" style="background-color: #F9E79F;">模糊查询
+                            data-tagname="模糊查询" style="background-color: #E8F8F5;">模糊查询
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -717,15 +780,6 @@
                              chip-active "
                             data-tagname="DB2" style="background-color: #F9EBEA;">DB2
                         <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Mysql/" title="Mysql: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Mysql" style="background-color: #FEF9E7;">Mysql
-                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -766,19 +820,19 @@
                 </a>
                 
                 
-                <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E7%AE%97%E6%B3%95/" title="垃圾收集器算法: 1">
+                <a href="/tags/%E5%AF%B9%E8%B1%A1%E7%94%9F%E6%AD%BB/" title="对象生死: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="垃圾收集器算法" style="background-color: #F9E79F;">垃圾收集器算法
+                            data-tagname="对象生死" style="background-color: #FEF9E7;">对象生死
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E5%AF%B9%E8%B1%A1%E7%94%9F%E6%AD%BB/" title="对象生死: 1">
+                <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E7%AE%97%E6%B3%95/" title="垃圾收集器算法: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="对象生死" style="background-color: #FEF9E7;">对象生死
+                            data-tagname="垃圾收集器算法" style="background-color: #F9E79F;">垃圾收集器算法
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -793,15 +847,6 @@
                 </a>
                 
                 
-                <a href="/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4/" title="字节码指令: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="字节码指令" style="background-color: #F9EBEA;">字节码指令
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96%E7%B3%BB%E7%BB%9F/" title="模块化系统: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
@@ -811,10 +856,10 @@
                 </a>
                 
                 
-                <a href="/tags/OQL/" title="OQL: 1">
+                <a href="/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4/" title="字节码指令: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="OQL" style="background-color: #FFF;">OQL
+                            data-tagname="字节码指令" style="background-color: #F9EBEA;">字节码指令
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -825,6 +870,15 @@
                              chip-default "
                             data-tagname="监控调优工具" style="background-color: #D5F5E3;">监控调优工具
                         <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/OQL/" title="OQL: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="OQL" style="background-color: #FFF;">OQL
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
