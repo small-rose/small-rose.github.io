@@ -2670,7 +2670,10 @@ hexo<span class="token punctuation">.</span>extend<span class="token punctuation
 <p>（1）使用 Ctrl + F5 强制刷新之后再看。</p>
 <p>（2）自己清除浏览器缓存，各个浏览器可能不一样，请自己搜索怎么清除缓存。</p>
 <p>（3）如果你使用了CDN加速，本地调试，可以先关闭加速。</p>
-<p>·</p>
+<h3 id="favicon-ico-更换之后不显示"><a href="#favicon-ico-更换之后不显示" class="headerlink" title="favicon.ico 更换之后不显示"></a>favicon.ico 更换之后不显示</h3><p><strong>问题描述：</strong> favicon.ico 已经更换成自己的图标之后不生效怎么办?</p>
+<p>（1）确保 <code>favicon.ico</code>路径没有问题。</p>
+<p>（2）有些浏览器不支持<code>localhost</code>显示<code>favicon.ico</code>图标,更换浏览器试试。</p>
+<p>（3）更换浏览器还是不能显示，将访问路径<code>http://localhost:4000</code>改为<code>http://127.0.0.1:4000</code>访问。</p>
 <h3 id="文章多个标签"><a href="#文章多个标签" class="headerlink" title="文章多个标签"></a>文章多个标签</h3><p><strong>问题描述：</strong>文章标签或分类想添加多个，不知道怎么写？</p>
 <p>写法一：</p>
 <pre class=" language-txt"><code class="language-txt">tags: 
