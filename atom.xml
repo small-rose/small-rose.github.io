@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-07-16T10:00:00.000Z</updated>
+  <updated>2020-07-18T15:00:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -15,6 +15,83 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>定时任务之Quartz</title>
+    <link href="https://www.zhangxiaocai.cn/posts/6ddb3c14.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/6ddb3c14.html</id>
+    <published>2020-07-18T15:00:00.000Z</published>
+    <updated>2020-07-18T15:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;本文主要记录学习Quartz的相关内容。&lt;br&gt;  整理于2020-06-25，最后更新2020-07-18。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;一、Quartz简述&quot;&gt;&lt;a href=&quot;#一、Quartz简述&quot; class=&quot;h
+      
+    
+    </summary>
+    
+    
+      <category term="定时任务" scheme="https://www.zhangxiaocai.cn/categories/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+    
+    
+      <category term="Quartz" scheme="https://www.zhangxiaocai.cn/tags/Quartz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>定时任务之Spring Task</title>
+    <link href="https://www.zhangxiaocai.cn/posts/5a5ab620.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/5a5ab620.html</id>
+    <published>2020-07-18T14:00:00.000Z</published>
+    <updated>2020-07-18T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;定时任务之Spring-Task&quot;&gt;&lt;a href=&quot;#定时任务之Spring-Task&quot; class=&quot;headerlink&quot; title=&quot;定时任务之Spring Task&quot;&gt;&lt;/a&gt;定时任务之Spring Task&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;本
+      
+    
+    </summary>
+    
+    
+      <category term="定时任务" scheme="https://www.zhangxiaocai.cn/categories/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+    
+    
+      <category term="Spring Task" scheme="https://www.zhangxiaocai.cn/tags/Spring-Task/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>定时任务之Java定时API</title>
+    <link href="https://www.zhangxiaocai.cn/posts/a516f8e8.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/a516f8e8.html</id>
+    <published>2020-07-18T12:20:00.000Z</published>
+    <updated>2020-07-18T12:20:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;定时任务之Java定时任务API&quot;&gt;&lt;a href=&quot;#定时任务之Java定时任务API&quot; class=&quot;headerlink&quot; title=&quot;定时任务之Java定时任务API&quot;&gt;&lt;/a&gt;定时任务之Java定时任务API&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;本
+      
+    
+    </summary>
+    
+    
+      <category term="定时任务" scheme="https://www.zhangxiaocai.cn/categories/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+    
+    
+      <category term="Java Timer" scheme="https://www.zhangxiaocai.cn/tags/Java-Timer/"/>
+    
+  </entry>
   
   <entry>
     <title>jvm常见参数汇总</title>
@@ -421,84 +498,6 @@
       <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
     
       <category term="模糊查询" scheme="https://www.zhangxiaocai.cn/tags/%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM学习导航（第三版）</title>
-    <link href="https://www.zhangxiaocai.cn/posts/2a1a7c1f.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/2a1a7c1f.html</id>
-    <published>2020-06-12T16:00:00.000Z</published>
-    <updated>2020-06-12T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;本系列主要记录关于深入理解JVM（第三版）相关学习比较，本文为导航。&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;JVM学习导航&quot;&gt;&lt;a href=&quot;#JVM学习导航&quot; class=&quot;headerlink&quot; title=&quot;JVM学习导航&quot;&gt;&lt;/a&gt;JVM学习导航
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java模块化系统</title>
-    <link href="https://www.zhangxiaocai.cn/posts/49b8efd0.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/49b8efd0.html</id>
-    <published>2020-06-11T16:00:00.000Z</published>
-    <updated>2020-06-11T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Java模块化系统&quot;&gt;&lt;a href=&quot;#Java模块化系统&quot; class=&quot;headerlink&quot; title=&quot;Java模块化系统&quot;&gt;&lt;/a&gt;Java模块化系统&lt;/h2&gt;&lt;p&gt;Java模块化系统（Java Platform Module System，JPMS
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
-    
-      <category term="模块化系统" scheme="https://www.zhangxiaocai.cn/tags/%E6%A8%A1%E5%9D%97%E5%8C%96%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DB2常用函数</title>
-    <link href="https://www.zhangxiaocai.cn/posts/d22e90ef.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/d22e90ef.html</id>
-    <published>2020-06-09T16:00:00.000Z</published>
-    <updated>2020-06-09T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;DB2常用函数&quot;&gt;&lt;a href=&quot;#DB2常用函数&quot; class=&quot;headerlink&quot; title=&quot;DB2常用函数&quot;&gt;&lt;/a&gt;DB2常用函数&lt;/h2&gt;&lt;h3 id=&quot;一、寄存器使用&quot;&gt;&lt;a href=&quot;#一、寄存器使用&quot; class=&quot;headerlink
-      
-    
-    </summary>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
-    
-      <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
     
   </entry>
   
