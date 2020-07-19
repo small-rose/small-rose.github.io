@@ -322,30 +322,6 @@
   </entry>
   
   <entry>
-    <title>DB2-常见ERRORCODE</title>
-    <link href="https://www.zhangxiaocai.cn/posts/9f154069.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/9f154069.html</id>
-    <published>2020-06-21T14:00:00.000Z</published>
-    <updated>2020-06-21T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;a href=&quot;#DB2-常见ERRORCODE&quot; class=&quot;headerlink&quot; title=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;/a&gt;DB2-常见ERRORCODE&lt;/h2&gt;&lt;p&gt;对于常见的错误码，熟悉之后就可以快速
-      
-    
-    </summary>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Mysql-Access denied for</title>
     <link href="https://www.zhangxiaocai.cn/posts/7c170969.html"/>
     <id>https://www.zhangxiaocai.cn/posts/7c170969.html</id>
@@ -366,6 +342,30 @@
     
     
       <category term="Mysql" scheme="https://www.zhangxiaocai.cn/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DB2-常见ERRORCODE</title>
+    <link href="https://www.zhangxiaocai.cn/posts/9f154069.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/9f154069.html</id>
+    <published>2020-06-21T14:00:00.000Z</published>
+    <updated>2020-06-21T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;a href=&quot;#DB2-常见ERRORCODE&quot; class=&quot;headerlink&quot; title=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;/a&gt;DB2-常见ERRORCODE&lt;/h2&gt;&lt;p&gt;对于常见的错误码，熟悉之后就可以快速
+      
+    
+    </summary>
+    
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
+    
+    
+      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
     
   </entry>
   
