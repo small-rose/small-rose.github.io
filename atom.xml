@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-07-18T15:00:00.000Z</updated>
+  <updated>2020-07-20T17:00:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Matery 主题添加多级分类展示</title>
+    <link href="https://www.zhangxiaocai.cn/posts/5a99eb4d.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/5a99eb4d.html</id>
+    <published>2020-07-20T17:00:00.000Z</published>
+    <updated>2020-07-20T17:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Hexo-Matery-主题添加多级分类展示&quot;&gt;&lt;a href=&quot;#Hexo-Matery-主题添加多级分类展示&quot; class=&quot;headerlink&quot; title=&quot;Hexo Matery 主题添加多级分类展示&quot;&gt;&lt;/a&gt;Hexo Matery 主题添加多级分类
+      
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo 博客添加思维导图渲染</title>
+    <link href="https://www.zhangxiaocai.cn/posts/5a2c12e2.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/5a2c12e2.html</id>
+    <published>2020-07-20T14:00:00.000Z</published>
+    <updated>2020-07-20T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Hexo-博客添加思维导图渲染&quot;&gt;&lt;a href=&quot;#Hexo-博客添加思维导图渲染&quot; class=&quot;headerlink&quot; title=&quot;Hexo 博客添加思维导图渲染&quot;&gt;&lt;/a&gt;Hexo 博客添加思维导图渲染&lt;/h2&gt;&lt;p&gt;理论上是不分主题的。&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>定时任务之Quartz</title>
@@ -445,59 +494,6 @@
       <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
     
       <category term="SQL分页" scheme="https://www.zhangxiaocai.cn/tags/SQL%E5%88%86%E9%A1%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SQL之查询前N条记录</title>
-    <link href="https://www.zhangxiaocai.cn/posts/3c74f69f.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/3c74f69f.html</id>
-    <published>2020-06-14T14:00:00.000Z</published>
-    <updated>2020-06-14T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;SQL查询前N条记录的不同玩法&quot;&gt;&lt;a href=&quot;#SQL查询前N条记录的不同玩法&quot; class=&quot;headerlink&quot; title=&quot;SQL查询前N条记录的不同玩法&quot;&gt;&lt;/a&gt;SQL查询前N条记录的不同玩法&lt;/h2&gt;&lt;h3 id=&quot;查询前N条记录&quot;&gt;&lt;a h
-      
-    
-    </summary>
-    
-    
-      <category term="SQL" scheme="https://www.zhangxiaocai.cn/categories/SQL/"/>
-    
-    
-      <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mybatis-模糊查询的N种玩法</title>
-    <link href="https://www.zhangxiaocai.cn/posts/4c7816b.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/4c7816b.html</id>
-    <published>2020-06-13T15:00:00.000Z</published>
-    <updated>2020-06-13T15:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Mybatis模糊查询的N种玩法&quot;&gt;&lt;a href=&quot;#Mybatis模糊查询的N种玩法&quot; class=&quot;headerlink&quot; title=&quot;Mybatis模糊查询的N种玩法&quot;&gt;&lt;/a&gt;Mybatis模糊查询的N种玩法&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;很
-      
-    
-    </summary>
-    
-    
-      <category term="SQL" scheme="https://www.zhangxiaocai.cn/categories/SQL/"/>
-    
-    
-      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/tags/Mybatis/"/>
-    
-      <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
-    
-      <category term="模糊查询" scheme="https://www.zhangxiaocai.cn/tags/%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/"/>
     
   </entry>
   
