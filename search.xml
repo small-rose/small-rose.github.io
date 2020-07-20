@@ -107,464 +107,6 @@ nameserver 8.8.4.4</code></pre><script type="text/javascript" src="https://cdn.j
       </tags>
   </entry>
   <entry>
-    <title>开发常用的网站收藏列表</title>
-    <url>/posts/2d1a17c5.html</url>
-    <content><![CDATA[<h4 id="API在线"><a href="#API在线" class="headerlink" title="API在线"></a>API在线</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>常用API文档索引</td>
-<td><a href="https://tool.oschina.net/apidocs" target="_blank" rel="noopener">https://tool.oschina.net/apidocs</a></td>
-</tr>
-<tr>
-<td>java8 API</td>
-<td><a href="https://www.matools.com/api/java8" target="_blank" rel="noopener">https://www.matools.com/api/java8</a></td>
-</tr>
-<tr>
-<td>Mybatis java API</td>
-<td>h<a href="https://mybatis.org/mybatis-3/zh/java-api.html" target="_blank" rel="noopener">https://mybatis.org/mybatis-3/zh/java-api.html</a></td>
-</tr>
-<tr>
-<td>dubbo API</td>
-<td><a href="http://dubbo.apache.org/zh-cn/docs/user/configuration/api.html" target="_blank" rel="noopener">http://dubbo.apache.org/zh-cn/docs/user/configuration/api.html</a></td>
-</tr>
-</tbody></table>
-<h4 id="开源网站"><a href="#开源网站" class="headerlink" title="开源网站"></a>开源网站</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>github网站</td>
-<td><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></td>
-</tr>
-<tr>
-<td>码云</td>
-<td><a href="https://gitee.com/" target="_blank" rel="noopener">https://gitee.com/</a></td>
-</tr>
-<tr>
-<td>一起开源官网</td>
-<td><a href="http://www.17ky.net/" target="_blank" rel="noopener">http://www.17ky.net/</a></td>
-</tr>
-<tr>
-<td>Open JDK</td>
-<td><a href="http://openjdk.java.net/" target="_blank" rel="noopener">http://openjdk.java.net/</a></td>
-</tr>
-<tr>
-<td>Open JDK  HotSpot</td>
-<td><a href="https://wiki.openjdk.java.net/display/HotSpot/Main" target="_blank" rel="noopener">https://wiki.openjdk.java.net/display/HotSpot/Main</a></td>
-</tr>
-</tbody></table>
-<h4 id="开发相关"><a href="#开发相关" class="headerlink" title="开发相关"></a>开发相关</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ORICLE官网</td>
-<td><a href="https://www.oracle.com/downloads/" target="_blank" rel="noopener">https://www.oracle.com/downloads/</a></td>
-</tr>
-<tr>
-<td>JAVA官网</td>
-<td><a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase-downloads.html</a></td>
-</tr>
-<tr>
-<td>ECLIPSE官网</td>
-<td><a href="https://www.eclipse.org/downloads/" target="_blank" rel="noopener">https://www.eclipse.org/downloads/</a></td>
-</tr>
-<tr>
-<td>IntelliJ IDEA</td>
-<td><a href="http://www.jetbrains.com/" target="_blank" rel="noopener">http://www.jetbrains.com/</a></td>
-</tr>
-<tr>
-<td>springtoolsuite</td>
-<td><a href="https://spring.io/tools" target="_blank" rel="noopener">https://spring.io/tools</a></td>
-</tr>
-<tr>
-<td>Python官网</td>
-<td><a href="https://www.python.org/" target="_blank" rel="noopener">https://www.python.org/</a></td>
-</tr>
-<tr>
-<td>Maven官网</td>
-<td><a href="https://maven.apache.org/" target="_blank" rel="noopener">https://maven.apache.org/</a></td>
-</tr>
-<tr>
-<td>Maven仓库</td>
-<td><a href="https://mvnrepository.com/" target="_blank" rel="noopener">https://mvnrepository.com/</a></td>
-</tr>
-<tr>
-<td>Nexus官网</td>
-<td><a href="https://www.nexusmods.com/" target="_blank" rel="noopener">https://www.nexusmods.com/</a></td>
-</tr>
-<tr>
-<td>Ant官网</td>
-<td><a href="https://ant.apache.org/" target="_blank" rel="noopener">https://ant.apache.org/</a></td>
-</tr>
-<tr>
-<td>SVN官网</td>
-<td><a href="https://tortoisesvn.net/" target="_blank" rel="noopener">https://tortoisesvn.net/</a></td>
-</tr>
-<tr>
-<td>Git官网</td>
-<td><a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a></td>
-</tr>
-<tr>
-<td>Spring官网</td>
-<td><a href="https://spring.io/" target="_blank" rel="noopener">https://spring.io/</a></td>
-</tr>
-<tr>
-<td>mybatis</td>
-<td><a href="https://mybatis.org/mybatis-3/" target="_blank" rel="noopener">https://mybatis.org/mybatis-3/</a></td>
-</tr>
-<tr>
-<td>#### 服务相关</td>
-<td></td>
-</tr>
-<tr>
-<td>网站</td>
-<td>地址</td>
-</tr>
-<tr>
-<td>—————</td>
-<td>——————————————–</td>
-</tr>
-<tr>
-<td>APACHE官网</td>
-<td><a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a></td>
-</tr>
-<tr>
-<td>Tomcat官网</td>
-<td><a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a></td>
-</tr>
-<tr>
-<td>Nginx官网</td>
-<td><a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></td>
-</tr>
-<tr>
-<td>Dubbo官网</td>
-<td><a href="http://dubbo.apache.org/zh-cn/" target="_blank" rel="noopener">http://dubbo.apache.org/zh-cn/</a></td>
-</tr>
-<tr>
-<td>Zookeeper</td>
-<td><a href="https://zookeeper.apache.org/" target="_blank" rel="noopener">https://zookeeper.apache.org/</a></td>
-</tr>
-<tr>
-<td>netty</td>
-<td><a href="https://netty.io/" target="_blank" rel="noopener">https://netty.io/</a></td>
-</tr>
-<tr>
-<td>jetty</td>
-<td><a href="http://www.eclipse.org/jetty/" target="_blank" rel="noopener">http://www.eclipse.org/jetty/</a></td>
-</tr>
-</tbody></table>
-<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Linux</td>
-<td><a href="https://www.linux.org/" target="_blank" rel="noopener">https://www.linux.org/</a></td>
-</tr>
-<tr>
-<td>Linux开源社区</td>
-<td><a href="https://linux.cn/" target="_blank" rel="noopener">https://linux.cn/</a></td>
-</tr>
-<tr>
-<td>Linux公社</td>
-<td><a href="https://www.linuxidc.com/" target="_blank" rel="noopener">https://www.linuxidc.com/</a></td>
-</tr>
-</tbody></table>
-<h4 id="数据库相关"><a href="#数据库相关" class="headerlink" title="数据库相关"></a>数据库相关</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Mysql官网</td>
-<td><a href="https://www.mysql.com/" target="_blank" rel="noopener">https://www.mysql.com/</a></td>
-</tr>
-<tr>
-<td>SQL SERVER官网</td>
-<td><a href="https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads</a></td>
-</tr>
-<tr>
-<td>ORICLE官网</td>
-<td><a href="https://www.oracle.com/downloads/" target="_blank" rel="noopener">https://www.oracle.com/downloads/</a></td>
-</tr>
-<tr>
-<td>DB2官网</td>
-<td><a href="https://www.ibm.com/analytics/cn/zh/technology/db2/" target="_blank" rel="noopener">https://www.ibm.com/analytics/cn/zh/technology/db2/</a></td>
-</tr>
-<tr>
-<td>TOAD官网</td>
-<td><a href="https://www.toadworld.com/" target="_blank" rel="noopener">https://www.toadworld.com/</a></td>
-</tr>
-<tr>
-<td>Navicat官网</td>
-<td><a href="https://www.navicat.com.cn/" target="_blank" rel="noopener">https://www.navicat.com.cn/</a></td>
-</tr>
-<tr>
-<td>DataGrip官网</td>
-<td><a href="https://www.jetbrains.com/zh/datagrip/specials/datagrip/datagrip.html" target="_blank" rel="noopener">https://www.jetbrains.com/zh/datagrip/specials/datagrip/datagrip.html</a></td>
-</tr>
-<tr>
-<td>Redis官网</td>
-<td><a href="https://redis.io/" target="_blank" rel="noopener">https://redis.io/</a></td>
-</tr>
-<tr>
-<td>Redis中文网</td>
-<td><a href="http://www.redis.cn/" target="_blank" rel="noopener">http://www.redis.cn/</a></td>
-</tr>
-<tr>
-<td>MongoDB官网</td>
-<td><a href="https://www.mongodb.com/Nginx" target="_blank" rel="noopener">https://www.mongodb.com/Nginx</a>  <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></td>
-</tr>
-<tr>
-<td>UML工具列表</td>
-<td><a href="http://www.umlchina.com/Tools/Newindex1.htm" target="_blank" rel="noopener">http://www.umlchina.com/Tools/Newindex1.htm</a></td>
-</tr>
-</tbody></table>
-<h4 id="前端相关"><a href="#前端相关" class="headerlink" title="前端相关"></a>前端相关</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>w3school官网</td>
-<td><a href="http://www.w3school.com.cn/" target="_blank" rel="noopener">http://www.w3school.com.cn/</a></td>
-</tr>
-<tr>
-<td>jQuery官网</td>
-<td><a href="https://jquery.com/" target="_blank" rel="noopener">https://jquery.com/</a></td>
-</tr>
-<tr>
-<td>jQuery api   非官网:</td>
-<td><a href="http://jquery.cuishifeng.cn/" target="_blank" rel="noopener">http://jquery.cuishifeng.cn/</a></td>
-</tr>
-<tr>
-<td>easyui官网</td>
-<td><a href="http://www.jeasyui.net/" target="_blank" rel="noopener">http://www.jeasyui.net/</a></td>
-</tr>
-<tr>
-<td>Bootstrap官网</td>
-<td><a href="https://www.bootcss.com/" target="_blank" rel="noopener">https://www.bootcss.com/</a></td>
-</tr>
-<tr>
-<td>Amaze ~ 妹子 UI官网:</td>
-<td><a href="http://amazeui.org/" target="_blank" rel="noopener">http://amazeui.org/</a></td>
-</tr>
-<tr>
-<td>React</td>
-<td><a href="https://react.docschina.org/" target="_blank" rel="noopener">https://react.docschina.org/</a></td>
-</tr>
-<tr>
-<td>NOWA</td>
-<td><a href="https://nowa-webpack.github.io/" target="_blank" rel="noopener">https://nowa-webpack.github.io/</a></td>
-</tr>
-<tr>
-<td>Vue官网:</td>
-<td><a href="https://cn.vuejs.org/" target="_blank" rel="noopener">https://cn.vuejs.org/</a></td>
-</tr>
-<tr>
-<td>AngularJS中文网</td>
-<td><a href="https://www.angularjs.net.cn/" target="_blank" rel="noopener">https://www.angularjs.net.cn/</a></td>
-</tr>
-<tr>
-<td>开源图标库</td>
-<td><a href="https://remixicon.com/" target="_blank" rel="noopener">https://remixicon.com/</a></td>
-</tr>
-<tr>
-<td>开源图标库预览</td>
-<td><a href="https://lvyueyang.gitee.io/remixicon/" target="_blank" rel="noopener">https://lvyueyang.gitee.io/remixicon/</a></td>
-</tr>
-</tbody></table>
-<h4 id="远程或传输"><a href="#远程或传输" class="headerlink" title="远程或传输"></a>远程或传输</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>SecureCRT官网</td>
-<td><a href="https://www.vandyke.com/products/securecrt/" target="_blank" rel="noopener">https://www.vandyke.com/products/securecrt/</a></td>
-</tr>
-<tr>
-<td>XSHELL官网</td>
-<td><a href="https://xshell.en.softonic.com/" target="_blank" rel="noopener">https://xshell.en.softonic.com/</a></td>
-</tr>
-<tr>
-<td>WinSCP官网</td>
-<td><a href="https://winscp.net/eng/docs/lang:chs" target="_blank" rel="noopener">https://winscp.net/eng/docs/lang:chs</a></td>
-</tr>
-<tr>
-<td>File-Zilla官网</td>
-<td><a href="https://filezilla-project.org/" target="_blank" rel="noopener">https://filezilla-project.org/</a></td>
-</tr>
-<tr>
-<td>File-Zilla中文网</td>
-<td><a href="https://www.filezilla.cn/" target="_blank" rel="noopener">https://www.filezilla.cn/</a></td>
-</tr>
-<tr>
-<td>flashfxp官网</td>
-<td><a href="https://www.flashfxp.com/" target="_blank" rel="noopener">https://www.flashfxp.com/</a></td>
-</tr>
-</tbody></table>
-<h4 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>7z</td>
-<td><a href="https://www.7-zip.org/" target="_blank" rel="noopener">https://www.7-zip.org/</a></td>
-</tr>
-<tr>
-<td>WINRAR官网</td>
-<td><a href="http://www.winrar.com.cn/" target="_blank" rel="noopener">http://www.winrar.com.cn/</a></td>
-</tr>
-<tr>
-<td>在线工具箱</td>
-<td><a href="https://tool.lu/" target="_blank" rel="noopener">https://tool.lu/</a></td>
-</tr>
-<tr>
-<td>DeskTopShare</td>
-<td><a href="http://www.yinrg.net/" target="_blank" rel="noopener">http://www.yinrg.net/</a></td>
-</tr>
-</tbody></table>
-<h4 id="图片相关"><a href="#图片相关" class="headerlink" title="图片相关"></a>图片相关</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>图片压缩TinyPNG</td>
-<td><a href="https://tinypng.com/" target="_blank" rel="noopener">https://tinypng.com/</a></td>
-</tr>
-<tr>
-<td>图片去背景</td>
-<td><a href="http://www.aigei.com/bgremover/" target="_blank" rel="noopener">http://www.aigei.com/bgremover/</a></td>
-</tr>
-<tr>
-<td>出现一张随机图片</td>
-<td><a href="https://api.uomg.com/api/image.lofter?format=images" target="_blank" rel="noopener">https://api.uomg.com/api/image.lofter?format=images</a></td>
-</tr>
-</tbody></table>
-<h4 id="图床工具："><a href="#图床工具：" class="headerlink" title="图床工具："></a>图床工具：</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>PicGo</td>
-<td><a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">https://github.com/Molunerfinn/PicGo</a></td>
-</tr>
-<tr>
-<td>MPic-图床神器</td>
-<td><a href="http://mpic.lzhaofu.cn" target="_blank" rel="noopener">http://mpic.lzhaofu.cn</a></td>
-</tr>
-<tr>
-<td>PicPlus -手机图床</td>
-<td><a href="https://www.coolapk.com/apk/name.gudong.pic" target="_blank" rel="noopener">https://www.coolapk.com/apk/name.gudong.pic</a></td>
-</tr>
-</tbody></table>
-<h4 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>open jdk相关</td>
-<td><a href="https://www.iteye.com/blog/user/rednaxelafx" target="_blank" rel="noopener">https://www.iteye.com/blog/user/rednaxelafx</a></td>
-</tr>
-</tbody></table>
-<h4 id="XML相关"><a href="#XML相关" class="headerlink" title="XML相关"></a>XML相关</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Castor实现XML与Java的互转</td>
-<td><a href="http://www.castor.org/" target="_blank" rel="noopener">http://www.castor.org/</a></td>
-</tr>
-</tbody></table>
-<!--  JDK6JAXB2来实现对象与XML之间的映射  -->
-
-<h4 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>quartz</td>
-<td><a href="https://www.w3cschool.cn/quartz_doc/" target="_blank" rel="noopener">https://www.w3cschool.cn/quartz_doc/</a></td>
-</tr>
-<tr>
-<td>viewerjs，PDF/office在线预览</td>
-<td><a href="https://fengyuanchen.github.io/viewerjs/" target="_blank" rel="noopener">https://fengyuanchen.github.io/viewerjs/</a></td>
-</tr>
-</tbody></table>
-<h4 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h4><table>
-<thead>
-<tr>
-<th>网站</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>mkdown在线编辑器</td>
-<td><a href="http://www.mdeditor.com/" target="_blank" rel="noopener">http://www.mdeditor.com/</a></td>
-</tr>
-<tr>
-<td>mkdown在线编辑器</td>
-<td><a href="http://mahua.jser.me/" target="_blank" rel="noopener">http://mahua.jser.me/</a></td>
-</tr>
-<tr>
-<td>mkdown在线编辑器</td>
-<td><a href="https://tool.lu/markdown/" target="_blank" rel="noopener">https://tool.lu/markdown/</a></td>
-</tr>
-<tr>
-<td>mkdown在线编辑器</td>
-<td><a href="https://dillinger.io/" target="_blank" rel="noopener">https://dillinger.io/</a></td>
-</tr>
-</tbody></table>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>收藏资源</category>
-        <category>开发网站</category>
-      </categories>
-      <tags>
-        <tag>开发常用</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DB2-常见ERRORCODE</title>
     <url>/posts/9f154069.html</url>
     <content><![CDATA[<h2 id="DB2-常见ERRORCODE"><a href="#DB2-常见ERRORCODE" class="headerlink" title="DB2-常见ERRORCODE"></a>DB2-常见ERRORCODE</h2><p>对于常见的错误码，熟悉之后就可以快速定位问题，代码检查。</p>
@@ -1209,7 +751,7 @@ log<span class="token punctuation">.</span><span class="token function">setLogMs
         <category>工具网站</category>
       </categories>
       <tags>
-        <tag>工具网站</tag>
+        <tag>网站列表</tag>
       </tags>
   </entry>
   <entry>
@@ -1667,7 +1209,7 @@ log<span class="token punctuation">.</span><span class="token function">setLogMs
         <category>开发网站</category>
       </categories>
       <tags>
-        <tag>开发常用</tag>
+        <tag>网站列表</tag>
       </tags>
   </entry>
   <entry>
@@ -4702,19 +4244,19 @@ Hotspot虚拟机插件及工具</code></pre><h4 id="8-调优分析学习"><a hre
       </tags>
   </entry>
   <entry>
-    <title>Matery 主题添加多级分类展示</title>
+    <title>Matery 主题添加多级分类</title>
     <url>/posts/5a99eb4d.html</url>
-    <content><![CDATA[<h2 id="Hexo-Matery-主题添加多级分类展示"><a href="#Hexo-Matery-主题添加多级分类展示" class="headerlink" title="Hexo Matery 主题添加多级分类展示"></a>Hexo Matery 主题添加多级分类展示</h2><blockquote>
+    <content><![CDATA[<h2 id="Hexo-Matery-主题添加多级分类"><a href="#Hexo-Matery-主题添加多级分类" class="headerlink" title="Hexo Matery 主题添加多级分类"></a>Hexo Matery 主题添加多级分类</h2><blockquote>
 <p>有同学提出 Matery 主题的 标签 和 分类 的展示太相似，可以说基本上是一样的。于是有了本文，尝试改成多级分类的。 假如要自己从零开始学习又不太现实， 所以就借鉴移植了 Fluid 主题的多级分类功能。为了给也想折腾的人，特此记录修改过程。</p>
 </blockquote>
 <h2 id="多级分类添加流程"><a href="#多级分类添加流程" class="headerlink" title="多级分类添加流程"></a>多级分类添加流程</h2><p>Matery 主题是卡片式结构，为了保持原来的整体结构，新建多级分类的模块。</p>
 <h3 id="1、新建-category-list-ejs"><a href="#1、新建-category-list-ejs" class="headerlink" title="1、新建 category-list.ejs"></a>1、新建 category-list.ejs</h3><p>在主题目录 <code>/layout/_widget/</code>目录下新建 <code>category-list.ejs</code> 文件。 内容如下：</p>
-<pre class=" language-ejs"><code class="language-ejs">
-<% var orderBy =  'name' ;  %>
+<pre><code>
+&lt;% var orderBy =  &#39;name&#39; ;  %&gt;
 
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<style>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css&quot;&gt;
+&lt;script src=&quot;https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
 .category:not(:last-child) {
   margin-bottom: 1rem;
 }
@@ -4746,7 +4288,7 @@ Hotspot虚拟机插件及工具</code></pre><h4 id="8-调优分析学习"><a hre
 .category-count span {
   width: 2rem;
 }
-.category-item-action:not(.collapsed) > i {
+.category-item-action:not(.collapsed) &gt; i {
   transform: rotate(90deg);
   transform-origin: center center;
 }
@@ -4802,7 +4344,7 @@ Hotspot虚拟机插件及工具</code></pre><h4 id="8-调优分析学习"><a hre
     margin-left: .25rem;
 }
 
-card-categories-list-spcail > div:hover{
+card-categories-list-spcail &gt; div:hover{
 
     color:#38ACDF;
     background-color: #F8F9FA;
@@ -4842,96 +4384,94 @@ card-categories-list-spcail > div:hover{
     z-index: 3;
 }
 
-</style>
+&lt;/style&gt;
 
 
-  <% function render_categories(cats, depth) { %>
-  <% depth = depth || 0 %>
-  <% return cats.each(function(cat){ %>
-    <% var subCats = site.categories.find({parent: cat._id}).sort(orderBy).filter(cat => cat.length) %>
-    <% var collapsed = subCats.length === 0 %>
-    <div class="<%= depth <= 0 ? 'category' : 'category-sub' %> row">
-      <a
-        class="<%= depth <= 0 ? 'category-item' : 'category-subitem' %> <%= collapsed ? 'collapsed' : '' %> list-group-item category-item-action col-10 col-md-11"
-        id="heading-<%= cat._id %>" role="tab" data-toggle="collapse"   data-target="#collapse-<%= cat._id %>"
-        aria-expanded="<%= collapsed ? 'false' : 'true' %>"
-      >
-        <%= cat.name %>
-        <i class="fas fa-chevron-right"></i>
-      </a>
-      <a href="<%= url_for(cat.path) %>" class="category-count col-2 col-md-1">
-        <i class="fa fa-list"></i>
-        <span><%= cat.posts.length %></span>
-      </a>
-      <div class="category-collapse">
-        <% if (subCats.length > 0) { %>
-          <%- render_sub_categories(subCats, cat, depth + 1) %>
-        <% } else { %>
-          <%- render_posts(cat) %>
-        <% } %>
-      </div>
-    </div>
-  <% }) %>
-<% } %>
+  &lt;% function render_categories(cats, depth) { %&gt;
+  &lt;% depth = depth || 0 %&gt;
+  &lt;% return cats.each(function(cat){ %&gt;
+    &lt;% var subCats = site.categories.find({parent: cat._id}).sort(orderBy).filter(cat =&gt; cat.length) %&gt;
+    &lt;% var collapsed = subCats.length === 0 %&gt;
+    &lt;div class=&quot;&lt;%= depth &lt;= 0 ? &#39;category&#39; : &#39;category-sub&#39; %&gt; row&quot;&gt;
+      &lt;a
+        class=&quot;&lt;%= depth &lt;= 0 ? &#39;category-item&#39; : &#39;category-subitem&#39; %&gt; &lt;%= collapsed ? &#39;collapsed&#39; : &#39;&#39; %&gt; list-group-item category-item-action col-10 col-md-11&quot;
+        id=&quot;heading-&lt;%= cat._id %&gt;&quot; role=&quot;tab&quot; data-toggle=&quot;collapse&quot;   data-target=&quot;#collapse-&lt;%= cat._id %&gt;&quot;
+        aria-expanded=&quot;&lt;%= collapsed ? &#39;false&#39; : &#39;true&#39; %&gt;&quot;
+      &gt;
+        &lt;%= cat.name %&gt;
+        &lt;i class=&quot;fas fa-chevron-right&quot;&gt;&lt;/i&gt;
+      &lt;/a&gt;
+      &lt;a href=&quot;&lt;%= url_for(cat.path) %&gt;&quot; class=&quot;category-count col-2 col-md-1&quot;&gt;
+        &lt;i class=&quot;fa fa-list&quot;&gt;&lt;/i&gt;
+        &lt;span&gt;&lt;%= cat.posts.length %&gt;&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;div class=&quot;category-collapse&quot;&gt;
+        &lt;% if (subCats.length &gt; 0) { %&gt;
+          &lt;%- render_sub_categories(subCats, cat, depth + 1) %&gt;
+        &lt;% } else { %&gt;
+          &lt;%- render_posts(cat) %&gt;
+        &lt;% } %&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;% }) %&gt;
+&lt;% } %&gt;
 
-<% function render_sub_categories(cats, parent, depth) { %>
-  <div id="collapse-<%= parent._id %>" class=" collapse in show" role="tabpanel"
-       aria-labelledby="heading-<%= parent._id %>">
-    <%- render_categories(cats, depth) %>
-  </div>
-<% } %>
+&lt;% function render_sub_categories(cats, parent, depth) { %&gt;
+  &lt;div id=&quot;collapse-&lt;%= parent._id %&gt;&quot; class=&quot; collapse in show&quot; role=&quot;tabpanel&quot;
+       aria-labelledby=&quot;heading-&lt;%= parent._id %&gt;&quot;&gt;
+    &lt;%- render_categories(cats, depth) %&gt;
+  &lt;/div&gt;
+&lt;% } %&gt;
 
-<% function render_posts(cat) { %>
-  <div id="collapse-<%= cat._id %>" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-<%= cat._id %>">
-    <% var limit = 100 ; %>
-    <% var posts = cat.posts.sort(config.index_generator.order_by || '-date') %>
-    <% for (var idx = 0; idx < posts.length; idx++) { %>
-      <% var post = posts.data[idx] %>
-      <% if (idx && limit && idx >= limit) { %>
-        <a href="<%- url_for(cat.path) %>" class="list-group-item list-group-item-action">
-          <span class="category-post">More...</span>
-        </a>
-        <% break %>
-      <% } else { %>
-        <a href="<%- url_for(post.path) %>" class="list-group-item list-group-item-action">
-          <span class="category-post"><%= post.title %></span>
-        </a>
-      <% } %>
-    <% } %>
-  </div>
-<% } %>
+&lt;% function render_posts(cat) { %&gt;
+  &lt;div id=&quot;collapse-&lt;%= cat._id %&gt;&quot; class=&quot;collapse in&quot; role=&quot;tabpanel&quot;
+       aria-labelledby=&quot;heading-&lt;%= cat._id %&gt;&quot;&gt;
+    &lt;% var limit = 100 ; %&gt;
+    &lt;% var posts = cat.posts.sort(config.index_generator.order_by || &#39;-date&#39;) %&gt;
+    &lt;% for (var idx = 0; idx &lt; posts.length; idx++) { %&gt;
+      &lt;% var post = posts.data[idx] %&gt;
+      &lt;% if (idx &amp;&amp; limit &amp;&amp; idx &gt;= limit) { %&gt;
+        &lt;a href=&quot;&lt;%- url_for(cat.path) %&gt;&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;
+          &lt;span class=&quot;category-post&quot;&gt;More...&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;% break %&gt;
+      &lt;% } else { %&gt;
+        &lt;a href=&quot;&lt;%- url_for(post.path) %&gt;&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;
+          &lt;span class=&quot;category-post&quot;&gt;&lt;%= post.title %&gt;&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;% } %&gt;
+    &lt;% } %&gt;
+  &lt;/div&gt;
+&lt;% } %&gt;
 
 
-<div class="container" data-aos="fade-up">
-    <div class="card  card-categories-list-spcail">
-        <div class="card-content col-12 col-md-10 m-auto ">
-            <div  id="card-list-zzy" class="">
-                <div class="category-list">
-                  <% cats = site.categories.find({parent: {$exists: false}}).sort(orderBy).filter(cat => cat.length) %>
-                  <%- render_categories(cats) %>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</code></pre>
-<h3 id="2、引入-category-list-ejs"><a href="#2、引入-category-list-ejs" class="headerlink" title="2、引入 category-list.ejs"></a>2、引入 category-list.ejs</h3><p>找到主题目录下 <code>/layout/categories.ejs</code> , 添加以下代码：</p>
+&lt;div class=&quot;container&quot; data-aos=&quot;fade-up&quot;&gt;
+    &lt;div class=&quot;card  card-categories-list-spcail&quot;&gt;
+        &lt;div class=&quot;card-content col-12 col-md-10 m-auto &quot;&gt;
+            &lt;div  id=&quot;card-list-zzy&quot; class=&quot;&quot;&gt;
+                &lt;div class=&quot;category-list&quot;&gt;
+                  &lt;% cats = site.categories.find({parent: {$exists: false}}).sort(orderBy).filter(cat =&gt; cat.length) %&gt;
+                  &lt;%- render_categories(cats) %&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h3 id="2、引入-category-list-ejs"><a href="#2、引入-category-list-ejs" class="headerlink" title="2、引入 category-list.ejs"></a>2、引入 category-list.ejs</h3><p>找到主题目录下 <code>/layout/categories.ejs</code> , 添加以下代码：</p>
 <pre class=" language-ejs"><code class="language-ejs"><%- partial('_widget/category-list') %></code></pre>
 <p>加了之后，大概是这样子：</p>
-<pre class=" language-ejs"><code class="language-ejs"><%- partial('_partial/bg-cover') %>
+<pre><code>&lt;%- partial(&#39;_partial/bg-cover&#39;) %&gt;
 
-<main class="content">
+&lt;main class=&quot;content&quot;&gt;
 
-    <%- partial('_widget/category-cloud') %>
+    &lt;%- partial(&#39;_widget/category-cloud&#39;) %&gt;
 
-    <% if (site.categories && site.categories.length > 0) { %>
-    <%- partial('_widget/category-radar') %>
-    <% } %>
+    &lt;% if (site.categories &amp;&amp; site.categories.length &gt; 0) { %&gt;
+    &lt;%- partial(&#39;_widget/category-radar&#39;) %&gt;
+    &lt;% } %&gt;
 
-    <%- partial('_widget/category-list') %>
-</main></code></pre>
-<h3 id="3、启动看效果吧"><a href="#3、启动看效果吧" class="headerlink" title="3、启动看效果吧"></a>3、启动看效果吧</h3><pre class=" language-bash"><code class="language-bash">hexo clean
+    &lt;%- partial(&#39;_widget/category-list&#39;) %&gt;
+&lt;/main&gt;</code></pre><h3 id="3、启动看效果吧"><a href="#3、启动看效果吧" class="headerlink" title="3、启动看效果吧"></a>3、启动看效果吧</h3><pre class=" language-bash"><code class="language-bash">hexo clean
 hexo g
 hexo s</code></pre>
 <p>好吧，如果你不是歌追求完美的人，现在其实已经可以使用了。</p>
@@ -5197,7 +4737,7 @@ $(document).ready(function(){
     $(&#39;.collapsible&#39;).collapsible();
   });
 &lt;/script&gt;</code></pre><h3 id="4、重新编译启动"><a href="#4、重新编译启动" class="headerlink" title="4、重新编译启动"></a>4、重新编译启动</h3><p>可能还有一些样式问题，不过要睡觉了。</p>
-<p>就自己调调吧~</p>
+<p>就自己调调吧~ 尽量用内联样式</p>
 <p>后面调好了，文章再更新。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
