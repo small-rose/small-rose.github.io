@@ -3201,7 +3201,7 @@ Application not Found
 <pre class=" language-html"><code class="language-html">
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(theme.banner.enable)</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
-    <span class="token comment" spellcheck="true">// 每天切换 banner 图.  Switch banner image every day.</span>
+    <span class="token comment" spellcheck="true">//) 每天切换 banner 图.  Switch banner image every day.</span>
     <span class="token keyword">var</span> bannerUrl <span class="token operator">=</span> <span class="token string">"&lt;%- theme.jsDelivr.url %>&lt;%- url_for('/medias/banner/') %>"</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.jpg'</span><span class="token punctuation">;</span>
     <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.bg-cover'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'background-image'</span><span class="token punctuation">,</span> <span class="token string">'url('</span> <span class="token operator">+</span> bannerUrl <span class="token operator">+</span> <span class="token string">')'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
@@ -3211,7 +3211,7 @@ Application not Found
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span></code></pre>
 <h3 id="不想显示英文怎么办"><a href="#不想显示英文怎么办" class="headerlink" title="不想显示英文怎么办"></a>不想显示英文怎么办</h3><p>(1) 把 Hexo 根目录的 <code>_config.yml</code> 文件语言 <code>language</code> 设置成 <code>zh-CN</code></p>
-<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">author</span><span class="token punctuation">:</span> <span class="token string">'Small Rose / 张小菜苔'</span>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">author</span><span class="token punctuation">:</span> <span class="token string">'Small Rose /) 张小菜苔'</span>
 <span class="token key atrule">language</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN
 <span class="token key atrule">timezone</span><span class="token punctuation">:</span> <span class="token string">'Asia/Shanghai'</span></code></pre>
 <p>(2)设置了不起作用？ </p>
@@ -3311,55 +3311,55 @@ Application not Found
 </thead>
 <tbody><tr>
 <td>思源系列</td>
-<td>思源黑体、思源宋体。授权出处：<a href="https://www.google.com/get/noto/" target="_blank" rel="noopener">https://www.google.com/get/noto/</a></td>
+<td>思源黑体、思源宋体。<a href="https://www.google.com/get/noto/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>思源系列</td>
-<td>思源柔黑体。授权出处：<a href="http://jikasei.me/font/genjyuu/" target="_blank" rel="noopener">http://jikasei.me/font/genjyuu/</a></td>
+<td>思源柔黑体。<a href="http://jikasei.me/font/genjyuu/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>思源系列</td>
-<td>思源真黑体。授权出处：<a href="http://jikasei.me/font/genshin/" target="_blank" rel="noopener">http://jikasei.me/font/genshin/</a></td>
+<td>思源真黑体。<a href="http://jikasei.me/font/genshin/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>明朝系列</td>
-<td>App Mincho明源。授权出处：<a href="http://www.flopdesign.com/blog/font/5852/" target="_blank" rel="noopener">www.flopdesign.com/blog/font/5852/</a></td>
+<td>App Mincho明源。<a href="www.flopdesign.com/blog/font/5852/">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>明朝系列</td>
-<td>花园字体。授权出处：<a href="http://fonts.jp/hanazono/" target="_blank" rel="noopener">http://fonts.jp/hanazono/</a></td>
+<td>花园字体。<a href="http://fonts.jp/hanazono/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>明朝系列</td>
-<td>Oradano-Mincho明朝。授权出处：<a href="http://www.asahi-net.or.jp/~sd5a-ucd/freefonts/Oradano-Mincho/" target="_blank" rel="noopener">http://www.asahi-net.or.jp/~sd5a-ucd/freefonts/Oradano-Mincho/</a></td>
+<td>Oradano-Mincho明朝。<a href="http://www.asahi-net.or.jp/~sd5a-ucd/freefonts/Oradano-Mincho/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>明朝系列</td>
-<td>装甲明朝。授权出处：<a href="http://www.flopdesign.com/blog/font/5228/" target="_blank" rel="noopener">www.flopdesign.com/blog/font/5228/</a></td>
+<td>装甲明朝。<a href="www.flopdesign.com/blog/font/5228/">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>明朝系列</td>
-<td>源界明朝。授权出处：<a href="http://www.flopdesign.com/blog/font/5146/" target="_blank" rel="noopener">www.flopdesign.com/blog/font/5146/</a></td>
+<td>源界明朝。<a href="www.flopdesign.com/blog/font/5146/">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>明朝系列</td>
-<td>源明朝。授权出处：<a href="http://www.flopdesign.com/blog/font/7163/" target="_blank" rel="noopener">www.flopdesign.com/blog/font/7163/</a></td>
+<td>源明朝。<a href="www.flopdesign.com/blog/font/7163/">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>方正系列</td>
-<td>方正黑体、方正书宋、方正仿宋、方正楷体。<br>授权出处：<a href="http://www.foundertype.com/index.php/About/bookAuth/key/my_sysq.html" target="_blank" rel="noopener">http://www.foundertype.com/index.php/About/bookAuth/key/my_sysq.html</a></td>
+<td>方正黑体、方正书宋、方正仿宋、方正楷体。<br><a href="http://www.foundertype.com/index.php/About/bookAuth/key/my_sysq.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>明体系列</td>
-<td>源样黑体、源流明体、源石黑体、源样明体、源云明体、源泉圆体。 <br>授权出处：<a href="https://github.com/ButTaiwan?tab=stars" target="_blank" rel="noopener">https://github.com/ButTaiwan?tab=stars</a></td>
+<td>源样黑体、源流明体、源石黑体、源样明体、源云明体、源泉圆体。 <br><a href="https://github.com/ButTaiwan?tab=stars" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>中文系列</td>
-<td>M Plus。授权出处：<a href="http://mplus-fonts.osdn.jp/about.html" target="_blank" rel="noopener">http://mplus-fonts.osdn.jp/about.html</a></td>
+<td>M Plus。<a href="http://mplus-fonts.osdn.jp/about.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>中文系列</td>
-<td>锐字真言体。授权出处：<a href="http://reeji.com/font/rui_zi_zhen_yan_ti/" target="_blank" rel="noopener">http://reeji.com/font/rui_zi_zhen_yan_ti/</a></td>
+<td>锐字真言体。<a href="http://reeji.com/font/rui_zi_zhen_yan_ti/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>中文系列</td>
@@ -3367,31 +3367,31 @@ Application not Found
 </tr>
 <tr>
 <td>中文系列</td>
-<td>联盟起艺卢帅正锐黑体。授权出处：<a href="https://www.zcool.com.cn/work/ZMzUxMzUzNzY=.html" target="_blank" rel="noopener">https://www.zcool.com.cn/work/ZMzUxMzUzNzY=.html</a></td>
+<td>联盟起艺卢帅正锐黑体。<a href="https://www.zcool.com.cn/work/ZMzUxMzUzNzY=.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>中文系列</td>
-<td>Droid Sans Fallback。授权出处：<a href="https://code.google.com/archive/p/droid-sans-mono-py/" target="_blank" rel="noopener">https://code.google.com/archive/p/droid-sans-mono-py/</a></td>
+<td>Droid Sans Fallback。<a href="https://code.google.com/archive/p/droid-sans-mono-py/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>中文系列</td>
-<td>庞门正道标题体。授权出处：<a href="https://mp.weixin.qq.com/s/BGXeAXrEo6CM5-gtdQOuYA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/BGXeAXrEo6CM5-gtdQOuYA</a></td>
+<td>庞门正道标题体。<a href="https://mp.weixin.qq.com/s/BGXeAXrEo6CM5-gtdQOuYA" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>中文系列</td>
-<td>庞门正道粗书体。授权出处：<a href="https://mp.weixin.qq.com/s/LZ_PMNc-3uX-Atmri4OLGQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/LZ_PMNc-3uX-Atmri4OLGQ</a></td>
+<td>庞门正道粗书体。<a href="https://mp.weixin.qq.com/s/LZ_PMNc-3uX-Atmri4OLGQ" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>中文系列</td>
-<td>问藏书房品牌字体。授权出处：<a href="http://www.wencang.com/font.jsp" target="_blank" rel="noopener">http://www.wencang.com/font.jsp</a></td>
+<td>问藏书房品牌字体。<a href="http://www.wencang.com/font.jsp" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>中文系列</td>
-<td>廻想体。<a href="https://moji-waku.com/kaiso/" target="_blank" rel="noopener">https://moji-waku.com/kaiso/</a></td>
+<td>廻想体。<a href="https://moji-waku.com/kaiso/" target="_blank" rel="noopener">https://moji-waku.com/kaiso/</a>)</td>
 </tr>
 <tr>
 <td>中文系列</td>
-<td>電字遊戯。<a href="https://moji-waku.com/denjiyugi/" target="_blank" rel="noopener">https://moji-waku.com/denjiyugi/</a></td>
+<td>電字遊戯。<a href="https://moji-waku.com/denjiyugi/" target="_blank" rel="noopener">https://moji-waku.com/denjiyugi/</a>)</td>
 </tr>
 <tr>
 <td>中文系列</td>
@@ -3399,75 +3399,75 @@ Application not Found
 </tr>
 <tr>
 <td>中文系列</td>
-<td>KH像素字体系列。<a href="http://jikasei.me/font/kh-dotfont/" target="_blank" rel="noopener">http://jikasei.me/font/kh-dotfont/</a></td>
+<td>KH像素字体系列。<a href="http://jikasei.me/font/kh-dotfont/" target="_blank" rel="noopener">http://jikasei.me/font/kh-dotfont/</a>)</td>
 </tr>
 <tr>
 <td>站酷系列</td>
-<td>站酷酷黑、站酷快乐体、站酷高端黑、庆科黄油体、站酷小薇LOGO体、站酷文艺体。授权出处：<a href="https://www.zcool.com.cn/special/zcoolfonts/" target="_blank" rel="noopener">https://www.zcool.com.cn/special/zcoolfonts/</a></td>
+<td>站酷酷黑、站酷快乐体、站酷高端黑、庆科黄油体、站酷小薇LOGO体、站酷文艺体。<a href="https://www.zcool.com.cn/special/zcoolfonts/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>TanukiMagic 麥克筆手繪 POP。授权出处：<a href="https://tanukifont.com/tanuki-permanent-marker" target="_blank" rel="noopener">https://tanukifont.com/tanuki-permanent-marker</a></td>
+<td>TanukiMagic 麥克筆手繪 POP。<a href="https://tanukifont.com/tanuki-permanent-marker" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>ラノベPOP 。授权出处：<a href="http://www.fontna.com/blog/1706/" target="_blank" rel="noopener">http://www.fontna.com/blog/1706/</a></td>
+<td>ラノベPOP 。<a href="http://www.fontna.com/blog/1706/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>怖い明朝体。授权出处：<a href="http://www.fontna.com/blog/1371/" target="_blank" rel="noopener">http://www.fontna.com/blog/1371/</a></td>
+<td>怖い明朝体。<a href="http://www.fontna.com/blog/1371/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>暗黑恐字体。授权出处：<a href="http://www.ankokukoubou.com/font/ankokuzonji.htm" target="_blank" rel="noopener">www.ankokukoubou.com/font/ankokuzonji.htm</a></td>
+<td>暗黑恐字体。<a href="www.ankokukoubou.com/font/ankokuzonji.htm">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>幻ノにじみ明朝。授权出处：<a href="http://www.fontna.com/blog/1912/" target="_blank" rel="noopener">http://www.fontna.com/blog/1912/</a></td>
+<td>幻ノにじみ明朝。<a href="http://www.fontna.com/blog/1912/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>Rings Of Saturn。授权出处：<a href="https://flopdesign.booth.pm/items/605389" target="_blank" rel="noopener">https://flopdesign.booth.pm/items/605389</a></td>
+<td>Rings Of Saturn。<a href="https://flopdesign.booth.pm/items/605389" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>Smartfont。授权出处：<a href="https://flopdesign.com/freefont/smartfont.html" target="_blank" rel="noopener">https://flopdesign.com/freefont/smartfont.html</a></td>
+<td>Smartfont。<a href="https://flopdesign.com/freefont/smartfont.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>KanjyukuGothic。授权出处：<a href="http://www.flopdesign.com/freefont/kanjyukugothic-freefont.html" target="_blank" rel="noopener">www.flopdesign.com/freefont/kanjyukugothic-freefont.html</a></td>
+<td>KanjyukuGothic。<a href="www.flopdesign.com/freefont/kanjyukugothic-freefont.html">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>Shirokuma。授权出处：<a href="https://lazypolarbear.com/entry/font-shirokuma" target="_blank" rel="noopener">https://lazypolarbear.com/entry/font-shirokuma</a></td>
+<td>Shirokuma。<a href="https://lazypolarbear.com/entry/font-shirokuma" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>超極細ゴシック体。授权出处：<a href="https://font.websozai.jp/line-font-mihon.html" target="_blank" rel="noopener">https://font.websozai.jp/line-font-mihon.html</a></td>
+<td>超極細ゴシック体。<a href="https://font.websozai.jp/line-font-mihon.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>平成最後。授权出处：<a href="https://flopdesign.com/blog/photo/7499/" target="_blank" rel="noopener">https://flopdesign.com/blog/photo/7499/</a></td>
+<td>平成最後。<a href="https://flopdesign.com/blog/photo/7499/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>コーポレート・ロゴ（ラウンド）。<a href="https://moji-waku.com/ronde/" target="_blank" rel="noopener">https://moji-waku.com/ronde/</a></td>
+<td>コーポレート・ロゴ（ラウンド）。<a href="https://moji-waku.com/ronde/" target="_blank" rel="noopener">https://moji-waku.com/ronde/</a>)</td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>トガリテ。<a href="https://moji-waku.com/pigmo/" target="_blank" rel="noopener">https://moji-waku.com/pigmo/</a></td>
+<td>トガリテ。<a href="https://moji-waku.com/pigmo/" target="_blank" rel="noopener">https://moji-waku.com/pigmo/</a>)</td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>マメロン。<a href="https://moji-waku.com/mamelon/" target="_blank" rel="noopener">https://moji-waku.com/mamelon/</a></td>
+<td>マメロン。<a href="https://moji-waku.com/mamelon/" target="_blank" rel="noopener">https://moji-waku.com/mamelon/</a>)</td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>マキナス 4 シリーズ。<a href="https://moji-waku.com/makinas/" target="_blank" rel="noopener">https://moji-waku.com/makinas/</a></td>
+<td>マキナス 4 シリーズ。<a href="https://moji-waku.com/makinas/" target="_blank" rel="noopener">https://moji-waku.com/makinas/</a>)</td>
 </tr>
 <tr>
 <td>日式系列</td>
-<td>ピグモ。<a href="https://moji-waku.com/pigmo01/" target="_blank" rel="noopener">https://moji-waku.com/pigmo01/</a></td>
+<td>ピグモ。<a href="https://moji-waku.com/pigmo01/" target="_blank" rel="noopener">https://moji-waku.com/pigmo01/</a>)</td>
 </tr>
 <tr>
 <td>日式系列</td>
@@ -3475,207 +3475,207 @@ Application not Found
 </tr>
 <tr>
 <td>851系列</td>
-<td>851手写杂体。授权出处：<a href="https://pm85122.onamae.jp/851fontpage.html" target="_blank" rel="noopener">https://pm85122.onamae.jp/851fontpage.html</a></td>
+<td>851手写杂体。<a href="https://pm85122.onamae.jp/851fontpage.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>851系列</td>
-<td>851 mkpop。授权出处：<a href="https://pm85122.onamae.jp/851mkpop.html" target="_blank" rel="noopener">https://pm85122.onamae.jp/851mkpop.html</a></td>
+<td>851 mkpop。<a href="https://pm85122.onamae.jp/851mkpop.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>851系列</td>
-<td>851 letrogopage。授权出处：<a href="https://pm85122.onamae.jp/851letrogopage.html" target="_blank" rel="noopener">https://pm85122.onamae.jp/851letrogopage.html</a></td>
+<td>851 letrogopage。<a href="https://pm85122.onamae.jp/851letrogopage.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>851系列</td>
-<td>851 テガキカクット。授权出处：<a href="https://pm85122.onamae.jp/851H_kktt.html" target="_blank" rel="noopener">https://pm85122.onamae.jp/851H_kktt.html</a></td>
+<td>851 テガキカクット。<a href="https://pm85122.onamae.jp/851H_kktt.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>851系列</td>
-<td>851 Chikuru Yoku。授权出处：<a href="https://pm85122.onamae.jp/851ch-dz.html" target="_blank" rel="noopener">https://pm85122.onamae.jp/851ch-dz.html</a></td>
+<td>851 Chikuru Yoku。<a href="https://pm85122.onamae.jp/851ch-dz.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>851系列</td>
-<td>851 チカラヨワク。授权出处：<a href="https://pm85122.onamae.jp/851ch-yw.html" target="_blank" rel="noopener">https://pm85122.onamae.jp/851ch-yw.html</a></td>
+<td>851 チカラヨワク。<a href="https://pm85122.onamae.jp/851ch-yw.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>851系列</td>
-<td>851 ゴチカクット。授权出处：<a href="https://pm85122.onamae.jp/851Gkktt.html" target="_blank" rel="noopener">https://pm85122.onamae.jp/851Gkktt.html</a></td>
+<td>851 ゴチカクット。<a href="https://pm85122.onamae.jp/851Gkktt.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>手写系列</td>
-<td>濑户字体。授权出处：<a href="https://www.justfont.com/fontdetail/147" target="_blank" rel="noopener">https://www.justfont.com/fontdetail/147</a></td>
+<td>濑户字体。<a href="https://www.justfont.com/fontdetail/147" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>手写系列</td>
-<td>沐瑶软笔手写体。授权出处：<a href="https://www.zcool.com.cn/work/ZMjg5MjAwMDQ=.html" target="_blank" rel="noopener">https://www.zcool.com.cn/work/ZMjg5MjAwMDQ=.html</a></td>
+<td>沐瑶软笔手写体。<a href="https://www.zcool.com.cn/work/ZMjg5MjAwMDQ=.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>手写系列</td>
-<td>杨任东竹石体。授权出处：<a href="https://mp.weixin.qq.com/s/7kv3i_YEs7x9_9IrCDYvBA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/7kv3i_YEs7x9_9IrCDYvBA</a></td>
+<td>杨任东竹石体。<a href="https://mp.weixin.qq.com/s/7kv3i_YEs7x9_9IrCDYvBA" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>手写系列</td>
-<td>包图小白体。授权出处：<a href="https://act.ibaotu.com/activity/1.html" target="_blank" rel="noopener">https://act.ibaotu.com/activity/1.html</a></td>
+<td>包图小白体。<a href="https://act.ibaotu.com/activity/1.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>手写系列</td>
-<td>手写体。授权出处：<a href="http://www.zhihu.com/question/19889152/answer/245685101" target="_blank" rel="noopener">www.zhihu.com/question/19889152/answer/245685101</a></td>
+<td>手写体。<a href="www.zhihu.com/question/19889152/answer/245685101">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>手写系列</td>
-<td>贤二体。授权出处：<a href="https://www.zcool.com.cn/article/ZNjk4NDM2.html" target="_blank" rel="noopener">https://www.zcool.com.cn/article/ZNjk4NDM2.html</a></td>
+<td>贤二体。<a href="https://www.zcool.com.cn/article/ZNjk4NDM2.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>手写系列</td>
-<td>清松手寫體。授权出处：<a href="https://www.facebook.com/groups/549661292148791/" target="_blank" rel="noopener">https://www.facebook.com/groups/549661292148791/</a></td>
+<td>清松手寫體。<a href="https://www.facebook.com/groups/549661292148791/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>手写系列</td>
-<td>台北黑体。授权出处：<a href="https://sites.google.com/view/jtfoundry/" target="_blank" rel="noopener">https://sites.google.com/view/jtfoundry/</a></td>
+<td>台北黑体。<a href="https://sites.google.com/view/jtfoundry/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>刻石錄系列</td>
-<td>刻石錄顏體、刻石錄鋼筆鶴體、刻石錄明體<br/>授权出处：<a href="http://founder.acgvlyric.org/iu/doku.php/%E8%A8%98%E4%BA%8B:%E6%9C%AC%E9%8C%84%E6%96%87%E7%AB%A0%E7%B8%BD%E8%A6%BD" target="_blank" rel="noopener">http://founder.acgvlyric.org/iu/doku.php/%E8%A8%98%E4%BA%8B:%E6%9C%AC%E9%8C%84%E6%96%87%E7%AB%A0%E7%B8%BD%E8%A6%BD</a></td>
+<td>刻石錄顏體、刻石錄鋼筆鶴體、刻石錄明體<br/><a href="http://founder.acgvlyric.org/iu/doku.php/%E8%A8%98%E4%BA%8B:%E6%9C%AC%E9%8C%84%E6%96%87%E7%AB%A0%E7%B8%BD%E8%A6%BD" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>台湾教育部系列</td>
-<td>台湾教育部标准楷书<br/>授权出处：<a href="https://depart.moe.edu.tw/ED2400/News_Content.aspx?n=8940E5C0456177C3&amp;sms=893AAA1CBFE149DE&amp;s=DFBE7BE3EE0DB6AE" target="_blank" rel="noopener">https://depart.moe.edu.tw/ED2400/News_Content.aspx?n=8940E5C0456177C3&amp;sms=893AAA1CBFE149DE&amp;s=DFBE7BE3EE0DB6AE</a></td>
+<td>台湾教育部标准楷书<br/><a href="https://depart.moe.edu.tw/ED2400/News_Content.aspx?n=8940E5C0456177C3&sms=893AAA1CBFE149DE&s=DFBE7BE3EE0DB6AE" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>台湾教育部系列</td>
-<td>台湾教育部标准宋体<br/>授权出处：<a href="https://depart.moe.edu.tw/ED2400/News_Content.aspx?n=8940E5C0456177C3&amp;sms=893AAA1CBFE149DE&amp;s=161DEBC9EACEA333" target="_blank" rel="noopener">https://depart.moe.edu.tw/ED2400/News_Content.aspx?n=8940E5C0456177C3&amp;sms=893AAA1CBFE149DE&amp;s=161DEBC9EACEA333</a></td>
+<td>台湾教育部标准宋体<br/><a href="https://depart.moe.edu.tw/ED2400/News_Content.aspx?n=8940E5C0456177C3&sms=893AAA1CBFE149DE&s=161DEBC9EACEA333" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>台湾教育部系列</td>
-<td>台湾教育部国字隶书<br/>授权出处：<a href="https://depart.moe.edu.tw/ED2400/News_Content.aspx?n=8940E5C0456177C3&amp;sms=893AAA1CBFE149DE&amp;s=AA29AF7FE3BAD13F" target="_blank" rel="noopener">https://depart.moe.edu.tw/ED2400/News_Content.aspx?n=8940E5C0456177C3&amp;sms=893AAA1CBFE149DE&amp;s=AA29AF7FE3BAD13F</a></td>
+<td>台湾教育部国字隶书<br/><a href="https://depart.moe.edu.tw/ED2400/News_Content.aspx?n=8940E5C0456177C3&sms=893AAA1CBFE149DE&s=AA29AF7FE3BAD13F" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>台湾教育部系列</td>
-<td>全字库正宋體、全字库正楷體<br/>授权出处：<a href="http://data.gov.tw/node/5961" target="_blank" rel="noopener">http://data.gov.tw/node/5961</a></td>
+<td>全字库正宋體、全字库正楷體<br/><a href="http://data.gov.tw/node/5961" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>王汉宗系列</td>
-<td>免费字体：细明、超明、细黑、特黑、颜体、酷俪海报、正海报、钢笔行楷、超黑俏皮动物、中明注音体、中明破音字、中楷注音体、中楷破音字、中魏碑简体、细新宋简体<br/>授权出处：<a href="https://zh.wikipedia.org/wiki/%E7%8E%8B%E6%BC%A2%E5%AE%97%E8%87%AA%E7%94%B1%E5%AD%97%E5%9E%8B" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E7%8E%8B%E6%BC%A2%E5%AE%97%E8%87%AA%E7%94%B1%E5%AD%97%E5%9E%8B</a></td>
+<td>免费字体：细明、超明、细黑、特黑、颜体、酷俪海报、正海报、钢笔行楷、超黑俏皮动物、中明注音体、中明破音字、中楷注音体、中楷破音字、中魏碑简体、细新宋简体<br/><a href="https://zh.wikipedia.org/wiki/%E7%8E%8B%E6%BC%A2%E5%AE%97%E8%87%AA%E7%94%B1%E5%AD%97%E5%9E%8B" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>文泉驿系列</td>
-<td>文泉驿正黑体、文泉驿微米黑、文泉驿点阵宋体（此宋体无Win版本…）<br/>授权出处：<a href="https://wenq.org/wqy2/index.cgi?FontGuide" target="_blank" rel="noopener">https://wenq.org/wqy2/index.cgi?FontGuide</a></td>
+<td>文泉驿正黑体、文泉驿微米黑、文泉驿点阵宋体（此宋体无Win版本…）<br/><a href="https://wenq.org/wqy2/index.cgi?FontGuide" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>阿里系列</td>
-<td>阿里巴巴普惠体。授权出处：<a href="https://ics.alibaba.com/project/Hn8mXx" target="_blank" rel="noopener">https://ics.alibaba.com/project/Hn8mXx</a></td>
+<td>阿里巴巴普惠体。<a href="https://ics.alibaba.com/project/Hn8mXx" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>阿里系列</td>
-<td>阿里汉仪智能黑体（仅阿里平台免费商用）。授权出处：<a href="https://mp.weixin.qq.com/s/Y_c_0COqWnUo90G3QJ2ojA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Y_c_0COqWnUo90G3QJ2ojA</a></td>
+<td>阿里汉仪智能黑体（仅阿里平台免费商用）。<a href="https://mp.weixin.qq.com/s/Y_c_0COqWnUo90G3QJ2ojA" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>45款华康字体</td>
-<td>（仅阿里平台免费商用）华康布丁体、华康彩带体 、华康儿风体、华康方圆体、华康钢笔体、华康海报体、华康手札体、华康手札体、华康翩翩体、华康黑体 、华康金文体、华康楷体、华康勘亭流、华康俪金黑、华康隶书体、华康龙门石碑、华康墨字体、华康POP1体、华康POP2体、华康POP3体、华康少女文字、华康饰艺体、华康瘦金体、华康标题宋、华康宋体、华康唐风隶、华康娃娃体、华康魏碑、华康正颜楷体、华康雅宋体、华康雅艺体、华康圆体、华康新综艺体<br/>授权出处：<a href="https://helpcenter.tmall.com/learn/knowledge?spm=a225r.8199751.0.0.759e443dtXIoLr&amp;id=24179433&amp;xttkn=00ecadba403ca9a7" target="_blank" rel="noopener">https://helpcenter.tmall.com/learn/knowledge?spm=a225r.8199751.0.0.759e443dtXIoLr&amp;id=24179433&amp;xttkn=00ecadba403ca9a7</a></td>
+<td>（仅阿里平台免费商用）华康布丁体、华康彩带体 、华康儿风体、华康方圆体、华康钢笔体、华康海报体、华康手札体、华康手札体、华康翩翩体、华康黑体 、华康金文体、华康楷体、华康勘亭流、华康俪金黑、华康隶书体、华康龙门石碑、华康墨字体、华康POP1体、华康POP2体、华康POP3体、华康少女文字、华康饰艺体、华康瘦金体、华康标题宋、华康宋体、华康唐风隶、华康娃娃体、华康魏碑、华康正颜楷体、华康雅宋体、华康雅艺体、华康圆体、华康新综艺体<br/><a href="https://helpcenter.tmall.com/learn/knowledge?spm=a225r.8199751.0.0.759e443dtXIoLr&id=24179433&xttkn=00ecadba403ca9a7" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>汉仪系列</td>
-<td>18款汉仪字体（仅京东平台免费使用）<br/>汉仪中黑(简/繁)、汉仪细简黑(简)、汉仪中简黑(简)、汉仪楷体(简/繁)、汉仪书宋一(简)、汉仪书宋二(繁)、汉仪粗仿宋(简)、汉仪水滴体(简/繁)、汉仪珍珠隶(简/繁)<br/>授权出处：<a href="http://fw.jd.com/449421.html" target="_blank" rel="noopener">http://fw.jd.com/449421.html</a></td>
+<td>18款汉仪字体（仅京东平台免费使用）<br/>汉仪中黑(简/繁)、汉仪细简黑(简)、汉仪中简黑(简)、汉仪楷体(简/繁)、汉仪书宋一(简)、汉仪书宋二(繁)、汉仪粗仿宋(简)、汉仪水滴体(简/繁)、汉仪珍珠隶(简/繁)<br/><a href="http://fw.jd.com/449421.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>白舟書体四季词</td>
-<td>这款字体共28款，分春夏秋冬四季，很漂亮。但只能在用于节日庆祝的创作上。想免费商用的需要发邮件联系<br/>授权出处：<a href="http://www.hakusyu.com/download_shiki_spring.htm" target="_blank" rel="noopener">www.hakusyu.com/download_shiki_spring.htm</a></td>
+<td>这款字体共28款，分春夏秋冬四季，很漂亮。但只能在用于节日庆祝的创作上。想免费商用的需要发邮件联系<br/><a href="www.hakusyu.com/download_shiki_spring.htm">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>寒蝉手拙体。 <a href="https://www.zcool.com.cn/work/ZMzAzODE0MTI=.html" target="_blank" rel="noopener">https://www.zcool.com.cn/work/ZMzAzODE0MTI=.html</a></td>
+<td>寒蝉手拙体。 <a href="https://www.zcool.com.cn/work/ZMzAzODE0MTI=.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>卓健橄榄简体。<a href="https://www.zcool.com.cn/work/ZNDA2MzA3ODQ=.html" target="_blank" rel="noopener">https://www.zcool.com.cn/work/ZNDA2MzA3ODQ=.html</a></td>
+<td>卓健橄榄简体。<a href="https://www.zcool.com.cn/work/ZNDA2MzA3ODQ=.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>康康体。<a href="http://www.sucaijishi.com/font-37-792-1.html" target="_blank" rel="noopener">http://www.sucaijishi.com/font-37-792-1.html</a></td>
+<td>康康体。<a href="http://www.sucaijishi.com/font-37-792-1.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>令东齐汲体。<a href="https://github.com/LingDong-/qiji-font" target="_blank" rel="noopener">https://github.com/LingDong-/qiji-font</a></td>
+<td>令东齐汲体。<a href="https://github.com/LingDong-/qiji-font" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>阿朱泡泡字。<a href="https://www.zcool.com.cn/work/ZNDA2MzkyNTY=.html" target="_blank" rel="noopener">https://www.zcool.com.cn/work/ZNDA2MzkyNTY=.html</a></td>
+<td>阿朱泡泡字。<a href="https://www.zcool.com.cn/work/ZNDA2MzkyNTY=.html" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>马善政毛笔楷书。<a href="https://fonts.google.com/specimen/Ma+Shan+Zheng" target="_blank" rel="noopener">https://fonts.google.com/specimen/Ma+Shan+Zheng</a></td>
+<td>马善政毛笔楷书。<a href="https://fonts.google.com/specimen/Ma+Shan+Zheng" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>小杉。<a href="https://fonts.google.com/specimen/Kosugi%20Maru?selection.family=Kosugi%20Maru" target="_blank" rel="noopener">https://fonts.google.com/specimen/Kosugi%20Maru?selection.family=Kosugi%20Maru</a></td>
+<td>小杉。<a href="https://fonts.google.com/specimen/Kosugi%20Maru?selection.family=Kosugi%20Maru" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>钟齐志莽行书。<a href="https://fonts.google.com/specimen/Zhi+Mang+Xing" target="_blank" rel="noopener">https://fonts.google.com/specimen/Zhi+Mang+Xing</a></td>
+<td>钟齐志莽行书。<a href="https://fonts.google.com/specimen/Zhi+Mang+Xing" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>钟齐流江毛草。<a href="https://fonts.google.com/specimen/Liu+Jian+Mao+Cao" target="_blank" rel="noopener">https://fonts.google.com/specimen/Liu+Jian+Mao+Cao</a></td>
+<td>钟齐流江毛草。<a href="https://fonts.google.com/specimen/Liu+Jian+Mao+Cao" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>英椎楷書。<a href="https://www.ac-font.com/jp/detail_jb_007.php" target="_blank" rel="noopener">https://www.ac-font.com/jp/detail_jb_007.php</a></td>
+<td>英椎楷書。<a href="https://www.ac-font.com/jp/detail_jb_007.php" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>英椎行書。<a href="https://www.ac-font.com/jp/detail_jb_006.php" target="_blank" rel="noopener">https://www.ac-font.com/jp/detail_jb_006.php</a></td>
+<td>英椎行書。<a href="https://www.ac-font.com/jp/detail_jb_006.php" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>衡山毛筆フォント。<a href="https://www.ac-font.com/jp/detail_jb_002.php" target="_blank" rel="noopener">https://www.ac-font.com/jp/detail_jb_002.php</a></td>
+<td>衡山毛筆フォント。<a href="https://www.ac-font.com/jp/detail_jb_002.php" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>青柳疎石フォント。<a href="https://www.ac-font.com/jp/detail_jb_001.php" target="_blank" rel="noopener">https://www.ac-font.com/jp/detail_jb_001.php</a></td>
+<td>青柳疎石フォント。<a href="https://www.ac-font.com/jp/detail_jb_001.php" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>青柳衡山フォントT。<a href="https://www.ac-font.com/jp/detail_jb_003.php" target="_blank" rel="noopener">https://www.ac-font.com/jp/detail_jb_003.php</a></td>
+<td>青柳衡山フォントT。<a href="https://www.ac-font.com/jp/detail_jb_003.php" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>衡山毛筆フォント草書。<a href="https://www.ac-font.com/jp/detail_jb_005.php" target="_blank" rel="noopener">https://www.ac-font.com/jp/detail_jb_005.php</a></td>
+<td>衡山毛筆フォント草書。<a href="https://www.ac-font.com/jp/detail_jb_005.php" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>中文像素字体。<a href="https://purestudio.itch.io/ipix" target="_blank" rel="noopener">https://purestudio.itch.io/ipix</a></td>
+<td>中文像素字体。<a href="https://purestudio.itch.io/ipix" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>香港民間字集。<a href="https://github.com/hfhchan/hkcs/blob/master/LICENSE.txt" target="_blank" rel="noopener">https://github.com/hfhchan/hkcs/blob/master/LICENSE.txt</a></td>
+<td>香港民間字集。<a href="https://github.com/hfhchan/hkcs/blob/master/LICENSE.txt" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>有爱魔兽黑体。<a href="https://github.com/nowar-fonts/Nowar-Sans/blob/wow/LICENSE.txt" target="_blank" rel="noopener">https://github.com/nowar-fonts/Nowar-Sans/blob/wow/LICENSE.txt</a></td>
+<td>有爱魔兽黑体。<a href="https://github.com/nowar-fonts/Nowar-Sans/blob/wow/LICENSE.txt" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>有爱魔兽锐方。<a href="https://github.com/nowar-fonts/Nowar-CnC/blob/master/LICENSE.txt" target="_blank" rel="noopener">https://github.com/nowar-fonts/Nowar-CnC/blob/master/LICENSE.txt</a></td>
+<td>有爱魔兽锐方。<a href="https://github.com/nowar-fonts/Nowar-CnC/blob/master/LICENSE.txt" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>有爱魔兽圆体。<a href="https://github.com/nowar-fonts/Nowar-Rounded/blob/master/LICENSE.txt" target="_blank" rel="noopener">https://github.com/nowar-fonts/Nowar-Rounded/blob/master/LICENSE.txt</a></td>
+<td>有爱魔兽圆体。<a href="https://github.com/nowar-fonts/Nowar-Rounded/blob/master/LICENSE.txt" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>有爱圆体。<a href="https://github.com/nowar-fonts/Nowar-Rounded/blob/master/LICENSE.txt" target="_blank" rel="noopener">https://github.com/nowar-fonts/Nowar-Rounded/blob/master/LICENSE.txt</a></td>
+<td>有爱圆体。<a href="https://github.com/nowar-fonts/Nowar-Rounded/blob/master/LICENSE.txt" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>自由香港楷書。<a href="https://freehkfonts.opensource.hk/download/" target="_blank" rel="noopener">https://freehkfonts.opensource.hk/download/</a></td>
+<td>自由香港楷書。<a href="https://freehkfonts.opensource.hk/download/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>jf open 粉圓字型。<a href="https://justfont.com/huninn/" target="_blank" rel="noopener">https://justfont.com/huninn/</a></td>
+<td>jf open 粉圓字型。<a href="https://justfont.com/huninn/" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 <tr>
 <td>其他</td>
-<td>思源屏显臻宋.<a href="https://bbs.themex.net/showthread.php?t=16906226" target="_blank" rel="noopener">https://bbs.themex.net/showthread.php?t=16906226</a></td>
+<td>思源屏显臻宋.<a href="https://bbs.themex.net/showthread.php?t=16906226" target="_blank" rel="noopener">授权出处,点我查看</a></td>
 </tr>
 </tbody></table>
 <p>(2) 将字体放到你博客的相关目录，理论上哪里都可以，但是要注意引入路径。</p>
