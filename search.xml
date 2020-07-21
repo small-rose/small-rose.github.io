@@ -3709,7 +3709,7 @@ Application not Found
 <p>找到对应的模板 <code>header.ejs</code>中的代码片段使用即可：</p>
 </li>
 </ul>
-<pre class=" language-ejs"><code class="language-ejs"><span class="logo-span diyFont"><%= config.title %></span></code></pre>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>logo-span diyFont<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>&lt;%= config.title %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
 <br/>
 
 
