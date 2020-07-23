@@ -683,18 +683,18 @@ export PATH</code></pre><h2 id="3-让刚刚设置的环境变量生效"><a href=
 <td><a href="https://mybatis.org/mybatis-3/" target="_blank" rel="noopener">https://mybatis.org/mybatis-3/</a></td>
 </tr>
 <tr>
-<td>#### 服务相关</td>
-<td></td>
+<td>slf4j</td>
+<td><a href="http://www.slf4j.org" target="_blank" rel="noopener">http://www.slf4j.org</a></td>
 </tr>
+</tbody></table>
+<h4 id="服务相关"><a href="#服务相关" class="headerlink" title="服务相关"></a>服务相关</h4><table>
+<thead>
 <tr>
-<td>网站</td>
-<td>地址</td>
+<th>网站</th>
+<th>地址</th>
 </tr>
-<tr>
-<td>—————</td>
-<td>——————————————–</td>
-</tr>
-<tr>
+</thead>
+<tbody><tr>
 <td>APACHE官网</td>
 <td><a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a></td>
 </tr>
@@ -4517,7 +4517,21 @@ function openOrClose(){
 <br/>
 
 <p><strong>相关文章</strong></p>
-<p><a href="9f117b.html">Hexo搭建静态博客（一）——基础搭建</a><br><a href="c1358fc8.html">Hexo搭建静态博客（二）——创建页面</a><br><a href="a5bf7e18.html">Hexo搭建静态博客（三）——主题更换</a><br><a href="cda13ebe.html">Hexo搭建静态博客（四）——插件安装</a><br><a href="ce4a93ff.html">Hexo搭建静态博客（五）——踩坑问题</a><br><a href="c68d7a69.html">Hexo搭建静态博客（六）——项目部署</a><br><a href="1c633c7e.html">Hexo搭建静态博客（七）——客服与推送</a><br><a href="caf66d5e.html">Hexo添加Live2D二次元老婆</a><br><a href="358175a6.html">Hexo博客Valine-Admin踩坑记录</a><br><a href="40099453.html">Hexo博客Matery主题valine升级与优化</a><br><a href="a53a9069.html">Hexo博客Matery主题新手常见问题</a><br><a href="5a2c12e2.html">Hexo博客添加思维导图渲染</a></p>
+<ul>
+<li><a href="9f117b.html">Hexo搭建静态博客（一）——基础搭建</a></li>
+<li><a href="c1358fc8.html">Hexo搭建静态博客（二）——创建页面</a></li>
+<li><a href="a5bf7e18.html">Hexo搭建静态博客（三）——主题更换</a></li>
+<li><a href="cda13ebe.html">Hexo搭建静态博客（四）——插件安装</a></li>
+<li><a href="ce4a93ff.html">Hexo搭建静态博客（五）——踩坑问题</a></li>
+<li><a href="c68d7a69.html">Hexo搭建静态博客（六）——项目部署</a></li>
+<li><a href="1c633c7e.html">Hexo搭建静态博客（七）——客服与推送</a></li>
+<li><a href="caf66d5e.html">Hexo添加Live2D二次元老婆</a></li>
+<li><a href="358175a6.html">Hexo博客Valine-Admin踩坑记录</a></li>
+<li><a href="40099453.html">Hexo博客Matery主题valine升级与优化</a></li>
+<li><a href="a53a9069.html">Hexo博客Matery主题新手常见问题</a></li>
+<li><a href="5a99eb4d.html">Hexo博客Matery主题添加多级分类</a></li>
+<li><a href="5a2c12e2.html">Hexo博客添加思维导图渲染</a></li>
+</ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>Hexo</category>
@@ -15132,6 +15146,601 @@ scheduler<span class="token punctuation">.</span><span class="token function">ge
       </categories>
       <tags>
         <tag>Quartz</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot 日志学习</title>
+    <url>/posts/c74d2d29.html</url>
+    <content><![CDATA[<h2 id="SpringBoot-日志学习"><a href="#SpringBoot-日志学习" class="headerlink" title="SpringBoot 日志学习"></a>SpringBoot 日志学习</h2><h3 id="一、-日志框架了解"><a href="#一、-日志框架了解" class="headerlink" title="一、 日志框架了解"></a>一、 日志框架了解</h3><p>Log4j、Log4j2<br>Logback<br>Slf4j<br>JCL (Jakarta Commons Logging)，也叫 Apache Common logging<br>JUL (java.util.logging)</p>
+<p>其中，JCL（Commons Logging） 和 Slf4j 是属于日志门面。日志门面是一种软件设计模式，也叫正面模式或外观模式。门面对外提供统一的抽象层接口，真正的日志实现子系统只要实现抽象接口即可。调用者可以使用统一的调用API，不需要的关心子系统是如何实现，实现解耦。如果真正的实现子系统可以根据需要进行更换或升级，而不修改原有调用代码。</p>
+<p>整理表格1：</p>
+<table>
+<thead>
+<tr>
+<th>日志门面（抽象层，本身无日志实现）</th>
+<th>日志实现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Jakarta Commons Logging， Slf4j</td>
+<td>log4j，logback，log4j2，Jul（Java Util Logging）</td>
+</tr>
+</tbody></table>
+<p>在实际使用时：门面 + 实现 。</p>
+<p>整理表格2：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Jakarta Commons Logging / Commons Logging</td>
+<td>Apache项目，提供一套日志接口，属于日志门面。</td>
+</tr>
+<tr>
+<td>Slf4j</td>
+<td>类似Commons Logging 也是日志接口，属于日志门面。较优于前者。</td>
+</tr>
+<tr>
+<td>Logback</td>
+<td>日志记录组件的实现。与Slf4j是同一作者，高兼容，必须配合Slf4j使用。</td>
+</tr>
+<tr>
+<td>Log4j</td>
+<td>日志记录组件工具实现，日志实现框架之一。</td>
+</tr>
+<tr>
+<td>Log4j2</td>
+<td>Log4j的升级版，且不兼容前者。</td>
+</tr>
+<tr>
+<td>Jul（Java Util Logging）</td>
+<td>java1.4 之后的官方日志实现。</td>
+</tr>
+<tr>
+<td>jboss-logging</td>
+<td>日志的抽象层。</td>
+</tr>
+</tbody></table>
+<h3 id="二、常见-Commons-Logging-集成"><a href="#二、常见-Commons-Logging-集成" class="headerlink" title="二、常见 Commons Logging 集成"></a>二、常见 Commons Logging 集成</h3><p>现在slf4j的优势出来之后，相对的就会逐渐代替旧的 <code>Commons Logging</code> 的集成方式，但是学习了解不可少，万一你遇到了项目里就是用了呢，你能否看得懂项目里的配置日志集成吗？</p>
+<table>
+<thead>
+<tr>
+<th>集成组合</th>
+<th>所需Jar包</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>commons-logging 与 jdk-logging</td>
+<td>commons-logging.jar</td>
+</tr>
+<tr>
+<td>commons-logging 与 Log4j</td>
+<td>commons-logging.jar <br/>log4j 基本包</td>
+</tr>
+<tr>
+<td>commons-logging 与 Log4j2</td>
+<td>commons-logging.jar <br/>log4j-api<br/>log4j-core<br/>log4j-jcl (集成转换适配)</td>
+</tr>
+<tr>
+<td>commons-logging 与 logback</td>
+<td>logback-core <br/>logback-classic <br/>slf4j-api <br/></td>
+</tr>
+</tbody></table>
+<p>对于 <code>commons-logging</code> 与 <code>logback</code> 的组合，我表示存疑，logback 属于slf4j阵营，这个组合待考…</p>
+<h3 id="三、Slf4j-使用与集成"><a href="#三、Slf4j-使用与集成" class="headerlink" title="三、Slf4j 使用与集成"></a>三、Slf4j 使用与集成</h3><h4 id="1、基本使用"><a href="#1、基本使用" class="headerlink" title="1、基本使用"></a>1、基本使用</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span>Logger<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span>LoggerFactory<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Logger logger <span class="token operator">=</span> LoggerFactory<span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span>HelloWorld<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="2、Slf4j-集成关系图"><a href="#2、Slf4j-集成关系图" class="headerlink" title="2、Slf4j 集成关系图"></a>2、Slf4j 集成关系图</h4><p>Slf4j 官网</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/springboot-images/concrete-bindings.png" alt="Slf4g集成关系图"></p>
+<p>将写成表格：</p>
+<table>
+<thead>
+<tr>
+<th>Slf4j 集成</th>
+<th>集成所需jar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Slf4j 与 logback</td>
+<td>slf4j-api.jar<br/>logback-core.jar <br/>logback-classic.jar</td>
+</tr>
+<tr>
+<td>Slf4j 与 log4j</td>
+<td>slf4j-api.jar<br/>log4j.jar<br/>slf4j-log4j12.jar （slf4j 和 log4j 的桥接）</td>
+</tr>
+<tr>
+<td>Slf4j 与 jdk logging</td>
+<td>slf4j-api.jar<br/>slf4j-jdkxxx.jar（slf4j 和 jdk logging 的桥接）</td>
+</tr>
+<tr>
+<td>Slf4j 与 Simple</td>
+<td>slf4j-api.jar<br/>slf4j-simple.jar</td>
+</tr>
+<tr>
+<td>Slf4j 与 Nop</td>
+<td>slf4j-api.jar<br/>slf4j-nop.jar （slf4j 和 NOP 的桥接）</td>
+</tr>
+</tbody></table>
+<p>使用 Slf4j 之后，每个日志实现框架，需要自己本身的配置文件。</p>
+<h4 id="3、Slf4j-桥接遗留API"><a href="#3、Slf4j-桥接遗留API" class="headerlink" title="3、Slf4j 桥接遗留API"></a>3、Slf4j 桥接遗留API</h4><p>在实际使用中，引入不同的组件，组件自身会携带日志组件，如果需要统一使用某个日志门面如 Slf4j ，就需要把其他的日志组件重定向到我们想使用的日志门面Slf4j管理。然后 Slf4j 会根据绑定器，使用具体的日志实现框架。</p>
+<p>官方桥接策略图：</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/springboot-images/legacy.png" alt=" Slf4j 桥接遗留适配图"></p>
+<p>Slf4j 自带了几个桥接模板，可以使Log4j，JCL和Java.util.logging的API重定向 Slf4j。</p>
+<table>
+<thead>
+<tr>
+<th>桥接适配包</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>log4j-over-slf4j-xxx.jar</td>
+<td>将 Log4j c重定向到 Slf4j</td>
+</tr>
+<tr>
+<td>jcl-over-slf4j-xxx.jar</td>
+<td>将 Commons Logging 里 Simple Logger 重定向到 Slf4j</td>
+</tr>
+<tr>
+<td>jul-to-slf4j-xxx.jar</td>
+<td>将 Java Uitl Logging 重定向到 Slf4j</td>
+</tr>
+</tbody></table>
+<p><strong>使用 Slf4j 桥接时注意避免冲突和死循环问题：</strong></p>
+<p>（1）log4j-over-slf4j-xxx.jar 和 slf4j-log4j.jar 同时存在，slf4j-log4j12.jar 的存在会将所有日志调用委托给log4j。但由于同时由于log4j-over-slf4j.jar的存在，会将所有对log4j api的调用委托给相应等值的slf4j,所以log4j-over-slf4j.jar和slf4j-log4j12.jar同时存在会形成死循环。</p>
+<p>（2）jul-to-slf4j-xxx.jar 和 slf4j-jdkxxx.jar 同时存在，slf4j-jdk14.jar的存在会将所有日志调用委托给jdk的log。但由于同时jul-to-slf4j.jar的存在，会将所有对jul api的调用委托给相应等值的slf4j，所以jul-to-slf4j.jar和slf4j-jdk14.jar同时存在会形成死循环。</p>
+<p><strong>如何让系统中所有的日志都统一到 Slf4j ？</strong></p>
+<ul>
+<li>1、将系统中其他日志框架先排除出去；</li>
+<li>2、用中间包来替换原有的日志框架；</li>
+<li>3、导入slf4j其他的实现</li>
+</ul>
+<p>更多内容参考 <a href="https://www.slf4j.org" target="_blank" rel="noopener">Slf4j 官网</a></p>
+<h3 id="四、SpringBoot-日志使用"><a href="#四、SpringBoot-日志使用" class="headerlink" title="四、SpringBoot 日志使用"></a>四、SpringBoot 日志使用</h3><h4 id="1、SpringBoot-日志"><a href="#1、SpringBoot-日志" class="headerlink" title="1、SpringBoot 日志"></a>1、SpringBoot 日志</h4><p>（1）基本依赖</p>
+<p>SpringBoot的启动器</p>
+<pre class=" language-xml"><code class="language-xml"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+<p>SpringBoot移动器的依赖中使用 日志功能；</p>
+<pre class=" language-xml"><code class="language-xml">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-logging<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+<p>SpringBoot 底层依赖关系：</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/springboot-images/springboot-log.png" alt="Slf4g集成关系图"></p>
+<p>SpringBoot底层也是使用 <code>slf4j</code> + <code>logback</code> 的方式进行日志记录。</p>
+<p>SpringBoot也把其他的日志都替换成了slf4j，使用了桥接中间包替换了原来框架的日志。</p>
+<p>如果要引入其他框架，一定要把这个框架的默认日志依赖移除掉，比如：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusions</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusion</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>commons-logging<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>commons-logging<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusion</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusions</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+<p>SpringBoot能自动适配所有的日志，而且底层使用 slf4j + logback 的方式记录日志，引入其他框架的时候，只需要把这个框架依赖的日志框架排除掉即可。</p>
+<p>（2）logback</p>
+<p>logback 主要有三个模块：</p>
+<ul>
+<li>logback-core：基础日志功能。</li>
+<li>logback-classic：log4j的升级，对日志门面 Slf4j API 进行具体实现。</li>
+<li>logback-access：用于Servlet 容器进行基础、提供网络访问日志功能。</li>
+</ul>
+<p>logback 主要包含三个组成部分：</p>
+<ul>
+<li>Logger - 日志记录器</li>
+<li>Appenders - 输出控制器</li>
+<li>Layouts - 日志输出格式管理</li>
+</ul>
+<h4 id="2、SpringBoot-日志配置"><a href="#2、SpringBoot-日志配置" class="headerlink" title="2、SpringBoot 日志配置"></a>2、SpringBoot 日志配置</h4><h5 id="（1）默认日志"><a href="#（1）默认日志" class="headerlink" title="（1）默认日志"></a>（1）默认日志</h5><p>SpringBoot默认帮配置好了日志，默认的日志级别是 <code>info</code></p>
+<p>日志的级别由低到高：  <strong>trace &lt; debug &lt; info &lt; warn &lt; error</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//记录器</span>
+    Logger logger <span class="token operator">=</span> LoggerFactory<span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">contextLoads</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//System.out.println();</span>
+
+        <span class="token comment" spellcheck="true">//可以调整输出的日志级别；日志就只会在这个级别以以后的高级别生效</span>
+        logger<span class="token punctuation">.</span><span class="token function">trace</span><span class="token punctuation">(</span><span class="token string">"这是trace日志..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"这是debug日志..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//SpringBoot默认给我们使用的是info级别的，没有指定级别的就用SpringBoot默认规定的级别；root级别</span>
+        logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"这是info日志..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        logger<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"这是warn日志..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        logger<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"这是error日志..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>日志输出格式：</p>
+<p><code>%d</code> 表示日期时间，<br><code>%thread</code> - 表示线程名，<br><code>%-5level</code> - 级别从左显示5个字符宽度<br><code>%logger{50}</code> - 表示logger名字最长50个字符，否则按照句点分割。<br><code>%msg</code> -  日志消息，<br><code>%n</code> - 是换行符</p>
+<p>如：</p>
+<pre class=" language-txt"><code class="language-txt">%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</code></pre>
+<p>SpringBoot修改日志的默认配置</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">logging.level.com.smallrose</span><span class="token punctuation">=</span><span class="token attr-value">trace</span>
+
+
+<span class="token comment" spellcheck="true">#logging.path=</span>
+<span class="token comment" spellcheck="true"># 不指定路径在当前项目下生成springboot.log日志</span>
+<span class="token comment" spellcheck="true"># 可以指定完整的路径；</span>
+<span class="token comment" spellcheck="true">#logging.file=G:/springboot.log</span>
+
+<span class="token comment" spellcheck="true"># 在当前磁盘的根路径下创建spring文件夹和里面的log文件夹；使用 spring.log 作为默认文件</span>
+<span class="token attr-name">logging.path</span><span class="token punctuation">=</span><span class="token attr-value">/spring/log</span>
+
+<span class="token comment" spellcheck="true">#  在控制台输出的日志的格式</span>
+<span class="token attr-name">logging.pattern.console</span><span class="token punctuation">=</span><span class="token attr-value">%d{yyyy-MM-dd} [%thread] %-5level %logger{50} - %msg%n</span>
+<span class="token comment" spellcheck="true"># 指定文件中日志输出的格式</span>
+<span class="token attr-name">logging.pattern.file</span><span class="token punctuation">=</span><span class="token attr-value">%d{yyyy-MM-dd} === [%thread] === %-5level === %logger{50} ==== %msg%n</span></code></pre>
+<p><strong>logging.file 和 logging.path :</strong></p>
+<table>
+<thead>
+<tr>
+<th>logging.file</th>
+<th>logging.path</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(none)</td>
+<td>(none)</td>
+<td></td>
+<td>只在控制台输出</td>
+</tr>
+<tr>
+<td>指定文件名</td>
+<td>(none)</td>
+<td>my.log</td>
+<td>输出日志到my.log文件</td>
+</tr>
+<tr>
+<td>(none)</td>
+<td>指定目录</td>
+<td>/var/log</td>
+<td>输出到指定目录的 spring.log 文件中</td>
+</tr>
+</tbody></table>
+<p><code>logging.file</code> 和  <code>logging.path</code> 二者选其一即可。如果都配置了，<code>logging.file</code> 会生效。</p>
+<h5 id="（2）指定配置"><a href="#（2）指定配置" class="headerlink" title="（2）指定配置"></a>（2）指定配置</h5><p>类路径下放上每个日志框架自己的配置文件即可；SpringBoot就不使用他默认配置的了</p>
+<table>
+<thead>
+<tr>
+<th>Logging System</th>
+<th>Customization</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Logback</td>
+<td><code>logback-spring.xml</code>, <code>logback-spring.groovy</code>, <code>logback.xml</code> or <code>logback.groovy</code></td>
+</tr>
+<tr>
+<td>Log4j2</td>
+<td><code>log4j2-spring.xml</code> or <code>log4j2.xml</code></td>
+</tr>
+<tr>
+<td>JDK (Java Util Logging)</td>
+<td><code>logging.properties</code></td>
+</tr>
+</tbody></table>
+<p>logback.xml：直接就被日志框架识别了；</p>
+<p><strong>logback-spring.xml</strong>：日志框架就不直接加载日志的配置项，由SpringBoot解析日志配置，可以使用SpringBoot的高级Profile功能，也是官方推荐的方式。</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>staging<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- configuration to be enabled when the "staging" profile is active --></span>
+      可以指定某段配置只在某个环境下生效
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dev, staging<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- configuration to be enabled when the "dev" or "staging" profiles are active --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>!production<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- configuration to be enabled when the "production" profile is not active --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">></span></span></code></pre>
+<p>使用示例如：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stdout<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ch.qos.logback.core.ConsoleAppender<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>layout</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ch.qos.logback.classic.PatternLayout<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dev<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">></span></span>%d{yyyy-MM-dd HH:mm:ss.SSS} ----> [%thread] ---> %-5level %logger{50} - %msg%n<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>!dev<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">></span></span>%d{yyyy-MM-dd HH:mm:ss.SSS} ==== [%thread] ==== %-5level %logger{50} - %msg%n<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>layout</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">></span></span></code></pre>
+<p>如果使用logback.xml作为日志配置文件，还要使用profile功能，会报错 ：<code>no applicable action for [springProfile]</code></p>
+<h4 id="3、日志框架切换"><a href="#3、日志框架切换" class="headerlink" title="3、日志框架切换"></a>3、日志框架切换</h4><p>可以按照 Slf4j 桥接遗留适配图 ，进行相关的切换；</p>
+<p>(1) <code>slf4j+log4j</code>的方式 :</p>
+<p>使用 <code>slf4j+log4j</code> 的方式需要排除 <code>logback</code> 和 自身携带的 log4j到slf4j 的桥接包 <code>log4j-over-slf4j</code>，同时要引入</p>
+<p>观察 slf4j 集成整理的表格里 Slf4j 与 log4j 集成，需要 slf4j-api.jar 、log4j.jar 以及slf4j 和 log4j 的桥接包 slf4j-log4j12.jar ，springboot 默认已有前者两者，需要引入桥接包 <code>slf4j-log4j12</code></p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusions</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusion</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>logback-classic<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>ch.qos.logback<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusion</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusion</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>log4j-over-slf4j<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.slf4j<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusion</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusions</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.slf4j<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>slf4j-log4j12<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+<p>切换为log4j2 ：</p>
+<p>springboot 支持的日志框架:<code>spring-boot-starter-log4j2</code> 和 <code>spring-boot-starter-logging</code> ，后者为默认，若要使用前者则，直接排除后者即可。 <a href="https://docs.spring.io/spring-boot/docs/2.2.8.RELEASE/reference/html/using-spring-boot.html#using-boot" target="_blank" rel="noopener">官网说明</a> 。</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusions</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusion</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-logging<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusion</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusions</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-log4j2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+<p>参考文章：</p>
+<p><a href="https://segmentfault.com/a/1190000017909301" target="_blank" rel="noopener">https://segmentfault.com/a/1190000017909301</a> </p>
+<p>硅谷springboot 日志相关视频教程</p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.2.8.RELEASE/reference/html/using-spring-boot.html#using-boot" target="_blank" rel="noopener">springboot 官网</a> </p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>Loging</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>YAML 语法学习</title>
+    <url>/posts/bb845937.html</url>
+    <content><![CDATA[<h2 id="YAML语法学习"><a href="#YAML语法学习" class="headerlink" title="YAML语法学习"></a>YAML语法学习</h2><p>其实 <code>YAML</code> 并不是springboot 特有语法，比如 Hexo 的配置文件都是这种格式，只是一时又不好归类，就先放到springboot 里了。</p>
+<h3 id="一、基本语法"><a href="#一、基本语法" class="headerlink" title="一、基本语法"></a>一、基本语法</h3><p> <code>YAML</code> 是以键值对的方式书写代码块的，支持多层级，对象数组等集合元素。</p>
+<p>基本格式：</p>
+<pre class=" language-yml"><code class="language-yml">key: value
+key:
+    key2: value2
+    key2：
+        key3: value3</code></pre>
+<p><code>key:  value</code>：表示一对键值对（冒号后面必须有空格）；属性键和对应的值是大小写敏感的。</p>
+<p>上述写法等价于 <code>properties</code> 格式：</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">key</span><span class="token punctuation">=</span><span class="token attr-value">value</span>
+<span class="token attr-name">key.key2</span><span class="token punctuation">=</span><span class="token attr-value">value2</span>
+<span class="token attr-name">key.key2.key3</span><span class="token punctuation">=</span><span class="token attr-value">value3</span></code></pre>
+<p><code>YAML</code> 以空格的缩进来控制层级关系；只要是左对齐的一列数据，都是同一个层级的，比如</p>
+<pre class=" language-yml"><code class="language-yml">server:
+    port: 8080
+    servlet:
+        context-path: /dbcm
+        session:
+            timeout: 1800s</code></pre>
+<h3 id="二、特殊的值"><a href="#二、特殊的值" class="headerlink" title="二、特殊的值"></a>二、特殊的值</h3><h4 id="1、单引号和双引号"><a href="#1、单引号和双引号" class="headerlink" title="1、单引号和双引号"></a>1、单引号和双引号</h4><p>一般的键和值都是字面量和普通的值（数字，字符串，布尔）组成。字符串默认不带单引号<code>&#39; &#39;</code>或双引号 <code>&quot; &quot;</code>。</p>
+<ul>
+<li><code>&#39;&#39;</code> : 单引号，会转义特殊字符，特殊字符会解析成普通的字符串数据。</li>
+<li><code>&quot; &quot;</code> ：双引号，不会转义字符串里面的特殊字符。特殊字符表达解析成原本的含义。</li>
+</ul>
+<p>如单引号示例：</p>
+<pre class=" language-yml"><code class="language-yml">xiaocai:
+    name: 'small \n rose' </code></pre>
+<p>解析之后得到的 name 值就是：</p>
+<pre class=" language-txt"><code class="language-txt"> small \n rose </code></pre>
+<p>双引号示例：</p>
+<pre class=" language-yml"><code class="language-yml">xiaocai:
+    name: "small \n rose" </code></pre>
+<p>解析之后得到的 name 值就是：</p>
+<pre class=" language-txt"><code class="language-txt">small
+rose</code></pre>
+<h4 id="2、数组与集合"><a href="#2、数组与集合" class="headerlink" title="2、数组与集合"></a>2、数组与集合</h4><p>（1）对象</p>
+<p>对象依然是键值对的方式:</p>
+<pre class=" language-yml"><code class="language-yml">user:
+    name: smale-rose
+    email: small-rose@qq.com</code></pre>
+<p>也可以使用类似 map 的行间方式书写：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">user</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> smale<span class="token punctuation">-</span>rose<span class="token punctuation">,</span> <span class="token key atrule">email</span><span class="token punctuation">:</span> small<span class="token punctuation">-</span>rose@qq.com<span class="token punctuation">}</span></code></pre>
+<p>注意冒号后面的空格。</p>
+<p>（2）数组或集合</p>
+<p>用 <code>-</code> 值表示数组中的一个元素。</p>
+<p>如：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">fruits</span><span class="token punctuation">:</span>
+  ‐ apple
+  ‐ pear
+  ‐ banana
+  ‐ watermelon</code></pre>
+<p>也可以使用类似 list 的行间方式书写：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">fruits</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>apple<span class="token punctuation">,</span> pear<span class="token punctuation">,</span> banana<span class="token punctuation">,</span> watermelon<span class="token punctuation">]</span></code></pre>
+<h3 id="三、文档块特征"><a href="#三、文档块特征" class="headerlink" title="三、文档块特征"></a>三、文档块特征</h3><p>YAML 的文档块的特征，可以很好的配合 SpringBoot 的 <code>Profile</code> 特征。</p>
+<p>YAML 文档使用  <code>---</code> 进行分割文档块。</p>
+<p>比如：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
+    <span class="token key atrule">active</span><span class="token punctuation">:</span> dev    
+<span class="token punctuation">---</span>
+
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8081</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
+    <span class="token key atrule">active</span><span class="token punctuation">:</span> dev
+<span class="token punctuation">---</span>
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">9090</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
+    <span class="token key atrule">active</span><span class="token punctuation">:</span> prod</code></pre>
+<p>示例中在第一个文档块激活了 <code>dev</code> 环境，应用启动之后使用端口是 8081。</p>
+<h3 id="四：占位符"><a href="#四：占位符" class="headerlink" title="四：占位符"></a>四：占位符</h3><h4 id="1、随机数"><a href="#1、随机数" class="headerlink" title="1、随机数"></a>1、随机数</h4><pre class=" language-yaml"><code class="language-yaml">$<span class="token punctuation">{</span>random.value<span class="token punctuation">}</span>、
+$<span class="token punctuation">{</span>random.uuid<span class="token punctuation">}</span>、
+$<span class="token punctuation">{</span>random.int<span class="token punctuation">}</span>、
+$<span class="token punctuation">{</span>random.long<span class="token punctuation">}</span>
+$<span class="token punctuation">{</span>random.int(10)<span class="token punctuation">}</span>、
+$<span class="token punctuation">{</span>random.int<span class="token punctuation">[</span><span class="token number">1024</span><span class="token punctuation">,</span><span class="token number">65536</span><span class="token punctuation">]</span><span class="token punctuation">}</span></code></pre>
+<h4 id="2、占位符取值"><a href="#2、占位符取值" class="headerlink" title="2、占位符取值"></a>2、占位符取值</h4><p>占位符获取之前配置的值，如果没有可以是用 <code>:</code> 指定默认值。</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">user</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> smale<span class="token punctuation">-</span>rose
+    <span class="token key atrule">email</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>random.value<span class="token punctuation">}</span>_small<span class="token punctuation">-</span>rose@qq.com
+    <span class="token key atrule">age</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>random.int<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    <span class="token key atrule">addr</span><span class="token punctuation">:</span> Address_$<span class="token punctuation">{</span><span class="token key atrule">user.name</span><span class="token punctuation">:</span> no_user<span class="token punctuation">}</span>
+    <span class="token key atrule">last_name</span><span class="token punctuation">:</span> LastName_$<span class="token punctuation">{</span><span class="token key atrule">user.lastName</span><span class="token punctuation">:</span> no_user<span class="token punctuation">}</span></code></pre>
+<h3 id="五、配置与JavaBean-绑定"><a href="#五、配置与JavaBean-绑定" class="headerlink" title="五、配置与JavaBean 绑定"></a>五、配置与JavaBean 绑定</h3><h4 id="1、绑定示例"><a href="#1、绑定示例" class="headerlink" title="1、绑定示例"></a>1、绑定示例</h4><p>（1）可以引入配置文件处理</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!‐‐导入配置文件处理器，配置文件进行绑定就会有提示‐‐</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring‐boot‐configuration‐processor<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>optional</span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>optional</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span> </code></pre>
+<p>（2）对应 <code>application.yaml</code>  的 配置</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">initvalue</span><span class="token punctuation">:</span>
+    <span class="token key atrule">evn</span><span class="token punctuation">:</span> prod
+    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+    <span class="token key atrule">flag</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+    <span class="token key atrule">dbTypeIdList</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> <span class="token number">1</span>
+            <span class="token punctuation">-</span> <span class="token number">2</span>
+            <span class="token punctuation">-</span> <span class="token number">3</span></code></pre>
+<p>（3）使用注解 <code>@ConfigurationProperties</code> 进行绑定</p>
+<p>比如我这个示例是实际项目有一些初始化配置值，字段特别多，作为示例，选几个：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"initvalue"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">InitValueConfig</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> String evn <span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> String port <span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> List<span class="token operator">&lt;</span>Long<span class="token operator">></span> dbTypeIdList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Long<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+     <span class="token keyword">private</span> <span class="token keyword">boolean</span> flag<span class="token punctuation">;</span>
+     <span class="token comment" spellcheck="true">// setter getter ...</span>
+<span class="token punctuation">}</span></code></pre>
+<p>注意： <strong>@ConfigurationProperties(prefix = “initvalue”) ** 表示默认从全局配置文件中获取值；如果 initvalue 前缀的配置放在另外的 <code>initvalue.yml</code> 文件中，则需要添加  *<em><code>@PropertySource(&quot;classpath:initvalue.yml&quot;)</code> *</em> 表示从指定的配置中查找对应的前缀，可以指定多个配置文件  **<code>@PropertySource({&quot;classpath:initvalue.yml&quot;,&quot;classpath:initvalue2.yml&quot;})</code></strong> </p>
+<p>如果是properties文件，同理：</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">initvalue.evn</span><span class="token punctuation">=</span><span class="token attr-value">prod</span>
+<span class="token attr-name">initvalue.port</span><span class="token punctuation">:</span> <span class="token attr-value">8080</span>
+<span class="token attr-name">initvalue.dbTypeIdList[0]</span><span class="token punctuation">=</span><span class="token attr-value">1</span>
+<span class="token attr-name">initvalue.dbTypeIdList[1]</span><span class="token punctuation">=</span><span class="token attr-value">2</span>
+<span class="token attr-name">initvalue.dbTypeIdList[2]</span><span class="token punctuation">=</span><span class="token attr-value">3</span>
+<span class="token attr-name">initvalue.flag</span><span class="token punctuation">=</span><span class="token attr-value">false</span></code></pre>
+<p>也可以进行绑定：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@PropertySource</span><span class="token punctuation">(</span><span class="token string">"classpath:initvalue.properties"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"initvalue"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">InitValueConfig</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> String evn <span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> String port <span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> List<span class="token operator">&lt;</span>Long<span class="token operator">></span> dbTypeIdList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Long<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> flag<span class="token punctuation">;</span>
+     <span class="token comment" spellcheck="true">// setter getter ...</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>@ConfigurationProperties(prefix = “initvalue”)</strong> ：默认从全局配置文件中获取值；</p>
+<p><strong>@PropertySource</strong> ：表示加载指定的配置文件来映射绑定；</p>
+<p><strong>@ImportResource</strong>：导入Spring的配置文件，让配置文件里面的内容生效；</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@ImportResource</span><span class="token punctuation">(</span>locations <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"classpath:beans.xml"</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>当然 springboot  推荐使用注解<code>@Configuration</code> 和 <code>@Bean</code> ：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BeanConfig</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> Filter <span class="token function">validatorFilter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> FileNotFoundException<span class="token punctuation">{</span> 
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"-------------load validatorFilter---------------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ValidatorFilter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="2、取值方式"><a href="#2、取值方式" class="headerlink" title="2、取值方式"></a>2、取值方式</h4><p>获取值除了<code>@ConﬁgurationProperties</code> 还可以使用<code>@Value</code> 获取。</p>
+<p>比如：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">InitValueConfig</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"${initvalue.evn}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> String evn <span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"${initvalue.port}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> String port <span class="token punctuation">;</span>
+
+     <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"#{'${initvalue.list}'.split(',')}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> List<span class="token operator">&lt;</span>Long<span class="token operator">></span> dbTypeIdList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Long<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"#{${initvalue.maps}}"</span><span class="token punctuation">)</span>  
+    <span class="token keyword">private</span> Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>String<span class="token operator">></span> maps<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"${initvalue.flag}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> flag<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"#{${webServiceMap}}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>String<span class="token operator">></span> webServiceMap<span class="token punctuation">;</span>
+     <span class="token comment" spellcheck="true">// setter getter ...</span>
+<span class="token punctuation">}</span></code></pre>
+<p>对应的 <code>YAML</code> 为</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">initvalue</span><span class="token punctuation">:</span>
+    <span class="token key atrule">evn</span><span class="token punctuation">:</span> prod
+    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+    <span class="token key atrule">flag</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+    <span class="token key atrule">list</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span>
+    <span class="token key atrule">maps</span><span class="token punctuation">:</span> "<span class="token punctuation">{</span><span class="token key atrule">key1</span><span class="token punctuation">:</span> <span class="token string">'value1'</span><span class="token punctuation">,</span> <span class="token key atrule">key2</span><span class="token punctuation">:</span> <span class="token string">'value2'</span><span class="token punctuation">}</span>"
+    <span class="token key atrule">webServiceMap</span><span class="token punctuation">:</span> "<span class="token punctuation">{</span><span class="token key atrule">webServiceURL</span><span class="token punctuation">:</span> <span class="token string">'http://web.com.server/xxx'</span><span class="token punctuation">,</span> <span class="token key atrule">success</span><span class="token punctuation">:</span> <span class="token string">'0000'</span><span class="token punctuation">,</span><span class="token key atrule">filePath</span><span class="token punctuation">:</span> <span class="token string">'/home/file/'</span><span class="token punctuation">}</span>"</code></pre>
+<p>取值方式比较</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>@value</th>
+<th>@ConfigurationProperties</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>功能</td>
+<td>批量注入配置文件中的属性</td>
+<td>一个个指定</td>
+</tr>
+<tr>
+<td>松散绑定（松散语法）</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>SpEL</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>JSR303数据校验</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>复杂类型封装</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+</tbody></table>
+<p>配置文件<code>yml</code> 或者 <code>properties</code> 二者都能获取到值；只获取一下配置文件中的某项值，使用@Value；参数较多时使用JavaBean来和配置文件进行绑定映射，可以直接使用<code>@ConﬁgurationProperties</code> 省去了一个个配置的麻烦。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>YAML</tag>
       </tags>
   </entry>
 </search>
