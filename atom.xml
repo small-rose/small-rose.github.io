@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-07-23T06:30:00.000Z</updated>
+  <updated>2020-07-25T13:30:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Thymeleaf 语法学习</title>
+    <link href="https://www.zhangxiaocai.cn/posts/9e1a85cd.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/9e1a85cd.html</id>
+    <published>2020-07-25T13:30:00.000Z</published>
+    <updated>2020-07-25T13:30:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringBoot-Thymeleaf-语法学习&quot;&gt;&lt;a href=&quot;#SpringBoot-Thymeleaf-语法学习&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot Thymeleaf  语法学习&quot;&gt;&lt;/a&gt;SpringBoot
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
+    
+      <category term="Thymeleaf" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/Thymeleaf/"/>
+    
+    
+      <category term="Thymeleaf" scheme="https://www.zhangxiaocai.cn/tags/Thymeleaf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot 静态资源配置</title>
+    <link href="https://www.zhangxiaocai.cn/posts/6de4ee20.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/6de4ee20.html</id>
+    <published>2020-07-25T06:30:00.000Z</published>
+    <updated>2020-07-25T06:30:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringBoot-静态资源配置&quot;&gt;&lt;a href=&quot;#SpringBoot-静态资源配置&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot 静态资源配置&quot;&gt;&lt;/a&gt;SpringBoot 静态资源配置&lt;/h2&gt;&lt;p&gt;在 SpringBo
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
+    
+    
+      <category term="static" scheme="https://www.zhangxiaocai.cn/tags/static/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringBoot 日志学习</title>
@@ -441,54 +491,6 @@
     
     
       <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mysql-Access denied for</title>
-    <link href="https://www.zhangxiaocai.cn/posts/7c170969.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/7c170969.html</id>
-    <published>2020-06-21T14:00:00.000Z</published>
-    <updated>2020-06-21T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Linux下MySQL的Access-denied-for-user&quot;&gt;&lt;a href=&quot;#Linux下MySQL的Access-denied-for-user&quot; class=&quot;headerlink&quot; title=&quot;Linux下MySQL的Access denie
-      
-    
-    </summary>
-    
-    
-      <category term="Mysql" scheme="https://www.zhangxiaocai.cn/categories/Mysql/"/>
-    
-    
-      <category term="Mysql" scheme="https://www.zhangxiaocai.cn/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DB2-常见ERRORCODE</title>
-    <link href="https://www.zhangxiaocai.cn/posts/9f154069.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/9f154069.html</id>
-    <published>2020-06-21T14:00:00.000Z</published>
-    <updated>2020-06-21T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;a href=&quot;#DB2-常见ERRORCODE&quot; class=&quot;headerlink&quot; title=&quot;DB2-常见ERRORCODE&quot;&gt;&lt;/a&gt;DB2-常见ERRORCODE&lt;/h2&gt;&lt;p&gt;对于常见的错误码，熟悉之后就可以快速
-      
-    
-    </summary>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/categories/DB2/"/>
-    
-    
-      <category term="DB2" scheme="https://www.zhangxiaocai.cn/tags/DB2/"/>
     
   </entry>
   
