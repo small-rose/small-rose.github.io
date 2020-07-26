@@ -35,8 +35,6 @@
     
       <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
     
-      <category term="Thymeleaf" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/Thymeleaf/"/>
-    
     
       <category term="Thymeleaf" scheme="https://www.zhangxiaocai.cn/tags/Thymeleaf/"/>
     
@@ -63,6 +61,30 @@
     
     
       <category term="static" scheme="https://www.zhangxiaocai.cn/tags/static/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Thymeleaf 内置对象</title>
+    <link href="https://www.zhangxiaocai.cn/posts/44478111.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/44478111.html</id>
+    <published>2020-07-25T06:30:00.000Z</published>
+    <updated>2020-07-25T06:30:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Thymeleaf-内置对象&quot;&gt;&lt;a href=&quot;#Thymeleaf-内置对象&quot; class=&quot;headerlink&quot; title=&quot;Thymeleaf  内置对象&quot;&gt;&lt;/a&gt;Thymeleaf  内置对象&lt;/h2&gt;&lt;p&gt;Thymeleaf 的内置对象主要有三类
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
+    
+    
+      <category term="Thymeleaf" scheme="https://www.zhangxiaocai.cn/tags/Thymeleaf/"/>
     
   </entry>
   
@@ -462,27 +484,6 @@
       
         &lt;h2 id=&quot;Matery-主题评论功能valine使用与升级&quot;&gt;&lt;a href=&quot;#Matery-主题评论功能valine使用与升级&quot; class=&quot;headerlink&quot; title=&quot;Matery 主题评论功能valine使用与升级&quot;&gt;&lt;/a&gt;Matery 主题评论功能v
       
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建静态博客（七）——客服与推送</title>
-    <link href="https://www.zhangxiaocai.cn/posts/1c633c7e.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/1c633c7e.html</id>
-    <published>2020-06-27T09:00:00.000Z</published>
-    <updated>2020-06-27T09:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      hexo博客的客服插件和推送插件相关。
     
     </summary>
     

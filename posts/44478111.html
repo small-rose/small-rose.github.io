@@ -1,0 +1,620 @@
+<!-- build time:Sun Jul 26 2020 19:33:01 GMT+0800 (中国标准时间) --><!DOCTYPE HTML><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><meta name="keywords" content="java,spring boot,spring boot Thymeleaf ,Thymeleaf 语法,Thymeleaf 教程,Thymeleaf教程,Thymeleaf 入门,Thymeleaf 进阶"><meta name="description" content="Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><meta name="renderer" content="webkit|ie-stand|ie-comp"><meta name="mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>Thymeleaf 内置对象 | 张小菜苔</title><link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/awesome/css/all.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/animate/animate.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/css/lightgallery.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/matery.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/my.css"><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/jquery/jquery.min.js"></script><style type="text/css" lang="css">#loading-container{position:fixed;top:0;left:0;min-height:100vh;width:100vw;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#FFF;text-align:center;-webkit-transition:opacity 1s ease;-moz-transition:opacity 1s ease;-o-transition:opacity 1s ease;transition:opacity 1s ease}.loading-image{width:120px;height:50px;transform:translate(-50%)}.loading-image div:nth-child(2){-webkit-animation:pacman-balls 1s linear 0s infinite;animation:pacman-balls 1s linear 0s infinite}.loading-image div:nth-child(3){-webkit-animation:pacman-balls 1s linear .33s infinite;animation:pacman-balls 1s linear .33s infinite}.loading-image div:nth-child(4){-webkit-animation:pacman-balls 1s linear .66s infinite;animation:pacman-balls 1s linear .66s infinite}.loading-image div:nth-child(5){-webkit-animation:pacman-balls 1s linear .99s infinite;animation:pacman-balls 1s linear .99s infinite}.loading-image div:first-of-type{width:0;height:0;border:25px solid #49b1f5;border-right-color:transparent;border-radius:25px;-webkit-animation:rotate_pacman_half_up .5s 0s infinite;animation:rotate_pacman_half_up .5s 0s infinite}.loading-image div:nth-child(2){width:0;height:0;border:25px solid #49b1f5;border-right-color:transparent;border-radius:25px;-webkit-animation:rotate_pacman_half_down .5s 0s infinite;animation:rotate_pacman_half_down .5s 0s infinite;margin-top:-50px}@-webkit-keyframes rotate_pacman_half_up{0%{transform:rotate(270deg)}50%{transform:rotate(1turn)}to{transform:rotate(270deg)}}@keyframes rotate_pacman_half_up{0%{transform:rotate(270deg)}50%{transform:rotate(1turn)}to{transform:rotate(270deg)}}@-webkit-keyframes rotate_pacman_half_down{0%{transform:rotate(90deg)}50%{transform:rotate(0)}to{transform:rotate(90deg)}}@keyframes rotate_pacman_half_down{0%{transform:rotate(90deg)}50%{transform:rotate(0)}to{transform:rotate(90deg)}}@-webkit-keyframes pacman-balls{75%{opacity:.7}to{transform:translate(-100px,-6.25px)}}@keyframes pacman-balls{75%{opacity:.7}to{transform:translate(-100px,-6.25px)}}.loading-image div:nth-child(3),.loading-image div:nth-child(4),.loading-image div:nth-child(5),.loading-image div:nth-child(6){background-color:#49b1f5;width:15px;height:15px;border-radius:100%;margin:2px;width:10px;height:10px;position:absolute;transform:translateY(-6.25px);top:25px;left:100px}.loading-text{margin-bottom:20vh;text-align:center;color:#2c3e50;font-size:2rem;box-sizing:border-box;padding:0 10px;text-shadow:0 2px 10px rgba(0,0,0,.2)}@media only screen and (max-width:500px){.loading-text{font-size:1.5rem}}.fadeout{opacity:0;filter:alpha(opacity=0)}@-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0)}}</style><script>!function(){const n=function(){setTimeout(function(){const n=document.getElementById("loading-container");n.className="fadeout",setTimeout(function(){n.style.display="none"},1200)},1e3)};n()}()</script><meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="张小菜苔" type="application/atom+xml"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><style type="text/css" lang="css">#loading-container{position:fixed;top:0;left:0;min-height:100vh;width:100vw;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#FFF;text-align:center;-webkit-transition:opacity 1s ease;-moz-transition:opacity 1s ease;-o-transition:opacity 1s ease;transition:opacity 1s ease}.loading-image{width:120px;height:50px;transform:translate(-50%)}.loading-image div:nth-child(2){-webkit-animation:pacman-balls 1s linear 0s infinite;animation:pacman-balls 1s linear 0s infinite}.loading-image div:nth-child(3){-webkit-animation:pacman-balls 1s linear .33s infinite;animation:pacman-balls 1s linear .33s infinite}.loading-image div:nth-child(4){-webkit-animation:pacman-balls 1s linear .66s infinite;animation:pacman-balls 1s linear .66s infinite}.loading-image div:nth-child(5){-webkit-animation:pacman-balls 1s linear .99s infinite;animation:pacman-balls 1s linear .99s infinite}.loading-image div:first-of-type{width:0;height:0;border:25px solid #49b1f5;border-right-color:transparent;border-radius:25px;-webkit-animation:rotate_pacman_half_up .5s 0s infinite;animation:rotate_pacman_half_up .5s 0s infinite}.loading-image div:nth-child(2){width:0;height:0;border:25px solid #49b1f5;border-right-color:transparent;border-radius:25px;-webkit-animation:rotate_pacman_half_down .5s 0s infinite;animation:rotate_pacman_half_down .5s 0s infinite;margin-top:-50px}@-webkit-keyframes rotate_pacman_half_up{0%{transform:rotate(270deg)}50%{transform:rotate(1turn)}to{transform:rotate(270deg)}}@keyframes rotate_pacman_half_up{0%{transform:rotate(270deg)}50%{transform:rotate(1turn)}to{transform:rotate(270deg)}}@-webkit-keyframes rotate_pacman_half_down{0%{transform:rotate(90deg)}50%{transform:rotate(0)}to{transform:rotate(90deg)}}@keyframes rotate_pacman_half_down{0%{transform:rotate(90deg)}50%{transform:rotate(0)}to{transform:rotate(90deg)}}@-webkit-keyframes pacman-balls{75%{opacity:.7}to{transform:translate(-100px,-6.25px)}}@keyframes pacman-balls{75%{opacity:.7}to{transform:translate(-100px,-6.25px)}}.loading-image div:nth-child(3),.loading-image div:nth-child(4),.loading-image div:nth-child(5),.loading-image div:nth-child(6){background-color:#49b1f5;width:15px;height:15px;border-radius:100%;margin:2px;width:10px;height:10px;position:absolute;transform:translateY(-6.25px);top:25px;left:100px}.loading-text{margin-bottom:20vh;text-align:center;color:#2c3e50;font-size:2rem;box-sizing:border-box;padding:0 10px;text-shadow:0 2px 10px rgba(0,0,0,.2)}@media only screen and (max-width:500px){.loading-text{font-size:1.5rem}}.fadeout{opacity:0;filter:alpha(opacity=0)}@-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0)}}</style><script>!function(){const n=function(){setTimeout(function(){const n=document.getElementById("loading-container");n.className="fadeout",setTimeout(function(){n.style.display="none"},1200)},1e3)};n()}()</script></head><body id="Myblog"><header class="navbar-fixed"><nav id="headNav" class="bg-color nav-transparent"><div id="navContainer" class="nav-wrapper container"><div class="brand-logo"><a href="/" class="waves-effect waves-light"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-1.png" class="logo-img" alt="LOGO"> <span class="logo-span diyFont">张小菜苔</span></a></div><a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a><ul class="right nav-menu"><li class="hide-on-med-and-down nav-item"><a href="/" class="waves-effect waves-light"><i class="fas fa-home"></i><span>首页</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fas fa-tags"></i><span>标签</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fas fa-bookmark"></i><span>分类</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fas fa-archive"></i><span>归档</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/about" class="waves-effect waves-light"><i class="fas fa-user-circle"></i><span>关于</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fas fa-comments"></i><span>留言薄</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fas fa-address-book"></i><span>友情链接</span></a></li><li class="hide-on-med-and-down nav-item"><a href="" class="waves-effect waves-light"><i class="fas fa-list"></i> <span>Tool</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></a><ul class="sub-nav menus_item_child"><li><a href="/navigate"><i class="fas fa-location-arrow" style="margin-top:-20px"></i> <span>导航</span></a></li><li><a href="/box"><i class="fas fa-map-marker" style="margin-top:-20px"></i> <span>收藏</span></a></li></ul></li><li><a href="#searchModal" class="modal-trigger waves-effect waves-light"><i id="searchIcon" class="fas fa-search" title="搜索"></i></a></li><li class="fullscreen"><a href="javascript:fullscreen()" class="modal-trigger waves-effect waves-light"><i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏"></i></a></li></ul><div id="mobile-nav" class="side-nav sidenav"><div class="mobile-head bg-color"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-1.png" class="logo-img circle responsive-img"><div class="logo-name">张小菜苔</div><div class="logo-desc">Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题</div></div><ul class="menu-list mobile-menu-list"><li class="m-nav-item"><a href="/" class="waves-effect waves-light"><i class="fa-fw fas fa-home"></i> 首页</a></li><li class="m-nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fa-fw fas fa-tags"></i> 标签</a></li><li class="m-nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fa-fw fas fa-bookmark"></i> 分类</a></li><li class="m-nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fa-fw fas fa-archive"></i> 归档</a></li><li class="m-nav-item"><a href="/about" class="waves-effect waves-light"><i class="fa-fw fas fa-user-circle"></i> 关于</a></li><li class="m-nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fa-fw fas fa-comments"></i> 留言簿</a></li><li class="m-nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fa-fw fas fa-address-book"></i> 友情链接</a></li><li class="m-nav-item"><a href="javascript:;"><i class="fa-fw fas fa-list"></i> Tool <span class="m-icon"><i class="fas fa-chevron-right"></i></span></a><ul><li><a href="/navigate" style="margin-left:75px"><i class="fa fas fa-location-arrow" style="position:absolute;left:50px"></i> <span>导航</span></a></li><li><a href="/box" style="margin-left:75px"><i class="fa fas fa-map-marker" style="position:absolute;left:50px"></i> <span>收藏</span></a></li></ul></li></ul></div></div></nav></header><div class="bg-cover pd-header post-cover" style="background-image:url(https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/10.jpg)"><div class="container" style="right:0;left:0"><div class="row"><div class="col s12 m12 l12"><div class="brand"><h1 class="description center-align post-title">Thymeleaf 内置对象</h1></div></div></div></div></div><main class="post-container content"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/tocbot/tocbot.css"><style>#articleContent h1::before,#articleContent h2::before,#articleContent h3::before,#articleContent h4::before,#articleContent h5::before,#articleContent h6::before{display:block;content:" ";height:100px;margin-top:-100px;visibility:hidden}#articleContent :focus{outline:0}.toc-fixed{position:fixed;top:64px}.toc-widget{width:345px;padding-left:20px}.toc-widget .toc-title{margin:35px 0 15px 0;padding-left:17px;font-size:1.5rem;font-weight:700;line-height:1.5rem}.toc-widget ol{padding:0;list-style:none}#toc-content{height:calc(100vh - 250px);overflow:auto}#toc-content ol{padding-left:10px}#toc-content ol li{padding-left:10px}#toc-content .toc-link:hover{color:#42b983;font-weight:700;text-decoration:underline}#toc-content .toc-link::before{background-color:transparent;max-height:25px;position:absolute;right:23.5vw;display:block}#toc-content .is-active-link{color:#42b983}#floating-toc-btn{position:fixed;right:32px;bottom:155px;padding-top:15px;margin-bottom:0;z-index:998}#floating-toc-btn .btn-floating{width:48px;height:48px}#floating-toc-btn .btn-floating i{line-height:48px;font-size:1.4rem}</style><div class="row"><div id="main-content" class="col s12 m12 l9"><div id="artDetail"><div class="card"><div class="card-content article-info"><div class="row tag-cate"><div class="col s7"><div class="article-tag"><a href="/tags/Thymeleaf/"><span class="chip bg-color">Thymeleaf</span></a></div></div><div class="col s5 right-align"><div class="post-cate"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/SpringBoot/" class="post-category">SpringBoot</a></div></div></div><div class="post-info"><div class="post-date info-break-policy"><i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp; 2020-07-25</div><div class="info-break-policy"><i class="fa fa-pencil"></i> 作者: Small-Rose / 张小菜</div><div class="info-break-policy"><i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp; 3.4k</div><div class="info-break-policy"><i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp; 18 分</div><div id="busuanzi_container_page_pv" class="info-break-policy"><i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp; <span id="busuanzi_value_page_pv"></span></div></div></div><hr class="clearfix"><div class="card-content article-card-content"><div id="articleContent"><h2 id="Thymeleaf-内置对象"><a href="#Thymeleaf-内置对象" class="headerlink" title="Thymeleaf  内置对象"></a>Thymeleaf 内置对象</h2><p>Thymeleaf 的内置对象主要有三类</p><ul><li>请求/会话属性的Web上下文命名空间对象</li><li>Web 上下文对象</li><li>内置工具对象</li></ul><h2 id="一-请求-会话属性等"><a href="#一-请求-会话属性等" class="headerlink" title="一. 请求/会话属性等"></a>一. 请求/会话属性等</h2><p>请求/会话属性等的Web上下文命名空间对象。如下</p><h3 id="ctx"><a href="#ctx" class="headerlink" title="#ctx"></a>#ctx</h3><p><code>org.thymeleaf.context.IContext</code> API提供</p><pre><code>${#ctx.locale}
+${#ctx.variableNames}
+</code></pre><p><code>class org.thymeleaf.context.IWebContext</code> API提供</p><pre><code>${#ctx.request}
+${#ctx.response}
+${#ctx.session}
+${#ctx.servletContext}
+</code></pre><h3 id="locale"><a href="#locale" class="headerlink" title="#locale"></a>#locale</h3><p>直接访问java.util.Locale与当前请求关联。</p><pre><code>${#locale}</code></pre><h3 id="param"><a href="#param" class="headerlink" title="param"></a>param</h3><p>不是上下文对象，而是作为变量添加到上下文中的映射，不使用#来访问它们。param类似名称空间。</p><p><code>org.thymeleaf.context.WebRequestParamsVariablesMap</code> API提供</p><pre><code>${param.foo}
+${param.fooArray[0]}
+${param.size()}
+${param.isEmpty()}
+${param.containsKey(&#39;foo&#39;)}
+</code></pre><h3 id="session"><a href="#session" class="headerlink" title="session"></a>session</h3><p><code>org.thymeleaf.context.WebSessionVariablesMap</code> 提供API</p><pre><code>${session.foo} // Retrieves the session atttribute &#39;foo&#39;
+${session.size()}
+${session.isEmpty()}
+${session.containsKey(&#39;foo&#39;)}</code></pre><h3 id="application"><a href="#application" class="headerlink" title="application"></a>application</h3><p>用于检索 <code>application/servlet</code>上下文属性。</p><pre><code>${application.foo} // Retrieves the ServletContext atttribute &#39;foo&#39;
+${application.size()}
+${application.isEmpty()}
+${application.containsKey(&#39;foo&#39;)}</code></pre><h2 id="二-Web-上下文对象"><a href="#二-Web-上下文对象" class="headerlink" title="二. Web 上下文对象"></a>二. Web 上下文对象</h2><p>Web 上下文对象。如下：</p><h3 id="request"><a href="#request" class="headerlink" title="#request :"></a>#request :</h3><p>直接访问 <code>javax.servlet.http.HttpServletRequest</code> 对象与当前请求关联</p><pre><code>${#request.getAttribute(&#39;foo&#39;)}
+${#request.getParameter(&#39;foo&#39;)}
+${#request.getContextPath()}
+${#request.getRequestName()}
+</code></pre><h3 id="session-1"><a href="#session-1" class="headerlink" title="#session :"></a>#session :</h3><p>直接访问 <code>javax.servlet.http.HttpSession</code> 对象与当前请求关联</p><pre><code>${#session.getAttribute(&#39;foo&#39;)}
+${#session.id}
+${#session.lastAccessedTime}
+</code></pre><h3 id="servletContext"><a href="#servletContext" class="headerlink" title="#servletContext :"></a>#servletContext :</h3><p>直接访问 <code>javax.servlet.ServletContext</code> 对象与当前请求关联</p><pre><code>${#servletContext.getAttribute(&#39;foo&#39;)}
+${#servletContext.contextPath}
+</code></pre><h2 id="三-内置工具对象"><a href="#三-内置工具对象" class="headerlink" title="三. 内置工具对象"></a>三. 内置工具对象</h2><h3 id="1-Execution-Info"><a href="#1-Execution-Info" class="headerlink" title="1. Execution Info"></a>1. Execution Info</h3><p><code>#execInfo</code> ：提供有关在Thymeleaf 内部正在处理的模板的有用信息标准表达式。</p><p>由 <code>org.thymeleaf.expression.ExecutionInfo</code> 提供的API</p><pre><code>/*
+* Return the name and mode of the &#39;leaf&#39; template. This means the template
+* from where the events being processed were parsed. So if this piece of
+* code is not in the root template &quot;A&quot; but on a fragment being inserted
+* into &quot;A&quot; from another template called &quot;B&quot;, this will return &quot;B&quot; as a
+* name, and B&#39;s mode as template mode.
+*/
+${#execInfo.templateName}
+${#execInfo.templateMode}
+/*
+* Return the name and mode of the &#39;root&#39; template. This means the template
+* that the template engine was originally asked to process. So if this
+* piece of code is not in the root template &quot;A&quot; but on a fragment being
+* inserted into &quot;A&quot; from another template called &quot;B&quot;, this will still
+* return &quot;A&quot; and A&#39;s template mode.
+*/
+${#execInfo.processedTemplateName}
+${#execInfo.processedTemplateMode}
+/*
+* Return the stacks (actually, List&lt;String&gt; or List&lt;TemplateMode&gt;) of
+* templates being processed. The first element will be the
+* &#39;processedTemplate&#39; (the root one), the last one will be the &#39;leaf&#39;
+* template, and in the middle all the fragments inserted in nested
+* manner to reach the leaf from the root will appear.
+*/
+${#execInfo.templateNames}
+${#execInfo.templateModes}
+/*
+* Return the stack of templates being processed similarly (and in the
+* same order) to &#39;templateNames&#39; and &#39;templateModes&#39;, but returning
+* a List&lt;TemplateData&gt; with the full template metadata.
+*/
+${#execInfo.templateStack}</code></pre><h3 id="2-Messages"><a href="#2-Messages" class="headerlink" title="2. Messages"></a>2. Messages</h3><p><code>#message</code> ：在变量表达式中获取外部化消息的工具方法。也是使用 <code>#{ }</code> 语法。</p><p>由 <code>org.thymeleaf.expression.Messages</code> 提供API。</p><pre><code>/*
+* Obtain externalized messages. Can receive a single key, a key plus arguments,
+* or an array/list/set of keys (in which case it will return an array/list/set of
+* externalized messages).
+* If a message is not found, a default message (like &#39;??msgKey??&#39;) is returned.
+*/
+${#messages.msg(&#39;msgKey&#39;)}
+${#messages.msg(&#39;msgKey&#39;, param1)}
+${#messages.msg(&#39;msgKey&#39;, param1, param2)}
+${#messages.msg(&#39;msgKey&#39;, param1, param2, param3)}
+${#messages.msgWithParams(&#39;msgKey&#39;, new Object[] {param1, param2, param3, param4})}
+${#messages.arrayMsg(messageKeyArray)}
+${#messages.listMsg(messageKeyList)}
+${#messages.setMsg(messageKeySet)}
+/*
+* Obtain externalized messages or null. Null is returned instead of a default
+* message if a message for the specified key is not found.
+*/
+${#messages.msgOrNull(&#39;msgKey&#39;)}
+${#messages.msgOrNull(&#39;msgKey&#39;, param1)}
+${#messages.msgOrNull(&#39;msgKey&#39;, param1, param2)}
+${#messages.msgOrNull(&#39;msgKey&#39;, param1, param2, param3)}
+${#messages.msgOrNullWithParams(&#39;msgKey&#39;, new Object[] {param1, param2, param3, param4})}
+${#messages.arrayMsgOrNull(messageKeyArray)}
+${#messages.listMsgOrNull(messageKeyList)}
+${#messages.setMsgOrNull(messageKeySet)}</code></pre><h3 id="3-URI-URL"><a href="#3-URI-URL" class="headerlink" title="3. URI/URL"></a>3. URI/URL</h3><p><code>#uris</code>：用于在 Thymeleaf 标准表达式中进行URI/URL操作的工具对象。</p><p>比如:URL参数中有特殊字符可以进行转义或取消转义，中文乱码可以进行编码转码。</p><p>由 <code>org.thymeleaf.expression.Uris</code> 提供API。</p><pre><code>/*
+* Escape/Unescape as a URI/URL path
+*/
+${#uris.escapePath(uri)}
+${#uris.escapePath(uri, encoding)}
+${#uris.unescapePath(uri)}
+${#uris.unescapePath(uri, encoding)}
+/*
+* Escape/Unescape as a URI/URL path segment (between &#39;/&#39; symbols)
+*/
+${#uris.escapePathSegment(uri)}
+${#uris.escapePathSegment(uri, encoding)}
+${#uris.unescapePathSegment(uri)}
+${#uris.unescapePathSegment(uri, encoding)}
+/*
+* Escape/Unescape as a Fragment Identifier (#frag)
+*/
+${#uris.escapeFragmentId(uri)}
+${#uris.escapeFragmentId(uri, encoding)}
+${#uris.unescapeFragmentId(uri)}
+${#uris.unescapeFragmentId(uri, encoding)}
+/*
+* Escape/Unescape as a Query Parameter (?var=value)
+*/
+${#uris.escapeQueryParam(uri)}
+${#uris.escapeQueryParam(uri, encoding)}
+${#uris.unescapeQueryParam(uri)}
+${#uris.unescapeQueryParam(uri, encoding)}</code></pre><h3 id="4-Conversions"><a href="#4-Conversions" class="headerlink" title="4. Conversions"></a>4. Conversions</h3><p><code>#conversions</code>：允许在模板的任何点执行转换服务。</p><p>由 <code>org.thymeleaf.expression.Conversions</code> 提供API。</p><pre><code>/*
+* Execute the desired conversion of the &#39;object&#39; value into the
+* specified class.
+*/
+${#conversions.convert(object, &#39;java.util.TimeZone&#39;)}
+${#conversions.convert(object, targetClass)}</code></pre><h3 id="5-Dates"><a href="#5-Dates" class="headerlink" title="5. Dates"></a>5. Dates</h3><p><code>#dates</code> : 其实就和 <code>java.util.Date</code>对象的工具方法类似。</p><p>由 <code>org.thymeleaf.expression.Dates</code> 提供API。</p><pre><code>/*
+* 格式化成 标准区域格式时间
+* 支持 arrays, lists or sets 操作
+*/
+${#dates.format(date)}
+${#dates.arrayFormat(datesArray)}
+${#dates.listFormat(datesList)}
+${#dates.setFormat(datesSet)}
+/*
+* 格式化成  ISO8601时间
+* 支持 arrays, lists or sets 操作
+*/
+${#dates.formatISO(date)}
+${#dates.arrayFormatISO(datesArray)}
+${#dates.listFormatISO(datesList)}
+${#dates.setFormatISO(datesSet)}
+/*
+* 格式化日期时间成自定义的格式
+* 支持 arrays, lists or sets 操作
+*/
+${#dates.format(date, &#39;dd/MMM/yyyy HH:mm&#39;)}
+${#dates.arrayFormat(datesArray, &#39;dd/MMM/yyyy HH:mm&#39;)}
+${#dates.listFormat(datesList, &#39;dd/MMM/yyyy HH:mm&#39;)}
+${#dates.setFormat(datesSet, &#39;dd/MMM/yyyy HH:mm&#39;)}
+/*
+* 获取日期属性
+* 支持 arrays, lists or sets 操作
+*/
+${#dates.day(date)} // also arrayDay(...), listDay(...), etc.
+${#dates.month(date)} // also arrayMonth(...), listMonth(...), etc.
+${#dates.monthName(date)} // also arrayMonthName(...), listMonthName(...), etc.
+${#dates.monthNameShort(date)} // also arrayMonthNameShort(...), listMonthNameShort(...), etc.
+${#dates.year(date)} // also arrayYear(...), listYear(...), etc.
+${#dates.dayOfWeek(date)} // also arrayDayOfWeek(...), listDayOfWeek(...), etc.
+${#dates.dayOfWeekName(date)} // also arrayDayOfWeekName(...), listDayOfWeekName(...), etc.
+${#dates.dayOfWeekNameShort(date)} // also arrayDayOfWeekNameShort(...), listDayOfWeekNameShort(...), etc.
+${#dates.hour(date)} // also arrayHour(...), listHour(...), etc.
+${#dates.minute(date)} // also arrayMinute(...), listMinute(...), etc.
+${#dates.second(date)} // also arraySecond(...), listSecond(...), etc.
+${#dates.millisecond(date)} // also arrayMillisecond(...), listMillisecond(...), etc.
+/*
+* 使用自带组件创建日期 (java.util.Date) 对象
+*/
+${#dates.create(year,month,day)}
+${#dates.create(year,month,day,hour,minute)}
+${#dates.create(year,month,day,hour,minute,second)}
+${#dates.create(year,month,day,hour,minute,second,millisecond)}
+/*
+* 使用自带组件创建当前日期或时间 (java.util.Date)
+*/
+${#dates.createNow()}
+${#dates.createNowForTimeZone()}
+/*
+* 使用自带组件创建当前日期 (java.util.Date)，时间是00:00
+*/
+${#dates.createToday()}
+${#dates.createTodayForTimeZone()}</code></pre><h3 id="6-Calendar"><a href="#6-Calendar" class="headerlink" title="6. Calendar"></a>6. Calendar</h3><p><code>#calendar</code> ：类似 <code>#dates</code> ，但是是 <code>java.util.Calendar</code> 对象。</p><p>由 <code>class org.thymeleaf.expression.Calendars</code> 提供API。</p><pre><code>/*
+* Format calendar with the standard locale format
+* Also works with arrays, lists or sets
+*/
+${#calendars.format(cal)}
+${#calendars.arrayFormat(calArray)}
+${#calendars.listFormat(calList)}
+${#calendars.setFormat(calSet)}
+/*
+* Format calendar with the ISO8601 format
+* Also works with arrays, lists or sets
+*/
+${#calendars.formatISO(cal)}
+${#calendars.arrayFormatISO(calArray)}
+${#calendars.listFormatISO(calList)}
+${#calendars.setFormatISO(calSet)}
+/*
+* Format calendar with the specified pattern
+* Also works with arrays, lists or sets
+*/
+${#calendars.format(cal, &#39;dd/MMM/yyyy HH:mm&#39;)}
+${#calendars.arrayFormat(calArray, &#39;dd/MMM/yyyy HH:mm&#39;)}
+${#calendars.listFormat(calList, &#39;dd/MMM/yyyy HH:mm&#39;)}
+${#calendars.setFormat(calSet, &#39;dd/MMM/yyyy HH:mm&#39;)}
+/*
+* 获取日历属性
+* Also works with arrays, lists or sets
+*/
+${#calendars.day(date)} // also arrayDay(...), listDay(...), etc.
+${#calendars.month(date)} // also arrayMonth(...), listMonth(...), etc.
+${#calendars.monthName(date)} // also arrayMonthName(...), listMonthName(...), etc.
+${#calendars.monthNameShort(date)} // also arrayMonthNameShort(...), listMonthNameShort(...), etc.
+${#calendars.year(date)} // also arrayYear(...), listYear(...), etc.
+${#calendars.dayOfWeek(date)} // also arrayDayOfWeek(...), listDayOfWeek(...), etc.
+${#calendars.dayOfWeekName(date)} // also arrayDayOfWeekName(...), listDayOfWeekName(...), etc.
+${#calendars.dayOfWeekNameShort(date)} // also arrayDayOfWeekNameShort(...), listDayOfWeekNameShort(...), etc.
+${#calendars.hour(date)} // also arrayHour(...), listHour(...), etc.
+${#calendars.minute(date)} // also arrayMinute(...), listMinute(...), etc.
+${#calendars.second(date)} // also arraySecond(...), listSecond(...), etc.
+${#calendars.millisecond(date)} // also arrayMillisecond(...), listMillisecond(...), etc.
+/*
+* Create calendar (java.util.Calendar) objects from its components
+*/
+${#calendars.create(year,month,day)}
+${#calendars.create(year,month,day)}
+${#calendars.create(year,month,day,hour,minute)}
+${#calendars.create(year,month,day,hour,minute,second)}
+${#calendars.create(year,month,day,hour,minute,second,millisecond)}
+${#calendars.createForTimeZone(year,month,day,timeZone)}
+${#calendars.createForTimeZone(year,month,day,hour,minute,timeZone)}
+${#calendars.createForTimeZone(year,month,day,hour,minute,second,timeZone)}
+${#calendars.createForTimeZone(year,month,day,hour,minute,second,millisecond,timeZone)}
+/*
+* 创建当前日期和时间的日历对象(java.util.Calendar) 
+*/
+${#calendars.createNow()}
+${#calendars.createNowForTimeZone()}
+/*
+*   创建当前日期 (time set to 00:00)的日历对象(java.util.Calendar) 
+*/
+${#calendars.createToday()}
+${#calendars.createTodayForTimeZone()}</code></pre><h3 id="7-Numbers"><a href="#7-Numbers" class="headerlink" title="7. Numbers"></a>7. Numbers</h3><p><code>#numbers</code> ：数字对象的工具对象方法。</p><p><code>org.thymeleaf.expression.Numbers</code> 提供API。</p><p>integer 类型格式化</p><pre><code>/*
+* Set minimum integer digits.
+* Also works with arrays, lists or sets
+*/
+${#numbers.formatInteger(num,3)}
+${#numbers.arrayFormatInteger(numArray,3)}
+${#numbers.listFormatInteger(numList,3)}
+${#numbers.setFormatInteger(numSet,3)}
+/*
+* Set minimum integer digits and thousands separator:
+* &#39;POINT&#39;, &#39;COMMA&#39;, &#39;WHITESPACE&#39;, &#39;NONE&#39; or &#39;DEFAULT&#39; (by locale).
+* Also works with arrays, lists or sets
+*/
+${#numbers.formatInteger(num,3,&#39;POINT&#39;)}
+${#numbers.arrayFormatInteger(numArray,3,&#39;POINT&#39;)}
+${#numbers.listFormatInteger(numList,3,&#39;POINT&#39;)}
+${#numbers.setFormatInteger(numSet,3,&#39;POINT&#39;)}</code></pre><p>decimal 类型格式化</p><pre><code>/*
+* Set minimum integer digits and (exact) decimal digits.
+* Also works with arrays, lists or sets
+*/
+${#numbers.formatDecimal(num,3,2)}
+${#numbers.arrayFormatDecimal(numArray,3,2)}
+${#numbers.listFormatDecimal(numList,3,2)}
+${#numbers.setFormatDecimal(numSet,3,2)}
+/*
+* Set minimum integer digits and (exact) decimal digits, and also decimal separator.
+* Also works with arrays, lists or sets
+*/
+${#numbers.formatDecimal(num,3,2,&#39;COMMA&#39;)}
+${#numbers.arrayFormatDecimal(numArray,3,2,&#39;COMMA&#39;)}
+${#numbers.listFormatDecimal(numList,3,2,&#39;COMMA&#39;)}
+${#numbers.setFormatDecimal(numSet,3,2,&#39;COMMA&#39;)}
+/*
+* Set minimum integer digits and (exact) decimal digits, and also thousands and
+* decimal separator.
+* Also works with arrays, lists or sets
+*/
+${#numbers.formatDecimal(num,3,&#39;POINT&#39;,2,&#39;COMMA&#39;)}
+${#numbers.arrayFormatDecimal(numArray,3,&#39;POINT&#39;,2,&#39;COMMA&#39;)}
+${#numbers.listFormatDecimal(numList,3,&#39;POINT&#39;,2,&#39;COMMA&#39;)}
+${#numbers.setFormatDecimal(numSet,3,&#39;POINT&#39;,2,&#39;COMMA&#39;)}</code></pre><p>货币格式化：</p><pre><code>${#numbers.formatCurrency(num)}
+${#numbers.arrayFormatCurrency(numArray)}
+${#numbers.listFormatCurrency(numList)}
+${#numbers.setFormatCurrency(numSet)}</code></pre><p>百分百格式化：</p><pre><code>${#numbers.formatPercent(num)}
+${#numbers.arrayFormatPercent(numArray)}
+${#numbers.listFormatPercent(numList)}
+${#numbers.setFormatPercent(numSet)}</code></pre><p>设置最小整数位数和（精确）小数位数。</p><pre><code>${#numbers.formatPercent(num, 3, 2)}
+${#numbers.arrayFormatPercent(numArray, 3, 2)}
+${#numbers.listFormatPercent(numList, 3, 2)}
+${#numbers.setFormatPercent(numSet, 3, 2)}</code></pre><p>创建一个从x到y整数序列（数组）</p><pre><code>${#numbers.sequence(from,to)}
+${#numbers.sequence(from,to,step)}</code></pre><h3 id="8-Strings"><a href="#8-Strings" class="headerlink" title="8. Strings"></a>8. Strings</h3><p><code>#strings</code> : 字符串对象实用工具对象。</p><p>由 <code>org.thymeleaf.expression.Strings</code> 提供API。</p><p>Null安全的转字符串：</p><pre><code>${#strings.toString(obj)} // also array*, list* and set*</code></pre><p>判断是否为空</p><pre><code>/*
+* Check whether a String is empty (or null). Performs a trim() operation before check
+* Also works with arrays, lists or sets
+*/
+${#strings.isEmpty(name)}
+${#strings.arrayIsEmpty(nameArr)}
+${#strings.listIsEmpty(nameList)}
+${#strings.setIsEmpty(nameSet)}</code></pre><p>带默认值的判空</p><pre><code>/*
+* Perform an &#39;isEmpty()&#39; check on a string and return it if false, defaulting to
+* another specified string if true.
+* Also works with arrays, lists or sets
+*/
+${#strings.defaultString(text,default)}
+${#strings.arrayDefaultString(textArr,default)}
+${#strings.listDefaultString(textList,default)}
+${#strings.setDefaultString(textSet,default)}</code></pre><p>判断片段是否包含指定字符串</p><pre><code>/*
+* Check whether a fragment is contained in a String
+* Also works with arrays, lists or sets
+*/
+${#strings.contains(name,&#39;ez&#39;)} // also array*, list* and set*
+${#strings.containsIgnoreCase(name,&#39;ez&#39;)} // also array*, list* and set*</code></pre><p>判断以某字符串开始或结束：</p><pre><code>/*
+* Check whether a String starts or ends with a fragment
+* Also works with arrays, lists or sets
+*/
+${#strings.startsWith(name,&#39;Don&#39;)} // also array*, list* and set*
+${#strings.endsWith(name,endingFragment)} // also array*, list* and set*</code></pre><p>字符串截取相关：</p><pre><code>/*
+* Substring-related operations
+* Also works with arrays, lists or sets
+*/
+${#strings.indexOf(name,frag)} // also array*, list* and set*
+${#strings.substring(name,3,5)} // also array*, list* and set*
+${#strings.substringAfter(name,prefix)} // also array*, list* and set*
+${#strings.substringBefore(name,suffix)} // also array*, list* and set*
+${#strings.replace(name,&#39;las&#39;,&#39;ler&#39;)} // also array*, list* and set*</code></pre><p>字符串追加：</p><pre><code>/*
+* Append and prepend
+* Also works with arrays, lists or sets
+*/
+${#strings.prepend(str,prefix)} // also array*, list* and set*
+${#strings.append(str,suffix)} // also array*, list* and set*</code></pre><p>字符串大小写转换</p><pre><code>/*
+* Change case
+* Also works with arrays, lists or sets
+*/
+${#strings.toUpperCase(name)} // also array*, list* and set*
+${#strings.toLowerCase(name)} // also array*, list* and set*</code></pre><p>字符串分割或连接</p><pre><code>/*
+* Split and join
+*/
+${#strings.arrayJoin(namesArray,&#39;,&#39;)}
+${#strings.listJoin(namesList,&#39;,&#39;)}
+${#strings.setJoin(namesSet,&#39;,&#39;)}
+${#strings.arraySplit(namesStr,&#39;,&#39;)} // returns String[]
+${#strings.listSplit(namesStr,&#39;,&#39;)} // returns List&lt;String&gt;
+${#strings.setSplit(namesStr,&#39;,&#39;)} // returns Set&lt;String&gt;</code></pre><p>去空格：</p><pre><code>/*
+* Trim
+* Also works with arrays, lists or sets
+*/
+${#strings.trim(str)} // also array*, list* and set*</code></pre><p>计算字符串长度：</p><pre><code>/*
+* Compute length
+* Also works with arrays, lists or sets
+*/
+${#strings.length(str)} // also array*, list* and set*</code></pre><p>缩写文本使其最大大小为n。如果文本更大，它将被剪辑并以“…”结尾</p><pre><code>${#strings.abbreviate(str,10)} // also array*, list* and set*</code></pre><p>将字符串第一个字符转换为大写或小写</p><pre><code>${#strings.capitalize(str)} // also array*, list* and set*
+${#strings.unCapitalize(str)} // also array*, list* and set*</code></pre><p>将字符串中每个单词的第一个字符转换为大写</p><pre><code>${#strings.capitalizeWords(str)} // also array*, list* and set*
+${#strings.capitalizeWords(str,delimiters)} // also array*, list* and set*</code></pre><p>字符串转义</p><pre><code>${#strings.escapeXml(str)} // also array*, list* and set*
+${#strings.escapeJava(str)} // also array*, list* and set*
+${#strings.escapeJavaScript(str)} // also array*, list* and set*
+Page 98 of 106${#strings.escapeJavaScript(str)} // also array*, list* and set*
+${#strings.unescapeJava(str)} // also array*, list* and set*
+${#strings.unescapeJavaScript(str)} // also array*, list* and set*</code></pre><p>Null-Safe 的比较和串联</p><pre><code>${#strings.equals(first, second)}
+${#strings.equalsIgnoreCase(first, second)}
+${#strings.concat(values...)}
+${#strings.concatReplaceNulls(nullValue, values...)}</code></pre><p>随机数</p><pre><code>${#strings.randomAlphanumeric(count)}</code></pre><h3 id="9-Objects"><a href="#9-Objects" class="headerlink" title="9.Objects"></a>9.Objects</h3><p><code>#objects</code> ：对象的常用工具方法。</p><p><code>org.thymeleaf.expression.Objects</code> 提供API。</p><pre><code>/*
+* Return obj if it is not null, and default otherwise
+* Also works with arrays, lists or sets
+*/
+${#objects.nullSafe(obj,default)}
+${#objects.arrayNullSafe(objArray,default)}
+${#objects.listNullSafe(objList,default)}
+${#objects.setNullSafe(objSet,default)}</code></pre><h3 id="10-Booleans"><a href="#10-Booleans" class="headerlink" title="10. Booleans"></a>10. Booleans</h3><p><code>#booleans</code> ：布尔运算的实用方法。</p><p><code>org.thymeleaf.expression.Bool</code> 提供API。</p><pre><code>/*
+* Evaluate a condition in the same way that it would be evaluated in a th:if tag
+* (see conditional evaluation chapter afterwards).
+* Also works with arrays, lists or sets
+*/
+${#bools.isTrue(obj)}
+${#bools.arrayIsTrue(objArray)}
+${#bools.listIsTrue(objList)}
+${#bools.setIsTrue(objSet)}
+/*
+* Evaluate with negation
+* Also works with arrays, lists or sets
+*/
+${#bools.isFalse(cond)}
+${#bools.arrayIsFalse(condArray)}
+${#bools.listIsFalse(condList)}
+${#bools.setIsFalse(condSet)}
+/*
+* Evaluate and apply AND operator
+* Receive an array, a list or a set as parameter
+*/
+${#bools.arrayAnd(condArray)}
+${#bools.listAnd(condList)}
+${#bools.setAnd(condSet)}
+/*
+* Evaluate and apply OR operator
+* Receive an array, a list or a set as parameter
+*/
+${#bools.arrayOr(condArray)}
+${#bools.listOr(condList)}
+${#bools.setOr(condSet)}Arrays
+</code></pre><h3 id="11-Arrays"><a href="#11-Arrays" class="headerlink" title="11. Arrays"></a>11. Arrays</h3><p><code>#arrays</code> ： 数组工具对象。</p><p><code>org.thymeleaf.expression.Arrays</code> 提供API。</p><pre><code>/*
+* Converts to array, trying to infer array component class.
+* Note that if resulting array is empty, or if the elements
+* of the target object are not all of the same class,
+* this method will return Object[].
+*/
+${#arrays.toArray(object)}
+/*
+* Convert to arrays of the specified component class.
+*/
+${#arrays.toStringArray(object)}
+${#arrays.toIntegerArray(object)}
+${#arrays.toLongArray(object)}
+${#arrays.toDoubleArray(object)}
+${#arrays.toFloatArray(object)}
+${#arrays.toBooleanArray(object)}
+/*
+* Compute length
+*/
+${#arrays.length(array)}
+/*
+* Check whether array is empty
+*/
+${#arrays.isEmpty(array)}
+/*
+* Check if element or elements are contained in array
+*/
+${#arrays.contains(array, element)}
+${#arrays.containsAll(array, elements)}</code></pre><h3 id="12-Lists"><a href="#12-Lists" class="headerlink" title="12. Lists"></a>12. Lists</h3><p><code>#Lists</code> ： List 集合工具对象。</p><p><code>org.thymeleaf.expression.Lists</code> 提供API。</p><pre><code>/*
+* Converts to list
+*/
+${#lists.toList(object)}
+/*
+* Compute size
+*/
+${#lists.size(list)}
+/*
+* Check whether list is empty
+*/
+${#lists.isEmpty(list)}
+/*
+* Check if element or elements are contained in list
+*/
+${#lists.contains(list, element)}
+${#lists.containsAll(list, elements)}
+/*
+* Sort a copy of the given list. The members of the list must implement
+* comparable or you must define a comparator.
+*/
+${#lists.sort(list)}
+${#lists.sort(list, comparator)}</code></pre><h3 id="13-Sets"><a href="#13-Sets" class="headerlink" title="13. Sets"></a>13. Sets</h3><p><code>#Sets</code> ： Sets 集合工具对象。</p><p><code>org.thymeleaf.expression.Sets</code> 提供API。</p><pre><code>/*
+* Converts to set
+*/
+${#sets.toSet(object)}
+/*
+* Compute size
+*/
+${#sets.size(set)}
+/*
+* Check whether set is empty
+*/
+${#sets.isEmpty(set)}
+/*
+* Check if element or elements are contained in set
+*/
+${#sets.contains(set, element)}
+${#sets.containsAll(set, elements)}</code></pre><h3 id="14-Maps"><a href="#14-Maps" class="headerlink" title="14. Maps"></a>14. Maps</h3><p><code>#Maps</code> ： Maps 集合工具对象。</p><p><code>org.thymeleaf.expression.Maps</code> 提供API。</p><pre><code>/*
+* Compute size
+*/
+${#maps.size(map)}
+/*
+* Check whether map is empty
+*/
+${#maps.isEmpty(map)}
+/*
+* Check if key/s or value/s are contained in maps
+*/
+${#maps.containsKey(map, key)}
+${#maps.containsAllKeys(map, keys)}
+${#maps.containsValue(map, value)}
+${#maps.containsAllValues(map, value)}</code></pre><h3 id="15-Aggregates"><a href="#15-Aggregates" class="headerlink" title="15. Aggregates"></a>15. Aggregates</h3><p><code>#Aggregates</code> ： 在数组或集合上创建聚合的实用方法。</p><p><code>org.thymeleaf.expression.Aggregates</code> 提供聚合API。</p><pre><code>/*
+* Compute sum. Returns null if array or collection is empty
+*/
+${#aggregates.sum(array)}
+${#aggregates.sum(collection)}
+/*
+* Compute average. Returns null if array or collection is empty
+*/
+${#aggregates.avg(array)}
+${#aggregates.avg(collection)}</code></pre><h3 id="16-Ids"><a href="#16-Ids" class="headerlink" title="16. Ids"></a>16. Ids</h3><p><code>#Ids</code>：处理可能重复的id属性的实用方法（例如，作为迭代的结果）。</p><p><code>org.thymeleaf.expression.Aggregates.Ids</code> 提供API。</p><pre><code>/*
+* Normally used in th:id attributes, for appending a counter to the id attribute value
+* so that it remains unique even when involved in an iteration process.
+*/
+${#ids.seq(&#39;someId&#39;)}
+/*
+* Normally used in th:for attributes in &lt;label&gt; tags, so that these labels can refer to Ids
+* generated by means if the #ids.seq(...) function.
+* *
+Depending on whether the &lt;label&gt; goes before or after the element with the #ids.seq(...)
+* function, the &quot;next&quot; (label goes before &quot;seq&quot;) or the &quot;prev&quot; function (label goes after
+* &quot;seq&quot;) function should be called.
+*/
+${#ids.next(&#39;someId&#39;)}
+${#ids.prev(&#39;someId&#39;)}</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css"></div><br><hr><div class="reprint" id="reprint-statement"><div class="reprint__author"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-user">文章作者: </i></span><span class="reprint-info"><a href="/about" rel="external nofollow noreferrer">Small-Rose / 张小菜</a></span></div><div class="reprint__type"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-link">文章链接: </i></span><span class="reprint-info"><a href="https://www.zhangxiaocai.cn/posts/44478111.html">https://www.zhangxiaocai.cn/posts/44478111.html</a></span></div><div class="reprint__notice"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-copyright">版权声明: </i></span><span class="reprint-info">本博客所有文章除特別声明外，均采用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a> 许可协议。转载请注明来源 <a href="/about" target="_blank">Small-Rose / 张小菜</a> !</span></div></div><script async defer>document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }</script><div class="tag_share" style="display:block"><div class="post-meta__tag-list" style="display:inline-block"><div class="article-tag"><a href="/tags/Thymeleaf/"><span class="chip bg-color">Thymeleaf</span></a></div></div><div class="post_share" style="zoom:80%;width:fit-content;display:inline-block;float:right;margin:-.15rem 0"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/css/share.min.css"><div id="article-share"><div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/js/social-share.min.js"></script></div></div></div><style>#reward{margin:40px 0;text-align:center}#reward .reward-link{font-size:1.4rem;line-height:38px}#reward .btn-floating:hover{box-shadow:0 6px 12px rgba(0,0,0,.2),0 5px 15px rgba(0,0,0,.2)}#rewardModal{width:320px;height:350px}#rewardModal .reward-title{margin:15px auto;padding-bottom:5px}#rewardModal .modal-content{padding:10px}#rewardModal .close{position:absolute;right:15px;top:15px;color:rgba(0,0,0,.5);font-size:1.3rem;line-height:20px;cursor:pointer}#rewardModal .close:hover{color:#ef5350;transform:scale(1.3);-moz-transform:scale(1.3);-webkit-transform:scale(1.3);-o-transform:scale(1.3)}#rewardModal .reward-tabs{margin:0 auto;width:210px}.reward-tabs .tabs{height:38px;margin:10px auto;padding-left:0}.reward-content ul{padding-left:0!important}.reward-tabs .tabs .tab{height:38px;line-height:38px}.reward-tabs .tab a{color:#fff;background-color:#ccc}.reward-tabs .tab a:hover{background-color:#ccc;color:#fff}.reward-tabs .wechat-tab .active{color:#fff!important;background-color:#22AB38!important}.reward-tabs .alipay-tab .active{color:#fff!important;background-color:#019FE8!important}.reward-tabs .reward-img{width:210px;height:210px}</style><div id="reward"><a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a><div id="rewardModal" class="modal"><div class="modal-content"><a class="close modal-close"><i class="fas fa-times"></i></a><h4 class="reward-title">你的赏识是我前进的动力</h4><div class="reward-content"><div class="reward-tabs"><ul class="tabs row"><li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li><li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li></ul><div id="alipay"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码"></div><div id="wechat"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码"></div></div></div></div></div></div><script>$(function(){$(".tabs").tabs()})</script></div></div><style>.valine-card{margin:1.5rem auto}.valine-card .card-content{padding:20px 20px 5px 20px}#vcomments textarea{box-sizing:border-box;background:url(/medias/202007bg.webp) 100% 100% no-repeat}#vcomments p{margin:2px 2px 10px;font-size:1.05rem;line-height:1.78rem}#vcomments blockquote p{text-indent:.2rem}#vcomments a{padding:0 2px;color:#4cbf30;font-weight:500;text-decoration:none}#vcomments img{max-width:100%;height:auto;cursor:pointer}#vcomments ol li{list-style-type:decimal}#vcomments ol,ul{display:block;padding-left:2em;word-spacing:.05rem}#vcomments ul li,ol li{display:list-item;line-height:1.8rem;font-size:1rem}#vcomments ul li{list-style-type:disc}#vcomments ul ul li{list-style-type:circle}#vcomments table,td,th{padding:12px 13px;border:1px solid #dfe2e5}#vcomments table,td,th{border:0}table tr:nth-child(2n),thead{background-color:#fafafa}#vcomments table th{background-color:#f2f2f2;min-width:80px}#vcomments table td{min-width:80px}#vcomments h1{font-size:1.85rem;font-weight:700;line-height:2.2rem}#vcomments h2{font-size:1.65rem;font-weight:700;line-height:1.9rem}#vcomments h3{font-size:1.45rem;font-weight:700;line-height:1.7rem}#vcomments h4{font-size:1.25rem;font-weight:700;line-height:1.5rem}#vcomments h5{font-size:1.1rem;font-weight:700;line-height:1.4rem}#vcomments h6{font-size:1rem;line-height:1.3rem}#vcomments p{font-size:1rem;line-height:1.5rem}#vcomments hr{margin:12px 0;border:0;border-top:1px solid #ccc}#vcomments blockquote{margin:15px 0;border-left:5px solid #42b983;padding:1rem .8rem .3rem .8rem;color:#666;background-color:rgba(66,185,131,.1)}#vcomments pre{font-family:monospace,monospace;padding:1.2em;margin:.5em 0;background:#272822;overflow:auto;border-radius:.3em;tab-size:4}#vcomments code{font-family:monospace,monospace;padding:1px 3px;font-size:.92rem;color:#e96900;background-color:#f8f8f8;border-radius:2px}#vcomments pre code{font-family:monospace,monospace;padding:0;color:#e8eaf6;background-color:#272822}#vcomments pre[class*=language-]{padding:1.2em;margin:.5em 0}#vcomments code[class*=language-],pre[class*=language-]{color:#e8eaf6}#vcomments [type=checkbox]:not(:checked),[type=checkbox]:checked{position:inherit;margin-left:-1.3rem;margin-right:.4rem;margin-top:-1px;vertical-align:middle;left:unset;visibility:visible}#vcomments b,strong{font-weight:700}#vcomments dfn{font-style:italic}#vcomments small{font-size:85%}#vcomments cite{font-style:normal}#vcomments mark{background-color:#fcf8e3;padding:.2em}#vcomments table,td,th{padding:12px 13px;border:1px solid #dfe2e5}table tr:nth-child(2n),thead{background-color:#fafafa}#vcomments table th{background-color:#f2f2f2;min-width:80px}#vcomments table td{min-width:80px}#vcomments [type=checkbox]:not(:checked),[type=checkbox]:checked{position:inherit;margin-left:-1.3rem;margin-right:.4rem;margin-top:-1px;vertical-align:middle;left:unset;visibility:visible}#vcomments .vbtn{background-color:#0bb7fbd6;color:#fff}.v[data-class="v"] .vwrap .vheader .vinput{width:32%;border-bottom:1px dashed #dedede}.v[data-class=v] .vwrap .vemojis i{font-style:normal;padding-top:7px;width:36px;cursor:pointer;text-align:center;display:inline-block;vertical-align:middle;padding-right:3px;padding-left:3px}</style><div class="card valine-card" data-aos="fade-up"><div class="comment_headling" style="font-size:20px;font-weight:700;position:relative;padding-left:20px;top:15px;padding-bottom:5px"><i class="fas fa-comments fa-fw" aria-hidden="true"></i> <span>评论</span></div><div id="vcomments" class="card-content" style="display:grid"></div></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/av-min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script><script>let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}
+
+    new Valine({
+        el: '#vcomments',
+        mode: 'xCss',
+        appId: 'iTxfqh5e9IaRfiiVOTbIWoKa-9Nh9j0Va',
+        appKey: 'C5s5xGFErD1Et90bvbPvNDsB',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'monsterid',
+        pageSize: '10',
+        lang: 'zh-CN',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊！什么？想走？打劫！赶紧提交出你的评论，全部要写好~ ',
+        meta: ["nick", "mail", "link"],
+        recordIP: 'true' === 'true',
+        enableQQ: 'monsterid',
+        requiredFields: ["68c4c9e1b9a3d34317dc6faefe2ea00e"],
+        master: ["68c4c9e1b9a3d34317dc6faefe2ea00e"],
+        friends: ["7a455d704b60807098d18cc8c2470da2", "8acd51671b7e0e1dc68cc76d4d987813", "c08508165c8eba9a77f87285c046d09e", "901345d4c91ddfd8db0f975bbceaf0c8", "1512958e18378c98b498d5ef8e3e763f"],
+        tagMeta: ["博主", "小伙伴", "访客"],
+        metaPlaceholder: metaPlaceholder,
+
+    });
+
+    document.body.addEventListener('click', function(e) {
+    if (e.target.classList.contains('vsubmit')) {
+        const email = document.querySelector('input[type=email]');
+        const nick = document.querySelector('input[name=nick]');
+        const reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        if (!email.value || !nick.value || !reg.test(email.value)) {
+            const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+            const vmark = document.querySelector('.vmark');
+            vmark.innerHTML = str;
+            vmark.style.display = 'block';
+
+            e.stopPropagation();
+
+            setTimeout(function() {
+                vmark.style.display = 'none';
+                vmark.innerHTML = '';
+            }, 2500);
+        }
+    }
+    }, true);</script><article id="prenext-posts" class="prev-next articles"><div class="row article-row"><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge left-badge text-color"><i class="fas fa-chevron-left"></i>&nbsp;上一篇</div><div class="card"><a href="/posts/6de4ee20.html"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="SpringBoot 静态资源配置"> <span class="card-title">SpringBoot 静态资源配置</span></div></a><div class="card-content article-content"><div class="summary block-with-text">本文整理Springboot 静态资源配置学习。</div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i>2020-07-25 </span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/SpringBoot/" class="post-category">SpringBoot</a></span></div></div><div class="card-action article-tags"><a href="/tags/static/"><span class="chip bg-color">static</span></a></div></div></div><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge right-badge text-color">下一篇&nbsp;<i class="fas fa-chevron-right"></i></div><div class="card"><a href="/posts/c74d2d29.html"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="SpringBoot 日志学习"> <span class="card-title">SpringBoot 日志学习</span></div></a><div class="card-content article-content"><div class="summary block-with-text">本文整理Springboot 日志重新学习。</div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i>2020-07-23 </span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/SpringBoot/" class="post-category">SpringBoot</a></span></div></div><div class="card-action article-tags"><a href="/tags/Loging/"><span class="chip bg-color">Loging</span></a></div></div></div></div></article></div><script>$("#articleContent").on("copy",function(e){if("undefined"!=typeof window.getSelection){var n=window.getSelection();if(!((""+n).length<Number.parseInt("120"))){var t=document.getElementsByTagName("body")[0],o=document.createElement("div");o.style.position="absolute",o.style.left="-99999px",t.appendChild(o),o.appendChild(n.getRangeAt(0).cloneContents()),"PRE"===n.getRangeAt(0).commonAncestorContainer.nodeName&&(o.innerHTML="<pre>"+o.innerHTML+"</pre>");var i=document.location.href;o.innerHTML+='<br />来源: 张小菜苔<br />文章作者: Small Rose / 张小菜苔<br />文章链接: <a href="'+i+'">'+i+"</a><br />本文章著作权归作者所有，任何形式的转载都请注明出处。",n.selectAllChildren(o),window.setTimeout(function(){t.removeChild(o)},200)}}})</script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeBlockFuction.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeLang.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeCopy.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeShrink.js"></script></div><div id="toc-aside" class="expanded col l3 hide-on-med-and-down"><div class="toc-widget"><div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div><div id="toc-content"></div></div></div></div><div id="floating-toc-btn" class="hide-on-med-and-down"><a class="btn-floating btn-large bg-color"><i class="fas fa-list-ul"></i></a></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/tocbot/tocbot.min.js"></script><script>$(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });</script></main><footer class="page-footer bg-color"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.css"><style>.aplayer .aplayer-lrc p{display:none;font-size:12px;font-weight:700;line-height:16px!important}.aplayer .aplayer-lrc p.aplayer-lrc-current{display:none;font-size:15px;color:#42b983}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body{left:-66px!important}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover{left:0!important}</style><div><div class="row"><meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="2056253259" fixed="true" autoplay theme="#42b983" loop order="random" preload="auto" volume="0.7" list-folded="true"></meting-js></div></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><div class="container row center-align" style="margin-bottom:15px!important"><div class="col s12 m8 l8 copy-right">Copyright&nbsp;&copy; <span id="year">2020</span> <a href="/about" target="_blank">Small Rose / 张小菜苔</a> |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> |&nbsp;Comments&nbsp;<a href="https://valine.zhangxiaocia.cn" target="_blank">Valine</a><br>&nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">166.1k</span>&nbsp;字 <span id="busuanzi_container_site_pv">|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次 </span><span id="busuanzi_container_site_uv">|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人</span><br><span id="sitetime">载入运行时间...</span><script>function siteTime(){var e=1e3,t=60*e,n=60*t,o=24*n,l=365*o,r=new Date,a="2020",i="5",d="1",m="0",M="0",g="0",s=r.getFullYear(),u=r.getMonth()+1,T=r.getDate(),c=r.getHours(),f=r.getMinutes(),h=r.getSeconds(),y=Date.UTC(a,i,d,m,M,g),H=Date.UTC(s,u,T,c,f,h),I=H-y,B=Math.floor(I/l),D=Math.floor(I/o-365*B),E=Math.floor((I-(365*B+D)*o)/n),L=Math.floor((I-(365*B+D)*o-E*n)/t),v=Math.floor((I-(365*B+D)*o-E*n-L*t)/e);a==s?(document.getElementById("year").innerHTML=s,document.getElementById("sitetime").innerHTML="本站已 <del>安全</del> 苟全运行 "+D+" 天 "+E+" 小时 "+L+" 分钟 "+v+" 秒"):(document.getElementById("year").innerHTML=a+" - "+s,document.getElementById("sitetime").innerHTML="本站已 <del>安全</del> 苟全运行 "+B+" 年 "+D+" 天 "+E+" 小时 "+L+" 分钟 "+v+" 秒")}setInterval(siteTime,1e3)</script><br><span id="icp"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/icp.png" style="vertical-align:text-bottom"> <a href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19015637号-1</a></span><br></div><div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/small-rose" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50"><i class="fab fa-github"></i> </a><a href="mailto:small-rose@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50"><i class="fas fa-envelope-open"></i> </a><a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=970175021" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 970175021" data-position="top" data-delay="50"><i class="fab fa-qq"></i> </a><a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50"><i class="fas fa-rss"></i></a></div></div></footer><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/fishes.js" type="module"></script><div class="progress-bar"></div><script type="text/javascript">window.$crisp=[],window.CRISP_WEBSITE_ID="bf3c468c-2fd7-4dcc-866d-3b008127fff0",function(){d=document,s=d.createElement("script"),s.src="https://client.crisp.chat/l.js",s.async=1,d.getElementsByTagName("head")[0].appendChild(s)}()</script><div id="searchModal" class="modal"><div class="modal-content"><div class="search-header"><span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span> <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input"></div><div id="searchResult"></div></div></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/search.js"></script><script type="text/javascript">$(function(){searchFunc("https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/search.xml","searchInput","searchResult")})</script><div id="backTop" class="top-scroll"><a class="btn-floating btn-large waves-effect waves-light" href="#!"><i class="fas fa-arrow-up"></i></a></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/masonry/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/scrollprogress/scrollProgress.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/matery.js"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?90b288cd6d944c8f4f8f0258e60bf981";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script>!function(){var t=document.createElement("script"),s=window.location.protocol.split(":")[0];"https"===s?t.src="https://zz.bdstatic.com/linksubmit/push.js":t.src="http://push.zhanzhang.baidu.com/push.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()</script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/clicklove.js" async></script><script async src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/busuanzi.pure.mini.js"></script><script type="text/javascript" size="150" alpha="0.6" zindex="-1" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/background/ribbon-refresh.min.js" async></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/instantpage/instantpage.js" type="module"></script><script src="/js/sakura.js" type="module"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/fullscreen.js" type="module"></script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script>(function(w,d, s, id) {w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = 'https://cdn.webpushr.com/app.min.js';fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('init','BJrux_BJKMKcoDBNWov5dsd0zhl3p0eF00OUzgogE5bQRheUA7eytp5rcZXYHdodyiVfbOmMlAkf140zUrAPfv4');</script></body></html><!-- rebuild by neat -->
