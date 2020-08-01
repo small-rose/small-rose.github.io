@@ -254,32 +254,6 @@
   </entry>
   
   <entry>
-    <title>jvm之类加载机制</title>
-    <link href="https://small-rose.github.io/posts/22096143.html"/>
-    <id>https://small-rose.github.io/posts/22096143.html</id>
-    <published>2020-06-09T16:00:00.000Z</published>
-    <updated>2020-06-09T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jvm类加载机制&quot;&gt;&lt;a href=&quot;#jvm类加载机制&quot; class=&quot;headerlink&quot; title=&quot;jvm类加载机制&quot;&gt;&lt;/a&gt;jvm类加载机制&lt;/h2&gt;&lt;p&gt;什么是类加载机制？&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Java虚拟机把描述类的数据从C
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
-    
-    
-      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
     <title>DB2常用命令</title>
     <link href="https://small-rose.github.io/posts/7f06fe17.html"/>
     <id>https://small-rose.github.io/posts/7f06fe17.html</id>
@@ -306,6 +280,32 @@
   </entry>
   
   <entry>
+    <title>jvm之类加载机制</title>
+    <link href="https://small-rose.github.io/posts/22096143.html"/>
+    <id>https://small-rose.github.io/posts/22096143.html</id>
+    <published>2020-06-09T16:00:00.000Z</published>
+    <updated>2020-06-09T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;jvm类加载机制&quot;&gt;&lt;a href=&quot;#jvm类加载机制&quot; class=&quot;headerlink&quot; title=&quot;jvm类加载机制&quot;&gt;&lt;/a&gt;jvm类加载机制&lt;/h2&gt;&lt;p&gt;什么是类加载机制？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Java虚拟机把描述类的数据从C
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
+    
+    
+      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DB2常用函数</title>
     <link href="https://small-rose.github.io/posts/d22e90ef.html"/>
     <id>https://small-rose.github.io/posts/d22e90ef.html</id>
@@ -328,32 +328,6 @@
       <category term="SQL" scheme="https://small-rose.github.io/tags/SQL/"/>
     
       <category term="DB2" scheme="https://small-rose.github.io/tags/DB2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jvm之类文件结构</title>
-    <link href="https://small-rose.github.io/posts/6698cab3.html"/>
-    <id>https://small-rose.github.io/posts/6698cab3.html</id>
-    <published>2020-06-08T16:00:00.000Z</published>
-    <updated>2020-06-08T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jvm类文件结构&quot;&gt;&lt;a href=&quot;#jvm类文件结构&quot; class=&quot;headerlink&quot; title=&quot;jvm类文件结构&quot;&gt;&lt;/a&gt;jvm类文件结构&lt;/h2&gt;&lt;p&gt;各种不同平台的Java虚拟机，以及所有平台都统一支持的程序存储格式——字节码（ByteCod
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
-    
-    
-      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
-    
-      <category term="class结构" scheme="https://small-rose.github.io/tags/class%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
@@ -433,6 +407,32 @@
       <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
     
       <category term="字节码指令" scheme="https://small-rose.github.io/tags/%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jvm之类文件结构</title>
+    <link href="https://small-rose.github.io/posts/6698cab3.html"/>
+    <id>https://small-rose.github.io/posts/6698cab3.html</id>
+    <published>2020-06-08T16:00:00.000Z</published>
+    <updated>2020-06-08T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;jvm类文件结构&quot;&gt;&lt;a href=&quot;#jvm类文件结构&quot; class=&quot;headerlink&quot; title=&quot;jvm类文件结构&quot;&gt;&lt;/a&gt;jvm类文件结构&lt;/h2&gt;&lt;p&gt;各种不同平台的Java虚拟机，以及所有平台都统一支持的程序存储格式——字节码（ByteCod
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
+    
+    
+      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
+    
+      <category term="class结构" scheme="https://small-rose.github.io/tags/class%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
