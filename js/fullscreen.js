@@ -37,7 +37,7 @@ function exitfullscreen() { //退出全屏
 }
 
 let b = false;
-$('#fullscreen').on('click', function() {
+$('.fullscreen nav-show').on('click', function() {
     b = !b;
     b ? enterfullscreen() : exitfullscreen();
 })
