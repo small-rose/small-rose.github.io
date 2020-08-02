@@ -111,7 +111,7 @@ function startSakura() {
     cxt = canvas.getContext('2d');
     var sakuraList = new SakuraList();
     for (var i = 0; i < 20; i++) {
-        var sakura, randomX, randomY, randomS, randomR, randomFnx, randomFny,randomFnR;
+        var sakura, randomX, randomY, randomS, randomR, randomFnx, randomFny, randomFnR;
         randomX = getRandom('x');
         randomY = getRandom('y');
         randomR = getRandom('r');
@@ -127,11 +127,12 @@ function startSakura() {
         sakura.draw(cxt);
         sakuraList.push(sakura);
     }
-    stop = requestAnimationFrame(function () {
+    stop = requestAnimationFrame(function tmp() {
         cxt.clearRect(0, 0, canvas.width, canvas.height);
         sakuraList.update();
         sakuraList.draw(cxt);
-        stop = requestAnimationFrame(arguments.callee);
+        //stop = requestAnimationFrame(arguments.callee);
+		stop = requestAnimationFrame(tmp);
     })
 }
 window.onresize = function () {
