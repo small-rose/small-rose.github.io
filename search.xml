@@ -3122,6 +3122,14 @@ function openOrClose(){
 <span class="token key atrule">pleaseFollowReprintPolicy</span><span class="token punctuation">:</span> 复制成功，请遵循本文的转载规则
 <span class="token key atrule">checkPolicy</span><span class="token punctuation">:</span> 查看</code></pre>
 <h3 id="卜算子显示数字特别大"><a href="#卜算子显示数字特别大" class="headerlink" title="卜算子显示数字特别大"></a>卜算子显示数字特别大</h3><p>本地启动后，发现 卜算子显示数字特别大，不要惊慌，<code>localhost</code> 是个比较特殊的域名，只要真正部署上去之后自然就正常了。</p>
+<h3 id="想更换图标怎么办"><a href="#想更换图标怎么办" class="headerlink" title="想更换图标怎么办"></a>想更换图标怎么办</h3><p>Matery 主题使用的是 <code>font-awesome</code> 的图标库 Font Awesome Free 5.11.1。</p>
+<p>如果你想简单的更换图片，找到主题目录下 <code>/source/libs/awesome/css/</code> 目录的 <code>all.css</code> 文件。 文件中从 192行到4373行都是图片相关的。</p>
+<p>你只需要安装格式把 <code>fa-xxx</code>  或 <code>fa-xxx-xxx</code> 写到对应的位置就可以更换图标了。</p>
+<p>如果你想在文章中使用图标，可以写个标签</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fas fa-home<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span></code></pre>
+<p>效果大概是这样：</p>
+<p><i  class="fas fa-home" ></i></p>
+<p>可以先去 <a href="http://www.fontawesome.com.cn" target="_blank" rel="noopener">fontawesome 官网</a> 找，找好之后 F12  ，找到元素之后看看<code>&lt;i&gt;</code>标签的 <code>class</code> 的值是 <code>fa-xxx-xx</code> 的话再到 all.css 文件里搜一下，不过这也无法保证完全一样，因为版本不一致有的时候名字不一定一致。 多试试吧。</p>
 <h3 id="想添加特效"><a href="#想添加特效" class="headerlink" title="想添加特效"></a>想添加特效</h3><p>有些同学比较喜欢特效，参考大佬写的修改方法：<br><a href="https://yafine-blog.cn/posts/12b4.html" target="_blank" rel="noopener">Matery 主题个性化修改</a></p>
 <h3 id="修改主题相册"><a href="#修改主题相册" class="headerlink" title="修改主题相册"></a>修改主题相册</h3><p>有些同学比较喜欢独立相册，Matery 相册在个人里面。如果你想改成独立相册，参考大佬写的修改方法：<br><a href="https://yafine-blog.cn/posts/3b98.html" target="_blank" rel="noopener">修改 matery 原有主题相册</a></p>
 <h3 id="想添加导航页"><a href="#想添加导航页" class="headerlink" title="想添加导航页"></a>想添加导航页</h3><p>参考大佬的：<a href="https://yafine-blog.cn/posts/e925.html" target="_blank" rel="noopener">Hexo添加导航页</a></p>
@@ -3511,7 +3519,7 @@ function openOrClose(){
 </tr>
 </tbody></table>
 <p>(2) 将字体放到你博客的相关目录，理论上哪里都可以，但是要注意引入路径。</p>
-<p>比如我偷偷将<a href="http://cuixingjian.gitee.io/blog/" target="_blank" rel="noopener">崔建博客</a>的<code>hl.ttf</code>字体 （ 江西拙楷体 ） 扒过来了（嘿嘿~ 千万不要告诉他）<br>我放在工作目录下的 <code>/source/box/font/</code> 文件夹内，即文件路径为 <code>/source/box/font/hl.ttf</code> ，如果你要用多种字体可以在<code>font</code>目录统一存放。</p>
+<p>比如我偷偷将<a href="https://cxj660.gitee.io/" target="_blank" rel="noopener">崔建博客</a>的<code>hl.ttf</code>字体 （ 江西拙楷体 ） 扒过来了（嘿嘿~ 千万不要告诉他）<br>我放在工作目录下的 <code>/source/box/font/</code> 文件夹内，即文件路径为 <code>/source/box/font/hl.ttf</code> ，如果你要用多种字体可以在<code>font</code>目录统一存放。</p>
 <p>(3)  添加引入和使用</p>
 <p>找到主题文件夹下的 <code>my.css</code> 文件，路径为 <code>/themes/matery/source/css/my.css</code> ，在文件末尾添加下面的代码</p>
 <pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@font-face</span></span><span class="token punctuation">{</span>
@@ -15964,22 +15972,10 @@ ${person.createCompleteNameWithSeparator(&#39;-&#39;)}</code></pre><h5 id="b-常
 </tr>
 </tbody></table>
 <p>内置对象的详细内容比较多一次整理不完，会单独整理一篇内置对象。</p>
-<h4 id="（c）内置的工具对象"><a href="#（c）内置的工具对象" class="headerlink" title="（c）内置的工具对象"></a>（c）内置的工具对象</h4><pre><code>#execInfo : information about the template being processed.
-#messages : methods for obtaining externalized messages inside variables expressions, in the same way as they would be obtained using #{…} syntax.
-#uris : methods for escaping parts of URLs/URIs
-#conversions : methods for executing the configured conversion service (if any).
-#dates : methods for java.util.Date objects: formatting, component extraction, etc.
-#calendars : analogous to #dates , but for java.util.Calendar objects.
-#numbers : methods for formatting numeric objects.
-#strings : methods for String objects: contains, startsWith, prepending/appending, etc.
-#objects : methods for objects in general.
-#bools : methods for boolean evaluation.
-#arrays : methods for arrays.
-#lists : methods for lists.
-#sets : methods for sets.
-#maps : methods for maps.
-#aggregates : methods for creating aggregates on arrays or collections.
-#ids : methods for dealing with id attributes that might be repeated (for example, as a result of an iteration).</code></pre><p>内置对象的详细内容比较多一次整理不完，会单独整理一篇内置对象。</p>
+<p>内置对象参考<a href="44478111.html">《Thymeleaf 内置对象》</a></p>
+<h4 id="（c）内置的工具对象"><a href="#（c）内置的工具对象" class="headerlink" title="（c）内置的工具对象"></a>（c）内置的工具对象</h4><p><code>#execInfo</code> : 有关模板运行时的一些信息<br><code>#messages</code> : 在变量表达式中获取国际化信息的方法，也可以使用<code>#{…}</code>语法.<br><code>#uris</code> : 对URI或URL进行转义相关的方法<br><code>#conversions</code> : 如果有写相关的转换，用来执行配置的转换服务的方法.<br><code>#dates</code> : java.util.Date 日期对象格式化，组件提取的方法<br><code>#calendars</code> : 类似于 #dates , 但是是 java.util.Calendar 对象的.<br><code>#numbers</code> : 数字格式化相关的方法.<br><code>#strings</code> : 字符串相关方法: 包含, 以什么开始/结尾, 追加, 去空格等等.<br><code>#objects</code> : 对象通用方法.<br><code>#bools</code> : boolean 运算方法<br><code>#arrays</code> : 数组相关方法.<br><code>#lists</code> : list集合相关的方法.<br><code>#sets</code> :  set集合相关的方法.<br><code>#maps</code> : map集合相关的方法.<br><code>#aggregates</code> : 在数组或集合上创建聚合的方法.<br><code>#ids</code> : 处理可能重复的id属性的方法.例如，作为迭代的结果.</p>
+<p>内置对象的详细内容比较多一次整理不完，会单独整理一篇内置对象。</p>
+<p>内置对象参考<a href="44478111.html">《Thymeleaf 内置对象》</a></p>
 <h4 id="2）选择变量表达式"><a href="#2）选择变量表达式" class="headerlink" title="2）选择变量表达式"></a>2）选择变量表达式</h4><p>选择表达式语法：<code>*{...}</code> 和 <code>*{...}</code></p>
 <p> <code>*{...}</code> 一般配合 <code>th:object</code> 使用</p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name"><span class="token namespace">th:</span>object</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${session.user}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -16306,7 +16302,713 @@ Name:
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
 <h3 id="8-无操作标记"><a href="#8-无操作标记" class="headerlink" title="8. 无操作标记"></a>8. 无操作标记</h3><p>无操作标记使用下划线符号 <code>_</code> </p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.name} ?: _<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>no user authenticated<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<h2 id="五、属性设置"><a href="#五、属性设置" class="headerlink" title="五、属性设置"></a>五、属性设置</h2><h3 id="1、通用属性设置"><a href="#1、通用属性设置" class="headerlink" title="1、通用属性设置"></a>1、通用属性设置</h3><p>基本语法：<code>th:attr</code></p>
+<p>如，动态设置表单的 <code>action</code> 值、根据国际化的值显示按钮文字：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>subscribe.html<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>attr</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>action<span class="token punctuation">=</span>@{/subscribe}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fieldset</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Subscribe!<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>attr</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>value<span class="token punctuation">=</span>#{subscribe.submit}<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fieldset</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<p>也可以设置标签没有的自定义属性:</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>someone<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>attr</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>love<span class="token punctuation">=</span>you<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
+<p>还可以设置多个属性：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../../images/gtvglogo.png<span class="token punctuation">"</span></span>
+<span class="token attr-name"><span class="token namespace">th:</span>attr</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>src<span class="token punctuation">=</span>@{/images/gtvglogo.png},title<span class="token punctuation">=</span>#{logo},alt<span class="token punctuation">=</span>#{logo}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<h3 id="2、特殊属性设置"><a href="#2、特殊属性设置" class="headerlink" title="2、特殊属性设置"></a>2、特殊属性设置</h3><p>比如上面使用 <code>th:attr</code> 设置 <code>action</code> 属性和 <code>value</code> 属性：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Subscribe!<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>attr</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>value<span class="token punctuation">=</span>#{subscribe.submit}<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
+<p>也可以使用<code>th:action</code>  和 <code>th:value</code> 设置 ：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>subscribe.html<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@{/subscribe}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fieldset</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Subscribe!<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#{subscribe.submit}<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fieldset</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<p>HTML5 常见特殊属性：</p>
+<table>
+<thead>
+<tr>
+<th align="left">th:abbr</th>
+<th align="left">th:accesskey</th>
+<th align="left">th:alt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">th:autocomplete</td>
+<td align="left">th:accept</td>
+<td align="left">th:action</td>
+</tr>
+<tr>
+<td align="left">th:archive</td>
+<td align="left">th:axis</td>
+<td align="left">th:accept-charset</td>
+</tr>
+<tr>
+<td align="left">th:align</td>
+<td align="left">th:audio</td>
+<td align="left">th:background</td>
+</tr>
+<tr>
+<td align="left">th:bgcolor</td>
+<td align="left">th:cellspacing</td>
+<td align="left">th:cite</td>
+</tr>
+<tr>
+<td align="left">th:codebase</td>
+<td align="left">th:colspan</td>
+<td align="left">th:contenteditable</td>
+</tr>
+<tr>
+<td align="left">th:border</td>
+<td align="left">th:challenge</td>
+<td align="left">th:class</td>
+</tr>
+<tr>
+<td align="left">th:codetype</td>
+<td align="left">th:compact</td>
+<td align="left">th:contextmenu</td>
+</tr>
+<tr>
+<td align="left">th:cellpadding</td>
+<td align="left">th:charset</td>
+<td align="left">th:classid</td>
+</tr>
+<tr>
+<td align="left">th:cols</td>
+<td align="left">th:content</td>
+<td align="left">th:data</td>
+</tr>
+<tr>
+<td align="left">th:datetime</td>
+<td align="left">th:dropzone</td>
+<td align="left">th:form</td>
+</tr>
+<tr>
+<td align="left">th:formmethod</td>
+<td align="left">th:frame</td>
+<td align="left">th:dir</td>
+</tr>
+<tr>
+<td align="left">th:enctype</td>
+<td align="left">th:formaction</td>
+<td align="left">th:formtarget</td>
+</tr>
+<tr>
+<td align="left">th:frameborder</td>
+<td align="left">th:draggable</td>
+<td align="left">th:for</td>
+</tr>
+<tr>
+<td align="left">th:formenctype</td>
+<td align="left">th:fragment</td>
+<td align="left">th:headers</td>
+</tr>
+<tr>
+<td align="left">th:height</td>
+<td align="left">th:hreflang</td>
+<td align="left">th:icon</td>
+</tr>
+<tr>
+<td align="left">th:keytype</td>
+<td align="left">th:lang</td>
+<td align="left">th:low</td>
+</tr>
+<tr>
+<td align="left">th:high</td>
+<td align="left">th:hspace</td>
+<td align="left">th:id</td>
+</tr>
+<tr>
+<td align="left">th:kind</td>
+<td align="left">th:list</td>
+<td align="left">th:manifest</td>
+</tr>
+<tr>
+<td align="left">th:href</td>
+<td align="left">th:http-equiv</td>
+<td align="left">th:inline</td>
+</tr>
+<tr>
+<td align="left">th:label</td>
+<td align="left">th:longdesc</td>
+<td align="left">th:marginheight</td>
+</tr>
+<tr>
+<td align="left">th:low</td>
+<td align="left">th:manifest</td>
+<td align="left">th:marginheight</td>
+</tr>
+<tr>
+<td align="left">th:marginwidth</td>
+<td align="left">th:media</td>
+<td align="left">th:name</td>
+</tr>
+<tr>
+<td align="left">th:onbeforeprint</td>
+<td align="left">th:oncanplay</td>
+<td align="left">th:max</td>
+</tr>
+<tr>
+<td align="left">th:method</td>
+<td align="left">th:onabort</td>
+<td align="left">th:onbeforeunload</td>
+</tr>
+<tr>
+<td align="left">th:oncanplaythrough</td>
+<td align="left">th:maxlength</td>
+<td align="left">th:min</td>
+</tr>
+<tr>
+<td align="left">th:onafterprint</td>
+<td align="left">th:onblur</td>
+<td align="left">th:onchange</td>
+</tr>
+<tr>
+<td align="left">th:onclick</td>
+<td align="left">th:ondrag</td>
+<td align="left">th:ondragleave</td>
+</tr>
+<tr>
+<td align="left">th:ondrop</td>
+<td align="left">th:onended</td>
+<td align="left">th:onformchange</td>
+</tr>
+<tr>
+<td align="left">th:oncontextmenu</td>
+<td align="left">th:ondragend</td>
+<td align="left">th:ondragover</td>
+</tr>
+<tr>
+<td align="left">th:ondurationchange</td>
+<td align="left">th:onerror</td>
+<td align="left">th:onforminput</td>
+</tr>
+<tr>
+<td align="left">th:ondblclick</td>
+<td align="left">th:ondragenter</td>
+<td align="left">th:ondragstart</td>
+</tr>
+<tr>
+<td align="left">th:onemptied</td>
+<td align="left">th:onfocus</td>
+<td align="left">th:onhashchange</td>
+</tr>
+<tr>
+<td align="left">th:oninput</td>
+<td align="left">th:onkeypress</td>
+<td align="left">th:onloadeddata</td>
+</tr>
+<tr>
+<td align="left">th:onmessage</td>
+<td align="left">th:onmouseout</td>
+<td align="left">th:oninvalid</td>
+</tr>
+<tr>
+<td align="left">th:onkeyup</td>
+<td align="left">th:onloadedmetadata</td>
+<td align="left">th:onmousedown</td>
+</tr>
+<tr>
+<td align="left">th:onmouseover</td>
+<td align="left">th:onkeydown</td>
+<td align="left">th:onload</td>
+</tr>
+<tr>
+<td align="left">th:onloadstart</td>
+<td align="left">th:onmousemove</td>
+<td align="left">th:onmouseup</td>
+</tr>
+<tr>
+<td align="left">th:onmousewheel</td>
+<td align="left">th:onpause</td>
+<td align="left">th:onpopstate</td>
+</tr>
+<tr>
+<td align="left">th:onreadystatechange</td>
+<td align="left">th:onresize</td>
+<td align="left">th:onoffline</td>
+</tr>
+<tr>
+<td align="left">th:onplay</td>
+<td align="left">th:onprogress</td>
+<td align="left">th:onredo</td>
+</tr>
+<tr>
+<td align="left">th:onscroll</td>
+<td align="left">th:ononline</td>
+<td align="left">th:onplaying</td>
+</tr>
+<tr>
+<td align="left">th:onratechange</td>
+<td align="left">th:onreset</td>
+<td align="left">th:onseeked</td>
+</tr>
+<tr>
+<td align="left">th:onseeking</td>
+<td align="left">th:onstalled</td>
+<td align="left">th:onsuspend</td>
+</tr>
+<tr>
+<td align="left">th:onunload</td>
+<td align="left">th:optimum</td>
+<td align="left">th:poster</td>
+</tr>
+<tr>
+<td align="left">th:onselect</td>
+<td align="left">th:onstorage</td>
+<td align="left">th:ontimeupdate</td>
+</tr>
+<tr>
+<td align="left">th:onvolumechange</td>
+<td align="left">th:pattern</td>
+<td align="left">th:preload</td>
+</tr>
+<tr>
+<td align="left">th:onshow</td>
+<td align="left">th:onsubmit</td>
+<td align="left">th:onundo</td>
+</tr>
+<tr>
+<td align="left">th:onwaiting</td>
+<td align="left">th:placeholder</td>
+<td align="left">th:radiogroup</td>
+</tr>
+<tr>
+<td align="left">th:rel</td>
+<td align="left">th:rowspan</td>
+<td align="left">th:scheme</td>
+</tr>
+<tr>
+<td align="left">th:size</td>
+<td align="left">th:spellcheck</td>
+<td align="left">th:rev</td>
+</tr>
+<tr>
+<td align="left">th:rules</td>
+<td align="left">th:scope</td>
+<td align="left">th:sizes</td>
+</tr>
+<tr>
+<td align="left">th:src</td>
+<td align="left">th:rows</td>
+<td align="left">th:sandbox</td>
+</tr>
+<tr>
+<td align="left">th:scrolling</td>
+<td align="left">th:span</td>
+<td align="left">th:srclang</td>
+</tr>
+<tr>
+<td align="left">th:standby</td>
+<td align="left">th:style</td>
+<td align="left">th:target</td>
+</tr>
+<tr>
+<td align="left">th:usemap</td>
+<td align="left">th:vspace</td>
+<td align="left">th:xmlbase</td>
+</tr>
+<tr>
+<td align="left">th:start</td>
+<td align="left">th:summary</td>
+<td align="left">th:title</td>
+</tr>
+<tr>
+<td align="left">th:value</td>
+<td align="left">th:width</td>
+<td align="left">th:xmllang</td>
+</tr>
+<tr>
+<td align="left">th:step</td>
+<td align="left">th:tabindex</td>
+<td align="left">th:type</td>
+</tr>
+<tr>
+<td align="left">th:valuetype</td>
+<td align="left">th:wrap</td>
+<td align="left">th:xmlspace</td>
+</tr>
+</tbody></table>
+<h3 id="3、一次设置多个属性值"><a href="#3、一次设置多个属性值" class="headerlink" title="3、一次设置多个属性值"></a>3、一次设置多个属性值</h3><p>有两个相当特殊的属性称为 <code>th:alt-title</code> 和 <code>th:lang-xmllang</code> ，可用于设置两个属性：</p>
+<ul>
+<li><code>th:alt-title</code> 可以设置 <code>alt</code> 和 <code>title</code> 属性 . </li>
+<li><code>th:lang-xmllang</code> 可以设置  <code>lang</code>  和  <code>xml:lang</code> 属性 . </li>
+</ul>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../../images/gtvglogo.png<span class="token punctuation">"</span></span>
+<span class="token attr-name"><span class="token namespace">th:</span>attr</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>src<span class="token punctuation">=</span>@{/images/gtvglogo.png},title<span class="token punctuation">=</span>#{logo},alt<span class="token punctuation">=</span>#{logo}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>等价于</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../../images/gtvglogo.png<span class="token punctuation">"</span></span>
+<span class="token attr-name"><span class="token namespace">th:</span>src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@{/images/gtvglogo.png}<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#{logo}<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#{logo}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>等价于</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../../images/gtvglogo.png<span class="token punctuation">"</span></span>
+<span class="token attr-name"><span class="token namespace">th:</span>src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@{/images/gtvglogo.png}<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>alt-title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#{logo}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<h3 id="4、追加属性"><a href="#4、追加属性" class="headerlink" title="4、追加属性"></a>4、追加属性</h3><p><code>th:attrappend</code> ：表示在后面追加 。</p>
+<p><code>th:attrprepend</code> ：表示在前面追加 。  </p>
+<p>比较常见的是修改 <code>CSS</code> 样式：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Do it!<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>attrappend</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>class<span class="token punctuation">=</span>${<span class="token punctuation">'</span> <span class="token punctuation">'</span> + cssStyle}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>假如 cssStyle 的值是 success ，最终效果如下：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Do it!<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn success<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>标准方言中还有两个特定的附加属性：<code>th:classappend</code> 和 <code>th:styleappend</code> 属性，用于向元素添加 <code>CSS</code> 类或样式片段，而不覆盖现已经有的代码。</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span> <span class="token attr-name"><span class="token namespace">th:</span>each</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>prod : ${prods}<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>row<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>classappend</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prodStat.odd}? <span class="token punctuation">'</span>odd<span class="token punctuation">'</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
+<p>满足条件之后就会变成：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span> <span class="token attr-name"><span class="token namespace">th:</span>each</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>prod : ${prods}<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>row odd<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span></code></pre>
+<h3 id="5、固定值布尔属性"><a href="#5、固定值布尔属性" class="headerlink" title="5、固定值布尔属性"></a>5、固定值布尔属性</h3><p>比如 <code>checked</code> 属性:</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>option2<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span> <span class="token punctuation">/></span></span> <span class="token comment" spellcheck="true">&lt;!-- HTML --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>option1<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checked<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span> <span class="token comment" spellcheck="true">&lt;!-- XHTML --></span></code></pre>
+<p>标准方言包含允许您通过计算条件来设置这些属性的属性，这样如果表达式求值为true，则属性将设置为其固定值，如果求值为false，则不会设置该属性。如：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>active<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>checked</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.active}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p> 标准方言中存在以下固定值布尔属性：</p>
+<table>
+<thead>
+<tr>
+<th>th:async</th>
+<th>th:autofocus</th>
+<th>th:autoplay</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>th:checked</td>
+<td>th:default</td>
+<td>th:formnovalidate</td>
+</tr>
+<tr>
+<td>th:loop</td>
+<td>th:nowrap</td>
+<td>th:controls</td>
+</tr>
+<tr>
+<td>th:defer</td>
+<td>th:hidden</td>
+<td>th:multiple</td>
+</tr>
+<tr>
+<td>th:open</td>
+<td>th:declare</td>
+<td>th:disabled</td>
+</tr>
+<tr>
+<td>th:ismap</td>
+<td>th:novalidate</td>
+<td>th:pubdate</td>
+</tr>
+<tr>
+<td>th:readonly</td>
+<td>th:scoped</td>
+<td>th:required</td>
+</tr>
+<tr>
+<td>th:seamless</td>
+<td>th:reversed</td>
+<td>th:selected</td>
+</tr>
+</tbody></table>
+<h3 id="6、任意属性设置"><a href="#6、任意属性设置" class="headerlink" title="6、任意属性设置"></a>6、任意属性设置</h3><p>Thymeleaf提供了一个默认的属性处理器，允许我们设置任何属性的值，即使没有特定的 <code>th：*</code> 处理器是用标准方言定义的。如：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name"><span class="token namespace">th:</span>whatever</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.name}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
+<p>解析后：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">whatever</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>John Apricot<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="7、H5属性元素支持"><a href="#7、H5属性元素支持" class="headerlink" title="7、H5属性元素支持"></a>7、H5属性元素支持</h3><p><code>data-{prefix}-{name}</code> 语法是在HTML5中编写自定义属性的标准方法，无需开发人员可以使用任何名称空间的名称，有些类似 <code>th:*</code> 的用法。</p>
+<p>比如：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span> <span class="token attr-name">data-th-each</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>user : ${users}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">data-th-text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.login}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">data-th-text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.name}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span></code></pre>
+<h2 id="六、迭代"><a href="#六、迭代" class="headerlink" title="六、迭代"></a>六、迭代</h2><h3 id="1、基本迭代"><a href="#1、基本迭代" class="headerlink" title="1、基本迭代"></a>1、基本迭代</h3><p>基本语法：<code>th:each</code> </p>
+<p>示例：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Product list<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>NAME<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>PRICE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>IN STOCK<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span> <span class="token attr-name"><span class="token namespace">th:</span>each</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>prod : ${prods}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prod.name}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Onions<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prod.price}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>2.41<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prod.inStock}? #{true} : #{false}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>yes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../home.html<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@{/}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Return to home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></code></pre>
+<ul>
+<li>将 <code>${prods}</code> 称为迭代表达式或被迭代变量。</li>
+<li>将 <code>prod</code> 称为迭代变量或简称iter变量。</li>
+<li>注意 <code>prod</code> 迭代变量的作用域是<code>&lt;tr&gt;</code>元素，这意味着它可用于内部标记，如 <code>&lt;td&gt;</code> ，同时也将意味着迭代会产生多个 <code>&lt;tr&gt;</code> 元素。</li>
+<li>可以用于迭代的对象不止<code>List</code>, 还有：<ul>
+<li>（ A ）任何实现了<code>java.util.Iterable</code> 或 <code>java.util.Enumeration</code> 或  <code>java.util.Iterator</code>(值将在迭代器返回时使用，不需要在内存中缓存所有值) 或 <code>java.util.Map</code>（ Map中迭代变量会是 <code>java.util.Map.Entry</code> 类）。</li>
+<li>（ B ）可以是数组。</li>
+<li>（ C ）任何其他对象都将被视为包含对象本身的单值列表</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、迭代时状态"><a href="#2、迭代时状态" class="headerlink" title="2、迭代时状态"></a>2、迭代时状态</h3><p>当使用 <code>th:each</code> 时，Thymeleaf 提供了一种用于跟踪迭代状态的机制：状态变量。</p>
+<p>状态变量在th:each属性中定义，并包含以下数据：</p>
+<ul>
+<li><p>当前迭代索引，从0开始。<code>index</code> 属性。 </p>
+</li>
+<li><p>当前迭代索引，从1开始。<code>count</code> 属性。 </p>
+</li>
+<li><p>迭代变量中元素的总数。<code>size</code> 属性。 </p>
+</li>
+<li><p>每次迭代的iter变量。<code>current</code> 属性。 </p>
+</li>
+<li><p>当前迭代是偶数还是奇数。这些是 even /odd 布尔属性。 </p>
+</li>
+<li><p>当前迭代是否是第一个迭代。first 布尔属性。 </p>
+</li>
+<li><p>当前迭代是否是最后一个迭代。last 布尔属性。</p>
+</li>
+</ul>
+<p>示例：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>NAME<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>PRICE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>IN STOCK<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span> <span class="token attr-name"><span class="token namespace">th:</span>each</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>prod,iterStat : ${prods}<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${iterStat.odd}? <span class="token punctuation">'</span>odd<span class="token punctuation">'</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prod.name}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Onions<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prod.price}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>2.41<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prod.inStock}? #{true} : #{false}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>yes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span></code></pre>
+<p>​    状态变量（在本例中是 <code>iterStat</code>）是通过在 <code>iter</code>后面写入其名称在th:each属性中定义的变量本身，用逗号分隔。与iter变量一样，status变量的作用域也是由包含 <code>th:each</code> 属性的标记定义的代码。 如果我们不写也可以，Thymeleaf 也能识别：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>NAME<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>PRICE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>IN STOCK<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span> <span class="token attr-name"><span class="token namespace">th:</span>each</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>prod : ${prods}<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prodStat.odd}? <span class="token punctuation">'</span>odd<span class="token punctuation">'</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prod.name}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Onions<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prod.price}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>2.41<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prod.inStock}? #{true} : #{false}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>yes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="3、延迟加载"><a href="#3、延迟加载" class="headerlink" title="3、延迟加载"></a>3、延迟加载</h3><p>有时，我们可能希望优化数据集合的检索（例如从数据库），以便只有当集合真的要被使用时才会被检索。实际上，这是一种可以应用于任何数据块的东西，但是可能指定了内存集合的大小，检索要迭代的集合是这种情况下最常见的情况。</p>
+<p>为了支持这一点，Thymeleaf 提供了一种延迟加载上下文变量的机制。上下文变量实现 <code>ILazyContextVariable</code> 接口（很可能是通过扩展其 <code>LazyContextVariable</code> 默认值来实现）实现将在执行时解决。例如：</p>
+<pre class=" language-java"><code class="language-java">context<span class="token punctuation">.</span><span class="token function">setVariable</span><span class="token punctuation">(</span>
+<span class="token string">"users"</span><span class="token punctuation">,</span>
+<span class="token keyword">new</span> <span class="token class-name">LazyContextVariable</span><span class="token operator">&lt;</span>List<span class="token operator">&lt;</span>User<span class="token operator">>></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">protected</span> List<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">loadValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">return</span> databaseRepository<span class="token punctuation">.</span><span class="token function">findAllUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>代码中，可以在不知道其懒散性的情况下使用此变量，为了保证是否执行，可以加个条件：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name"><span class="token namespace">th:</span>if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${condition}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name"><span class="token namespace">th:</span>each</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>u : ${users}<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${u.name}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>user name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></code></pre>
+<h2 id="七、条件表达式"><a href="#七、条件表达式" class="headerlink" title="七、条件表达式"></a>七、条件表达式</h2><h3 id="1、简单条件表达式"><a href="#1、简单条件表达式" class="headerlink" title="1、简单条件表达式"></a>1、简单条件表达式</h3><p><code>if</code> 和  <code>unless</code> 。</p>
+<p>示例：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>NAME<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>PRICE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>IN STOCK<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>COMMENTS<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span> <span class="token attr-name"><span class="token namespace">th:</span>each</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>prod : ${prods}<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prodStat.odd}? <span class="token punctuation">'</span>odd<span class="token punctuation">'</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prod.name}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Onions<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prod.price}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>2.41<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${prod.inStock}? #{true} : #{false}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>yes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${#lists.size(prod.comments)}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span> comment/s
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>comments.html<span class="token punctuation">"</span></span>
+            <span class="token attr-name"><span class="token namespace">th:</span>href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@{/product/comments(prodId<span class="token punctuation">=</span>${prod.id})}<span class="token punctuation">"</span></span>
+            <span class="token attr-name"><span class="token namespace">th:</span>if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${not #lists.isEmpty(prod.comments)}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>view<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span></code></pre>
+<p>可以看到 <code>&lt;a&gt;</code>标签被解析的条件是<code>prod.comments</code> 不能为空。</p>
+<p>注意，<code>th:if</code> 属性不仅计算布尔条件。它的能力远不止于此，而且将根据以下规则将指定的表达式求值为 <code>true</code>：</p>
+<p>（1）if 表达式值不为 null 的情况运算结果是<code>true</code>: </p>
+<ul>
+<li>If 表达式值是个布尔值并且是true. </li>
+<li>If 表达式值是个不为 0 的数字。</li>
+<li>If 表达式值是个不为 <code>&#39;0&#39;</code> 的字符。</li>
+<li>If 表达式值是个字符，但不是 “false”, “off” or “no” </li>
+<li>If 表达式值不是布尔值、不是数字、不是字符、也不是字符串。</li>
+</ul>
+<p>（2）if 表达式值为 null ，那么运算结果是 <code>false</code>  。    </p>
+<p><code>th:if</code> 的逆属性 <code>th:unless</code> 也可以使用。</p>
+<pre class=" language-html"><code class="language-html"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>comments.html<span class="token punctuation">"</span></span>
+            <span class="token attr-name"><span class="token namespace">th:</span>href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@{/product/comments(prodId<span class="token punctuation">=</span>${prod.id})}<span class="token punctuation">"</span></span>
+            <span class="token attr-name"><span class="token namespace">th:</span>unless</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${#lists.isEmpty(prod.comments)}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>view<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="2、切换选择语句"><a href="#2、切换选择语句" class="headerlink" title="2、切换选择语句"></a>2、切换选择语句</h3><p>还有一种方法可以使用Java中的<code>switch</code> 结构有条件地显示内容：<code>th:switch</code> / <code>th:case</code> 属性集。</p>
+<p>示例：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name"><span class="token namespace">th:</span>switch</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.role}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name"><span class="token namespace">th:</span>case</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">'</span>admin<span class="token punctuation">'</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>User is an administrator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name"><span class="token namespace">th:</span>case</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#{roles.manager}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>User is a manager<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>请注意，只要一个 <code>th:case</code> 属性被运算为 <code>true</code> ，则在同一个<code>switch</code> 中其他每一个 <code>th:case</code>属性运算结果为 <code>false</code> 。</p>
+<p>万一所有的 <code>case</code> 都不中怎么办？可以设置默认选项呀~ 默认选项指定为<code>th:case=&quot;*&quot;</code>：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name"><span class="token namespace">th:</span>switch</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.role}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name"><span class="token namespace">th:</span>case</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">'</span>admin<span class="token punctuation">'</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>User is an administrator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name"><span class="token namespace">th:</span>case</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#{roles.manager}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>User is a manager<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name"><span class="token namespace">th:</span>case</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>*<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>User is some other thing<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<h2 id="八、内联"><a href="#八、内联" class="headerlink" title="八、内联"></a>八、内联</h2><h3 id="1、表达式内联"><a href="#1、表达式内联" class="headerlink" title="1、表达式内联"></a>1、表达式内联</h3><p>表达式内联、也叫内联写法、行间写法。反正都是翻译的怎么叫都行，其实就是直接在HTML文本中写入表达式，不配合标签来使用。</p>
+<p>示例：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Hello, [[${session.user.name}]]!&lt;/p</code></pre>
+<p>等价于：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Hello, <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${session.user.name}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Sebastian<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
+<p><code>[[...]]</code> 和 <code>[(...)]</code> 的区别类似 <code>th:text</code> 和 <code>th:utext</code>    </p>
+<p><code>[[...]]</code> 对应着 <code>th:text</code> ：转义特殊字符，内容是什么原样输出什么，浏览器不进行解析。</p>
+<p><code>[(...)]</code>对应着 <code>th:utext</code> ：不转义特殊字符，有标签时，浏览器会识别解析 html 标签。</p>
+<p>注意：这个内联写法可以使用 <code>th:inline=&quot;none&quot;</code> 禁用：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name"><span class="token namespace">th:</span>inline</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>A double array looks like this: [[1, 2, 3], [4, 5]]!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
+<p>解析结果：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>A double array looks like this: [[1, 2, 3], [4, 5]]!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="2、文本内联"><a href="#2、文本内联" class="headerlink" title="2、文本内联"></a>2、文本内联</h3><p>Textual template modes 文本模板模式</p>
+<p>这个特征在页面开发中感觉使用并不是特别多，如果以后遇到再查API 进行补充学习。</p>
+<h3 id="3、JS脚本内联"><a href="#3、JS脚本内联" class="headerlink" title="3、JS脚本内联"></a>3、JS脚本内联</h3><p>就是允许在<code>&lt;javascript&gt;</code> 脚本中使用 Thymeleaf 。</p>
+<p>1) 基本使用</p>
+<p>使用 <code>th:inline=&quot;javascript&quot;</code> 来激活使用：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script th<span class="token punctuation">:</span>inline<span class="token operator">=</span><span class="token string">"javascript"</span><span class="token operator">></span>
+<span class="token operator">...</span>
+<span class="token keyword">var</span> username <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>$<span class="token punctuation">{</span>session<span class="token punctuation">.</span>user<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<p>最终结果：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script th<span class="token punctuation">:</span>inline<span class="token operator">=</span><span class="token string">"javascript"</span><span class="token operator">></span>
+<span class="token operator">...</span>
+<span class="token keyword">var</span> username <span class="token operator">=</span> <span class="token string">"Sebastian \"Fruity\" Applejuice"</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<p>需要注意：</p>
+<p>（1）JavaScript 内联不仅输出所需的文本，还将其用引号括起来，并且JavaScript 转义其内容，以便将表达式结果作为格式良好的JavaScript文本输出。</p>
+<p>（2）因为我们 <code>${session.user.name}</code> 输出，表达式为转义，如果使用双括号表达式：[[${session.user.name}]] ，表达式的结果就是非转义。就像这样：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name"><span class="token namespace">th:</span>inline</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token operator">...</span>
+<span class="token keyword">var</span> username <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>$<span class="token punctuation">{</span>session<span class="token punctuation">.</span>user<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>最终结果：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name"><span class="token namespace">th:</span>inline</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token operator">...</span>
+<span class="token keyword">var</span> username <span class="token operator">=</span> Sebastian <span class="token string">"Fruity"</span> Applejuice<span class="token punctuation">;</span>
+<span class="token operator">...</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>明显这样是一种错误的JS格式，浏览器肯定会报错。但是输出为转义的内容可能是我们需要的，比如通过附加内联表达式来实现脚本的一部分内容，也是一个比较不错的工具。</p>
+<p>JavaScript内联机制的智能性远不止是应用特定于JavaScript的转义并将表达式结果作为有效文本输出。</p>
+<p>例如，我们可以在JavaScript注释中包装（转义）内联表达式，例如：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name"><span class="token namespace">th:</span>inline</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token operator">...</span>
+<span class="token keyword">var</span> username <span class="token operator">=</span> <span class="token comment" spellcheck="true">/*[[${session.user.name}]]*/</span> <span class="token string">"Gertrud Kiwifruit"</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>而Thymeleaf将忽略我们在注释之后和分号之前写的所有内容（在本例中 <code>&#39;Gertrud Kiwifruit&#39;</code>），因此执行此操作的结果将与不使用包装时完全相同：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name"><span class="token namespace">th:</span>inline</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token operator">...</span>
+<span class="token keyword">var</span> username <span class="token operator">=</span> <span class="token string">"Sebastian \"Fruity\" Applejuice"</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>注意：这是如何有效的JavaScript代码。当你在静态模式下打开你的模板文件时，它将完美地执行方式（不在服务器上执行）。所以我们这里有一种方法来制作JavaScript自然模板！</p>
+<p>2） 高级内联求值和JavaScript序列化:</p>
+<p>关于JavaScript内联，需要注意的一点是，这个表达式计算是智能的，不局限于字符串。Thymeleaf将正确地用JavaScript语法编写以下类型的对象：</p>
+<p><code>Strings</code>、<code>Numbers</code> 、<code>Booleans</code>、 <code>Arrays</code>、 <code>Collections</code>、 <code>Maps</code>、 <code>Beans</code> (对象要求有getter和setter方法)    </p>
+<p>示例：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name"><span class="token namespace">th:</span>inline</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token operator">...</span>
+<span class="token keyword">var</span> user <span class="token operator">=</span> <span class="token comment" spellcheck="true">/*[[${session.user}]]*/</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p><code>${session.user}</code> 将会运算 user 对象，运行结果：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name"><span class="token namespace">th:</span>inline</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token operator">...</span>
+<span class="token keyword">var</span> user <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"age"</span><span class="token punctuation">:</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token string">"firstName"</span><span class="token punctuation">:</span><span class="token string">"John"</span><span class="token punctuation">,</span><span class="token string">"lastName"</span><span class="token punctuation">:</span><span class="token string">"Apricot"</span><span class="token punctuation">,</span>
+<span class="token string">"name"</span><span class="token punctuation">:</span><span class="token string">"John Apricot"</span><span class="token punctuation">,</span><span class="token string">"nationality"</span><span class="token punctuation">:</span><span class="token string">"Antarctica"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>​        JavaScript序列化的方法是通过 <code>org.thymeleaf.standard.serializer.IStandardJavaScriptSerializer</code> 接口，可以在模板引擎中使用的<code>StandardDialect</code>的实例。 这个JS序列化机制的默认实现将在类路径中查找<code>Jackson</code>库，如果存在，将使用它。如果没有，它将应用一个内置的序列化机制来满足大多数场景和产生类似的结果（但灵活性较差） </p>
+<h3 id="4、CSS样式内联"><a href="#4、CSS样式内联" class="headerlink" title="4、CSS样式内联"></a>4、CSS样式内联</h3><p>就是允许在<code>&lt;style&gt;</code> 样式脚本中使用 Thymeleaf 。</p>
+<p>使用 <code>th:inline=&quot;css&quot;</code> 来激活使用：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name"><span class="token namespace">th:</span>inline</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+<span class="token number">...</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
+<p>比如我们有两个字符串变量：</p>
+<pre class=" language-css"><code class="language-css">classname = <span class="token string">'main elems'</span>
+align = 'center</code></pre>
+<p>就可以直接使用：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name"><span class="token namespace">th:</span>inline</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+<span class="token selector">.[[$</span><span class="token punctuation">{</span>classname<span class="token punctuation">}</span><span class="token selector">]] </span><span class="token punctuation">{</span>
+<span class="token selector">text-align: [[$</span><span class="token punctuation">{</span>align<span class="token punctuation">}</span>]]<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
+<p>最终解析结果：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name"><span class="token namespace">th:</span>inline</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+<span class="token selector"><span class="token class">.main</span>\ elems </span><span class="token punctuation">{</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
+<p>注意：</p>
+<p>​    CSS内联也具有一些智能，就像JavaScript一样像 <code>[[${classname}]]</code> 这样的表达式将作为CSS标识符转义。这就是为什么上面的 <code>classname=&#39;main elems&#39;</code>在代码片段中变成了<code>main\ elems</code>。</p>
+<p>高级功能：CSS自然模板。</p>
+<p>​    与前面对JavaScript的解释相同，CSS内联也允许 <code>&lt;style&gt;</code>标记工作静态和动态都可以，例如通过在注释中包装内联表达式作为CSS自然模板。</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name"><span class="token namespace">th:</span>inline</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+<span class="token selector"><span class="token class">.main</span>\ elems </span><span class="token punctuation">{</span>
+<span class="token property">text-align</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">/*[[${align}]]*/</span> left<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
+<p>结果是：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name"><span class="token namespace">th:</span>inline</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+<span class="token selector"><span class="token class">.main</span>\ elems </span><span class="token punctuation">{</span>
+<span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
+<h2 id="九、注释和块"><a href="#九、注释和块" class="headerlink" title="九、注释和块"></a>九、注释和块</h2><h3 id="1、标准HTML-XML注释"><a href="#1、标准HTML-XML注释" class="headerlink" title="1、标准HTML/XML注释"></a>1、标准HTML/XML注释</h3><p>基本语法：<code>&lt;!--  ...   --&gt;</code></p>
+<h3 id="2、解析器级注释块"><a href="#2、解析器级注释块" class="headerlink" title="2、解析器级注释块"></a>2、解析器级注释块</h3><p>解析器级注释块是在Thymeleaf解析模板时将其从模板中简单删除的代码。</p>
+<p>基本语法：<code>&lt;!--/* and */--&gt;</code></p>
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!--/* This code will be removed at Thymeleaf parsing time! */--></span></code></pre>
+<h3 id="3、Thymeleaf原型仅注释块"><a href="#3、Thymeleaf原型仅注释块" class="headerlink" title="3、Thymeleaf原型仅注释块"></a>3、Thymeleaf原型仅注释块</h3><p>当模板静态地（例如，作为一个原型）打开时，Thymeleaf允许定义标记为注释的特殊注释块，但是在执行模板时，Thymeleaf认为是正常的标记。</p>
+<p>示例：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>hello!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--/*/
+&lt;div th:text="${...}">
+...
+&lt;/div>
+/*/--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>goodbye!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
+<p>Thymeleaf的解析系统将简单地删除 <code>&lt;！--/*  */--&gt;</code> 标记，但不包括其内容。因此没有注释。因此，在执行模板时，Thymeleaf将实际看到：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>hello!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${...}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+...
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>goodbye!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
+<p>与解析器级别的注释块一样，这个特性与方言无关。</p>
+<h3 id="4、合成-th-block-标记"><a href="#4、合成-th-block-标记" class="headerlink" title="4、合成 th:block 标记"></a>4、合成 th:block 标记</h3><p>Thymeleaf标准方言中唯一的元素处理器（不是属性）是<code>th:block</code>。<code>th:block</code> 仅仅是一个属性容器，允许模板开发人员指定他们想要的任何属性。</p>
+<p>Thymeleaf将执行这些属性，然后简单地使块（而不是其内容）消失。因此，例如，在创建每个元素需要多个<code>&lt;tr&gt;</code>的迭代表时，它可能很有用：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">th:</span>block</span> <span class="token attr-name"><span class="token namespace">th:</span>each</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>user : ${users}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.login}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.name}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">colspan</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.address}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">th:</span>block</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span></code></pre>
+<p>尤其是与原型仅注释块结合使用时非常有用：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--/*/ &lt;th:block th:each="user : ${users}"> /*/--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.login}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.name}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">colspan</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${user.address}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--/*/ &lt;/th:block> /*/--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span></code></pre>
+<p>注意：</p>
+<p>​    这个解决方案允许模板是有效的HTML（不需要在<code>&lt;table&gt;</code>中添加禁止的<code>&lt;div&gt;</code>块），以及作为原型在浏览器中静态打开时仍然可以正常工作！ </p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>SpringBoot</category>
       </categories>
