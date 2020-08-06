@@ -17827,4 +17827,243 @@ align = 'center</code></pre>
         <tag>Thymeleaf</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Nginx 快速上手</title>
+    <url>/posts/35e29c2a.html</url>
+    <content><![CDATA[<h1 id="Nginx-快速上手"><a href="#Nginx-快速上手" class="headerlink" title="Nginx 快速上手"></a>Nginx 快速上手</h1><h2 id="一、Nginx-快速熟悉"><a href="#一、Nginx-快速熟悉" class="headerlink" title="一、Nginx 快速熟悉"></a>一、Nginx 快速熟悉</h2><h3 id="1、了解"><a href="#1、了解" class="headerlink" title="1、了解"></a>1、了解</h3><p>Nginx 是一个高性能的 HTTP 和反向代理服务器。</p>
+<p>Nginx 可以作为静态页面的 web 服务器，同时还支持 CGI 协议的动态语言，比如 perl、 php<br>等。但是不支持 java。 Java 程序只能通过与 tomcat 配合完成。</p>
+<h3 id="2、特点"><a href="#2、特点" class="headerlink" title="2、特点"></a>2、特点</h3><p>（1）占有内存少，<br>（2）并发能力强（据说有报告表明能支持高达 50,000 个并发连接数  ）<br>（3）支持反向代理<br>（4）支持负载均衡<br>（5）支持动静分离</p>
+<h3 id="3、反向代理"><a href="#3、反向代理" class="headerlink" title="3、反向代理"></a>3、反向代理</h3><p>在客户端访问页面时将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，再返回给客户端，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器 IP 地址及端口。</p>
+<h3 id="4、负载均衡"><a href="#4、负载均衡" class="headerlink" title="4、负载均衡"></a>4、负载均衡</h3><p>单个服务器或提升硬件比较难以解决访问量和数据量的增长导致请求缓慢或宕机的背景下，出现集群概念。增加服务器的数量，然后将请求分发到各个服务器上，将原先请求集中到单个服务器上的情况改为将请求分发到多个服务器上，将负载分发到不同的服务器，也就是所说的负载均衡。</p>
+<h3 id="5、动静分离"><a href="#5、动静分离" class="headerlink" title="5、动静分离"></a>5、动静分离</h3><p>为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速<br>度。降低原来单个服务器的压力。</p>
+<p>动静分离的方式：</p>
+<p>（1）统一部署，静态请求解析到指定静态资源目录。<br>（2）分开部署，静态请求转发到静态资源服务器。</p>
+<h2 id="二、Nginx-安装"><a href="#二、Nginx-安装" class="headerlink" title="二、Nginx 安装"></a>二、Nginx 安装</h2><p>Nginx 安装分为两种方式。其实也不是官方的。</p>
+<h3 id="1、通用方式"><a href="#1、通用方式" class="headerlink" title="1、通用方式"></a>1、通用方式</h3><p>第一步， 安装 pcre</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> http://downloads.sourceforge.net/project/pcre/pcre/8.37/pcre-8.37.tar.gz</code></pre>
+<p>PCRE(Perl Compatible Regular Expressions)是一个Perl库，包括 perl 兼容的正则表达式库。<br>nginx的http模块使用pcre来解析正则表达式，所以需要在linux上安装pcre库。</p>
+<p>下载成功后解压文件</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf pcre-8.37.tar.gz</code></pre>
+<p>进入目录执行</p>
+<pre class=" language-bash"><code class="language-bash">./configure </code></pre>
+<p>完成后，回到 pcre 目录下执行 </p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">make</span>
+<span class="token function">make</span> <span class="token function">install</span></code></pre>
+<p>第二步， 安装一些需要的依赖</p>
+<p>安装 zlib，安装 gcc，安装 openssl</p>
+<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> <span class="token function">make</span> zlib zlib-devel gcc-c++ libtool openssl openssl-devel</code></pre>
+<p>第三步， 安装 nginx</p>
+<p>官方网址：<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a></p>
+<p><code>Nginx</code>官网提供了三个类型的版本<br><code>Mainline version</code>： <code>Mainline</code> 是 <code>Nginx</code> 目前主力在做的版本，可以说是开发版<br><code>Stable version</code>： 最新稳定版，生产环境上建议使用的版本<br><code>Legacy versions</code>： 遗留的老版本的稳定版。</p>
+<p>建议选择稳定版。</p>
+<p>可以直接下载到目录。<br>也可以下载之后再上传到服务器。</p>
+<p>1、 解压缩 <code>nginx-xx.tar.gz</code> 包。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf nginx-xx.tar.gz</code></pre>
+<p>2、 进入解压缩目录， 执行<code>./configure</code>。</p>
+<pre class=" language-bash"><code class="language-bash">./configure</code></pre>
+<p>3、 执行编译安装</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span></code></pre>
+<h3 id="2、YUM方式"><a href="#2、YUM方式" class="headerlink" title="2、YUM方式"></a>2、YUM方式</h3><p>1、添加源</p>
+<p>　　默认情况Centos7中无Nginx的源，后面Nginx官网提供了Centos的源地址。因此可以如下执行命令添加源：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre>
+<p>2、安装<code>Nginx</code></p>
+<p>可以使用 search 命令：</p>
+<pre class=" language-bash"><code class="language-bash">yum search nginx</code></pre>
+<p>看看是否已经添加源成功。如果成功则执行下列命令安装<code>Nginx</code>。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> -y nginx</code></pre>
+<h3 id="3、防火墙端口相关"><a href="#3、防火墙端口相关" class="headerlink" title="3、防火墙端口相关"></a>3、防火墙端口相关</h3><p>如果需要的话，可能用得上。如果是云服务器，自己登录控制台看看相关端口是否已经开放。</p>
+<p>查看开放的端口号</p>
+<pre class=" language-bash"><code class="language-bash">firewall-cmd --list-all</code></pre>
+<p>设置开放的端口号</p>
+<pre class=" language-bash"><code class="language-bash">firewall-cmd --add-service<span class="token operator">=</span>http –permanent
+<span class="token function">sudo</span> firewall-cmd --add-port<span class="token operator">=</span>80/tcp --permanent</code></pre>
+<p>重启防火墙</p>
+<pre class=" language-bash"><code class="language-bash">firewall-cmd –reload</code></pre>
+<h2 id="三、Nginx-常用命令"><a href="#三、Nginx-常用命令" class="headerlink" title="三、Nginx 常用命令"></a>三、Nginx 常用命令</h2><p>如果你不确定你的 <code>Nginx</code> 到底安装到哪里了,使用 <code>whereis</code> 命令查找一下。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># whereis nginx</span>
+nginx: /usr/sbin/nginx /usr/lib64/nginx /etc/nginx /usr/share/nginx /usr/share/man/man8/nginx.8.gz</code></pre>
+<h3 id="1、查看版本命令："><a href="#1、查看版本命令：" class="headerlink" title="1、查看版本命令："></a>1、查看版本命令：</h3><pre class=" language-bash"><code class="language-bash">nginx -v</code></pre>
+<h3 id="2、启动命令："><a href="#2、启动命令：" class="headerlink" title="2、启动命令："></a>2、启动命令：</h3><p>（1）执行执行启动：</p>
+<pre class=" language-bash"><code class="language-bash">start  nginx </code></pre>
+<p>（2）到 <code>/usr/sbin/</code> 目录执行命令启动：</p>
+<pre class=" language-bash"><code class="language-bash">./nginx</code></pre>
+<p>（3）也可以使用Linux 方式</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> systemctl start nginx.service</code></pre>
+<h3 id="3、关闭命令："><a href="#3、关闭命令：" class="headerlink" title="3、关闭命令："></a>3、关闭命令：</h3><p>（1）快速停止或关闭</p>
+<pre class=" language-bash"><code class="language-bash">nginx stop</code></pre>
+<p>或</p>
+<pre class=" language-bash"><code class="language-bash">nginx -s stop</code></pre>
+<p>（2）正常停止或关闭</p>
+<pre class=" language-bash"><code class="language-bash">nginx -s quit</code></pre>
+<p>（3）也可以使用 <code>Linux</code> 方式</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> systemctl start nginx.service</code></pre>
+<h3 id="4、配置检查："><a href="#4、配置检查：" class="headerlink" title="4、配置检查："></a>4、配置检查：</h3><p>修改配置文件之后执行用来检查配置文件是否有错误的命令，如果有会给出提示。</p>
+<pre class=" language-bash"><code class="language-bash">nginx -t</code></pre>
+<h3 id="5、配置加载："><a href="#5、配置加载：" class="headerlink" title="5、配置加载："></a>5、配置加载：</h3><p>修改配置文件之后，不需要重启服务，检查配置文件正确之后，直接加载新的配置文件的命令。</p>
+<pre class=" language-bash"><code class="language-bash">nginx -s reload</code></pre>
+<h2 id="四、Nginx-配置文件"><a href="#四、Nginx-配置文件" class="headerlink" title="四、Nginx 配置文件"></a>四、Nginx 配置文件</h2><h3 id="1、nginx-配置文件目录"><a href="#1、nginx-配置文件目录" class="headerlink" title="1、nginx 配置文件目录"></a>1、nginx 配置文件目录</h3><p>一般在 <code>nginx/conf/</code> 目录下，具体目录使用 <code>whereis</code> 找一下。我使用<code>yum</code> 安装，配置文件目录在 <code>/etc/nginx/目录</code>下有个 <code>nginx.conf</code> 文件就是配置文件。</p>
+<p>配置文件中有很多 <code>#</code> ， <code>#</code> 开头的表示注释内容</p>
+<p>精简的配置文件内容如下：</p>
+<pre class=" language-conf"><code class="language-conf">worker_processes  1;
+
+events {
+    worker_connections  1024;
+}
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        on;
+
+    keepalive_timeout  65;
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+    }
+}</code></pre>
+<h3 id="2、配置文件细分"><a href="#2、配置文件细分" class="headerlink" title="2、配置文件细分"></a>2、配置文件细分</h3><p>nginx.conf 文件大致分三个部分。</p>
+<p>（1）全局块<br>从配置文件开始到 <code>events</code> 块之间的内容，主要会设置一些影响 <code>nginx</code> 服务器整体运行的配置指令，主要包括配置运行 <code>Nginx</code>服务器的用户（组）、允许生成的 <code>worker process</code> 数， 进程 <code>PID</code> 存放路径、日志存放路径和类型以及配置文件的引入等。<br>比如第一行配置：</p>
+<pre><code>worker_processes 1;</code></pre><p>这是 Nginx 服务器并发处理服务的关键配置， <code>worker_processes</code> 值越大，可以支持的并发处理量也越多，但是会受到硬件、软件等设备的制约。</p>
+<p>（2）events 块</p>
+<p>​    <code>events</code> 块涉及的指令主要影响 Nginx 服务器与用户的网络连接，常用的设置包括是否开启对多 <code>work process</code>下的网络连接进行序列化，是否允许同时接收多个网络连接，选取哪种事件驱动模型来处理连接请求，每个 <code>work  process</code> 可以同时支持的最大连接数等。</p>
+<p>上述例子就表示每个 <code>work process</code> 支持的最大连接数为 1024。</p>
+<p>这部分的配置对 Nginx 的性能影响较大，在实际中应该灵活配置。</p>
+<p>（3）http 块</p>
+<p>​    <code>Nginx</code> 服务器配置中最频繁的部分，代理、缓存和日志定义等绝大多数功能和第三方模块的配置都在这里。 需要注意的是： <code>http</code> 块也可以包括 <code>http</code> 全局块、 server 块。</p>
+<p>A） http 全局块</p>
+<p>​    <code>http</code> 全局块配置的指令包括文件引入、 <code>MIME-TYPE</code> 定义、日志自定义、连接超时时间、单链接请求数上限、404等等。    </p>
+<p>B）  server 块</p>
+<p>​    这块和虚拟主机有密切关系，虚拟主机从用户角度看，和一台独立的硬件主机是完全一样的，该技术的产生是为了 节省互联网服务器硬件成本。 </p>
+<p>​    每个 http 块可以包括多个 <code>server</code>块，而每个 <code>server</code> 块就相当于一个虚拟主机。 而每个 <code>server</code> 块也分为全局 <code>server</code> 块，以及可以同时包含多个 <code>locaton</code> 块。 </p>
+<p>​    1)、全局 server 块 </p>
+<p>​    最常见的配置是本虚拟机主机的监听配置和本虚拟主机的名称或 IP 配置。 </p>
+<p>​    2)、location 块 </p>
+<p>​    一个 server 块可以配置多个 location 块。 </p>
+<p>​    这块的主要作用是基于 Nginx 服务器接收到的请求字符串（例如 <code>server_name</code>/<code>uri-string</code>），对虚拟主机名称 （也可以是 IP 别名）之外的字符串（例如 前面的 /uri-string）进行匹配，对特定的请求进行处理。地址定向、数据缓 存和应答控制等功能，还有许多第三方模块的配置也在这里进行。    </p>
+<h2 id="五、配置实例"><a href="#五、配置实例" class="headerlink" title="五、配置实例"></a>五、配置实例</h2><h3 id="1、反向代理配置实例1"><a href="#1、反向代理配置实例1" class="headerlink" title="1、反向代理配置实例1"></a>1、反向代理配置实例1</h3><p>准备工作：安装一个 <code>tomcat</code> 并配置端口为 <code>8081</code></p>
+<p>nginx.conf 配置：</p>
+<pre><code>server{
+    listen 80;
+    server_name www.zhangxiaocai.cn
+
+    location / {
+        proxy_pass http://127.0.0.1:8081 ;
+        index index.html index.htm index.jsp;
+    }
+}</code></pre><p>如上配置，我们监听 80 端口，访问域名为 <code>www.zhangxiaocai.cn</code>，不加端口号时默认为 <code>80</code> 端口，所以在浏览器访问该域名时会跳转到 <code>127.0.0.1:8080</code>路径上。</p>
+<p>本地测试需要修改<code>C:/Windows/System32/drivers/etc/hosts</code>文件，在文件末尾追加以下内容</p>
+<pre><code>www.zhangxiaocai.cn   127.0.0.1</code></pre><h3 id="2、反向代理配置实例2"><a href="#2、反向代理配置实例2" class="headerlink" title="2、反向代理配置实例2"></a>2、反向代理配置实例2</h3><p>准备工作：安装2个 <code>tomcat</code> 并配置端口分别为 <code>8081</code> 和 <code>8082</code> ，为了区分也可以准备2个不同的 <code>index.html</code> 页面。</p>
+<p>nginx.conf 配置：</p>
+<pre><code>server{
+    listen 80;
+    server_name www.zhangxiaocai.cn
+
+    location ~ /java/ {
+        proxy_pass http://127.0.0.1:8081 ;
+        index index.html index.htm index.jsp;
+    }
+
+    location ~ /spring/ {
+        proxy_pass http://127.0.0.1:8082 ;
+        index index.html index.htm index.jsp;
+    }
+}</code></pre><p>根据访问的路径跳转到不同端口的服务中 nginx 监听端口为 80， </p>
+<p>访问 <code>http://www.zhangxiaocai.cn/java/</code> 直接跳转到 <code>127.0.0.1:8081</code></p>
+<p>访问 <code>http://www.zhangxiaocai.cn/spring/</code> 直接跳转到 <code>127.0.0.1:8082</code></p>
+<h3 id="3、location-指令说明"><a href="#3、location-指令说明" class="headerlink" title="3、location 指令说明"></a>3、location 指令说明</h3><p>location 指令用于匹配 URL。 </p>
+<p>语法如下： </p>
+<pre><code>location [ = | ~ | ~* |^~] uti {
+
+}</code></pre><p><code>=</code> ：用于不含正则表达式的 uri 前，要求请求字符串与 uri 严格匹配，如果匹配 成功，就停止继续向下搜索并立即处理该请求。<br><code>~</code>：用于表示 uri 包含正则表达式，并且区分大小写。<br><code>~*</code>：用于表示 uri 包含正则表达式，并且不区分大小写。<br><code>^~</code>：用于不含正则表达式的 uri 前，要求 Nginx 服务器找到标识 uri 和请求字 符串匹配度最高的 location 后，立即使用此 location 处理请求，而不再使用 location 块中的正则 uri 和请求字符串做匹配。 </p>
+<p>注意：如果 uri 包含正则表达式，则必须要有 <code>~</code> 或者 <code>~*</code> 标识。    </p>
+<h3 id="4、负载均衡配置实例"><a href="#4、负载均衡配置实例" class="headerlink" title="4、负载均衡配置实例"></a>4、负载均衡配置实例</h3><p>负载均衡即是将负载分摊到不同的服务单元，既保证服务的可用性，又保证响应 足够快，给用户很好的体验。</p>
+<p>快速增长的访问量和数据流量催生了各式各样的负载均衡产品， 很多专业的负载均衡硬件提供了很好的功能，但却价格不菲，这使得负载均衡软件大受欢迎， nginx 就是其中的一个，在 linux 下有 Nginx、 LVS、 Haproxy 等等服务可以提供负载均衡服务 。</p>
+<p>准备工作：安装2个 <code>tomcat</code> 并配置端口分别为 <code>8081</code> 和 <code>8082</code> ，为了区分也可以准备2个不同的 <code>index.html</code> 页面。</p>
+<p>nginx.conf 配置：</p>
+<pre><code>http {
+    ...
+    upstream my_server{
+        ip_hash;
+        server 127.0.0.1:8081 weight=1;
+        server 127.0.0.1:8082 weight=1;
+    }
+    ...
+    server{
+
+        location / {
+            proxy_pass http://myserver;
+            proxy_connect_timeout 10;
+            ...
+        }
+    }
+}</code></pre><h3 id="5、nginx-服务均衡策略"><a href="#5、nginx-服务均衡策略" class="headerlink" title="5、nginx 服务均衡策略"></a>5、nginx 服务均衡策略</h3><p>Nginx 提供了几种分配方式(策略)： </p>
+<p>1、轮询（默认） </p>
+<p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器 down 掉，能自动剔除。 </p>
+<p>2、 weight </p>
+<p>weight 代表权,重默认为 1,权重越高被分配的客户端越多 指定轮询几率， weight 和访问比率成正比，用于后端服务器性能不均的情况。 例如：</p>
+<pre><code>upstream my_server_pool{
+    server 192.168.0.121 weight=10;
+    server 192.168.0.122 weight=10;
+}</code></pre><p>3 、 ip_hash </p>
+<p>每个请求按访问 ip 的 hash 结果分配，这样每个访客固定访问一个后端服务器，可以解决 session 的问题。 例如： </p>
+<pre><code>upstream my_server_pool{ 
+    ip_hash; 
+    server 192.168.0.121:80; 
+    server 192.168.0.122:80; 
+} </code></pre><p>4 、 fair（第三方） 按后端服务器的响应时间来分配请求，响应时间短的优先分配。 </p>
+<pre><code>upstream my_server_pool{ 
+    server 192.168.5.21:80; 
+    server 192.168.5.22:80; 
+    fair; 
+}    </code></pre><h3 id="6、动静分离配置实例"><a href="#6、动静分离配置实例" class="headerlink" title="6、动静分离配置实例"></a>6、动静分离配置实例</h3><p>Nginx 动静分离简单来说就是把动态跟静态请求分开，不能理解成只是单纯的把动态页面和静态页面物理分离。</p>
+<p>严格意义上说应该是动态请求跟静态请求分开，可以理解成使用 Nginx 处理静态页面， Tomcat 处理动态页面。</p>
+<p>动静分离从目前实现角度来讲大致分为两种：</p>
+<p>（1） 一种是纯粹把静态文件独立成单独的域名，放在独立的服务器上，也是目前主流推崇的方案；</p>
+<p>（2） 另外一种方法就是动态跟静态文件混合在一起发布，通过 nginx 来分开。 通过 location 指定不同的后缀名实现不同的请求转发。通过 expires 参数设置，可以使 浏览器缓存过期时间，减少与服务器之前的请求和流量。</p>
+<p>​    具体 Expires 定义：是给一个资 源设定一个过期时间，也就是说无需去服务端验证，直接通过浏览器自身确认是否过期即可， 所以不会产生额外的流量。此种方法非常适合不经常变动的资源。（如果经常更新的文件， 不建议使用 Expires 来缓存），假如设置为 3d，表示在这 3 天之内访问这个 URL，发送一个请求，比对服务器该文件最后更新时间没有变化，则不会从服务器抓取，返回状态码 304，如果有修改，则直接从服务器重新下载，返回状态码 200。    </p>
+<p>配置文件实例：</p>
+<pre><code>server{
+    listen 80;
+    server_name www.zhangxiaocai.cn
+
+    location /js/ {
+        root /home/tomcat/webapps/test/js/;
+        autoindex on;
+    }
+    location /image/ {
+        root /home/tomcat/webapps/test/images/;
+        autoindex on;
+    }
+}</code></pre><p>测试访问ok之后可以删除静态文件再试试，看看访问走的 <code>nginx</code> 还是 <code>tomcat</code>。</p>
+<h2 id="六、Nginx-原理"><a href="#六、Nginx-原理" class="headerlink" title="六、Nginx 原理"></a>六、Nginx 原理</h2><h3 id="1、nginx基本原理："><a href="#1、nginx基本原理：" class="headerlink" title="1、nginx基本原理："></a>1、nginx基本原理：</h3><p>​    使用 <code>master-workers</code> 的机制，通过一个 <code>master</code> 主进程管理其他 <code>worker</code> 进行来处理客户端的请求和响应。</p>
+<p><strong>特点：</strong></p>
+<p>（1）每个 <code>worker</code> 进程都是独立的进程，不需要加锁。</p>
+<p>（2）采用独立进程，相互之间不会影响，一个进程结束，不影响其他进程，服务不会中断，<code>master</code> 进程会启动新的 worker 进程。</p>
+<p>（3）<code>worker</code> 进程 异常退出，只会导致当前进程 <code>worker</code> 上的请求失败，不会影响所有请求，降低运行风险。</p>
+<h3 id="2、相关设置"><a href="#2、相关设置" class="headerlink" title="2、相关设置"></a>2、相关设置</h3><p><strong>worker 设置</strong></p>
+<p>​    nginx 同 redis 类似都采用了 io 多路复用机制，每个 <code>worker</code> 都是一个独立的进程，但每个进 程里只有一个主线程，通过异步非阻塞的方式来处理请求， 即使是千上万个请求也不在话 下。每个 worker 的线程可以把一个 cpu 的性能发挥到极致。所以 <code>worker</code> 数和服务器的 cpu 数相等是最为适宜的。设少了会浪费 cpu，设多了会造成 cpu 频繁切换上下文带来的损耗。</p>
+<p><strong>连接数 worker_connection</strong></p>
+<p>这个值是表示每个 <code>worker</code> 进程所能建立连接的最大值，所以，一个 <code>nginx</code> 能建立的最大连接 数，应该是 <code>worker_connections * worker_processes</code> 。当然，这里说的是最大连接数，对于 <code>HTTP</code> 请求本地资源来说 ， 能 够支持的最大并发数量是 <code>worker_connections * worker_processes</code>，</p>
+<p>如果是支持 <code>http1.1</code> 的浏览器每次访问要占两个连接，所以普通的静态访 问最大并发数是： <code>worker_connections * worker_processes /2</code>，</p>
+<p>如果是 <code>HTTP</code> 作 为反向代 理来说，最大并发数量应该是 <code>worker_connections * worker_processes/4</code>。因为作为反向代理服务器，每个并发会建立与客户端的连接和与后端服 务的连接，会占用两个连接。    </p>
+<h3 id="3、配置文件结构"><a href="#3、配置文件结构" class="headerlink" title="3、配置文件结构"></a>3、配置文件结构</h3><blockquote class="pullquote mindmap mindmap-md"><!-- build time:Thu Aug 06 2020 19:47:24 GMT+0800 (中国标准时间) --><ul><li>Nginx.conf 结构<ul><li>work_processes</li><li>events<ul><li>worker_connection</li></ul></li><li>http<ul><li>server<ul><li>listen</li><li>server_name</li><li>location<ul><li>root</li><li>index</li></ul></li></ul></li></ul></li></ul></li></ul><!-- rebuild by neat --></blockquote>
+
+
+
+<h2 id="七、其他"><a href="#七、其他" class="headerlink" title="七、其他"></a>七、其他</h2><p>https 已经在使用了，暂时还没加上。</p>
+<p>遇到再补充吧~</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
 </search>
