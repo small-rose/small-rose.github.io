@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-08-06T02:00:00.000Z</updated>
+  <updated>2020-08-06T07:00:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Matery 添加加载动画</title>
+    <link href="https://www.zhangxiaocai.cn/posts/7496029d.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/7496029d.html</id>
+    <published>2020-08-06T07:00:00.000Z</published>
+    <updated>2020-08-06T07:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      Matery添加加载动画
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Nginx 快速上手</title>
@@ -393,7 +414,7 @@
     <link href="https://www.zhangxiaocai.cn/posts/a53a9069.html"/>
     <id>https://www.zhangxiaocai.cn/posts/a53a9069.html</id>
     <published>2020-07-11T09:00:00.000Z</published>
-    <updated>2020-08-05T12:00:00.000Z</updated>
+    <updated>2020-08-06T06:00:00.000Z</updated>
     
     <summary type="html">
     
@@ -461,31 +482,6 @@
     <summary type="html">
     
       Hexo添加Live2D二次元老婆。
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Valine-Admin踩坑记录</title>
-    <link href="https://www.zhangxiaocai.cn/posts/358175a6.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/358175a6.html</id>
-    <published>2020-06-30T15:00:00.000Z</published>
-    <updated>2020-06-30T15:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;valine-admin踩坑记录&quot;&gt;&lt;a href=&quot;#valine-admin踩坑记录&quot; class=&quot;headerlink&quot; title=&quot;valine-admin踩坑记录&quot;&gt;&lt;/a&gt;valine-admin踩坑记录&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;本
-      
     
     </summary>
     
