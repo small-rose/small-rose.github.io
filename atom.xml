@@ -41,6 +41,30 @@
   </entry>
   
   <entry>
+    <title>SpringBoot注解IoC</title>
+    <link href="https://www.zhangxiaocai.cn/posts/372e3018.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/372e3018.html</id>
+    <published>2020-08-14T13:30:00.000Z</published>
+    <updated>2020-08-27T12:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;SpringBoot注解IoC&quot;&gt;&lt;a href=&quot;#SpringBoot注解IoC&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot注解IoC&quot;&gt;&lt;/a&gt;SpringBoot注解IoC&lt;/h1&gt;&lt;h2 id=&quot;一、Ioc简介&quot;&gt;&lt;a h
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
+    
+    
+      <category term="IoC" scheme="https://www.zhangxiaocai.cn/tags/IoC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Matery 添加加载动画</title>
     <link href="https://www.zhangxiaocai.cn/posts/7496029d.html"/>
     <id>https://www.zhangxiaocai.cn/posts/7496029d.html</id>
@@ -464,27 +488,6 @@
     <summary type="html">
     
       Mybatis的Mapper映射器。
-    
-    </summary>
-    
-    
-      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/categories/Mybatis/"/>
-    
-    
-      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/tags/Mybatis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mybtis(六)Mapper级联</title>
-    <link href="https://www.zhangxiaocai.cn/posts/44c4c800.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/44c4c800.html</id>
-    <published>2020-07-09T15:00:00.000Z</published>
-    <updated>2020-07-09T15:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      Mybatis的映射器级联使用。
     
     </summary>
     
