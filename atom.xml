@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-08-27T14:00:00.000Z</updated>
+  <updated>2020-08-29T23:30:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot 配置文件相关</title>
+    <link href="https://www.zhangxiaocai.cn/posts/9911da24.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/9911da24.html</id>
+    <published>2020-08-29T23:30:00.000Z</published>
+    <updated>2020-08-29T23:30:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringBoot-配置文件相关&quot;&gt;&lt;a href=&quot;#SpringBoot-配置文件相关&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot 配置文件相关&quot;&gt;&lt;/a&gt;SpringBoot 配置文件相关&lt;/h2&gt;&lt;h2 id=&quot;一、Pro
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
+    
+    
+      <category term="SpringBoot配置相关" scheme="https://www.zhangxiaocai.cn/tags/SpringBoot%E9%85%8D%E7%BD%AE%E7%9B%B8%E5%85%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker 快速上手</title>
@@ -82,6 +106,32 @@
     
     
       <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx 快速上手</title>
+    <link href="https://www.zhangxiaocai.cn/posts/35e29c2a.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/35e29c2a.html</id>
+    <published>2020-08-06T02:00:00.000Z</published>
+    <updated>2020-08-06T02:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Nginx-快速上手&quot;&gt;&lt;a href=&quot;#Nginx-快速上手&quot; class=&quot;headerlink&quot; title=&quot;Nginx 快速上手&quot;&gt;&lt;/a&gt;Nginx 快速上手&lt;/h1&gt;&lt;p&gt;前言&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;去年的时候使用 &lt;code&gt;S
+      
+    
+    </summary>
+    
+    
+      <category term="Nginx" scheme="https://www.zhangxiaocai.cn/categories/Nginx/"/>
+    
+    
+      <category term="Nginx" scheme="https://www.zhangxiaocai.cn/tags/Nginx/"/>
     
   </entry>
   
@@ -454,48 +504,6 @@
     
     
       <category term="Java" scheme="https://www.zhangxiaocai.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matery主题新手常见问题</title>
-    <link href="https://www.zhangxiaocai.cn/posts/a53a9069.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/a53a9069.html</id>
-    <published>2020-07-11T09:00:00.000Z</published>
-    <updated>2020-08-14T06:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      Matery主题新手常见问题
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mybtis(五)Mapper映射器</title>
-    <link href="https://www.zhangxiaocai.cn/posts/ae8510ea.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/ae8510ea.html</id>
-    <published>2020-07-09T17:00:00.000Z</published>
-    <updated>2020-07-09T17:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      Mybatis的Mapper映射器。
-    
-    </summary>
-    
-    
-      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/categories/Mybatis/"/>
-    
-    
-      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/tags/Mybatis/"/>
     
   </entry>
   
