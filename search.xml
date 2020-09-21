@@ -18404,6 +18404,16 @@ docker  <span class="token function">ps</span> -a -q <span class="token operator
 <p>最主要的是可以实现<strong>共享资源</strong></p>
 <p>比如：有多个镜像都从相同的 base 镜像构建而来，那么宿主机只需在磁盘上保存一份base镜像，<br>同时内存中也只需加载一份 base 镜像，就可以为所有容器服务了。而且镜像的每一层都可以被共享。</p>
 <h2 id="六、Docker-容器数据卷"><a href="#六、Docker-容器数据卷" class="headerlink" title="六、Docker 容器数据卷"></a>六、Docker 容器数据卷</h2><p>Docker 容器数据卷主要是为了容器的持久化，方便容器间继承和数据共享。</p>
+<h3 id="数据卷命令"><a href="#数据卷命令" class="headerlink" title="数据卷命令"></a>数据卷命令</h3><h4 id="1-创建数据卷"><a href="#1-创建数据卷" class="headerlink" title="1.创建数据卷"></a>1.创建数据卷</h4><pre class=" language-bash"><code class="language-bash">docker volume  create  数据卷名称</code></pre>
+<p>创建数据卷之后默认存放在：<code>/var/lib/docker/volumes/数据卷名称/_data</code></p>
+<h4 id="2-查看全部数据卷"><a href="#2-查看全部数据卷" class="headerlink" title="2.查看全部数据卷"></a>2.查看全部数据卷</h4><pre class=" language-bash"><code class="language-bash">docker volume  <span class="token function">ls</span></code></pre>
+<h4 id="3-查看数据卷详细信息"><a href="#3-查看数据卷详细信息" class="headerlink" title="3.查看数据卷详细信息"></a>3.查看数据卷详细信息</h4><pre class=" language-bash"><code class="language-bash">docker volume  inspect 数据卷名称</code></pre>
+<h4 id="4-删除数据卷"><a href="#4-删除数据卷" class="headerlink" title="4.删除数据卷"></a>4.删除数据卷</h4><pre class=" language-bash"><code class="language-bash">docker volume  <span class="token function">rm</span> 数据卷名称</code></pre>
+<h4 id="5-应用数据卷"><a href="#5-应用数据卷" class="headerlink" title="5.应用数据卷"></a>5.应用数据卷</h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 数据卷不存在时docker 自动创建。会将数据卷内部自带文件存储在默认的存放路径中</span>
+docker run -v 数据卷名称:容器内部路径  镜像ID
+
+<span class="token comment" spellcheck="true"># 直接指定一个路径作为容器卷的存放位置，路径是空的。（推荐）</span>
+docker run -v  路径:容器内部路径</code></pre>
 <h3 id="1、容器添加数据卷"><a href="#1、容器添加数据卷" class="headerlink" title="1、容器添加数据卷"></a>1、容器添加数据卷</h3><p>（1）直接命令添加</p>
 <pre class=" language-bash"><code class="language-bash">docker run -it -v /宿主机绝对路径目录:/容器内目录      镜像名</code></pre>
 <p>带权限的命令：</p>
@@ -20448,6 +20458,113 @@ jobData ：123</code></pre><p>页面返回了 {“result”:”change success”
       </categories>
       <tags>
         <tag>Spring Task</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker 之Docker-Compose</title>
+    <url>/posts/febc9253.html</url>
+    <content><![CDATA[<h2 id="Docker-之-Docker-Compose"><a href="#Docker-之-Docker-Compose" class="headerlink" title="Docker 之 Docker-Compose"></a>Docker 之 Docker-Compose</h2><h2 id="产生背景"><a href="#产生背景" class="headerlink" title="产生背景"></a>产生背景</h2><p>运行一个镜像，需要添加大量的参数。如果要运行不同发镜像还需要不同的参数。</p>
+<p>容器增加使得使用 <code>docker run</code> 启动命令变得多繁琐。</p>
+<p>通过Docker-Compose 可以进行批量的管理容器，配置参数。</p>
+<p>只需要一个 <code>docker-compose.yml</code> 文件去维护即可。</p>
+<h2 id="一、下载、配置Dockrer-Compose"><a href="#一、下载、配置Dockrer-Compose" class="headerlink" title="一、下载、配置Dockrer-Compose"></a>一、下载、配置Dockrer-Compose</h2><h3 id="1-github官网下载"><a href="#1-github官网下载" class="headerlink" title="1. github官网下载"></a>1. github官网下载</h3><p><a href="https://github.com/docker/compose" target="_blank" rel="noopener">https://github.com/docker/compose</a></p>
+<p>releases 选择比较稳定的发布版本。</p>
+<h3 id="2、修改Docker-Compose-文件名"><a href="#2、修改Docker-Compose-文件名" class="headerlink" title="2、修改Docker-Compose 文件名"></a>2、修改Docker-Compose 文件名</h3><p>非必须，需要是为了使用命令方便。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mv</span> docker-compose-Linux-x86_64  /usr/local
+<span class="token function">cd</span> /usr/local
+<span class="token function">mv</span> docker-compose-Linux-x86_64 docker-compose
+<span class="token function">chmod</span> 777  docker-compose</code></pre>
+<h3 id="3、配置docker-Compose-环境变量"><a href="#3、配置docker-Compose-环境变量" class="headerlink" title="3、配置docker-Compose 环境变量"></a>3、配置docker-Compose 环境变量</h3><p>非必须，需要是为了后续使用命令方便。</p>
+<p>将 <code>docker-compose</code> 文件移动到 <code>/usr/local/bin</code>, 修改了 <code>/etc/profile</code> 文件，给<code>/usr/local/bin</code> 配置到 <code>PATH</code> 中。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mv</span> docker-compose /usr/lcoal/bind
+<span class="token function">vi</span> /etc/profile</code></pre>
+<pre class=" language-txt"><code class="language-txt">export PATH=$JAVA_HOME:/usr/local/bin:$PATH</code></pre>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile</code></pre>
+<p>测试配置是否成功，在任意目录下执行 <code>docker-compose</code></p>
+<h2 id="二-Docker-Compose-管理容器"><a href="#二-Docker-Compose-管理容器" class="headerlink" title="二 Docker-Compose 管理容器"></a>二 Docker-Compose 管理容器</h2><p><code>docker-compose.yml</code> 文件遵循YAML文件格式要求。</p>
+<p>key+”:”+空格+value</p>
+<p>换行+缩进</p>
+<p>不要使用制表符。</p>
+<p>示例：Docker-Compose 管理Mysql和Tomcat容器</p>
+<pre class=" language-YAML"><code class="language-YAML">varsion: '3.1'
+services: 
+  mysql:             # 服务的名称
+    restart: always  # 表示只要docker启动，这个服务就跟着一起启动
+    image: daocloud.io/library/mysql:5.7.4   # 指定镜像来源路径
+    container_name: mysql    # 指定容器名称
+    ports:
+      - 3306:3306  # 指定端口号映射
+    environment:
+      MYSQL_ROOT_PASSWORD: root    #指定Mysql的root用户登录密码
+      TZ: Asia/Shanghai            #指定时区
+    volumes:
+      - /opt/docker_msql_tomcat/mysql_data:/var/lib/mysql  # 映射数据卷
+  tomcat: 
+    restart: always
+    image: daocloud.io/library/tomcat:8.5.15-jre8    
+    container_name: tomcat
+    ports:
+      - 8080:8080
+    environment: 
+      TZ: Asia/Shanghai
+    volumes:
+      - /opt/docker_msql_tomcat/tomcat_webapps:/var/local/tomcat/webapps
+      - /opt/docker_msql_tomcat/tomcat_logs:/var/local/tomcat/logs</code></pre>
+<h3 id="三-使用-docker-compose-命令管理"><a href="#三-使用-docker-compose-命令管理" class="headerlink" title="三.使用 docker-compose 命令管理"></a>三.使用 docker-compose 命令管理</h3><p><strong>在使用docker-compose 命令时，默认会在当前目录下找 docker-compose.yml 文件。</strong></p>
+<p><strong>基于 docker-compose.yml 启动管理的容器</strong></p>
+<pre class=" language-bash"><code class="language-bash">docker-compose up -d</code></pre>
+<p><strong>关闭并删除容器</strong></p>
+<pre class=" language-bash"><code class="language-bash">docker-compose down</code></pre>
+<p><strong>开启|关闭|重启 已经存在的由docker-compose维护的容器</strong></p>
+<pre class=" language-bash"><code class="language-bash">docker-compose start
+docker-compose stop 
+docker-compose restart</code></pre>
+<p><strong>查看由docker-compose维护的容器</strong></p>
+<pre class=" language-bash"><code class="language-bash">docker-compose  <span class="token function">ps</span></code></pre>
+<p><strong>查看由docker-compose维护的容器的日志</strong></p>
+<pre class=" language-bash"><code class="language-bash">docker-compose  logs  -f</code></pre>
+<h3 id="四-Docker-compose配置Dockerfile-使用"><a href="#四-Docker-compose配置Dockerfile-使用" class="headerlink" title="四.Docker-compose配置Dockerfile 使用"></a>四.Docker-compose配置Dockerfile 使用</h3><p>使用 <code>docker-compose.yml</code> 文件以及  <code>Dockerfile</code> 文件再生产自定义的镜像的同时启动当前镜像，并且由Docker-compose去管理容器。</p>
+<p>1、yml文件</p>
+<pre class=" language-YAML"><code class="language-YAML">version: '3.1'
+services:
+  tomcat_dcdf: 
+    restart: always
+    build:             # 构建自定义镜像
+      context: ../     # 指定Dockerfile文件所在路径，../表示上级目录
+      dockerfile: Dockerfile   # 指定Dockerfile文件名称
+    image: tomcat_dcdf:1.0.1    # 构建生成的镜像文件名称
+    container_name: tomcat_dcdf
+    ports:
+      - 8081:8080
+    environment: 
+      TZ: Asia/Shanghai
+</code></pre>
+<p>2、Dockerfile 文件</p>
+<pre class=" language-txt"><code class="language-txt">FROM daocloud.io/library/tomcat:8.5.15-jre8  
+CP  test.war /var/local/tomcat/webapps</code></pre>
+<p>3.目录层级</p>
+<ul>
+<li>docker_tomcat_dcdf<br>|–+ docker-compose<br>|  |– docker-compose.yml<br>|– dockerfile<br>|– test.war</li>
+</ul>
+<p>注意，测试test.war，需要先用客户端连接mysql，创建test 数据库。</p>
+<ol start="4">
+<li>执行启动命令</li>
+</ol>
+<p>一定要在docker-compse 目录执行</p>
+<pre class=" language-bash"><code class="language-bash">docker-compse up -d</code></pre>
+<p>因为：<strong>在使用docker-compose 命令时，默认会在当前目录下找 docker-compose.yml 文件。</strong></p>
+<p>注意：</p>
+<p><code>docker-compse up -d</code> : 可以直接启动基于<code>docker-compose.yml</code> 文件以及  <code>Dockerfile</code> 文件构建的自定义镜像。 如果自定义镜像不存在， <code>docker-compose</code> 会自动构建出自定义镜像，如果自定义镜像已经存在， <code>docker-compose</code> 会直接运行这个自定义镜像。</p>
+<p>如果需要重新构建自定义镜像，执行：</p>
+<pre class=" language-bash"><code class="language-bash"> docker-compose build</code></pre>
+<p>如果需要在运行之前，重新构建自定义镜像，执行：</p>
+<pre class=" language-bash"><code class="language-bash"> docker-compose up  -d  --build</code></pre>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
       </tags>
   </entry>
 </search>
