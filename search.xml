@@ -5079,249 +5079,6 @@ fr4me<span class="token operator">+</span><span class="token operator">=</span><
       </tags>
   </entry>
   <entry>
-    <title>Nginx 快速上手</title>
-    <url>/posts/35e29c2a.html</url>
-    <content><![CDATA[<h1 id="Nginx-快速上手"><a href="#Nginx-快速上手" class="headerlink" title="Nginx 快速上手"></a>Nginx 快速上手</h1><p>前言</p>
-<blockquote>
-<p>去年的时候使用 <code>SpringBoot</code> 开发了自己的博客，然部署到云服务器上，就是使用 <code>Nginx</code> 和 <code>Tomcat</code> 部署的， 相关的反向代理或者负载均衡虽然确实实操过，但是都是现找其他人的博客操作的，就是进行了快速的学习和了解，但是没有系统学习。之所以要整理就是为了系统性的学习一下并整理一下。也方便忘了时及时查阅温习。 </p>
-</blockquote>
-<h2 id="一、Nginx-快速熟悉"><a href="#一、Nginx-快速熟悉" class="headerlink" title="一、Nginx 快速熟悉"></a>一、Nginx 快速熟悉</h2><h3 id="1、了解"><a href="#1、了解" class="headerlink" title="1、了解"></a>1、了解</h3><p>Nginx 是一个高性能的 HTTP 和反向代理服务器。</p>
-<p>Nginx 可以作为静态页面的 web 服务器，同时还支持 CGI 协议的动态语言，比如 perl、 php<br>等。但是不支持 java。 Java 程序只能通过与 tomcat 配合完成。</p>
-<h3 id="2、特点"><a href="#2、特点" class="headerlink" title="2、特点"></a>2、特点</h3><p>（1）占有内存少，<br>（2）并发能力强（据说有报告表明能支持高达 50,000 个并发连接数  ）<br>（3）支持反向代理<br>（4）支持负载均衡<br>（5）支持动静分离</p>
-<h3 id="3、反向代理"><a href="#3、反向代理" class="headerlink" title="3、反向代理"></a>3、反向代理</h3><p>在客户端访问页面时将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，再返回给客户端，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器 IP 地址及端口。</p>
-<h3 id="4、负载均衡"><a href="#4、负载均衡" class="headerlink" title="4、负载均衡"></a>4、负载均衡</h3><p>单个服务器或提升硬件比较难以解决访问量和数据量的增长导致请求缓慢或宕机的背景下，出现集群概念。增加服务器的数量，然后将请求分发到各个服务器上，将原先请求集中到单个服务器上的情况改为将请求分发到多个服务器上，将负载分发到不同的服务器，也就是所说的负载均衡。</p>
-<h3 id="5、动静分离"><a href="#5、动静分离" class="headerlink" title="5、动静分离"></a>5、动静分离</h3><p>为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速<br>度。降低原来单个服务器的压力。</p>
-<p>动静分离的方式：</p>
-<p>（1）统一部署，静态请求解析到指定静态资源目录。<br>（2）分开部署，静态请求转发到静态资源服务器。</p>
-<h2 id="二、Nginx-安装"><a href="#二、Nginx-安装" class="headerlink" title="二、Nginx 安装"></a>二、Nginx 安装</h2><p>Nginx 安装分为两种方式。其实也不是官方的。</p>
-<h3 id="1、通用方式"><a href="#1、通用方式" class="headerlink" title="1、通用方式"></a>1、通用方式</h3><p>第一步， 安装 pcre</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> http://downloads.sourceforge.net/project/pcre/pcre/8.37/pcre-8.37.tar.gz</code></pre>
-<p>PCRE(Perl Compatible Regular Expressions)是一个Perl库，包括 perl 兼容的正则表达式库。<br>nginx的http模块使用pcre来解析正则表达式，所以需要在linux上安装pcre库。</p>
-<p>下载成功后解压文件</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf pcre-8.37.tar.gz</code></pre>
-<p>进入目录执行</p>
-<pre class=" language-bash"><code class="language-bash">./configure </code></pre>
-<p>完成后，回到 pcre 目录下执行 </p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">make</span>
-<span class="token function">make</span> <span class="token function">install</span></code></pre>
-<p>第二步， 安装一些需要的依赖</p>
-<p>安装 zlib，安装 gcc，安装 openssl</p>
-<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> <span class="token function">make</span> zlib zlib-devel gcc-c++ libtool openssl openssl-devel</code></pre>
-<p>第三步， 安装 nginx</p>
-<p>官方网址：<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a></p>
-<p><code>Nginx</code>官网提供了三个类型的版本<br><code>Mainline version</code>： <code>Mainline</code> 是 <code>Nginx</code> 目前主力在做的版本，可以说是开发版<br><code>Stable version</code>： 最新稳定版，生产环境上建议使用的版本<br><code>Legacy versions</code>： 遗留的老版本的稳定版。</p>
-<p>建议选择稳定版。</p>
-<p>可以直接下载到目录。<br>也可以下载之后再上传到服务器。</p>
-<p>1、 解压缩 <code>nginx-xx.tar.gz</code> 包。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf nginx-xx.tar.gz</code></pre>
-<p>2、 进入解压缩目录， 执行<code>./configure</code>。</p>
-<pre class=" language-bash"><code class="language-bash">./configure</code></pre>
-<p>3、 执行编译安装</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span></code></pre>
-<h3 id="2、YUM方式"><a href="#2、YUM方式" class="headerlink" title="2、YUM方式"></a>2、YUM方式</h3><p>1、添加源</p>
-<p>　　默认情况Centos7中无Nginx的源，后面Nginx官网提供了Centos的源地址。因此可以如下执行命令添加源：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre>
-<p>2、安装<code>Nginx</code></p>
-<p>可以使用 search 命令：</p>
-<pre class=" language-bash"><code class="language-bash">yum search nginx</code></pre>
-<p>看看是否已经添加源成功。如果成功则执行下列命令安装<code>Nginx</code>。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> -y nginx</code></pre>
-<h3 id="3、防火墙端口相关"><a href="#3、防火墙端口相关" class="headerlink" title="3、防火墙端口相关"></a>3、防火墙端口相关</h3><p>如果需要的话，可能用得上。如果是云服务器，自己登录控制台看看相关端口是否已经开放。</p>
-<p>查看开放的端口号</p>
-<pre class=" language-bash"><code class="language-bash">firewall-cmd --list-all</code></pre>
-<p>设置开放的端口号</p>
-<pre class=" language-bash"><code class="language-bash">firewall-cmd --add-service<span class="token operator">=</span>http –permanent
-<span class="token function">sudo</span> firewall-cmd --add-port<span class="token operator">=</span>80/tcp --permanent</code></pre>
-<p>重启防火墙</p>
-<pre class=" language-bash"><code class="language-bash">firewall-cmd –reload</code></pre>
-<h2 id="三、Nginx-常用命令"><a href="#三、Nginx-常用命令" class="headerlink" title="三、Nginx 常用命令"></a>三、Nginx 常用命令</h2><p>如果你不确定你的 <code>Nginx</code> 到底安装到哪里了,使用 <code>whereis</code> 命令查找一下。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># whereis nginx</span>
-nginx: /usr/sbin/nginx /usr/lib64/nginx /etc/nginx /usr/share/nginx /usr/share/man/man8/nginx.8.gz</code></pre>
-<h3 id="1、查看版本命令："><a href="#1、查看版本命令：" class="headerlink" title="1、查看版本命令："></a>1、查看版本命令：</h3><pre class=" language-bash"><code class="language-bash">nginx -v</code></pre>
-<h3 id="2、启动命令："><a href="#2、启动命令：" class="headerlink" title="2、启动命令："></a>2、启动命令：</h3><p>（1）执行执行启动：</p>
-<pre class=" language-bash"><code class="language-bash">start  nginx </code></pre>
-<p>（2）到 <code>/usr/sbin/</code> 目录执行命令启动：</p>
-<pre class=" language-bash"><code class="language-bash">./nginx</code></pre>
-<p>（3）也可以使用Linux 方式</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> systemctl start nginx.service</code></pre>
-<h3 id="3、关闭命令："><a href="#3、关闭命令：" class="headerlink" title="3、关闭命令："></a>3、关闭命令：</h3><p>（1）快速停止或关闭</p>
-<pre class=" language-bash"><code class="language-bash">nginx stop</code></pre>
-<p>或</p>
-<pre class=" language-bash"><code class="language-bash">nginx -s stop</code></pre>
-<p>（2）正常停止或关闭</p>
-<pre class=" language-bash"><code class="language-bash">nginx -s quit</code></pre>
-<p>（3）也可以使用 <code>Linux</code> 方式</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> systemctl start nginx.service</code></pre>
-<h3 id="4、配置检查："><a href="#4、配置检查：" class="headerlink" title="4、配置检查："></a>4、配置检查：</h3><p>修改配置文件之后执行用来检查配置文件是否有错误的命令，如果有会给出提示。</p>
-<pre class=" language-bash"><code class="language-bash">nginx -t</code></pre>
-<h3 id="5、配置加载："><a href="#5、配置加载：" class="headerlink" title="5、配置加载："></a>5、配置加载：</h3><p>修改配置文件之后，不需要重启服务，检查配置文件正确之后，直接加载新的配置文件的命令。</p>
-<pre class=" language-bash"><code class="language-bash">nginx -s reload</code></pre>
-<h2 id="四、Nginx-配置文件"><a href="#四、Nginx-配置文件" class="headerlink" title="四、Nginx 配置文件"></a>四、Nginx 配置文件</h2><h3 id="1、nginx-配置文件目录"><a href="#1、nginx-配置文件目录" class="headerlink" title="1、nginx 配置文件目录"></a>1、nginx 配置文件目录</h3><p>一般在 <code>nginx/conf/</code> 目录下，具体目录使用 <code>whereis</code> 找一下。我使用<code>yum</code> 安装，配置文件目录在 <code>/etc/nginx/目录</code>下有个 <code>nginx.conf</code> 文件就是配置文件。</p>
-<p>配置文件中有很多 <code>#</code> ， <code>#</code> 开头的表示注释内容</p>
-<p>精简的配置文件内容如下：</p>
-<pre class=" language-conf"><code class="language-conf">worker_processes  1;
-
-events {
-    worker_connections  1024;
-}
-http {
-    include       mime.types;
-    default_type  application/octet-stream;
-
-    sendfile        on;
-
-    keepalive_timeout  65;
-
-    server {
-        listen       80;
-        server_name  localhost;
-
-        location / {
-            root   html;
-            index  index.html index.htm;
-        }
-    }
-}</code></pre>
-<h3 id="2、配置文件细分"><a href="#2、配置文件细分" class="headerlink" title="2、配置文件细分"></a>2、配置文件细分</h3><p>nginx.conf 文件大致分三个部分。</p>
-<p>（1）全局块<br>从配置文件开始到 <code>events</code> 块之间的内容，主要会设置一些影响 <code>nginx</code> 服务器整体运行的配置指令，主要包括配置运行 <code>Nginx</code>服务器的用户（组）、允许生成的 <code>worker process</code> 数， 进程 <code>PID</code> 存放路径、日志存放路径和类型以及配置文件的引入等。<br>比如第一行配置：</p>
-<pre><code>worker_processes 1;</code></pre><p>这是 Nginx 服务器并发处理服务的关键配置， <code>worker_processes</code> 值越大，可以支持的并发处理量也越多，但是会受到硬件、软件等设备的制约。</p>
-<p>（2）events 块</p>
-<p>​    <code>events</code> 块涉及的指令主要影响 Nginx 服务器与用户的网络连接，常用的设置包括是否开启对多 <code>work process</code>下的网络连接进行序列化，是否允许同时接收多个网络连接，选取哪种事件驱动模型来处理连接请求，每个 <code>work  process</code> 可以同时支持的最大连接数等。</p>
-<p>上述例子就表示每个 <code>work process</code> 支持的最大连接数为 1024。</p>
-<p>这部分的配置对 Nginx 的性能影响较大，在实际中应该灵活配置。</p>
-<p>（3）http 块</p>
-<p>​    <code>Nginx</code> 服务器配置中最频繁的部分，代理、缓存和日志定义等绝大多数功能和第三方模块的配置都在这里。 需要注意的是： <code>http</code> 块也可以包括 <code>http</code> 全局块、 server 块。</p>
-<p>A） http 全局块</p>
-<p>​    <code>http</code> 全局块配置的指令包括文件引入、 <code>MIME-TYPE</code> 定义、日志自定义、连接超时时间、单链接请求数上限、404等等。    </p>
-<p>B）  server 块</p>
-<p>​    这块和虚拟主机有密切关系，虚拟主机从用户角度看，和一台独立的硬件主机是完全一样的，该技术的产生是为了 节省互联网服务器硬件成本。 </p>
-<p>​    每个 http 块可以包括多个 <code>server</code>块，而每个 <code>server</code> 块就相当于一个虚拟主机。 而每个 <code>server</code> 块也分为全局 <code>server</code> 块，以及可以同时包含多个 <code>locaton</code> 块。 </p>
-<p>​    1)、全局 server 块 </p>
-<p>​    最常见的配置是本虚拟机主机的监听配置和本虚拟主机的名称或 IP 配置。 </p>
-<p>​    2)、location 块 </p>
-<p>​    一个 server 块可以配置多个 location 块。 </p>
-<p>​    这块的主要作用是基于 Nginx 服务器接收到的请求字符串（例如 <code>server_name</code>/<code>uri-string</code>），对虚拟主机名称 （也可以是 IP 别名）之外的字符串（例如 前面的 /uri-string）进行匹配，对特定的请求进行处理。地址定向、数据缓 存和应答控制等功能，还有许多第三方模块的配置也在这里进行。    </p>
-<h2 id="五、配置实例"><a href="#五、配置实例" class="headerlink" title="五、配置实例"></a>五、配置实例</h2><h3 id="1、反向代理配置实例1"><a href="#1、反向代理配置实例1" class="headerlink" title="1、反向代理配置实例1"></a>1、反向代理配置实例1</h3><p>准备工作：安装一个 <code>tomcat</code> 并配置端口为 <code>8081</code></p>
-<p>nginx.conf 配置：</p>
-<pre><code>server{
-    listen 80;
-    server_name www.zhangxiaocai.cn
-
-    location / {
-        proxy_pass http://127.0.0.1:8081 ;
-        index index.html index.htm index.jsp;
-    }
-}</code></pre><p>如上配置，我们监听 80 端口，访问域名为 <code>www.zhangxiaocai.cn</code>，不加端口号时默认为 <code>80</code> 端口，所以在浏览器访问该域名时会跳转到 <code>127.0.0.1:8080</code>路径上。</p>
-<p>本地测试需要修改<code>C:/Windows/System32/drivers/etc/hosts</code>文件，在文件末尾追加以下内容</p>
-<pre><code>www.zhangxiaocai.cn   127.0.0.1</code></pre><h3 id="2、反向代理配置实例2"><a href="#2、反向代理配置实例2" class="headerlink" title="2、反向代理配置实例2"></a>2、反向代理配置实例2</h3><p>准备工作：安装2个 <code>tomcat</code> 并配置端口分别为 <code>8081</code> 和 <code>8082</code> ，为了区分也可以准备2个不同的 <code>index.html</code> 页面。</p>
-<p>nginx.conf 配置：</p>
-<pre><code>server{
-    listen 80;
-    server_name www.zhangxiaocai.cn
-
-    location ~ /java/ {
-        proxy_pass http://127.0.0.1:8081 ;
-        index index.html index.htm index.jsp;
-    }
-
-    location ~ /spring/ {
-        proxy_pass http://127.0.0.1:8082 ;
-        index index.html index.htm index.jsp;
-    }
-}</code></pre><p>根据访问的路径跳转到不同端口的服务中 nginx 监听端口为 80， </p>
-<p>访问 <code>http://www.zhangxiaocai.cn/java/</code> 直接跳转到 <code>127.0.0.1:8081</code></p>
-<p>访问 <code>http://www.zhangxiaocai.cn/spring/</code> 直接跳转到 <code>127.0.0.1:8082</code></p>
-<h3 id="3、location-指令说明"><a href="#3、location-指令说明" class="headerlink" title="3、location 指令说明"></a>3、location 指令说明</h3><p>location 指令用于匹配 URL。 </p>
-<p>语法如下： </p>
-<pre><code>location [ = | ~ | ~* |^~] uti {
-
-}</code></pre><p><code>=</code> ：用于不含正则表达式的 uri 前，要求请求字符串与 uri 严格匹配，如果匹配 成功，就停止继续向下搜索并立即处理该请求。<br><code>~</code>：用于表示 uri 包含正则表达式，并且区分大小写。<br><code>~*</code>：用于表示 uri 包含正则表达式，并且不区分大小写。<br><code>^~</code>：用于不含正则表达式的 uri 前，要求 Nginx 服务器找到标识 uri 和请求字 符串匹配度最高的 location 后，立即使用此 location 处理请求，而不再使用 location 块中的正则 uri 和请求字符串做匹配。 </p>
-<p>注意：如果 uri 包含正则表达式，则必须要有 <code>~</code> 或者 <code>~*</code> 标识。    </p>
-<h3 id="4、负载均衡配置实例"><a href="#4、负载均衡配置实例" class="headerlink" title="4、负载均衡配置实例"></a>4、负载均衡配置实例</h3><p>负载均衡即是将负载分摊到不同的服务单元，既保证服务的可用性，又保证响应 足够快，给用户很好的体验。</p>
-<p>快速增长的访问量和数据流量催生了各式各样的负载均衡产品， 很多专业的负载均衡硬件提供了很好的功能，但却价格不菲，这使得负载均衡软件大受欢迎， nginx 就是其中的一个，在 linux 下有 Nginx、 LVS、 Haproxy 等等服务可以提供负载均衡服务 。</p>
-<p>准备工作：安装2个 <code>tomcat</code> 并配置端口分别为 <code>8081</code> 和 <code>8082</code> ，为了区分也可以准备2个不同的 <code>index.html</code> 页面。</p>
-<p>nginx.conf 配置：</p>
-<pre><code>http {
-    ...
-    upstream my_server{
-        ip_hash;
-        server 127.0.0.1:8081 weight=1;
-        server 127.0.0.1:8082 weight=1;
-    }
-    ...
-    server{
-
-        location / {
-            proxy_pass http://myserver;
-            proxy_connect_timeout 10;
-            ...
-        }
-    }
-}</code></pre><h3 id="5、nginx-服务均衡策略"><a href="#5、nginx-服务均衡策略" class="headerlink" title="5、nginx 服务均衡策略"></a>5、nginx 服务均衡策略</h3><p>Nginx 提供了几种分配方式(策略)： </p>
-<p>1、轮询（默认） </p>
-<p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器 down 掉，能自动剔除。 </p>
-<p>2、 weight </p>
-<p>weight 代表权,重默认为 1,权重越高被分配的客户端越多 指定轮询几率， weight 和访问比率成正比，用于后端服务器性能不均的情况。 例如：</p>
-<pre><code>upstream my_server_pool{
-    server 192.168.0.121 weight=10;
-    server 192.168.0.122 weight=10;
-}</code></pre><p>3 、 ip_hash </p>
-<p>每个请求按访问 ip 的 hash 结果分配，这样每个访客固定访问一个后端服务器，可以解决 session 的问题。 例如： </p>
-<pre><code>upstream my_server_pool{ 
-    ip_hash; 
-    server 192.168.0.121:80; 
-    server 192.168.0.122:80; 
-} </code></pre><p>4 、 fair（第三方） 按后端服务器的响应时间来分配请求，响应时间短的优先分配。 </p>
-<pre><code>upstream my_server_pool{ 
-    server 192.168.5.21:80; 
-    server 192.168.5.22:80; 
-    fair; 
-}    </code></pre><h3 id="6、动静分离配置实例"><a href="#6、动静分离配置实例" class="headerlink" title="6、动静分离配置实例"></a>6、动静分离配置实例</h3><p>Nginx 动静分离简单来说就是把动态跟静态请求分开，不能理解成只是单纯的把动态页面和静态页面物理分离。</p>
-<p>严格意义上说应该是动态请求跟静态请求分开，可以理解成使用 Nginx 处理静态页面， Tomcat 处理动态页面。</p>
-<p>动静分离从目前实现角度来讲大致分为两种：</p>
-<p>（1） 一种是纯粹把静态文件独立成单独的域名，放在独立的服务器上，也是目前主流推崇的方案；</p>
-<p>（2） 另外一种方法就是动态跟静态文件混合在一起发布，通过 nginx 来分开。 通过 location 指定不同的后缀名实现不同的请求转发。通过 expires 参数设置，可以使 浏览器缓存过期时间，减少与服务器之前的请求和流量。</p>
-<p>​    具体 Expires 定义：是给一个资 源设定一个过期时间，也就是说无需去服务端验证，直接通过浏览器自身确认是否过期即可， 所以不会产生额外的流量。此种方法非常适合不经常变动的资源。（如果经常更新的文件， 不建议使用 Expires 来缓存），假如设置为 3d，表示在这 3 天之内访问这个 URL，发送一个请求，比对服务器该文件最后更新时间没有变化，则不会从服务器抓取，返回状态码 304，如果有修改，则直接从服务器重新下载，返回状态码 200。    </p>
-<p>配置文件实例：</p>
-<pre><code>server{
-    listen 80;
-    server_name www.zhangxiaocai.cn
-
-    location /js/ {
-        root /home/tomcat/webapps/test/js/;
-        autoindex on;
-    }
-    location /image/ {
-        root /home/tomcat/webapps/test/images/;
-        autoindex on;
-    }
-}</code></pre><p>测试访问ok之后可以删除静态文件再试试，看看访问走的 <code>nginx</code> 还是 <code>tomcat</code>。</p>
-<h2 id="六、Nginx-原理"><a href="#六、Nginx-原理" class="headerlink" title="六、Nginx 原理"></a>六、Nginx 原理</h2><h3 id="1、nginx基本原理："><a href="#1、nginx基本原理：" class="headerlink" title="1、nginx基本原理："></a>1、nginx基本原理：</h3><p>​    使用 <code>master-workers</code> 的机制，通过一个 <code>master</code> 主进程管理其他 <code>worker</code> 进行来处理客户端的请求和响应。</p>
-<p><strong>特点：</strong></p>
-<p>（1）每个 <code>worker</code> 进程都是独立的进程，不需要加锁。</p>
-<p>（2）采用独立进程，相互之间不会影响，一个进程结束，不影响其他进程，服务不会中断，<code>master</code> 进程会启动新的 worker 进程。</p>
-<p>（3）<code>worker</code> 进程 异常退出，只会导致当前进程 <code>worker</code> 上的请求失败，不会影响所有请求，降低运行风险。</p>
-<h3 id="2、相关设置"><a href="#2、相关设置" class="headerlink" title="2、相关设置"></a>2、相关设置</h3><p><strong>worker 设置</strong></p>
-<p>​    nginx 同 redis 类似都采用了 io 多路复用机制，每个 <code>worker</code> 都是一个独立的进程，但每个进 程里只有一个主线程，通过异步非阻塞的方式来处理请求， 即使是千上万个请求也不在话 下。每个 worker 的线程可以把一个 cpu 的性能发挥到极致。所以 <code>worker</code> 数和服务器的 cpu 数相等是最为适宜的。设少了会浪费 cpu，设多了会造成 cpu 频繁切换上下文带来的损耗。</p>
-<p><strong>连接数 worker_connection</strong></p>
-<p>这个值是表示每个 <code>worker</code> 进程所能建立连接的最大值，所以，一个 <code>nginx</code> 能建立的最大连接 数，应该是 <code>worker_connections * worker_processes</code> 。当然，这里说的是最大连接数，对于 <code>HTTP</code> 请求本地资源来说 ， 能 够支持的最大并发数量是 <code>worker_connections * worker_processes</code>，</p>
-<p>如果是支持 <code>http1.1</code> 的浏览器每次访问要占两个连接，所以普通的静态访 问最大并发数是： <code>worker_connections * worker_processes /2</code>，</p>
-<p>如果是 <code>HTTP</code> 作 为反向代 理来说，最大并发数量应该是 <code>worker_connections * worker_processes/4</code>。因为作为反向代理服务器，每个并发会建立与客户端的连接和与后端服 务的连接，会占用两个连接。    </p>
-<h3 id="3、配置文件结构"><a href="#3、配置文件结构" class="headerlink" title="3、配置文件结构"></a>3、配置文件结构</h3><blockquote class="pullquote mindmap mindmap-md"><!-- build time:Mon Sep 21 2020 18:17:55 GMT+0800 (中国标准时间) --><ul><li>Nginx.conf 结构<ul><li>work_processes</li><li>events<ul><li>worker_connection</li></ul></li><li>http<ul><li>server<ul><li>listen</li><li>server_name</li><li>location<ul><li>root</li><li>index</li></ul></li></ul></li></ul></li></ul></li></ul><!-- rebuild by neat --></blockquote>
-
-
-
-<h2 id="七、其他"><a href="#七、其他" class="headerlink" title="七、其他"></a>七、其他</h2><p>https 已经在使用了，暂时还没加上。</p>
-<p>遇到再补充吧~</p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JVM学习导航（第三版）</title>
     <url>/posts/2a1a7c1f.html</url>
     <content><![CDATA[<pre><code>本系列主要记录关于深入理解JVM（第三版）相关学习比较，本文为导航。</code></pre><h2 id="JVM学习导航"><a href="#JVM学习导航" class="headerlink" title="JVM学习导航"></a>JVM学习导航</h2><h3 id="一-概况"><a href="#一-概况" class="headerlink" title="一 概况"></a>一 概况</h3><h4 id="1-java发现历程"><a href="#1-java发现历程" class="headerlink" title="1. java发现历程"></a>1. java发现历程</h4><p><img src="/medias/loading-animated.gif" data-original="/images/jvm-images/java_tech_sys_1.jpg" alt="java技术体系"></p>
@@ -17840,1079 +17597,6 @@ align = 'center</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Docker 之Docker-Compose</title>
-    <url>/posts/febc9253.html</url>
-    <content><![CDATA[<h2 id="Docker-之-Docker-Compose"><a href="#Docker-之-Docker-Compose" class="headerlink" title="Docker 之 Docker-Compose"></a>Docker 之 Docker-Compose</h2><h2 id="产生背景"><a href="#产生背景" class="headerlink" title="产生背景"></a>产生背景</h2><p>运行一个镜像，需要添加大量的参数。如果要运行不同发镜像还需要不同的参数。</p>
-<p>容器增加使得使用 <code>docker run</code> 启动命令变得多繁琐。</p>
-<p>通过Docker-Compose 可以进行批量的管理容器，配置参数。</p>
-<p>只需要一个 <code>docker-compose.yml</code> 文件去维护即可。</p>
-<h2 id="一、下载、配置Dockrer-Compose"><a href="#一、下载、配置Dockrer-Compose" class="headerlink" title="一、下载、配置Dockrer-Compose"></a>一、下载、配置Dockrer-Compose</h2><h3 id="1-github官网下载"><a href="#1-github官网下载" class="headerlink" title="1. github官网下载"></a>1. github官网下载</h3><p><a href="https://github.com/docker/compose" target="_blank" rel="noopener">https://github.com/docker/compose</a></p>
-<p>releases 选择比较稳定的发布版本。</p>
-<h3 id="2、修改Docker-Compose-文件名"><a href="#2、修改Docker-Compose-文件名" class="headerlink" title="2、修改Docker-Compose 文件名"></a>2、修改Docker-Compose 文件名</h3><p>非必须，需要是为了使用命令方便。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">mv</span> docker-compose-Linux-x86_64  /usr/local
-<span class="token function">cd</span> /usr/local
-<span class="token function">mv</span> docker-compose-Linux-x86_64 docker-compose
-<span class="token function">chmod</span> 777  docker-compose</code></pre>
-<h3 id="3、配置docker-Compose-环境变量"><a href="#3、配置docker-Compose-环境变量" class="headerlink" title="3、配置docker-Compose 环境变量"></a>3、配置docker-Compose 环境变量</h3><p>非必须，需要是为了后续使用命令方便。</p>
-<p>将 <code>docker-compose</code> 文件移动到 <code>/usr/local/bin</code>, 修改了 <code>/etc/profile</code> 文件，给<code>/usr/local/bin</code> 配置到 <code>PATH</code> 中。</p>
-<pre class=" language-sh"><code class="language-sh">mv docker-compose /usr/lcoal/bin
-vi /etc/profile</code></pre>
-<pre class=" language-txt"><code class="language-txt">export PATH=$JAVA_HOME:/usr/local/bin:$PATH</code></pre>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile</code></pre>
-<p>测试配置是否成功，在任意目录下执行 <code>docker-compose</code></p>
-<h2 id="二-Docker-Compose-管理容器"><a href="#二-Docker-Compose-管理容器" class="headerlink" title="二 Docker-Compose 管理容器"></a>二 Docker-Compose 管理容器</h2><p><code>docker-compose.yml</code> 文件遵循YAML文件格式要求。</p>
-<p>key+”:”+空格+value</p>
-<p>换行+缩进</p>
-<p>不要使用制表符。</p>
-<p>示例：Docker-Compose 管理Mysql和Tomcat容器</p>
-<pre class=" language-YAML"><code class="language-YAML">varsion: '3.1'
-services: 
-  mysql:             # 服务的名称
-    restart: always  # 表示只要docker启动，这个服务就跟着一起启动
-    image: daocloud.io/library/mysql:5.7.4   # 指定镜像来源路径
-    container_name: mysql    # 指定容器名称
-    ports:
-      - 3306:3306  # 指定端口号映射
-    environment:
-      MYSQL_ROOT_PASSWORD: root    #指定Mysql的root用户登录密码
-      TZ: Asia/Shanghai            #指定时区
-    volumes:
-      - /opt/docker_msql_tomcat/mysql_data:/var/lib/mysql  # 映射数据卷
-  tomcat: 
-    restart: always
-    image: daocloud.io/library/tomcat:8.5.15-jre8    
-    container_name: tomcat
-    ports:
-      - 8080:8080
-    environment: 
-      TZ: Asia/Shanghai
-    volumes:
-      - /opt/docker_msql_tomcat/tomcat_webapps:/var/local/tomcat/webapps
-      - /opt/docker_msql_tomcat/tomcat_logs:/var/local/tomcat/logs</code></pre>
-<h3 id="三-使用-docker-compose-命令管理"><a href="#三-使用-docker-compose-命令管理" class="headerlink" title="三.使用 docker-compose 命令管理"></a>三.使用 docker-compose 命令管理</h3><p><strong>在使用docker-compose 命令时，默认会在当前目录下找 docker-compose.yml 文件。</strong></p>
-<p><strong>基于 docker-compose.yml 启动管理的容器</strong></p>
-<pre class=" language-bash"><code class="language-bash">docker-compose up -d</code></pre>
-<p><strong>关闭并删除容器</strong></p>
-<pre class=" language-bash"><code class="language-bash">docker-compose down</code></pre>
-<p><strong>开启|关闭|重启 已经存在的由docker-compose维护的容器</strong></p>
-<pre class=" language-bash"><code class="language-bash">docker-compose start
-docker-compose stop 
-docker-compose restart</code></pre>
-<p><strong>查看由docker-compose维护的容器</strong></p>
-<pre class=" language-bash"><code class="language-bash">docker-compose  <span class="token function">ps</span></code></pre>
-<p><strong>查看由docker-compose维护的容器的日志</strong></p>
-<pre class=" language-bash"><code class="language-bash">docker-compose  logs  -f</code></pre>
-<h3 id="四-Docker-compose配置Dockerfile-使用"><a href="#四-Docker-compose配置Dockerfile-使用" class="headerlink" title="四.Docker-compose配置Dockerfile 使用"></a>四.Docker-compose配置Dockerfile 使用</h3><p>使用 <code>docker-compose.yml</code> 文件以及  <code>Dockerfile</code> 文件再生产自定义的镜像的同时启动当前镜像，并且由Docker-compose去管理容器。</p>
-<p>1、yml文件</p>
-<pre class=" language-YAML"><code class="language-YAML">version: '3.1'
-services:
-  tomcat_dcdf: 
-    restart: always
-    build:             # 构建自定义镜像
-      context: ../     # 指定Dockerfile文件所在路径，../表示上级目录
-      dockerfile: Dockerfile   # 指定Dockerfile文件名称
-    image: tomcat_dcdf:1.0.1    # 构建生成的镜像文件名称
-    container_name: tomcat_dcdf
-    ports:
-      - 8081:8080
-    environment: 
-      TZ: Asia/Shanghai
-</code></pre>
-<p>2、Dockerfile 文件</p>
-<pre class=" language-txt"><code class="language-txt">FROM daocloud.io/library/tomcat:8.5.15-jre8  
-CP  test.war /var/local/tomcat/webapps</code></pre>
-<p>3.目录层级</p>
-<ul>
-<li>docker_tomcat_dcdf<br>|–+ docker-compose<br>|  |– docker-compose.yml<br>|– dockerfile<br>|– test.war</li>
-</ul>
-<p>注意，测试test.war，需要先用客户端连接mysql，创建test 数据库。</p>
-<ol start="4">
-<li>执行启动命令</li>
-</ol>
-<p>一定要在docker-compse 目录执行</p>
-<pre class=" language-bash"><code class="language-bash">docker-compse up -d</code></pre>
-<p>因为：<strong>在使用docker-compose 命令时，默认会在当前目录下找 docker-compose.yml 文件。</strong></p>
-<p>注意：</p>
-<p><code>docker-compse up -d</code> : 可以直接启动基于<code>docker-compose.yml</code> 文件以及  <code>Dockerfile</code> 文件构建的自定义镜像。 如果自定义镜像不存在， <code>docker-compose</code> 会自动构建出自定义镜像，如果自定义镜像已经存在， <code>docker-compose</code> 会直接运行这个自定义镜像。</p>
-<p>如果需要重新构建自定义镜像，执行：</p>
-<pre class=" language-bash"><code class="language-bash"> docker-compose build</code></pre>
-<p>如果需要在运行之前，重新构建自定义镜像，执行：</p>
-<pre class=" language-bash"><code class="language-bash"> docker-compose up  -d  --build</code></pre>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>Docker</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker 之完整入门</title>
-    <url>/posts/9e6e2be2.html</url>
-    <content><![CDATA[<h2 id="Docker-一篇入门"><a href="#Docker-一篇入门" class="headerlink" title="Docker 一篇入门"></a>Docker 一篇入门</h2><h2 id="一、Docker-简介"><a href="#一、Docker-简介" class="headerlink" title="一、Docker 简介"></a>一、Docker 简介</h2><h3 id="1、基本概述"><a href="#1、基本概述" class="headerlink" title="1、基本概述"></a>1、基本概述</h3><p>Docker是世界领先的软件容器平台。 </p>
-<p>Docker是基于Go语言实现的云开源项目。</p>
-<p>Docker的主要目标是“Build，Ship and Run Any App,Anywhere”。</p>
-<p>通过对应用组件的封装、分发、部署、运行等生命周期的管理，使用户的APP（可以是一个WEB应用或数据库应用等等）及其运行环境能够做到<strong>“一次封装，到处运行”</strong>。</p>
-<p>因为虚拟机模拟的就是带操作系统和环境的，其资源占用多、冗余步骤多、启动慢等不足，Linux 发展出了另一种虚拟化技术：Linux 容器（Linux Containers，缩写为 LXC）。<strong>Linux 容器不是模拟一个完整的操作系统，而是对进程进行隔离。</strong>有了容器，就可以将软件运行所需的所有资源打包到一个隔离的容器中。容器与虚拟机不同，不需要捆绑一整套操作系统，只需要软件工作所需的库资源和设置。系统因此而变得高效轻量并保证部署在任何环境中的软件都能始终如一地运行。</p>
-<p>Docker 在Linux 容器技术的基础上发展过来的。将应用运行在 Docker 容器上面，而 Docker 容器在任何操作系统上都是一致的，这就实现了跨平台、跨服务器。只需要一次配置好环境，换到不同的机器上就可以一键部署好，大大简化了操作。这样是顺应了 DevOps 开发运维理念。</p>
-<p>针对集群环境，可以快速部署安装。</p>
-<p><strong>意义或作用：</strong></p>
-<p>Docker 解决了运行环境和配置问题软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术。</p>
-<h3 id="2、官网及仓库"><a href="#2、官网及仓库" class="headerlink" title="2、官网及仓库"></a>2、官网及仓库</h3><p>docker官网：<a href="http://www.docker.com" target="_blank" rel="noopener">http://www.docker.com</a></p>
-<p>docker中文网站：<a href="https://www.docker-cn.com" target="_blank" rel="noopener">https://www.docker-cn.com</a></p>
-<p>Docker Hub官网: <a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com/</a></p>
-<h2 id="二、Docker-安装"><a href="#二、Docker-安装" class="headerlink" title="二、Docker 安装"></a>二、Docker 安装</h2><h3 id="1、环境检查"><a href="#1、环境检查" class="headerlink" title="1、环境检查"></a>1、环境检查</h3><p>CentOS Docker 安装<br>Docker支持以下的CentOS版本：<br>    CentOS 7 (64-bit)<br>    CentOS 6.5 (64-bit) 或更高的版本</p>
-<p>前提条件<br>目前，CentOS 仅发行版本中的内核支持 Docker。<br>Docker 运行在 CentOS 7 上，要求系统为64位、系统内核版本为 3.10 以上。<br>Docker 运行在 CentOS-6.5 或更高的版本的 CentOS 上，要求系统为64位、系统内核版本为 2.6.32-431 或者更高版本。</p>
-<p>Linux 检查内核版本命令：</p>
-<pre class=" language-bash"><code class="language-bash"> <span class="token function">uname</span> -a
- <span class="token function">cat</span> /proc/version
- lsb_release -a</code></pre>
-<p>如果命令 <code>lsb_release -a</code>提示<code>command not found</code>则需要安装<code>yum install redhat-lsb -y</code>。</p>
-<h3 id="2、基本组成"><a href="#2、基本组成" class="headerlink" title="2、基本组成"></a>2、基本组成</h3><p>docker主机(Host)：安装了Docker程序的机器，Docker直接安装在操作系统（windows / linux）上；<br>docker客户端(Client)：连接docker主机进行操作；<br><strong>docker仓库(Registry)：</strong>用来保存各种打包好的软件镜像；<br><strong>docker镜像(Images)：</strong>软件打包好的镜像；放在docker仓库中；<br><strong>docker容器(Container)：</strong>镜像启动后的实例称为一个容器；容器是独立运行的一个或一组应用。</p>
-<p>架构图：</p>
-<h3 id="3、安装步骤"><a href="#3、安装步骤" class="headerlink" title="3、安装步骤"></a>3、安装步骤</h3><p>官方文档也有安装步骤：<a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noopener">https://docs.docker.com/install/linux/docker-ce/centos/</a></p>
-<p><strong>Centos 6.8 安装Docker：</strong></p>
-<p>（1）环境准备</p>
-<p>Docker使用EPEL发布，RHEL系的OS首先要确保已经持有EPEL仓库，否则先检查OS的版本，然后安装相应的EPEL包。</p>
-<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> -y epel-release</code></pre>
-<p>（2）安装docker</p>
-<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> -y docker-io</code></pre>
-<p>（3）配置文件</p>
-<p>安装后的配置文件：/etc/sysconfig/docker</p>
-<p>（4）启停操作</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> docker start
-<span class="token function">service</span> docker stop</code></pre>
-<p>（5）验证</p>
-<pre class=" language-bash"><code class="language-bash">docker version</code></pre>
-<p><strong>Centos 7 安装Docker：</strong></p>
-<p>（1）环境检查</p>
-<p>版本确认：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">cat</span> /etc/redhat-release</code></pre>
-<p>联网检查</p>
-<p>（2）gcc环境安装</p>
-<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> gcc
-yum -y <span class="token function">install</span> gcc-c++</code></pre>
-<p>（3）旧版卸载</p>
-<p>可参考官网操作，新机器可省略此操作。</p>
-<pre class=" language-bash"><code class="language-bash">yum remove docker \
-                  docker-client \
-                  docker-client-latest \
-                  docker-common \
-                  docker-latest \
-                  docker-latest-logrotate \
-                  docker-logrotate \
-                  docker-selinux \
-                  docker-engine-selinux \
-                  docker-engine
-</code></pre>
-<p>（4）安装依赖包</p>
-<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> -y yum-utils device-mapper-persistent-data lvm2</code></pre>
-<p>（5）修改镜像仓库</p>
-<p>主要是为了优化下载速度</p>
-<pre class=" language-bash"><code class="language-bash">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</code></pre>
-<p>（6）更新yum包索引</p>
-<pre class=" language-bash"><code class="language-bash">yum makecache fast</code></pre>
-<p>（7）安装Docker CE</p>
-<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> docker-ce</code></pre>
-<p>（8）启停操作</p>
-<pre class=" language-bash"><code class="language-bash">systemctl start docker
-systemctl stop docker</code></pre>
-<p>（9）测试验证</p>
-<pre class=" language-bash"><code class="language-bash">docker version</code></pre>
-<p>（10）配置镜像加速</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p /etc/docker
-vim /etc/docker/daemon.json
-systemctl daemon-reload  <span class="token comment" spellcheck="true"># 重新加载</span>
-systemctl restart docker <span class="token comment" spellcheck="true"># 重启</span></code></pre>
-<p><code>daemon.json</code> 内容：</p>
-<pre class=" language-txt"><code class="language-txt">#网易云
-{"registry-mirrors": ["http://hub-mirror.c.163.com"] }
-
-或
-
- #阿里云
-{
-  "registry-mirrors": ["https://｛自已的编码｝.mirror.aliyuncs.com"]
-}</code></pre>
-<p>（11）卸载docker</p>
-<pre class=" language-bahs"><code class="language-bahs">systemctl stop docker
-yum -y remove docker-ce
-rm -rf /var/lib/docker</code></pre>
-<p>关于阿里云或网易云镜像加速</p>
-<p>注册阿里云账户，登录阿里云开发者平台，获取加速器地址，配置参考第（10）步。</p>
-<p>（12）更多命令</p>
-<p>​ （A） ：<a href="https://docs.docker.com/engine/reference/commandline/docker/" target="_blank" rel="noopener">Docker 官方文档</a></p>
-<p>​ （B）：参考每一个镜像的文档。</p>
-<h2 id="三、Docker-原理"><a href="#三、Docker-原理" class="headerlink" title="三、Docker 原理"></a>三、Docker 原理</h2><p>Docker是一个Client-Server结构的系统，Docker守护进程运行在主机上， 然后通过Socket连接从客户端访问，守护进程从客户端接受命令并管理运行在主机上的容器。 </p>
-<p>容器，是一个运行时环境，鲸鱼背上的一个个小集装箱。</p>
-<p><strong>生命周期</strong></p>
-<p>Docker 容器的生命周期里分为五种状态，其分别代表着：</p>
-<ul>
-<li>Created：容器已经被创建，容器所需的相关资源已经准备就绪，但容器中的程序还未处于运行状态。</li>
-<li>Running：容器正在运行，也就是容器中的应用正在运行。</li>
-<li>Paused：容器已暂停，表示容器中的所有程序都处于暂停 ( 不是停止 ) 状态。</li>
-<li>Stopped：容器处于停止状态，占用的资源和沙盒环境都依然存在，只是容器中的应用程序均已停止。</li>
-<li>Deleted：容器已删除，相关占用的资源及存储在 Docker 中的管理信息也都已释放和移除。</li>
-</ul>
-<h2 id="四、常用命令"><a href="#四、常用命令" class="headerlink" title="四、常用命令"></a>四、常用命令</h2><h3 id="1、帮助命令"><a href="#1、帮助命令" class="headerlink" title="1、帮助命令"></a>1、帮助命令</h3><pre><code>docker version
-docker info
-docker --help</code></pre><h3 id="2、镜像命令"><a href="#2、镜像命令" class="headerlink" title="2、镜像命令"></a>2、镜像命令</h3><p>（1）搜索镜像</p>
-<p>可以直接在：<a href="https://hub.docker.com" target="_blank" rel="noopener">https://hub.docker.com</a> 搜索。</p>
-<p>使用命令搜索镜像：</p>
-<pre class=" language-bash"><code class="language-bash">docker search <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> images_name</code></pre>
-<p>OPTIONS:</p>
-<ul>
-<li><strong>–no-trunc ：</strong>显示完整的镜像描述。</li>
-<li><strong>-s ：</strong>列出收藏数不小于指定值的镜像。</li>
-<li><strong>–automated：</strong>只列出automated build 类型的镜像。</li>
-</ul>
-<p>（2）下载镜像</p>
-<pre class=" language-bash"><code class="language-bash">docker pull images_name<span class="token punctuation">[</span>:tag<span class="token punctuation">]</span></code></pre>
-<p>（3）显示本地镜像</p>
-<pre class=" language-bash"><code class="language-bash">docker images <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span></code></pre>
-<p>OPTIONS：</p>
-<ul>
-<li><strong>-a ：</strong>列出本地所有镜像</li>
-<li><strong>-q ：</strong>只显示镜像ID。</li>
-<li><strong>–digests ：</strong>显示镜像的摘要信息</li>
-<li><strong>–no-trunc ：</strong>显示完整的镜像信息</li>
-</ul>
-<p>（3）删除本地镜像</p>
-<p>删除单个镜像：</p>
-<pre><code>docker rmi -f images_id</code></pre><p>删除多个镜像：</p>
-<pre class=" language-bash"><code class="language-bash">docker rmi -f images_name1:tag  images_name2:tag </code></pre>
-<p>删除全部镜像：</p>
-<pre><code>docker rmi -f $(docker images -qa)</code></pre><p>（4）提交镜像</p>
-<p><code>docker commit</code> 提交容器副本使之成为一个新的镜像。</p>
-<p>这个命令一般可以个性化好容器之后，制作成自己的镜像模板。</p>
-<pre><code>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</code></pre><p>OPTIONS说明：</p>
-<ul>
-<li><strong>-a ：</strong>提交的镜像作者；</li>
-<li><strong>-c ：</strong>使用Dockerfile指令来创建镜像；</li>
-<li><strong>-m ：</strong>提交时的说明文字；</li>
-<li><strong>-p ：</strong>在commit时，将容器暂停。</li>
-</ul>
-<p>示例：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 将容器a404c6c174a2 保存为新的镜像,并添加提交人信息和说明信息。</span>
-docker commit -a <span class="token string">"xiaocai.com"</span> -m <span class="token string">"my mysql"</span> a404c6c174a2  mymysql:v1 </code></pre>
-<p>（5）登录与提交</p>
-<p>之所以要登录是因为要把本地镜像提交到镜像仓库，默认为官方仓库Docker Hub，也可以自己搭建自己的镜像仓库。</p>
-<p>登录：</p>
-<pre><code>docker login -u username -p password</code></pre><p>退出：</p>
-<pre><code>docker logout</code></pre><p>本地镜像提交到镜像仓库</p>
-<pre><code>docker push [OPTIONS] NAME[:TAG]</code></pre><p>OPTIONS说明：</p>
-<ul>
-<li><strong>–disable-content-trust ：</strong>忽略镜像的校验,默认开启</li>
-</ul>
-<h3 id="3、容器命令"><a href="#3、容器命令" class="headerlink" title="3、容器命令"></a>3、容器命令</h3><p>（1）新建并启动容器</p>
-<pre class=" language-bash"><code class="language-bash">docker run <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> IMAGE <span class="token punctuation">[</span>COMMAND<span class="token punctuation">]</span> <span class="token punctuation">[</span>ARG<span class="token punctuation">..</span>.<span class="token punctuation">]</span></code></pre>
-<p> OPTIONS说明（常用）：（有些是一个减号，有些是两个减号）</p>
-<ul>
-<li><p><strong>–name=”容器新名字”：</strong> 为容器指定一个名称；</p>
-</li>
-<li><p><strong>-d：</strong> 后台运行容器，并返回容器ID，也即启动守护式容器；</p>
-</li>
-<li><p><strong>-i：</strong>以交互模式运行容器，通常与 -t 同时使用；</p>
-</li>
-<li><p><strong>-t：</strong>为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p>
-</li>
-<li><p><strong>-P：</strong>随机端口映射；</p>
-</li>
-<li><p><strong>-p：</strong>指定端口映射，有以下四种格式</p>
-<p>​      ip:hostPort:containerPort</p>
-<pre><code>  ip::containerPort
-  hostPort:containerPort
-  containerPort</code></pre></li>
-<li><p><strong>–volume , -v：</strong> 绑定一个卷。</p>
-<p>此处只列举常用参数，还有其他参数可参考官网命令参数说明。</p>
-</li>
-</ul>
-<p>示例1：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#使用镜像centos:latest以交互模式启动一个容器,在容器内执行/bin/bash命令。</span>
-docker run -it centos /bin/bash </code></pre>
-<p><strong>退出容器</strong></p>
-<p>以交互模式启动一个容器之后，退出容器：</p>
-<p><code>exit</code> ：容器停止并退出。</p>
-<p><code>CTRL + P + Q</code> ：容器不停止并退出。</p>
-<p>进入正在运行的容器</p>
-<p>方式一：</p>
-<pre class=" language-bash"><code class="language-bash">docker <span class="token function">exec</span> -it container-id  /bin/bash</code></pre>
-<p>方式二：</p>
-<pre><code>docker attach container-id </code></pre><p>二者区别：</p>
-<p><strong>attach ：</strong> 直接进入容器启动命令的终端，不会启动新的进程。</p>
-<p><strong>exec ：</strong>是在容器中打开新的终端，并且可以启动新的进程。</p>
-<p>示例2：（常用）</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#使用镜像centos:latest以后台守护进程模式启动一个容器</span>
-docker run -d centos</code></pre>
-<p>（2）查看正在运行的容器</p>
-<pre class=" language-bash"><code class="language-bash">docker <span class="token function">ps</span> <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span></code></pre>
-<p>OPTIONS：</p>
-<ul>
-<li><strong>-a ：</strong>列出当前所有正在运行的容器+历史上运行过的</li>
-<li><strong>-l ：</strong>显示最近创建的容器。</li>
-<li><strong>-n：</strong>显示最近n个创建的容器。</li>
-<li><strong>-q ：</strong>静默模式，只显示容器编号。</li>
-<li><strong>–no-trunc ：</strong>不截断输出。</li>
-</ul>
-<p>（3）容器存在之后的启停删</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启动容器</span>
-docker start container-id <span class="token operator">|</span> container-name
-<span class="token comment" spellcheck="true"># 重启容器</span>
-docker restart container-id <span class="token operator">|</span> container-name
-<span class="token comment" spellcheck="true"># 停止容器</span>
-docker restart container-id <span class="token operator">|</span> container-name
-<span class="token comment" spellcheck="true"># 暴力停止容器-拔电源</span>
-docker <span class="token function">kill</span> container-id <span class="token operator">|</span> container-name
-<span class="token comment" spellcheck="true"># 删除容器</span>
-docker <span class="token function">rm</span> container-id 
-<span class="token comment" spellcheck="true"># 强制删除多个容器</span>
-docker <span class="token function">rm</span> -f <span class="token variable"><span class="token variable">$(</span>docker <span class="token function">ps</span> -a -q<span class="token variable">)</span></span>
-docker  <span class="token function">ps</span> -a -q <span class="token operator">|</span> <span class="token function">xargs</span> docker <span class="token function">rm</span></code></pre>
-<p>（4）查容器信息（重点）</p>
-<p><strong>查看容器日志</strong></p>
-<pre><code>docker logs -f -t --tail  container-id</code></pre><p><strong>-t ：</strong>加入时间戳</p>
-<p><strong>-f ：</strong>跟随最新的日志打印</p>
-<p><strong>–tail 300  ：</strong>显示最后300条日志</p>
-<p><strong>查看容器内运行的进程</strong></p>
-<pre class=" language-bash"><code class="language-bash">docker  <span class="token function">top</span> container-id</code></pre>
-<p><strong>查看容器内部细节</strong></p>
-<pre class=" language-bash"><code class="language-bash">docker  inspect container-id</code></pre>
-<p><strong>从容器内拷贝文件到宿主机</strong></p>
-<pre><code>docker cp container-id:容器内路径  目标主机路径</code></pre><p>示例：</p>
-<pre class=" language-bash"><code class="language-bash">docker <span class="token function">cp</span> f1faf3c3c6c5:/usr/local/cptest/container_test.txt  /tmp/test.txt</code></pre>
-<p><img src="/medias/loading-animated.gif" data-original="/images/docker/docker-commands-diagram.jpg" alt="Docker commands Diagram"></p>
-<table>
-<thead>
-<tr>
-<th>命令关键词</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>attach</td>
-<td>Attach to a running container   # 当前 shell 下 attach 连接指定运行镜像</td>
-</tr>
-<tr>
-<td>build</td>
-<td>Build an image from a Dockerfile  # 通过 Dockerfile 定制镜像</td>
-</tr>
-<tr>
-<td>commit</td>
-<td>Create a new image from a container changes   # 提交当前容器为新的镜像</td>
-</tr>
-<tr>
-<td>cp</td>
-<td>Copy files/folders from the containers filesystem to the host path   #从容器中拷贝指定文件或者目录到宿主机中</td>
-</tr>
-<tr>
-<td>create</td>
-<td>Create a new container                        # 创建一个新的容器，同 run，但不启动容器</td>
-</tr>
-<tr>
-<td>diff</td>
-<td>Inspect changes on a container’s filesystem   # 查看 docker 容器变化</td>
-</tr>
-<tr>
-<td>events</td>
-<td>Get real time events from the server          # 从 docker 服务获取容器实时事件</td>
-</tr>
-<tr>
-<td>exec</td>
-<td>Run a command in an existing container        # 在已存在的容器上运行命令</td>
-</tr>
-<tr>
-<td>export</td>
-<td>Stream the contents of a container as a tar archive   # 导出容器的内容流作为一个 tar 归档文件[对应 import ]</td>
-</tr>
-<tr>
-<td>history</td>
-<td>Show the history of an image   # 展示一个镜像形成历史</td>
-</tr>
-<tr>
-<td>images</td>
-<td>List images  # 列出系统当前镜像</td>
-</tr>
-<tr>
-<td>import</td>
-<td>Create a new filesystem image from the contents of a tarball # 从tar包中的内容创建一个新的文件系统映像[对应export]</td>
-</tr>
-<tr>
-<td>info</td>
-<td>Display system-wide information               # 显示系统相关信息</td>
-</tr>
-<tr>
-<td>inspect</td>
-<td>Return low-level information on a container   # 查看容器详细信息</td>
-</tr>
-<tr>
-<td>kill</td>
-<td>Kill a running container                      # kill 指定 docker 容器</td>
-</tr>
-<tr>
-<td>load</td>
-<td>Load an image from a tar archive              # 从一个 tar 包中加载一个镜像[对应 save]</td>
-</tr>
-<tr>
-<td>login</td>
-<td>Register or Login to the docker registry server    # 注册或者登陆一个 docker 源服务器</td>
-</tr>
-<tr>
-<td>logout</td>
-<td>Log out from a Docker registry server          # 从当前 Docker registry 退出</td>
-</tr>
-<tr>
-<td>logs</td>
-<td>Fetch the logs of a container                 # 输出当前容器日志信息</td>
-</tr>
-<tr>
-<td>port</td>
-<td>Lookup the public-facing port which is NAT-ed to PRIVATE_PORT    # 查看映射端口对应的容器内部源端口</td>
-</tr>
-<tr>
-<td>pause</td>
-<td>Pause all processes within a container        # 暂停容器</td>
-</tr>
-<tr>
-<td>ps</td>
-<td>List containers                               # 列出容器列表</td>
-</tr>
-<tr>
-<td>pull</td>
-<td>Pull an image or a repository from the docker registry server   # 从docker镜像源服务器拉取指定镜像或者库镜像</td>
-</tr>
-<tr>
-<td>push</td>
-<td>Push an image or a repository to the docker registry server    # 推送指定镜像或者库镜像至docker源服务器</td>
-</tr>
-<tr>
-<td>restart</td>
-<td>Restart a running container                   # 重启运行的容器</td>
-</tr>
-<tr>
-<td>rm</td>
-<td>Remove one or more containers                 # 移除一个或者多个容器</td>
-</tr>
-<tr>
-<td>rmi</td>
-<td>Remove one or more images             # 移除一个或多个镜像[无容器使用该镜像才可删除，否则需删除相关容器才可继续或 -f 强制删除]</td>
-</tr>
-<tr>
-<td>run</td>
-<td>Run a command in a new container              # 创建一个新的容器并运行一个命令</td>
-</tr>
-<tr>
-<td>save</td>
-<td>Save an image to a tar archive                # 保存一个镜像为一个 tar 包[对应 load]</td>
-</tr>
-<tr>
-<td>search</td>
-<td>Search for an image on the Docker Hub         # 在 docker hub 中搜索镜像</td>
-</tr>
-<tr>
-<td>start</td>
-<td>Start a stopped containers                    # 启动容器</td>
-</tr>
-<tr>
-<td>stop</td>
-<td>Stop a running containers                     # 停止容器</td>
-</tr>
-<tr>
-<td>tag</td>
-<td>Tag an image into a repository                # 给源中镜像打标签</td>
-</tr>
-<tr>
-<td>top</td>
-<td>Lookup the running processes of a container   # 查看容器中运行的进程信息</td>
-</tr>
-<tr>
-<td>unpause</td>
-<td>Unpause a paused container                    # 取消暂停容器</td>
-</tr>
-<tr>
-<td>version</td>
-<td>Show the docker version information           # 查看 docker 版本号</td>
-</tr>
-<tr>
-<td>wait</td>
-<td>Block until a container stops, then print its exit code   # 截取容器停止时的退出状态值</td>
-</tr>
-</tbody></table>
-<h2 id="五、Docker-镜像"><a href="#五、Docker-镜像" class="headerlink" title="五、Docker 镜像"></a>五、Docker 镜像</h2><h3 id="1、Docker-镜像是什么"><a href="#1、Docker-镜像是什么" class="headerlink" title="1、Docker 镜像是什么"></a>1、Docker 镜像是什么</h3><p>UnionFS（联合文件系统）：Union文件系统（UnionFS）是一种分层、轻量级并且高性能的文件系统，它支持对文件系统的修改作为一次提交来一层层的叠加，同时可以将不同目录挂载到同一个虚拟文件系统下(unite several directories into a single virtual filesystem)。Union 文件系统是 Docker 镜像的基础。</p>
-<p>镜像可以通过分层来进行继承，基于基础镜像（没有父镜像），可以制作各种具体的应用镜像。</p>
-<p><strong>特点：</strong>一次同时加载多个文件系统，但从外面看起来，只能看到一个文件系统，联合加载会把各层文件系统叠加起来，这样最终的文件系统会包含所有底层的文件和目录。</p>
-<p>镜像（Images）可以看成是由多个镜像层叠加起来的一个文件系统（通过UnionFS与AUFS文件联合系统实现），镜像层（ Image Layer）也可以简单理解为一个基本的镜像，而每个镜像层之间通过指针的形式进行叠加。</p>
-<p><strong>Docer镜像的特点：</strong></p>
-<p>Docker镜像都是只读的，当容器启动时，一个新的可写层被加载到镜像的顶部。这一层通常被称作“容器层”，“容器层”之下的都叫“镜像层”。 </p>
-<h3 id="2、Docker镜像加载原理"><a href="#2、Docker镜像加载原理" class="headerlink" title="2、Docker镜像加载原理"></a>2、Docker镜像加载原理</h3><p>docker的镜像实际上由一层一层的文件系统组成，这种层级的文件系统叫UnionFS。</p>
-<p><code>bootfs(boot file system)</code>主要包含<code>bootloader</code>和<code>kernel</code>, <code>bootloader</code>主要是引导加载<code>kernel</code>, <code>Linux</code>刚启动时会加载<code>bootfs</code>文件系统，在Docker镜像的最底层是<code>bootfs</code>。这一层与我们典型的<code>Linux/Unix</code>系统是一样的，包含<code>boot</code>加载器和内核。当boot加载完成之后整个内核就都在内存中了，此时内存的使用权已由<code>bootfs</code>转交给内核，此时系统也会卸载<code>bootfs</code>。</p>
-<p><code>rootfs (root file system)</code>，在bootfs之上。包含的就是典型 <code>Linux</code> 系统中的 /dev, /proc, /bin, /etc 等标准目录和文件。<code>rootfs</code>就是各种不同的操作系统发行版，比如<code>Ubuntu</code>，<code>Centos</code>等等。 </p>
-<p><img src="/medias/loading-animated.gif" data-original="/images/docker/docker-kernel.jpg" alt="Docker 容器"></p>
-<p>docker镜像里的centos 系统大小约 200M，对于一个精简的OS，rootfs可以很小，只需要包括最基本的命令、工具和程序库就可以了，因为底层直接用Host的kernel，自己只需要提供 rootfs 就行了。由此可见对于不同的linux发行版, bootfs基本是一致的, rootfs会有差别, 因此不同的发行版可以公用bootfs。</p>
-<p>在执行pull 命令下载镜像的时候，可以看到docker的镜像好像是在一层一层的在下载。</p>
-<p>为什么要使用分层呢？</p>
-<p>最主要的是可以实现<strong>共享资源</strong></p>
-<p>比如：有多个镜像都从相同的 base 镜像构建而来，那么宿主机只需在磁盘上保存一份base镜像，<br>同时内存中也只需加载一份 base 镜像，就可以为所有容器服务了。而且镜像的每一层都可以被共享。</p>
-<h2 id="六、Docker-容器数据卷"><a href="#六、Docker-容器数据卷" class="headerlink" title="六、Docker 容器数据卷"></a>六、Docker 容器数据卷</h2><p>Docker 容器数据卷主要是为了容器的持久化，方便容器间继承和数据共享。</p>
-<h3 id="数据卷命令"><a href="#数据卷命令" class="headerlink" title="数据卷命令"></a>数据卷命令</h3><h4 id="1-创建数据卷"><a href="#1-创建数据卷" class="headerlink" title="1.创建数据卷"></a>1.创建数据卷</h4><pre class=" language-bash"><code class="language-bash">docker volume  create  数据卷名称</code></pre>
-<p>创建数据卷之后默认存放在：<code>/var/lib/docker/volumes/数据卷名称/_data</code></p>
-<h4 id="2-查看全部数据卷"><a href="#2-查看全部数据卷" class="headerlink" title="2.查看全部数据卷"></a>2.查看全部数据卷</h4><pre class=" language-bash"><code class="language-bash">docker volume  <span class="token function">ls</span></code></pre>
-<h4 id="3-查看数据卷详细信息"><a href="#3-查看数据卷详细信息" class="headerlink" title="3.查看数据卷详细信息"></a>3.查看数据卷详细信息</h4><pre class=" language-bash"><code class="language-bash">docker volume  inspect 数据卷名称</code></pre>
-<h4 id="4-删除数据卷"><a href="#4-删除数据卷" class="headerlink" title="4.删除数据卷"></a>4.删除数据卷</h4><pre class=" language-bash"><code class="language-bash">docker volume  <span class="token function">rm</span> 数据卷名称</code></pre>
-<h4 id="5-应用数据卷"><a href="#5-应用数据卷" class="headerlink" title="5.应用数据卷"></a>5.应用数据卷</h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 数据卷不存在时docker 自动创建。会将数据卷内部自带文件存储在默认的存放路径中</span>
-docker run -v 数据卷名称:容器内部路径  镜像ID
-
-<span class="token comment" spellcheck="true"># 直接指定一个路径作为容器卷的存放位置，路径是空的。（推荐）</span>
-docker run -v  路径:容器内部路径</code></pre>
-<h3 id="1、容器添加数据卷"><a href="#1、容器添加数据卷" class="headerlink" title="1、容器添加数据卷"></a>1、容器添加数据卷</h3><p>（1）直接命令添加</p>
-<pre class=" language-bash"><code class="language-bash">docker run -it -v /宿主机绝对路径目录:/容器内目录      镜像名</code></pre>
-<p>带权限的命令：</p>
-<pre class=" language-bash"><code class="language-bash">docker run -it -v /宿主机绝对路径目录:/容器内目录:ro      镜像名</code></pre>
-<p><code>rw</code> ：read  write 读写权限，默认</p>
-<p><code>ro</code> ：read only 只读权限</p>
-<p><code>wo</code> ：write only 只写权限</p>
-<p>查看数据卷是否挂载成功</p>
-<pre class=" language-bash"><code class="language-bash">docker inspect container-id</code></pre>
-<p>如果测试容器和宿主机直接数据共享，可以尝试从宿主机修改文件，进入容器查看是否修改，再反过来操作一次。</p>
-<p><strong>出错描述：</strong>Docker挂载主机目录Docker访问出现 <code>cannot open directory .: Permission denied</code><br><strong>解决办法：</strong>在挂载目录后多加一个–privileged=true参数即可。</p>
-<p>（2）DockerFile添加</p>
-<p>根目录新建一个 mydocker 文件夹进入，然后创建一个dockerfile文件，内容：</p>
-<pre class=" language-txt"><code class="language-txt"># volume test
-FROM centos
-VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"]
-CMD echo "finished,--------success1"
-CMD /bin/bash</code></pre>
-<p>这里在 Dockerfile 中使用VOLUME指令来给镜像添加一个或多个数据卷。</p>
-<p><code>VOLUME[&quot;/dataVolumeContainer&quot;,&quot;/dataVolumeContainer2&quot;,&quot;/dataVolumeContainer3&quot;]</code></p>
-<p>说明：出于可移植和分享的考虑，用<code>-v 主机目录:容器目录</code>这种方法不能够直接在Dockerfile中实现。由于宿主机目录是依赖于特定宿主机的，并不能够保证在所有的宿主机上都存在这样的特定目录。</p>
-<p>使用 <code>build</code> 生成镜像</p>
-<pre><code>docker build -f /mydocker/dockerfile -t xiaocai/centos</code></pre><p>如果生成成功则可以使用<code>docker images</code>查看</p>
-<p>运行容器 <code>docker run  it centos-container-id /bin/bash</code></p>
-<p>使用 <code>docker inspect centos-container-id</code> 查看容器内的卷目录地址对应的主机目录地址</p>
-<p>一般是：<code>/var/lib/docker/volumes/container-id/_data</code></p>
-<h3 id="2、容器数据卷"><a href="#2、容器数据卷" class="headerlink" title="2、容器数据卷"></a>2、容器数据卷</h3><p>命名的容器挂载数据卷，其它容器通过挂载这个(父容器)实现数据共享，挂载数据卷的容器，称之为数据卷容器</p>
-<p>容器传递共享 <code>--volumes-from</code></p>
-<p>比如：以上面的 <code>xiaocai/centos</code> 为模板启动容器 dk_centos_01/dk_centos_02/dk_centos_03</p>
-<p>先启动父容器：<code>dk_centos_01</code>，然后在在<code>/dataVolumeContainer2</code> 目录新增内容</p>
-<p>启动：<code>dk_centos_02</code>和<code>dk_centos_03</code></p>
-<pre class=" language-bash"><code class="language-bash">docker run -it --name dk_centos_02 --volumes-from dk_centos_01 zzyy/centos
-docker run -it --name dk_centos_03 --volumes-from dk_centos_01 zzyy/centos</code></pre>
-<p>在<code>dk_centos_02</code>和<code>dk_centos_03</code>分别在<code>/dataVolumeContainer2</code>各自新增内容<code>test2.txt</code>、<code>test3.txt</code></p>
-<p>回到<code>dk_centos_01</code>可以看到<code>dk_centos_02</code>和<code>dk_centos_03</code>各自添加的都能共享了。</p>
-<p>删除<code>dk_centos_01</code>，<code>dk_centos_02</code>修改后<code>dk_centos_03</code>依然可以访问。</p>
-<p>新建<code>dk_centos_04</code>继承<code>dk_centos_03</code>后再删除<code>dk_centos_03</code>，<code>dk_centos_04</code>也已经继续访问共享。</p>
-<p>结论：<strong>容器之间配置信息的传递，数据卷的生命周期一直持续到没有容器使用它为止。</strong></p>
-<h2 id="七、DockerFile解析"><a href="#七、DockerFile解析" class="headerlink" title="七、DockerFile解析"></a>七、DockerFile解析</h2><h3 id="1、DockerFile是什么"><a href="#1、DockerFile是什么" class="headerlink" title="1、DockerFile是什么"></a>1、DockerFile是什么</h3><p>Dockerfile是用来构建D1ocker镜像的构建文件，是由一系列命令和参数构成的脚本。</p>
-<p>一般分三步骤：</p>
-<p>（1）编写DockerFile文件</p>
-<p>（2）执行 docker build 命令，从容器生成镜像</p>
-<p>（3）运行docker run 命令，运行新的容器</p>
-<p>比如centos的dockerfile 文件，在：<a href="https://github.com/CentOS/sig-cloud-instance-images/blob/f2788ce41161326a18420913b0195d1c6cfa1581/docker/Dockerfile" target="_blank" rel="noopener">https://github.com/CentOS/sig-cloud-instance-images/blob/f2788ce41161326a18420913b0195d1c6cfa1581/docker/Dockerfile</a></p>
-<pre><code>FROM scratch
-ADD centos-7-x86_64-docker.tar.xz /
-LABEL \
-org.label-schema.schema-version=&quot;1.0&quot; \
-org.label-schema.name=&quot;CentOS Base Image&quot; \
-org.label-schema.vendor=&quot;CentOS&quot; \
-org.label-schema.license=&quot;GPLv2&quot; \
-org.label-schema.build-date=&quot;20200809&quot; \
-org.opencontainers.image.title=&quot;CentOS Base Image&quot; \
-org.opencontainers.image.vendor=&quot;CentOS&quot; \
-org.opencontainers.image.licenses=&quot;GPL-2.0-only&quot; \
-org.opencontainers.image.created=&quot;2020-08-09 00:00:00+01:00&quot;
-
-CMD [&quot;/bin/bash&quot;]</code></pre><h3 id="2、DockerFile构建过程"><a href="#2、DockerFile构建过程" class="headerlink" title="2、DockerFile构建过程"></a>2、DockerFile构建过程</h3><p>DockerFile 内容基本认识：</p>
-<p>（1）每条保留字指令都必须为大写字母且后面要跟随至少一个参数</p>
-<p>（2）指令按照从上到下的顺序执行。</p>
-<p>（3）使用 <code>#</code> 表示注释</p>
-<p>（4）每条指令都会创建一个新的镜像层，并对镜像进行提交。（参考Docker原理）</p>
-<p>Docker执行DockerFile 主要基本流程：</p>
-<p>（1）docker从基础镜像运行一个容器。</p>
-<p>（2）执行一条指令并对容器作出修改。</p>
-<p>（3）执行类似<code>docker commit</code>的操作提交一个新的镜像层</p>
-<p>（4）docker再基于刚提交的镜像运行一个新容器</p>
-<p>（5）执行dockerfile中的下一条指令直到所有指令都执行完成</p>
-<blockquote>
-<p>从应用软件的角度来看，Dockerfile、Docker镜像与Docker容器分别代表软件的三个不同阶段，</p>
-<ul>
-<li>Dockerfile是软件的原材料</li>
-<li>Docker镜像是软件的交付品</li>
-<li>Docker容器则可以认为是软件的运行态。<br>Dockerfile面向开发，Docker镜像成为交付标准，Docker容器则涉及部署与运维，三者缺一不可，合力充当Docker体系的基石。</li>
-</ul>
-<p>1 Dockerfile，需要定义一个Dockerfile，Dockerfile定义了进程需要的一切东西。Dockerfile涉及的内容包括执行代码或者是文件、环境变量、依赖包、运行时环境、动态链接库、操作系统的发行版、服务进程和内核进程(当应用进程需要和系统服务和内核进程打交道，这时需要考虑如何设计namespace的权限控制)等等;</p>
-<p>2 Docker镜像，在用Dockerfile定义一个文件之后，docker build时会产生一个Docker镜像，当运行 Docker镜像时，会真正开始提供服务;</p>
-<p>3 Docker容器，容器是直接提供服务的。</p>
-</blockquote>
-<h3 id="3、DockerFile-指令"><a href="#3、DockerFile-指令" class="headerlink" title="3、DockerFile 指令"></a>3、DockerFile 指令</h3><table>
-<thead>
-<tr>
-<th>指令</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>FROM</td>
-<td>基础镜像，当前镜像是基于哪个镜像的</td>
-</tr>
-<tr>
-<td>MAINTAINER</td>
-<td>镜像维护者的姓名和邮箱地址</td>
-</tr>
-<tr>
-<td>RUN</td>
-<td>容器构建时需要运行的命令</td>
-</tr>
-<tr>
-<td>EXPOSE</td>
-<td>当前容器对外暴露的端口</td>
-</tr>
-<tr>
-<td>WORKDIR</td>
-<td>指定在创建容器后，终端默认登录进入的工作目录</td>
-</tr>
-<tr>
-<td>ENV</td>
-<td>构建镜像过程中设置环境变量</td>
-</tr>
-<tr>
-<td>ADD</td>
-<td>将指定宿主机目录文件拷贝进镜像且ADD命令会自动处理URL和解压tar压缩包</td>
-</tr>
-<tr>
-<td>COPY</td>
-<td>类似ADD，拷贝文件到目录到镜像中。将构建上下文目录的文件复制到新的一层镜像内的目录路径。<code>COPY src  dest</code>, <code>COPY [&quot;src&quot;,&quot;dest&quot;]</code></td>
-</tr>
-<tr>
-<td>VOLUME</td>
-<td>容器数据卷，用于数据保存和持久化工作</td>
-</tr>
-<tr>
-<td>CMD</td>
-<td>指定一个容器启动时要运行的命令。<br/>Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效，CMD 会被 docker run 之后的参数替换</td>
-</tr>
-<tr>
-<td>ENTRYPOINT</td>
-<td>指定一个容器启动时要运行的命令。<br/> ENTRYPOINT 的目的 和 CMD 命令 一样，都是指定容器启动程序及参数</td>
-</tr>
-<tr>
-<td>ONBUILD</td>
-<td>当构建一个被继承的DockerFile 时运行命令，父镜像在被子继承后父镜像的onbuild被触发</td>
-</tr>
-</tbody></table>
-<p><code>FROM  scratch</code> ：大多数镜像都是通过base 镜像（<code>scratch</code>）中安装配置需要的软件构建出来。</p>
-<p>CMD 指令的格式和 RUN 相似，也是两种格式：</p>
-<p>（1）shell 格式：<code>CMD &lt;命令&gt;</code></p>
-<p>（2）exec 格式：<code>CMD [&quot;可执行文件&quot;，&quot;参数1&quot;,&quot;参数2&quot;...]</code> </p>
-<p>参数列表的格式：<code>CMD [&quot;参数1&quot;,&quot;参数2&quot;...]</code> 在指定了 ENTRYPOINT 指令后，用CMD 指定具体的参数。</p>
-<p><img src="/medias/loading-animated.gif" data-original="/images/docker/docker-dockerfile.jpg" alt="DockerFile"></p>
-<p><strong>Dockerfile 指令分类</strong></p>
-<table>
-<thead>
-<tr>
-<th>BUILD</th>
-<th>BOTH</th>
-<th>RUN</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>FROM</td>
-<td>WORKDIR</td>
-<td>CMD</td>
-</tr>
-<tr>
-<td>MAINTAINER</td>
-<td>USER</td>
-<td>ENV</td>
-</tr>
-<tr>
-<td>COPY</td>
-<td></td>
-<td>EXPOSE</td>
-</tr>
-<tr>
-<td>ADD</td>
-<td></td>
-<td>VOLUME</td>
-</tr>
-<tr>
-<td>RUN</td>
-<td></td>
-<td>ENTRYPOINT</td>
-</tr>
-<tr>
-<td>ONBUILD</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>.dockerignore</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="4、DockerFile-学习示例"><a href="#4、DockerFile-学习示例" class="headerlink" title="4、DockerFile 学习示例"></a>4、DockerFile 学习示例</h3><h4 id="编写Dockerfile-示例一："><a href="#编写Dockerfile-示例一：" class="headerlink" title="编写Dockerfile 示例一："></a>编写Dockerfile 示例一：</h4><p>下载的centos镜像，新建并运行容器，默认的centos 是不能执行 <code>ifconfig</code> 、<code>vim</code>、 <code>rz</code> 、<code>sz</code> 等命令。现在编写一个dockerfile 用来构建一个自定义的centos 容器取名为 <code>xiaocai_centos</code></p>
-<p>（1）下载centos 镜像</p>
-<pre class=" language-bash"><code class="language-bash">docker pull centos</code></pre>
-<p>（2）以centos为镜像模板启动容器并进入容器</p>
-<pre class=" language-bash"><code class="language-bash">docker run -it centos</code></pre>
-<p>可以尝试执行上述所说不能执行的命令，确认现在是否可以执行，其实是不能执行的。</p>
-<p>（3）编写DockerFile 文件</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p xiaocai/dockerfiles
-<span class="token function">cd</span> /xiaocai/dockerfiles
-<span class="token function">vi</span> Dockerfile</code></pre>
-<p>Dockerfile 内容如下：</p>
-<pre class=" language-txt"><code class="language-txt">FROM centos
-MAINTAINER xiaocai<smallrose@qq.com>
-
-RUN yum -y install vim
-RUN yum -y install net-tools
-RUN yum -y install lrzsz
-
-ENV MYPATH /usr/local
-WORKDIR $MYPATH</code></pre>
-<p>保存文件。</p>
-<p>（4）构建出新的镜像</p>
-<pre><code>docker build -t xiaocai_centos:1.1</code></pre><p>最初出现 <code>successfully build</code> 字样表示构建成功。</p>
-<p>（5）运行新的镜像</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 可以先查看本地镜像</span>
-docker images
-<span class="token comment" spellcheck="true"># 以交互方式运行新的镜像</span>
-docker run -it xiaocai_centos:1.1</code></pre>
-<p>此时，如果正常可以执行<code>ifconfig</code>  <code>vim</code>命令，如果你在windows机器使用SSH链接工具，执行 <code>rz</code> 命令，会弹出选择文件的窗口。</p>
-<p>（6）列出镜像的变更历史</p>
-<pre><code>docker history centos</code></pre><h4 id="编写Dockerfile-示例二："><a href="#编写Dockerfile-示例二：" class="headerlink" title="编写Dockerfile 示例二："></a>编写Dockerfile 示例二：</h4><p><code>CMD / ENTRYPOINT</code> 都是指定一个容器启动时要运行的命令。</p>
-<p><strong><code>CMD</code>：</strong></p>
-<p>在Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效，CMD 会被 docker run 之后的参数替换。</p>
-<p>如在centos 镜像中，最后一个CMD 是 <code>CMD [&quot;/bin/bash&quot;]</code></p>
-<p>现在以默认的centos为镜像模板运行一个centos 实例：</p>
-<pre class=" language-bash"><code class="language-bash">docker run -it -p 8888:8080 tomcat <span class="token function">ls</span> -l</code></pre>
-<p>这里<code>CMD [&quot;/bin/bash&quot;]</code> 不会执行，而是被 <code>-it -p 8888:8080 tomcat ls -l</code> 替换。</p>
-<p><strong>ENTRYPOINT ：</strong></p>
-<p>docker run 之后的参数会被当做参数传递给 ENTRYPOINT，之后形成新的命令组合。</p>
-<p>制作CMD版可以查询IP信息的容器，使用<code>curl</code> 命令</p>
-<blockquote>
-<p>curl命令可以用来执行下载、发送各种HTTP请求，指定HTTP头部等操作。</p>
-<p>如果系统没有curl可以使用<code>yum install curl</code>安装，也可以下载安装。<br>curl是将下载文件输出到<code>stdout</code></p>
-<p>使用命令：<code>curl http://www.baidu.com</code><br>执行后，<a href="http://www.baidu.com的html就会显示在屏幕上了" target="_blank" rel="noopener">www.baidu.com的html就会显示在屏幕上了</a></p>
-</blockquote>
-<p>（1）新建一个用作构建的文件夹</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p xiaocai/ipselect01
-<span class="token function">cd</span> xiaocai/ipselect01</code></pre>
-<p>（2）编写Dockerfile 文件</p>
-<pre><code>vi Dockerfile</code></pre><p>文件内容：</p>
-<pre><code>FROM centos
-RUN yum install -y curl
-CMD [ &quot;curl&quot;, &quot;-s&quot;, &quot;http://ip.com&quot; ]</code></pre><p>（3）构建新镜像</p>
-<pre><code>docker build -f Dockerfile -t ipselect01</code></pre><p>（4）运行新镜像的容器</p>
-<pre class=" language-bash"><code class="language-bash">docker run  ipselect01</code></pre>
-<p>直接运行则会默认执行Dockerfile 最后一条CMD，结果返回IP信息。</p>
-<p>如果希望显示 HTTP 头信息，就需要加上<code>-i</code>参数，即：<code>docker run  ipselect01  -i</code></p>
-<p>但是如果直接执行就会报错，因为 <strong>允许多个 CMD 指令，但只有最后一个生效，CMD 会被 docker run 之后的参数替换</strong>。</p>
-<p>重新使用 ENTRYPOINT 重新构建新的镜像：</p>
-<p>（1）新建一个用作构建的文件夹</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p xiaocai/ipselect02
-<span class="token function">cd</span> xiaocai/ipselect02</code></pre>
-<p>（2）编写Dockerfile 文件</p>
-<pre><code>vi Dockerfile</code></pre><p>文件内容：</p>
-<pre><code>FROM centos
-RUN yum install -y curl
-ENTRYPOINT  [ &quot;curl&quot;, &quot;-s&quot;, &quot;http://ip.com&quot; ]</code></pre><p>（3）构建新镜像</p>
-<pre><code>docker build -f Dockerfile -t ipselect02</code></pre><p>（4）运行新镜像的容器</p>
-<pre class=" language-bash"><code class="language-bash">docker run  ipselect02</code></pre>
-<p>直接运行则会默认执行Dockerfile 最后一条CMD，结果返回IP信息。</p>
-<p>（5）参数执行验证</p>
-<p>带上参数运行：</p>
-<pre class=" language-bash"><code class="language-bash">docker run  ipselect02 -i</code></pre>
-<p>此时如果正常，可以看到显示 HTTP 头信息。</p>
-<h4 id="编写Dockerfile-示例三："><a href="#编写Dockerfile-示例三：" class="headerlink" title="编写Dockerfile 示例三："></a>编写Dockerfile 示例三：</h4><p>自己构建一个tomcat的镜像，先下载好tomcat的tar包，和jdk的tar 包，centos环境。</p>
-<p>（1）新建一个用作构建的文件夹</p>
-<pre><code>mkdir -p xiaocai/tomcat9
-cd xiaocai/tomcat9
-touch test_copy.txt</code></pre><p>（2）将jdk 和 tomcat 安装的压缩包拷贝到 <code>/xiaocai/tomcat9</code> ，并在目录下新建Dockerfile 文件。</p>
-<p>到此一步，那么<code>/xiaocai/tomcat9</code> 目录有四个文件：</p>
-<ul>
-<li>test_copy.txt</li>
-<li>jdk的tar包 （jdk-8u171-linux-x64.tar.gz）</li>
-<li>tomcat的tar包（apache-tomcat-9.0.8.tar.gz）</li>
-<li>Dockerfile 文件</li>
-</ul>
-<p>（3）编写Dockerfile， 内容如下：</p>
-<pre><code># 表示基于 centos 开始构建
-FROM         centos
-MAINTAINER    xiaocai&lt;smallrose@1qq.com&gt;
-#把宿主机当前上下文的test_tomcat.txt拷贝到容器/usr/local/路径下
-COPY test_copy.txt /usr/local/test_copy_container.txt
-#把java与tomcat添加到容器中
-ADD jdk-8u171-linux-x64.tar.gz /usr/local/
-ADD apache-tomcat-9.0.8.tar.gz /usr/local/
-#安装vim编辑器
-RUN yum -y install vim
-#安装网络工具
-RUN yum -y install net-tools
-#设置工作访问时候的WORKDIR路径，登录落脚点
-ENV MYPATH /usr/local
-WORKDIR $MYPATH
-#配置java与tomcat环境变量
-ENV JAVA_HOME /usr/local/jdk1.8.0_171
-ENV CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-ENV CATALINA_HOME /usr/local/apache-tomcat-9.0.8
-ENV CATALINA_BASE /usr/local/apache-tomcat-9.0.8
-ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/lib:$CATALINA_HOME/bin
-#容器运行时监听的端口
-EXPOSE  8080
-#启动时运行tomcat
-# ENTRYPOINT [&quot;/usr/local/apache-tomcat-9.0.8/bin/startup.sh&quot; ]
-# CMD [&quot;/usr/local/apache-tomcat-9.0.8/bin/catalina.sh&quot;,&quot;run&quot;]
-#启动值可以直接打印出tomcat日志
-CMD /usr/local/apache-tomcat-9.0.8/bin/startup.sh &amp;&amp; tail -F /usr/local/apache-tomcat-9.0.8/bin/logs/catalina.out</code></pre><p>（4）构建新的镜像</p>
-<pre class=" language-bash"><code class="language-bash">docker build -t xiaocai_tomcat:2.0
-docker images</code></pre>
-<p>（5）运行新的镜像</p>
-<pre class=" language-bash"><code class="language-bash">docker run -d -p 9080:8080 --name xiaocai_tomcat9 -v /xiaocai/tomcat9/test:/usr/local/apache-tomcat-9.0.8/webapps/test -v /xiaocai/tomcat9/tomcat9logs/:/usr/local/apache-tomcat-9.0.8/logs --privileged<span class="token operator">=</span>true xiaocai_tomcat:2.0</code></pre>
-<p>这里将宿主机的<code>/xiaocai/tomcat9/test</code> 目录与容器<code>/usr/local/apache-tomcat-9.0.8/webapps/test</code>项目部署目录映射就是为了方便部署项目。</p>
-<p>（6）验证访问</p>
-<p>在 <code>/xiaocai/tomcat9/test</code> 目录下新建一个html 或 jsp ，然后访问tomcat，不出错的话可以看到页面。</p>
-<p>如果不想建页面也可以直接访问tomcat 的页面。</p>
-<h2 id="八、Docker-常用安装"><a href="#八、Docker-常用安装" class="headerlink" title="八、Docker 常用安装"></a>八、Docker 常用安装</h2><p>常用的安装比如：mysql、tomcat、redis</p>
-<p>基本安装步骤：</p>
-<p>（1）搜索镜像</p>
-<p>（2）拉取镜像</p>
-<p>（3）查看镜像</p>
-<p>（4）启动镜像实例</p>
-<p>（5）停止容器</p>
-<p>（6）删除容器</p>
-<h3 id="1、安装tocmat"><a href="#1、安装tocmat" class="headerlink" title="1、安装tocmat"></a>1、安装tocmat</h3><p>（1）搜索tomcat </p>
-<p>在docker hub 找到需要的tomcat及版本</p>
-<pre class=" language-bash"><code class="language-bash">docker search tomcat</code></pre>
-<p>（2）拉取tomcat 镜像</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 默认拉取最新版</span>
-docker pull tomcat
-<span class="token comment" spellcheck="true"># 拉取特点版本的</span>
-docker pull tomcat:7.0</code></pre>
-<p>（3）查看镜像</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查看镜像</span>
-docker images </code></pre>
-<p>（4）使用tomcat镜像创建容器实例</p>
-<pre><code>docker run -it -p 8080:8080 tomcat</code></pre><ul>
-<li><p><strong>-i</strong> ：交互</p>
-</li>
-<li><p><strong>-t</strong> ：终端</p>
-</li>
-<li><p><strong>-p</strong> ：端口映射，主机端口: 容器端口</p>
-</li>
-<li><p><strong>-P</strong> ：随机端口</p>
-</li>
-</ul>
-<h3 id="2、安装mysql"><a href="#2、安装mysql" class="headerlink" title="2、安装mysql"></a>2、安装mysql</h3><p>（1）搜索mysql</p>
-<p>在docker hub 找到需要的mysql及版本</p>
-<pre class=" language-bash"><code class="language-bash">docker search mysql</code></pre>
-<p>（2）拉取mysql镜像</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 默认拉取最新版</span>
-docker pull mysql
-<span class="token comment" spellcheck="true"># 拉取特点版本的</span>
-docker pull mysql:5.7</code></pre>
-<p>（3）查看镜像</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查看镜像</span>
-docker images </code></pre>
-<p>（4）使用mysql镜像创建容器实例</p>
-<pre class=" language-bash"><code class="language-bash">docker run -p 3306:3306 --name mysql -v /xiaocai/mysql/conf:/etc/mysql/conf.d -v /xiaocai/mysql/logs:/logs -v /xiaocai/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>123456 -d mysql:5.7</code></pre>
-<p>命令说明：<br><code>-p 3306:3306</code>：将主机的3306端口映射到docker容器的3306端口。<br><code>--name mysql</code>：运行服务名字<br><code>-v /xiaocai/mysql/conf:/etc/mysql/conf.d</code>：将主机<code>/xiaocai/mysql</code>录下的conf/my.cnf 挂载到容器的 <code>/etc/mysql/conf.d</code>目录<br><code>-v /xiaocai/mysql/logs:/logs</code>：将主机/xiaocai/mysql目录下的 logs 目录挂载到容器的 /logs。<br><code>-v /xiaocai/mysql/data:/var/lib/mysql</code> ：将主机/xiaocai/mysql目录下的data目录挂载到容器的 /var/lib/mysql<br><code>-e MYSQL_ROOT_PASSWORD=123456</code>：初始化 root 用户的密码。<br><code>-d mysql:5.7</code>: 后台程序运行mysql5.7</p>
-<p>检查mysql容器运行</p>
-<pre class=" language-bash"><code class="language-bash">docker <span class="token function">ps</span> -a</code></pre>
-<p>如果使用命令行登录mysql，则首先进入容器：</p>
-<pre class=" language-bash"><code class="language-bash">docker <span class="token function">exec</span> -it MySQL运行成功后的容器ID   /bin/bash</code></pre>
-<p>进行容器之后可以使用 <code>mysql -u -p</code>的命令进行登录操作。</p>
-<p>在宿主机直接执行命令进行数据备份：</p>
-<pre class=" language-bash"><code class="language-bash">docker <span class="token function">exec</span> myql服务容器ID sh -c <span class="token string">' exec mysqldump --all-databases -uroot -p"123456" '</span> <span class="token operator">></span> /xiaocai/all-databases.sql</code></pre>
-<p>也可以使用mysql客户端连接，注意宿主机端口。</p>
-<h3 id="2、安装redis"><a href="#2、安装redis" class="headerlink" title="2、安装redis"></a>2、安装redis</h3><p>（1）搜索redis</p>
-<p>在docker hub 找到需要的redis及版本</p>
-<pre class=" language-bash"><code class="language-bash">docker search redis</code></pre>
-<p>（2）拉取redis镜像</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 默认拉取最新版</span>
-docker pull redis
-<span class="token comment" spellcheck="true"># 拉取特点版本的</span>
-docker pull redis:3.2</code></pre>
-<p>（3）查看镜像</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查看镜像</span>
-docker images </code></pre>
-<p>（4）使用redis镜像创建容器实例</p>
-<pre class=" language-bash"><code class="language-bash">docker run -p 6379:6379 -v /xiaocai/myredis/data:/data -v /xiaocai/myredis/conf/redis.conf:/usr/local/etc/redis/redis.conf  -d redis:3.2 redis-server /usr/local/etc/redis/redis.conf --appendonly <span class="token function">yes</span></code></pre>
-<p>在主机/xiaocai/myredis/conf/redis.conf目录下新建redis.conf文件</p>
-<pre class=" language-bash"><code class="language-bash">vim /xiaocai/myredis/conf/redis.conf/redis.conf</code></pre>
-<p>文件内容：</p>
-<p><a href="/images/docker/redis.conf">redis.conf</a></p>
-<p>（5）测试连接</p>
-<pre><code>docker exec -it 运行着Rediis服务的容器ID redis-cli</code></pre><p>执行redis 的<code>set/get</code>命令进行数据保存查询操作。</p>
-<p>（6）持久化验证</p>
-<p>执行<code>shutdown</code> 停止redis</p>
-<p>进入<code>/xiaocai/myredis/data</code>目录查看持久化文件。</p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>Docker</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker 快速上手</title>
-    <url>/posts/66ee0bda.html</url>
-    <content><![CDATA[<h2 id="Docker-快速上手"><a href="#Docker-快速上手" class="headerlink" title="Docker 快速上手"></a>Docker 快速上手</h2><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p><strong>Docker</strong>是一个开源的应用容器引擎；是一个轻量级容器技术；</p>
-<p>Docker支持将软件编译成一个镜像；然后在镜像中各种软件做好配置，将镜像发布到镜像仓库，其他使用者可以直接使用这个镜像；</p>
-<p>运行中的这个镜像称为容器，容器启动是非常快速的。</p>
-<h2 id="二、基本概念"><a href="#二、基本概念" class="headerlink" title="二、基本概念"></a>二、基本概念</h2><p><strong>docker主机(Host)：</strong>安装了Docker程序的机器，Docker直接安装在操作系统（windows / linux）上；</p>
-<p><strong>docker客户端(Client)：</strong>连接docker主机进行操作；</p>
-<p><strong>docker仓库(Registry)：</strong>用来保存各种打包好的软件镜像；</p>
-<p><strong>docker镜像(Images)：</strong>软件打包好的镜像；放在docker仓库中；</p>
-<p><strong>docker容器(Container)：</strong>镜像启动后的实例称为一个容器；容器是独立运行的一个或一组应用。</p>
-<pre class=" language-txt"><code class="language-txt">Client   ---------> Host  --------->  Registry</code></pre>
-<p>使用Docker的基本步骤：</p>
-<p>1）、安装Docker</p>
-<p>2）、去Docker仓库找到这个软件对应的镜像；</p>
-<p>3）、使用Docker运行这个镜像，这个镜像就会生成一个Docker容器；</p>
-<p>4）、对容器的启动停止就是对软件应用的启动停止；</p>
-<h2 id="三、Docker-安装"><a href="#三、Docker-安装" class="headerlink" title="三、Docker 安装"></a>三、Docker 安装</h2><p>1、环境准备</p>
-<p>检查内核版本，Linux 必须是3.10及以上</p>
-<p>检查命令：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">uname</span> -r</code></pre>
-<p>2、安装docker</p>
-<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> docker</code></pre>
-<p>3、查看版本</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># docker -v</span>
-Docker version 1.12.6, build 3e8e77d/1.12.6</code></pre>
-<p>3、启动docker</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl start docker</span></code></pre>
-<p>4、开机启动</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl enable docker</span>
-Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.</code></pre>
-<p>5、停止docker</p>
-<pre class=" language-bash"><code class="language-bash">systemctl stop docker</code></pre>
-<h2 id="四、Docker-常用命令-amp-操作"><a href="#四、Docker-常用命令-amp-操作" class="headerlink" title="四、Docker 常用命令&amp;操作"></a>四、Docker 常用命令&amp;操作</h2><h3 id="1、镜像操作"><a href="#1、镜像操作" class="headerlink" title="1、镜像操作"></a>1、镜像操作</h3><p>Docker Hub 地址： <a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com/</a></p>
-<p>镜像常用操作：</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>检索</td>
-<td><code>docker  search 关键字</code><br/>eg：docker  search redis</td>
-<td>我们经常去docker  hub上检索镜像的详细信息，如镜像的TAG。</td>
-</tr>
-<tr>
-<td>拉取</td>
-<td><code>docker pull 镜像名:tag</code></td>
-<td>:tag是可选的，tag表示标签，多为软件的版本，默认是latest</td>
-</tr>
-<tr>
-<td>列表</td>
-<td><code>docker images</code></td>
-<td>查看所有本地镜像</td>
-</tr>
-<tr>
-<td>删除</td>
-<td><code>docker rmi image-id</code></td>
-<td>删除指定的本地镜像</td>
-</tr>
-</tbody></table>
-<h3 id="2、容器操作"><a href="#2、容器操作" class="headerlink" title="2、容器操作"></a>2、容器操作</h3><p>（1）搜索镜像命令：</p>
-<pre class=" language-bash"><code class="language-bash">docker search 镜像名称</code></pre>
-<p>示例：</p>
-<pre class=" language-bash"><code class="language-bash">docker search tomcat</code></pre>
-<p>也可以在 <a href="https://hub.docker.com/" target="_blank" rel="noopener">Docker Hub</a>直接搜索。</p>
-<p>（2）拉取镜像：</p>
-<pre class=" language-bash"><code class="language-bash">docker pull 镜像名称</code></pre>
-<p>示例：</p>
-<pre><code>docker pull mysql</code></pre><p>（3）查看本地镜像列表 </p>
-<pre><code>docker images [OPTIONS] [REPOSITORY[:TAG]]</code></pre><p>OPTIONS说明：</p>
-<ul>
-<li><strong>-a ：</strong>列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</li>
-<li><strong>–digests ：</strong>显示镜像的摘要信息；</li>
-<li><strong>-f ：</strong>显示满足条件的镜像；</li>
-<li><strong>–format ：</strong>指定返回值的模板文件；</li>
-<li><strong>–no-trunc ：</strong>显示完整的镜像信息；</li>
-<li><strong>-q ：</strong>只显示镜像ID。</li>
-</ul>
-<p>（4）根据镜像启动容器基本命令：</p>
-<pre><code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
-
-docker run --name 容器名称 -d 镜像名称:latest</code></pre><p>OPTIONS说明：</p>
-<ul>
-<li><strong>-a stdin：</strong> 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；</li>
-<li><strong>-d：</strong> 后台运行容器，并返回容器ID；</li>
-<li><strong>-i：</strong> 以交互模式运行容器，通常与 -t 同时使用；</li>
-<li><strong>-P：</strong> 随机端口映射，容器内部端口<strong>随机</strong>映射到主机的端口</li>
-<li><strong>-p：</strong> 指定端口映射，格式为：主机(宿主)端口:容器端口 </li>
-<li><strong>-t：</strong> 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</li>
-<li><strong>–name=”nginx-lb”：</strong> 为容器指定一个名称；</li>
-<li><strong>–dns 8.8.8.8：</strong> 指定容器使用的DNS服务器，默认和宿主一致；</li>
-<li><strong>–dns-search example.com：</strong> 指定容器DNS搜索域名，默认和宿主一致；</li>
-<li><strong>-h “mars”：</strong> 指定容器的hostname；</li>
-<li><strong>-e username=”ritchie”：</strong> 设置环境变量；</li>
-<li><strong>–env-file=[]：</strong> 从指定文件读入环境变量；</li>
-<li><strong>–cpuset=”0-2” or –cpuset=”0,1,2”：</strong> 绑定容器到指定CPU运行；</li>
-<li><strong>-m ：</strong>设置容器使用内存最大值；</li>
-<li><strong>–net=”bridge”：</strong> 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型；</li>
-<li><strong>–link=[]：</strong> 添加链接到另一个容器；</li>
-<li><strong>–expose=[]：</strong> 开放一个端口或一组端口； </li>
-<li><strong>–volume , -v：</strong>     绑定一个卷</li>
-</ul>
-<p>常用的操作是：</p>
-<p>-d：后台运行<br>-p: 将主机的端口映射到容器的一个端口    主机端口:容器内部的端口</p>
-<p>示例</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启动tomcat 容器、映射端口、后台运行</span>
-docker run -d -p 8888:8080 tomcat
-
-<span class="token comment" spellcheck="true"># 能启动mysql 不能访问</span>
-docker run --name mysql_01 -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>123456 -d mysql
-<span class="token comment" spellcheck="true"># 能启动mysql 并且能访问</span>
-docker run -p 3306:3306 --name mysql_02 -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>123456 -d mysql
-
-<span class="token comment" spellcheck="true"># 把主机的/conf/mysql文件夹挂载到 mysqldocker容器的/etc/mysql/conf.d文件夹里面，改mysql的配置文件就只需要把mysql配置文件放在自定义的文件夹下（/conf/mysql）</span>
-docker run --name mysql_03 -v /conf/mysql:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>my-secret-pw -d mysql:tag
-
-<span class="token comment" spellcheck="true"># 指定mysql的一些配置参数</span>
-docker run --name mysql_04 -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>my-secret-pw -d mysql:tag --character-set-server<span class="token operator">=</span>utf8mb4 --collation-server<span class="token operator">=</span>utf8mb4_unicode_ci
-</code></pre>
-<p>（5）查看所有的容器</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#查看容器(默认是已启动的 Up)</span>
-docker <span class="token function">ps</span> 
-<span class="token comment" spellcheck="true">#查看所有的容器（包含启动的和停止的）</span>
-docker <span class="token function">ps</span> -a  </code></pre>
-<p>示例：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># docker ps</span>
-CONTAINER ID    IMAGE     COMMAND                   CREATED       STATUS              PORTS                     NAMES
-ad10e4bc5c6a    mysql    <span class="token string">"docker-entrypoint.sh"</span>   4 seconds ago    Up 2 seconds        0.0.0.0:3306-<span class="token operator">></span>3306/tcp   mysql02</code></pre>
-<p>（5）容器启停</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启动容器</span>
-docker start 容器id
-<span class="token comment" spellcheck="true"># 删除一个容器</span>
-docker <span class="token function">rm</span> 容器id</code></pre>
-<p>（6）更多命令</p>
-<p>​    （A） ：<a href="https://docs.docker.com/engine/reference/commandline/docker/" target="_blank" rel="noopener">Docker 官方文档</a></p>
-<p>​    （B）：参考每一个镜像的文档。</p>
-<p>示例：</p>
-<pre class=" language-bash"><code class="language-bash">docker pull mysql
-
-docker images
-
-docker run -p 3306:3306 --name mysql_05 -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>123456 -d mysql
-
-docker <span class="token function">ps</span> -a</code></pre>
-<p>访问的话，关闭防护墙或者放行3306端口。</p>
-<h2 id="五、其他"><a href="#五、其他" class="headerlink" title="五、其他"></a>五、其他</h2><p>其他后续遇到再补充。</p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>Docker</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>定时任务之Quartz</title>
     <url>/posts/6ddb3c14.html</url>
     <content><![CDATA[<blockquote>
@@ -20000,249 +18684,6 @@ execute end time - 2020-07-18T20:00:59.817</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Nginx 快速上手</title>
-    <url>/posts/35e29c2a.html</url>
-    <content><![CDATA[<h1 id="Nginx-快速上手"><a href="#Nginx-快速上手" class="headerlink" title="Nginx 快速上手"></a>Nginx 快速上手</h1><p>前言</p>
-<blockquote>
-<p>去年的时候使用 <code>SpringBoot</code> 开发了自己的博客，然部署到云服务器上，就是使用 <code>Nginx</code> 和 <code>Tomcat</code> 部署的， 相关的反向代理或者负载均衡虽然确实实操过，但是都是现找其他人的博客操作的，就是进行了快速的学习和了解，但是没有系统学习。之所以要整理就是为了系统性的学习一下并整理一下。也方便忘了时及时查阅温习。 </p>
-</blockquote>
-<h2 id="一、Nginx-快速熟悉"><a href="#一、Nginx-快速熟悉" class="headerlink" title="一、Nginx 快速熟悉"></a>一、Nginx 快速熟悉</h2><h3 id="1、了解"><a href="#1、了解" class="headerlink" title="1、了解"></a>1、了解</h3><p>Nginx 是一个高性能的 HTTP 和反向代理服务器。</p>
-<p>Nginx 可以作为静态页面的 web 服务器，同时还支持 CGI 协议的动态语言，比如 perl、 php<br>等。但是不支持 java。 Java 程序只能通过与 tomcat 配合完成。</p>
-<h3 id="2、特点"><a href="#2、特点" class="headerlink" title="2、特点"></a>2、特点</h3><p>（1）占有内存少，<br>（2）并发能力强（据说有报告表明能支持高达 50,000 个并发连接数  ）<br>（3）支持反向代理<br>（4）支持负载均衡<br>（5）支持动静分离</p>
-<h3 id="3、反向代理"><a href="#3、反向代理" class="headerlink" title="3、反向代理"></a>3、反向代理</h3><p>在客户端访问页面时将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，再返回给客户端，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器 IP 地址及端口。</p>
-<h3 id="4、负载均衡"><a href="#4、负载均衡" class="headerlink" title="4、负载均衡"></a>4、负载均衡</h3><p>单个服务器或提升硬件比较难以解决访问量和数据量的增长导致请求缓慢或宕机的背景下，出现集群概念。增加服务器的数量，然后将请求分发到各个服务器上，将原先请求集中到单个服务器上的情况改为将请求分发到多个服务器上，将负载分发到不同的服务器，也就是所说的负载均衡。</p>
-<h3 id="5、动静分离"><a href="#5、动静分离" class="headerlink" title="5、动静分离"></a>5、动静分离</h3><p>为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速<br>度。降低原来单个服务器的压力。</p>
-<p>动静分离的方式：</p>
-<p>（1）统一部署，静态请求解析到指定静态资源目录。<br>（2）分开部署，静态请求转发到静态资源服务器。</p>
-<h2 id="二、Nginx-安装"><a href="#二、Nginx-安装" class="headerlink" title="二、Nginx 安装"></a>二、Nginx 安装</h2><p>Nginx 安装分为两种方式。其实也不是官方的。</p>
-<h3 id="1、通用方式"><a href="#1、通用方式" class="headerlink" title="1、通用方式"></a>1、通用方式</h3><p>第一步， 安装 pcre</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> http://downloads.sourceforge.net/project/pcre/pcre/8.37/pcre-8.37.tar.gz</code></pre>
-<p>PCRE(Perl Compatible Regular Expressions)是一个Perl库，包括 perl 兼容的正则表达式库。<br>nginx的http模块使用pcre来解析正则表达式，所以需要在linux上安装pcre库。</p>
-<p>下载成功后解压文件</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf pcre-8.37.tar.gz</code></pre>
-<p>进入目录执行</p>
-<pre class=" language-bash"><code class="language-bash">./configure </code></pre>
-<p>完成后，回到 pcre 目录下执行 </p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">make</span>
-<span class="token function">make</span> <span class="token function">install</span></code></pre>
-<p>第二步， 安装一些需要的依赖</p>
-<p>安装 zlib，安装 gcc，安装 openssl</p>
-<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> <span class="token function">make</span> zlib zlib-devel gcc-c++ libtool openssl openssl-devel</code></pre>
-<p>第三步， 安装 nginx</p>
-<p>官方网址：<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a></p>
-<p><code>Nginx</code>官网提供了三个类型的版本<br><code>Mainline version</code>： <code>Mainline</code> 是 <code>Nginx</code> 目前主力在做的版本，可以说是开发版<br><code>Stable version</code>： 最新稳定版，生产环境上建议使用的版本<br><code>Legacy versions</code>： 遗留的老版本的稳定版。</p>
-<p>建议选择稳定版。</p>
-<p>可以直接下载到目录。<br>也可以下载之后再上传到服务器。</p>
-<p>1、 解压缩 <code>nginx-xx.tar.gz</code> 包。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf nginx-xx.tar.gz</code></pre>
-<p>2、 进入解压缩目录， 执行<code>./configure</code>。</p>
-<pre class=" language-bash"><code class="language-bash">./configure</code></pre>
-<p>3、 执行编译安装</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span></code></pre>
-<h3 id="2、YUM方式"><a href="#2、YUM方式" class="headerlink" title="2、YUM方式"></a>2、YUM方式</h3><p>1、添加源</p>
-<p>　　默认情况Centos7中无Nginx的源，后面Nginx官网提供了Centos的源地址。因此可以如下执行命令添加源：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre>
-<p>2、安装<code>Nginx</code></p>
-<p>可以使用 search 命令：</p>
-<pre class=" language-bash"><code class="language-bash">yum search nginx</code></pre>
-<p>看看是否已经添加源成功。如果成功则执行下列命令安装<code>Nginx</code>。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> -y nginx</code></pre>
-<h3 id="3、防火墙端口相关"><a href="#3、防火墙端口相关" class="headerlink" title="3、防火墙端口相关"></a>3、防火墙端口相关</h3><p>如果需要的话，可能用得上。如果是云服务器，自己登录控制台看看相关端口是否已经开放。</p>
-<p>查看开放的端口号</p>
-<pre class=" language-bash"><code class="language-bash">firewall-cmd --list-all</code></pre>
-<p>设置开放的端口号</p>
-<pre class=" language-bash"><code class="language-bash">firewall-cmd --add-service<span class="token operator">=</span>http –permanent
-<span class="token function">sudo</span> firewall-cmd --add-port<span class="token operator">=</span>80/tcp --permanent</code></pre>
-<p>重启防火墙</p>
-<pre class=" language-bash"><code class="language-bash">firewall-cmd –reload</code></pre>
-<h2 id="三、Nginx-常用命令"><a href="#三、Nginx-常用命令" class="headerlink" title="三、Nginx 常用命令"></a>三、Nginx 常用命令</h2><p>如果你不确定你的 <code>Nginx</code> 到底安装到哪里了,使用 <code>whereis</code> 命令查找一下。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># whereis nginx</span>
-nginx: /usr/sbin/nginx /usr/lib64/nginx /etc/nginx /usr/share/nginx /usr/share/man/man8/nginx.8.gz</code></pre>
-<h3 id="1、查看版本命令："><a href="#1、查看版本命令：" class="headerlink" title="1、查看版本命令："></a>1、查看版本命令：</h3><pre class=" language-bash"><code class="language-bash">nginx -v</code></pre>
-<h3 id="2、启动命令："><a href="#2、启动命令：" class="headerlink" title="2、启动命令："></a>2、启动命令：</h3><p>（1）执行执行启动：</p>
-<pre class=" language-bash"><code class="language-bash">start  nginx </code></pre>
-<p>（2）到 <code>/usr/sbin/</code> 目录执行命令启动：</p>
-<pre class=" language-bash"><code class="language-bash">./nginx</code></pre>
-<p>（3）也可以使用Linux 方式</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> systemctl start nginx.service</code></pre>
-<h3 id="3、关闭命令："><a href="#3、关闭命令：" class="headerlink" title="3、关闭命令："></a>3、关闭命令：</h3><p>（1）快速停止或关闭</p>
-<pre class=" language-bash"><code class="language-bash">nginx stop</code></pre>
-<p>或</p>
-<pre class=" language-bash"><code class="language-bash">nginx -s stop</code></pre>
-<p>（2）正常停止或关闭</p>
-<pre class=" language-bash"><code class="language-bash">nginx -s quit</code></pre>
-<p>（3）也可以使用 <code>Linux</code> 方式</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> systemctl start nginx.service</code></pre>
-<h3 id="4、配置检查："><a href="#4、配置检查：" class="headerlink" title="4、配置检查："></a>4、配置检查：</h3><p>修改配置文件之后执行用来检查配置文件是否有错误的命令，如果有会给出提示。</p>
-<pre class=" language-bash"><code class="language-bash">nginx -t</code></pre>
-<h3 id="5、配置加载："><a href="#5、配置加载：" class="headerlink" title="5、配置加载："></a>5、配置加载：</h3><p>修改配置文件之后，不需要重启服务，检查配置文件正确之后，直接加载新的配置文件的命令。</p>
-<pre class=" language-bash"><code class="language-bash">nginx -s reload</code></pre>
-<h2 id="四、Nginx-配置文件"><a href="#四、Nginx-配置文件" class="headerlink" title="四、Nginx 配置文件"></a>四、Nginx 配置文件</h2><h3 id="1、nginx-配置文件目录"><a href="#1、nginx-配置文件目录" class="headerlink" title="1、nginx 配置文件目录"></a>1、nginx 配置文件目录</h3><p>一般在 <code>nginx/conf/</code> 目录下，具体目录使用 <code>whereis</code> 找一下。我使用<code>yum</code> 安装，配置文件目录在 <code>/etc/nginx/目录</code>下有个 <code>nginx.conf</code> 文件就是配置文件。</p>
-<p>配置文件中有很多 <code>#</code> ， <code>#</code> 开头的表示注释内容</p>
-<p>精简的配置文件内容如下：</p>
-<pre class=" language-conf"><code class="language-conf">worker_processes  1;
-
-events {
-    worker_connections  1024;
-}
-http {
-    include       mime.types;
-    default_type  application/octet-stream;
-
-    sendfile        on;
-
-    keepalive_timeout  65;
-
-    server {
-        listen       80;
-        server_name  localhost;
-
-        location / {
-            root   html;
-            index  index.html index.htm;
-        }
-    }
-}</code></pre>
-<h3 id="2、配置文件细分"><a href="#2、配置文件细分" class="headerlink" title="2、配置文件细分"></a>2、配置文件细分</h3><p>nginx.conf 文件大致分三个部分。</p>
-<p>（1）全局块<br>从配置文件开始到 <code>events</code> 块之间的内容，主要会设置一些影响 <code>nginx</code> 服务器整体运行的配置指令，主要包括配置运行 <code>Nginx</code>服务器的用户（组）、允许生成的 <code>worker process</code> 数， 进程 <code>PID</code> 存放路径、日志存放路径和类型以及配置文件的引入等。<br>比如第一行配置：</p>
-<pre><code>worker_processes 1;</code></pre><p>这是 Nginx 服务器并发处理服务的关键配置， <code>worker_processes</code> 值越大，可以支持的并发处理量也越多，但是会受到硬件、软件等设备的制约。</p>
-<p>（2）events 块</p>
-<p>​    <code>events</code> 块涉及的指令主要影响 Nginx 服务器与用户的网络连接，常用的设置包括是否开启对多 <code>work process</code>下的网络连接进行序列化，是否允许同时接收多个网络连接，选取哪种事件驱动模型来处理连接请求，每个 <code>work  process</code> 可以同时支持的最大连接数等。</p>
-<p>上述例子就表示每个 <code>work process</code> 支持的最大连接数为 1024。</p>
-<p>这部分的配置对 Nginx 的性能影响较大，在实际中应该灵活配置。</p>
-<p>（3）http 块</p>
-<p>​    <code>Nginx</code> 服务器配置中最频繁的部分，代理、缓存和日志定义等绝大多数功能和第三方模块的配置都在这里。 需要注意的是： <code>http</code> 块也可以包括 <code>http</code> 全局块、 server 块。</p>
-<p>A） http 全局块</p>
-<p>​    <code>http</code> 全局块配置的指令包括文件引入、 <code>MIME-TYPE</code> 定义、日志自定义、连接超时时间、单链接请求数上限、404等等。    </p>
-<p>B）  server 块</p>
-<p>​    这块和虚拟主机有密切关系，虚拟主机从用户角度看，和一台独立的硬件主机是完全一样的，该技术的产生是为了 节省互联网服务器硬件成本。 </p>
-<p>​    每个 http 块可以包括多个 <code>server</code>块，而每个 <code>server</code> 块就相当于一个虚拟主机。 而每个 <code>server</code> 块也分为全局 <code>server</code> 块，以及可以同时包含多个 <code>locaton</code> 块。 </p>
-<p>​    1)、全局 server 块 </p>
-<p>​    最常见的配置是本虚拟机主机的监听配置和本虚拟主机的名称或 IP 配置。 </p>
-<p>​    2)、location 块 </p>
-<p>​    一个 server 块可以配置多个 location 块。 </p>
-<p>​    这块的主要作用是基于 Nginx 服务器接收到的请求字符串（例如 <code>server_name</code>/<code>uri-string</code>），对虚拟主机名称 （也可以是 IP 别名）之外的字符串（例如 前面的 /uri-string）进行匹配，对特定的请求进行处理。地址定向、数据缓 存和应答控制等功能，还有许多第三方模块的配置也在这里进行。    </p>
-<h2 id="五、配置实例"><a href="#五、配置实例" class="headerlink" title="五、配置实例"></a>五、配置实例</h2><h3 id="1、反向代理配置实例1"><a href="#1、反向代理配置实例1" class="headerlink" title="1、反向代理配置实例1"></a>1、反向代理配置实例1</h3><p>准备工作：安装一个 <code>tomcat</code> 并配置端口为 <code>8081</code></p>
-<p>nginx.conf 配置：</p>
-<pre><code>server{
-    listen 80;
-    server_name www.zhangxiaocai.cn
-
-    location / {
-        proxy_pass http://127.0.0.1:8081 ;
-        index index.html index.htm index.jsp;
-    }
-}</code></pre><p>如上配置，我们监听 80 端口，访问域名为 <code>www.zhangxiaocai.cn</code>，不加端口号时默认为 <code>80</code> 端口，所以在浏览器访问该域名时会跳转到 <code>127.0.0.1:8080</code>路径上。</p>
-<p>本地测试需要修改<code>C:/Windows/System32/drivers/etc/hosts</code>文件，在文件末尾追加以下内容</p>
-<pre><code>www.zhangxiaocai.cn   127.0.0.1</code></pre><h3 id="2、反向代理配置实例2"><a href="#2、反向代理配置实例2" class="headerlink" title="2、反向代理配置实例2"></a>2、反向代理配置实例2</h3><p>准备工作：安装2个 <code>tomcat</code> 并配置端口分别为 <code>8081</code> 和 <code>8082</code> ，为了区分也可以准备2个不同的 <code>index.html</code> 页面。</p>
-<p>nginx.conf 配置：</p>
-<pre><code>server{
-    listen 80;
-    server_name www.zhangxiaocai.cn
-
-    location ~ /java/ {
-        proxy_pass http://127.0.0.1:8081 ;
-        index index.html index.htm index.jsp;
-    }
-
-    location ~ /spring/ {
-        proxy_pass http://127.0.0.1:8082 ;
-        index index.html index.htm index.jsp;
-    }
-}</code></pre><p>根据访问的路径跳转到不同端口的服务中 nginx 监听端口为 80， </p>
-<p>访问 <code>http://www.zhangxiaocai.cn/java/</code> 直接跳转到 <code>127.0.0.1:8081</code></p>
-<p>访问 <code>http://www.zhangxiaocai.cn/spring/</code> 直接跳转到 <code>127.0.0.1:8082</code></p>
-<h3 id="3、location-指令说明"><a href="#3、location-指令说明" class="headerlink" title="3、location 指令说明"></a>3、location 指令说明</h3><p>location 指令用于匹配 URL。 </p>
-<p>语法如下： </p>
-<pre><code>location [ = | ~ | ~* |^~] uti {
-
-}</code></pre><p><code>=</code> ：用于不含正则表达式的 uri 前，要求请求字符串与 uri 严格匹配，如果匹配 成功，就停止继续向下搜索并立即处理该请求。<br><code>~</code>：用于表示 uri 包含正则表达式，并且区分大小写。<br><code>~*</code>：用于表示 uri 包含正则表达式，并且不区分大小写。<br><code>^~</code>：用于不含正则表达式的 uri 前，要求 Nginx 服务器找到标识 uri 和请求字 符串匹配度最高的 location 后，立即使用此 location 处理请求，而不再使用 location 块中的正则 uri 和请求字符串做匹配。 </p>
-<p>注意：如果 uri 包含正则表达式，则必须要有 <code>~</code> 或者 <code>~*</code> 标识。    </p>
-<h3 id="4、负载均衡配置实例"><a href="#4、负载均衡配置实例" class="headerlink" title="4、负载均衡配置实例"></a>4、负载均衡配置实例</h3><p>负载均衡即是将负载分摊到不同的服务单元，既保证服务的可用性，又保证响应 足够快，给用户很好的体验。</p>
-<p>快速增长的访问量和数据流量催生了各式各样的负载均衡产品， 很多专业的负载均衡硬件提供了很好的功能，但却价格不菲，这使得负载均衡软件大受欢迎， nginx 就是其中的一个，在 linux 下有 Nginx、 LVS、 Haproxy 等等服务可以提供负载均衡服务 。</p>
-<p>准备工作：安装2个 <code>tomcat</code> 并配置端口分别为 <code>8081</code> 和 <code>8082</code> ，为了区分也可以准备2个不同的 <code>index.html</code> 页面。</p>
-<p>nginx.conf 配置：</p>
-<pre><code>http {
-    ...
-    upstream my_server{
-        ip_hash;
-        server 127.0.0.1:8081 weight=1;
-        server 127.0.0.1:8082 weight=1;
-    }
-    ...
-    server{
-
-        location / {
-            proxy_pass http://myserver;
-            proxy_connect_timeout 10;
-            ...
-        }
-    }
-}</code></pre><h3 id="5、nginx-服务均衡策略"><a href="#5、nginx-服务均衡策略" class="headerlink" title="5、nginx 服务均衡策略"></a>5、nginx 服务均衡策略</h3><p>Nginx 提供了几种分配方式(策略)： </p>
-<p>1、轮询（默认） </p>
-<p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器 down 掉，能自动剔除。 </p>
-<p>2、 weight </p>
-<p>weight 代表权,重默认为 1,权重越高被分配的客户端越多 指定轮询几率， weight 和访问比率成正比，用于后端服务器性能不均的情况。 例如：</p>
-<pre><code>upstream my_server_pool{
-    server 192.168.0.121 weight=10;
-    server 192.168.0.122 weight=10;
-}</code></pre><p>3 、 ip_hash </p>
-<p>每个请求按访问 ip 的 hash 结果分配，这样每个访客固定访问一个后端服务器，可以解决 session 的问题。 例如： </p>
-<pre><code>upstream my_server_pool{ 
-    ip_hash; 
-    server 192.168.0.121:80; 
-    server 192.168.0.122:80; 
-} </code></pre><p>4 、 fair（第三方） 按后端服务器的响应时间来分配请求，响应时间短的优先分配。 </p>
-<pre><code>upstream my_server_pool{ 
-    server 192.168.5.21:80; 
-    server 192.168.5.22:80; 
-    fair; 
-}    </code></pre><h3 id="6、动静分离配置实例"><a href="#6、动静分离配置实例" class="headerlink" title="6、动静分离配置实例"></a>6、动静分离配置实例</h3><p>Nginx 动静分离简单来说就是把动态跟静态请求分开，不能理解成只是单纯的把动态页面和静态页面物理分离。</p>
-<p>严格意义上说应该是动态请求跟静态请求分开，可以理解成使用 Nginx 处理静态页面， Tomcat 处理动态页面。</p>
-<p>动静分离从目前实现角度来讲大致分为两种：</p>
-<p>（1） 一种是纯粹把静态文件独立成单独的域名，放在独立的服务器上，也是目前主流推崇的方案；</p>
-<p>（2） 另外一种方法就是动态跟静态文件混合在一起发布，通过 nginx 来分开。 通过 location 指定不同的后缀名实现不同的请求转发。通过 expires 参数设置，可以使 浏览器缓存过期时间，减少与服务器之前的请求和流量。</p>
-<p>​    具体 Expires 定义：是给一个资 源设定一个过期时间，也就是说无需去服务端验证，直接通过浏览器自身确认是否过期即可， 所以不会产生额外的流量。此种方法非常适合不经常变动的资源。（如果经常更新的文件， 不建议使用 Expires 来缓存），假如设置为 3d，表示在这 3 天之内访问这个 URL，发送一个请求，比对服务器该文件最后更新时间没有变化，则不会从服务器抓取，返回状态码 304，如果有修改，则直接从服务器重新下载，返回状态码 200。    </p>
-<p>配置文件实例：</p>
-<pre><code>server{
-    listen 80;
-    server_name www.zhangxiaocai.cn
-
-    location /js/ {
-        root /home/tomcat/webapps/test/js/;
-        autoindex on;
-    }
-    location /image/ {
-        root /home/tomcat/webapps/test/images/;
-        autoindex on;
-    }
-}</code></pre><p>测试访问ok之后可以删除静态文件再试试，看看访问走的 <code>nginx</code> 还是 <code>tomcat</code>。</p>
-<h2 id="六、Nginx-原理"><a href="#六、Nginx-原理" class="headerlink" title="六、Nginx 原理"></a>六、Nginx 原理</h2><h3 id="1、nginx基本原理："><a href="#1、nginx基本原理：" class="headerlink" title="1、nginx基本原理："></a>1、nginx基本原理：</h3><p>​    使用 <code>master-workers</code> 的机制，通过一个 <code>master</code> 主进程管理其他 <code>worker</code> 进行来处理客户端的请求和响应。</p>
-<p><strong>特点：</strong></p>
-<p>（1）每个 <code>worker</code> 进程都是独立的进程，不需要加锁。</p>
-<p>（2）采用独立进程，相互之间不会影响，一个进程结束，不影响其他进程，服务不会中断，<code>master</code> 进程会启动新的 worker 进程。</p>
-<p>（3）<code>worker</code> 进程 异常退出，只会导致当前进程 <code>worker</code> 上的请求失败，不会影响所有请求，降低运行风险。</p>
-<h3 id="2、相关设置"><a href="#2、相关设置" class="headerlink" title="2、相关设置"></a>2、相关设置</h3><p><strong>worker 设置</strong></p>
-<p>​    nginx 同 redis 类似都采用了 io 多路复用机制，每个 <code>worker</code> 都是一个独立的进程，但每个进 程里只有一个主线程，通过异步非阻塞的方式来处理请求， 即使是千上万个请求也不在话 下。每个 worker 的线程可以把一个 cpu 的性能发挥到极致。所以 <code>worker</code> 数和服务器的 cpu 数相等是最为适宜的。设少了会浪费 cpu，设多了会造成 cpu 频繁切换上下文带来的损耗。</p>
-<p><strong>连接数 worker_connection</strong></p>
-<p>这个值是表示每个 <code>worker</code> 进程所能建立连接的最大值，所以，一个 <code>nginx</code> 能建立的最大连接 数，应该是 <code>worker_connections * worker_processes</code> 。当然，这里说的是最大连接数，对于 <code>HTTP</code> 请求本地资源来说 ， 能 够支持的最大并发数量是 <code>worker_connections * worker_processes</code>，</p>
-<p>如果是支持 <code>http1.1</code> 的浏览器每次访问要占两个连接，所以普通的静态访 问最大并发数是： <code>worker_connections * worker_processes /2</code>，</p>
-<p>如果是 <code>HTTP</code> 作 为反向代 理来说，最大并发数量应该是 <code>worker_connections * worker_processes/4</code>。因为作为反向代理服务器，每个并发会建立与客户端的连接和与后端服 务的连接，会占用两个连接。    </p>
-<h3 id="3、配置文件结构"><a href="#3、配置文件结构" class="headerlink" title="3、配置文件结构"></a>3、配置文件结构</h3><blockquote class="pullquote mindmap mindmap-md"><!-- build time:Mon Sep 21 2020 18:17:55 GMT+0800 (中国标准时间) --><ul><li>Nginx.conf 结构<ul><li>work_processes</li><li>events<ul><li>worker_connection</li></ul></li><li>http<ul><li>server<ul><li>listen</li><li>server_name</li><li>location<ul><li>root</li><li>index</li></ul></li></ul></li></ul></li></ul></li></ul><!-- rebuild by neat --></blockquote>
-
-
-
-<h2 id="七、其他"><a href="#七、其他" class="headerlink" title="七、其他"></a>七、其他</h2><p>https 已经在使用了，暂时还没加上。</p>
-<p>遇到再补充吧~</p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>定时任务之Spring Task</title>
     <url>/posts/5a5ab620.html</url>
     <content><![CDATA[<h2 id="定时任务之Spring-Task"><a href="#定时任务之Spring-Task" class="headerlink" title="定时任务之Spring Task"></a>定时任务之Spring Task</h2><blockquote>
@@ -20565,6 +19006,1433 @@ jobData ：123</code></pre><p>页面返回了 {“result”:”change success”
       </categories>
       <tags>
         <tag>Spring Task</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker 快速上手</title>
+    <url>/posts/66ee0bda.html</url>
+    <content><![CDATA[<h2 id="Docker-快速上手"><a href="#Docker-快速上手" class="headerlink" title="Docker 快速上手"></a>Docker 快速上手</h2><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p><strong>Docker</strong>是一个开源的应用容器引擎；是一个轻量级容器技术；</p>
+<p>Docker支持将软件编译成一个镜像；然后在镜像中各种软件做好配置，将镜像发布到镜像仓库，其他使用者可以直接使用这个镜像；</p>
+<p>运行中的这个镜像称为容器，容器启动是非常快速的。</p>
+<h2 id="二、基本概念"><a href="#二、基本概念" class="headerlink" title="二、基本概念"></a>二、基本概念</h2><p><strong>docker主机(Host)：</strong>安装了Docker程序的机器，Docker直接安装在操作系统（windows / linux）上；</p>
+<p><strong>docker客户端(Client)：</strong>连接docker主机进行操作；</p>
+<p><strong>docker仓库(Registry)：</strong>用来保存各种打包好的软件镜像；</p>
+<p><strong>docker镜像(Images)：</strong>软件打包好的镜像；放在docker仓库中；</p>
+<p><strong>docker容器(Container)：</strong>镜像启动后的实例称为一个容器；容器是独立运行的一个或一组应用。</p>
+<pre class=" language-txt"><code class="language-txt">Client   ---------> Host  --------->  Registry</code></pre>
+<p>使用Docker的基本步骤：</p>
+<p>1）、安装Docker</p>
+<p>2）、去Docker仓库找到这个软件对应的镜像；</p>
+<p>3）、使用Docker运行这个镜像，这个镜像就会生成一个Docker容器；</p>
+<p>4）、对容器的启动停止就是对软件应用的启动停止；</p>
+<h2 id="三、Docker-安装"><a href="#三、Docker-安装" class="headerlink" title="三、Docker 安装"></a>三、Docker 安装</h2><p>1、环境准备</p>
+<p>检查内核版本，Linux 必须是3.10及以上</p>
+<p>检查命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">uname</span> -r</code></pre>
+<p>2、安装docker</p>
+<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> docker</code></pre>
+<p>3、查看版本</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># docker -v</span>
+Docker version 1.12.6, build 3e8e77d/1.12.6</code></pre>
+<p>3、启动docker</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl start docker</span></code></pre>
+<p>4、开机启动</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl enable docker</span>
+Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.</code></pre>
+<p>5、停止docker</p>
+<pre class=" language-bash"><code class="language-bash">systemctl stop docker</code></pre>
+<h2 id="四、Docker-常用命令-amp-操作"><a href="#四、Docker-常用命令-amp-操作" class="headerlink" title="四、Docker 常用命令&amp;操作"></a>四、Docker 常用命令&amp;操作</h2><h3 id="1、镜像操作"><a href="#1、镜像操作" class="headerlink" title="1、镜像操作"></a>1、镜像操作</h3><p>Docker Hub 地址： <a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com/</a></p>
+<p>镜像常用操作：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>检索</td>
+<td><code>docker  search 关键字</code><br/>eg：docker  search redis</td>
+<td>我们经常去docker  hub上检索镜像的详细信息，如镜像的TAG。</td>
+</tr>
+<tr>
+<td>拉取</td>
+<td><code>docker pull 镜像名:tag</code></td>
+<td>:tag是可选的，tag表示标签，多为软件的版本，默认是latest</td>
+</tr>
+<tr>
+<td>列表</td>
+<td><code>docker images</code></td>
+<td>查看所有本地镜像</td>
+</tr>
+<tr>
+<td>删除</td>
+<td><code>docker rmi image-id</code></td>
+<td>删除指定的本地镜像</td>
+</tr>
+</tbody></table>
+<h3 id="2、容器操作"><a href="#2、容器操作" class="headerlink" title="2、容器操作"></a>2、容器操作</h3><p>（1）搜索镜像命令：</p>
+<pre class=" language-bash"><code class="language-bash">docker search 镜像名称</code></pre>
+<p>示例：</p>
+<pre class=" language-bash"><code class="language-bash">docker search tomcat</code></pre>
+<p>也可以在 <a href="https://hub.docker.com/" target="_blank" rel="noopener">Docker Hub</a>直接搜索。</p>
+<p>（2）拉取镜像：</p>
+<pre class=" language-bash"><code class="language-bash">docker pull 镜像名称</code></pre>
+<p>示例：</p>
+<pre><code>docker pull mysql</code></pre><p>（3）查看本地镜像列表 </p>
+<pre><code>docker images [OPTIONS] [REPOSITORY[:TAG]]</code></pre><p>OPTIONS说明：</p>
+<ul>
+<li><strong>-a ：</strong>列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</li>
+<li><strong>–digests ：</strong>显示镜像的摘要信息；</li>
+<li><strong>-f ：</strong>显示满足条件的镜像；</li>
+<li><strong>–format ：</strong>指定返回值的模板文件；</li>
+<li><strong>–no-trunc ：</strong>显示完整的镜像信息；</li>
+<li><strong>-q ：</strong>只显示镜像ID。</li>
+</ul>
+<p>（4）根据镜像启动容器基本命令：</p>
+<pre><code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+docker run --name 容器名称 -d 镜像名称:latest</code></pre><p>OPTIONS说明：</p>
+<ul>
+<li><strong>-a stdin：</strong> 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；</li>
+<li><strong>-d：</strong> 后台运行容器，并返回容器ID；</li>
+<li><strong>-i：</strong> 以交互模式运行容器，通常与 -t 同时使用；</li>
+<li><strong>-P：</strong> 随机端口映射，容器内部端口<strong>随机</strong>映射到主机的端口</li>
+<li><strong>-p：</strong> 指定端口映射，格式为：主机(宿主)端口:容器端口 </li>
+<li><strong>-t：</strong> 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</li>
+<li><strong>–name=”nginx-lb”：</strong> 为容器指定一个名称；</li>
+<li><strong>–dns 8.8.8.8：</strong> 指定容器使用的DNS服务器，默认和宿主一致；</li>
+<li><strong>–dns-search example.com：</strong> 指定容器DNS搜索域名，默认和宿主一致；</li>
+<li><strong>-h “mars”：</strong> 指定容器的hostname；</li>
+<li><strong>-e username=”ritchie”：</strong> 设置环境变量；</li>
+<li><strong>–env-file=[]：</strong> 从指定文件读入环境变量；</li>
+<li><strong>–cpuset=”0-2” or –cpuset=”0,1,2”：</strong> 绑定容器到指定CPU运行；</li>
+<li><strong>-m ：</strong>设置容器使用内存最大值；</li>
+<li><strong>–net=”bridge”：</strong> 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型；</li>
+<li><strong>–link=[]：</strong> 添加链接到另一个容器；</li>
+<li><strong>–expose=[]：</strong> 开放一个端口或一组端口； </li>
+<li><strong>–volume , -v：</strong>     绑定一个卷</li>
+</ul>
+<p>常用的操作是：</p>
+<p>-d：后台运行<br>-p: 将主机的端口映射到容器的一个端口    主机端口:容器内部的端口</p>
+<p>示例</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启动tomcat 容器、映射端口、后台运行</span>
+docker run -d -p 8888:8080 tomcat
+
+<span class="token comment" spellcheck="true"># 能启动mysql 不能访问</span>
+docker run --name mysql_01 -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>123456 -d mysql
+<span class="token comment" spellcheck="true"># 能启动mysql 并且能访问</span>
+docker run -p 3306:3306 --name mysql_02 -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>123456 -d mysql
+
+<span class="token comment" spellcheck="true"># 把主机的/conf/mysql文件夹挂载到 mysqldocker容器的/etc/mysql/conf.d文件夹里面，改mysql的配置文件就只需要把mysql配置文件放在自定义的文件夹下（/conf/mysql）</span>
+docker run --name mysql_03 -v /conf/mysql:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>my-secret-pw -d mysql:tag
+
+<span class="token comment" spellcheck="true"># 指定mysql的一些配置参数</span>
+docker run --name mysql_04 -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>my-secret-pw -d mysql:tag --character-set-server<span class="token operator">=</span>utf8mb4 --collation-server<span class="token operator">=</span>utf8mb4_unicode_ci
+</code></pre>
+<p>（5）查看所有的容器</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#查看容器(默认是已启动的 Up)</span>
+docker <span class="token function">ps</span> 
+<span class="token comment" spellcheck="true">#查看所有的容器（包含启动的和停止的）</span>
+docker <span class="token function">ps</span> -a  </code></pre>
+<p>示例：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># docker ps</span>
+CONTAINER ID    IMAGE     COMMAND                   CREATED       STATUS              PORTS                     NAMES
+ad10e4bc5c6a    mysql    <span class="token string">"docker-entrypoint.sh"</span>   4 seconds ago    Up 2 seconds        0.0.0.0:3306-<span class="token operator">></span>3306/tcp   mysql02</code></pre>
+<p>（5）容器启停</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启动容器</span>
+docker start 容器id
+<span class="token comment" spellcheck="true"># 删除一个容器</span>
+docker <span class="token function">rm</span> 容器id</code></pre>
+<p>（6）更多命令</p>
+<p>​    （A） ：<a href="https://docs.docker.com/engine/reference/commandline/docker/" target="_blank" rel="noopener">Docker 官方文档</a></p>
+<p>​    （B）：参考每一个镜像的文档。</p>
+<p>示例：</p>
+<pre class=" language-bash"><code class="language-bash">docker pull mysql
+
+docker images
+
+docker run -p 3306:3306 --name mysql_05 -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>123456 -d mysql
+
+docker <span class="token function">ps</span> -a</code></pre>
+<p>访问的话，关闭防护墙或者放行3306端口。</p>
+<h2 id="五、其他"><a href="#五、其他" class="headerlink" title="五、其他"></a>五、其他</h2><p>其他后续遇到再补充。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker 之完整入门</title>
+    <url>/posts/9e6e2be2.html</url>
+    <content><![CDATA[<h2 id="Docker-一篇入门"><a href="#Docker-一篇入门" class="headerlink" title="Docker 一篇入门"></a>Docker 一篇入门</h2><h2 id="一、Docker-简介"><a href="#一、Docker-简介" class="headerlink" title="一、Docker 简介"></a>一、Docker 简介</h2><h3 id="1、基本概述"><a href="#1、基本概述" class="headerlink" title="1、基本概述"></a>1、基本概述</h3><p>Docker是世界领先的软件容器平台。 </p>
+<p>Docker是基于Go语言实现的云开源项目。</p>
+<p>Docker的主要目标是“Build，Ship and Run Any App,Anywhere”。</p>
+<p>通过对应用组件的封装、分发、部署、运行等生命周期的管理，使用户的APP（可以是一个WEB应用或数据库应用等等）及其运行环境能够做到<strong>“一次封装，到处运行”</strong>。</p>
+<p>因为虚拟机模拟的就是带操作系统和环境的，其资源占用多、冗余步骤多、启动慢等不足，Linux 发展出了另一种虚拟化技术：Linux 容器（Linux Containers，缩写为 LXC）。<strong>Linux 容器不是模拟一个完整的操作系统，而是对进程进行隔离。</strong>有了容器，就可以将软件运行所需的所有资源打包到一个隔离的容器中。容器与虚拟机不同，不需要捆绑一整套操作系统，只需要软件工作所需的库资源和设置。系统因此而变得高效轻量并保证部署在任何环境中的软件都能始终如一地运行。</p>
+<p>Docker 在Linux 容器技术的基础上发展过来的。将应用运行在 Docker 容器上面，而 Docker 容器在任何操作系统上都是一致的，这就实现了跨平台、跨服务器。只需要一次配置好环境，换到不同的机器上就可以一键部署好，大大简化了操作。这样是顺应了 DevOps 开发运维理念。</p>
+<p>针对集群环境，可以快速部署安装。</p>
+<p><strong>意义或作用：</strong></p>
+<p>Docker 解决了运行环境和配置问题软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术。</p>
+<h3 id="2、官网及仓库"><a href="#2、官网及仓库" class="headerlink" title="2、官网及仓库"></a>2、官网及仓库</h3><p>docker官网：<a href="http://www.docker.com" target="_blank" rel="noopener">http://www.docker.com</a></p>
+<p>docker中文网站：<a href="https://www.docker-cn.com" target="_blank" rel="noopener">https://www.docker-cn.com</a></p>
+<p>Docker Hub官网: <a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com/</a></p>
+<h2 id="二、Docker-安装"><a href="#二、Docker-安装" class="headerlink" title="二、Docker 安装"></a>二、Docker 安装</h2><h3 id="1、环境检查"><a href="#1、环境检查" class="headerlink" title="1、环境检查"></a>1、环境检查</h3><p>CentOS Docker 安装<br>Docker支持以下的CentOS版本：<br>    CentOS 7 (64-bit)<br>    CentOS 6.5 (64-bit) 或更高的版本</p>
+<p>前提条件<br>目前，CentOS 仅发行版本中的内核支持 Docker。<br>Docker 运行在 CentOS 7 上，要求系统为64位、系统内核版本为 3.10 以上。<br>Docker 运行在 CentOS-6.5 或更高的版本的 CentOS 上，要求系统为64位、系统内核版本为 2.6.32-431 或者更高版本。</p>
+<p>Linux 检查内核版本命令：</p>
+<pre class=" language-bash"><code class="language-bash"> <span class="token function">uname</span> -a
+ <span class="token function">cat</span> /proc/version
+ lsb_release -a</code></pre>
+<p>如果命令 <code>lsb_release -a</code>提示<code>command not found</code>则需要安装<code>yum install redhat-lsb -y</code>。</p>
+<h3 id="2、基本组成"><a href="#2、基本组成" class="headerlink" title="2、基本组成"></a>2、基本组成</h3><p>docker主机(Host)：安装了Docker程序的机器，Docker直接安装在操作系统（windows / linux）上；<br>docker客户端(Client)：连接docker主机进行操作；<br><strong>docker仓库(Registry)：</strong>用来保存各种打包好的软件镜像；<br><strong>docker镜像(Images)：</strong>软件打包好的镜像；放在docker仓库中；<br><strong>docker容器(Container)：</strong>镜像启动后的实例称为一个容器；容器是独立运行的一个或一组应用。</p>
+<p>架构图：</p>
+<h3 id="3、安装步骤"><a href="#3、安装步骤" class="headerlink" title="3、安装步骤"></a>3、安装步骤</h3><p>官方文档也有安装步骤：<a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noopener">https://docs.docker.com/install/linux/docker-ce/centos/</a></p>
+<p><strong>Centos 6.8 安装Docker：</strong></p>
+<p>（1）环境准备</p>
+<p>Docker使用EPEL发布，RHEL系的OS首先要确保已经持有EPEL仓库，否则先检查OS的版本，然后安装相应的EPEL包。</p>
+<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> -y epel-release</code></pre>
+<p>（2）安装docker</p>
+<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> -y docker-io</code></pre>
+<p>（3）配置文件</p>
+<p>安装后的配置文件：/etc/sysconfig/docker</p>
+<p>（4）启停操作</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> docker start
+<span class="token function">service</span> docker stop</code></pre>
+<p>（5）验证</p>
+<pre class=" language-bash"><code class="language-bash">docker version</code></pre>
+<p><strong>Centos 7 安装Docker：</strong></p>
+<p>（1）环境检查</p>
+<p>版本确认：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cat</span> /etc/redhat-release</code></pre>
+<p>联网检查</p>
+<p>（2）gcc环境安装</p>
+<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> gcc
+yum -y <span class="token function">install</span> gcc-c++</code></pre>
+<p>（3）旧版卸载</p>
+<p>可参考官网操作，新机器可省略此操作。</p>
+<pre class=" language-bash"><code class="language-bash">yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine
+</code></pre>
+<p>（4）安装依赖包</p>
+<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> -y yum-utils device-mapper-persistent-data lvm2</code></pre>
+<p>（5）修改镜像仓库</p>
+<p>主要是为了优化下载速度</p>
+<pre class=" language-bash"><code class="language-bash">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</code></pre>
+<p>（6）更新yum包索引</p>
+<pre class=" language-bash"><code class="language-bash">yum makecache fast</code></pre>
+<p>（7）安装Docker CE</p>
+<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> docker-ce</code></pre>
+<p>（8）启停操作</p>
+<pre class=" language-bash"><code class="language-bash">systemctl start docker
+systemctl stop docker</code></pre>
+<p>（9）测试验证</p>
+<pre class=" language-bash"><code class="language-bash">docker version</code></pre>
+<p>（10）配置镜像加速</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p /etc/docker
+vim /etc/docker/daemon.json
+systemctl daemon-reload  <span class="token comment" spellcheck="true"># 重新加载</span>
+systemctl restart docker <span class="token comment" spellcheck="true"># 重启</span></code></pre>
+<p><code>daemon.json</code> 内容：</p>
+<pre class=" language-txt"><code class="language-txt">#网易云
+{"registry-mirrors": ["http://hub-mirror.c.163.com"] }
+
+或
+
+ #阿里云
+{
+  "registry-mirrors": ["https://｛自已的编码｝.mirror.aliyuncs.com"]
+}</code></pre>
+<p>（11）卸载docker</p>
+<pre class=" language-bahs"><code class="language-bahs">systemctl stop docker
+yum -y remove docker-ce
+rm -rf /var/lib/docker</code></pre>
+<p>关于阿里云或网易云镜像加速</p>
+<p>注册阿里云账户，登录阿里云开发者平台，获取加速器地址，配置参考第（10）步。</p>
+<p>（12）更多命令</p>
+<p>​ （A） ：<a href="https://docs.docker.com/engine/reference/commandline/docker/" target="_blank" rel="noopener">Docker 官方文档</a></p>
+<p>​ （B）：参考每一个镜像的文档。</p>
+<h2 id="三、Docker-原理"><a href="#三、Docker-原理" class="headerlink" title="三、Docker 原理"></a>三、Docker 原理</h2><p>Docker是一个Client-Server结构的系统，Docker守护进程运行在主机上， 然后通过Socket连接从客户端访问，守护进程从客户端接受命令并管理运行在主机上的容器。 </p>
+<p>容器，是一个运行时环境，鲸鱼背上的一个个小集装箱。</p>
+<p><strong>生命周期</strong></p>
+<p>Docker 容器的生命周期里分为五种状态，其分别代表着：</p>
+<ul>
+<li>Created：容器已经被创建，容器所需的相关资源已经准备就绪，但容器中的程序还未处于运行状态。</li>
+<li>Running：容器正在运行，也就是容器中的应用正在运行。</li>
+<li>Paused：容器已暂停，表示容器中的所有程序都处于暂停 ( 不是停止 ) 状态。</li>
+<li>Stopped：容器处于停止状态，占用的资源和沙盒环境都依然存在，只是容器中的应用程序均已停止。</li>
+<li>Deleted：容器已删除，相关占用的资源及存储在 Docker 中的管理信息也都已释放和移除。</li>
+</ul>
+<h2 id="四、常用命令"><a href="#四、常用命令" class="headerlink" title="四、常用命令"></a>四、常用命令</h2><h3 id="1、帮助命令"><a href="#1、帮助命令" class="headerlink" title="1、帮助命令"></a>1、帮助命令</h3><pre><code>docker version
+docker info
+docker --help</code></pre><h3 id="2、镜像命令"><a href="#2、镜像命令" class="headerlink" title="2、镜像命令"></a>2、镜像命令</h3><p>（1）搜索镜像</p>
+<p>可以直接在：<a href="https://hub.docker.com" target="_blank" rel="noopener">https://hub.docker.com</a> 搜索。</p>
+<p>使用命令搜索镜像：</p>
+<pre class=" language-bash"><code class="language-bash">docker search <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> images_name</code></pre>
+<p>OPTIONS:</p>
+<ul>
+<li><strong>–no-trunc ：</strong>显示完整的镜像描述。</li>
+<li><strong>-s ：</strong>列出收藏数不小于指定值的镜像。</li>
+<li><strong>–automated：</strong>只列出automated build 类型的镜像。</li>
+</ul>
+<p>（2）下载镜像</p>
+<pre class=" language-bash"><code class="language-bash">docker pull images_name<span class="token punctuation">[</span>:tag<span class="token punctuation">]</span></code></pre>
+<p>（3）显示本地镜像</p>
+<pre class=" language-bash"><code class="language-bash">docker images <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span></code></pre>
+<p>OPTIONS：</p>
+<ul>
+<li><strong>-a ：</strong>列出本地所有镜像</li>
+<li><strong>-q ：</strong>只显示镜像ID。</li>
+<li><strong>–digests ：</strong>显示镜像的摘要信息</li>
+<li><strong>–no-trunc ：</strong>显示完整的镜像信息</li>
+</ul>
+<p>（3）删除本地镜像</p>
+<p>删除单个镜像：</p>
+<pre><code>docker rmi -f images_id</code></pre><p>删除多个镜像：</p>
+<pre class=" language-bash"><code class="language-bash">docker rmi -f images_name1:tag  images_name2:tag </code></pre>
+<p>删除全部镜像：</p>
+<pre><code>docker rmi -f $(docker images -qa)</code></pre><p>（4）提交镜像</p>
+<p><code>docker commit</code> 提交容器副本使之成为一个新的镜像。</p>
+<p>这个命令一般可以个性化好容器之后，制作成自己的镜像模板。</p>
+<pre><code>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</code></pre><p>OPTIONS说明：</p>
+<ul>
+<li><strong>-a ：</strong>提交的镜像作者；</li>
+<li><strong>-c ：</strong>使用Dockerfile指令来创建镜像；</li>
+<li><strong>-m ：</strong>提交时的说明文字；</li>
+<li><strong>-p ：</strong>在commit时，将容器暂停。</li>
+</ul>
+<p>示例：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 将容器a404c6c174a2 保存为新的镜像,并添加提交人信息和说明信息。</span>
+docker commit -a <span class="token string">"xiaocai.com"</span> -m <span class="token string">"my mysql"</span> a404c6c174a2  mymysql:v1 </code></pre>
+<p>（5）登录与提交</p>
+<p>之所以要登录是因为要把本地镜像提交到镜像仓库，默认为官方仓库Docker Hub，也可以自己搭建自己的镜像仓库。</p>
+<p>登录：</p>
+<pre><code>docker login -u username -p password</code></pre><p>退出：</p>
+<pre><code>docker logout</code></pre><p>本地镜像提交到镜像仓库</p>
+<pre><code>docker push [OPTIONS] NAME[:TAG]</code></pre><p>OPTIONS说明：</p>
+<ul>
+<li><strong>–disable-content-trust ：</strong>忽略镜像的校验,默认开启</li>
+</ul>
+<h3 id="3、容器命令"><a href="#3、容器命令" class="headerlink" title="3、容器命令"></a>3、容器命令</h3><p>（1）新建并启动容器</p>
+<pre class=" language-bash"><code class="language-bash">docker run <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> IMAGE <span class="token punctuation">[</span>COMMAND<span class="token punctuation">]</span> <span class="token punctuation">[</span>ARG<span class="token punctuation">..</span>.<span class="token punctuation">]</span></code></pre>
+<p> OPTIONS说明（常用）：（有些是一个减号，有些是两个减号）</p>
+<ul>
+<li><p><strong>–name=”容器新名字”：</strong> 为容器指定一个名称；</p>
+</li>
+<li><p><strong>-d：</strong> 后台运行容器，并返回容器ID，也即启动守护式容器；</p>
+</li>
+<li><p><strong>-i：</strong>以交互模式运行容器，通常与 -t 同时使用；</p>
+</li>
+<li><p><strong>-t：</strong>为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p>
+</li>
+<li><p><strong>-P：</strong>随机端口映射；</p>
+</li>
+<li><p><strong>-p：</strong>指定端口映射，有以下四种格式</p>
+<p>​      ip:hostPort:containerPort</p>
+<pre><code>  ip::containerPort
+  hostPort:containerPort
+  containerPort</code></pre></li>
+<li><p><strong>–volume , -v：</strong> 绑定一个卷。</p>
+<p>此处只列举常用参数，还有其他参数可参考官网命令参数说明。</p>
+</li>
+</ul>
+<p>示例1：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#使用镜像centos:latest以交互模式启动一个容器,在容器内执行/bin/bash命令。</span>
+docker run -it centos /bin/bash </code></pre>
+<p><strong>退出容器</strong></p>
+<p>以交互模式启动一个容器之后，退出容器：</p>
+<p><code>exit</code> ：容器停止并退出。</p>
+<p><code>CTRL + P + Q</code> ：容器不停止并退出。</p>
+<p>进入正在运行的容器</p>
+<p>方式一：</p>
+<pre class=" language-bash"><code class="language-bash">docker <span class="token function">exec</span> -it container-id  /bin/bash</code></pre>
+<p>方式二：</p>
+<pre><code>docker attach container-id </code></pre><p>二者区别：</p>
+<p><strong>attach ：</strong> 直接进入容器启动命令的终端，不会启动新的进程。</p>
+<p><strong>exec ：</strong>是在容器中打开新的终端，并且可以启动新的进程。</p>
+<p>示例2：（常用）</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#使用镜像centos:latest以后台守护进程模式启动一个容器</span>
+docker run -d centos</code></pre>
+<p>（2）查看正在运行的容器</p>
+<pre class=" language-bash"><code class="language-bash">docker <span class="token function">ps</span> <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span></code></pre>
+<p>OPTIONS：</p>
+<ul>
+<li><strong>-a ：</strong>列出当前所有正在运行的容器+历史上运行过的</li>
+<li><strong>-l ：</strong>显示最近创建的容器。</li>
+<li><strong>-n：</strong>显示最近n个创建的容器。</li>
+<li><strong>-q ：</strong>静默模式，只显示容器编号。</li>
+<li><strong>–no-trunc ：</strong>不截断输出。</li>
+</ul>
+<p>（3）容器存在之后的启停删</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启动容器</span>
+docker start container-id <span class="token operator">|</span> container-name
+<span class="token comment" spellcheck="true"># 重启容器</span>
+docker restart container-id <span class="token operator">|</span> container-name
+<span class="token comment" spellcheck="true"># 停止容器</span>
+docker restart container-id <span class="token operator">|</span> container-name
+<span class="token comment" spellcheck="true"># 暴力停止容器-拔电源</span>
+docker <span class="token function">kill</span> container-id <span class="token operator">|</span> container-name
+<span class="token comment" spellcheck="true"># 删除容器</span>
+docker <span class="token function">rm</span> container-id 
+<span class="token comment" spellcheck="true"># 强制删除多个容器</span>
+docker <span class="token function">rm</span> -f <span class="token variable"><span class="token variable">$(</span>docker <span class="token function">ps</span> -a -q<span class="token variable">)</span></span>
+docker  <span class="token function">ps</span> -a -q <span class="token operator">|</span> <span class="token function">xargs</span> docker <span class="token function">rm</span></code></pre>
+<p>（4）查容器信息（重点）</p>
+<p><strong>查看容器日志</strong></p>
+<pre><code>docker logs -f -t --tail  container-id</code></pre><p><strong>-t ：</strong>加入时间戳</p>
+<p><strong>-f ：</strong>跟随最新的日志打印</p>
+<p><strong>–tail 300  ：</strong>显示最后300条日志</p>
+<p><strong>查看容器内运行的进程</strong></p>
+<pre class=" language-bash"><code class="language-bash">docker  <span class="token function">top</span> container-id</code></pre>
+<p><strong>查看容器内部细节</strong></p>
+<pre class=" language-bash"><code class="language-bash">docker  inspect container-id</code></pre>
+<p><strong>从容器内拷贝文件到宿主机</strong></p>
+<pre><code>docker cp container-id:容器内路径  目标主机路径</code></pre><p>示例：</p>
+<pre class=" language-bash"><code class="language-bash">docker <span class="token function">cp</span> f1faf3c3c6c5:/usr/local/cptest/container_test.txt  /tmp/test.txt</code></pre>
+<p><img src="/medias/loading-animated.gif" data-original="/images/docker/docker-commands-diagram.jpg" alt="Docker commands Diagram"></p>
+<table>
+<thead>
+<tr>
+<th>命令关键词</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>attach</td>
+<td>Attach to a running container   # 当前 shell 下 attach 连接指定运行镜像</td>
+</tr>
+<tr>
+<td>build</td>
+<td>Build an image from a Dockerfile  # 通过 Dockerfile 定制镜像</td>
+</tr>
+<tr>
+<td>commit</td>
+<td>Create a new image from a container changes   # 提交当前容器为新的镜像</td>
+</tr>
+<tr>
+<td>cp</td>
+<td>Copy files/folders from the containers filesystem to the host path   #从容器中拷贝指定文件或者目录到宿主机中</td>
+</tr>
+<tr>
+<td>create</td>
+<td>Create a new container                        # 创建一个新的容器，同 run，但不启动容器</td>
+</tr>
+<tr>
+<td>diff</td>
+<td>Inspect changes on a container’s filesystem   # 查看 docker 容器变化</td>
+</tr>
+<tr>
+<td>events</td>
+<td>Get real time events from the server          # 从 docker 服务获取容器实时事件</td>
+</tr>
+<tr>
+<td>exec</td>
+<td>Run a command in an existing container        # 在已存在的容器上运行命令</td>
+</tr>
+<tr>
+<td>export</td>
+<td>Stream the contents of a container as a tar archive   # 导出容器的内容流作为一个 tar 归档文件[对应 import ]</td>
+</tr>
+<tr>
+<td>history</td>
+<td>Show the history of an image   # 展示一个镜像形成历史</td>
+</tr>
+<tr>
+<td>images</td>
+<td>List images  # 列出系统当前镜像</td>
+</tr>
+<tr>
+<td>import</td>
+<td>Create a new filesystem image from the contents of a tarball # 从tar包中的内容创建一个新的文件系统映像[对应export]</td>
+</tr>
+<tr>
+<td>info</td>
+<td>Display system-wide information               # 显示系统相关信息</td>
+</tr>
+<tr>
+<td>inspect</td>
+<td>Return low-level information on a container   # 查看容器详细信息</td>
+</tr>
+<tr>
+<td>kill</td>
+<td>Kill a running container                      # kill 指定 docker 容器</td>
+</tr>
+<tr>
+<td>load</td>
+<td>Load an image from a tar archive              # 从一个 tar 包中加载一个镜像[对应 save]</td>
+</tr>
+<tr>
+<td>login</td>
+<td>Register or Login to the docker registry server    # 注册或者登陆一个 docker 源服务器</td>
+</tr>
+<tr>
+<td>logout</td>
+<td>Log out from a Docker registry server          # 从当前 Docker registry 退出</td>
+</tr>
+<tr>
+<td>logs</td>
+<td>Fetch the logs of a container                 # 输出当前容器日志信息</td>
+</tr>
+<tr>
+<td>port</td>
+<td>Lookup the public-facing port which is NAT-ed to PRIVATE_PORT    # 查看映射端口对应的容器内部源端口</td>
+</tr>
+<tr>
+<td>pause</td>
+<td>Pause all processes within a container        # 暂停容器</td>
+</tr>
+<tr>
+<td>ps</td>
+<td>List containers                               # 列出容器列表</td>
+</tr>
+<tr>
+<td>pull</td>
+<td>Pull an image or a repository from the docker registry server   # 从docker镜像源服务器拉取指定镜像或者库镜像</td>
+</tr>
+<tr>
+<td>push</td>
+<td>Push an image or a repository to the docker registry server    # 推送指定镜像或者库镜像至docker源服务器</td>
+</tr>
+<tr>
+<td>restart</td>
+<td>Restart a running container                   # 重启运行的容器</td>
+</tr>
+<tr>
+<td>rm</td>
+<td>Remove one or more containers                 # 移除一个或者多个容器</td>
+</tr>
+<tr>
+<td>rmi</td>
+<td>Remove one or more images             # 移除一个或多个镜像[无容器使用该镜像才可删除，否则需删除相关容器才可继续或 -f 强制删除]</td>
+</tr>
+<tr>
+<td>run</td>
+<td>Run a command in a new container              # 创建一个新的容器并运行一个命令</td>
+</tr>
+<tr>
+<td>save</td>
+<td>Save an image to a tar archive                # 保存一个镜像为一个 tar 包[对应 load]</td>
+</tr>
+<tr>
+<td>search</td>
+<td>Search for an image on the Docker Hub         # 在 docker hub 中搜索镜像</td>
+</tr>
+<tr>
+<td>start</td>
+<td>Start a stopped containers                    # 启动容器</td>
+</tr>
+<tr>
+<td>stop</td>
+<td>Stop a running containers                     # 停止容器</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>Tag an image into a repository                # 给源中镜像打标签</td>
+</tr>
+<tr>
+<td>top</td>
+<td>Lookup the running processes of a container   # 查看容器中运行的进程信息</td>
+</tr>
+<tr>
+<td>unpause</td>
+<td>Unpause a paused container                    # 取消暂停容器</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Show the docker version information           # 查看 docker 版本号</td>
+</tr>
+<tr>
+<td>wait</td>
+<td>Block until a container stops, then print its exit code   # 截取容器停止时的退出状态值</td>
+</tr>
+</tbody></table>
+<h2 id="五、Docker-镜像"><a href="#五、Docker-镜像" class="headerlink" title="五、Docker 镜像"></a>五、Docker 镜像</h2><h3 id="1、Docker-镜像是什么"><a href="#1、Docker-镜像是什么" class="headerlink" title="1、Docker 镜像是什么"></a>1、Docker 镜像是什么</h3><p>UnionFS（联合文件系统）：Union文件系统（UnionFS）是一种分层、轻量级并且高性能的文件系统，它支持对文件系统的修改作为一次提交来一层层的叠加，同时可以将不同目录挂载到同一个虚拟文件系统下(unite several directories into a single virtual filesystem)。Union 文件系统是 Docker 镜像的基础。</p>
+<p>镜像可以通过分层来进行继承，基于基础镜像（没有父镜像），可以制作各种具体的应用镜像。</p>
+<p><strong>特点：</strong>一次同时加载多个文件系统，但从外面看起来，只能看到一个文件系统，联合加载会把各层文件系统叠加起来，这样最终的文件系统会包含所有底层的文件和目录。</p>
+<p>镜像（Images）可以看成是由多个镜像层叠加起来的一个文件系统（通过UnionFS与AUFS文件联合系统实现），镜像层（ Image Layer）也可以简单理解为一个基本的镜像，而每个镜像层之间通过指针的形式进行叠加。</p>
+<p><strong>Docer镜像的特点：</strong></p>
+<p>Docker镜像都是只读的，当容器启动时，一个新的可写层被加载到镜像的顶部。这一层通常被称作“容器层”，“容器层”之下的都叫“镜像层”。 </p>
+<h3 id="2、Docker镜像加载原理"><a href="#2、Docker镜像加载原理" class="headerlink" title="2、Docker镜像加载原理"></a>2、Docker镜像加载原理</h3><p>docker的镜像实际上由一层一层的文件系统组成，这种层级的文件系统叫UnionFS。</p>
+<p><code>bootfs(boot file system)</code>主要包含<code>bootloader</code>和<code>kernel</code>, <code>bootloader</code>主要是引导加载<code>kernel</code>, <code>Linux</code>刚启动时会加载<code>bootfs</code>文件系统，在Docker镜像的最底层是<code>bootfs</code>。这一层与我们典型的<code>Linux/Unix</code>系统是一样的，包含<code>boot</code>加载器和内核。当boot加载完成之后整个内核就都在内存中了，此时内存的使用权已由<code>bootfs</code>转交给内核，此时系统也会卸载<code>bootfs</code>。</p>
+<p><code>rootfs (root file system)</code>，在bootfs之上。包含的就是典型 <code>Linux</code> 系统中的 /dev, /proc, /bin, /etc 等标准目录和文件。<code>rootfs</code>就是各种不同的操作系统发行版，比如<code>Ubuntu</code>，<code>Centos</code>等等。 </p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/docker/docker-kernel.jpg" alt="Docker 容器"></p>
+<p>docker镜像里的centos 系统大小约 200M，对于一个精简的OS，rootfs可以很小，只需要包括最基本的命令、工具和程序库就可以了，因为底层直接用Host的kernel，自己只需要提供 rootfs 就行了。由此可见对于不同的linux发行版, bootfs基本是一致的, rootfs会有差别, 因此不同的发行版可以公用bootfs。</p>
+<p>在执行pull 命令下载镜像的时候，可以看到docker的镜像好像是在一层一层的在下载。</p>
+<p>为什么要使用分层呢？</p>
+<p>最主要的是可以实现<strong>共享资源</strong></p>
+<p>比如：有多个镜像都从相同的 base 镜像构建而来，那么宿主机只需在磁盘上保存一份base镜像，<br>同时内存中也只需加载一份 base 镜像，就可以为所有容器服务了。而且镜像的每一层都可以被共享。</p>
+<h2 id="六、Docker-容器数据卷"><a href="#六、Docker-容器数据卷" class="headerlink" title="六、Docker 容器数据卷"></a>六、Docker 容器数据卷</h2><p>Docker 容器数据卷主要是为了容器的持久化，方便容器间继承和数据共享。</p>
+<h3 id="数据卷命令"><a href="#数据卷命令" class="headerlink" title="数据卷命令"></a>数据卷命令</h3><h4 id="1-创建数据卷"><a href="#1-创建数据卷" class="headerlink" title="1.创建数据卷"></a>1.创建数据卷</h4><pre class=" language-bash"><code class="language-bash">docker volume  create  数据卷名称</code></pre>
+<p>创建数据卷之后默认存放在：<code>/var/lib/docker/volumes/数据卷名称/_data</code></p>
+<h4 id="2-查看全部数据卷"><a href="#2-查看全部数据卷" class="headerlink" title="2.查看全部数据卷"></a>2.查看全部数据卷</h4><pre class=" language-bash"><code class="language-bash">docker volume  <span class="token function">ls</span></code></pre>
+<h4 id="3-查看数据卷详细信息"><a href="#3-查看数据卷详细信息" class="headerlink" title="3.查看数据卷详细信息"></a>3.查看数据卷详细信息</h4><pre class=" language-bash"><code class="language-bash">docker volume  inspect 数据卷名称</code></pre>
+<h4 id="4-删除数据卷"><a href="#4-删除数据卷" class="headerlink" title="4.删除数据卷"></a>4.删除数据卷</h4><pre class=" language-bash"><code class="language-bash">docker volume  <span class="token function">rm</span> 数据卷名称</code></pre>
+<h4 id="5-应用数据卷"><a href="#5-应用数据卷" class="headerlink" title="5.应用数据卷"></a>5.应用数据卷</h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 数据卷不存在时docker 自动创建。会将数据卷内部自带文件存储在默认的存放路径中</span>
+docker run -v 数据卷名称:容器内部路径  镜像ID
+
+<span class="token comment" spellcheck="true"># 直接指定一个路径作为容器卷的存放位置，路径是空的。（推荐）</span>
+docker run -v  路径:容器内部路径</code></pre>
+<h3 id="1、容器添加数据卷"><a href="#1、容器添加数据卷" class="headerlink" title="1、容器添加数据卷"></a>1、容器添加数据卷</h3><p>（1）直接命令添加</p>
+<pre class=" language-bash"><code class="language-bash">docker run -it -v /宿主机绝对路径目录:/容器内目录      镜像名</code></pre>
+<p>带权限的命令：</p>
+<pre class=" language-bash"><code class="language-bash">docker run -it -v /宿主机绝对路径目录:/容器内目录:ro      镜像名</code></pre>
+<p><code>rw</code> ：read  write 读写权限，默认</p>
+<p><code>ro</code> ：read only 只读权限</p>
+<p><code>wo</code> ：write only 只写权限</p>
+<p>查看数据卷是否挂载成功</p>
+<pre class=" language-bash"><code class="language-bash">docker inspect container-id</code></pre>
+<p>如果测试容器和宿主机直接数据共享，可以尝试从宿主机修改文件，进入容器查看是否修改，再反过来操作一次。</p>
+<p><strong>出错描述：</strong>Docker挂载主机目录Docker访问出现 <code>cannot open directory .: Permission denied</code><br><strong>解决办法：</strong>在挂载目录后多加一个–privileged=true参数即可。</p>
+<p>（2）DockerFile添加</p>
+<p>根目录新建一个 mydocker 文件夹进入，然后创建一个dockerfile文件，内容：</p>
+<pre class=" language-txt"><code class="language-txt"># volume test
+FROM centos
+VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"]
+CMD echo "finished,--------success1"
+CMD /bin/bash</code></pre>
+<p>这里在 Dockerfile 中使用VOLUME指令来给镜像添加一个或多个数据卷。</p>
+<p><code>VOLUME[&quot;/dataVolumeContainer&quot;,&quot;/dataVolumeContainer2&quot;,&quot;/dataVolumeContainer3&quot;]</code></p>
+<p>说明：出于可移植和分享的考虑，用<code>-v 主机目录:容器目录</code>这种方法不能够直接在Dockerfile中实现。由于宿主机目录是依赖于特定宿主机的，并不能够保证在所有的宿主机上都存在这样的特定目录。</p>
+<p>使用 <code>build</code> 生成镜像</p>
+<pre><code>docker build -f /mydocker/dockerfile -t xiaocai/centos</code></pre><p>如果生成成功则可以使用<code>docker images</code>查看</p>
+<p>运行容器 <code>docker run  it centos-container-id /bin/bash</code></p>
+<p>使用 <code>docker inspect centos-container-id</code> 查看容器内的卷目录地址对应的主机目录地址</p>
+<p>一般是：<code>/var/lib/docker/volumes/container-id/_data</code></p>
+<h3 id="2、容器数据卷"><a href="#2、容器数据卷" class="headerlink" title="2、容器数据卷"></a>2、容器数据卷</h3><p>命名的容器挂载数据卷，其它容器通过挂载这个(父容器)实现数据共享，挂载数据卷的容器，称之为数据卷容器</p>
+<p>容器传递共享 <code>--volumes-from</code></p>
+<p>比如：以上面的 <code>xiaocai/centos</code> 为模板启动容器 dk_centos_01/dk_centos_02/dk_centos_03</p>
+<p>先启动父容器：<code>dk_centos_01</code>，然后在在<code>/dataVolumeContainer2</code> 目录新增内容</p>
+<p>启动：<code>dk_centos_02</code>和<code>dk_centos_03</code></p>
+<pre class=" language-bash"><code class="language-bash">docker run -it --name dk_centos_02 --volumes-from dk_centos_01 zzyy/centos
+docker run -it --name dk_centos_03 --volumes-from dk_centos_01 zzyy/centos</code></pre>
+<p>在<code>dk_centos_02</code>和<code>dk_centos_03</code>分别在<code>/dataVolumeContainer2</code>各自新增内容<code>test2.txt</code>、<code>test3.txt</code></p>
+<p>回到<code>dk_centos_01</code>可以看到<code>dk_centos_02</code>和<code>dk_centos_03</code>各自添加的都能共享了。</p>
+<p>删除<code>dk_centos_01</code>，<code>dk_centos_02</code>修改后<code>dk_centos_03</code>依然可以访问。</p>
+<p>新建<code>dk_centos_04</code>继承<code>dk_centos_03</code>后再删除<code>dk_centos_03</code>，<code>dk_centos_04</code>也已经继续访问共享。</p>
+<p>结论：<strong>容器之间配置信息的传递，数据卷的生命周期一直持续到没有容器使用它为止。</strong></p>
+<h2 id="七、DockerFile解析"><a href="#七、DockerFile解析" class="headerlink" title="七、DockerFile解析"></a>七、DockerFile解析</h2><h3 id="1、DockerFile是什么"><a href="#1、DockerFile是什么" class="headerlink" title="1、DockerFile是什么"></a>1、DockerFile是什么</h3><p>Dockerfile是用来构建D1ocker镜像的构建文件，是由一系列命令和参数构成的脚本。</p>
+<p>一般分三步骤：</p>
+<p>（1）编写DockerFile文件</p>
+<p>（2）执行 docker build 命令，从容器生成镜像</p>
+<p>（3）运行docker run 命令，运行新的容器</p>
+<p>比如centos的dockerfile 文件，在：<a href="https://github.com/CentOS/sig-cloud-instance-images/blob/f2788ce41161326a18420913b0195d1c6cfa1581/docker/Dockerfile" target="_blank" rel="noopener">https://github.com/CentOS/sig-cloud-instance-images/blob/f2788ce41161326a18420913b0195d1c6cfa1581/docker/Dockerfile</a></p>
+<pre><code>FROM scratch
+ADD centos-7-x86_64-docker.tar.xz /
+LABEL \
+org.label-schema.schema-version=&quot;1.0&quot; \
+org.label-schema.name=&quot;CentOS Base Image&quot; \
+org.label-schema.vendor=&quot;CentOS&quot; \
+org.label-schema.license=&quot;GPLv2&quot; \
+org.label-schema.build-date=&quot;20200809&quot; \
+org.opencontainers.image.title=&quot;CentOS Base Image&quot; \
+org.opencontainers.image.vendor=&quot;CentOS&quot; \
+org.opencontainers.image.licenses=&quot;GPL-2.0-only&quot; \
+org.opencontainers.image.created=&quot;2020-08-09 00:00:00+01:00&quot;
+
+CMD [&quot;/bin/bash&quot;]</code></pre><h3 id="2、DockerFile构建过程"><a href="#2、DockerFile构建过程" class="headerlink" title="2、DockerFile构建过程"></a>2、DockerFile构建过程</h3><p>DockerFile 内容基本认识：</p>
+<p>（1）每条保留字指令都必须为大写字母且后面要跟随至少一个参数</p>
+<p>（2）指令按照从上到下的顺序执行。</p>
+<p>（3）使用 <code>#</code> 表示注释</p>
+<p>（4）每条指令都会创建一个新的镜像层，并对镜像进行提交。（参考Docker原理）</p>
+<p>Docker执行DockerFile 主要基本流程：</p>
+<p>（1）docker从基础镜像运行一个容器。</p>
+<p>（2）执行一条指令并对容器作出修改。</p>
+<p>（3）执行类似<code>docker commit</code>的操作提交一个新的镜像层</p>
+<p>（4）docker再基于刚提交的镜像运行一个新容器</p>
+<p>（5）执行dockerfile中的下一条指令直到所有指令都执行完成</p>
+<blockquote>
+<p>从应用软件的角度来看，Dockerfile、Docker镜像与Docker容器分别代表软件的三个不同阶段，</p>
+<ul>
+<li>Dockerfile是软件的原材料</li>
+<li>Docker镜像是软件的交付品</li>
+<li>Docker容器则可以认为是软件的运行态。<br>Dockerfile面向开发，Docker镜像成为交付标准，Docker容器则涉及部署与运维，三者缺一不可，合力充当Docker体系的基石。</li>
+</ul>
+<p>1 Dockerfile，需要定义一个Dockerfile，Dockerfile定义了进程需要的一切东西。Dockerfile涉及的内容包括执行代码或者是文件、环境变量、依赖包、运行时环境、动态链接库、操作系统的发行版、服务进程和内核进程(当应用进程需要和系统服务和内核进程打交道，这时需要考虑如何设计namespace的权限控制)等等;</p>
+<p>2 Docker镜像，在用Dockerfile定义一个文件之后，docker build时会产生一个Docker镜像，当运行 Docker镜像时，会真正开始提供服务;</p>
+<p>3 Docker容器，容器是直接提供服务的。</p>
+</blockquote>
+<h3 id="3、DockerFile-指令"><a href="#3、DockerFile-指令" class="headerlink" title="3、DockerFile 指令"></a>3、DockerFile 指令</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FROM</td>
+<td>基础镜像，当前镜像是基于哪个镜像的</td>
+</tr>
+<tr>
+<td>MAINTAINER</td>
+<td>镜像维护者的姓名和邮箱地址</td>
+</tr>
+<tr>
+<td>RUN</td>
+<td>容器构建时需要运行的命令</td>
+</tr>
+<tr>
+<td>EXPOSE</td>
+<td>当前容器对外暴露的端口</td>
+</tr>
+<tr>
+<td>WORKDIR</td>
+<td>指定在创建容器后，终端默认登录进入的工作目录</td>
+</tr>
+<tr>
+<td>ENV</td>
+<td>构建镜像过程中设置环境变量</td>
+</tr>
+<tr>
+<td>ADD</td>
+<td>将指定宿主机目录文件拷贝进镜像且ADD命令会自动处理URL和解压tar压缩包</td>
+</tr>
+<tr>
+<td>COPY</td>
+<td>类似ADD，拷贝文件到目录到镜像中。将构建上下文目录的文件复制到新的一层镜像内的目录路径。<code>COPY src  dest</code>, <code>COPY [&quot;src&quot;,&quot;dest&quot;]</code></td>
+</tr>
+<tr>
+<td>VOLUME</td>
+<td>容器数据卷，用于数据保存和持久化工作</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>指定一个容器启动时要运行的命令。<br/>Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效，CMD 会被 docker run 之后的参数替换</td>
+</tr>
+<tr>
+<td>ENTRYPOINT</td>
+<td>指定一个容器启动时要运行的命令。<br/> ENTRYPOINT 的目的 和 CMD 命令 一样，都是指定容器启动程序及参数</td>
+</tr>
+<tr>
+<td>ONBUILD</td>
+<td>当构建一个被继承的DockerFile 时运行命令，父镜像在被子继承后父镜像的onbuild被触发</td>
+</tr>
+</tbody></table>
+<p><code>FROM  scratch</code> ：大多数镜像都是通过base 镜像（<code>scratch</code>）中安装配置需要的软件构建出来。</p>
+<p>CMD 指令的格式和 RUN 相似，也是两种格式：</p>
+<p>（1）shell 格式：<code>CMD &lt;命令&gt;</code></p>
+<p>（2）exec 格式：<code>CMD [&quot;可执行文件&quot;，&quot;参数1&quot;,&quot;参数2&quot;...]</code> </p>
+<p>参数列表的格式：<code>CMD [&quot;参数1&quot;,&quot;参数2&quot;...]</code> 在指定了 ENTRYPOINT 指令后，用CMD 指定具体的参数。</p>
+<p><img src="/medias/loading-animated.gif" data-original="/images/docker/docker-dockerfile.jpg" alt="DockerFile"></p>
+<p><strong>Dockerfile 指令分类</strong></p>
+<table>
+<thead>
+<tr>
+<th>BUILD</th>
+<th>BOTH</th>
+<th>RUN</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FROM</td>
+<td>WORKDIR</td>
+<td>CMD</td>
+</tr>
+<tr>
+<td>MAINTAINER</td>
+<td>USER</td>
+<td>ENV</td>
+</tr>
+<tr>
+<td>COPY</td>
+<td></td>
+<td>EXPOSE</td>
+</tr>
+<tr>
+<td>ADD</td>
+<td></td>
+<td>VOLUME</td>
+</tr>
+<tr>
+<td>RUN</td>
+<td></td>
+<td>ENTRYPOINT</td>
+</tr>
+<tr>
+<td>ONBUILD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>.dockerignore</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="4、DockerFile-学习示例"><a href="#4、DockerFile-学习示例" class="headerlink" title="4、DockerFile 学习示例"></a>4、DockerFile 学习示例</h3><h4 id="编写Dockerfile-示例一："><a href="#编写Dockerfile-示例一：" class="headerlink" title="编写Dockerfile 示例一："></a>编写Dockerfile 示例一：</h4><p>下载的centos镜像，新建并运行容器，默认的centos 是不能执行 <code>ifconfig</code> 、<code>vim</code>、 <code>rz</code> 、<code>sz</code> 等命令。现在编写一个dockerfile 用来构建一个自定义的centos 容器取名为 <code>xiaocai_centos</code></p>
+<p>（1）下载centos 镜像</p>
+<pre class=" language-bash"><code class="language-bash">docker pull centos</code></pre>
+<p>（2）以centos为镜像模板启动容器并进入容器</p>
+<pre class=" language-bash"><code class="language-bash">docker run -it centos</code></pre>
+<p>可以尝试执行上述所说不能执行的命令，确认现在是否可以执行，其实是不能执行的。</p>
+<p>（3）编写DockerFile 文件</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p xiaocai/dockerfiles
+<span class="token function">cd</span> /xiaocai/dockerfiles
+<span class="token function">vi</span> Dockerfile</code></pre>
+<p>Dockerfile 内容如下：</p>
+<pre class=" language-txt"><code class="language-txt">FROM centos
+MAINTAINER xiaocai<smallrose@qq.com>
+
+RUN yum -y install vim
+RUN yum -y install net-tools
+RUN yum -y install lrzsz
+
+ENV MYPATH /usr/local
+WORKDIR $MYPATH</code></pre>
+<p>保存文件。</p>
+<p>（4）构建出新的镜像</p>
+<pre><code>docker build -t xiaocai_centos:1.1</code></pre><p>最初出现 <code>successfully build</code> 字样表示构建成功。</p>
+<p>（5）运行新的镜像</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 可以先查看本地镜像</span>
+docker images
+<span class="token comment" spellcheck="true"># 以交互方式运行新的镜像</span>
+docker run -it xiaocai_centos:1.1</code></pre>
+<p>此时，如果正常可以执行<code>ifconfig</code>  <code>vim</code>命令，如果你在windows机器使用SSH链接工具，执行 <code>rz</code> 命令，会弹出选择文件的窗口。</p>
+<p>（6）列出镜像的变更历史</p>
+<pre><code>docker history centos</code></pre><h4 id="编写Dockerfile-示例二："><a href="#编写Dockerfile-示例二：" class="headerlink" title="编写Dockerfile 示例二："></a>编写Dockerfile 示例二：</h4><p><code>CMD / ENTRYPOINT</code> 都是指定一个容器启动时要运行的命令。</p>
+<p><strong><code>CMD</code>：</strong></p>
+<p>在Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效，CMD 会被 docker run 之后的参数替换。</p>
+<p>如在centos 镜像中，最后一个CMD 是 <code>CMD [&quot;/bin/bash&quot;]</code></p>
+<p>现在以默认的centos为镜像模板运行一个centos 实例：</p>
+<pre class=" language-bash"><code class="language-bash">docker run -it -p 8888:8080 tomcat <span class="token function">ls</span> -l</code></pre>
+<p>这里<code>CMD [&quot;/bin/bash&quot;]</code> 不会执行，而是被 <code>-it -p 8888:8080 tomcat ls -l</code> 替换。</p>
+<p><strong>ENTRYPOINT ：</strong></p>
+<p>docker run 之后的参数会被当做参数传递给 ENTRYPOINT，之后形成新的命令组合。</p>
+<p>制作CMD版可以查询IP信息的容器，使用<code>curl</code> 命令</p>
+<blockquote>
+<p>curl命令可以用来执行下载、发送各种HTTP请求，指定HTTP头部等操作。</p>
+<p>如果系统没有curl可以使用<code>yum install curl</code>安装，也可以下载安装。<br>curl是将下载文件输出到<code>stdout</code></p>
+<p>使用命令：<code>curl http://www.baidu.com</code><br>执行后，<a href="http://www.baidu.com的html就会显示在屏幕上了" target="_blank" rel="noopener">www.baidu.com的html就会显示在屏幕上了</a></p>
+</blockquote>
+<p>（1）新建一个用作构建的文件夹</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p xiaocai/ipselect01
+<span class="token function">cd</span> xiaocai/ipselect01</code></pre>
+<p>（2）编写Dockerfile 文件</p>
+<pre><code>vi Dockerfile</code></pre><p>文件内容：</p>
+<pre><code>FROM centos
+RUN yum install -y curl
+CMD [ &quot;curl&quot;, &quot;-s&quot;, &quot;http://ip.com&quot; ]</code></pre><p>（3）构建新镜像</p>
+<pre><code>docker build -f Dockerfile -t ipselect01</code></pre><p>（4）运行新镜像的容器</p>
+<pre class=" language-bash"><code class="language-bash">docker run  ipselect01</code></pre>
+<p>直接运行则会默认执行Dockerfile 最后一条CMD，结果返回IP信息。</p>
+<p>如果希望显示 HTTP 头信息，就需要加上<code>-i</code>参数，即：<code>docker run  ipselect01  -i</code></p>
+<p>但是如果直接执行就会报错，因为 <strong>允许多个 CMD 指令，但只有最后一个生效，CMD 会被 docker run 之后的参数替换</strong>。</p>
+<p>重新使用 ENTRYPOINT 重新构建新的镜像：</p>
+<p>（1）新建一个用作构建的文件夹</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p xiaocai/ipselect02
+<span class="token function">cd</span> xiaocai/ipselect02</code></pre>
+<p>（2）编写Dockerfile 文件</p>
+<pre><code>vi Dockerfile</code></pre><p>文件内容：</p>
+<pre><code>FROM centos
+RUN yum install -y curl
+ENTRYPOINT  [ &quot;curl&quot;, &quot;-s&quot;, &quot;http://ip.com&quot; ]</code></pre><p>（3）构建新镜像</p>
+<pre><code>docker build -f Dockerfile -t ipselect02</code></pre><p>（4）运行新镜像的容器</p>
+<pre class=" language-bash"><code class="language-bash">docker run  ipselect02</code></pre>
+<p>直接运行则会默认执行Dockerfile 最后一条CMD，结果返回IP信息。</p>
+<p>（5）参数执行验证</p>
+<p>带上参数运行：</p>
+<pre class=" language-bash"><code class="language-bash">docker run  ipselect02 -i</code></pre>
+<p>此时如果正常，可以看到显示 HTTP 头信息。</p>
+<h4 id="编写Dockerfile-示例三："><a href="#编写Dockerfile-示例三：" class="headerlink" title="编写Dockerfile 示例三："></a>编写Dockerfile 示例三：</h4><p>自己构建一个tomcat的镜像，先下载好tomcat的tar包，和jdk的tar 包，centos环境。</p>
+<p>（1）新建一个用作构建的文件夹</p>
+<pre><code>mkdir -p xiaocai/tomcat9
+cd xiaocai/tomcat9
+touch test_copy.txt</code></pre><p>（2）将jdk 和 tomcat 安装的压缩包拷贝到 <code>/xiaocai/tomcat9</code> ，并在目录下新建Dockerfile 文件。</p>
+<p>到此一步，那么<code>/xiaocai/tomcat9</code> 目录有四个文件：</p>
+<ul>
+<li>test_copy.txt</li>
+<li>jdk的tar包 （jdk-8u171-linux-x64.tar.gz）</li>
+<li>tomcat的tar包（apache-tomcat-9.0.8.tar.gz）</li>
+<li>Dockerfile 文件</li>
+</ul>
+<p>（3）编写Dockerfile， 内容如下：</p>
+<pre><code># 表示基于 centos 开始构建
+FROM         centos
+MAINTAINER    xiaocai&lt;smallrose@1qq.com&gt;
+#把宿主机当前上下文的test_tomcat.txt拷贝到容器/usr/local/路径下
+COPY test_copy.txt /usr/local/test_copy_container.txt
+#把java与tomcat添加到容器中
+ADD jdk-8u171-linux-x64.tar.gz /usr/local/
+ADD apache-tomcat-9.0.8.tar.gz /usr/local/
+#安装vim编辑器
+RUN yum -y install vim
+#安装网络工具
+RUN yum -y install net-tools
+#设置工作访问时候的WORKDIR路径，登录落脚点
+ENV MYPATH /usr/local
+WORKDIR $MYPATH
+#配置java与tomcat环境变量
+ENV JAVA_HOME /usr/local/jdk1.8.0_171
+ENV CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+ENV CATALINA_HOME /usr/local/apache-tomcat-9.0.8
+ENV CATALINA_BASE /usr/local/apache-tomcat-9.0.8
+ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/lib:$CATALINA_HOME/bin
+#容器运行时监听的端口
+EXPOSE  8080
+#启动时运行tomcat
+# ENTRYPOINT [&quot;/usr/local/apache-tomcat-9.0.8/bin/startup.sh&quot; ]
+# CMD [&quot;/usr/local/apache-tomcat-9.0.8/bin/catalina.sh&quot;,&quot;run&quot;]
+#启动值可以直接打印出tomcat日志
+CMD /usr/local/apache-tomcat-9.0.8/bin/startup.sh &amp;&amp; tail -F /usr/local/apache-tomcat-9.0.8/bin/logs/catalina.out</code></pre><p>（4）构建新的镜像</p>
+<pre class=" language-bash"><code class="language-bash">docker build -t xiaocai_tomcat:2.0
+docker images</code></pre>
+<p>（5）运行新的镜像</p>
+<pre class=" language-bash"><code class="language-bash">docker run -d -p 9080:8080 --name xiaocai_tomcat9 -v /xiaocai/tomcat9/test:/usr/local/apache-tomcat-9.0.8/webapps/test -v /xiaocai/tomcat9/tomcat9logs/:/usr/local/apache-tomcat-9.0.8/logs --privileged<span class="token operator">=</span>true xiaocai_tomcat:2.0</code></pre>
+<p>这里将宿主机的<code>/xiaocai/tomcat9/test</code> 目录与容器<code>/usr/local/apache-tomcat-9.0.8/webapps/test</code>项目部署目录映射就是为了方便部署项目。</p>
+<p>（6）验证访问</p>
+<p>在 <code>/xiaocai/tomcat9/test</code> 目录下新建一个html 或 jsp ，然后访问tomcat，不出错的话可以看到页面。</p>
+<p>如果不想建页面也可以直接访问tomcat 的页面。</p>
+<h2 id="八、Docker-常用安装"><a href="#八、Docker-常用安装" class="headerlink" title="八、Docker 常用安装"></a>八、Docker 常用安装</h2><p>常用的安装比如：mysql、tomcat、redis</p>
+<p>基本安装步骤：</p>
+<p>（1）搜索镜像</p>
+<p>（2）拉取镜像</p>
+<p>（3）查看镜像</p>
+<p>（4）启动镜像实例</p>
+<p>（5）停止容器</p>
+<p>（6）删除容器</p>
+<h3 id="1、安装tocmat"><a href="#1、安装tocmat" class="headerlink" title="1、安装tocmat"></a>1、安装tocmat</h3><p>（1）搜索tomcat </p>
+<p>在docker hub 找到需要的tomcat及版本</p>
+<pre class=" language-bash"><code class="language-bash">docker search tomcat</code></pre>
+<p>（2）拉取tomcat 镜像</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 默认拉取最新版</span>
+docker pull tomcat
+<span class="token comment" spellcheck="true"># 拉取特点版本的</span>
+docker pull tomcat:7.0</code></pre>
+<p>（3）查看镜像</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查看镜像</span>
+docker images </code></pre>
+<p>（4）使用tomcat镜像创建容器实例</p>
+<pre><code>docker run -it -p 8080:8080 tomcat</code></pre><ul>
+<li><p><strong>-i</strong> ：交互</p>
+</li>
+<li><p><strong>-t</strong> ：终端</p>
+</li>
+<li><p><strong>-p</strong> ：端口映射，主机端口: 容器端口</p>
+</li>
+<li><p><strong>-P</strong> ：随机端口</p>
+</li>
+</ul>
+<h3 id="2、安装mysql"><a href="#2、安装mysql" class="headerlink" title="2、安装mysql"></a>2、安装mysql</h3><p>（1）搜索mysql</p>
+<p>在docker hub 找到需要的mysql及版本</p>
+<pre class=" language-bash"><code class="language-bash">docker search mysql</code></pre>
+<p>（2）拉取mysql镜像</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 默认拉取最新版</span>
+docker pull mysql
+<span class="token comment" spellcheck="true"># 拉取特点版本的</span>
+docker pull mysql:5.7</code></pre>
+<p>（3）查看镜像</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查看镜像</span>
+docker images </code></pre>
+<p>（4）使用mysql镜像创建容器实例</p>
+<pre class=" language-bash"><code class="language-bash">docker run -p 3306:3306 --name mysql -v /xiaocai/mysql/conf:/etc/mysql/conf.d -v /xiaocai/mysql/logs:/logs -v /xiaocai/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>123456 -d mysql:5.7</code></pre>
+<p>命令说明：<br><code>-p 3306:3306</code>：将主机的3306端口映射到docker容器的3306端口。<br><code>--name mysql</code>：运行服务名字<br><code>-v /xiaocai/mysql/conf:/etc/mysql/conf.d</code>：将主机<code>/xiaocai/mysql</code>录下的conf/my.cnf 挂载到容器的 <code>/etc/mysql/conf.d</code>目录<br><code>-v /xiaocai/mysql/logs:/logs</code>：将主机/xiaocai/mysql目录下的 logs 目录挂载到容器的 /logs。<br><code>-v /xiaocai/mysql/data:/var/lib/mysql</code> ：将主机/xiaocai/mysql目录下的data目录挂载到容器的 /var/lib/mysql<br><code>-e MYSQL_ROOT_PASSWORD=123456</code>：初始化 root 用户的密码。<br><code>-d mysql:5.7</code>: 后台程序运行mysql5.7</p>
+<p>检查mysql容器运行</p>
+<pre class=" language-bash"><code class="language-bash">docker <span class="token function">ps</span> -a</code></pre>
+<p>如果使用命令行登录mysql，则首先进入容器：</p>
+<pre class=" language-bash"><code class="language-bash">docker <span class="token function">exec</span> -it MySQL运行成功后的容器ID   /bin/bash</code></pre>
+<p>进行容器之后可以使用 <code>mysql -u -p</code>的命令进行登录操作。</p>
+<p>在宿主机直接执行命令进行数据备份：</p>
+<pre class=" language-bash"><code class="language-bash">docker <span class="token function">exec</span> myql服务容器ID sh -c <span class="token string">' exec mysqldump --all-databases -uroot -p"123456" '</span> <span class="token operator">></span> /xiaocai/all-databases.sql</code></pre>
+<p>也可以使用mysql客户端连接，注意宿主机端口。</p>
+<h3 id="2、安装redis"><a href="#2、安装redis" class="headerlink" title="2、安装redis"></a>2、安装redis</h3><p>（1）搜索redis</p>
+<p>在docker hub 找到需要的redis及版本</p>
+<pre class=" language-bash"><code class="language-bash">docker search redis</code></pre>
+<p>（2）拉取redis镜像</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 默认拉取最新版</span>
+docker pull redis
+<span class="token comment" spellcheck="true"># 拉取特点版本的</span>
+docker pull redis:3.2</code></pre>
+<p>（3）查看镜像</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查看镜像</span>
+docker images </code></pre>
+<p>（4）使用redis镜像创建容器实例</p>
+<pre class=" language-bash"><code class="language-bash">docker run -p 6379:6379 -v /xiaocai/myredis/data:/data -v /xiaocai/myredis/conf/redis.conf:/usr/local/etc/redis/redis.conf  -d redis:3.2 redis-server /usr/local/etc/redis/redis.conf --appendonly <span class="token function">yes</span></code></pre>
+<p>在主机/xiaocai/myredis/conf/redis.conf目录下新建redis.conf文件</p>
+<pre class=" language-bash"><code class="language-bash">vim /xiaocai/myredis/conf/redis.conf/redis.conf</code></pre>
+<p>文件内容：</p>
+<p><a href="/images/docker/redis.conf">redis.conf</a></p>
+<p>（5）测试连接</p>
+<pre><code>docker exec -it 运行着Rediis服务的容器ID redis-cli</code></pre><p>执行redis 的<code>set/get</code>命令进行数据保存查询操作。</p>
+<p>（6）持久化验证</p>
+<p>执行<code>shutdown</code> 停止redis</p>
+<p>进入<code>/xiaocai/myredis/data</code>目录查看持久化文件。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker 之Docker-Compose</title>
+    <url>/posts/febc9253.html</url>
+    <content><![CDATA[<h2 id="Docker-之-Docker-Compose"><a href="#Docker-之-Docker-Compose" class="headerlink" title="Docker 之 Docker-Compose"></a>Docker 之 Docker-Compose</h2><h2 id="一、产生背景"><a href="#一、产生背景" class="headerlink" title="一、产生背景"></a>一、产生背景</h2><p>运行一个镜像，需要添加大量的参数。如果要运行不同发镜像还需要不同的参数。</p>
+<p>容器增加使得使用 <code>docker run</code> 启动命令变得多繁琐。</p>
+<p>通过Docker-Compose 可以进行批量的管理容器，配置参数。</p>
+<p>只需要一个 <code>docker-compose.yml</code> 文件去维护即可。</p>
+<h2 id="二、下载、配置"><a href="#二、下载、配置" class="headerlink" title="二、下载、配置"></a>二、下载、配置</h2><h3 id="1-github官网下载"><a href="#1-github官网下载" class="headerlink" title="1. github官网下载"></a>1. github官网下载</h3><p><code>Dockrer-Compose</code> 的github发布地址：<a href="https://github.com/docker/compose" target="_blank" rel="noopener">https://github.com/docker/compose</a></p>
+<p>releases 中选择比较稳定的发布版本。</p>
+<h3 id="2、修改文件名"><a href="#2、修改文件名" class="headerlink" title="2、修改文件名"></a>2、修改文件名</h3><p>非必须，需要是为了使用命令方便。<code>Docker-Compose</code> 下载之后名称比较长，修改之后方便使用命令。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mv</span> docker-compose-Linux-x86_64  /usr/local
+<span class="token function">cd</span> /usr/local
+<span class="token function">mv</span> docker-compose-Linux-x86_64 docker-compose
+<span class="token function">chmod</span> 777  docker-compose</code></pre>
+<h3 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h3><p>非必须，需要是为了后续使用命令方便。为了可以在任意目录使用<code>docker-Compose</code> 命令，方便后续执行。</p>
+<p>将 <code>docker-compose</code> 文件移动到 <code>/usr/local/bin</code>, 修改了 <code>/etc/profile</code> 文件，给<code>/usr/local/bin</code> 配置到 <code>PATH</code> 中。</p>
+<pre class=" language-sh"><code class="language-sh">mv docker-compose /usr/lcoal/bin
+vi /etc/profile</code></pre>
+<pre class=" language-txt"><code class="language-txt">export PATH=$JAVA_HOME:/usr/local/bin:$PATH</code></pre>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile</code></pre>
+<p>测试配置是否成功，在任意目录下执行 <code>docker-compose</code></p>
+<h2 id="二-Docker-Compose-管理容器"><a href="#二-Docker-Compose-管理容器" class="headerlink" title="二 Docker-Compose 管理容器"></a>二 Docker-Compose 管理容器</h2><h3 id="1、YML文件"><a href="#1、YML文件" class="headerlink" title="1、YML文件"></a>1、YML文件</h3><p>文件名称：<code>docker-compose.yml</code> </p>
+<p>文件遵循YAML文件格式要求：<code>key+&quot;:&quot;+空格+value</code></p>
+<p>换行+缩进的方式写多组值。</p>
+<p>文件不要使用制表符。</p>
+<h3 id="2、示例"><a href="#2、示例" class="headerlink" title="2、示例"></a>2、示例</h3><p>示例：Docker-Compose 管理Mysql和Tomcat容器</p>
+<pre class=" language-YAML"><code class="language-YAML">varsion: '3.1'
+services: 
+  mysql:             # 服务的名称
+    restart: always  # 表示只要docker启动，这个服务就跟着一起启动
+    image: daocloud.io/library/mysql:5.7.4   # 指定镜像来源路径
+    container_name: mysql    # 指定容器名称
+    ports:
+      - 3306:3306  # 指定端口号映射
+    environment:
+      MYSQL_ROOT_PASSWORD: root    #指定Mysql的root用户登录密码
+      TZ: Asia/Shanghai            #指定时区
+    volumes:
+      - /opt/docker_msql_tomcat/mysql_data:/var/lib/mysql  # 映射数据卷
+  tomcat: 
+    restart: always
+    image: daocloud.io/library/tomcat:8.5.15-jre8    
+    container_name: tomcat
+    ports:
+      - 8080:8080
+    environment: 
+      TZ: Asia/Shanghai
+    volumes:
+      - /opt/docker_msql_tomcat/tomcat_webapps:/var/local/tomcat/webapps
+      - /opt/docker_msql_tomcat/tomcat_logs:/var/local/tomcat/logs</code></pre>
+<h2 id="三-使用-docker-compose-命令管理"><a href="#三-使用-docker-compose-命令管理" class="headerlink" title="三.使用 docker-compose 命令管理"></a>三.使用 docker-compose 命令管理</h2><h3 id="1、注意事项"><a href="#1、注意事项" class="headerlink" title="1、注意事项"></a>1、注意事项</h3><p><strong>在使用docker-compose 命令时，默认会在当前目录下找 docker-compose.yml 文件。</strong></p>
+<h3 id="2、常见命令"><a href="#2、常见命令" class="headerlink" title="2、常见命令"></a>2、常见命令</h3><p><strong>基于 docker-compose.yml 启动管理的容器</strong></p>
+<pre class=" language-bash"><code class="language-bash">docker-compose up -d</code></pre>
+<p><strong>关闭并删除容器</strong></p>
+<pre class=" language-bash"><code class="language-bash">docker-compose down</code></pre>
+<p><strong>开启|关闭|重启 已经存在的由docker-compose维护的容器</strong></p>
+<pre class=" language-bash"><code class="language-bash">docker-compose start
+docker-compose stop 
+docker-compose restart</code></pre>
+<p><strong>查看由docker-compose维护的容器</strong></p>
+<pre class=" language-bash"><code class="language-bash">docker-compose  <span class="token function">ps</span></code></pre>
+<p><strong>查看由docker-compose维护的容器的日志</strong></p>
+<pre class=" language-bash"><code class="language-bash">docker-compose  logs  -f</code></pre>
+<h2 id="四-Docker-compose配置Dockerfile-使用"><a href="#四-Docker-compose配置Dockerfile-使用" class="headerlink" title="四.Docker-compose配置Dockerfile 使用"></a>四.Docker-compose配置Dockerfile 使用</h2><p>使用 <code>docker-compose.yml</code> 文件以及  <code>Dockerfile</code> 文件再生产自定义的镜像的同时启动当前镜像，并且由Docker-compose去管理容器。</p>
+<h3 id="1、yml文件"><a href="#1、yml文件" class="headerlink" title="1、yml文件"></a>1、yml文件</h3><pre class=" language-YAML"><code class="language-YAML">version: '3.1'
+services:
+  tomcat_dcdf: 
+    restart: always
+    build:             # 构建自定义镜像
+      context: ../     # 指定Dockerfile文件所在路径，../表示上级目录
+      dockerfile: Dockerfile   # 指定Dockerfile文件名称
+    image: tomcat_dcdf:1.0.1    # 构建生成的镜像文件名称
+    container_name: tomcat_dcdf
+    ports:
+      - 8081:8080
+    environment: 
+      TZ: Asia/Shanghai
+</code></pre>
+<h3 id="2、Dockerfile-文件"><a href="#2、Dockerfile-文件" class="headerlink" title="2、Dockerfile 文件"></a>2、Dockerfile 文件</h3><pre class=" language-txt"><code class="language-txt">FROM daocloud.io/library/tomcat:8.5.15-jre8  
+CP  test.war /var/local/tomcat/webapps</code></pre>
+<p>目录层级</p>
+<ul>
+<li>docker_tomcat_dcdf<br>|–+ docker-compose<br>|  |– docker-compose.yml<br>|– dockerfile<br>|– test.war</li>
+</ul>
+<p>注意，测试test.war，需要先用客户端连接mysql，创建test 数据库。</p>
+<h3 id="3、执行构建-启动命令"><a href="#3、执行构建-启动命令" class="headerlink" title="3、执行构建/启动命令"></a>3、执行构建/启动命令</h3><p>一定要在 <code>docker-compse</code> 目录执行，<code>docker-compose.yml</code> 在这个目录。</p>
+<pre class=" language-bash"><code class="language-bash">docker-compse up -d</code></pre>
+<p>因为：<strong>在使用docker-compose 命令时，默认会在当前目录下找 docker-compose.yml 文件。</strong></p>
+<p>注意：</p>
+<p><code>docker-compse up -d</code> : 可以直接启动基于<code>docker-compose.yml</code> 文件以及  <code>Dockerfile</code> 文件构建的自定义镜像。 如果自定义镜像不存在， <code>docker-compose</code> 会自动构建出自定义镜像，如果自定义镜像已经存在， <code>docker-compose</code> 会直接运行这个自定义镜像。</p>
+<p>如果需要重新构建自定义镜像，执行：</p>
+<pre class=" language-bash"><code class="language-bash"> docker-compose build</code></pre>
+<p>如果需要在运行之前，重新构建自定义镜像，执行：</p>
+<pre class=" language-bash"><code class="language-bash"> docker-compose up  -d  --build</code></pre>
+<h3 id="4、自建示例"><a href="#4、自建示例" class="headerlink" title="4、自建示例"></a>4、自建示例</h3><h4 id="示例一：Docker-compose-管理Nginx"><a href="#示例一：Docker-compose-管理Nginx" class="headerlink" title="示例一：Docker-compose 管理Nginx"></a>示例一：Docker-compose 管理Nginx</h4><p>yml文件：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.1'</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">nginx</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> daocloud.io/library/nginx<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> nginx
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token datetime number">80:80</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> /opt/docker_nginx/conf.d/<span class="token punctuation">:</span>etc/nginx/conf.d</code></pre>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nginx 快速上手</title>
+    <url>/posts/35e29c2a.html</url>
+    <content><![CDATA[<h1 id="Nginx-快速上手"><a href="#Nginx-快速上手" class="headerlink" title="Nginx 快速上手"></a>Nginx 快速上手</h1><p>前言</p>
+<blockquote>
+<p>去年的时候使用 <code>SpringBoot</code> 开发了自己的博客，然部署到云服务器上，就是使用 <code>Nginx</code> 和 <code>Tomcat</code> 部署的， 相关的反向代理或者负载均衡虽然确实实操过，但是都是现找其他人的博客操作的，就是进行了快速的学习和了解，但是没有系统学习。之所以要整理就是为了系统性的学习一下并整理一下。也方便忘了时及时查阅温习。 </p>
+</blockquote>
+<h2 id="一、Nginx-快速熟悉"><a href="#一、Nginx-快速熟悉" class="headerlink" title="一、Nginx 快速熟悉"></a>一、Nginx 快速熟悉</h2><h3 id="1、了解"><a href="#1、了解" class="headerlink" title="1、了解"></a>1、了解</h3><p>Nginx 是一个高性能的 HTTP 和反向代理服务器。</p>
+<p>Nginx 可以作为静态页面的 web 服务器，同时还支持 CGI 协议的动态语言，比如 perl、 php<br>等。但是不支持 java。 Java 程序只能通过与 tomcat 配合完成。</p>
+<h3 id="2、特点"><a href="#2、特点" class="headerlink" title="2、特点"></a>2、特点</h3><p>（1）占有内存少，<br>（2）并发能力强（据说有报告表明能支持高达 50,000 个并发连接数  ）<br>（3）支持反向代理<br>（4）支持负载均衡<br>（5）支持动静分离</p>
+<h3 id="3、反向代理"><a href="#3、反向代理" class="headerlink" title="3、反向代理"></a>3、反向代理</h3><p>在客户端访问页面时将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，再返回给客户端，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器 IP 地址及端口。</p>
+<h3 id="4、负载均衡"><a href="#4、负载均衡" class="headerlink" title="4、负载均衡"></a>4、负载均衡</h3><p>单个服务器或提升硬件比较难以解决访问量和数据量的增长导致请求缓慢或宕机的背景下，出现集群概念。增加服务器的数量，然后将请求分发到各个服务器上，将原先请求集中到单个服务器上的情况改为将请求分发到多个服务器上，将负载分发到不同的服务器，也就是所说的负载均衡。</p>
+<h3 id="5、动静分离"><a href="#5、动静分离" class="headerlink" title="5、动静分离"></a>5、动静分离</h3><p>为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速<br>度。降低原来单个服务器的压力。</p>
+<p>动静分离的方式：</p>
+<p>（1）统一部署，静态请求解析到指定静态资源目录。<br>（2）分开部署，静态请求转发到静态资源服务器。</p>
+<h2 id="二、Nginx-安装"><a href="#二、Nginx-安装" class="headerlink" title="二、Nginx 安装"></a>二、Nginx 安装</h2><p>Nginx 安装分为两种方式。其实也不是官方的。</p>
+<h3 id="1、通用方式"><a href="#1、通用方式" class="headerlink" title="1、通用方式"></a>1、通用方式</h3><p>第一步， 安装 pcre</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> http://downloads.sourceforge.net/project/pcre/pcre/8.37/pcre-8.37.tar.gz</code></pre>
+<p>PCRE(Perl Compatible Regular Expressions)是一个Perl库，包括 perl 兼容的正则表达式库。<br>nginx的http模块使用pcre来解析正则表达式，所以需要在linux上安装pcre库。</p>
+<p>下载成功后解压文件</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf pcre-8.37.tar.gz</code></pre>
+<p>进入目录执行</p>
+<pre class=" language-bash"><code class="language-bash">./configure </code></pre>
+<p>完成后，回到 pcre 目录下执行 </p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">make</span>
+<span class="token function">make</span> <span class="token function">install</span></code></pre>
+<p>第二步， 安装一些需要的依赖</p>
+<p>安装 zlib，安装 gcc，安装 openssl</p>
+<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> <span class="token function">make</span> zlib zlib-devel gcc-c++ libtool openssl openssl-devel</code></pre>
+<p>第三步， 安装 nginx</p>
+<p>官方网址：<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a></p>
+<p><code>Nginx</code>官网提供了三个类型的版本<br><code>Mainline version</code>： <code>Mainline</code> 是 <code>Nginx</code> 目前主力在做的版本，可以说是开发版<br><code>Stable version</code>： 最新稳定版，生产环境上建议使用的版本<br><code>Legacy versions</code>： 遗留的老版本的稳定版。</p>
+<p>建议选择稳定版。</p>
+<p>可以直接下载到目录。<br>也可以下载之后再上传到服务器。</p>
+<p>1、 解压缩 <code>nginx-xx.tar.gz</code> 包。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf nginx-xx.tar.gz</code></pre>
+<p>2、 进入解压缩目录， 执行<code>./configure</code>。</p>
+<pre class=" language-bash"><code class="language-bash">./configure</code></pre>
+<p>3、 执行编译安装</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span></code></pre>
+<h3 id="2、YUM方式"><a href="#2、YUM方式" class="headerlink" title="2、YUM方式"></a>2、YUM方式</h3><p>1、添加源</p>
+<p>　　默认情况Centos7中无Nginx的源，后面Nginx官网提供了Centos的源地址。因此可以如下执行命令添加源：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre>
+<p>2、安装<code>Nginx</code></p>
+<p>可以使用 search 命令：</p>
+<pre class=" language-bash"><code class="language-bash">yum search nginx</code></pre>
+<p>看看是否已经添加源成功。如果成功则执行下列命令安装<code>Nginx</code>。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> -y nginx</code></pre>
+<h3 id="3、防火墙端口相关"><a href="#3、防火墙端口相关" class="headerlink" title="3、防火墙端口相关"></a>3、防火墙端口相关</h3><p>如果需要的话，可能用得上。如果是云服务器，自己登录控制台看看相关端口是否已经开放。</p>
+<p>查看开放的端口号</p>
+<pre class=" language-bash"><code class="language-bash">firewall-cmd --list-all</code></pre>
+<p>设置开放的端口号</p>
+<pre class=" language-bash"><code class="language-bash">firewall-cmd --add-service<span class="token operator">=</span>http –permanent
+<span class="token function">sudo</span> firewall-cmd --add-port<span class="token operator">=</span>80/tcp --permanent</code></pre>
+<p>重启防火墙</p>
+<pre class=" language-bash"><code class="language-bash">firewall-cmd –reload</code></pre>
+<h2 id="三、Nginx-常用命令"><a href="#三、Nginx-常用命令" class="headerlink" title="三、Nginx 常用命令"></a>三、Nginx 常用命令</h2><p>如果你不确定你的 <code>Nginx</code> 到底安装到哪里了,使用 <code>whereis</code> 命令查找一下。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># whereis nginx</span>
+nginx: /usr/sbin/nginx /usr/lib64/nginx /etc/nginx /usr/share/nginx /usr/share/man/man8/nginx.8.gz</code></pre>
+<h3 id="1、查看版本命令："><a href="#1、查看版本命令：" class="headerlink" title="1、查看版本命令："></a>1、查看版本命令：</h3><pre class=" language-bash"><code class="language-bash">nginx -v</code></pre>
+<h3 id="2、启动命令："><a href="#2、启动命令：" class="headerlink" title="2、启动命令："></a>2、启动命令：</h3><p>（1）执行执行启动：</p>
+<pre class=" language-bash"><code class="language-bash">start  nginx </code></pre>
+<p>（2）到 <code>/usr/sbin/</code> 目录执行命令启动：</p>
+<pre class=" language-bash"><code class="language-bash">./nginx</code></pre>
+<p>（3）也可以使用Linux 方式</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> systemctl start nginx.service</code></pre>
+<h3 id="3、关闭命令："><a href="#3、关闭命令：" class="headerlink" title="3、关闭命令："></a>3、关闭命令：</h3><p>（1）快速停止或关闭</p>
+<pre class=" language-bash"><code class="language-bash">nginx stop</code></pre>
+<p>或</p>
+<pre class=" language-bash"><code class="language-bash">nginx -s stop</code></pre>
+<p>（2）正常停止或关闭</p>
+<pre class=" language-bash"><code class="language-bash">nginx -s quit</code></pre>
+<p>（3）也可以使用 <code>Linux</code> 方式</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> systemctl start nginx.service</code></pre>
+<h3 id="4、配置检查："><a href="#4、配置检查：" class="headerlink" title="4、配置检查："></a>4、配置检查：</h3><p>修改配置文件之后执行用来检查配置文件是否有错误的命令，如果有会给出提示。</p>
+<pre class=" language-bash"><code class="language-bash">nginx -t</code></pre>
+<h3 id="5、配置加载："><a href="#5、配置加载：" class="headerlink" title="5、配置加载："></a>5、配置加载：</h3><p>修改配置文件之后，不需要重启服务，检查配置文件正确之后，直接加载新的配置文件的命令。</p>
+<pre class=" language-bash"><code class="language-bash">nginx -s reload</code></pre>
+<h2 id="四、Nginx-配置文件"><a href="#四、Nginx-配置文件" class="headerlink" title="四、Nginx 配置文件"></a>四、Nginx 配置文件</h2><h3 id="1、nginx-配置文件目录"><a href="#1、nginx-配置文件目录" class="headerlink" title="1、nginx 配置文件目录"></a>1、nginx 配置文件目录</h3><p>一般在 <code>nginx/conf/</code> 目录下，具体目录使用 <code>whereis</code> 找一下。我使用<code>yum</code> 安装，配置文件目录在 <code>/etc/nginx/目录</code>下有个 <code>nginx.conf</code> 文件就是配置文件。</p>
+<p>配置文件中有很多 <code>#</code> ， <code>#</code> 开头的表示注释内容</p>
+<p>精简的配置文件内容如下：</p>
+<pre class=" language-conf"><code class="language-conf">worker_processes  1;
+
+events {
+    worker_connections  1024;
+}
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        on;
+
+    keepalive_timeout  65;
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+    }
+}</code></pre>
+<h3 id="2、配置文件细分"><a href="#2、配置文件细分" class="headerlink" title="2、配置文件细分"></a>2、配置文件细分</h3><p>nginx.conf 文件大致分三个部分。</p>
+<p>（1）全局块<br>从配置文件开始到 <code>events</code> 块之间的内容，主要会设置一些影响 <code>nginx</code> 服务器整体运行的配置指令，主要包括配置运行 <code>Nginx</code>服务器的用户（组）、允许生成的 <code>worker process</code> 数， 进程 <code>PID</code> 存放路径、日志存放路径和类型以及配置文件的引入等。<br>比如第一行配置：</p>
+<pre><code>worker_processes 1;</code></pre><p>这是 Nginx 服务器并发处理服务的关键配置， <code>worker_processes</code> 值越大，可以支持的并发处理量也越多，但是会受到硬件、软件等设备的制约。</p>
+<p>（2）events 块</p>
+<p>​    <code>events</code> 块涉及的指令主要影响 Nginx 服务器与用户的网络连接，常用的设置包括是否开启对多 <code>work process</code>下的网络连接进行序列化，是否允许同时接收多个网络连接，选取哪种事件驱动模型来处理连接请求，每个 <code>work  process</code> 可以同时支持的最大连接数等。</p>
+<p>上述例子就表示每个 <code>work process</code> 支持的最大连接数为 1024。</p>
+<p>这部分的配置对 Nginx 的性能影响较大，在实际中应该灵活配置。</p>
+<p>（3）http 块</p>
+<p>​    <code>Nginx</code> 服务器配置中最频繁的部分，代理、缓存和日志定义等绝大多数功能和第三方模块的配置都在这里。 需要注意的是： <code>http</code> 块也可以包括 <code>http</code> 全局块、 server 块。</p>
+<p>A） http 全局块</p>
+<p>​    <code>http</code> 全局块配置的指令包括文件引入、 <code>MIME-TYPE</code> 定义、日志自定义、连接超时时间、单链接请求数上限、404等等。    </p>
+<p>B）  server 块</p>
+<p>​    这块和虚拟主机有密切关系，虚拟主机从用户角度看，和一台独立的硬件主机是完全一样的，该技术的产生是为了 节省互联网服务器硬件成本。 </p>
+<p>​    每个 http 块可以包括多个 <code>server</code>块，而每个 <code>server</code> 块就相当于一个虚拟主机。 而每个 <code>server</code> 块也分为全局 <code>server</code> 块，以及可以同时包含多个 <code>locaton</code> 块。 </p>
+<p>​    1)、全局 server 块 </p>
+<p>​    最常见的配置是本虚拟机主机的监听配置和本虚拟主机的名称或 IP 配置。 </p>
+<p>​    2)、location 块 </p>
+<p>​    一个 server 块可以配置多个 location 块。 </p>
+<p>​    这块的主要作用是基于 Nginx 服务器接收到的请求字符串（例如 <code>server_name</code>/<code>uri-string</code>），对虚拟主机名称 （也可以是 IP 别名）之外的字符串（例如 前面的 /uri-string）进行匹配，对特定的请求进行处理。地址定向、数据缓 存和应答控制等功能，还有许多第三方模块的配置也在这里进行。    </p>
+<h2 id="五、配置实例"><a href="#五、配置实例" class="headerlink" title="五、配置实例"></a>五、配置实例</h2><h3 id="1、反向代理配置实例1"><a href="#1、反向代理配置实例1" class="headerlink" title="1、反向代理配置实例1"></a>1、反向代理配置实例1</h3><p>准备工作：安装一个 <code>tomcat</code> 并配置端口为 <code>8081</code></p>
+<p>nginx.conf 配置：</p>
+<pre><code>server{
+    listen 80;
+    server_name www.zhangxiaocai.cn
+
+    location / {
+        proxy_pass http://127.0.0.1:8081 ;
+        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504
+        index index.html index.htm index.jsp;
+    }
+}</code></pre><p>如上配置，我们监听 80 端口，访问域名为 <code>www.zhangxiaocai.cn</code>，不加端口号时默认为 <code>80</code> 端口，所以在浏览器访问该域名时会跳转到 <code>127.0.0.1:8080</code>路径上。</p>
+<p>本地测试需要修改<code>C:/Windows/System32/drivers/etc/hosts</code>文件，在文件末尾追加以下内容</p>
+<pre><code>www.zhangxiaocai.cn   127.0.0.1</code></pre><h3 id="2、反向代理配置实例2"><a href="#2、反向代理配置实例2" class="headerlink" title="2、反向代理配置实例2"></a>2、反向代理配置实例2</h3><p>准备工作：安装2个 <code>tomcat</code> 并配置端口分别为 <code>8081</code> 和 <code>8082</code> ，为了区分也可以准备2个不同的 <code>index.html</code> 页面。</p>
+<p>nginx.conf 配置：</p>
+<pre><code>server{
+    listen 80;
+    server_name www.zhangxiaocai.cn
+
+    location ~ /java/ {
+        proxy_pass http://127.0.0.1:8081 ;
+        index index.html index.htm index.jsp;
+    }
+
+    location ~ /spring/ {
+        proxy_pass http://127.0.0.1:8082 ;
+        index index.html index.htm index.jsp;
+    }
+}</code></pre><p>根据访问的路径跳转到不同端口的服务中 nginx 监听端口为 80， </p>
+<p>访问 <code>http://www.zhangxiaocai.cn/java/</code> 直接跳转到 <code>127.0.0.1:8081</code></p>
+<p>访问 <code>http://www.zhangxiaocai.cn/spring/</code> 直接跳转到 <code>127.0.0.1:8082</code></p>
+<h3 id="3、location-指令说明"><a href="#3、location-指令说明" class="headerlink" title="3、location 指令说明"></a>3、location 指令说明</h3><p>location 指令用于匹配 URL。 </p>
+<p>语法如下： </p>
+<pre><code>location [ = | ~ | ~* |^~] uri {
+
+}</code></pre><p>语法规则大致分两种：</p>
+<p>（1）普通规则 Location</p>
+<p>无前缀：普通匹配</p>
+<p><code>=</code> : 表示精准匹配；</p>
+<p><code>^~</code> :  <code>^</code>表示取反，正则取反，就是表示不用正则；</p>
+<p>无前缀匹配示例：</p>
+<pre><code>location ~* /xxx {
+     # 匹配任何含有xxxd的请求。
+}
+location ~* \.(gif|jpg|jpeg)$ {
+     # 匹配任何以 gif、jpg 或 jpeg 结尾的请求。
+}</code></pre><p>精准匹配示例：</p>
+<pre><code>location = / {
+    # 精准匹配，主机名后不带任何字符串
+}</code></pre><p>正则取反匹配示例：</p>
+<pre><code>location ^~ /images/ {
+ # 不使用正则，匹配任何以 /images/ 开头的任何查询并且停止搜索。
+}</code></pre><p>（2）正则规则 Location</p>
+<p><code>~</code> :  区分大小写；</p>
+<p><code>~*</code> :  不区分大小写；</p>
+<p><strong>语法规则优先级</strong>（由高到底）</p>
+<p>（1）有精准匹配的优先匹配</p>
+<p>（2）无精准匹配的执行普通匹配，普通匹配中优先最全/最长匹配</p>
+<p>示例一：</p>
+<pre class=" language-conf"><code class="language-conf">location /xxx {
+
+}</code></pre>
+<p>此时普通匹配，匹配所有以 /xxx 开头的路径。</p>
+<p>示例二：</p>
+<p>访问地址：/uri/a/b/c/d</p>
+<p>规则1： /a</p>
+<p>规则2： /a/b</p>
+<p>规则3：/a/b/c</p>
+<p>规则3是与访问地址最长匹配</p>
+<p>示例三：</p>
+<p>访问地址：/uri/a/b/c/d</p>
+<p>规则1：~ /a</p>
+<p>规则2：~ /a/b</p>
+<p>规则3：~ /a/b/c</p>
+<p>规则3是与访问地址最长匹配，但是此时规则中如果有正则匹配，则会再次进行正则匹配，规则1会被命中执行 。</p>
+<p>（3）无精准匹配，无普通匹配，执行正则取反的匹配，也是普通匹配的一种</p>
+<p>（4）执行正则匹配</p>
+<p>示例一：</p>
+<pre><code>location ~ /xxx {
+
+}</code></pre><p>此时正则匹配，匹配所有包含 /xxx 的路径，区分大小写。</p>
+<p>（5）匹配起始路径</p>
+<pre><code>location  /xxx {
+    #此时正则匹配，匹配所有以 /xxx 开头的路径，区分大小写。
+}
+
+location ~* \.(gif|jpg|jpeg)$ {
+     # 匹配任何以 gif、jpg 或 jpeg 结尾的请求。
+}</code></pre><p>（6）匹配所有</p>
+<pre><code>location / {
+
+}</code></pre><hr>
+<p><code>=</code> ：用于不含正则表达式的 uri 前，要求请求字符串与 uri 严格匹配，如果匹配 成功，就停止继续向下搜索并立即处理该请求。<br><code>~</code>：用于表示 uri 包含正则表达式，并且区分大小写。<br><code>~*</code>：用于表示 uri 包含正则表达式，并且不区分大小写。<br><code>^~</code>：用于不含正则表达式的 uri 前，要求 Nginx 服务器找到标识 uri 和请求字 符串匹配度最高的 location 后，立即使用此 location 处理请求，而不再使用 location 块中的正则 uri 和请求字符串做匹配。 </p>
+<p>注意：如果 uri 包含正则表达式，则必须要有 <code>~</code> 或者 <code>~*</code> 标识。    </p>
+<h3 id="4、负载均衡配置实例"><a href="#4、负载均衡配置实例" class="headerlink" title="4、负载均衡配置实例"></a>4、负载均衡配置实例</h3><p>负载均衡即是将负载分摊到不同的服务单元，既保证服务的可用性，又保证响应 足够快，给用户很好的体验。</p>
+<p>快速增长的访问量和数据流量催生了各式各样的负载均衡产品， 很多专业的负载均衡硬件提供了很好的功能，但却价格不菲，这使得负载均衡软件大受欢迎， nginx 就是其中的一个，在 linux 下有 Nginx、 LVS、 Haproxy 等等服务可以提供负载均衡服务 。</p>
+<p>准备工作：安装2个 <code>tomcat</code> 并配置端口分别为 <code>8081</code> 和 <code>8082</code> ，为了区分也可以准备2个不同的 <code>index.html</code> 页面。</p>
+<p>nginx.conf 配置：</p>
+<pre><code>http {
+    ...
+    upstream my_server{
+        ip_hash;
+        server 127.0.0.1:8081 weight=1;
+        server 127.0.0.1:8082 weight=1;
+    }
+    ...
+    server{
+
+        location / {
+            proxy_pass http://myserver;
+            proxy_connect_timeout 10;
+            ...
+        }
+    }
+}</code></pre><h3 id="5、nginx-服务均衡策略"><a href="#5、nginx-服务均衡策略" class="headerlink" title="5、nginx 服务均衡策略"></a>5、nginx 服务均衡策略</h3><p>Nginx 提供了几种分配方式(策略)： </p>
+<p>1、轮询（默认） </p>
+<p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器 down 掉，能自动剔除。 </p>
+<p>2、 weight </p>
+<p>weight 代表权,重默认为 1,权重越高被分配的客户端越多 指定轮询几率， weight 和访问比率成正比，用于后端服务器性能不均的情况。 例如：</p>
+<pre><code>upstream my_server_pool{
+    server 192.168.0.121 weight=10;
+    server 192.168.0.122 weight=10;
+}</code></pre><p>3 、 ip_hash </p>
+<p>每个请求按访问 ip 的 hash 结果分配，这样每个访客固定访问一个后端服务器，可以解决 session 的问题。 例如： </p>
+<pre><code>upstream my_server_pool{ 
+    ip_hash; 
+    server 192.168.0.121:80; 
+    server 192.168.0.122:80; 
+} </code></pre><p>4 、 fair（第三方） 按后端服务器的响应时间来分配请求，响应时间短的优先分配。 </p>
+<pre><code>upstream my_server_pool{ 
+    server 192.168.5.21:80; 
+    server 192.168.5.22:80; 
+    fair; 
+}    </code></pre><h3 id="6、动静分离配置实例"><a href="#6、动静分离配置实例" class="headerlink" title="6、动静分离配置实例"></a>6、动静分离配置实例</h3><p>Nginx 动静分离简单来说就是把动态跟静态请求分开，不能理解成只是单纯的把动态页面和静态页面物理分离。</p>
+<p>严格意义上说应该是动态请求跟静态请求分开，可以理解成使用 Nginx 处理静态页面， Tomcat 处理动态页面。</p>
+<p>动静分离从目前实现角度来讲大致分为两种：</p>
+<p>（1） 一种是纯粹把静态文件独立成单独的域名，放在独立的服务器上，也是目前主流推崇的方案；</p>
+<p>（2） 另外一种方法就是动态跟静态文件混合在一起发布，通过 nginx 来分开。 通过 location 指定不同的后缀名实现不同的请求转发。通过 expires 参数设置，可以使 浏览器缓存过期时间，减少与服务器之前的请求和流量。</p>
+<p>​    具体 Expires 定义：是给一个资 源设定一个过期时间，也就是说无需去服务端验证，直接通过浏览器自身确认是否过期即可， 所以不会产生额外的流量。此种方法非常适合不经常变动的资源。（如果经常更新的文件， 不建议使用 Expires 来缓存），假如设置为 3d，表示在这 3 天之内访问这个 URL，发送一个请求，比对服务器该文件最后更新时间没有变化，则不会从服务器抓取，返回状态码 304，如果有修改，则直接从服务器重新下载，返回状态码 200。    </p>
+<p><strong>动态资源代理配置</strong>：</p>
+<pre><code>location / {
+
+    proxy_pass 路径
+}</code></pre><p><strong>静态资源代理配置</strong>：</p>
+<pre><code>location / {
+
+    root 静态资源路径
+    index  默认访问路径下的什么资源
+    autoindex on; # 代表展示静态资源的全部内容，以列表的形式展开。
+}</code></pre><p>配置文件实例：</p>
+<pre><code>server{
+    listen 80;
+    server_name www.zhangxiaocai.cn
+
+    location /js/ {
+        root /home/tomcat/webapps/test/js/;
+        autoindex on;
+    }
+    location /image/ {
+        root /home/tomcat/webapps/test/images/;
+        autoindex on;
+    }
+}</code></pre><p>测试访问ok之后可以删除静态文件再试试，看看访问走的 <code>nginx</code> 还是 <code>tomcat</code>。</p>
+<h2 id="六、Nginx-原理"><a href="#六、Nginx-原理" class="headerlink" title="六、Nginx 原理"></a>六、Nginx 原理</h2><h3 id="1、nginx基本原理："><a href="#1、nginx基本原理：" class="headerlink" title="1、nginx基本原理："></a>1、nginx基本原理：</h3><p>​    使用 <code>master-workers</code> 的机制，通过一个 <code>master</code> 主进程管理其他 <code>worker</code> 进行来处理客户端的请求和响应。</p>
+<p><strong>特点：</strong></p>
+<p>（1）每个 <code>worker</code> 进程都是独立的进程，不需要加锁。</p>
+<p>（2）采用独立进程，相互之间不会影响，一个进程结束，不影响其他进程，服务不会中断，<code>master</code> 进程会启动新的 worker 进程。</p>
+<p>（3）<code>worker</code> 进程 异常退出，只会导致当前进程 <code>worker</code> 上的请求失败，不会影响所有请求，降低运行风险。</p>
+<h3 id="2、相关设置"><a href="#2、相关设置" class="headerlink" title="2、相关设置"></a>2、相关设置</h3><p><strong>worker 设置</strong></p>
+<p>​    nginx 同 redis 类似都采用了 io 多路复用机制，每个 <code>worker</code> 都是一个独立的进程，但每个进 程里只有一个主线程，通过异步非阻塞的方式来处理请求， 即使是千上万个请求也不在话 下。每个 worker 的线程可以把一个 cpu 的性能发挥到极致。所以 <code>worker</code> 数和服务器的 cpu 数相等是最为适宜的。设少了会浪费 cpu，设多了会造成 cpu 频繁切换上下文带来的损耗。</p>
+<p><strong>连接数 worker_connection</strong></p>
+<p>这个值是表示每个 <code>worker</code> 进程所能建立连接的最大值，所以，一个 <code>nginx</code> 能建立的最大连接 数，应该是 <code>worker_connections * worker_processes</code> 。当然，这里说的是最大连接数，对于 <code>HTTP</code> 请求本地资源来说 ， 能 够支持的最大并发数量是 <code>worker_connections * worker_processes</code>，</p>
+<p>如果是支持 <code>http1.1</code> 的浏览器每次访问要占两个连接，所以<strong>普通的静态访问最大并发数</strong>是： <code>worker_connections * worker_processes /2</code>，</p>
+<p>如果是 <code>HTTP</code> 作为反向代理来说，<strong>动态资源最大并发数量</strong>应该是 <code>worker_connections * worker_processes /4</code>。因为作为反向代理服务器，每个并发会建立与客户端的连接和与后端服 务的连接，会占用两个连接。    </p>
+<h3 id="3、配置文件结构"><a href="#3、配置文件结构" class="headerlink" title="3、配置文件结构"></a>3、配置文件结构</h3><blockquote class="pullquote mindmap mindmap-md"><!-- build time:Wed Sep 23 2020 17:10:52 GMT+0800 (中国标准时间) --><ul><li>Nginx.conf 结构<ul><li>work_processes</li><li>events<ul><li>worker_connection</li></ul></li><li>http<ul><li>server<ul><li>listen</li><li>server_name</li><li>location<ul><li>root</li><li>index</li></ul></li></ul></li></ul></li></ul></li></ul><!-- rebuild by neat --></blockquote>
+
+
+
+<h2 id="七、其他"><a href="#七、其他" class="headerlink" title="七、其他"></a>七、其他</h2><p>https 已经在使用了，暂时还没加上。</p>
+<p>遇到再补充吧~</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nginx 集群搭建</title>
+    <url>/posts/35e29c2a.html</url>
+    <content><![CDATA[<h1 id="Nginx-集群搭建"><a href="#Nginx-集群搭建" class="headerlink" title="Nginx 集群搭建"></a>Nginx 集群搭建</h1><p>Nginx 为了负载均衡存在。</p>
+<p>产生背景：一台Nginx可能会出现单点故障，导致程序不可用</p>
+<h2 id="一、准备"><a href="#一、准备" class="headerlink" title="一、准备"></a>一、准备</h2><p>多台 <code>nginx</code></p>
+<p><code>keepalived</code>： 监听nginx健康</p>
+<p><code>haproxy</code>： 提供一个单独的虚拟IP和端口，统一接收客户端请求。</p>
+<p>架构图：</p>
+<pre><code>---------------------------------------------------------------------------------------------
+-                                                             
+-                                     +--------------------+            +------------+
+-                                     +                    +            +            +
+-                                   + + Nginx + keepalived +  +-----&gt;   +  server1   +
+-  +--------+      +-------+       /  +                    +   \   /    +            +
+-  +        +      +       +      /   +--------------------+    \ /     +------------+
+-  + client + ---&gt; +  VIP  + ---&gt;&lt;                               X
+-  +        +      +       +      \   +--------------------+    / \     +------------+
+-  +--------+      +-------+       \  +                    +   /   \    +            +
+-                                   + + Nginx + keepalived +  +------&gt;  +  server2   +
+-                                     +                    +            +            +
+-                                     +--------------------+            +------------+
+-
+---------------------------------------------------------------------------------------------------------</code></pre><p>相关补充</p>
+<p>keepalived 工作原理</p>
+<p>VRRP 虚拟路由器冗余协议：</p>
+<p>（1）为看解决静态路由的单点故障而产生。<br>（2）通过竞选协议机制将路由的任务交给某台VRRP路由器。<br>（3）主机通过IP多播包的方式相同通讯，告知备机存活<br>（4）主机发包，备机接包，挡备机接不到包时，启动接管程序接管主机资源。<br>（5）备机可以有多台，可以通过优先级竞选。<br>（6）VRRP 使用加密协议保证安全。</p>
+<p>keepalived 高可用对之间通过VRRP 协议进行通讯，确定主备，主的优先级高于备。工作运行时主机会获得所有资源，备机处于等待状态，当主节点宕机时，备节点接管主节点的资源，代替主节点提供服务。</p>
+<p>在keepalived 之间，只有作为主节点的的服务器会一直发送VRRP 广播包，告诉备节点，自己是存活的，此时备节点不会抢占主节点。当主节点不可用，即备节点接收不到主节点发送的广播包，就会启动相关服务接管资源，接管速度可以小于1秒。 </p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
       </tags>
   </entry>
 </search>
