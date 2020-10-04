@@ -1,4 +1,777 @@
-<!-- build time:Sat Oct 03 2020 23:22:50 GMT+0800 (中国标准时间) --><!DOCTYPE HTML><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><meta name="keywords" content="java,mybatis工作原理,Configuration,mybatis原理"><meta name="description" content="Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><meta name="renderer" content="webkit|ie-stand|ie-comp"><meta name="mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>Mybtis(四)工作原理 | 张小菜苔</title><link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/awesome/css/all.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/animate/animate.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/css/lightgallery.min.css"><script type="text/javascript" src="/libs/artitalk/artitalk.min.css"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/matery.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/my.css"><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/jquery/jquery.min.js"></script><meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="张小菜苔" type="application/atom+xml"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><style type="text/css" lang="css">#loading-container{position:fixed;top:0;left:0;min-height:100vh;width:100vw;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#FFF;text-align:center;-webkit-transition:opacity 1s ease;-moz-transition:opacity 1s ease;-o-transition:opacity 1s ease;transition:opacity 1s ease}.loading-image{width:120px;height:50px;transform:translate(-50%)}.loading-image div:nth-child(2){-webkit-animation:pacman-balls 1s linear 0s infinite;animation:pacman-balls 1s linear 0s infinite}.loading-image div:nth-child(3){-webkit-animation:pacman-balls 1s linear .33s infinite;animation:pacman-balls 1s linear .33s infinite}.loading-image div:nth-child(4){-webkit-animation:pacman-balls 1s linear .66s infinite;animation:pacman-balls 1s linear .66s infinite}.loading-image div:nth-child(5){-webkit-animation:pacman-balls 1s linear .99s infinite;animation:pacman-balls 1s linear .99s infinite}.loading-image div:first-of-type{width:0;height:0;border:25px solid #49b1f5;border-right-color:transparent;border-radius:25px;-webkit-animation:rotate_pacman_half_up .5s 0s infinite;animation:rotate_pacman_half_up .5s 0s infinite}.loading-image div:nth-child(2){width:0;height:0;border:25px solid #49b1f5;border-right-color:transparent;border-radius:25px;-webkit-animation:rotate_pacman_half_down .5s 0s infinite;animation:rotate_pacman_half_down .5s 0s infinite;margin-top:-50px}@-webkit-keyframes rotate_pacman_half_up{0%{transform:rotate(270deg)}50%{transform:rotate(1turn)}to{transform:rotate(270deg)}}@keyframes rotate_pacman_half_up{0%{transform:rotate(270deg)}50%{transform:rotate(1turn)}to{transform:rotate(270deg)}}@-webkit-keyframes rotate_pacman_half_down{0%{transform:rotate(90deg)}50%{transform:rotate(0)}to{transform:rotate(90deg)}}@keyframes rotate_pacman_half_down{0%{transform:rotate(90deg)}50%{transform:rotate(0)}to{transform:rotate(90deg)}}@-webkit-keyframes pacman-balls{75%{opacity:.7}to{transform:translate(-100px,-6.25px)}}@keyframes pacman-balls{75%{opacity:.7}to{transform:translate(-100px,-6.25px)}}.loading-image div:nth-child(3),.loading-image div:nth-child(4),.loading-image div:nth-child(5),.loading-image div:nth-child(6){background-color:#49b1f5;width:15px;height:15px;border-radius:100%;margin:2px;width:10px;height:10px;position:absolute;transform:translateY(-6.25px);top:25px;left:100px}.loading-text{margin-bottom:20vh;text-align:center;color:#2c3e50;font-size:2rem;box-sizing:border-box;padding:0 10px;text-shadow:0 2px 10px rgba(0,0,0,.2)}@media only screen and (max-width:500px){.loading-text{font-size:1.5rem}}.fadeout{opacity:0;filter:alpha(opacity=0)}@-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0)}}</style><script>!function(){const n=function(){setTimeout(function(){const n=document.getElementById("loading-container");n.className="fadeout",setTimeout(function(){n.style.display="none"},2500)},1e3)};n()}()</script><body><div id="loading-container"><p class="loading-text">嘘~ 正在从服务器偷取页面 . . .</p><div class="loading-image"><div></div><div></div><div></div><div></div><div></div></div></div><header class="navbar-fixed"><nav id="headNav" class="bg-color nav-transparent"><div id="navContainer" class="nav-wrapper container"><div class="brand-logo"><a href="/" class="waves-effect waves-light"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-1.png" class="logo-img" alt="LOGO"> <span class="logo-span diyFont">张小菜苔</span></a></div><a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a><ul class="right nav-menu"><li class="hide-on-med-and-down nav-item"><a href="/" class="waves-effect waves-light"><i class="fas fa-home"></i><span>主</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fas fa-tags"></i><span>签</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fas fa-bookmark"></i><span>类</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fas fa-archive"></i><span>档</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/about" class="waves-effect waves-light"><i class="fas fa-user-circle"></i><span>吾</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fas fa-comments"></i><span>言</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/artitalk" class="waves-effect waves-light"><i class="fas fa-heartbeat"></i><span>语</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fas fa-address-book"></i><span>友</span></a></li><li class="hide-on-med-and-down nav-item"><a href="" class="waves-effect waves-light"><i class="fas fa-list"></i> <span>秘</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></a><ul class="sub-nav menus_item_child"><li><a href="/navigate"><i class="fas fa-location-arrow" style="margin-top:-20px"></i> <span>风域之门</span></a></li><li><a href="/box"><i class="fas fa-map-marker" style="margin-top:-20px"></i> <span>妖魔化镜</span></a></li><li><a href="https://hut.zhangxiaocai.cn" target="_blank" rel="noopener"><i class="fas fa-pen-alt" style="margin-top:-20px"></i> <span>沧海成渊</span></a></li><li><a href="https://yun.zhangxiaocai.cn" target="_blank" rel="noopener"><i class="fas fa-cloud" style="margin-top:-20px"></i> <span>云上之城</span></a></li></ul></li><li><a href="#searchModal" class="modal-trigger waves-effect waves-light"><i id="searchIcon" class="fas fa-search" title="搜索"></i></a></li><li class="fullscreen"><a href="javascript:fullscreen()" class="modal-trigger waves-effect waves-light"><i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏"></i></a></li></ul><div id="mobile-nav" class="side-nav sidenav"><div class="mobile-head bg-color"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-1.png" class="logo-img circle responsive-img"><div class="logo-name">张小菜苔</div><div class="logo-desc">Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题</div></div><ul class="menu-list mobile-menu-list"><li class="m-nav-item"><a href="/" class="waves-effect waves-light"><i class="fa-fw fas fa-home"></i> 首页</a></li><li class="m-nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fa-fw fas fa-tags"></i> 标签</a></li><li class="m-nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fa-fw fas fa-bookmark"></i> 分类</a></li><li class="m-nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fa-fw fas fa-archive"></i> 归档</a></li><li class="m-nav-item"><a href="/about" class="waves-effect waves-light"><i class="fa-fw fas fa-user-circle"></i> 关于</a></li><li class="m-nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fa-fw fas fa-comments"></i> 留言簿</a></li><li class="m-nav-item"><a href="/artitalk" class="waves-effect waves-light"><i class="fa-fw fas fa-heartbeat"></i> ArtiTalk</a></li><li class="m-nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fa-fw fas fa-address-book"></i> 友情链接</a></li><li class="m-nav-item"><a href="javascript:;"><i class="fa-fw fas fa-list"></i> Secret <span class="m-icon"><i class="fas fa-chevron-right"></i></span></a><ul><li><a href="/navigate" style="margin-left:75px"><i class="fa fas fa-location-arrow" style="position:absolute;left:50px"></i> <span>风域之门</span></a></li><li><a href="/box" style="margin-left:75px"><i class="fa fas fa-map-marker" style="position:absolute;left:50px"></i> <span>妖魔化镜</span></a></li><li><a href="https://hut.zhangxiaocai.cn" target="_blank" rel="noopener" style="margin-left:75px"><i class="fa fas fa-pen-alt" style="position:absolute;left:50px"></i> <span>沧海成渊</span></a></li><li><a href="https://yun.zhangxiaocai.cn" target="_blank" rel="noopener" style="margin-left:75px"><i class="fa fas fa-cloud" style="position:absolute;left:50px"></i> <span>云上之城</span></a></li></ul></li></ul></div></div></nav></header><div class="bg-cover pd-header post-cover" style="background-image:url(https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/12.jpg)"><div class="container" style="right:0;left:0"><div class="row"><div class="col s12 m12 l12"><div class="brand"><h1 class="description center-align post-title">Mybtis(四)工作原理</h1></div></div></div></div></div><main class="post-container content"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/tocbot/tocbot.css"><style>#articleContent h1::before,#articleContent h2::before,#articleContent h3::before,#articleContent h4::before,#articleContent h5::before,#articleContent h6::before{display:block;content:" ";height:100px;margin-top:-100px;visibility:hidden}#articleContent :focus{outline:0}.toc-fixed{position:fixed;top:64px}.toc-widget{width:345px;padding-left:20px}.toc-widget .toc-title{margin:35px 0 15px 0;padding-left:17px;font-size:1.5rem;font-weight:700;line-height:1.5rem}.toc-widget ol{padding:0;list-style:none}#toc-content{height:calc(100vh - 250px);overflow:auto}#toc-content ol{padding-left:10px}#toc-content ol li{padding-left:10px}#toc-content .toc-link:hover{color:#42b983;font-weight:700;text-decoration:underline}#toc-content .toc-link::before{background-color:transparent;max-height:25px;position:absolute;right:23.5vw;display:block}#toc-content .is-active-link{color:#42b983}#floating-toc-btn{position:fixed;right:32px;bottom:155px;padding-top:15px;margin-bottom:0;z-index:998}#floating-toc-btn .btn-floating{width:48px;height:48px}#floating-toc-btn .btn-floating i{line-height:48px;font-size:1.4rem}</style><div class="row"><div id="main-content" class="col s12 m12 l9"><div id="artDetail"><div class="card"><div class="card-content article-info"><div class="row tag-cate"><div class="col s7"><div class="article-tag"><a href="/tags/Mybatis/"><span class="chip bg-color">Mybatis</span></a></div></div><div class="col s5 right-align"><div class="post-cate"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/Mybatis/" class="post-category">Mybatis</a></div></div></div><div class="post-info"><div class="post-date info-break-policy"><i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp; 2020-06-20</div><div class="info-break-policy"><i class="fa fa-pencil"></i> 作者: Small-Rose /张小菜</div><div class="post-date info-break-policy"><i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp; 2020-06-20</div><div class="info-break-policy"><i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp; 6k</div><div class="info-break-policy"><i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp; 27 分</div><div id="busuanzi_container_page_pv" class="info-break-policy"><i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp; <span id="busuanzi_value_page_pv"></span></div></div></div><hr class="clearfix"><div class="card-content article-card-content"><div id="articleContent"><h2 id="Mybtis-四-工作原理"><a href="#Mybtis-四-工作原理" class="headerlink" title="Mybtis(四)工作原理"></a>Mybtis(四)工作原理</h2><h3 id="一、Mybatis涉及技术"><a href="#一、Mybatis涉及技术" class="headerlink" title="一、Mybatis涉及技术"></a>一、Mybatis涉及技术</h3><p>mybatis运行主要两部分：</p><p>（1）读取配置文件换乘到Configuration对象，用以创建SqlSessionFactory</p><p>（2）SqlSession执行过程。</p><p>SqlSession执行过程涉及技术：</p><p>反射技术、动态代理技术。</p><p>什么是代理模式？</p><p>代理模式就是在原有的服务上多加一个占位，通过占位去控制服务的访问。</p><p>为什么要使用代理模式？</p><p>通过代理一方面可以控制如何访问真正的服务对象，提供额外服务。另一方面有机会通过重写一些类来满足特定的需要。</p><p>一般动态代理分两种：</p><p>（A）JDK反射机制提供的代理。必须提供接口。</p><p>（B）CGLIB代理。不需要提供接口。 CGlib底层是动态的在内存中生成了目标对象的子类的字节码，并生成相应的对象 。</p><h4 id="1、反射简单的示例"><a href="#1、反射简单的示例" class="headerlink" title="1、反射简单的示例"></a>1、反射简单的示例</h4><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>reflect<span class="token punctuation">;</span>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta name="keywords" content="java,mybatis工作原理,Configuration,mybatis原理">
+    <meta name="description" content="Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Mybtis(四)工作原理 | 张小菜苔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/css/lightgallery.min.css">
+
+     
+
+    <script type="text/javascript" src="/libs/artitalk/artitalk.min.css"></script>
+
+     
+
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/my.css">
+
+ 
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="张小菜苔" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+ 
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+    
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+    
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+    
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+    
+   
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2500); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+</script>
+ 
+<body>
+    
+        <div id="loading-container">
+             <p class="loading-text">嘘~  正在从服务器偷取页面 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-1.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span diyFont">张小菜苔</span>
+                    
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>主</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>吾</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>言</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <i class="fas fa-heartbeat" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>语</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>友</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/color" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>Color</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style=" "></i>
+      
+      <span>秘</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style=""></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px;  "></i>
+          
+          <span>风域之门</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/box">
+          
+          <i class="fas fa-map-marker" style="margin-top: -20px;  "></i>
+          
+          <span>妖魔化镜</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://hut.zhangxiaocai.cn" target="_blank" rel="noopener">
+          
+          <i class="fas fa-pen-alt" style="margin-top: -20px;  "></i>
+          
+          <span>沧海成渊</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://yun.zhangxiaocai.cn" target="_blank" rel="noopener">
+          
+          <i class="fas fa-cloud" style="margin-top: -20px;  "></i>
+          
+          <span>云上之城</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style=" "> <!-- zoom: 0.85; -->
+    </a></i>
+    <li class="fullscreen">
+    <a href="javascript:fullscreen()" class="modal-trigger waves-effect waves-light">
+      <i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏" style=" "> <!-- zoom: 0.75; -->
+    </a></i>
+    <!--
+    <a href="https://travellings.now.sh/" target="blank" title="开往-友链接力"><img src="https://travellings.now.sh/assets/logo.gif" alt="开往-友链接力" width="120"></a>
+    -->
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-1.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">张小菜苔</div>
+        <div class="logo-desc">
+            
+            Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言簿
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-heartbeat"></i>
+			
+			ArtiTalk
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/color" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Color
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Secret
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>风域之门</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/box " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-map-marker" style="position: absolute;left:50px" ></i>
+			      
+		          <span>妖魔化镜</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="https://hut.zhangxiaocai.cn " target="_blank" rel="noopener" style="margin-left:75px">
+				  
+				   <i class="fa fas fa-pen-alt" style="position: absolute;left:50px" ></i>
+			      
+		          <span>沧海成渊</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="https://yun.zhangxiaocai.cn " target="_blank" rel="noopener" style="margin-left:75px">
+				  
+				   <i class="fa fas fa-cloud" style="position: absolute;left:50px" ></i>
+			      
+		          <span>云上之城</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Mybtis(四)工作原理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        
+
+        right: 32px;
+        bottom: 155px;
+
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Mybatis/">
+                                <span class="chip bg-color">Mybatis</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Mybatis/" class="post-category">
+                                Mybatis
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-06-20
+                </div>
+                
+                <!--添加作者信息--> 
+                <div class="info-break-policy"> 
+                 
+                    <i class="fa fa-pencil"></i> 作者: Small-Rose /张小菜 
+                 
+                 </div> 
+
+                     
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-06-20
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    27 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Mybtis-四-工作原理"><a href="#Mybtis-四-工作原理" class="headerlink" title="Mybtis(四)工作原理"></a>Mybtis(四)工作原理</h2><h3 id="一、Mybatis涉及技术"><a href="#一、Mybatis涉及技术" class="headerlink" title="一、Mybatis涉及技术"></a>一、Mybatis涉及技术</h3><p>mybatis运行主要两部分：</p>
+<p>（1）读取配置文件换乘到Configuration对象，用以创建SqlSessionFactory</p>
+<p>（2）SqlSession执行过程。</p>
+<p>SqlSession执行过程涉及技术：</p>
+<p>反射技术、动态代理技术。</p>
+<p>什么是代理模式？</p>
+<p>代理模式就是在原有的服务上多加一个占位，通过占位去控制服务的访问。</p>
+<p>为什么要使用代理模式？</p>
+<p>通过代理一方面可以控制如何访问真正的服务对象，提供额外服务。另一方面有机会通过重写一些类来满足特定的需要。</p>
+<p>一般动态代理分两种：</p>
+<p>（A）JDK反射机制提供的代理。必须提供接口。</p>
+<p>（B）CGLIB代理。不需要提供接口。 CGlib底层是动态的在内存中生成了目标对象的子类的字节码，并生成相应的对象 。</p>
+<h4 id="1、反射简单的示例"><a href="#1、反射简单的示例" class="headerlink" title="1、反射简单的示例"></a>1、反射简单的示例</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>reflect<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>InvocationTargetException<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Method<span class="token punctuation">;</span>
@@ -17,12 +790,22 @@
              <span class="token comment" spellcheck="true">//反射调用服务的方法    </span>
             method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>service<span class="token punctuation">,</span> <span class="token string">"zhangxiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>运行输出：</p><pre><code> hello ,zhangxiaocai !</code></pre><p>反射的好出是配置性提高，springIOC容器也是使用反射机制实现。</p><h4 id="2、JDK动态代理"><a href="#2、JDK动态代理" class="headerlink" title="2、JDK动态代理"></a>2、JDK动态代理</h4><p>支持包：<code>java.lang.reflect.*</code></p><p>实现JDK动态代理步骤：</p><p>（1）编写服务类和接口，是真正的服务提供者，在JDK代理这接口是必须的。</p><p>（2）编写代理类，提供绑定和代理方法。</p><p>服务接口类：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>jdktest<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>运行输出：</p>
+<pre><code> hello ,zhangxiaocai !</code></pre><p>反射的好出是配置性提高，springIOC容器也是使用反射机制实现。</p>
+<h4 id="2、JDK动态代理"><a href="#2、JDK动态代理" class="headerlink" title="2、JDK动态代理"></a>2、JDK动态代理</h4><p>支持包：<code>java.lang.reflect.*</code></p>
+<p>实现JDK动态代理步骤：</p>
+<p>（1）编写服务类和接口，是真正的服务提供者，在JDK代理这接口是必须的。</p>
+<p>（2）编写代理类，提供绑定和代理方法。</p>
+<p>服务接口类：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>jdktest<span class="token punctuation">;</span>
 
 <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">SayServiceI</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sayHello</span><span class="token punctuation">(</span>String someOne<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre><p>服务实现类：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>jdktest<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>服务实现类：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>jdktest<span class="token punctuation">;</span>
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SayServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">SayServiceI</span> <span class="token punctuation">{</span>
 
@@ -36,7 +819,9 @@
         <span class="token punctuation">}</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" hello ,"</span> <span class="token operator">+</span> someOne <span class="token operator">+</span> <span class="token string">" !"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>服务代理类：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>jdktest<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>服务代理类：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>jdktest<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>InvocationHandler<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Method<span class="token punctuation">;</span>
@@ -84,7 +869,9 @@
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"---反射方法执行前调用----"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>调用测试：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>jdktest<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>调用测试：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>jdktest<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>InvocationHandler<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Proxy<span class="token punctuation">;</span>
@@ -103,7 +890,9 @@
         SayServiceI proxyHello <span class="token operator">=</span> <span class="token punctuation">(</span>SayServiceI<span class="token punctuation">)</span> Proxy<span class="token punctuation">.</span><span class="token function">newProxyInstance</span><span class="token punctuation">(</span>mysay<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mysay<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
         proxyHello<span class="token punctuation">.</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token string">"zhangxiaocai.cn"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>执行结果如下，两种写法的调用结果一致：</p><pre><code> ----proxy = com.sun.proxy.$Proxy0
+<span class="token punctuation">}</span></code></pre>
+<p>执行结果如下，两种写法的调用结果一致：</p>
+<pre><code> ----proxy = com.sun.proxy.$Proxy0
 ----method = public abstract void com.ssm.web.demo.test.jdktest.SayServiceI.sayHello(java.lang.String)
 ---反射方法执行前调用----
  hello ,zhangxiaocai.cn !
@@ -112,7 +901,26 @@
 ----method = public abstract void com.ssm.web.demo.test.jdktest.SayServiceI.sayHello(java.lang.String)
 ---反射方法执行前调用----
  hello ,zhangxiaocai.cn !
----反射方法执行前调用----</code></pre><p>执行过程中如果出现死循环导致栈溢出（SOF），注意下列写法会导致死循环。</p><pre class="language-java"><code class="language-java">result <span class="token operator">=</span> method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>proxy<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//第一个参数写出proxy</span></code></pre><pre class="language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"----proxy = "</span> <span class="token operator">+</span> proxy<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//调用了代理对象的方法</span></code></pre><pre class="language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"----proxy = "</span> <span class="token operator">+</span> proxy<span class="token punctuation">.</span><span class="token function">hashcode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//调用了代理对象的方法</span></code></pre><p>代理对象是没有自己的方法的，它的所有方法都是基于被代理对象，<strong>而调用代理对象方法的时候，都会经过拦截器方法。因此，如果在拦截器中再调用代理对象的方法（如toString，hashcode，equals等），就会再次进入拦截器，这样就形成了死循环。</strong></p><p>还可以</p><blockquote><p>在jvm启动时加上-Dsun.misc.ProxyGenerator.saveGeneratedFiles=true参数，保存生成的动态代理类字节码$Proxy0.class</p><p>然后再利用反编译工具查看代理类$Proxy0.class源码</p></blockquote><p>关于 <code>newProxyInstance</code>f方法：</p><pre class="language-java"><code class="language-java">Proxy<span class="token punctuation">.</span><span class="token function">newProxyInstance</span><span class="token punctuation">(</span>mysay<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mysay<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>第一个参数mysay.getClass().getClassLoader()，是类加载器。</p><p>第二个参数mysay.getClass().getInterfaces()，是接口，代理对象挂在哪个接口下面。</p><p>第三个参数InvocationHandler实例，写在代理类中时直接使用this，表示当前代理类；写在非代理类中则是InvocationHandler子类指向InvocationHandler自己的引用。例子中使用了两种不同的写法。</p><h4 id="3、CGLIB动态代理"><a href="#3、CGLIB动态代理" class="headerlink" title="3、CGLIB动态代理"></a>3、CGLIB动态代理</h4><p>因JDK动态代理必须提供接口才可以使用，为了解决这个难题，CGLIB出现了。</p><p>CGLIB是开源框架，也是比较流行的动态代理。</p><p>CGLIB的代理类需要实现<code>org.springframework.cglib.proxy.MethodInterceptor</code>接口。</p><p>上例子中的服务接口类和服务实现类不变，添加CGLIB代理类：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>jdktest<span class="token punctuation">;</span>
+---反射方法执行前调用----</code></pre><p>执行过程中如果出现死循环导致栈溢出（SOF），注意下列写法会导致死循环。</p>
+<pre class=" language-java"><code class="language-java">result <span class="token operator">=</span> method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>proxy<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//第一个参数写出proxy</span></code></pre>
+<pre class=" language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"----proxy = "</span> <span class="token operator">+</span> proxy<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//调用了代理对象的方法</span></code></pre>
+<pre class=" language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"----proxy = "</span> <span class="token operator">+</span> proxy<span class="token punctuation">.</span><span class="token function">hashcode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//调用了代理对象的方法</span></code></pre>
+<p>代理对象是没有自己的方法的，它的所有方法都是基于被代理对象，<strong>而调用代理对象方法的时候，都会经过拦截器方法。因此，如果在拦截器中再调用代理对象的方法（如toString，hashcode，equals等），就会再次进入拦截器，这样就形成了死循环。</strong> </p>
+<p>还可以</p>
+<blockquote>
+<p>在jvm启动时加上-Dsun.misc.ProxyGenerator.saveGeneratedFiles=true参数，保存生成的动态代理类字节码$Proxy0.class</p>
+<p>然后再利用反编译工具查看代理类$Proxy0.class源码</p>
+</blockquote>
+<p>关于 <code>newProxyInstance</code>f方法：</p>
+<pre class=" language-java"><code class="language-java">Proxy<span class="token punctuation">.</span><span class="token function">newProxyInstance</span><span class="token punctuation">(</span>mysay<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mysay<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInterfaces</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>第一个参数mysay.getClass().getClassLoader()，是类加载器。</p>
+<p>第二个参数mysay.getClass().getInterfaces()，是接口，代理对象挂在哪个接口下面。</p>
+<p>第三个参数InvocationHandler实例，写在代理类中时直接使用this，表示当前代理类；写在非代理类中则是InvocationHandler子类指向InvocationHandler自己的引用。例子中使用了两种不同的写法。</p>
+<h4 id="3、CGLIB动态代理"><a href="#3、CGLIB动态代理" class="headerlink" title="3、CGLIB动态代理"></a>3、CGLIB动态代理</h4><p>因JDK动态代理必须提供接口才可以使用，为了解决这个难题，CGLIB出现了。</p>
+<p>CGLIB是开源框架，也是比较流行的动态代理。</p>
+<p>CGLIB的代理类需要实现<code>org.springframework.cglib.proxy.MethodInterceptor</code>接口。</p>
+<p>上例子中的服务接口类和服务实现类不变，添加CGLIB代理类：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>jdktest<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Method<span class="token punctuation">;</span>
 
@@ -148,7 +956,9 @@
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"---反射方法执行前调用----"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>测试运行类</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>jdktest<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>测试运行类</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>test<span class="token punctuation">.</span>jdktest<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>InvocationHandler<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Proxy<span class="token punctuation">;</span>
@@ -164,14 +974,54 @@
         SayServiceI proxyHello <span class="token operator">=</span><span class="token punctuation">(</span>SayServiceI<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>SayServiceCglib<span class="token punctuation">)</span> handler<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span>mysay<span class="token punctuation">)</span><span class="token punctuation">;</span>
         proxyHello<span class="token punctuation">.</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>执行结果</p><pre><code>----proxy = com.ssm.web.demo.test.jdktest.SayServiceImpl$$EnhancerByCGLIB$$71af915d
+<span class="token punctuation">}</span></code></pre>
+<p>执行结果</p>
+<pre><code>----proxy = com.ssm.web.demo.test.jdktest.SayServiceImpl$$EnhancerByCGLIB$$71af915d
 ----method = public void com.ssm.web.demo.test.jdktest.SayServiceImpl.sayHello(java.lang.String)
 ---反射方法执行前调用----
  hello ,zhangxiaocai.cn !
----反射方法执行前调用----</code></pre><p>Mybatis中在延迟加载时会使用CGLIB动态代理。</p><h3 id="二、构建SqlSessionFactory过程"><a href="#二、构建SqlSessionFactory过程" class="headerlink" title="二、构建SqlSessionFactory过程"></a>二、构建SqlSessionFactory过程</h3><p>SqlSessionFactory 是Mybatis的核心类之一，它最重要的功能就是提供Mybatis核心接口SqlSession。</p><h4 id="1、构建步骤"><a href="#1、构建步骤" class="headerlink" title="1、构建步骤"></a>1、构建步骤</h4><p>Mybatis使用构造模式去创建SqlSessionFactory，大致过程分两步：</p><p>（1）通过<code>org.apache.ibatis.builder.xml.XMLConfigBuilder</code>解析配置XML文件读出配置参数，并将读得的数据存入<code>org.apache.ibatis.session.Configuration</code>类中。（几乎所有配置都在这个Configuration类中）</p><p>（2）使用Configuration对象创建SqlSessionFactory 。SqlSessionFactory是接口不能直接使用，一般使用它默认的实现类<code>org.apache.ibatis.session.defaults.DefaultSqlSessionFactory</code>。</p><pre class="language-java"><code class="language-java">sqlSessionFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SqlSessionFactoryBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span>inputStream<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>这种创建方式就是一种Buidler模式。对于复杂的对象，直接使用构造方法构建比较困难的，这会导致大量的逻辑放在构造方法中，过程及其复杂。这种Builder模式值得我们学习。</p><p>构建SqlSessionFactory 过程中，Configuration最重要。</p><h4 id="2、Configuration的主要作用："><a href="#2、Configuration的主要作用：" class="headerlink" title="2、Configuration的主要作用："></a>2、Configuration的主要作用：</h4><p>（A）读入配置文件，包括基础配置XML和映射器XML文件。</p><p>（B）初始化基础配置，如别名、映射器、对象工厂、类型转换器等</p><p>（C）提供单例，为后续创建SessionFactory服务提供配置参数。</p><p>（D）执行重要的对象方法，初始化配置信息。</p><p>Configuration源码有八百多行，就不贴了。</p><p>具体相关配置可以参考<a href="#">《Mybatis配置大全》</a></p><h4 id="3、映射器组成"><a href="#3、映射器组成" class="headerlink" title="3、映射器组成"></a>3、映射器组成</h4><p>映射器主要由三个部分组成：</p><p>（1）MappedStatement - 保存映射器的一个节点（select | inset | delete | update）。包括配置的SQL、SQL的id、缓存信息、resultMap、parameterType、resultType、languageDriver等重要配置内容。</p><p>（2）SqlSource - 提供BoundSql 对象的地方，是MappedStatement 的一个属性。本质上一个接口，主要作用是根据参数和其他规则组装SQL。</p><p>（3）BoundSql - 建立SQL和参数的地方。常用属性有3个：SQL、parameterObject、parameterMapping。</p><p>​ （A）parameterObject 表示参数本身。传递基础类型对象时，Mybatis会把参数变成基础类型对应的包装类型对传递，如传int类型，参数会变成Integer类型。</p><p>​ （B）如果传递的是POJO或Map，那么parameterObject 就传入的POJO或Map。</p><p>​ （C）传递多个参数时，不使用<code>@Param</code>注解，Mybatis会把parameterObject变成Map&lt;String,Object&gt;对象，Map里的键值关系按照参数顺序存放：</p><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><span class="token property">"1"</span><span class="token operator">:</span>value1<span class="token punctuation">,</span><span class="token string">"2"</span><span class="token punctuation">,</span>value2<span class="token punctuation">,</span><span class="token property">"3"</span><span class="token operator">:</span>value3......<span class="token punctuation">,</span><span class="token property">"param1"</span><span class="token operator">:</span>value1<span class="token punctuation">,</span><span class="token property">"param2"</span><span class="token operator">:</span>value2<span class="token punctuation">,</span><span class="token property">"param3"</span><span class="token operator">:</span>value3......<span class="token punctuation">}</span></code></pre><p>可以使用时可以通过<code>#{param1}</code> 或 <code>#{1}</code>取第一个参数。</p><p>举个例子如：</p><pre class="language-java"><code class="language-java"><span class="token comment" spellcheck="true">//假设传入id的值为 10010, name的值为 zhangxiaocai</span>
-List<span class="token operator">&lt;</span>T<span class="token operator">></span>  <span class="token function">selectList</span><span class="token punctuation">(</span><span class="token keyword">long</span> id<span class="token punctuation">,</span> String name<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>则parameterObject变成Map&lt;String,Object&gt;对象后内容为：</p><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><span class="token property">"1"</span><span class="token operator">:</span><span class="token number">10010</span><span class="token punctuation">,</span><span class="token string">"2"</span><span class="token punctuation">,</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">,</span><span class="token property">"param1"</span><span class="token operator">:</span><span class="token number">10010</span><span class="token punctuation">,</span><span class="token property">"param2"</span><span class="token operator">:</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">}</span></code></pre><p>​ （D）传递多个参数时，使用<code>@Param</code>注解，Mybatis也会把parameterObject变成Map&lt;String,Object&gt;对象，Map里的键值关系按照参数顺序存放：</p><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><span class="token property">"key1"</span><span class="token operator">:</span>value1<span class="token punctuation">,</span><span class="token string">"key2"</span><span class="token punctuation">,</span>value2<span class="token punctuation">,</span><span class="token property">"3"</span><span class="token operator">:</span>value3......<span class="token punctuation">,</span><span class="token property">"param1"</span><span class="token operator">:</span>value1<span class="token punctuation">,</span><span class="token property">"param2"</span><span class="token operator">:</span>value2<span class="token punctuation">,</span><span class="token property">"param3"</span><span class="token operator">:</span>value3......<span class="token punctuation">}</span></code></pre><p>举个例子：</p><pre class="language-java"><code class="language-java"><span class="token comment" spellcheck="true">//假设传入id的值为 10010, name的值为 zhangxiaocai</span>
-List<span class="token operator">&lt;</span>T<span class="token operator">></span>  <span class="token function">selectList</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token keyword">long</span> id<span class="token punctuation">,</span> <span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span>  String name<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>那么对于的parameterObject变成的Map&lt;String,Object&gt;对象为：</p><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><span class="token property">"id"</span><span class="token operator">:</span><span class="token number">10010</span><span class="token punctuation">,</span><span class="token string">"name"</span><span class="token punctuation">,</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">,</span><span class="token property">"param1"</span><span class="token operator">:</span><span class="token number">10010</span><span class="token punctuation">,</span><span class="token property">"param2"</span><span class="token operator">:</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">}</span></code></pre><p>​ （E）parameterMappings是由元素为ParameterMapping对象组成的List集合。ParameterMapping对象描述的是参数，参数包括属性、名称、表达式、JavaType、jdbcType、typeHandler等信息。通过ParameterMapping对象实现参数和SQL的结合，方便PreparedStatement能通过ParameterMapping找到parameterObject对象的属性并设置参数。<br>​ （F）SQL就是映射器的一条SQL。</p><h3 id="三、SqlSession运行过程"><a href="#三、SqlSession运行过程" class="headerlink" title="三、SqlSession运行过程"></a>三、SqlSession运行过程</h3><p>有了SqlSessionFactory就可以直接拿到SqlSession。</p><pre class="language-java"><code class="language-java">sqlSessionFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SqlSessionFactoryBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span>inputStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
-sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>SqlSession可以进行查询、写入、更新、删除等方法，新版Mybatis使用Mapper映射器进行操作。</p><h4 id="1、Mapper映射器动态代理"><a href="#1、Mapper映射器动态代理" class="headerlink" title="1、Mapper映射器动态代理"></a>1、Mapper映射器动态代理</h4><p>在Mybatis源码<code>org.apache.ibatis.binding.MapperProxy&lt;T&gt;</code>类中可以看出Mapper是通过动态代理来实现的：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>binding<span class="token punctuation">;</span>
+---反射方法执行前调用----</code></pre><p>Mybatis中在延迟加载时会使用CGLIB动态代理。</p>
+<h3 id="二、构建SqlSessionFactory过程"><a href="#二、构建SqlSessionFactory过程" class="headerlink" title="二、构建SqlSessionFactory过程"></a>二、构建SqlSessionFactory过程</h3><p>SqlSessionFactory 是Mybatis的核心类之一，它最重要的功能就是提供Mybatis核心接口SqlSession。</p>
+<h4 id="1、构建步骤"><a href="#1、构建步骤" class="headerlink" title="1、构建步骤"></a>1、构建步骤</h4><p>Mybatis使用构造模式去创建SqlSessionFactory，大致过程分两步：</p>
+<p>（1）通过<code>org.apache.ibatis.builder.xml.XMLConfigBuilder</code>解析配置XML文件读出配置参数，并将读得的数据存入<code>org.apache.ibatis.session.Configuration</code>类中。（几乎所有配置都在这个Configuration类中）</p>
+<p>（2）使用Configuration对象创建SqlSessionFactory 。SqlSessionFactory是接口不能直接使用，一般使用它默认的实现类<code>org.apache.ibatis.session.defaults.DefaultSqlSessionFactory</code>。</p>
+<pre class=" language-java"><code class="language-java">sqlSessionFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SqlSessionFactoryBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span>inputStream<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>这种创建方式就是一种Buidler模式。对于复杂的对象，直接使用构造方法构建比较困难的，这会导致大量的逻辑放在构造方法中，过程及其复杂。这种Builder模式值得我们学习。</p>
+<p>构建SqlSessionFactory 过程中，Configuration最重要。</p>
+<h4 id="2、Configuration的主要作用："><a href="#2、Configuration的主要作用：" class="headerlink" title="2、Configuration的主要作用："></a>2、Configuration的主要作用：</h4><p>（A）读入配置文件，包括基础配置XML和映射器XML文件。</p>
+<p>（B）初始化基础配置，如别名、映射器、对象工厂、类型转换器等</p>
+<p>（C）提供单例，为后续创建SessionFactory服务提供配置参数。</p>
+<p>（D）执行重要的对象方法，初始化配置信息。</p>
+<p>Configuration源码有八百多行，就不贴了。</p>
+<p>具体相关配置可以参考<a href="#">《Mybatis配置大全》</a></p>
+<h4 id="3、映射器组成"><a href="#3、映射器组成" class="headerlink" title="3、映射器组成"></a>3、映射器组成</h4><p>映射器主要由三个部分组成：</p>
+<p>（1）MappedStatement - 保存映射器的一个节点（select | inset | delete | update）。包括配置的SQL、SQL的id、缓存信息、resultMap、parameterType、resultType、languageDriver等重要配置内容。</p>
+<p>（2）SqlSource - 提供BoundSql 对象的地方，是MappedStatement 的一个属性。本质上一个接口，主要作用是根据参数和其他规则组装SQL。</p>
+<p>（3）BoundSql - 建立SQL和参数的地方。常用属性有3个：SQL、parameterObject、parameterMapping。</p>
+<p>​    （A）parameterObject 表示参数本身。传递基础类型对象时，Mybatis会把参数变成基础类型对应的包装类型对传递，如传int类型，参数会变成Integer类型。</p>
+<p>​    （B）如果传递的是POJO或Map，那么parameterObject 就传入的POJO或Map。</p>
+<p>​    （C）传递多个参数时，不使用<code>@Param</code>注解，Mybatis会把parameterObject变成Map&lt;String,Object&gt;对象，Map里的键值关系按照参数顺序存放：</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span><span class="token property">"1"</span><span class="token operator">:</span>value1<span class="token punctuation">,</span><span class="token string">"2"</span><span class="token punctuation">,</span>value2<span class="token punctuation">,</span><span class="token property">"3"</span><span class="token operator">:</span>value3......<span class="token punctuation">,</span><span class="token property">"param1"</span><span class="token operator">:</span>value1<span class="token punctuation">,</span><span class="token property">"param2"</span><span class="token operator">:</span>value2<span class="token punctuation">,</span><span class="token property">"param3"</span><span class="token operator">:</span>value3......<span class="token punctuation">}</span></code></pre>
+<p>可以使用时可以通过<code>#{param1}</code> 或 <code>#{1}</code>取第一个参数。</p>
+<p>举个例子如：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//假设传入id的值为 10010, name的值为 zhangxiaocai</span>
+List<span class="token operator">&lt;</span>T<span class="token operator">></span>  <span class="token function">selectList</span><span class="token punctuation">(</span><span class="token keyword">long</span> id<span class="token punctuation">,</span> String name<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>则parameterObject变成Map&lt;String,Object&gt;对象后内容为：</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span><span class="token property">"1"</span><span class="token operator">:</span><span class="token number">10010</span><span class="token punctuation">,</span><span class="token string">"2"</span><span class="token punctuation">,</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">,</span><span class="token property">"param1"</span><span class="token operator">:</span><span class="token number">10010</span><span class="token punctuation">,</span><span class="token property">"param2"</span><span class="token operator">:</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">}</span></code></pre>
+<p>​    （D）传递多个参数时，使用<code>@Param</code>注解，Mybatis也会把parameterObject变成Map&lt;String,Object&gt;对象，Map里的键值关系按照参数顺序存放：</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span><span class="token property">"key1"</span><span class="token operator">:</span>value1<span class="token punctuation">,</span><span class="token string">"key2"</span><span class="token punctuation">,</span>value2<span class="token punctuation">,</span><span class="token property">"3"</span><span class="token operator">:</span>value3......<span class="token punctuation">,</span><span class="token property">"param1"</span><span class="token operator">:</span>value1<span class="token punctuation">,</span><span class="token property">"param2"</span><span class="token operator">:</span>value2<span class="token punctuation">,</span><span class="token property">"param3"</span><span class="token operator">:</span>value3......<span class="token punctuation">}</span></code></pre>
+<p>举个例子：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//假设传入id的值为 10010, name的值为 zhangxiaocai</span>
+List<span class="token operator">&lt;</span>T<span class="token operator">></span>  <span class="token function">selectList</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token keyword">long</span> id<span class="token punctuation">,</span> <span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span>  String name<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>那么对于的parameterObject变成的Map&lt;String,Object&gt;对象为：</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span><span class="token property">"id"</span><span class="token operator">:</span><span class="token number">10010</span><span class="token punctuation">,</span><span class="token string">"name"</span><span class="token punctuation">,</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">,</span><span class="token property">"param1"</span><span class="token operator">:</span><span class="token number">10010</span><span class="token punctuation">,</span><span class="token property">"param2"</span><span class="token operator">:</span><span class="token string">"zhangxiaocai"</span><span class="token punctuation">}</span></code></pre>
+<p>​    （E）parameterMappings是由元素为ParameterMapping对象组成的List集合。ParameterMapping对象描述的是参数，参数包括属性、名称、表达式、JavaType、jdbcType、typeHandler等信息。通过ParameterMapping对象实现参数和SQL的结合，方便PreparedStatement能通过ParameterMapping找到parameterObject对象的属性并设置参数。<br>​    （F）SQL就是映射器的一条SQL。</p>
+<h3 id="三、SqlSession运行过程"><a href="#三、SqlSession运行过程" class="headerlink" title="三、SqlSession运行过程"></a>三、SqlSession运行过程</h3><p>有了SqlSessionFactory就可以直接拿到SqlSession。</p>
+<pre class=" language-java"><code class="language-java">sqlSessionFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SqlSessionFactoryBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span>inputStream<span class="token punctuation">)</span><span class="token punctuation">;</span>
+sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>SqlSession可以进行查询、写入、更新、删除等方法，新版Mybatis使用Mapper映射器进行操作。</p>
+<h4 id="1、Mapper映射器动态代理"><a href="#1、Mapper映射器动态代理" class="headerlink" title="1、Mapper映射器动态代理"></a>1、Mapper映射器动态代理</h4><p>在Mybatis源码<code>org.apache.ibatis.binding.MapperProxy&lt;T&gt;</code>类中可以看出Mapper是通过动态代理来实现的：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>binding<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>Serializable<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>InvocationHandler<span class="token punctuation">;</span>
@@ -215,7 +1065,9 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> mapperMethod<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>但是动态代理的特点是：<br>（1）实现InvocationHandler的接口，重写invoke方法。<br>（2）使用绑定或构造方法建立与被代理对象的练习。<br>（3）Proxy.newProxyInstance(…)取得代理对象。<br>按以上三点来看，代理类里没有看到Proxy.newProxyInstance的调用，因为Mybatis使用MapperProxyFactory来实现代理类管理的,在这里找到了Proxy.newProxyInstance的调用。</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>binding<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>但是动态代理的特点是：<br>（1）实现InvocationHandler的接口，重写invoke方法。<br>（2）使用绑定或构造方法建立与被代理对象的练习。<br>（3）Proxy.newProxyInstance(…)取得代理对象。<br>按以上三点来看，代理类里没有看到Proxy.newProxyInstance的调用，因为Mybatis使用MapperProxyFactory来实现代理类管理的,在这里找到了Proxy.newProxyInstance的调用。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>binding<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Method<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Proxy<span class="token punctuation">;</span>
@@ -250,7 +1102,9 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
     <span class="token keyword">final</span> MapperProxy<span class="token operator">&lt;</span>T<span class="token operator">></span> mapperProxy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MapperProxy</span><span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span>sqlSession<span class="token punctuation">,</span> mapperInterface<span class="token punctuation">,</span> methodCache<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token function">newInstance</span><span class="token punctuation">(</span>mapperProxy<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>一旦Mapper接口调用SQL方法，那么就会运行到invoke方法中，invoke首先判断它是否是一个类，Mapper是接口不是类，所以会走到下面，生成MapperMethod对象，通过cachedMapperMethod方法对其进行初始化，然后执行execute方法，吧SQLSession和当前运行的参数传递进行。<br>MapperMethod的execute的方法，代码如下：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>binding<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>一旦Mapper接口调用SQL方法，那么就会运行到invoke方法中，invoke首先判断它是否是一个类，Mapper是接口不是类，所以会走到下面，生成MapperMethod对象，通过cachedMapperMethod方法对其进行初始化，然后执行execute方法，吧SQLSession和当前运行的参数传递进行。<br>MapperMethod的execute的方法，代码如下：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>binding<span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//MapperMethod 类内容较多，只贴了execute的方法。</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MapperMethod</span> <span class="token punctuation">{</span>
 
@@ -319,7 +1173,14 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>MapperMethod是采用命令模式运行，根据上下文跳转的。<br>execute里都是常见的<code>IUDS</code>操作,根据不同的SQL类型进行处理。<br>比如SELECT里有个 result = executeForMany(sqlSession, args); 就是一个典型的查询List结果的调用，从源代码里可以看到最后都是通过调用sqlSession去执行的对象的SQL。</p><p>Mapper接口能够执行SQL,就是因为映射器的XML文件命名空间对应的是这个接口的全路径，根据全路径和方法进行绑定，通过动态代理技术让这个接口运行起来。然后采用命令模式，根据SQL类型跳转不同方法，但最终还是使用SqlSession接口的方法使用执行对应SQL返回结果。</p><h4 id="2、-SqlSession的四大对象"><a href="#2、-SqlSession的四大对象" class="headerlink" title="2、 SqlSession的四大对象"></a>2、 SqlSession的四大对象</h4><p>Mapper执行的过程是通过<code>Excutor</code>、<code>StatementHandler</code>、<code>ParameterHandler</code>、<code>ResultHandler</code>来完成数据库操作和结果返回。<br>（1）<code>Excutor</code> 代表执行器，负责调度<code>StatementHandler</code>、<code>ParameterHandler</code>、<code>ResultHandler</code>等来执行对应SQL。<br>（2）<code>StatementHandler</code>作用是使用数据库的<code>Statement(PreparedStatement)</code>执行操作，是四大对象的核心，起到承上启下的作用。<br>（3）<code>ParameterHandler</code>用于SQL参数的处理。<br>（4）<code>ResultHandler</code>是进行最后数据集（ResultSet）的封装返回处理。</p><h5 id="1、Excutor执行器"><a href="#1、Excutor执行器" class="headerlink" title="1、Excutor执行器"></a>1、Excutor执行器</h5><p>执行器Excutor是真正执行Java和数据交互的东西，主要有三种执行器。可以在配置setting元素的属性defaultExcutorType来进行配置。<br>（A）SIMPLE - 简单执行器，不配做就是默认执行器。<br>（B）REUSE - 是一种执行器重用预处理语句。<br>（C）BATCH - 执行器重用语句和批量更新，是针对批量专用的执行器。</p><p>三者都提供了查询和更新的方法，事务方法。</p><p><code>Configuration</code>中可以看到创建执行器的过程：</p><pre class="language-java"><code class="language-java">  <span class="token keyword">public</span> Executor <span class="token function">newExecutor</span><span class="token punctuation">(</span>Transaction transaction<span class="token punctuation">,</span> ExecutorType executorType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
+<p>MapperMethod是采用命令模式运行，根据上下文跳转的。<br>execute里都是常见的<code>IUDS</code>操作,根据不同的SQL类型进行处理。<br>比如SELECT里有个 result = executeForMany(sqlSession, args); 就是一个典型的查询List结果的调用，从源代码里可以看到最后都是通过调用sqlSession去执行的对象的SQL。</p>
+<p>Mapper接口能够执行SQL,就是因为映射器的XML文件命名空间对应的是这个接口的全路径，根据全路径和方法进行绑定，通过动态代理技术让这个接口运行起来。然后采用命令模式，根据SQL类型跳转不同方法，但最终还是使用SqlSession接口的方法使用执行对应SQL返回结果。</p>
+<h4 id="2、-SqlSession的四大对象"><a href="#2、-SqlSession的四大对象" class="headerlink" title="2、 SqlSession的四大对象"></a>2、 SqlSession的四大对象</h4><p>Mapper执行的过程是通过<code>Excutor</code>、<code>StatementHandler</code>、<code>ParameterHandler</code>、<code>ResultHandler</code>来完成数据库操作和结果返回。<br>（1）<code>Excutor</code> 代表执行器，负责调度<code>StatementHandler</code>、<code>ParameterHandler</code>、<code>ResultHandler</code>等来执行对应SQL。<br>（2）<code>StatementHandler</code>作用是使用数据库的<code>Statement(PreparedStatement)</code>执行操作，是四大对象的核心，起到承上启下的作用。<br>（3）<code>ParameterHandler</code>用于SQL参数的处理。<br>（4）<code>ResultHandler</code>是进行最后数据集（ResultSet）的封装返回处理。</p>
+<h5 id="1、Excutor执行器"><a href="#1、Excutor执行器" class="headerlink" title="1、Excutor执行器"></a>1、Excutor执行器</h5><p>执行器Excutor是真正执行Java和数据交互的东西，主要有三种执行器。可以在配置setting元素的属性defaultExcutorType来进行配置。<br>（A）SIMPLE - 简单执行器，不配做就是默认执行器。<br>（B）REUSE - 是一种执行器重用预处理语句。<br>（C）BATCH - 执行器重用语句和批量更新，是针对批量专用的执行器。</p>
+<p>三者都提供了查询和更新的方法，事务方法。</p>
+<p><code>Configuration</code>中可以看到创建执行器的过程：</p>
+<pre class=" language-java"><code class="language-java">  <span class="token keyword">public</span> Executor <span class="token function">newExecutor</span><span class="token punctuation">(</span>Transaction transaction<span class="token punctuation">,</span> ExecutorType executorType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     executorType <span class="token operator">=</span> executorType <span class="token operator">==</span> null <span class="token operator">?</span> defaultExecutorType <span class="token operator">:</span> executorType<span class="token punctuation">;</span>
     executorType <span class="token operator">=</span> executorType <span class="token operator">==</span> null <span class="token operator">?</span> ExecutorType<span class="token punctuation">.</span>SIMPLE <span class="token operator">:</span> executorType<span class="token punctuation">;</span>
     Executor executor<span class="token punctuation">;</span>
@@ -336,7 +1197,10 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
 
     executor <span class="token operator">=</span> <span class="token punctuation">(</span>Executor<span class="token punctuation">)</span> interceptorChain<span class="token punctuation">.</span><span class="token function">pluginAll</span><span class="token punctuation">(</span>executor<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> executor<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span></code></pre><p>其中<code>interceptorChain.pluginAll</code>是Mybatis插件，用来构建动态代理对象，在调度真正的Executor方法执行执行配置插件代码可以修改。</p><p>如SimpleExecutor代码：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span></code></pre>
+<p>其中<code>interceptorChain.pluginAll</code>是Mybatis插件，用来构建动态代理对象，在调度真正的Executor方法执行执行配置插件代码可以修改。</p>
+<p>如SimpleExecutor代码：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>Cursor<span class="token punctuation">;</span>
 <span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">.</span>statement<span class="token punctuation">.</span>StatementHandler<span class="token punctuation">;</span>
@@ -406,15 +1270,23 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
     handler<span class="token punctuation">.</span><span class="token function">parameterize</span><span class="token punctuation">(</span>stmt<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> stmt<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>从代码可以看到常见的doUpdate和doQuery操作。以doQuery为例，其过程大致如下:<br>根据Configuration来构建StatementHandler,然后使用prepareStatement方法对象SQL编译并对参数初始化，它的实现过程调用StatementHandler的prepare()进行预编译和基础设置，然后通过根据StatementHandler的parameterize()来设置参数并执行，ResultHandler再组装查询结果返回给调用者来完成查询。</p><h5 id="2、数据库会话器"><a href="#2、数据库会话器" class="headerlink" title="2、数据库会话器"></a>2、数据库会话器</h5><p>数据库会话器StatementHandler主要负责与数据库会话操作。<br>若要指定使用，可以在SQL上进行配置：</p><pre class="language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- statementType （可选配置，默认配置为PREPARED）
+<span class="token punctuation">}</span></code></pre>
+<p>从代码可以看到常见的doUpdate和doQuery操作。以doQuery为例，其过程大致如下:<br>根据Configuration来构建StatementHandler,然后使用prepareStatement方法对象SQL编译并对参数初始化，它的实现过程调用StatementHandler的prepare()进行预编译和基础设置，然后通过根据StatementHandler的parameterize()来设置参数并执行，ResultHandler再组装查询结果返回给调用者来完成查询。</p>
+<h5 id="2、数据库会话器"><a href="#2、数据库会话器" class="headerlink" title="2、数据库会话器"></a>2、数据库会话器</h5><p>数据库会话器StatementHandler主要负责与数据库会话操作。<br>若要指定使用，可以在SQL上进行配置：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- statementType （可选配置，默认配置为PREPARED）
     STATEMENT，PREPARED 或 CALLABLE 的一个。
     分别对应使用 Statement，PreparedStatement 或 CallableStatement --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>insert</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>save<span class="token punctuation">"</span></span>  <span class="token attr-name">statementType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>STATEMENT<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>insert</span><span class="token punctuation">></span></span></code></pre><p><code>Configuration</code>中可以看到创建数据库会话器的过程：</p><pre class="language-java"><code class="language-java">  <span class="token keyword">public</span> StatementHandler <span class="token function">newStatementHandler</span><span class="token punctuation">(</span>Executor executor<span class="token punctuation">,</span> MappedStatement mappedStatement<span class="token punctuation">,</span> Object parameterObject<span class="token punctuation">,</span> RowBounds rowBounds<span class="token punctuation">,</span> ResultHandler resultHandler<span class="token punctuation">,</span> BoundSql boundSql<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>insert</span><span class="token punctuation">></span></span></code></pre>
+<p><code>Configuration</code>中可以看到创建数据库会话器的过程：</p>
+<pre class=" language-java"><code class="language-java">  <span class="token keyword">public</span> StatementHandler <span class="token function">newStatementHandler</span><span class="token punctuation">(</span>Executor executor<span class="token punctuation">,</span> MappedStatement mappedStatement<span class="token punctuation">,</span> Object parameterObject<span class="token punctuation">,</span> RowBounds rowBounds<span class="token punctuation">,</span> ResultHandler resultHandler<span class="token punctuation">,</span> BoundSql boundSql<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     StatementHandler statementHandler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RoutingStatementHandler</span><span class="token punctuation">(</span>executor<span class="token punctuation">,</span> mappedStatement<span class="token punctuation">,</span> parameterObject<span class="token punctuation">,</span> rowBounds<span class="token punctuation">,</span> resultHandler<span class="token punctuation">,</span> boundSql<span class="token punctuation">)</span><span class="token punctuation">;</span>
     statementHandler <span class="token operator">=</span> <span class="token punctuation">(</span>StatementHandler<span class="token punctuation">)</span> interceptorChain<span class="token punctuation">.</span><span class="token function">pluginAll</span><span class="token punctuation">(</span>statementHandler<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> statementHandler<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span></code></pre><p>可以看到创建statementHandler的动作是由RoutingStatementHandler来完成，它实现了statementHandler接口，和Executor类似用代理对象进行封装。</p><p>在<code>RoutingStatementHandler</code>的源代码中：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">.</span>statement<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span></code></pre>
+<p>可以看到创建statementHandler的动作是由RoutingStatementHandler来完成，它实现了statementHandler接口，和Executor类似用代理对象进行封装。</p>
+<p>在<code>RoutingStatementHandler</code>的源代码中：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">.</span>statement<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Connection<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>SQLException<span class="token punctuation">;</span>
@@ -450,7 +1322,13 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
         <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ExecutorException</span><span class="token punctuation">(</span><span class="token string">"Unknown statement type: "</span> <span class="token operator">+</span> ms<span class="token punctuation">.</span><span class="token function">getStatementType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">//some code ...</span>
-  <span class="token punctuation">}</span></code></pre><p>可以看出RoutingStatementHandler也不是真正服务对象，它是通过适配模式找到对应的StatementHandler来执行。Mybatis中StatementHandler和Executor一样也有三种：<br>（A）SimpleStatementHandler - 对应JDBC中Statement接口，执行普通SQL<br>（B）PreparedStatementHandler - 对应JDBC中的PreparedStatement，预编译SQL的接口；<br>（c）CallableStatementHandler - 对应JDBC中CallableStatement，用于执行存储过程相关的接口；</p><p>RoutingStatementHandler中定义了一个delegate，它是一个StatementHandler接口对象，构造方法根据配置来适配对应的StatementHandler对象。</p><p>RoutingStatementHandler的作用是给实现类对象的使用提供一个统一简易的使用适配器，这是对象的适配模式，可以让我们使用现有的类和方法对外提供服务，也可以根据实际需求对外屏蔽方法，加入新方法。</p><p>如PreparedSatementHandler执行Mybatis执行查询，有三个主要的方法：<br>prepare、parameterize、query</p><p>如下是BaseStatementHandler的prepare方法：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">.</span>statement<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span></code></pre>
+<p>可以看出RoutingStatementHandler也不是真正服务对象，它是通过适配模式找到对应的StatementHandler来执行。Mybatis中StatementHandler和Executor一样也有三种：<br>（A）SimpleStatementHandler - 对应JDBC中Statement接口，执行普通SQL<br>（B）PreparedStatementHandler - 对应JDBC中的PreparedStatement，预编译SQL的接口；<br>（c）CallableStatementHandler - 对应JDBC中CallableStatement，用于执行存储过程相关的接口；</p>
+<p>RoutingStatementHandler中定义了一个delegate，它是一个StatementHandler接口对象，构造方法根据配置来适配对应的StatementHandler对象。</p>
+<p>RoutingStatementHandler的作用是给实现类对象的使用提供一个统一简易的使用适配器，这是对象的适配模式，可以让我们使用现有的类和方法对外提供服务，也可以根据实际需求对外屏蔽方法，加入新方法。</p>
+<p>如PreparedSatementHandler执行Mybatis执行查询，有三个主要的方法：<br>prepare、parameterize、query</p>
+<p>如下是BaseStatementHandler的prepare方法：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">.</span>statement<span class="token punctuation">;</span>
 <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">BaseStatementHandler</span> <span class="token keyword">implements</span> <span class="token class-name">StatementHandler</span> <span class="token punctuation">{</span>
       <span class="token annotation punctuation">@Override</span>
       <span class="token keyword">public</span> Statement <span class="token function">prepare</span><span class="token punctuation">(</span>Connection connection<span class="token punctuation">,</span> Integer transactionTimeout<span class="token punctuation">)</span> <span class="token keyword">throws</span> SQLException <span class="token punctuation">{</span>
@@ -469,7 +1347,9 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
           <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ExecutorException</span><span class="token punctuation">(</span><span class="token string">"Error preparing statement.  Cause: "</span> <span class="token operator">+</span> e<span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
       <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>instantiateStatement()方法是对SQL进行预编译。<br>下面是PreparedSatementHandler里的instantiateStatement()和parameterize()方法:</p><pre class="language-java"><code class="language-java"> <span class="token annotation punctuation">@Override</span>
+<span class="token punctuation">}</span></code></pre>
+<p>instantiateStatement()方法是对SQL进行预编译。<br>下面是PreparedSatementHandler里的instantiateStatement()和parameterize()方法:</p>
+<pre class=" language-java"><code class="language-java"> <span class="token annotation punctuation">@Override</span>
   <span class="token keyword">protected</span> Statement <span class="token function">instantiateStatement</span><span class="token punctuation">(</span>Connection connection<span class="token punctuation">)</span> <span class="token keyword">throws</span> SQLException <span class="token punctuation">{</span>
     String sql <span class="token operator">=</span> boundSql<span class="token punctuation">.</span><span class="token function">getSql</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>mappedStatement<span class="token punctuation">.</span><span class="token function">getKeyGenerator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">instanceof</span> <span class="token class-name">Jdbc3KeyGenerator</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -496,7 +1376,12 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
     PreparedStatement ps <span class="token operator">=</span> <span class="token punctuation">(</span>PreparedStatement<span class="token punctuation">)</span> statement<span class="token punctuation">;</span>
     ps<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> resultSetHandler<span class="token punctuation">.</span>&lt;E<span class="token operator">></span> <span class="token function">handleResultSets</span><span class="token punctuation">(</span>ps<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span></code></pre><p>prepare()方法首先进行一些基础配置，如超时、获取最大行数等设置。然后Executor会调用parameterize()方法设置参数。从代码可以看到设置参数是由ParameterHandler来完成的。</p><p>SatementHandler执行查询的方法里，由于执行前参数和SQL都被prepare()方法预编译，参数在parameterize()方法完成了设置，只要执行SQL返回结果即可。执行之后就是ResultHandler对结果的封装和返回。</p><p><strong>SQL执行过程总结</strong>：<br>Executor会先调用StatementHandler的prepare()方法预编译SQL语句，并设置基本运行参数。<br>然后使用parameterize()方法启用ParameterHandler设置成桉树，完成预编译，跟着就是执行SQL操作（query/update）<br>最后，如果有结果集就使用ResultHandler封装结果返回给调用者。</p><h5 id="3、参数处理器"><a href="#3、参数处理器" class="headerlink" title="3、参数处理器"></a>3、参数处理器</h5><p>参数处理器ParameterHandler主要作用就是完成对预编译参数的设置。<br>ParameterHandler源码：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">.</span>parameter<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span></code></pre>
+<p>prepare()方法首先进行一些基础配置，如超时、获取最大行数等设置。然后Executor会调用parameterize()方法设置参数。从代码可以看到设置参数是由ParameterHandler来完成的。</p>
+<p>SatementHandler执行查询的方法里，由于执行前参数和SQL都被prepare()方法预编译，参数在parameterize()方法完成了设置，只要执行SQL返回结果即可。执行之后就是ResultHandler对结果的封装和返回。</p>
+<p><strong>SQL执行过程总结</strong>：<br>Executor会先调用StatementHandler的prepare()方法预编译SQL语句，并设置基本运行参数。<br>然后使用parameterize()方法启用ParameterHandler设置成桉树，完成预编译，跟着就是执行SQL操作（query/update）<br>最后，如果有结果集就使用ResultHandler封装结果返回给调用者。</p>
+<h5 id="3、参数处理器"><a href="#3、参数处理器" class="headerlink" title="3、参数处理器"></a>3、参数处理器</h5><p>参数处理器ParameterHandler主要作用就是完成对预编译参数的设置。<br>ParameterHandler源码：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">.</span>parameter<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>PreparedStatement<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>SQLException<span class="token punctuation">;</span>
@@ -506,7 +1391,9 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
     Object <span class="token function">getParameterObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//设置预编译SQL语句的参数</span>
     <span class="token keyword">void</span> <span class="token function">setParameters</span><span class="token punctuation">(</span>PreparedStatement ps<span class="token punctuation">)</span><span class="token keyword">throws</span> SQLException<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre><p>ParameterHandler接口中，getParameterObject()方法的作用是返回参数对象，setParameters()方法的作用是设置预编译SQL语句的参数。<br>Mybatis为ParameterHandler提供了一个实现类DefaultParameterHandler，setParameters()方法源码：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>scripting<span class="token punctuation">.</span>defaults<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>ParameterHandler接口中，getParameterObject()方法的作用是返回参数对象，setParameters()方法的作用是设置预编译SQL语句的参数。<br>Mybatis为ParameterHandler提供了一个实现类DefaultParameterHandler，setParameters()方法源码：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>scripting<span class="token punctuation">.</span>defaults<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>PreparedStatement<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>SQLException<span class="token punctuation">;</span>
@@ -583,7 +1470,10 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>从代码中可以看到从parameterObject对象获取参数，然后使用类型转换器typeHandler进行参数处理。如果自定义了类型转换器，就会根据签名注册typeHandler对参数进行处理。类型转换器也是在Mybatis初始化的时候注册在Configuration里面。</p><h5 id="4、结果处理器"><a href="#4、结果处理器" class="headerlink" title="4、结果处理器"></a>4、结果处理器</h5><p>ResultHandler是封装结果集的。<br>ResultHandler的源码：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">.</span>resultset<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>从代码中可以看到从parameterObject对象获取参数，然后使用类型转换器typeHandler进行参数处理。如果自定义了类型转换器，就会根据签名注册typeHandler对参数进行处理。类型转换器也是在Mybatis初始化的时候注册在Configuration里面。</p>
+<h5 id="4、结果处理器"><a href="#4、结果处理器" class="headerlink" title="4、结果处理器"></a>4、结果处理器</h5><p>ResultHandler是封装结果集的。<br>ResultHandler的源码：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">.</span>resultset<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>Cursor<span class="token punctuation">;</span>
 
@@ -599,7 +1489,9 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
     <span class="token operator">&lt;</span>E<span class="token operator">></span> Cursor<span class="token operator">&lt;</span>E<span class="token operator">></span> <span class="token function">handleCursorResultSets</span><span class="token punctuation">(</span>Statement stmt<span class="token punctuation">)</span> <span class="token keyword">throws</span> SQLException<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//处理存储过程输出参数</span>
     <span class="token keyword">void</span> <span class="token function">handleOutputParameters</span><span class="token punctuation">(</span>CallableStatement cs<span class="token punctuation">)</span> <span class="token keyword">throws</span> SQLException<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre><p>其中handleOutputParameters()方法是处理存储过程输出参数。handleResultSets()方法是包装结果集的。<br>Mybatis提供了一个实现类DefaultResultSetHandler类，默认情况下都是通过这个类进行处理。它的实现涉及JavaSSIST或CGLIB作为延迟加载的，然后通过typeHandler和ObjectFacorty进行组装结果再返回的。</p><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DefaultResultSetHandler</span> <span class="token keyword">implements</span> <span class="token class-name">ResultSetHandler</span> <span class="token punctuation">{</span> 
+<span class="token punctuation">}</span></code></pre>
+<p>其中handleOutputParameters()方法是处理存储过程输出参数。handleResultSets()方法是包装结果集的。<br>Mybatis提供了一个实现类DefaultResultSetHandler类，默认情况下都是通过这个类进行处理。它的实现涉及JavaSSIST或CGLIB作为延迟加载的，然后通过typeHandler和ObjectFacorty进行组装结果再返回的。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DefaultResultSetHandler</span> <span class="token keyword">implements</span> <span class="token class-name">ResultSetHandler</span> <span class="token punctuation">{</span> 
      <span class="token annotation punctuation">@Override</span>
       <span class="token keyword">public</span> List<span class="token operator">&lt;</span>Object<span class="token operator">></span> <span class="token function">handleResultSets</span><span class="token punctuation">(</span>Statement stmt<span class="token punctuation">)</span> <span class="token keyword">throws</span> SQLException <span class="token punctuation">{</span>
         ErrorContext<span class="token punctuation">.</span><span class="token function">instance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">activity</span><span class="token punctuation">(</span><span class="token string">"handling results"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">object</span><span class="token punctuation">(</span>mappedStatement<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -637,14 +1529,530 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
 
         <span class="token keyword">return</span> <span class="token function">collapseSingleResultList</span><span class="token punctuation">(</span>multipleResults<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><h4 id="3、SqlSession运行总结："><a href="#3、SqlSession运行总结：" class="headerlink" title="3、SqlSession运行总结："></a>3、SqlSession运行总结：</h4><p><img src="/medias/loading-animated.gif" data-original="/images/mybatis-imgs/Mybatis-SqlSession-executing.png" alt="SqlSession内部允许图"></p><p>SqlSession是通过Executor调度StatementHandler来运行，StatementHandler要结果三步：<br>（A）prepared预编译SQL。<br>（B）parameterize设置参数<br>（C）query或update执行SQL<br>parameterize是调用ParameterHandler的方法去设置，参数是根据类型处理器typeHandler处理的。query或update方法通过ResultHandler进行处理结果的封装。update返回整数，query返回的结果集则是通过typeHandler处理结果类型，然后使用ObjectFactory提供的规则组装对象，返回给调用者。</p><br><p><strong>相关文章：</strong></p><table><thead><tr><th>文章名称</th></tr></thead><tbody><tr><td><a href="b802139a.html">《Mybatis(一)主要组件》</a></td></tr><tr><td><a href="5d11555a.html">《Mybatis(二)配置》</a></td></tr><tr><td><a href="d467df29.html">《Mybatis(三)动态SQL》</a></td></tr><tr><td><a href="3bfa75b5.html">《Mybtis(四)工作原理》</a></td></tr><tr><td><a href="ae8510ea.html">《Mybtis(五)Mapper映射器》</a></td></tr><tr><td><a href="44c4c800.html">《Mybtis(六)Mapper级联》</a></td></tr></tbody></table><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css"></div><br><hr><div class="reprint" id="reprint-statement"><div class="reprint__author"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-user">文章作者: </i></span><span class="reprint-info"><a href="/about" rel="external nofollow noreferrer">Small-Rose /张小菜</a></span></div><div class="reprint__type"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-link">文章链接: </i></span><span class="reprint-info"><a href="https://www.zhangxiaocai.cn/posts/3bfa75b5.html">https://www.zhangxiaocai.cn/posts/3bfa75b5.html</a></span></div><div class="reprint__notice"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-copyright">版权声明: </i></span><span class="reprint-info">本博客所有文章除特別声明外，均采用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a> 许可协议。转载请注明来源 <a href="/about" target="_blank">Small-Rose /张小菜</a> !</span></div></div><script async defer>document.addEventListener("copy", function (e) {
+<span class="token punctuation">}</span></code></pre>
+<h4 id="3、SqlSession运行总结："><a href="#3、SqlSession运行总结：" class="headerlink" title="3、SqlSession运行总结："></a>3、SqlSession运行总结：</h4><p><img src="/medias/loading-animated.gif" data-original="/images/mybatis-imgs/Mybatis-SqlSession-executing.png" alt="SqlSession内部允许图"></p>
+<p>SqlSession是通过Executor调度StatementHandler来运行，StatementHandler要结果三步：<br>（A）prepared预编译SQL。<br>（B）parameterize设置参数<br>（C）query或update执行SQL<br>parameterize是调用ParameterHandler的方法去设置，参数是根据类型处理器typeHandler处理的。query或update方法通过ResultHandler进行处理结果的封装。update返回整数，query返回的结果集则是通过typeHandler处理结果类型，然后使用ObjectFactory提供的规则组装对象，返回给调用者。</p>
+<br/>
+
+<p><strong>相关文章：</strong></p>
+<table>
+<thead>
+<tr>
+<th>文章名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="b802139a.html">《Mybatis(一)主要组件》</a></td>
+</tr>
+<tr>
+<td><a href="5d11555a.html">《Mybatis(二)配置》</a></td>
+</tr>
+<tr>
+<td><a href="d467df29.html">《Mybatis(三)动态SQL》</a></td>
+</tr>
+<tr>
+<td><a href="3bfa75b5.html">《Mybtis(四)工作原理》</a></td>
+</tr>
+<tr>
+<td><a href="ae8510ea.html">《Mybtis(五)Mapper映射器》</a></td>
+</tr>
+<tr>
+<td><a href="44c4c800.html">《Mybtis(六)Mapper级联》</a></td>
+</tr>
+</tbody></table>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+            </div>
+            <br/>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Small-Rose /张小菜</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.zhangxiaocai.cn/posts/3bfa75b5.html">https://www.zhangxiaocai.cn/posts/3bfa75b5.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Small-Rose /张小菜</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
         let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
         M.toast({html: toastHTML})
       });
 
       function navToReprintStatement() {
         $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }</script><div class="tag_share" style="display:block"><div class="post-meta__tag-list" style="display:inline-block"><div class="article-tag"><a href="/tags/Mybatis/"><span class="chip bg-color">Mybatis</span></a></div></div><div class="post_share" style="zoom:80%;width:fit-content;display:inline-block;float:right;margin:-.15rem 0"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/css/share.min.css"><div id="article-share"><div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/js/social-share.min.js"></script></div></div></div><style>#reward{margin:40px 0;text-align:center}#reward .reward-link{font-size:1.4rem;line-height:38px}#reward .btn-floating:hover{box-shadow:0 6px 12px rgba(0,0,0,.2),0 5px 15px rgba(0,0,0,.2)}#rewardModal{width:320px;height:350px}#rewardModal .reward-title{margin:15px auto;padding-bottom:5px}#rewardModal .modal-content{padding:10px}#rewardModal .close{position:absolute;right:15px;top:15px;color:rgba(0,0,0,.5);font-size:1.3rem;line-height:20px;cursor:pointer}#rewardModal .close:hover{color:#ef5350;transform:scale(1.3);-moz-transform:scale(1.3);-webkit-transform:scale(1.3);-o-transform:scale(1.3)}#rewardModal .reward-tabs{margin:0 auto;width:210px}.reward-tabs .tabs{height:38px;margin:10px auto;padding-left:0}.reward-content ul{padding-left:0!important}.reward-tabs .tabs .tab{height:38px;line-height:38px}.reward-tabs .tab a{color:#fff;background-color:#ccc}.reward-tabs .tab a:hover{background-color:#ccc;color:#fff}.reward-tabs .wechat-tab .active{color:#fff!important;background-color:#22AB38!important}.reward-tabs .alipay-tab .active{color:#fff!important;background-color:#019FE8!important}.reward-tabs .reward-img{width:210px;height:210px}</style><div id="reward"><a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a><div id="rewardModal" class="modal"><div class="modal-content"><a class="close modal-close"><i class="fas fa-times"></i></a><h4 class="reward-title">你的赏识是我前进的动力</h4><div class="reward-content"><div class="reward-tabs"><ul class="tabs row"><li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li><li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li></ul><div id="alipay"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码"></div><div id="wechat"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码"></div></div></div></div></div></div><script>$(function(){$(".tabs").tabs()})</script></div></div><style>.valine-card{margin:1.5rem auto}.valine-card .card-content{padding:20px 20px 5px 20px}#vcomments textarea{box-sizing:border-box;background:url(/medias/202007bg.webp) 100% 100% no-repeat}#vcomments p{margin:2px 2px 10px;font-size:1.05rem;line-height:1.78rem}#vcomments blockquote p{text-indent:.2rem}#vcomments a{padding:0 2px;color:#4cbf30;font-weight:500;text-decoration:none}#vcomments img{max-width:100%;height:auto;cursor:pointer}#vcomments ol li{list-style-type:decimal}#vcomments ol,ul{display:block;padding-left:2em;word-spacing:.05rem}#vcomments ul li,ol li{display:list-item;line-height:1.8rem;font-size:1rem}#vcomments ul li{list-style-type:disc}#vcomments ul ul li{list-style-type:circle}#vcomments table,td,th{padding:12px 13px;border:1px solid #dfe2e5}#vcomments table,td,th{border:0}table tr:nth-child(2n),thead{background-color:#fafafa}#vcomments table th{background-color:#f2f2f2;min-width:80px}#vcomments table td{min-width:80px}#vcomments h1{font-size:1.85rem;font-weight:700;line-height:2.2rem}#vcomments h2{font-size:1.65rem;font-weight:700;line-height:1.9rem}#vcomments h3{font-size:1.45rem;font-weight:700;line-height:1.7rem}#vcomments h4{font-size:1.25rem;font-weight:700;line-height:1.5rem}#vcomments h5{font-size:1.1rem;font-weight:700;line-height:1.4rem}#vcomments h6{font-size:1rem;line-height:1.3rem}#vcomments p{font-size:1rem;line-height:1.5rem}#vcomments hr{margin:12px 0;border:0;border-top:1px solid #ccc}#vcomments blockquote{margin:15px 0;border-left:5px solid #42b983;padding:1rem .8rem .3rem .8rem;color:#666;background-color:rgba(66,185,131,.1)}#vcomments pre{font-family:monospace,monospace;padding:1.2em;margin:.5em 0;background:#272822;overflow:auto;border-radius:.3em;tab-size:4}#vcomments code{font-family:monospace,monospace;padding:1px 3px;font-size:.92rem;color:#e96900;background-color:#f8f8f8;border-radius:2px}#vcomments pre code{font-family:monospace,monospace;padding:0;color:#e8eaf6;background-color:#272822}#vcomments pre[class*=language-]{padding:1.2em;margin:.5em 0}#vcomments code[class*=language-],pre[class*=language-]{color:#e8eaf6}#vcomments [type=checkbox]:not(:checked),[type=checkbox]:checked{position:inherit;margin-left:-1.3rem;margin-right:.4rem;margin-top:-1px;vertical-align:middle;left:unset;visibility:visible}#vcomments b,strong{font-weight:700}#vcomments dfn{font-style:italic}#vcomments small{font-size:85%}#vcomments cite{font-style:normal}#vcomments mark{background-color:#fcf8e3;padding:.2em}#vcomments table,td,th{padding:12px 13px;border:1px solid #dfe2e5}table tr:nth-child(2n),thead{background-color:#fafafa}#vcomments table th{background-color:#f2f2f2;min-width:80px}#vcomments table td{min-width:80px}#vcomments [type=checkbox]:not(:checked),[type=checkbox]:checked{position:inherit;margin-left:-1.3rem;margin-right:.4rem;margin-top:-1px;vertical-align:middle;left:unset;visibility:visible}#vcomments .vbtn{background-color:#0bb7fbd6;color:#fff}.v[data-class="v"] .vwrap .vheader .vinput{width:32%;border-bottom:1px dashed #dedede}.v[data-class=v] .vwrap .vemojis i{font-style:normal;padding-top:7px;width:36px;cursor:pointer;text-align:center;display:inline-block;vertical-align:middle;padding-right:3px;padding-left:3px}</style><div class="card valine-card" data-aos="fade-up"><div class="comment_headling" style="font-size:20px;font-weight:700;position:relative;padding-left:20px;top:15px;padding-bottom:5px"><i class="fas fa-comments fa-fw" aria-hidden="true"></i> <span>评论</span></div><div id="vcomments" class="card-content" style="display:grid"></div></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/av-min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script><script>let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Mybatis/">
+                                    <span class="chip bg-color">Mybatis</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/202007bg.webp") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments .vbtn{
+        
+        background-color: #0bb7fbd6;
+        color: #fff;
+    }
+
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+    }
+
+    .v[data-class=v] .vwrap .vemojis i {
+         font-style:normal;
+         padding-top:7px;
+         width:36px;
+         cursor:pointer;
+         text-align:center;
+         display:inline-block;
+         vertical-align:middle;
+         padding-right: 3px;
+         padding-left: 3px;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+<!--
+折腾人啊,如果你看到这个说明你也在搞Valine 哈哈~ 慢慢折腾吧，本站有教程哦
+-->
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    
+ 
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}
 
     new Valine({
         el: '#vcomments',
@@ -688,7 +2096,216 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
             }, 2500);
         }
     }
-    }, true);</script><article id="prenext-posts" class="prev-next articles"><div class="row article-row"><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge left-badge text-color"><i class="fas fa-chevron-left"></i>&nbsp;上一篇</div><div class="card"><a href="/posts/9f154069.html"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="DB2-常见ERRORCODE"> <span class="card-title">DB2-常见ERRORCODE</span></div></a><div class="card-content article-content"><div class="summary block-with-text">本文整理DB2常见错误码及解决思路。</div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i>2020-06-21 </span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/DB2/" class="post-category">DB2</a></span></div></div><div class="card-action article-tags"><a href="/tags/DB2/"><span class="chip bg-color">DB2</span></a></div></div></div><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge right-badge text-color">下一篇&nbsp;<i class="fas fa-chevron-right"></i></div><div class="card"><a href="/posts/523aed6c.html"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="Mysql-常用命令与授权"> <span class="card-title">Mysql-常用命令与授权</span></div></a><div class="card-content article-content"><div class="summary block-with-text">本文整理Mysql常用命令和Mysql授权相关。</div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i>2020-06-17 </span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/Mysql/" class="post-category">Mysql</a></span></div></div><div class="card-action article-tags"><a href="/tags/SQL/"><span class="chip bg-color">SQL</span> </a><a href="/tags/Mysql/"><span class="chip bg-color">Mysql</span></a></div></div></div></div></article></div><script>$("#articleContent").on("copy",function(e){if("undefined"!=typeof window.getSelection){var n=window.getSelection();if(!((""+n).length<Number.parseInt("120"))){var t=document.getElementsByTagName("body")[0],o=document.createElement("div");o.style.position="absolute",o.style.left="-99999px",t.appendChild(o),o.appendChild(n.getRangeAt(0).cloneContents()),"PRE"===n.getRangeAt(0).commonAncestorContainer.nodeName?o.innerHTML="<pre>"+o.innerHTML+"</pre>":o.innerHTML="<pre>"+o.innerHTML+"</pre>";var i=document.location.href;o.innerHTML+='<br />来源: 张小菜苔<br />文章作者: Small Rose / 张小菜苔<br />文章链接: <a href="'+i+'">'+i+"</a><br />本文章著作权归作者所有，任何形式的转载都请注明出处。",n.selectAllChildren(o),window.setTimeout(function(){t.removeChild(o)},200)}}})</script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeBlockFuction.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeLang.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeCopy.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeShrink.js"></script></div><div id="toc-aside" class="expanded col l3 hide-on-med-and-down"><div class="toc-widget"><div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div><div id="toc-content"></div></div></div></div><div id="floating-toc-btn" class="hide-on-med-and-down"><a class="btn-floating btn-large bg-color"><i class="fas fa-list-ul"></i></a></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/tocbot/tocbot.min.js"></script><script>$(function () {
+    }, true);
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/9f154069.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="DB2-常见ERRORCODE">
+                        
+                        <span class="card-title">DB2-常见ERRORCODE</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本文整理DB2常见错误码及解决思路。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/DB2/" class="post-category">
+                                    DB2
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DB2/">
+                        <span class="chip bg-color">DB2</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/523aed6c.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="Mysql-常用命令与授权">
+                        
+                        <span class="card-title">Mysql-常用命令与授权</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本文整理Mysql常用命令和Mysql授权相关。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Mysql/" class="post-category">
+                                    Mysql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SQL/">
+                        <span class="chip bg-color">SQL</span>
+                    </a>
+                    
+                    <a href="/tags/Mysql/">
+                        <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }else{
+            //注释掉上面的if，将if中的内容释放出来
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 张小菜苔<br />'
+            + '文章作者: Small Rose / 张小菜苔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+ 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
         tocbot.init({
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
@@ -759,4 +2376,315 @@ sqlSession <span class="token operator">=</span> sqlSessionFactory<span class="t
             fixPostCardWidth('artDetail', 'prenext-posts');
         });
         
-    });</script></main><footer class="page-footer bg-color"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.css"><style>.aplayer .aplayer-lrc p{display:none;font-size:12px;font-weight:700;line-height:16px!important}.aplayer .aplayer-lrc p.aplayer-lrc-current{display:none;font-size:15px;color:#42b983}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body{left:-66px!important}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover{left:0!important}</style><div><div class="row"><meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="2056253259" fixed="true" autoplay theme="#42b983" loop order="random" preload="auto" volume="0.7" list-folded="true"></meting-js></div></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><div class="container row center-align" style="margin-bottom:15px!important"><div class="col s12 m8 l8 copy-right">Copyright&nbsp;&copy; <span id="year">2020</span> <a href="/about" target="_blank">Small Rose / 张小菜苔</a> |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> |&nbsp;Comments&nbsp;<a href="https://valine.zhangxiaocia.cn" target="_blank">Valine</a><br>&nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">200.4k</span>&nbsp;字 <span id="busuanzi_container_site_pv">|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次 </span><span id="busuanzi_container_site_uv">|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人</span><br><span id="sitetime">载入运行时间...</span><script>function siteTime(){var e=1e3,t=60*e,n=60*t,o=24*n,l=365*o,r=new Date,a="2020",i="5",d="1",m="0",M="0",g="0",s=r.getFullYear(),u=r.getMonth()+1,T=r.getDate(),c=r.getHours(),f=r.getMinutes(),h=r.getSeconds(),y=Date.UTC(a,i,d,m,M,g),H=Date.UTC(s,u,T,c,f,h),I=H-y,B=Math.floor(I/l),D=Math.floor(I/o-365*B),E=Math.floor((I-(365*B+D)*o)/n),L=Math.floor((I-(365*B+D)*o-E*n)/t),v=Math.floor((I-(365*B+D)*o-E*n-L*t)/e);a==s?(document.getElementById("year").innerHTML=s,document.getElementById("sitetime").innerHTML="本站已 <del>安全</del> 苟全运行 "+D+" 天 "+E+" 小时 "+L+" 分钟 "+v+" 秒"):(document.getElementById("year").innerHTML=a+" - "+s,document.getElementById("sitetime").innerHTML="本站已 <del>安全</del> 苟全运行 "+B+" 年 "+D+" 天 "+E+" 小时 "+L+" 分钟 "+v+" 秒")}setInterval(siteTime,1e3)</script><br><span id="icp"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/icp.png" style="vertical-align:text-bottom"> <a href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19015637号-1</a></span><br></div><div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/small-rose" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50"><i class="fab fa-github"></i> </a><a href="mailto:small-rose@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50"><i class="fas fa-envelope-open"></i> </a><a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=970175021" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 970175021" data-position="top" data-delay="50"><i class="fab fa-qq"></i> </a><a href="https://yun.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="个人云盘" data-position="top" data-delay="50"><i class="fas fa-cloud"></i></a></div></div></footer><div class="progress-bar"></div><script type="text/javascript">window.$crisp=[],window.CRISP_WEBSITE_ID="bf3c468c-2fd7-4dcc-866d-3b008127fff0",function(){d=document,s=d.createElement("script"),s.src="https://client.crisp.chat/l.js",s.async=1,d.getElementsByTagName("head")[0].appendChild(s)}()</script><div id="searchModal" class="modal"><div class="modal-content"><div class="search-header"><span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span> <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input"></div><div id="searchResult"></div></div></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/search.js"></script><script type="text/javascript">$(function(){searchFunc("https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/search.xml","searchInput","searchResult")})</script><div id="backTop" class="top-scroll"><a class="btn-floating btn-large waves-effect waves-light" href="#!"><i class="fas fa-arrow-up"></i></a></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/masonry/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/scrollprogress/scrollProgress.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/matery.js"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?90b288cd6d944c8f4f8f0258e60bf981";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script>!function(){var t=document.createElement("script"),s=window.location.protocol.split(":")[0];"https"===s?t.src="https://zz.bdstatic.com/linksubmit/push.js":t.src="http://push.zhanzhang.baidu.com/push.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()</script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/clicklove.js" async></script><script async src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/busuanzi.pure.mini.js"></script><script type="text/javascript" size="150" alpha="0.6" zindex="-1" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/background/ribbon-refresh.min.js" async></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/instantpage/instantpage.js" type="module"></script><script src="/js/sakura.js" type="module"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/fullscreen.js" type="module"></script><script>window.imageLazyLoadSetting={isSPA:!1,processImages:null}</script><script>window.addEventListener("load",function(){var a=/\.(gif|jpg|jpeg|tiff|png)$/i,e=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(t){var r=t.parentNode;"A"===r.tagName&&(r.href.match(a)||r.href.match(e))&&(r.href=t.dataset.original)})})</script><script>!function(t){function e(){n&&(i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var e,o,a=0;a<i.length;a++)e=i[a],0<=(o=e.getBoundingClientRect()).bottom&&0<=o.left&&o.top<=(t.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,o,r=i[a];t=r,e=function(){i=i.filter(function(t){return r!==t})},n=new Image,o=t.getAttribute("data-original"),n.onload=function(){t.src=o,e&&e()},n.src=o}()}t.imageLazyLoadSetting.processImages=e;var n=t.imageLazyLoadSetting.isSPA,i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));e(),t.addEventListener("scroll",function(){var n,i;n=e,i=t,clearTimeout(n.tId),n.tId=setTimeout(function(){n.call(i)},500)})}(this)</script><script>(function(w,d, s, id) {w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = 'https://cdn.webpushr.com/app.min.js';fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('init','BJrux_BJKMKcoDBNWov5dsd0zhl3p0eF00OUzgogE5bQRheUA7eytp5rcZXYHdodyiVfbOmMlAkf140zUrAPfv4');</script></body></html><!-- rebuild by neat -->
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2056253259"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">Small Rose / 张小菜苔</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            |&nbsp;Comments&nbsp;<a href="https://valine.zhangxiaocia.cn" target="_blank">Valine</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">200.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "5";
+                    var startDate = "1";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已 <del>安全</del> 苟全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已 <del>安全</del> 苟全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            
+            <span id="icp"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19015637号-1</a>
+            </span> <br/>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/small-rose" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:small-rose@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=970175021" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 970175021" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+    <a href="https://yun.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="个人云盘" data-position="top" data-delay="50">
+        <i class="fas fa-cloud"></i>
+    </a>
+
+
+
+<!-- 
+ <a href="https://valine.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="Valine管理" data-position="top" data-delay="50">
+        <i class="fas fa fa-comments"></i>
+    </a>
+--></div>
+
+        
+       
+    </div>
+   
+</footer>
+
+<div class="progress-bar"></div>
+
+ 
+
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="bf3c468c-2fd7-4dcc-866d-3b008127fff0";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/matery.js"></script>
+
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?90b288cd6d944c8f4f8f0258e60bf981";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    
+ 
+    
+    <script src="/js/sakura.js" type="module"></script>
+    
+
+    
+
+     
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/fullscreen.js" type="module"></script>
+    
+ 
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script>(function(w,d, s, id) {w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = 'https://cdn.webpushr.com/app.min.js';fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('init','BJrux_BJKMKcoDBNWov5dsd0zhl3p0eF00OUzgogE5bQRheUA7eytp5rcZXYHdodyiVfbOmMlAkf140zUrAPfv4');</script></body>
+
+</html>
