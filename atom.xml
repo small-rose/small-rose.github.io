@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-10-03T14:30:00.000Z</updated>
+  <updated>2020-10-04T07:30:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Fontawesome 图标样例</title>
+    <link href="https://www.zhangxiaocai.cn/posts/ff8ce404.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/ff8ce404.html</id>
+    <published>2020-10-04T07:30:00.000Z</published>
+    <updated>2020-10-04T07:30:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Fontawesome-图标样例&quot;&gt;&lt;a href=&quot;#Fontawesome-图标样例&quot; class=&quot;headerlink&quot; title=&quot;Fontawesome 图标样例&quot;&gt;&lt;/a&gt;Fontawesome 图标样例&lt;/h2&gt;&lt;p&gt;图标库官网：&lt;a href=
+      
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>谷歌去广告插件-优酷腾讯爱奇艺</title>
+    <link href="https://www.zhangxiaocai.cn/posts/b4cfdcea.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/b4cfdcea.html</id>
+    <published>2020-10-04T05:00:00.000Z</published>
+    <updated>2020-10-04T05:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;去广告插件-优酷-腾讯-爱奇艺&quot;&gt;&lt;a href=&quot;#去广告插件-优酷-腾讯-爱奇艺&quot; class=&quot;headerlink&quot; title=&quot;去广告插件-优酷/腾讯/爱奇艺&quot;&gt;&lt;/a&gt;去广告插件-优酷/腾讯/爱奇艺&lt;/h2&gt;&lt;p&gt;其实现在有不少拦截广告的插件。比如A
+      
+    
+    </summary>
+    
+    
+      <category term="Tools" scheme="https://www.zhangxiaocai.cn/categories/Tools/"/>
+    
+    
+      <category term="去广告" scheme="https://www.zhangxiaocai.cn/tags/%E5%8E%BB%E5%B9%BF%E5%91%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>图片随机API</title>
@@ -437,55 +485,6 @@
     
     
       <category term="YAML" scheme="https://www.zhangxiaocai.cn/tags/YAML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matery 主题添加多级分类</title>
-    <link href="https://www.zhangxiaocai.cn/posts/5a99eb4d.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/5a99eb4d.html</id>
-    <published>2020-07-20T17:00:00.000Z</published>
-    <updated>2020-07-20T17:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Hexo-Matery-主题添加多级分类&quot;&gt;&lt;a href=&quot;#Hexo-Matery-主题添加多级分类&quot; class=&quot;headerlink&quot; title=&quot;Hexo Matery 主题添加多级分类&quot;&gt;&lt;/a&gt;Hexo Matery 主题添加多级分类&lt;/h2&gt;&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo 博客添加思维导图渲染</title>
-    <link href="https://www.zhangxiaocai.cn/posts/5a2c12e2.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/5a2c12e2.html</id>
-    <published>2020-07-20T14:00:00.000Z</published>
-    <updated>2020-07-20T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Hexo-博客添加思维导图渲染&quot;&gt;&lt;a href=&quot;#Hexo-博客添加思维导图渲染&quot; class=&quot;headerlink&quot; title=&quot;Hexo 博客添加思维导图渲染&quot;&gt;&lt;/a&gt;Hexo 博客添加思维导图渲染&lt;/h2&gt;&lt;p&gt;理论上是不分主题的。&lt;/p&gt;
-&lt;p&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
