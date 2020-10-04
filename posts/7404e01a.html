@@ -304,7 +304,7 @@
     
     <a href="/color" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      <i class="fas fa-asterisk" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
       
       <span>色</span>
     </a>
@@ -488,7 +488,7 @@
 	  
 		<a href="/color" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-address-book"></i>
+			    <i class="fa-fw fas fa-asterisk"></i>
 			
 			Color
 		</a>
@@ -737,14 +737,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    11 分
                 </div>
                 
 
@@ -1042,7 +1042,41 @@ layout: &quot;artitalk&quot;
     menuMap.set(&quot;Contact&quot;, &quot;留言薄&quot;);
     menuMap.set(&quot;Friends&quot;, &quot;友情链接&quot;);
     menuMap.set(&quot;Daohang&quot;, &quot;导航&quot;);
-    menuMap.set(&quot;ArtiTalk&quot;, &quot;说说&quot;);</code></pre><h3 id="10、色彩美化"><a href="#10、色彩美化" class="headerlink" title="10、色彩美化"></a>10、色彩美化</h3><p>后面有时间再补。</p>
+    menuMap.set(&quot;ArtiTalk&quot;, &quot;说说&quot;);</code></pre><h3 id="10、色彩美化"><a href="#10、色彩美化" class="headerlink" title="10、色彩美化"></a>10、色彩美化</h3><p>最简单的使用是修改配置里的 <code>color1</code>、 <code>color2</code>、 <code>color3</code> 即可。</p>
+<p>比如我的配置：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">artitalk</span><span class="token punctuation">:</span> 
+  <span class="token key atrule">appId</span><span class="token punctuation">:</span> 你的AppId
+  <span class="token key atrule">appKey</span><span class="token punctuation">:</span> 你的AppKwy
+  <span class="token key atrule">serverURL</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//xxx.zhangxiaocai.cn  <span class="token comment" spellcheck="true">#leancloud绑定的安全域名，使用国际版的话不需要填写</span>
+  <span class="token key atrule">lang</span><span class="token punctuation">:</span> zh <span class="token comment" spellcheck="true"># 语言设置，zh为汉语，en为英语，es为西班牙语。默认为汉语</span>
+  <span class="token key atrule">pageSize</span><span class="token punctuation">:</span> <span class="token number">10  </span><span class="token comment" spellcheck="true">#每页说说的显示数量</span>
+  <span class="token comment" spellcheck="true"># shuoPla: #在编辑说说的输入框中的占位符</span>
+  <span class="token key atrule">avatarPla</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/gh/small<span class="token punctuation">-</span>rose/small<span class="token punctuation">-</span>rose.github.io/medias/avatar.jpg <span class="token comment" spellcheck="true">#自定义头像url的输入框的占位符</span>
+  <span class="token comment" spellcheck="true"># motion: #加载动画的开关，1为开，0为关，默认为开</span>
+  <span class="token comment" spellcheck="true"># bgImg: #说说输入框背景图片url</span>
+  <span class="token key atrule">color1</span><span class="token punctuation">:</span> linear<span class="token punctuation">-</span>gradient(45deg<span class="token punctuation">,</span> rgb(109<span class="token punctuation">,</span> <span class="token number">208</span><span class="token punctuation">,</span> 242) 15%<span class="token punctuation">,</span> rgb(245<span class="token punctuation">,</span> <span class="token number">154</span><span class="token punctuation">,</span> 190) 85%)  <span class="token comment" spellcheck="true">#说说背景颜色1&amp;按钮颜色1</span>
+  <span class="token key atrule">color2</span><span class="token punctuation">:</span>  linear<span class="token punctuation">-</span>gradient(45deg<span class="token punctuation">,</span> rgb(109<span class="token punctuation">,</span> <span class="token number">208</span><span class="token punctuation">,</span> 242) 15%<span class="token punctuation">,</span> rgb(245<span class="token punctuation">,</span> <span class="token number">154</span><span class="token punctuation">,</span> 190) 85%)  <span class="token comment" spellcheck="true">#说说背景颜色2&amp;按钮颜色2</span>
+  <span class="token key atrule">color3</span><span class="token punctuation">:</span> black <span class="token comment" spellcheck="true">#说说字体颜色</span></code></pre>
+<p>注意，如果使用渐变色，每条说说前面的有个小箭头会消失，因为那个样式不支持渐变色。</p>
+<p>如果想把那个小箭头显示出来，在<code>artitalk.ejs</code> 样式里添加内联样式覆盖默认样式，设置颜色的就是 <code>border-right-color</code> 属性值。</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token id">#artitalk_main</span> <span class="token class">.cbp_tmtimeline</span> > li <span class="token class">.cbp_tmlabel</span><span class="token pseudo-element">::after</span> </span><span class="token punctuation">{</span>
+  <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> solid transparent<span class="token punctuation">;</span>
+  <span class="token property">z-index</span><span class="token punctuation">:</span> -<span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">pointer-events</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">border-right-color</span><span class="token punctuation">:</span>  <span class="token hexcode">#0bb7fb</span>d<span class="token number">6</span> <span class="token punctuation">;</span>
+  <span class="token property">border-width</span><span class="token punctuation">:</span> <span class="token number">10</span>px<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">4</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>更多颜色参考：</p>
+<p>配色相关链接：</p>
+<p>本站收藏色彩：<a href="https://zhangxiaocai.cn/color/" target="_blank" rel="noopener">https://zhangxiaocai.cn/color/</a></p>
+<p>配色： <a href="https://colordrop.io/" target="_blank" rel="noopener">https://colordrop.io/</a></p>
+<p>或者自己搜索在线配色工具。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
             </div>
             <br/>
@@ -1933,7 +1967,7 @@ layout: &quot;artitalk&quot;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">206k</span>&nbsp;字
+                class="white-color">206.3k</span>&nbsp;字
             
             
             
