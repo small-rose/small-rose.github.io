@@ -136,6 +136,150 @@
   </entry>
   
   <entry>
+    <title>SpringCloud Seata</title>
+    <link href="https://www.zhangxiaocai.cn/posts/fb7c74c4.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/fb7c74c4.html</id>
+    <published>2020-09-30T08:00:00.000Z</published>
+    <updated>2020-09-30T08:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringCloud-Alibaba-Seata-分布式事务&quot;&gt;&lt;a href=&quot;#SpringCloud-Alibaba-Seata-分布式事务&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud Alibaba Seata 分布式事
+      
+    
+    </summary>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud Sentinel</title>
+    <link href="https://www.zhangxiaocai.cn/posts/5122a811.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/5122a811.html</id>
+    <published>2020-09-29T08:00:00.000Z</published>
+    <updated>2020-09-29T08:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringCloud-Alibaba-Sentinel-实现熔断与限流&quot;&gt;&lt;a href=&quot;#SpringCloud-Alibaba-Sentinel-实现熔断与限流&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud Alibaba 
+      
+    
+    </summary>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud Alibaba Nacos</title>
+    <link href="https://www.zhangxiaocai.cn/posts/a46e46f8.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/a46e46f8.html</id>
+    <published>2020-09-28T05:40:00.000Z</published>
+    <updated>2020-09-28T05:40:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringCloud-Alibaba-Nacos服务注册和配置中心&quot;&gt;&lt;a href=&quot;#SpringCloud-Alibaba-Nacos服务注册和配置中心&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud Alibaba Naco
+      
+    
+    </summary>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud Alibaba</title>
+    <link href="https://www.zhangxiaocai.cn/posts/461589aa.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/461589aa.html</id>
+    <published>2020-09-28T05:00:00.000Z</published>
+    <updated>2020-09-28T05:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringCloud-Alibaba&quot;&gt;&lt;a href=&quot;#SpringCloud-Alibaba&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud Alibaba&quot;&gt;&lt;/a&gt;SpringCloud Alibaba&lt;/h2&gt;&lt;p&gt;相关
+      
+    
+    </summary>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud Sleuth</title>
+    <link href="https://www.zhangxiaocai.cn/posts/b99c053f.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/b99c053f.html</id>
+    <published>2020-09-26T04:00:00.000Z</published>
+    <updated>2020-09-26T04:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringCloud-Sleuth-分布式请求链路追踪&quot;&gt;&lt;a href=&quot;#SpringCloud-Sleuth-分布式请求链路追踪&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud Sleuth 分布式请求链路追踪&quot;&gt;&lt;/a&gt;Sp
+      
+    
+    </summary>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud Stream</title>
+    <link href="https://www.zhangxiaocai.cn/posts/7f3b07b1.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/7f3b07b1.html</id>
+    <published>2020-09-24T02:00:00.000Z</published>
+    <updated>2020-09-24T02:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringCloud-Stream-消息驱动&quot;&gt;&lt;a href=&quot;#SpringCloud-Stream-消息驱动&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud Stream 消息驱动&quot;&gt;&lt;/a&gt;SpringCloud Strea
+      
+    
+    </summary>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
+    
+  </entry>
+  
+  <entry>
     <title>keepalived</title>
     <link href="https://www.zhangxiaocai.cn/posts/719b76b0.html"/>
     <id>https://www.zhangxiaocai.cn/posts/719b76b0.html</id>
@@ -156,6 +300,30 @@
     
     
       <category term="keepalived" scheme="https://www.zhangxiaocai.cn/tags/keepalived/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud Bus</title>
+    <link href="https://www.zhangxiaocai.cn/posts/9e02a3e8.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/9e02a3e8.html</id>
+    <published>2020-09-21T13:00:00.000Z</published>
+    <updated>2020-09-21T13:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Spring-Cloud-Bus-消息总线&quot;&gt;&lt;a href=&quot;#Spring-Cloud-Bus-消息总线&quot; class=&quot;headerlink&quot; title=&quot;Spring Cloud Bus 消息总线&quot;&gt;&lt;/a&gt;Spring Cloud Bus 消息总线&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
     
   </entry>
   
@@ -184,6 +352,54 @@
   </entry>
   
   <entry>
+    <title>SpringCloud Config</title>
+    <link href="https://www.zhangxiaocai.cn/posts/5b5896d1.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/5b5896d1.html</id>
+    <published>2020-09-20T11:00:00.000Z</published>
+    <updated>2020-09-20T11:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Spring-Cloud-Config-分布式配置中心&quot;&gt;&lt;a href=&quot;#Spring-Cloud-Config-分布式配置中心&quot; class=&quot;headerlink&quot; title=&quot;Spring Cloud Config 分布式配置中心&quot;&gt;&lt;/a&gt;Sprin
+      
+    
+    </summary>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud Zuul</title>
+    <link href="https://www.zhangxiaocai.cn/posts/fbbe72e1.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/fbbe72e1.html</id>
+    <published>2020-09-19T10:00:00.000Z</published>
+    <updated>2020-09-19T10:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringCloud-Zuul-服务网关&quot;&gt;&lt;a href=&quot;#SpringCloud-Zuul-服务网关&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud Zuul 服务网关&quot;&gt;&lt;/a&gt;SpringCloud Zuul 服务网关&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Valine 评论系统紧急防御</title>
     <link href="https://www.zhangxiaocai.cn/posts/1e514b2c.html"/>
     <id>https://www.zhangxiaocai.cn/posts/1e514b2c.html</id>
@@ -205,286 +421,74 @@
   </entry>
   
   <entry>
-    <title>Docker 之完整入门</title>
-    <link href="https://www.zhangxiaocai.cn/posts/9e6e2be2.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/9e6e2be2.html</id>
-    <published>2020-09-03T12:00:00.000Z</published>
-    <updated>2020-09-03T12:00:00.000Z</updated>
+    <title>SpringCloud Gateway</title>
+    <link href="https://www.zhangxiaocai.cn/posts/bc16d093.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/bc16d093.html</id>
+    <published>2020-09-18T14:00:00.000Z</published>
+    <updated>2020-09-18T14:00:00.000Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;Docker-一篇入门&quot;&gt;&lt;a href=&quot;#Docker-一篇入门&quot; class=&quot;headerlink&quot; title=&quot;Docker 一篇入门&quot;&gt;&lt;/a&gt;Docker 一篇入门&lt;/h2&gt;&lt;h2 id=&quot;一、Docker-简介&quot;&gt;&lt;a href=&quot;#一、Dock
+        &lt;h2 id=&quot;SpringCloud-Gateway-服务网关&quot;&gt;&lt;a href=&quot;#SpringCloud-Gateway-服务网关&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud Gateway 服务网关&quot;&gt;&lt;/a&gt;SpringCloud Ga
       
     
     </summary>
     
     
-      <category term="Docker" scheme="https://www.zhangxiaocai.cn/categories/Docker/"/>
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
     
     
-      <category term="Docker" scheme="https://www.zhangxiaocai.cn/tags/Docker/"/>
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
     
   </entry>
   
   <entry>
-    <title>Matery 添加WebStackPage导航网站</title>
-    <link href="https://www.zhangxiaocai.cn/posts/38b34c3c.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/38b34c3c.html</id>
-    <published>2020-09-01T14:30:00.000Z</published>
-    <updated>2020-09-01T14:30:00.000Z</updated>
+    <title>SpringCloud Hystrix</title>
+    <link href="https://www.zhangxiaocai.cn/posts/464bb413.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/464bb413.html</id>
+    <published>2020-09-17T07:00:00.000Z</published>
+    <updated>2020-09-17T07:00:00.000Z</updated>
     
     <summary type="html">
     
-      Matery 添加WebStackPage导航网站
+      
+      
+        &lt;h2 id=&quot;SpringCloud-Hystrix熔断器&quot;&gt;&lt;a href=&quot;#SpringCloud-Hystrix熔断器&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud Hystrix熔断器&quot;&gt;&lt;/a&gt;SpringCloud Hystrix熔
+      
     
     </summary>
     
     
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
     
     
-      <category term="WebStackPage" scheme="https://www.zhangxiaocai.cn/tags/WebStackPage/"/>
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
     
   </entry>
   
   <entry>
-    <title>SpringBoot 配置文件相关</title>
-    <link href="https://www.zhangxiaocai.cn/posts/9911da24.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/9911da24.html</id>
-    <published>2020-08-29T23:30:00.000Z</published>
-    <updated>2020-08-29T23:30:00.000Z</updated>
+    <title>SpringCloud OpenFeign</title>
+    <link href="https://www.zhangxiaocai.cn/posts/b27245de.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/b27245de.html</id>
+    <published>2020-09-16T06:00:00.000Z</published>
+    <updated>2020-09-16T06:00:00.000Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;SpringBoot-配置文件相关&quot;&gt;&lt;a href=&quot;#SpringBoot-配置文件相关&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot 配置文件相关&quot;&gt;&lt;/a&gt;SpringBoot 配置文件相关&lt;/h2&gt;&lt;h2 id=&quot;一、Pro
+        &lt;h2 id=&quot;SpringCloud-OpenFeign-服务接口调用&quot;&gt;&lt;a href=&quot;#SpringCloud-OpenFeign-服务接口调用&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud OpenFeign 服务接口调用&quot;&gt;&lt;/a&gt;Sp
       
     
     </summary>
     
     
-      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
     
     
-      <category term="SpringBoot配置相关" scheme="https://www.zhangxiaocai.cn/tags/SpringBoot%E9%85%8D%E7%BD%AE%E7%9B%B8%E5%85%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker 快速上手</title>
-    <link href="https://www.zhangxiaocai.cn/posts/66ee0bda.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/66ee0bda.html</id>
-    <published>2020-08-27T14:00:00.000Z</published>
-    <updated>2020-08-27T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Docker-快速上手&quot;&gt;&lt;a href=&quot;#Docker-快速上手&quot; class=&quot;headerlink&quot; title=&quot;Docker 快速上手&quot;&gt;&lt;/a&gt;Docker 快速上手&lt;/h2&gt;&lt;h2 id=&quot;一、简介&quot;&gt;&lt;a href=&quot;#一、简介&quot; class=&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="Docker" scheme="https://www.zhangxiaocai.cn/categories/Docker/"/>
-    
-    
-      <category term="Docker" scheme="https://www.zhangxiaocai.cn/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot注解IoC</title>
-    <link href="https://www.zhangxiaocai.cn/posts/372e3018.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/372e3018.html</id>
-    <published>2020-08-14T13:30:00.000Z</published>
-    <updated>2020-08-27T12:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;SpringBoot注解IoC&quot;&gt;&lt;a href=&quot;#SpringBoot注解IoC&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot注解IoC&quot;&gt;&lt;/a&gt;SpringBoot注解IoC&lt;/h1&gt;&lt;h2 id=&quot;一、Ioc简介&quot;&gt;&lt;a h
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
-    
-    
-      <category term="IoC" scheme="https://www.zhangxiaocai.cn/tags/IoC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matery 添加加载动画</title>
-    <link href="https://www.zhangxiaocai.cn/posts/7496029d.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/7496029d.html</id>
-    <published>2020-08-06T07:00:00.000Z</published>
-    <updated>2020-08-06T07:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      Matery添加加载动画
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Nginx 快速上手</title>
-    <link href="https://www.zhangxiaocai.cn/posts/35e29c2a.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/35e29c2a.html</id>
-    <published>2020-08-06T02:00:00.000Z</published>
-    <updated>2020-08-06T02:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Nginx-快速上手&quot;&gt;&lt;a href=&quot;#Nginx-快速上手&quot; class=&quot;headerlink&quot; title=&quot;Nginx 快速上手&quot;&gt;&lt;/a&gt;Nginx 快速上手&lt;/h1&gt;&lt;p&gt;前言&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;去年的时候使用 &lt;code&gt;S
-      
-    
-    </summary>
-    
-    
-      <category term="Nginx" scheme="https://www.zhangxiaocai.cn/categories/Nginx/"/>
-    
-    
-      <category term="Nginx" scheme="https://www.zhangxiaocai.cn/tags/Nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Thymeleaf 内置对象</title>
-    <link href="https://www.zhangxiaocai.cn/posts/44478111.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/44478111.html</id>
-    <published>2020-07-26T10:30:00.000Z</published>
-    <updated>2020-07-26T10:30:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Thymeleaf-内置对象&quot;&gt;&lt;a href=&quot;#Thymeleaf-内置对象&quot; class=&quot;headerlink&quot; title=&quot;Thymeleaf  内置对象&quot;&gt;&lt;/a&gt;Thymeleaf  内置对象&lt;/h2&gt;&lt;p&gt;Thymeleaf 的内置对象主要有三类
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
-    
-    
-      <category term="Thymeleaf" scheme="https://www.zhangxiaocai.cn/tags/Thymeleaf/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Thymeleaf 语法学习</title>
-    <link href="https://www.zhangxiaocai.cn/posts/9e1a85cd.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/9e1a85cd.html</id>
-    <published>2020-07-25T13:30:00.000Z</published>
-    <updated>2020-08-05T12:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;SpringBoot-Thymeleaf-语法学习&quot;&gt;&lt;a href=&quot;#SpringBoot-Thymeleaf-语法学习&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot Thymeleaf  语法学习&quot;&gt;&lt;/a&gt;SpringBoot
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
-    
-    
-      <category term="Thymeleaf" scheme="https://www.zhangxiaocai.cn/tags/Thymeleaf/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot 静态资源配置</title>
-    <link href="https://www.zhangxiaocai.cn/posts/6de4ee20.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/6de4ee20.html</id>
-    <published>2020-07-25T06:30:00.000Z</published>
-    <updated>2020-07-25T06:30:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;SpringBoot-静态资源配置&quot;&gt;&lt;a href=&quot;#SpringBoot-静态资源配置&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot 静态资源配置&quot;&gt;&lt;/a&gt;SpringBoot 静态资源配置&lt;/h2&gt;&lt;p&gt;在 SpringBo
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
-    
-    
-      <category term="static" scheme="https://www.zhangxiaocai.cn/tags/static/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot 日志学习</title>
-    <link href="https://www.zhangxiaocai.cn/posts/c74d2d29.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/c74d2d29.html</id>
-    <published>2020-07-23T06:30:00.000Z</published>
-    <updated>2020-07-23T06:30:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;SpringBoot-日志学习&quot;&gt;&lt;a href=&quot;#SpringBoot-日志学习&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot 日志学习&quot;&gt;&lt;/a&gt;SpringBoot 日志学习&lt;/h2&gt;&lt;h3 id=&quot;一、-日志框架了解&quot;&gt;&lt;a
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
-    
-    
-      <category term="Loging" scheme="https://www.zhangxiaocai.cn/tags/Loging/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>YAML 语法学习</title>
-    <link href="https://www.zhangxiaocai.cn/posts/bb845937.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/bb845937.html</id>
-    <published>2020-07-22T14:00:00.000Z</published>
-    <updated>2020-07-22T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;YAML语法学习&quot;&gt;&lt;a href=&quot;#YAML语法学习&quot; class=&quot;headerlink&quot; title=&quot;YAML语法学习&quot;&gt;&lt;/a&gt;YAML语法学习&lt;/h2&gt;&lt;p&gt;其实 &lt;code&gt;YAML&lt;/code&gt; 并不是springboot 特有语法，比如 Hex
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
-    
-    
-      <category term="YAML" scheme="https://www.zhangxiaocai.cn/tags/YAML/"/>
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
     
   </entry>
   
