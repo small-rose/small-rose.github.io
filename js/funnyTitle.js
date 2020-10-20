@@ -1,3 +1,3 @@
-// build time:Tue Oct 20 2020 00:40:43 GMT+0800 (中国标准时间)
+// build time:Tue Oct 20 2020 10:09:36 GMT+0800 (中国标准时间)
 var OriginTitle=document.title;var titleTime;document.addEventListener("visibilitychange",function(){if(document.hidden){$('[rel="icon"]').attr("href","https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/medias/funny.ico");document.title="╭(°A°`)╮ 页面崩溃啦 ~";clearTimeout(titleTime)}else{$('[rel="icon"]').attr("href","https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/medias/favicon.ico");document.title="(ฅ>ω<*ฅ) 噫又好啦 ~"+OriginTitle;titleTime=setTimeout(function(){document.title=OriginTitle},2e3)}});
 //rebuild by neat 
