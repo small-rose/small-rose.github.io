@@ -1,4 +1,820 @@
-<!-- build time:Tue Oct 20 2020 10:09:29 GMT+0800 (中国标准时间) --><!DOCTYPE HTML><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><meta name="keywords" content="java,mybatis mapper.xml,Mapper映射器,mybatis xml配置"><meta name="description" content="Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><meta name="renderer" content="webkit|ie-stand|ie-comp"><meta name="mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>Mybtis(五)Mapper映射器 | 张小菜苔</title><link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/awesome/css/all.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/animate/animate.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/css/lightgallery.min.css"><script type="text/javascript" src="/libs/artitalk/artitalk.min.css"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/matery.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/my.css"><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/jquery/jquery.min.js"></script><meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="张小菜苔" type="application/atom+xml"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><style type="text/css" lang="css">#loading-container{position:fixed;top:0;left:0;min-height:100vh;width:100vw;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#FFF;text-align:center;-webkit-transition:opacity 1s ease;-moz-transition:opacity 1s ease;-o-transition:opacity 1s ease;transition:opacity 1s ease}.loading-image{width:120px;height:50px;transform:translate(-50%)}.loading-image div:nth-child(2){-webkit-animation:pacman-balls 1s linear 0s infinite;animation:pacman-balls 1s linear 0s infinite}.loading-image div:nth-child(3){-webkit-animation:pacman-balls 1s linear .33s infinite;animation:pacman-balls 1s linear .33s infinite}.loading-image div:nth-child(4){-webkit-animation:pacman-balls 1s linear .66s infinite;animation:pacman-balls 1s linear .66s infinite}.loading-image div:nth-child(5){-webkit-animation:pacman-balls 1s linear .99s infinite;animation:pacman-balls 1s linear .99s infinite}.loading-image div:first-of-type{width:0;height:0;border:25px solid #49b1f5;border-right-color:transparent;border-radius:25px;-webkit-animation:rotate_pacman_half_up .5s 0s infinite;animation:rotate_pacman_half_up .5s 0s infinite}.loading-image div:nth-child(2){width:0;height:0;border:25px solid #49b1f5;border-right-color:transparent;border-radius:25px;-webkit-animation:rotate_pacman_half_down .5s 0s infinite;animation:rotate_pacman_half_down .5s 0s infinite;margin-top:-50px}@-webkit-keyframes rotate_pacman_half_up{0%{transform:rotate(270deg)}50%{transform:rotate(1turn)}to{transform:rotate(270deg)}}@keyframes rotate_pacman_half_up{0%{transform:rotate(270deg)}50%{transform:rotate(1turn)}to{transform:rotate(270deg)}}@-webkit-keyframes rotate_pacman_half_down{0%{transform:rotate(90deg)}50%{transform:rotate(0)}to{transform:rotate(90deg)}}@keyframes rotate_pacman_half_down{0%{transform:rotate(90deg)}50%{transform:rotate(0)}to{transform:rotate(90deg)}}@-webkit-keyframes pacman-balls{75%{opacity:.7}to{transform:translate(-100px,-6.25px)}}@keyframes pacman-balls{75%{opacity:.7}to{transform:translate(-100px,-6.25px)}}.loading-image div:nth-child(3),.loading-image div:nth-child(4),.loading-image div:nth-child(5),.loading-image div:nth-child(6){background-color:#49b1f5;width:15px;height:15px;border-radius:100%;margin:2px;width:10px;height:10px;position:absolute;transform:translateY(-6.25px);top:25px;left:100px}.loading-text{margin-bottom:20vh;text-align:center;color:#2c3e50;font-size:2rem;box-sizing:border-box;padding:0 10px;text-shadow:0 2px 10px rgba(0,0,0,.2)}@media only screen and (max-width:500px){.loading-text{font-size:1.5rem}}.fadeout{opacity:0;filter:alpha(opacity=0)}@-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0)}}</style><script>!function(){const n=function(){setTimeout(function(){const n=document.getElementById("loading-container");n.className="fadeout",setTimeout(function(){n.style.display="none"},2500)},1e3)};n()}()</script><body><div id="loading-container"><p class="loading-text">嘘~ 正在从服务器偷取页面 . . .</p><div class="loading-image"><div></div><div></div><div></div><div></div><div></div></div></div><header class="navbar-fixed"><nav id="headNav" class="bg-color nav-transparent"><div id="navContainer" class="nav-wrapper container"><div class="brand-logo"><a href="/" class="waves-effect waves-light"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-3.png" class="logo-img" alt="LOGO"> <span class="logo-span diyFont">张小菜苔</span></a></div><a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a><ul class="right nav-menu"><li class="hide-on-med-and-down nav-item"><a href="/" class="waves-effect waves-light"><i class="fas fa-home"></i><span>主</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fas fa-tags"></i><span>签</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fas fa-bookmark"></i><span>类</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fas fa-archive"></i><span>档</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/about" class="waves-effect waves-light"><i class="fas fa-user-circle"></i><span>吾</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fas fa-comments"></i><span>言</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/artitalk" class="waves-effect waves-light"><i class="fas fa-heartbeat"></i><span>语</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fas fa-address-book"></i><span>友</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/color" class="waves-effect waves-light"><i class="fas fa-asterisk"></i><span>色</span></a></li><li class="hide-on-med-and-down nav-item"><a href="" class="waves-effect waves-light"><i class="fas fa-list"></i> <span>秘</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></a><ul class="sub-nav menus_item_child"><li><a href="/navigate"><i class="fas fa-location-arrow" style="margin-top:-20px"></i> <span>风域之门</span></a></li><li><a href="/box"><i class="fas fa-map-marker" style="margin-top:-20px"></i> <span>妖魔化镜</span></a></li><li><a href="https://hut.zhangxiaocai.cn" target="_blank" rel="noopener"><i class="fas fa-pen-alt" style="margin-top:-20px"></i> <span>沧海成渊</span></a></li><li><a href="https://yun.zhangxiaocai.cn" target="_blank" rel="noopener"><i class="fas fa-cloud" style="margin-top:-20px"></i> <span>云上之城</span></a></li></ul></li><li><a href="#searchModal" class="modal-trigger waves-effect waves-light"><i id="searchIcon" class="fas fa-search" title="搜索"></i></a></li><li id="fullscreen_li" class="fullscreen"><a href="javascript:void(0);" class="modal-trigger waves-effect waves-light"><i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏"></i></a></li></ul><div id="mobile-nav" class="side-nav sidenav"><div class="mobile-head bg-color"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-3.png" class="logo-img circle responsive-img"><div class="logo-name">张小菜苔</div><div class="logo-desc">Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题</div></div><ul class="menu-list mobile-menu-list"><li class="m-nav-item"><a href="/" class="waves-effect waves-light"><i class="fa-fw fas fa-home"></i> 首页</a></li><li class="m-nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fa-fw fas fa-tags"></i> 标签</a></li><li class="m-nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fa-fw fas fa-bookmark"></i> 分类</a></li><li class="m-nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fa-fw fas fa-archive"></i> 归档</a></li><li class="m-nav-item"><a href="/about" class="waves-effect waves-light"><i class="fa-fw fas fa-user-circle"></i> 关于</a></li><li class="m-nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fa-fw fas fa-comments"></i> 留言簿</a></li><li class="m-nav-item"><a href="/artitalk" class="waves-effect waves-light"><i class="fa-fw fas fa-heartbeat"></i> ArtiTalk</a></li><li class="m-nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fa-fw fas fa-address-book"></i> 友情链接</a></li><li class="m-nav-item"><a href="/color" class="waves-effect waves-light"><i class="fa-fw fas fa-asterisk"></i> Color</a></li><li class="m-nav-item"><a href="javascript:;"><i class="fa-fw fas fa-list"></i> Secret <span class="m-icon"><i class="fas fa-chevron-right"></i></span></a><ul><li><a href="/navigate" style="margin-left:75px"><i class="fa fas fa-location-arrow" style="position:absolute;left:50px"></i> <span>风域之门</span></a></li><li><a href="/box" style="margin-left:75px"><i class="fa fas fa-map-marker" style="position:absolute;left:50px"></i> <span>妖魔化镜</span></a></li><li><a href="https://hut.zhangxiaocai.cn" target="_blank" rel="noopener" style="margin-left:75px"><i class="fa fas fa-pen-alt" style="position:absolute;left:50px"></i> <span>沧海成渊</span></a></li><li><a href="https://yun.zhangxiaocai.cn" target="_blank" rel="noopener" style="margin-left:75px"><i class="fa fas fa-cloud" style="position:absolute;left:50px"></i> <span>云上之城</span></a></li></ul></li></ul></div></div></nav></header><div class="bg-cover pd-header post-cover" style="background-image:url(https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/6.jpg)"><div class="container" style="right:0;left:0"><div class="row"><div class="col s12 m12 l12"><div class="brand"><h1 class="description center-align post-title">Mybtis(五)Mapper映射器</h1></div></div></div></div></div><main class="post-container content"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/tocbot/tocbot.css"><style>#articleContent h1::before,#articleContent h2::before,#articleContent h3::before,#articleContent h4::before,#articleContent h5::before,#articleContent h6::before{display:block;content:" ";height:100px;margin-top:-100px;visibility:hidden}#articleContent :focus{outline:0}.toc-fixed{position:fixed;top:64px}.toc-widget{width:345px;padding-left:20px}.toc-widget .toc-title{margin:35px 0 15px 0;padding-left:17px;font-size:1.5rem;font-weight:700;line-height:1.5rem}.toc-widget ol{padding:0;list-style:none}#toc-content{height:calc(100vh - 250px);overflow:auto}#toc-content ol{padding-left:10px}#toc-content ol li{padding-left:10px}#toc-content .toc-link:hover{color:#42b983;font-weight:700;text-decoration:underline}#toc-content .toc-link::before{background-color:transparent;max-height:25px;position:absolute;right:23.5vw;display:block}#toc-content .is-active-link{color:#42b983}#floating-toc-btn{position:fixed;right:32px;bottom:155px;padding-top:15px;margin-bottom:0;z-index:998}#floating-toc-btn .btn-floating{width:48px;height:48px}#floating-toc-btn .btn-floating i{line-height:48px;font-size:1.4rem}</style><div class="row"><div id="main-content" class="col s12 m12 l9"><div id="artDetail"><div class="card"><div class="card-content article-info"><div class="row tag-cate"><div class="col s7"><div class="article-tag"><a href="/tags/Mybatis/"><span class="chip bg-color">Mybatis</span></a></div></div><div class="col s5 right-align"><div class="post-cate"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/Mybatis/" class="post-category">Mybatis</a></div></div></div><div class="post-info"><div class="post-date info-break-policy"><i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp; 2020-07-10</div><div class="info-break-policy"><i class="fa fa-pencil"></i> 作者: Small-Rose /张小菜</div><div class="post-date info-break-policy"><i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp; 2020-07-10</div><div class="info-break-policy"><i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp; 7k</div><div class="info-break-policy"><i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp; 27 分</div><div id="busuanzi_container_page_pv" class="info-break-policy"><i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp; <span id="busuanzi_value_page_pv"></span></div></div></div><hr class="clearfix"><div class="card-content article-card-content"><div id="articleContent"><h2 id="Mybatis映射器"><a href="#Mybatis映射器" class="headerlink" title="Mybatis映射器"></a>Mybatis映射器</h2><p>Mybatis通过映射器构造的SQL，并且通过配置生成对应的JavaBean返回给调用者，这些配置主要是映射器。映射器的 XML 文件，通俗的说就是Mapper.xml文件就是属于XML映射器，注解的<code>@Select(&quot;sql&quot;)</code>配置方式则是注解映射器。学习以XML映射器记录为主。</p><h3 id="映射器的主要元素"><a href="#映射器的主要元素" class="headerlink" title="映射器的主要元素:"></a>映射器的主要元素:</h3><p>XML映射文件主要配置：</p><table><thead><tr><th>元素/标签</th><th>作用</th><th>说明</th></tr></thead><tbody><tr><td>select</td><td>映射查询语句，最常用的复杂的的元素之一</td><td>可以自定义参数，返回结果集等</td></tr><tr><td>insert</td><td>映射插入语句</td><td>执行后返回一个整数，代表插入的条数</td></tr><tr><td>update</td><td>映射更新语句</td><td>执行后返回一个整数，代表更新的条数</td></tr><tr><td>delete</td><td>映射删除语句</td><td>执行后返回一个整数，代表更新的条数</td></tr><tr><td>sql</td><td>允许定义的可重用SQL语句块</td><td>如表的列名，一次定义，多个SQL语句都可以使用</td></tr><tr><td>resultMap</td><td>描述从数据库结果集中来加载对象，是最复杂也是最强大的元素</td><td>提供映射规则</td></tr><tr><td>cache</td><td>指定命名空间的缓存配置。</td><td>-</td></tr><tr><td>cache-ref</td><td>引用其它命名空间的缓存配置。</td><td>-</td></tr></tbody></table><h3 id="一、SELECT-元素"><a href="#一、SELECT-元素" class="headerlink" title="一、SELECT 元素"></a>一、SELECT 元素</h3><p>select元素配置</p><p>select 元素允许你配置很多属性来配置每条语句的行为细节。</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta name="keywords" content="java,mybatis mapper.xml,Mapper映射器,mybatis xml配置">
+    <meta name="description" content="Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Mybtis(五)Mapper映射器 | 张小菜苔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/css/lightgallery.min.css">
+
+     
+
+    <script type="text/javascript" src="/libs/artitalk/artitalk.min.css"></script>
+
+     
+
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/my.css">
+
+ 
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="张小菜苔" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+ 
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        background-color: rgb(204, 232, 207);
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+    
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+    
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+    
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+    
+   
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2500); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+</script>
+ 
+<body>
+    
+        <div id="loading-container">
+             <p class="loading-text">嘘~  正在从服务器偷取页面 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-3.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span mytitle">张小菜苔</span>
+                    
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>主</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>吾</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>言</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <i class="fas fa-heartbeat" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>语</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>友</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/color" class="waves-effect waves-light">
+      
+      <i class="fas fa-asterisk" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>色</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style=" "></i>
+      
+      <span>秘</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style=""></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px;  "></i>
+          
+          <span>风域之门</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/box">
+          
+          <i class="fas fa-map-marker" style="margin-top: -20px;  "></i>
+          
+          <span>妖魔化镜</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://hut.zhangxiaocai.cn" target="_blank" rel="noopener">
+          
+          <i class="fas fa-pen-alt" style="margin-top: -20px;  "></i>
+          
+          <span>沧海成渊</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://yun.zhangxiaocai.cn" target="_blank" rel="noopener">
+          
+          <i class="fas fa-cloud" style="margin-top: -20px;  "></i>
+          
+          <span>云上之城</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style=" "> <!-- zoom: 0.85; -->
+    </a></i>
+  <li  id="fullscreen_li" class="fullscreen">
+    <a href="javascript:void(0);" class="modal-trigger waves-effect waves-light">
+      <i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏" style=" "> <!-- zoom: 0.75; --></i>
+    </a>
+  
+    <!--
+    <a href="https://travellings.now.sh/" target="blank" title="开往-友链接力"><img src="https://travellings.now.sh/assets/logo.gif" alt="开往-友链接力" width="120"></a>
+    -->
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-3.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">张小菜苔</div>
+        <div class="logo-desc">
+            
+            Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言簿
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-heartbeat"></i>
+			
+			ArtiTalk
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/color" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-asterisk"></i>
+			
+			Color
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Secret
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>风域之门</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/box " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-map-marker" style="position: absolute;left:50px" ></i>
+			      
+		          <span>妖魔化镜</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="https://hut.zhangxiaocai.cn " target="_blank" rel="noopener" style="margin-left:75px">
+				  
+				   <i class="fa fas fa-pen-alt" style="position: absolute;left:50px" ></i>
+			      
+		          <span>沧海成渊</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="https://yun.zhangxiaocai.cn " target="_blank" rel="noopener" style="margin-left:75px">
+				  
+				   <i class="fa fas fa-cloud" style="position: absolute;left:50px" ></i>
+			      
+		          <span>云上之城</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Mybtis(五)Mapper映射器</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        
+
+        right: 32px;
+        bottom: 155px;
+
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Mybatis/">
+                                <span class="chip bg-color">Mybatis</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Mybatis/" class="post-category">
+                                Mybatis
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-07-10
+                </div>
+                
+                <!--添加作者信息--> 
+                <div class="info-break-policy"> 
+                 
+                    <i class="fa fa-pencil"></i> 作者: Small-Rose /张小菜 
+                 
+                 </div> 
+
+                     
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-07-10
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    27 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Mybatis映射器"><a href="#Mybatis映射器" class="headerlink" title="Mybatis映射器"></a>Mybatis映射器</h2><p>Mybatis通过映射器构造的SQL，并且通过配置生成对应的JavaBean返回给调用者，这些配置主要是映射器。映射器的 XML 文件，通俗的说就是Mapper.xml文件就是属于XML映射器，注解的<code>@Select(&quot;sql&quot;)</code>配置方式则是注解映射器。学习以XML映射器记录为主。</p>
+<h3 id="映射器的主要元素"><a href="#映射器的主要元素" class="headerlink" title="映射器的主要元素:"></a>映射器的主要元素:</h3><p>XML映射文件主要配置：</p>
+<table>
+<thead>
+<tr>
+<th>元素/标签</th>
+<th>作用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>select</td>
+<td>映射查询语句，最常用的复杂的的元素之一</td>
+<td>可以自定义参数，返回结果集等</td>
+</tr>
+<tr>
+<td>insert</td>
+<td>映射插入语句</td>
+<td>执行后返回一个整数，代表插入的条数</td>
+</tr>
+<tr>
+<td>update</td>
+<td>映射更新语句</td>
+<td>执行后返回一个整数，代表更新的条数</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>映射删除语句</td>
+<td>执行后返回一个整数，代表更新的条数</td>
+</tr>
+<tr>
+<td>sql</td>
+<td>允许定义的可重用SQL语句块</td>
+<td>如表的列名，一次定义，多个SQL语句都可以使用</td>
+</tr>
+<tr>
+<td>resultMap</td>
+<td>描述从数据库结果集中来加载对象，是最复杂也是最强大的元素</td>
+<td>提供映射规则</td>
+</tr>
+<tr>
+<td>cache</td>
+<td>指定命名空间的缓存配置。</td>
+<td>-</td>
+</tr>
+<tr>
+<td>cache-ref</td>
+<td>引用其它命名空间的缓存配置。</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h3 id="一、SELECT-元素"><a href="#一、SELECT-元素" class="headerlink" title="一、SELECT 元素"></a>一、SELECT 元素</h3><p>select元素配置</p>
+<p> select 元素允许你配置很多属性来配置每条语句的行为细节。</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span>
   <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>selectPerson<span class="token punctuation">"</span></span>
   <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>int<span class="token punctuation">"</span></span>
   <span class="token attr-name">parameterMap</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>deprecated<span class="token punctuation">"</span></span>
@@ -10,20 +826,128 @@
   <span class="token attr-name">fetchSize</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>256<span class="token punctuation">"</span></span>
   <span class="token attr-name">statementType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>PREPARED<span class="token punctuation">"</span></span>
   <span class="token attr-name">resultSetType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>FORWARD_ONLY<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre><h4 id="SELECT主要属性："><a href="#SELECT主要属性：" class="headerlink" title="SELECT主要属性："></a>SELECT主要属性：</h4><table><thead><tr><th>属性</th><th>说明</th><th>备注</th></tr></thead><tbody><tr><td>id</td><td>和Mapper的命名空间组合成唯一标识符，提供给Mybatis调用</td><td>如果命名空间和id组合之后存在重复，则抛出异常</td></tr><tr><td>parameterType</td><td>参数类型，可以是基本类型，可以Map，可以是类的全命名或别名，别名必须是内部定义或自定义的</td><td>如int,Map，JavaBean等复杂的参数类型</td></tr><tr><td>resultType</td><td>JavaBean的规范映射；可以是int,double等参数，也可以是类的全命名或符合规范的别名</td><td>不能和resultMap同时使用，如果返回集合，则值为集合里的类型。</td></tr><tr><td>resultMap</td><td>是映射集的引用，将执行强大的映射功能，可以让我们自定义映射规则</td><td>可以配置映射级联、类型转换器等</td></tr><tr><td>flushCache</td><td>将值设置为 true 后在调用SQL后，要求Mybatis清空之前的查询本地缓存和二级缓存</td><td>默认值为false，即不清空缓存</td></tr><tr><td>useCache</td><td>将其设置为 true 后，将会该条语句的结果被二级缓存缓存起来。</td><td>默认值：对 select 元素为 true。即开启二级缓存</td></tr><tr><td>timeout</td><td>设置等待数据库返回请求结果的超时秒数，超时后抛异常</td><td>默认值为未设置（unset）（依赖数据库驱动）</td></tr><tr><td>fetchSize</td><td>设置获取记录总条数</td><td>默认值为未设置（unset）（依赖驱动）</td></tr><tr><td>statementType</td><td>可选 STATEMENT，PREPARED 或 CALLABLE。这会让 MyBatis 分别使用 Statement，PreparedStatement 或 CallableStatement</td><td>默认值：PREPARED</td></tr><tr><td>resultSetType</td><td>这是和JDBC的resultSet接口对应，值包括FORWARD_ONLY（游标允许向前访问），SCROLL_SENSITIVE（双向滚动，但不及时更新，即数据库里的数据修改之后不再resultSet中反应出来）, SCROLL_INSENSITIVE（双向滚动并及时同步数据库的更新以更改resultSet中的数据） 或 DEFAULT（等价于 unset）</td><td>默认值为 unset （依赖数据库驱动）</td></tr><tr><td>databaseId</td><td>配置了数据库厂商标识（databaseIdProvider）的规则</td><td>多数据库支持</td></tr><tr><td>resultOrdered</td><td>这个设置仅针对嵌套结果 select 语句：如果为 true，将会假设包含了嵌套结果集或是分组了，当返回一个主结果行时，就不会产生对前面结果集的引用。 这就使得在获取嵌套结果集的时候不至于内存不够用。</td><td>默认值：false</td></tr><tr><td>resultSets</td><td>这个设置仅适用于多结果集的情况。它将列出语句执行后返回的结果集并赋予每个结果集一个名称，多个名称之间以逗号分隔。</td><td>很少使用</td></tr></tbody></table><h4 id="selec自动映射"><a href="#selec自动映射" class="headerlink" title="selec自动映射"></a>selec自动映射</h4><p>在settings元素中配置autoMappingBehavior属性值设置其策略。有三个值：<br>(1)NONE - 表示取消自动映射<br>(2)PARTIAL - 简单映射，只会自动映射那些没有定义嵌套结果集映射的结果集。<br>(3)FULL - 完整映射，会自动映射任意复杂的结果集，不论是否嵌套。</p><p>默认值为PARTIAL，默认情况可以实现一般对象的映射，使用FULL嵌套映射，性能会下降。</p><p>当autoMappingBehavior设置不为NONE时，Mybatis提供自动映射功能。要求返回SQL列名和JavaBean的属性一致，或者开启采用驼峰命名方式。</p><p>如果数据库规范命名，每个单词都使用下划线分割，POJO采用驼峰式命名方法，可以设置mapUnderscoreToCamelCase为true，实现DB到POJO的自动映射。</p><h4 id="select多参数传递"><a href="#select多参数传递" class="headerlink" title="select多参数传递"></a>select多参数传递</h4><p>（1）使用Map传递参数<br>映射文件：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>selectByMap<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span> <span class="token attr-name">resultMap</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empMap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+<h4 id="SELECT主要属性："><a href="#SELECT主要属性：" class="headerlink" title="SELECT主要属性："></a>SELECT主要属性：</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>和Mapper的命名空间组合成唯一标识符，提供给Mybatis调用</td>
+<td>如果命名空间和id组合之后存在重复，则抛出异常</td>
+</tr>
+<tr>
+<td>parameterType</td>
+<td>参数类型，可以是基本类型，可以Map，可以是类的全命名或别名，别名必须是内部定义或自定义的</td>
+<td>如int,Map，JavaBean等复杂的参数类型</td>
+</tr>
+<tr>
+<td>resultType</td>
+<td>JavaBean的规范映射；可以是int,double等参数，也可以是类的全命名或符合规范的别名</td>
+<td>不能和resultMap同时使用，如果返回集合，则值为集合里的类型。</td>
+</tr>
+<tr>
+<td>resultMap</td>
+<td>是映射集的引用，将执行强大的映射功能，可以让我们自定义映射规则</td>
+<td>可以配置映射级联、类型转换器等</td>
+</tr>
+<tr>
+<td>flushCache</td>
+<td>将值设置为 true 后在调用SQL后，要求Mybatis清空之前的查询本地缓存和二级缓存</td>
+<td>默认值为false，即不清空缓存</td>
+</tr>
+<tr>
+<td>useCache</td>
+<td>将其设置为 true 后，将会该条语句的结果被二级缓存缓存起来。</td>
+<td>默认值：对 select 元素为 true。即开启二级缓存</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>设置等待数据库返回请求结果的超时秒数，超时后抛异常</td>
+<td>默认值为未设置（unset）（依赖数据库驱动）</td>
+</tr>
+<tr>
+<td>fetchSize</td>
+<td>设置获取记录总条数</td>
+<td>默认值为未设置（unset）（依赖驱动）</td>
+</tr>
+<tr>
+<td>statementType</td>
+<td>可选 STATEMENT，PREPARED 或 CALLABLE。这会让 MyBatis 分别使用 Statement，PreparedStatement 或 CallableStatement</td>
+<td>默认值：PREPARED</td>
+</tr>
+<tr>
+<td>resultSetType</td>
+<td>这是和JDBC的resultSet接口对应，值包括FORWARD_ONLY（游标允许向前访问），SCROLL_SENSITIVE（双向滚动，但不及时更新，即数据库里的数据修改之后不再resultSet中反应出来）, SCROLL_INSENSITIVE（双向滚动并及时同步数据库的更新以更改resultSet中的数据） 或 DEFAULT（等价于 unset）</td>
+<td>默认值为 unset （依赖数据库驱动）</td>
+</tr>
+<tr>
+<td>databaseId</td>
+<td>配置了数据库厂商标识（databaseIdProvider）的规则</td>
+<td>多数据库支持</td>
+</tr>
+<tr>
+<td>resultOrdered</td>
+<td>这个设置仅针对嵌套结果 select 语句：如果为 true，将会假设包含了嵌套结果集或是分组了，当返回一个主结果行时，就不会产生对前面结果集的引用。 这就使得在获取嵌套结果集的时候不至于内存不够用。</td>
+<td>默认值：false</td>
+</tr>
+<tr>
+<td>resultSets</td>
+<td>这个设置仅适用于多结果集的情况。它将列出语句执行后返回的结果集并赋予每个结果集一个名称，多个名称之间以逗号分隔。</td>
+<td>很少使用</td>
+</tr>
+</tbody></table>
+<h4 id="selec自动映射"><a href="#selec自动映射" class="headerlink" title="selec自动映射"></a>selec自动映射</h4><p>在settings元素中配置autoMappingBehavior属性值设置其策略。有三个值：<br>(1)NONE - 表示取消自动映射<br>(2)PARTIAL - 简单映射，只会自动映射那些没有定义嵌套结果集映射的结果集。<br>(3)FULL - 完整映射，会自动映射任意复杂的结果集，不论是否嵌套。</p>
+<p>默认值为PARTIAL，默认情况可以实现一般对象的映射，使用FULL嵌套映射，性能会下降。</p>
+<p>当autoMappingBehavior设置不为NONE时，Mybatis提供自动映射功能。要求返回SQL列名和JavaBean的属性一致，或者开启采用驼峰命名方式。</p>
+<p>如果数据库规范命名，每个单词都使用下划线分割，POJO采用驼峰式命名方法，可以设置mapUnderscoreToCamelCase为true，实现DB到POJO的自动映射。</p>
+<h4 id="select多参数传递"><a href="#select多参数传递" class="headerlink" title="select多参数传递"></a>select多参数传递</h4><p>（1）使用Map传递参数<br>映射文件：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>selectByMap<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span> <span class="token attr-name">resultMap</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empMap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 select id, name,email from emplee
 where name like concat('%',#{name},'%') 
 and email like  concat('%',#{email},'%') 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre><p>Mapper接口：</p><pre class="language-java"><code class="language-java">List<span class="token operator">&lt;</span>Employee<span class="token operator">></span> <span class="token function">selectByMap</span><span class="token punctuation">(</span>HashMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Object<span class="token operator">></span> params<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>调用：</p><pre class="language-java"><code class="language-java">Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Obejct<span class="token operator">></span> params <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Obejct<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+<p>Mapper接口：</p>
+<pre class=" language-java"><code class="language-java">List<span class="token operator">&lt;</span>Employee<span class="token operator">></span> <span class="token function">selectByMap</span><span class="token punctuation">(</span>HashMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Object<span class="token operator">></span> params<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>调用：</p>
+<pre class=" language-java"><code class="language-java">Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Obejct<span class="token operator">></span> params <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Obejct<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 params<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span><span class="token string">"张"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 params<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"email"</span><span class="token punctuation">,</span><span class="token string">"@qq.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-List<span class="token operator">&lt;</span>Employee<span class="token operator">></span>  empList <span class="token operator">=</span> employeeMapper<span class="token punctuation">.</span><span class="token function">selectByMap</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>使用Map传递优缺点：</p><table><thead><tr><th>优点</th><th>缺点</th></tr></thead><tbody><tr><td>可以自定义键，参数个数任意扩展</td><td>键值使用可能缺少业务关联性，代码可读性相对较差，不看调用地方，不知道Map里会有哪些业务数据</td></tr></tbody></table><p>（2）使用注解传递参数<br>使用参数注解<code>@Param</code>(org.apache.ibatis.annotations.Param)来实现参数传递。</p><p>Mapper接口：</p><pre class="language-java"><code class="language-java">List<span class="token operator">&lt;</span>Employee<span class="token operator">></span> <span class="token function">selectByAnnotation</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span>String name<span class="token punctuation">,</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"email"</span><span class="token punctuation">)</span>String email<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>XML映射无须定义参数类型：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>selectByAnnotation<span class="token punctuation">"</span></span> <span class="token attr-name">resultMap</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empMap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+List<span class="token operator">&lt;</span>Employee<span class="token operator">></span>  empList <span class="token operator">=</span> employeeMapper<span class="token punctuation">.</span><span class="token function">selectByMap</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>使用Map传递优缺点：</p>
+<table>
+<thead>
+<tr>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可以自定义键，参数个数任意扩展</td>
+<td>键值使用可能缺少业务关联性，代码可读性相对较差，不看调用地方，不知道Map里会有哪些业务数据</td>
+</tr>
+</tbody></table>
+<p>（2）使用注解传递参数<br>使用参数注解<code>@Param</code>(org.apache.ibatis.annotations.Param)来实现参数传递。</p>
+<p>Mapper接口：</p>
+<pre class=" language-java"><code class="language-java">List<span class="token operator">&lt;</span>Employee<span class="token operator">></span> <span class="token function">selectByAnnotation</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span>String name<span class="token punctuation">,</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"email"</span><span class="token punctuation">)</span>String email<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>XML映射无须定义参数类型：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>selectByAnnotation<span class="token punctuation">"</span></span> <span class="token attr-name">resultMap</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empMap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 select id, name,email from emplee
 where name like concat('%',#{name},'%') 
 and email like  concat('%',#{email},'%') 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre><p>调用：</p><pre class="language-java"><code class="language-java">Sring name <span class="token operator">=</span> <span class="token string">"张"</span><span class="token punctuation">;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+<p>调用：</p>
+<pre class=" language-java"><code class="language-java">Sring name <span class="token operator">=</span> <span class="token string">"张"</span><span class="token punctuation">;</span>
 Sring email<span class="token operator">=</span> <span class="token string">"@qq.com"</span><span class="token punctuation">;</span>
-List<span class="token operator">&lt;</span>Employee<span class="token operator">></span> empList <span class="token operator">=</span> employeeMapper<span class="token punctuation">.</span><span class="token function">selectByAnnotation</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>email<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>参数传递优缺点<br>|优点|缺点|<br>|@Param提供的名字知道传递参数的业务数据，可读性较好|参数较多时比较复杂，且不能扩展|</p><p>（3）使用JavaBean传递参数</p><p>定义个JavaBean，如果只做查询用可以叫xxxVO,xxxQuery之类</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>emp<span class="token punctuation">;</span>
+List<span class="token operator">&lt;</span>Employee<span class="token operator">></span> empList <span class="token operator">=</span> employeeMapper<span class="token punctuation">.</span><span class="token function">selectByAnnotation</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>email<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>参数传递优缺点<br>|优点|缺点|<br>|@Param提供的名字知道传递参数的业务数据，可读性较好|参数较多时比较复杂，且不能扩展|</p>
+<p>（3）使用JavaBean传递参数</p>
+<p>定义个JavaBean，如果只做查询用可以叫xxxVO,xxxQuery之类</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>emp<span class="token punctuation">;</span>
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">{</span>
 
@@ -33,14 +957,25 @@ List<span class="token operator">&lt;</span>Employee<span class="token operator"
 
     <span class="token keyword">private</span> String email<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//getter setter ...</span>
-<span class="token punctuation">}</span></code></pre><p>XML映射无须定义参数类型：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>selectByAnnotation<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.demo.entity.emp.Employee<span class="token punctuation">"</span></span>  <span class="token attr-name">resultMap</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empMap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token punctuation">}</span></code></pre>
+<p>XML映射无须定义参数类型：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>selectByAnnotation<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.demo.entity.emp.Employee<span class="token punctuation">"</span></span>  <span class="token attr-name">resultMap</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empMap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 select id, name,email from emplee
 where name like concat('%',#{empName},'%') 
 and email like  concat('%',#{email},'%') 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre><p>Mapper接口：</p><pre class="language-java"><code class="language-java">List<span class="token operator">&lt;</span>Employee<span class="token operator">></span> <span class="token function">selectByJavaBean</span><span class="token punctuation">(</span>Employee<span class="token punctuation">,</span>emp<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>调用同理：</p><pre class="language-java"><code class="language-java">Employee empQuery <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+<p>Mapper接口：</p>
+<pre class=" language-java"><code class="language-java">List<span class="token operator">&lt;</span>Employee<span class="token operator">></span> <span class="token function">selectByJavaBean</span><span class="token punctuation">(</span>Employee<span class="token punctuation">,</span>emp<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>调用同理：</p>
+<pre class=" language-java"><code class="language-java">Employee empQuery <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 empQuery<span class="token punctuation">.</span><span class="token function">setEmpName</span><span class="token punctuation">(</span><span class="token string">"张"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 empQuery<span class="token punctuation">.</span><span class="token function">setEmail</span><span class="token punctuation">(</span><span class="token string">"@qq.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-List<span class="token operator">&lt;</span>Employee<span class="token operator">></span> empList <span class="token operator">=</span> employeeMapper<span class="token punctuation">.</span><span class="token function">selectByJavaBean</span><span class="token punctuation">(</span>empQuery<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>总结：<br>（1）使用Map传递参数导致业务可读性较差，参数伸缩性适宜，对叫固定业务的业务可视情况使用。要求扩展性变动的业务视情况使用。<br>（2）使用@Param注解传递参数，受个数N影响，业务意义明确，可读性较好，参数较少（N&lt;=5）时最佳方式，参数变动时，需修改方法定义。<br>（3）使用JavaBean方式，参数较多时，优先使用JavaBean方式，业务性明显，伸缩可调。</p><h3 id="二、resultMap映射结果集"><a href="#二、resultMap映射结果集" class="headerlink" title="二、resultMap映射结果集"></a>二、resultMap映射结果集</h3><p>resultMap和select关联极强。</p><p>ResultMap 的设计思想是：对简单的语句做到零配置，对于复杂一点的语句，只需要描述语句之间的关系。<br>Mybatis提供了resultType属性指定领域模型，完成自动映射。常见的领域模型如：<code>HashMap</code>，<code>JavaBean</code>，<code>POJO</code>。</p><p>完整的结果映射：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resultMap</span><span class="token punctuation">></span></span>
+List<span class="token operator">&lt;</span>Employee<span class="token operator">></span> empList <span class="token operator">=</span> employeeMapper<span class="token punctuation">.</span><span class="token function">selectByJavaBean</span><span class="token punctuation">(</span>empQuery<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>总结：<br>（1）使用Map传递参数导致业务可读性较差，参数伸缩性适宜，对叫固定业务的业务可视情况使用。要求扩展性变动的业务视情况使用。<br>（2）使用@Param注解传递参数，受个数N影响，业务意义明确，可读性较好，参数较少（N&lt;=5）时最佳方式，参数变动时，需修改方法定义。<br>（3）使用JavaBean方式，参数较多时，优先使用JavaBean方式，业务性明显，伸缩可调。</p>
+<h3 id="二、resultMap映射结果集"><a href="#二、resultMap映射结果集" class="headerlink" title="二、resultMap映射结果集"></a>二、resultMap映射结果集</h3><p>resultMap和select关联极强。</p>
+<p>ResultMap 的设计思想是：对简单的语句做到零配置，对于复杂一点的语句，只需要描述语句之间的关系。<br>Mybatis提供了resultType属性指定领域模型，完成自动映射。常见的领域模型如：<code>HashMap</code>，<code>JavaBean</code>，<code>POJO</code>。</p>
+<p>完整的结果映射：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resultMap</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>constructor</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>idArg</span><span class="token punctuation">/></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Arg</span><span class="token punctuation">/></span></span>
@@ -52,11 +987,101 @@ List<span class="token operator">&lt;</span>Employee<span class="token operator"
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>discriminator</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>case</span><span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>discriminator</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resultMap</span><span class="token punctuation">></span></span></code></pre><h4 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h4><p>其中<code>constructor</code>元素用于配置构造方法。通常是没有无参构造方法时，对应一个有参数的构造方法。如果配置了构造方法Mybatis就可以使用这个构造方法来构造POJO了。实际中使用较少，因为有些情况下需要使用不可变类，构造方法注入允许你在初始化时为类设置属性的值，而不用暴露出公有方法。</p><blockquote><p>从版本 3.4.3 开始，可以在指定参数名称的前提下，以任意顺序编写 arg 元素。</p></blockquote><h4 id="id和result"><a href="#id和result" class="headerlink" title="id和result"></a>id和result</h4><p>id元素：表示哪个列是竹剑，允许多个主键（即联合主键）。</p><p>result元素：配置POJO到SQL列名的映射关系。</p><h4 id="id和result元素属："><a href="#id和result元素属：" class="headerlink" title="id和result元素属："></a>id和result元素属：</h4><table><thead><tr><th>属性</th><th align="left">描述</th><th align="left">备注</th></tr></thead><tbody><tr><td><code>property</code></td><td align="left">映射到列结果的字段或属性。如果 JavaBean/POJO 有这个名字的属性（property），会先使用该属性。否则 MyBatis 将会寻找给定名称的字段（field）。</td><td align="left">可以使用点式分隔形式进行复杂属性导航。 比如，访问学生对象（Student）需要访问学生证(SelfCard)的发证日期（issueDate）可以写成：selfCard.issueDate</td></tr><tr><td><code>column</code></td><td align="left">数据库中的列名，或者是列的别名。</td><td align="left">一般情况下，这和传递给 <code>resultSet.getString(columnName)</code> 方法的参数一样。</td></tr><tr><td><code>javaType</code></td><td align="left">一个 Java 类的全限定名，或一个类型别名（关于内置的类型别名，可以参考上面的表格）。</td><td align="left">如果你映射到一个 JavaBean，MyBatis 通常可以推断类型。然而，如果你映射到的是HashMap，那么你应该明确地指定 javaType 来保证行为与期望的相一致。</td></tr><tr><td><code>jdbcType</code></td><td align="left">JDBC 类型，所支持的 JDBC 类型参见这个表格之后的“支持的 JDBC 类型”。</td><td align="left">只需要在可能执行插入、更新和删除的且允许空值的列上指定 JDBC 类型。这是JDBC 的要求而非 MyBatis 的要求。如果你直接面向 JDBC 编程，你需要对可以为空值的列指定这个类型。</td></tr><tr><td><code>typeHandler</code></td><td align="left">使用自定义类型处理器覆盖默认的类型处理器。</td><td align="left">这个属性值是一个类型处理器实现类的全限定名，或者是类型别名。用来定制jdbcType 和JavaType相互转化的规则。</td></tr></tbody></table><h4 id="支持的-JDBC-类型"><a href="#支持的-JDBC-类型" class="headerlink" title="支持的 JDBC 类型"></a>支持的 JDBC 类型</h4><p>MyBatis 通过内置的 jdbcType 枚举类型支持下面的 JDBC 类型。</p><table><thead><tr><th><code>BIT</code></th><th><code>FLOAT</code></th><th><code>CHAR</code></th><th><code>TIMESTAMP</code></th><th><code>OTHER</code></th><th><code>UNDEFINED</code></th></tr></thead><tbody><tr><td><code>TINYINT</code></td><td><code>REAL</code></td><td><code>VARCHAR</code></td><td><code>BINARY</code></td><td><code>BLOB</code></td><td><code>NVARCHAR</code></td></tr><tr><td><code>SMALLINT</code></td><td><code>DOUBLE</code></td><td><code>LONGVARCHAR</code></td><td><code>VARBINARY</code></td><td><code>CLOB</code></td><td><code>NCHAR</code></td></tr><tr><td><code>INTEGER</code></td><td><code>NUMERIC</code></td><td><code>DATE</code></td><td><code>LONGVARBINARY</code></td><td><code>BOOLEAN</code></td><td><code>NCLOB</code></td></tr><tr><td><code>BIGINT</code></td><td><code>DECIMAL</code></td><td><code>TIME</code></td><td><code>NULL</code></td><td><code>CURSOR</code></td><td><code>ARRAY</code></td></tr></tbody></table><h4 id="resultMap结果映射集："><a href="#resultMap结果映射集：" class="headerlink" title="resultMap结果映射集："></a>resultMap结果映射集：</h4><p>（1）使用<code>Map</code>存储结果集。</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>selectEmps<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.demo.entity.emp.Employee<span class="token punctuation">"</span></span>  <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Map<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resultMap</span><span class="token punctuation">></span></span></code></pre>
+<h4 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h4><p>其中<code>constructor</code>元素用于配置构造方法。通常是没有无参构造方法时，对应一个有参数的构造方法。如果配置了构造方法Mybatis就可以使用这个构造方法来构造POJO了。实际中使用较少，因为有些情况下需要使用不可变类，构造方法注入允许你在初始化时为类设置属性的值，而不用暴露出公有方法。 </p>
+<blockquote>
+<p>从版本 3.4.3 开始，可以在指定参数名称的前提下，以任意顺序编写 arg 元素。 </p>
+</blockquote>
+<h4 id="id和result"><a href="#id和result" class="headerlink" title="id和result"></a>id和result</h4><p>id元素：表示哪个列是竹剑，允许多个主键（即联合主键）。</p>
+<p>result元素：配置POJO到SQL列名的映射关系。</p>
+<h4 id="id和result元素属："><a href="#id和result元素属：" class="headerlink" title="id和result元素属："></a>id和result元素属：</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th align="left">描述</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>property</code></td>
+<td align="left">映射到列结果的字段或属性。如果 JavaBean/POJO 有这个名字的属性（property），会先使用该属性。否则 MyBatis 将会寻找给定名称的字段（field）。</td>
+<td align="left">可以使用点式分隔形式进行复杂属性导航。 比如，访问学生对象（Student）需要访问学生证(SelfCard)的发证日期（issueDate）可以写成：selfCard.issueDate</td>
+</tr>
+<tr>
+<td><code>column</code></td>
+<td align="left">数据库中的列名，或者是列的别名。</td>
+<td align="left">一般情况下，这和传递给                 <code>resultSet.getString(columnName)</code> 方法的参数一样。</td>
+</tr>
+<tr>
+<td><code>javaType</code></td>
+<td align="left">一个 Java 类的全限定名，或一个类型别名（关于内置的类型别名，可以参考上面的表格）。</td>
+<td align="left">如果你映射到一个 JavaBean，MyBatis 通常可以推断类型。然而，如果你映射到的是HashMap，那么你应该明确地指定 javaType 来保证行为与期望的相一致。</td>
+</tr>
+<tr>
+<td><code>jdbcType</code></td>
+<td align="left">JDBC 类型，所支持的 JDBC 类型参见这个表格之后的“支持的 JDBC 类型”。</td>
+<td align="left">只需要在可能执行插入、更新和删除的且允许空值的列上指定 JDBC 类型。这是JDBC 的要求而非 MyBatis 的要求。如果你直接面向 JDBC                 编程，你需要对可以为空值的列指定这个类型。</td>
+</tr>
+<tr>
+<td><code>typeHandler</code></td>
+<td align="left">使用自定义类型处理器覆盖默认的类型处理器。</td>
+<td align="left">这个属性值是一个类型处理器实现类的全限定名，或者是类型别名。用来定制jdbcType 和JavaType相互转化的规则。</td>
+</tr>
+</tbody></table>
+<h4 id="支持的-JDBC-类型"><a href="#支持的-JDBC-类型" class="headerlink" title="支持的 JDBC 类型"></a>支持的 JDBC 类型</h4><p>MyBatis 通过内置的 jdbcType 枚举类型支持下面的 JDBC 类型。</p>
+<table>
+<thead>
+<tr>
+<th><code>BIT</code></th>
+<th><code>FLOAT</code></th>
+<th><code>CHAR</code></th>
+<th><code>TIMESTAMP</code></th>
+<th><code>OTHER</code></th>
+<th><code>UNDEFINED</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>TINYINT</code></td>
+<td><code>REAL</code></td>
+<td><code>VARCHAR</code></td>
+<td><code>BINARY</code></td>
+<td><code>BLOB</code></td>
+<td><code>NVARCHAR</code></td>
+</tr>
+<tr>
+<td><code>SMALLINT</code></td>
+<td><code>DOUBLE</code></td>
+<td><code>LONGVARCHAR</code></td>
+<td><code>VARBINARY</code></td>
+<td><code>CLOB</code></td>
+<td><code>NCHAR</code></td>
+</tr>
+<tr>
+<td><code>INTEGER</code></td>
+<td><code>NUMERIC</code></td>
+<td><code>DATE</code></td>
+<td><code>LONGVARBINARY</code></td>
+<td><code>BOOLEAN</code></td>
+<td><code>NCLOB</code></td>
+</tr>
+<tr>
+<td><code>BIGINT</code></td>
+<td><code>DECIMAL</code></td>
+<td><code>TIME</code></td>
+<td><code>NULL</code></td>
+<td><code>CURSOR</code></td>
+<td><code>ARRAY</code></td>
+</tr>
+</tbody></table>
+<h4 id="resultMap结果映射集："><a href="#resultMap结果映射集：" class="headerlink" title="resultMap结果映射集："></a>resultMap结果映射集：</h4><p>（1）使用<code>Map</code>存储结果集。</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>selectEmps<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.demo.entity.emp.Employee<span class="token punctuation">"</span></span>  <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Map<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 select id, name,email from emplee
 where name like concat('%',#{empName},'%') 
 and email like  concat('%',#{email},'%') 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre><p>一般来说，所有的<code>select</code>语句都可以使用<code>Map</code>，是一种比较通用的方式。</p><p>（2）使用POJO存储结果集。</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resultMap</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>BaseResultMap<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.demo.entity.emp.Employee<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+<p>一般来说，所有的<code>select</code>语句都可以使用<code>Map</code>，是一种比较通用的方式。</p>
+<p>（2）使用POJO存储结果集。</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resultMap</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>BaseResultMap<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.demo.entity.emp.Employee<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>emp_id<span class="token punctuation">"</span></span> <span class="token attr-name">jdbcType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>INTEGER<span class="token punctuation">"</span></span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empId<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>emp_name<span class="token punctuation">"</span></span> <span class="token attr-name">jdbcType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>VARCHAR<span class="token punctuation">"</span></span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empName<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sex<span class="token punctuation">"</span></span> <span class="token attr-name">jdbcType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>CHAR<span class="token punctuation">"</span></span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sex<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
@@ -67,15 +1092,89 @@ and email like  concat('%',#{email},'%')
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>selectEmp<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>java.lang.Integer<span class="token punctuation">"</span></span>  <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.demo.entity.emp.Employee<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     select emp_id, emp_name,sex,email,dept_id from tbl_emp
     where emp_id=#{empId}
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre><p><code>resultMap</code>的id代表一个<code>resultMap</code>标识，<code>type</code>就是需要映射的POJO。可以使用Mybatis配置中定义别名，或者使用类的全限定名。映射关系中的id就是对象的主键，<code>property</code>对应POJO的属性名称，<code>column</code>对应的是数据库SQL的列名，这样结果就对应起来了。上面的例子列名和<code>column</code>是对应的，当然还可以配置类型转换器<code>typeHandler</code>、<code>javaType</code>、<code>jdbcType</code>。需要注意：配置了<code>resultMap</code>就不能配置<code>resultType</code>。</p><h4 id="Mybatis级联"><a href="#Mybatis级联" class="headerlink" title="Mybatis级联"></a>Mybatis级联</h4><p>Mybatis级联主要有3种：<code>association</code>(一对一)，<code>collection</code>（一对多）,<code>discriminator</code>（鉴别器）。</p><p>级联需要示例说明，因篇幅较长单作一篇：<a href="44c4c800.html">《Mybtis(五)Mapper级联》</a></p><h3 id="三、INSERT元素"><a href="#三、INSERT元素" class="headerlink" title="三、INSERT元素"></a>三、INSERT元素</h3><p>insert元素，Mybatis会在执行插入后返回一个整数，表示操作后插入的记录数。</p><p>insert、update、delete元素属性：</p><table><thead><tr><th>属性</th><th>描述</th><th>备注</th></tr></thead><tbody><tr><td><code>id</code></td><td>在命名空间中唯一的标识符，可以被用来引用这条语句。</td><td>不唯一时Mybatis抛出异常</td></tr><tr><td><code>parameterType</code></td><td>将会传入这条语句的参数的类全限定名或别名，使用别名必须是Mybatis内部定义或配置的自定义别名。这个属性是可选的，因为MyBatis 可以通过类型处理器（TypeHandler）推断出具体传入语句的参数，默认值为未设置（unset）。</td><td>如JavaBean、Map、JavaType等类型传递给SQL</td></tr><tr><td><code>parameterMap</code></td><td>用于引用外部 parameterMap 的属性，目前已被废弃。</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr><td><code>flushCache</code></td><td>将其设置为 true 后，只要语句被调用，都会导致本地缓存和二级缓存被清空，默认值：（对 insert、update 和 delete 语句）true。</td><td></td></tr><tr><td><code>timeout</code></td><td>设置超时参数，是在抛出异常之前，驱动程序等待数据库返回请求结果的秒数。默认值为未设置（unset）（依赖数据库驱动）。</td><td>默认值是数据库厂商提供的JDBC驱动所设置的秒数。</td></tr><tr><td><code>statementType</code></td><td>可选 STATEMENT，PREPARED 或 CALLABLE。这会让 MyBatis 分别使用Statement，PreparedStatement 或 CallableStatement，</td><td>默认值：PREPARED。</td></tr><tr><td><code>useGeneratedKeys</code></td><td>（<strong>仅适用于 insert 和 update</strong>）这会令 MyBatis 使用 JDBC 的 getGeneratedKeys 方法来取出由数据库内部生成的主键（比如：像 MySQL 和 SQL Server 这样的关系型数据库管理系统的自动递增字段）。</td><td>默认值：false。如果要使用需要设置成true</td></tr><tr><td><code>keyProperty</code></td><td>（<strong>仅适用于 insert 和 update</strong>）指定能够唯一识别对象的属性，MyBatis 会使用getGeneratedKeys 的返回值或 insert 语句的 selectKey 子元素设置它的值，默认值：未设置（<code>unset</code>）。如果生成列不止一个，可以用逗号分隔多个属性名称。</td><td>设置哪个列为主键，如果是联合主键可以用逗号隔开</td></tr><tr><td><code>keyColumn</code></td><td>（<strong>仅适用于 insert 和 update</strong>）设置生成键值在表中的列名，在某些数据库（像 PostgreSQL）中，当主键列不是表中的第一列的时候，是必须设置的。如果生成列不止一个，可以用逗号分隔多个属性名称。</td><td>如果是联合主键可以用逗号隔开</td></tr><tr><td><code>databaseId</code></td><td>如果配置了数据库厂商标识（databaseIdProvider），MyBatis 会加载所有不带databaseId 或匹配当前 databaseId 的语句；如果带和不带的语句都有，则不带的会被忽略。</td><td>多种数据库支持</td></tr></tbody></table><h4 id="INSERT回填主键"><a href="#INSERT回填主键" class="headerlink" title="INSERT回填主键"></a>INSERT回填主键</h4><p>如果你希望insert语句执行后返回记录的主键：</p><p>（1）数据库支持自动生成主键的字段（比如 MySQL 和 SQL Server）</p><p>直接设置 <code>useGeneratedKeys=&quot;true&quot;</code>，然后再把 keyProperty 设置为目标属性就可以了。 如：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>insert</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>insertEmployee<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.demo.entity.emp.Employee<span class="token punctuation">"</span></span>  <span class="token attr-name">useGeneratedKeys</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">keyProperty</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empId<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+<p><code>resultMap</code>的id代表一个<code>resultMap</code>标识，<code>type</code>就是需要映射的POJO。可以使用Mybatis配置中定义别名，或者使用类的全限定名。映射关系中的id就是对象的主键，<code>property</code>对应POJO的属性名称，<code>column</code>对应的是数据库SQL的列名，这样结果就对应起来了。上面的例子列名和<code>column</code>是对应的，当然还可以配置类型转换器<code>typeHandler</code>、<code>javaType</code>、<code>jdbcType</code>。需要注意：配置了<code>resultMap</code>就不能配置<code>resultType</code>。</p>
+<h4 id="Mybatis级联"><a href="#Mybatis级联" class="headerlink" title="Mybatis级联"></a>Mybatis级联</h4><p>Mybatis级联主要有3种：<code>association</code>(一对一)，<code>collection</code>（一对多）,<code>discriminator</code>（鉴别器）。</p>
+<p>级联需要示例说明，因篇幅较长单作一篇：<a href="44c4c800.html">《Mybtis(五)Mapper级联》</a></p>
+<h3 id="三、INSERT元素"><a href="#三、INSERT元素" class="headerlink" title="三、INSERT元素"></a>三、INSERT元素</h3><p>insert元素，Mybatis会在执行插入后返回一个整数，表示操作后插入的记录数。</p>
+<p>insert、update、delete元素属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>在命名空间中唯一的标识符，可以被用来引用这条语句。</td>
+<td>不唯一时Mybatis抛出异常</td>
+</tr>
+<tr>
+<td><code>parameterType</code></td>
+<td>将会传入这条语句的参数的类全限定名或别名，使用别名必须是Mybatis内部定义或配置的自定义别名。这个属性是可选的，因为MyBatis 可以通过类型处理器（TypeHandler）推断出具体传入语句的参数，默认值为未设置（unset）。</td>
+<td>如JavaBean、Map、JavaType等类型传递给SQL</td>
+</tr>
+<tr>
+<td><code>parameterMap</code></td>
+<td>用于引用外部 parameterMap 的属性，目前已被废弃。</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr>
+<td><code>flushCache</code></td>
+<td>将其设置为 true 后，只要语句被调用，都会导致本地缓存和二级缓存被清空，默认值：（对 insert、update 和 delete 语句）true。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td>设置超时参数，是在抛出异常之前，驱动程序等待数据库返回请求结果的秒数。默认值为未设置（unset）（依赖数据库驱动）。</td>
+<td>默认值是数据库厂商提供的JDBC驱动所设置的秒数。</td>
+</tr>
+<tr>
+<td><code>statementType</code></td>
+<td>可选 STATEMENT，PREPARED 或 CALLABLE。这会让 MyBatis 分别使用Statement，PreparedStatement 或 CallableStatement，</td>
+<td>默认值：PREPARED。</td>
+</tr>
+<tr>
+<td><code>useGeneratedKeys</code></td>
+<td>（<strong>仅适用于 insert 和 update</strong>）这会令 MyBatis 使用 JDBC 的 getGeneratedKeys 方法来取出由数据库内部生成的主键（比如：像 MySQL 和 SQL Server 这样的关系型数据库管理系统的自动递增字段）。</td>
+<td>默认值：false。如果要使用需要设置成true</td>
+</tr>
+<tr>
+<td><code>keyProperty</code></td>
+<td>（<strong>仅适用于 insert 和 update</strong>）指定能够唯一识别对象的属性，MyBatis 会使用getGeneratedKeys 的返回值或 insert 语句的 selectKey 子元素设置它的值，默认值：未设置（<code>unset</code>）。如果生成列不止一个，可以用逗号分隔多个属性名称。</td>
+<td>设置哪个列为主键，如果是联合主键可以用逗号隔开</td>
+</tr>
+<tr>
+<td><code>keyColumn</code></td>
+<td>（<strong>仅适用于 insert 和 update</strong>）设置生成键值在表中的列名，在某些数据库（像 PostgreSQL）中，当主键列不是表中的第一列的时候，是必须设置的。如果生成列不止一个，可以用逗号分隔多个属性名称。</td>
+<td>如果是联合主键可以用逗号隔开</td>
+</tr>
+<tr>
+<td><code>databaseId</code></td>
+<td>如果配置了数据库厂商标识（databaseIdProvider），MyBatis 会加载所有不带databaseId 或匹配当前 databaseId 的语句；如果带和不带的语句都有，则不带的会被忽略。</td>
+<td>多种数据库支持</td>
+</tr>
+</tbody></table>
+<h4 id="INSERT回填主键"><a href="#INSERT回填主键" class="headerlink" title="INSERT回填主键"></a>INSERT回填主键</h4><p>如果你希望insert语句执行后返回记录的主键：</p>
+<p>（1）数据库支持自动生成主键的字段（比如 MySQL 和 SQL Server）</p>
+<p>直接设置 <code>useGeneratedKeys=&quot;true&quot;</code>，然后再把 keyProperty 设置为目标属性就可以了。 如：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>insert</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>insertEmployee<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.demo.entity.emp.Employee<span class="token punctuation">"</span></span>  <span class="token attr-name">useGeneratedKeys</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">keyProperty</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empId<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   insert into tbl_emp (emp_name,sex,email,dept_id )
   values (#{empName},#{sex},#{email},#{dept_id})
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>insert</span><span class="token punctuation">></span></span></code></pre><p>这样传入的<code>employee</code>对象就不需要设置empId属性，Mybatis会用数据库设置进行处理。</p><p>如果数据库支持批量插入：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>insert</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>insertManyEmployees<span class="token punctuation">"</span></span> <span class="token attr-name">useGeneratedKeys</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">keyProperty</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empId<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>insert</span><span class="token punctuation">></span></span></code></pre>
+<p>这样传入的<code>employee</code>对象就不需要设置empId属性，Mybatis会用数据库设置进行处理。</p>
+<p>如果数据库支持批量插入：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>insert</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>insertManyEmployees<span class="token punctuation">"</span></span> <span class="token attr-name">useGeneratedKeys</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">keyProperty</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empId<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   insert into Author (username, password, email, bio) values
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>foreach</span> <span class="token attr-name">item</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span> <span class="token attr-name">collection</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>list<span class="token punctuation">"</span></span> <span class="token attr-name">separator</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>,<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     (#{empName},#{sex},#{email},#{dept_id})
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>foreach</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>insert</span><span class="token punctuation">></span></span></code></pre><p>（2）数据库不支持自动生成主键列，或者JDBC 驱动不支持生成主键。</p><p>对于不支持的情况，MyBatis 支持自定义主键生成</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>insert</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>insertEmp<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>insert</span><span class="token punctuation">></span></span></code></pre>
+<p>（2）数据库不支持自动生成主键列，或者JDBC 驱动不支持生成主键。</p>
+<p>对于不支持的情况，MyBatis 支持自定义主键生成</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>insert</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>insertEmp<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>selectKey</span> <span class="token attr-name">keyProperty</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>empId<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>int<span class="token punctuation">"</span></span> <span class="token attr-name">order</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>BEFORE<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     select if(max(id) is null, 1 , max(id)+2) as  newId a from tbl_emp
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>selectKey</span><span class="token punctuation">></span></span>
@@ -83,9 +1182,58 @@ and email like  concat('%',#{email},'%')
    (emp_Id,emp_name,sex,email,dept_id )
   values
     (#{empId},#{empName},#{sex},#{email},#{dept_id})
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>insert</span><span class="token punctuation">></span></span></code></pre><p>示例中，首先会运行 selectKey 元素中的语句，并设置 <code>Employee</code>的 empId，然后才会调用插入语句。这样就实现了数据库自动生成主键类似的行为，同时保持了 Java 代码的简洁。 看一看的 MyBatis 处理主键生成的灵活性和宽容度 。</p><p>selectKey 元素描述如下：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>selectKey</span>    <span class="token attr-name">keyProperty</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>int<span class="token punctuation">"</span></span> <span class="token attr-name">order</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>BEFORE<span class="token punctuation">"</span></span> <span class="token attr-name">statementType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>PREPARED<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>insert</span><span class="token punctuation">></span></span></code></pre>
+<p>示例中，首先会运行 selectKey 元素中的语句，并设置 <code>Employee</code>的 empId，然后才会调用插入语句。这样就实现了数据库自动生成主键类似的行为，同时保持了 Java 代码的简洁。 看一看的 MyBatis 处理主键生成的灵活性和宽容度 。</p>
+<p>selectKey 元素描述如下：         </p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>selectKey</span>    <span class="token attr-name">keyProperty</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>int<span class="token punctuation">"</span></span> <span class="token attr-name">order</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>BEFORE<span class="token punctuation">"</span></span> <span class="token attr-name">statementType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>PREPARED<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     ...
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>selectKey</span><span class="token punctuation">></span></span></code></pre><p>selectKey 属性：</p><table><thead><tr><th>属性</th><th>描述</th></tr></thead><tbody><tr><td><code>keyProperty</code></td><td><code>selectKey</code> 语句结果应该被设置到的目标属性。如果生成列不止一个，可以用逗号分隔多个属性名称。</td></tr><tr><td><code>keyColumn</code></td><td>返回结果集中生成列属性的列名。如果生成列不止一个，可以用逗号分隔多个属性名称。</td></tr><tr><td><code>resultType</code></td><td>结果的类型。通常 MyBatis 可以推断出来，但是为了更加准确，写上也不会有什么问题。MyBatis 允许将任何简单类型用作主键的类型，包括字符串。如果生成列不止一个，则可以使用包含期望属性的 Object 或 Map。</td></tr><tr><td><code>order</code></td><td>可设置为 <code>BEFORE</code> 或 <code>AFTER</code>。如果设置为<code>BEFORE</code>，那么它首先会生成主键，设置 <code>keyProperty</code>再执行插入语句。如果设置为<code>AFTER</code>，那么先执行插入语句，然后是 <code>selectKey</code> 中的语句 - 这和 Oracle 数据库的行为相似，在插入语句内部可能有嵌入索引调用。</td></tr><tr><td><code>statementType</code></td><td>和前面一样，MyBatis 支持 <code>STATEMENT</code>，<code>PREPARED</code> 和 <code>CALLABLE</code> 类型的映射语句，分别代表 <code>Statement</code>, <code>PreparedStatement</code> 和 <code>CallableStatement</code> 类型。</td></tr></tbody></table><h4 id="参数使用"><a href="#参数使用" class="headerlink" title="参数使用"></a>参数使用</h4><p>如果之前在配置里提到的类型转换器typeHandler</p><pre class="language-xml"><code class="language-xml">#{sex,javaType=string, jdbcType=NUMERIC,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler}</code></pre><h4 id="存储过程支持"><a href="#存储过程支持" class="headerlink" title="存储过程支持"></a>存储过程支持</h4><p>存储过程存在3种参数：输入参数（IN）、输出参数（OUT）、输入输出参数（INOUT）。Mybatis的参数规则均提供支持。通过设置<code>mode</code>属性来确定参数类型，<code>mode</code>的值对应也有三种：IN、OUT、INOUT。</p><p>当<code>mode</code>参数设置OUT或INOUT时，Mybatis会将存储过程返回的结果社会组到指定的参数中。</p><p>如果返回的是一个游标（jdbcType=CURSOR）时，还需要设置resultMap，方便Mybatis将存储过程参数映射到对应的类型，这样Mybatis就可以通过设置的resultMap自动设置映射结果。</p><pre class="language-xml"><code class="language-xml">#{employee, mode=OUT,jdbcType=CURSOR,javaType=ResultSet,resultMap=empResultMap}</code></pre><p>javaType可选，因为Mybatis可以自动检测它。</p><p>Mybatis还支持一下高级特性，如结构体，当注册参数时需要指定语句类型名称（jdbcTypeName）:</p><pre class="language-xml"><code class="language-xml">#{emp,mode=OUT,jdbcType=STRUCT,jdbcTypeName=MY_TYPE,resultMap=dempResultMap}</code></pre><p>在大部分情况下，MyBatis都会自动推断返回数据类型，大部分情况都不需要配置参数类型和结果类型。需要设置的是容易返回为null的字段类型，null值Mybatis无法判断类型。如备注字段</p><pre class="language-xml"><code class="language-xml">#{mark,jdbcType=VARCHAR}</code></pre><h4 id="特殊字符串替换处理（-和-）"><a href="#特殊字符串替换处理（-和-）" class="headerlink" title="特殊字符串替换处理（#和$）"></a>特殊字符串替换处理（#和$）</h4><p>设置参数常用<code>#{empName}</code>在大部分情况Mybatis都会进行预编译处理，然后再赋值。</p><p>如果需要传递是SQL语句本身，不是SQL参数，如动态表格，根据条件显示不同的列，传递SQL列名，根据某些列排序等使用场景，可以使用<code>$</code>符号，如传递变量<code>columns=&quot;col1,col2,col3&quot;</code>给SQL,组装SQL语句则可以使用：</p><pre class="language-xml"><code class="language-xml">select ${columns} from t_table</code></pre><p>这样columns就不会被Mybatis进行预编译解析，而变为直接替换。只是这样存在SQL注入的风险问题。Mybatis给予足够的灵活性，需要自己保证SQL的正确性和安全性。</p><h3 id="四、UPDATE元素"><a href="#四、UPDATE元素" class="headerlink" title="四、UPDATE元素"></a>四、UPDATE元素</h3><p>参数见INSERT元素处。示例：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>update</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>updateByExample<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>selectKey</span><span class="token punctuation">></span></span></code></pre>
+<p>selectKey 属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>keyProperty</code></td>
+<td><code>selectKey</code> 语句结果应该被设置到的目标属性。如果生成列不止一个，可以用逗号分隔多个属性名称。</td>
+</tr>
+<tr>
+<td><code>keyColumn</code></td>
+<td>返回结果集中生成列属性的列名。如果生成列不止一个，可以用逗号分隔多个属性名称。</td>
+</tr>
+<tr>
+<td><code>resultType</code></td>
+<td>结果的类型。通常 MyBatis 可以推断出来，但是为了更加准确，写上也不会有什么问题。MyBatis                 允许将任何简单类型用作主键的类型，包括字符串。如果生成列不止一个，则可以使用包含期望属性的 Object 或 Map。</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td>可设置为 <code>BEFORE</code> 或 <code>AFTER</code>。如果设置为<code>BEFORE</code>，那么它首先会生成主键，设置 <code>keyProperty</code>再执行插入语句。如果设置为<code>AFTER</code>，那么先执行插入语句，然后是 <code>selectKey</code> 中的语句 - 这和 Oracle  数据库的行为相似，在插入语句内部可能有嵌入索引调用。</td>
+</tr>
+<tr>
+<td><code>statementType</code></td>
+<td>和前面一样，MyBatis 支持 <code>STATEMENT</code>，<code>PREPARED</code> 和 <code>CALLABLE</code> 类型的映射语句，分别代表 <code>Statement</code>, <code>PreparedStatement</code> 和  <code>CallableStatement</code> 类型。</td>
+</tr>
+</tbody></table>
+<h4 id="参数使用"><a href="#参数使用" class="headerlink" title="参数使用"></a>参数使用</h4><p>如果之前在配置里提到的类型转换器typeHandler</p>
+<pre class=" language-xml"><code class="language-xml">#{sex,javaType=string, jdbcType=NUMERIC,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler}</code></pre>
+<h4 id="存储过程支持"><a href="#存储过程支持" class="headerlink" title="存储过程支持"></a>存储过程支持</h4><p>存储过程存在3种参数：输入参数（IN）、输出参数（OUT）、输入输出参数（INOUT）。Mybatis的参数规则均提供支持。通过设置<code>mode</code>属性来确定参数类型，<code>mode</code>的值对应也有三种：IN、OUT、INOUT。</p>
+<p>当<code>mode</code>参数设置OUT或INOUT时，Mybatis会将存储过程返回的结果社会组到指定的参数中。</p>
+<p>如果返回的是一个游标（jdbcType=CURSOR）时，还需要设置resultMap，方便Mybatis将存储过程参数映射到对应的类型，这样Mybatis就可以通过设置的resultMap自动设置映射结果。</p>
+<pre class=" language-xml"><code class="language-xml">#{employee, mode=OUT,jdbcType=CURSOR,javaType=ResultSet,resultMap=empResultMap}</code></pre>
+<p>javaType可选，因为Mybatis可以自动检测它。</p>
+<p>Mybatis还支持一下高级特性，如结构体，当注册参数时需要指定语句类型名称（jdbcTypeName）:</p>
+<pre class=" language-xml"><code class="language-xml">#{emp,mode=OUT,jdbcType=STRUCT,jdbcTypeName=MY_TYPE,resultMap=dempResultMap}</code></pre>
+<p>在大部分情况下，MyBatis都会自动推断返回数据类型，大部分情况都不需要配置参数类型和结果类型。需要设置的是容易返回为null的字段类型，null值Mybatis无法判断类型。如备注字段</p>
+<pre class=" language-xml"><code class="language-xml">#{mark,jdbcType=VARCHAR}</code></pre>
+<h4 id="特殊字符串替换处理（-和-）"><a href="#特殊字符串替换处理（-和-）" class="headerlink" title="特殊字符串替换处理（#和$）"></a>特殊字符串替换处理（#和$）</h4><p>设置参数常用<code>#{empName}</code>在大部分情况Mybatis都会进行预编译处理，然后再赋值。</p>
+<p>如果需要传递是SQL语句本身，不是SQL参数，如动态表格，根据条件显示不同的列，传递SQL列名，根据某些列排序等使用场景，可以使用<code>$</code>符号，如传递变量<code>columns=&quot;col1,col2,col3&quot;</code>给SQL,组装SQL语句则可以使用：</p>
+<pre class=" language-xml"><code class="language-xml">select ${columns} from t_table</code></pre>
+<p>这样columns就不会被Mybatis进行预编译解析，而变为直接替换。只是这样存在SQL注入的风险问题。Mybatis给予足够的灵活性，需要自己保证SQL的正确性和安全性。</p>
+<h3 id="四、UPDATE元素"><a href="#四、UPDATE元素" class="headerlink" title="四、UPDATE元素"></a>四、UPDATE元素</h3><p>参数见INSERT元素处。示例：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>update</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>updateByExample<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     update tbl_emp
     set emp_id = #{record.empId,jdbcType=INTEGER},
       emp_name = #{record.empName,jdbcType=VARCHAR},
@@ -108,10 +1256,14 @@ and email like  concat('%',#{email},'%')
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>if</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>set</span><span class="token punctuation">></span></span>
     where emp_id = #{empId,jdbcType=INTEGER}
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>update</span><span class="token punctuation">></span></span></code></pre><h3 id="五、DELETE元素"><a href="#五、DELETE元素" class="headerlink" title="五、DELETE元素"></a>五、DELETE元素</h3><p>参数见INSERT元素处。示例：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>delete</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>deleteByPrimaryKey<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>java.lang.Integer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>update</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="五、DELETE元素"><a href="#五、DELETE元素" class="headerlink" title="五、DELETE元素"></a>五、DELETE元素</h3><p>参数见INSERT元素处。示例：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>delete</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>deleteByPrimaryKey<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>java.lang.Integer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     delete from tbl_emp
     where emp_id = #{empId,jdbcType=INTEGER}
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>delete</span><span class="token punctuation">></span></span></code></pre><h3 id="六、SQL元素"><a href="#六、SQL元素" class="headerlink" title="六、SQL元素"></a>六、SQL元素</h3><p>SQL元素用来定义一串SQL语句片段，使之可以在其他的语句通过引用来使用它。主要目的是为了SQL代码片段复用。</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sql</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>emp_columns<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>delete</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="六、SQL元素"><a href="#六、SQL元素" class="headerlink" title="六、SQL元素"></a>六、SQL元素</h3><p>SQL元素用来定义一串SQL语句片段，使之可以在其他的语句通过引用来使用它。主要目的是为了SQL代码片段复用。</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sql</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>emp_columns<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     emp_id, emp_name, sex, email
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sql</span><span class="token punctuation">></span></span>
 
@@ -120,7 +1272,9 @@ and email like  concat('%',#{email},'%')
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span> <span class="token attr-name">refid</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>emp_columns<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
   FROM tbl_emp
   WHERE emp_id = #{empId}
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre><p>也可以配合指定参数来使用：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sql</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>emp_columns<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+<p>也可以配合指定参数来使用：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sql</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>emp_columns<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     #{prefix}.emp_id, #{prefix}.emp_name, #{prefix}.sex, #{prefix}.email
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sql</span><span class="token punctuation">></span></span>
 
@@ -131,9 +1285,28 @@ and email like  concat('%',#{email},'%')
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">></span></span>
   FROM tbl_emp e
   WHERE e.emp_id = #{empId}
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre><p>还可以给<code>refid</code>参数值由程序引入：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sql</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>someinclude<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+<p>还可以给<code>refid</code>参数值由程序引入：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sql</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>someinclude<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     select * from <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span> <span class="token attr-name">refid</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${tableName}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sql</span><span class="token punctuation">></span></span></code></pre><h3 id="七、Cache缓存"><a href="#七、Cache缓存" class="headerlink" title="七、Cache缓存"></a>七、Cache缓存</h3><p>缓存是互联网系统常常用到的，特点是讲数据保存在内存中。常见的流行缓存服务器有MongoDB、Redis、Ehcache等。缓存从计算机内存读取数据，无需从磁盘读入，具有快速读取使用的特点，如果缓存命中率高，可以极大提高系统性能。如果缓存命中率很低，缓存就不存在使用的意义了，所以使用缓存的关键是存储内容访问的命中率。</p><h4 id="系统缓存"><a href="#系统缓存" class="headerlink" title="系统缓存"></a>系统缓存</h4><p>MyBatis系统缓存分：一级缓存和二级缓存。</p><h5 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a>一级缓存</h5><p>MyBatis在没有配置的默认情况下，值开启一级缓存（一级缓存值相对于同一个SqlSession而言）。</p><p>在参数和SQL完全一样时，使用SqlSession第一次查询后，Mybatis会将其放入缓存中，后续查询时如没有声明需要刷新缓存，且缓存没有超时的情况下，SqlSession都只会取出当前缓存数据，不会发生SQL到数据库执行查询。</p><p>需要注意的是不同的 SqlSession都是相互隔离的，如果更换了新的SqlSession，即使是相同的Mapper、参数和方法，还是会发送SQL到数据库执行，返回结果。</p><h5 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h5><p>为了克服SqlSession相互隔离问题，需要配置二级缓存，使用在SqlSessionFactory层面上给各个SqlSession对象共享数据。SqlSessionFactory曾的二级缓存默认是不开启的，如果开启需要进行配置，并且实现二级缓存的时候，MyBatis要求返回的POJO必须是可序列化的（即实现Serializable接口），配置比较简单：</p><p>（1）第一步，在XML文件中配置即可：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cache</span> <span class="token punctuation">/></span></span></code></pre><p>这样的配置，许多设置是默认的，其含义为：</p><p>（a）映射语句文件中的所有<code>select</code>语句将会被缓存。</p><p>（b）映射语句文件中的所有<code>insert</code>、<code>update</code>、<code>delete</code>语句将会被缓存。</p><p>（c）缓存会使用默认的<code>Least Recently Used（LRU，最近最少使用的）</code>算法来收回缓存。</p><p>（d）根据时间表，比如<code>No Flush Interval（CNFI，没有刷新间隔）</code>，缓存不会以任何时间顺序来刷新。</p><p>（e）缓存会存储列表集合或对象（无论查询方法返回什么）的1024个引用。</p><p>（f）缓存会被视为 <code>read/write(可读可写)</code>缓存，意味着对象检索不是共享的，而是可以安全地被调用者修改，不干扰其他调用者或线程所做的潜在修改。</p><p>（2）第二步，让你POJO对象实现<code>Serializable接口</code>：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>emp<span class="token punctuation">;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sql</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="七、Cache缓存"><a href="#七、Cache缓存" class="headerlink" title="七、Cache缓存"></a>七、Cache缓存</h3><p>缓存是互联网系统常常用到的，特点是讲数据保存在内存中。常见的流行缓存服务器有MongoDB、Redis、Ehcache等。缓存从计算机内存读取数据，无需从磁盘读入，具有快速读取使用的特点，如果缓存命中率高，可以极大提高系统性能。如果缓存命中率很低，缓存就不存在使用的意义了，所以使用缓存的关键是存储内容访问的命中率。</p>
+<h4 id="系统缓存"><a href="#系统缓存" class="headerlink" title="系统缓存"></a>系统缓存</h4><p>MyBatis系统缓存分：一级缓存和二级缓存。</p>
+<h5 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a>一级缓存</h5><p>MyBatis在没有配置的默认情况下，值开启一级缓存（一级缓存值相对于同一个SqlSession而言）。</p>
+<p>在参数和SQL完全一样时，使用SqlSession第一次查询后，Mybatis会将其放入缓存中，后续查询时如没有声明需要刷新缓存，且缓存没有超时的情况下，SqlSession都只会取出当前缓存数据，不会发生SQL到数据库执行查询。</p>
+<p>需要注意的是不同的 SqlSession都是相互隔离的，如果更换了新的SqlSession，即使是相同的Mapper、参数和方法，还是会发送SQL到数据库执行，返回结果。</p>
+<h5 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h5><p>为了克服SqlSession相互隔离问题，需要配置二级缓存，使用在SqlSessionFactory层面上给各个SqlSession对象共享数据。SqlSessionFactory曾的二级缓存默认是不开启的，如果开启需要进行配置，并且实现二级缓存的时候，MyBatis要求返回的POJO必须是可序列化的（即实现Serializable接口），配置比较简单：</p>
+<p>（1）第一步，在XML文件中配置即可：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cache</span> <span class="token punctuation">/></span></span></code></pre>
+<p>这样的配置，许多设置是默认的，其含义为：</p>
+<p>（a）映射语句文件中的所有<code>select</code>语句将会被缓存。</p>
+<p>（b）映射语句文件中的所有<code>insert</code>、<code>update</code>、<code>delete</code>语句将会被缓存。</p>
+<p>（c）缓存会使用默认的<code>Least Recently Used（LRU，最近最少使用的）</code>算法来收回缓存。</p>
+<p>（d）根据时间表，比如<code>No Flush Interval（CNFI，没有刷新间隔）</code>，缓存不会以任何时间顺序来刷新。</p>
+<p>（e）缓存会存储列表集合或对象（无论查询方法返回什么）的1024个引用。</p>
+<p>（f）缓存会被视为 <code>read/write(可读可写)</code>缓存，意味着对象检索不是共享的，而是可以安全地被调用者修改，不干扰其他调用者或线程所做的潜在修改。</p>
+<p>（2）第二步，让你POJO对象实现<code>Serializable接口</code>：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>demo<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>emp<span class="token punctuation">;</span>
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Employee</span> <span class="token keyword">implements</span> <span class="token class-name">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>Serializable</span> <span class="token punctuation">{</span>
 
@@ -146,7 +1319,27 @@ and email like  concat('%',#{email},'%')
     <span class="token keyword">private</span> <span class="token keyword">int</span> did<span class="token punctuation">;</span>
     <span class="token keyword">private</span> Department department <span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//setter getter ...</span>
-<span class="token punctuation">}</span></code></pre><p><strong>特别说明</strong>：</p><p>缓存只作用于 cache 标签所在的映射文件中的语句。如果你混合使用 Java API 和 XML 映射文件，在共用接口中的语句将不会被默认缓存。你需要使用 <code>@CacheNamespaceRef</code>注解指定缓存作用域。</p><p>关于 <code>cache</code>元素的属性：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cache</span>  <span class="token attr-name">eviction</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>FIFO<span class="token punctuation">"</span></span> <span class="token attr-name">flushInterval</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60000<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>512<span class="token punctuation">"</span></span> <span class="token attr-name">readOnly</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre><p>这个配置创建了一个 FIFO 缓存，每隔 60 秒刷新，最多可以存储结果对象或列表的 512 个引用，而且返回的对象被认为是只读的，因此对它们进行修改可能会在不同线程中的调用者产生冲突。</p><p>可用的清除策略有：</p><ul><li><code>LRU</code> – 最近最少使用：移除最长时间不被使用的对象。</li><li><code>FIFO</code> – 先进先出：按对象进入缓存的顺序来移除它们。</li><li><code>SOFT</code> – 软引用：基于垃圾回收器状态和软引用规则移除对象。</li><li><code>WEAK</code> – 弱引用：更积极地基于垃圾收集器状态和弱引用规则移除对象。</li></ul><p>默认的清除策略是 <code>LRU : Least Recently Used（最近最少使用的）</code>。</p><p><code>flushInterval（刷新间隔）</code>属性可以被设置为任意的正整数，设置的值应该是一个以毫秒为单位的合理时间量。默认情况是不设置，也就是没有刷新间隔，缓存仅仅会在调用语句时刷新。</p><p><code>size（引用数目）</code>属性可以被设置为任意正整数，要注意欲缓存对象的大小和运行环境中可用的内存资源。默认值是 1024。</p><p>readOnly（只读）属性可以被设置为 true 或 false。只读的缓存会给所有调用者返回缓存对象的相同实例。因此这些对象不能被修改。这就提供了可观的性能提升。而可读写的缓存会（通过序列化）返回缓存对象的拷贝。速度上慢一些，但是更安全，因此默认值是 false。</p><p><strong>特别提示：</strong>二级缓存是事务性的。这意味着，当 SqlSession 完成并提交时，或是完成并回滚，但没有执行 flushCache=true 的 insert/delete/update 语句时，缓存会获得更新。</p><h4 id="自定义缓存"><a href="#自定义缓存" class="headerlink" title="自定义缓存"></a>自定义缓存</h4><p>上述Mybatis自带缓存的方式，是在应用部署机器上本地缓存。但是现在分布式、微服务、各类缓存服务器出现，之后可以进行自定义缓存。也可以通过实现自定义的缓存，或为其他第三方缓存方案创建适配器，来完全覆盖系统缓存行为。</p><p>比如：Redis缓存，要实现自定义缓存需要实现MyBatis提供的接口<code>org.apache.ibatis.cache.Cache</code> ，缓存接口：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>cache<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>特别说明</strong>：</p>
+<p>缓存只作用于 cache 标签所在的映射文件中的语句。如果你混合使用 Java API 和 XML 映射文件，在共用接口中的语句将不会被默认缓存。你需要使用 <code>@CacheNamespaceRef</code>注解指定缓存作用域。 </p>
+<p>关于 <code>cache</code>元素的属性：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cache</span>  <span class="token attr-name">eviction</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>FIFO<span class="token punctuation">"</span></span> <span class="token attr-name">flushInterval</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60000<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>512<span class="token punctuation">"</span></span> <span class="token attr-name">readOnly</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
+<p>这个配置创建了一个 FIFO 缓存，每隔 60 秒刷新，最多可以存储结果对象或列表的 512 个引用，而且返回的对象被认为是只读的，因此对它们进行修改可能会在不同线程中的调用者产生冲突。 </p>
+<p>可用的清除策略有：         </p>
+<ul>
+<li><code>LRU</code> – 最近最少使用：移除最长时间不被使用的对象。</li>
+<li><code>FIFO</code> – 先进先出：按对象进入缓存的顺序来移除它们。</li>
+<li><code>SOFT</code> – 软引用：基于垃圾回收器状态和软引用规则移除对象。</li>
+<li><code>WEAK</code> – 弱引用：更积极地基于垃圾收集器状态和弱引用规则移除对象。</li>
+</ul>
+<p>默认的清除策略是 <code>LRU : Least Recently Used（最近最少使用的）</code>。</p>
+<p><code>flushInterval（刷新间隔）</code>属性可以被设置为任意的正整数，设置的值应该是一个以毫秒为单位的合理时间量。默认情况是不设置，也就是没有刷新间隔，缓存仅仅会在调用语句时刷新。 </p>
+<p><code>size（引用数目）</code>属性可以被设置为任意正整数，要注意欲缓存对象的大小和运行环境中可用的内存资源。默认值是 1024。 </p>
+<p>readOnly（只读）属性可以被设置为 true 或 false。只读的缓存会给所有调用者返回缓存对象的相同实例。因此这些对象不能被修改。这就提供了可观的性能提升。而可读写的缓存会（通过序列化）返回缓存对象的拷贝。速度上慢一些，但是更安全，因此默认值是 false。  </p>
+<p><strong>特别提示：</strong>二级缓存是事务性的。这意味着，当 SqlSession 完成并提交时，或是完成并回滚，但没有执行 flushCache=true 的 insert/delete/update 语句时，缓存会获得更新。 </p>
+<h4 id="自定义缓存"><a href="#自定义缓存" class="headerlink" title="自定义缓存"></a>自定义缓存</h4><p>上述Mybatis自带缓存的方式，是在应用部署机器上本地缓存。但是现在分布式、微服务、各类缓存服务器出现，之后可以进行自定义缓存。也可以通过实现自定义的缓存，或为其他第三方缓存方案创建适配器，来完全覆盖系统缓存行为。</p>
+<p>比如：Redis缓存，要实现自定义缓存需要实现MyBatis提供的接口<code>org.apache.ibatis.cache.Cache</code> ，缓存接口：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>cache<span class="token punctuation">;</span>
 <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Cache</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//获取缓存编号</span>
       String <span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -164,7 +1357,9 @@ and email like  concat('%',#{email},'%')
       <span class="token keyword">void</span> <span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//获取读写锁</span>
     ReadWriteLock <span class="token function">getReadWriteLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>；
-<span class="token punctuation">}</span></code></pre><p>如自定义缓存</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>example<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>如自定义缓存</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>ssm<span class="token punctuation">.</span>web<span class="token punctuation">.</span>example<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>locks<span class="token punctuation">.</span>ReadWriteLock<span class="token punctuation">;</span>
 
@@ -172,22 +1367,547 @@ and email like  concat('%',#{email},'%')
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyCustomCache</span> <span class="token keyword">implements</span> <span class="token class-name">Cache</span><span class="token punctuation">{</span>
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token punctuation">}</span></code></pre><p>配置缓存：</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cache</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.example.MyCustomCache<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token punctuation">}</span></code></pre>
+<p>配置缓存：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cache</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.example.MyCustomCache<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>host<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>localhost<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>cacheFile<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/tmp/my-custom-cache.tmp<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>cache</span><span class="token punctuation">></span></span></code></pre><p>可以在缓存这添加公有的JavaBean属性，那么在自定义的<code>MyCustomCache</code>类中增加<code>setHost(String host)</code>和<code>setCachefile(String file)</code>方法，在<code>MyCustomCache</code>初始化的时候方法就会被调用，这样就可以设置自定义的参数。</p><p>从版本 3.4.2 开始，MyBatis 已经支持在所有属性设置完毕之后，调用一个初始化方法。如果想要使用这个特性，请在你的自定义缓存类里实现 org.apache.ibatis.builder.InitializingObject` 接口：</p><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">InitializingObject</span> <span class="token punctuation">{</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>cache</span><span class="token punctuation">></span></span></code></pre>
+<p>可以在缓存这添加公有的JavaBean属性，那么在自定义的<code>MyCustomCache</code>类中增加<code>setHost(String host)</code>和<code>setCachefile(String file)</code>方法，在<code>MyCustomCache</code>初始化的时候方法就会被调用，这样就可以设置自定义的参数。</p>
+<p> 从版本 3.4.2 开始，MyBatis 已经支持在所有属性设置完毕之后，调用一个初始化方法。如果想要使用这个特性，请在你的自定义缓存类里实现 org.apache.ibatis.builder.InitializingObject` 接口：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">InitializingObject</span> <span class="token punctuation">{</span>
   <span class="token keyword">void</span> <span class="token function">initialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre><p><strong>注意：</strong>上一节中对缓存的配置（如清除策略、可读或可读写等），不能应用于自定义缓存。</p><p>缓存的配置和缓存实例会被绑定到 SQL 映射文件的命名空间中。因此，同一命名空间中的所有语句和缓存将通过命名空间绑定在一起。</p><p>增删查改的每条语句可以自定义与缓存交互的方式，或将它们完全排除于缓存之外，这可以通过在每条语句上使用两个简单属性来达成。默认情况下，语句会这样来配置：</p><pre><code>&lt;select ... flushCache=&quot;false&quot; useCache=&quot;true&quot;/&gt;
+<span class="token punctuation">}</span></code></pre>
+<p><strong>注意：</strong>上一节中对缓存的配置（如清除策略、可读或可读写等），不能应用于自定义缓存。  </p>
+<p>缓存的配置和缓存实例会被绑定到 SQL 映射文件的命名空间中。因此，同一命名空间中的所有语句和缓存将通过命名空间绑定在一起。</p>
+<p>增删查改的每条语句可以自定义与缓存交互的方式，或将它们完全排除于缓存之外，这可以通过在每条语句上使用两个简单属性来达成。默认情况下，语句会这样来配置：         </p>
+<pre><code>&lt;select ... flushCache=&quot;false&quot; useCache=&quot;true&quot;/&gt;
 &lt;insert ... flushCache=&quot;true&quot;/&gt;
 &lt;update ... flushCache=&quot;true&quot;/&gt;
-&lt;delete ... flushCache=&quot;true&quot;/&gt;</code></pre><p>鉴于这是默认行为，显然你永远不应该以这样的方式显式配置一条语句。但如果你想改变默认的行为，只需要设置 flushCache 和 useCache 属性。比如，某些情况下你可能希望特定 select 语句的结果排除于缓存之外，或希望一条 select 语句清空缓存。类似地，你可能希望某些 update 语句执行时不要刷新缓存。</p><h4 id="cache-ref"><a href="#cache-ref" class="headerlink" title="cache-ref"></a>cache-ref</h4><p>对某一命名空间的语句，只会使用该命名空间的缓存进行缓存或刷新。如果想要在多个命名空间中共享相同的缓存配置和实例。要实现这种需求，可以使用<code>cache-ref</code>元素来引用另一个缓存。假如在<code>DepartmentMapper.xml</code>使用<code>EmployeeMapper.xml</code>里的缓存配置，则<code>cache-ref</code>的<code>namespace</code>属性指向<code>EmployeeMapper.xml</code>的命名空间即可。</p><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cache-ref</span> <span class="token attr-name">namespace</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.demo.dao.emp.EmployeeMapper<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre><br><p><strong>相关文章：</strong></p><table><thead><tr><th>文章名称</th></tr></thead><tbody><tr><td><a href="b802139a.html">《Mybatis(一)主要组件》</a></td></tr><tr><td><a href="5d11555a.html">《Mybatis(二)配置》</a></td></tr><tr><td><a href="d467df29.html">《Mybatis(三)动态SQL》</a></td></tr><tr><td><a href="3bfa75b5.html">《Mybtis(四)工作原理》</a></td></tr><tr><td><a href="ae8510ea.html">《Mybtis(五)Mapper映射器》</a></td></tr><tr><td><a href="44c4c800.html">《Mybtis(六)Mapper级联》</a></td></tr></tbody></table><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css"></div><br><hr><div class="reprint" id="reprint-statement"><div class="reprint__author"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-user">文章作者: </i></span><span class="reprint-info"><a href="/about" rel="external nofollow noreferrer">Small-Rose /张小菜</a></span></div><div class="reprint__type"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-link">文章链接: </i></span><span class="reprint-info"><a href="https://www.zhangxiaocai.cn/posts/ae8510ea.html">https://www.zhangxiaocai.cn/posts/ae8510ea.html</a></span></div><div class="reprint__notice"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-copyright">版权声明: </i></span><span class="reprint-info">本博客所有文章除特別声明外，均采用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a> 许可协议。转载请注明来源 <a href="/about" target="_blank">Small-Rose /张小菜</a> !</span></div></div><script async defer>document.addEventListener("copy", function (e) {
+&lt;delete ... flushCache=&quot;true&quot;/&gt;</code></pre><p>鉴于这是默认行为，显然你永远不应该以这样的方式显式配置一条语句。但如果你想改变默认的行为，只需要设置 flushCache 和  useCache 属性。比如，某些情况下你可能希望特定 select 语句的结果排除于缓存之外，或希望一条 select  语句清空缓存。类似地，你可能希望某些 update 语句执行时不要刷新缓存。         </p>
+<h4 id="cache-ref"><a href="#cache-ref" class="headerlink" title="cache-ref"></a>cache-ref</h4><p>对某一命名空间的语句，只会使用该命名空间的缓存进行缓存或刷新。如果想要在多个命名空间中共享相同的缓存配置和实例。要实现这种需求，可以使用<code>cache-ref</code>元素来引用另一个缓存。假如在<code>DepartmentMapper.xml</code>使用<code>EmployeeMapper.xml</code>里的缓存配置，则<code>cache-ref</code>的<code>namespace</code>属性指向<code>EmployeeMapper.xml</code>的命名空间即可。</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cache-ref</span> <span class="token attr-name">namespace</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.ssm.web.demo.dao.emp.EmployeeMapper<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
+<br/>
+
+<p><strong>相关文章：</strong></p>
+<table>
+<thead>
+<tr>
+<th>文章名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="b802139a.html">《Mybatis(一)主要组件》</a></td>
+</tr>
+<tr>
+<td><a href="5d11555a.html">《Mybatis(二)配置》</a></td>
+</tr>
+<tr>
+<td><a href="d467df29.html">《Mybatis(三)动态SQL》</a></td>
+</tr>
+<tr>
+<td><a href="3bfa75b5.html">《Mybtis(四)工作原理》</a></td>
+</tr>
+<tr>
+<td><a href="ae8510ea.html">《Mybtis(五)Mapper映射器》</a></td>
+</tr>
+<tr>
+<td><a href="44c4c800.html">《Mybtis(六)Mapper级联》</a></td>
+</tr>
+</tbody></table>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+            </div>
+            <br/>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Small-Rose /张小菜</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.zhangxiaocai.cn/posts/ae8510ea.html">https://www.zhangxiaocai.cn/posts/ae8510ea.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Small-Rose /张小菜</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
         let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
         M.toast({html: toastHTML})
       });
 
       function navToReprintStatement() {
         $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }</script><div class="tag_share" style="display:block"><div class="post-meta__tag-list" style="display:inline-block"><div class="article-tag"><a href="/tags/Mybatis/"><span class="chip bg-color">Mybatis</span></a></div></div><div class="post_share" style="zoom:80%;width:fit-content;display:inline-block;float:right;margin:-.15rem 0"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/css/share.min.css"><div id="article-share"><div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/js/social-share.min.js"></script></div></div></div><style>#reward{margin:40px 0;text-align:center}#reward .reward-link{font-size:1.4rem;line-height:38px}#reward .btn-floating:hover{box-shadow:0 6px 12px rgba(0,0,0,.2),0 5px 15px rgba(0,0,0,.2)}#rewardModal{width:320px;height:350px}#rewardModal .reward-title{margin:15px auto;padding-bottom:5px}#rewardModal .modal-content{padding:10px}#rewardModal .close{position:absolute;right:15px;top:15px;color:rgba(0,0,0,.5);font-size:1.3rem;line-height:20px;cursor:pointer}#rewardModal .close:hover{color:#ef5350;transform:scale(1.3);-moz-transform:scale(1.3);-webkit-transform:scale(1.3);-o-transform:scale(1.3)}#rewardModal .reward-tabs{margin:0 auto;width:210px}.reward-tabs .tabs{height:38px;margin:10px auto;padding-left:0}.reward-content ul{padding-left:0!important}.reward-tabs .tabs .tab{height:38px;line-height:38px}.reward-tabs .tab a{color:#fff;background-color:#ccc}.reward-tabs .tab a:hover{background-color:#ccc;color:#fff}.reward-tabs .wechat-tab .active{color:#fff!important;background-color:#22AB38!important}.reward-tabs .alipay-tab .active{color:#fff!important;background-color:#019FE8!important}.reward-tabs .reward-img{width:210px;height:210px}</style><div id="reward"><a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a><div id="rewardModal" class="modal"><div class="modal-content"><a class="close modal-close"><i class="fas fa-times"></i></a><h4 class="reward-title">你的赏识是我前进的动力</h4><div class="reward-content"><div class="reward-tabs"><ul class="tabs row"><li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li><li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li></ul><div id="alipay"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码"></div><div id="wechat"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码"></div></div></div></div></div></div><script>$(function(){$(".tabs").tabs()})</script></div></div><style>.valine-card{margin:1.5rem auto}.valine-card .card-content{padding:20px 20px 5px 20px}#vcomments textarea{box-sizing:border-box;background:url(/medias/202007bg.webp) 100% 100% no-repeat}#vcomments p{margin:2px 2px 10px;font-size:1.05rem;line-height:1.78rem}#vcomments blockquote p{text-indent:.2rem}#vcomments a{padding:0 2px;color:#4cbf30;font-weight:500;text-decoration:none}#vcomments img{max-width:100%;height:auto;cursor:pointer}#vcomments ol li{list-style-type:decimal}#vcomments ol,ul{display:block;padding-left:2em;word-spacing:.05rem}#vcomments ul li,ol li{display:list-item;line-height:1.8rem;font-size:1rem}#vcomments ul li{list-style-type:disc}#vcomments ul ul li{list-style-type:circle}#vcomments table,td,th{padding:12px 13px;border:1px solid #dfe2e5}#vcomments table,td,th{border:0}table tr:nth-child(2n),thead{background-color:#fafafa}#vcomments table th{background-color:#f2f2f2;min-width:80px}#vcomments table td{min-width:80px}#vcomments h1{font-size:1.85rem;font-weight:700;line-height:2.2rem}#vcomments h2{font-size:1.65rem;font-weight:700;line-height:1.9rem}#vcomments h3{font-size:1.45rem;font-weight:700;line-height:1.7rem}#vcomments h4{font-size:1.25rem;font-weight:700;line-height:1.5rem}#vcomments h5{font-size:1.1rem;font-weight:700;line-height:1.4rem}#vcomments h6{font-size:1rem;line-height:1.3rem}#vcomments p{font-size:1rem;line-height:1.5rem}#vcomments hr{margin:12px 0;border:0;border-top:1px solid #ccc}#vcomments blockquote{margin:15px 0;border-left:5px solid #42b983;padding:1rem .8rem .3rem .8rem;color:#666;background-color:rgba(66,185,131,.1)}#vcomments pre{font-family:monospace,monospace;padding:1.2em;margin:.5em 0;background:#272822;overflow:auto;border-radius:.3em;tab-size:4}#vcomments code{font-family:monospace,monospace;padding:1px 3px;font-size:.92rem;color:#e96900;background-color:#f8f8f8;border-radius:2px}#vcomments pre code{font-family:monospace,monospace;padding:0;color:#e8eaf6;background-color:#272822}#vcomments pre[class*=language-]{padding:1.2em;margin:.5em 0}#vcomments code[class*=language-],pre[class*=language-]{color:#e8eaf6}#vcomments [type=checkbox]:not(:checked),[type=checkbox]:checked{position:inherit;margin-left:-1.3rem;margin-right:.4rem;margin-top:-1px;vertical-align:middle;left:unset;visibility:visible}#vcomments b,strong{font-weight:700}#vcomments dfn{font-style:italic}#vcomments small{font-size:85%}#vcomments cite{font-style:normal}#vcomments mark{background-color:#fcf8e3;padding:.2em}#vcomments table,td,th{padding:12px 13px;border:1px solid #dfe2e5}table tr:nth-child(2n),thead{background-color:#fafafa}#vcomments table th{background-color:#f2f2f2;min-width:80px}#vcomments table td{min-width:80px}#vcomments [type=checkbox]:not(:checked),[type=checkbox]:checked{position:inherit;margin-left:-1.3rem;margin-right:.4rem;margin-top:-1px;vertical-align:middle;left:unset;visibility:visible}#vcomments .vbtn{background-color:#0bb7fbd6;color:#fff}.v[data-class="v"] .vwrap .vheader .vinput{width:32%;border-bottom:1px dashed #dedede}.v[data-class=v] .vwrap .vemojis i{font-style:normal;padding-top:7px;width:36px;cursor:pointer;text-align:center;display:inline-block;vertical-align:middle;padding-right:3px;padding-left:3px}</style><div class="card valine-card" data-aos="fade-up"><div class="comment_headling" style="font-size:20px;font-weight:700;position:relative;padding-left:20px;top:15px;padding-bottom:5px"><i class="fas fa-comments fa-fw" aria-hidden="true"></i> <span>评论</span></div><div id="vcomments" class="card-content" style="display:grid"></div></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/av-min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script><script>let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Mybatis/">
+                                    <span class="chip bg-color">Mybatis</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/202007bg.webp") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments .vbtn{
+        
+        background-color: #0bb7fbd6;
+        color: #fff;
+    }
+
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+    }
+
+    .v[data-class=v] .vwrap .vemojis i {
+         font-style:normal;
+         padding-top:7px;
+         width:36px;
+         cursor:pointer;
+         text-align:center;
+         display:inline-block;
+         vertical-align:middle;
+         padding-right: 3px;
+         padding-left: 3px;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+<!--
+折腾人啊,如果你看到这个说明你也在搞Valine 哈哈~ 慢慢折腾吧，本站有教程哦
+-->
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    
+ 
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}
 
     new Valine({
         el: '#vcomments',
@@ -206,7 +1926,7 @@ and email like  concat('%',#{email},'%')
         enableQQ: 'monsterid',
         requiredFields: ["68c4c9e1b9a3d34317dc6faefe2ea00e"],
         master: ["68c4c9e1b9a3d34317dc6faefe2ea00e"],
-        friends: ["7a455d704b60807098d18cc8c2470da2", "8acd51671b7e0e1dc68cc76d4d987813", "c08508165c8eba9a77f87285c046d09e", "901345d4c91ddfd8db0f975bbceaf0c8", "1512958e18378c98b498d5ef8e3e763f", "db6069f3bda06d2a9157c4a622ce4648", "fc2c9b067f65c9e2d7057ba797f7cfca", "256a83cdeb9a494df572ef260e98c9bf", "9f38a40d977e6e8a6a555fef3849f23a", "gw_9527@163.com"],
+        friends: ["7a455d704b60807098d18cc8c2470da2", "8acd51671b7e0e1dc68cc76d4d987813", "c08508165c8eba9a77f87285c046d09e", "901345d4c91ddfd8db0f975bbceaf0c8", "1512958e18378c98b498d5ef8e3e763f", "db6069f3bda06d2a9157c4a622ce4648", "fc2c9b067f65c9e2d7057ba797f7cfca", "256a83cdeb9a494df572ef260e98c9bf", "9f38a40d977e6e8a6a555fef3849f23a", "95dbe659464f10506676f48b11962ef7", "93c72e67b6b84508525f5566b865db2d"],
         tagMeta: ["博主", "小伙伴", "访客"],
         metaPlaceholder: metaPlaceholder,
 
@@ -231,7 +1951,212 @@ and email like  concat('%',#{email},'%')
             }, 2500);
         }
     }
-    }, true);</script><article id="prenext-posts" class="prev-next articles"><div class="row article-row"><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge left-badge text-color"><i class="fas fa-chevron-left"></i>&nbsp;上一篇</div><div class="card"><a href="/posts/a53a9069.html"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="Matery主题新手常见问题"> <span class="card-title">Matery主题新手常见问题</span></div></a><div class="card-content article-content"><div class="summary block-with-text">Matery主题新手常见问题。</div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i>2020-07-11 </span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/Hexo/" class="post-category">Hexo</a></span></div></div><div class="card-action article-tags"><a href="/tags/Hexo/"><span class="chip bg-color">Hexo</span></a></div></div></div><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge right-badge text-color">下一篇&nbsp;<i class="fas fa-chevron-right"></i></div><div class="card"><a href="/posts/44c4c800.html"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="Mybtis(六)Mapper级联"> <span class="card-title">Mybtis(六)Mapper级联</span></div></a><div class="card-content article-content"><div class="summary block-with-text">Mybatis的映射器级联使用。</div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i>2020-07-09 </span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/Mybatis/" class="post-category">Mybatis</a></span></div></div><div class="card-action article-tags"><a href="/tags/Mybatis/"><span class="chip bg-color">Mybatis</span></a></div></div></div></div></article></div><script>$("#articleContent").on("copy",function(e){if("undefined"!=typeof window.getSelection){var n=window.getSelection();if(!((""+n).length<Number.parseInt("120"))){var t=document.getElementsByTagName("body")[0],o=document.createElement("div");o.style.position="absolute",o.style.left="-99999px",t.appendChild(o),o.appendChild(n.getRangeAt(0).cloneContents()),"PRE"===n.getRangeAt(0).commonAncestorContainer.nodeName?o.innerHTML="<pre>"+o.innerHTML+"</pre>":o.innerHTML="<pre>"+o.innerHTML+"</pre>";var i=document.location.href;o.innerHTML+='<br />来源: 张小菜苔<br />文章作者: Small Rose / 张小菜苔<br />文章链接: <a href="'+i+'">'+i+"</a><br />本文章著作权归作者所有，任何形式的转载都请注明出处。",n.selectAllChildren(o),window.setTimeout(function(){t.removeChild(o)},200)}}})</script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeBlockFuction.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeLang.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeCopy.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeShrink.js"></script></div><div id="toc-aside" class="expanded col l3 hide-on-med-and-down"><div class="toc-widget"><div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div><div id="toc-content"></div></div></div></div><div id="floating-toc-btn" class="hide-on-med-and-down"><a class="btn-floating btn-large bg-color"><i class="fas fa-list-ul"></i></a></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/tocbot/tocbot.min.js"></script><script>$(function () {
+    }, true);
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/a53a9069.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="Matery主题新手常见问题">
+                        
+                        <span class="card-title">Matery主题新手常见问题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Matery主题新手常见问题。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hexo/" class="post-category">
+                                    Hexo
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/44c4c800.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="Mybtis(六)Mapper级联">
+                        
+                        <span class="card-title">Mybtis(六)Mapper级联</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Mybatis的映射器级联使用。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Mybatis/" class="post-category">
+                                    Mybatis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Mybatis/">
+                        <span class="chip bg-color">Mybatis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }else{
+            //注释掉上面的if，将if中的内容释放出来
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 张小菜苔<br />'
+            + '文章作者: Small Rose / 张小菜苔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+ 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
         tocbot.init({
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
@@ -302,4 +2227,315 @@ and email like  concat('%',#{email},'%')
             fixPostCardWidth('artDetail', 'prenext-posts');
         });
         
-    });</script></main><footer class="page-footer bg-color"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.css"><style>.aplayer .aplayer-lrc p{display:none;font-size:12px;font-weight:700;line-height:16px!important}.aplayer .aplayer-lrc p.aplayer-lrc-current{display:none;font-size:15px;color:#42b983}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body{left:-66px!important}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover{left:0!important}</style><div><div class="row"><meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="2056253259" fixed="true" autoplay theme="#42b983" loop order="random" preload="auto" volume="0.7" list-folded="true"></meting-js></div></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><div class="container row center-align" style="margin-bottom:15px!important"><div class="col s12 m8 l8 copy-right">Copyright&nbsp;&copy; <span id="year">2020</span> <a href="/about" target="_blank">Small Rose / 张小菜苔</a> |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> |&nbsp;Comments&nbsp;<a href="https://valine.zhangxiaocia.cn" target="_blank">Valine</a><br>&nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">263.6k</span>&nbsp;字 <span id="busuanzi_container_site_pv">|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次 </span><span id="busuanzi_container_site_uv">|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人</span><br><span id="sitetime">载入运行时间...</span><script>function siteTime(){var e=1e3,t=60*e,n=60*t,o=24*n,l=365*o,r=new Date,a="2020",i="5",d="1",m="0",M="0",g="0",s=r.getFullYear(),u=r.getMonth()+1,T=r.getDate(),c=r.getHours(),f=r.getMinutes(),h=r.getSeconds(),y=Date.UTC(a,i,d,m,M,g),H=Date.UTC(s,u,T,c,f,h),I=H-y,B=Math.floor(I/l),D=Math.floor(I/o-365*B),E=Math.floor((I-(365*B+D)*o)/n),L=Math.floor((I-(365*B+D)*o-E*n)/t),v=Math.floor((I-(365*B+D)*o-E*n-L*t)/e);a==s?(document.getElementById("year").innerHTML=s,document.getElementById("sitetime").innerHTML="本站已 <del>安全</del> 苟全运行 "+D+" 天 "+E+" 小时 "+L+" 分钟 "+v+" 秒"):(document.getElementById("year").innerHTML=a+" - "+s,document.getElementById("sitetime").innerHTML="本站已 <del>安全</del> 苟全运行 "+B+" 年 "+D+" 天 "+E+" 小时 "+L+" 分钟 "+v+" 秒")}setInterval(siteTime,1e3)</script><br><span id="icp"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/icp.png" style="vertical-align:text-bottom"> <a href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19015637号-1</a></span><br></div><div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/small-rose" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50"><i class="fab fa-github"></i> </a><a href="mailto:small-rose@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50"><i class="fas fa-envelope-open"></i> </a><a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=970175021" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 970175021" data-position="top" data-delay="50"><i class="fab fa-qq"></i> </a><a href="https://yun.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="个人云盘" data-position="top" data-delay="50"><i class="fas fa-cloud"></i></a></div></div></footer><div class="progress-bar"></div><script type="text/javascript">window.$crisp=[],window.CRISP_WEBSITE_ID="bf3c468c-2fd7-4dcc-866d-3b008127fff0",function(){d=document,s=d.createElement("script"),s.src="https://client.crisp.chat/l.js",s.async=1,d.getElementsByTagName("head")[0].appendChild(s)}()</script><div id="searchModal" class="modal"><div class="modal-content"><div class="search-header"><span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span> <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input"></div><div id="searchResult"></div></div></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/search.js"></script><script type="text/javascript">$(function(){searchFunc("https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/search.xml","searchInput","searchResult")})</script><div id="backTop" class="top-scroll"><a class="btn-floating btn-large waves-effect waves-light" href="#!"><i class="fas fa-arrow-up"></i></a></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/masonry/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/scrollprogress/scrollProgress.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/matery.js"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?90b288cd6d944c8f4f8f0258e60bf981";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script>!function(){var t=document.createElement("script"),s=window.location.protocol.split(":")[0];"https"===s?t.src="https://zz.bdstatic.com/linksubmit/push.js":t.src="http://push.zhanzhang.baidu.com/push.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()</script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/clicklove.js" async></script><script async src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/busuanzi.pure.mini.js"></script><script type="text/javascript" size="150" alpha="0.6" zindex="-1" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/background/ribbon-refresh.min.js" async></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/instantpage/instantpage.js" type="module"></script><script src="/js/sakura.js" type="module"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/fullscreen.js" type="module"></script><script>window.imageLazyLoadSetting={isSPA:!1,processImages:null}</script><script>window.addEventListener("load",function(){var a=/\.(gif|jpg|jpeg|tiff|png)$/i,e=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(t){var r=t.parentNode;"A"===r.tagName&&(r.href.match(a)||r.href.match(e))&&(r.href=t.dataset.original)})})</script><script>!function(t){function e(){n&&(i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var e,o,a=0;a<i.length;a++)e=i[a],0<=(o=e.getBoundingClientRect()).bottom&&0<=o.left&&o.top<=(t.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,o,r=i[a];t=r,e=function(){i=i.filter(function(t){return r!==t})},n=new Image,o=t.getAttribute("data-original"),n.onload=function(){t.src=o,e&&e()},n.src=o}()}t.imageLazyLoadSetting.processImages=e;var n=t.imageLazyLoadSetting.isSPA,i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));e(),t.addEventListener("scroll",function(){var n,i;n=e,i=t,clearTimeout(n.tId),n.tId=setTimeout(function(){n.call(i)},500)})}(this)</script><script>(function(w,d, s, id) {w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = 'https://cdn.webpushr.com/app.min.js';fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('init','BJrux_BJKMKcoDBNWov5dsd0zhl3p0eF00OUzgogE5bQRheUA7eytp5rcZXYHdodyiVfbOmMlAkf140zUrAPfv4');</script></body></html><!-- rebuild by neat -->
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2056253259"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">Small Rose / 张小菜苔</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            |&nbsp;Comments&nbsp;<a href="https://valine.zhangxiaocia.cn" target="_blank">Valine</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">270.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "5";
+                    var startDate = "1";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已 <del>安全</del> 苟全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已 <del>安全</del> 苟全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            
+            <span id="icp"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19015637号-1</a>
+            </span> <br/>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/small-rose" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:small-rose@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=970175021" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 970175021" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+    <a href="https://yun.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="个人云盘" data-position="top" data-delay="50">
+        <i class="fas fa-cloud"></i>
+    </a>
+
+
+
+<!-- 
+ <a href="https://valine.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="Valine管理" data-position="top" data-delay="50">
+        <i class="fas fa fa-comments"></i>
+    </a>
+--></div>
+
+        
+       
+    </div>
+   
+</footer>
+
+<div class="progress-bar"></div>
+
+ 
+
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="bf3c468c-2fd7-4dcc-866d-3b008127fff0";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/matery.js"></script>
+
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?90b288cd6d944c8f4f8f0258e60bf981";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    
+ 
+    
+    <script src="/js/sakura.js" type="module"></script>
+    
+
+    
+
+     
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/fullscreen.js" type="module"></script>
+    
+ 
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script>(function(w,d, s, id) {w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = 'https://cdn.webpushr.com/app.min.js';fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('init','BJrux_BJKMKcoDBNWov5dsd0zhl3p0eF00OUzgogE5bQRheUA7eytp5rcZXYHdodyiVfbOmMlAkf140zUrAPfv4');</script></body>
+
+</html>

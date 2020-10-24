@@ -1,4 +1,673 @@
-<!-- build time:Tue Oct 20 2020 10:09:31 GMT+0800 (中国标准时间) --><!DOCTYPE HTML><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><meta name="keywords" content="JAVA,java5新特性,java6新特性,java7新特性,java8新特性"><meta name="description" content="Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><meta name="renderer" content="webkit|ie-stand|ie-comp"><meta name="mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>java 查漏补缺-jdk版本版本变化补充学习 | 张小菜苔</title><link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/awesome/css/all.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/animate/animate.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/css/lightgallery.min.css"><script type="text/javascript" src="/libs/artitalk/artitalk.min.css"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/matery.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/my.css"><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/jquery/jquery.min.js"></script><meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="张小菜苔" type="application/atom+xml"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><style type="text/css" lang="css">#loading-container{position:fixed;top:0;left:0;min-height:100vh;width:100vw;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#FFF;text-align:center;-webkit-transition:opacity 1s ease;-moz-transition:opacity 1s ease;-o-transition:opacity 1s ease;transition:opacity 1s ease}.loading-image{width:120px;height:50px;transform:translate(-50%)}.loading-image div:nth-child(2){-webkit-animation:pacman-balls 1s linear 0s infinite;animation:pacman-balls 1s linear 0s infinite}.loading-image div:nth-child(3){-webkit-animation:pacman-balls 1s linear .33s infinite;animation:pacman-balls 1s linear .33s infinite}.loading-image div:nth-child(4){-webkit-animation:pacman-balls 1s linear .66s infinite;animation:pacman-balls 1s linear .66s infinite}.loading-image div:nth-child(5){-webkit-animation:pacman-balls 1s linear .99s infinite;animation:pacman-balls 1s linear .99s infinite}.loading-image div:first-of-type{width:0;height:0;border:25px solid #49b1f5;border-right-color:transparent;border-radius:25px;-webkit-animation:rotate_pacman_half_up .5s 0s infinite;animation:rotate_pacman_half_up .5s 0s infinite}.loading-image div:nth-child(2){width:0;height:0;border:25px solid #49b1f5;border-right-color:transparent;border-radius:25px;-webkit-animation:rotate_pacman_half_down .5s 0s infinite;animation:rotate_pacman_half_down .5s 0s infinite;margin-top:-50px}@-webkit-keyframes rotate_pacman_half_up{0%{transform:rotate(270deg)}50%{transform:rotate(1turn)}to{transform:rotate(270deg)}}@keyframes rotate_pacman_half_up{0%{transform:rotate(270deg)}50%{transform:rotate(1turn)}to{transform:rotate(270deg)}}@-webkit-keyframes rotate_pacman_half_down{0%{transform:rotate(90deg)}50%{transform:rotate(0)}to{transform:rotate(90deg)}}@keyframes rotate_pacman_half_down{0%{transform:rotate(90deg)}50%{transform:rotate(0)}to{transform:rotate(90deg)}}@-webkit-keyframes pacman-balls{75%{opacity:.7}to{transform:translate(-100px,-6.25px)}}@keyframes pacman-balls{75%{opacity:.7}to{transform:translate(-100px,-6.25px)}}.loading-image div:nth-child(3),.loading-image div:nth-child(4),.loading-image div:nth-child(5),.loading-image div:nth-child(6){background-color:#49b1f5;width:15px;height:15px;border-radius:100%;margin:2px;width:10px;height:10px;position:absolute;transform:translateY(-6.25px);top:25px;left:100px}.loading-text{margin-bottom:20vh;text-align:center;color:#2c3e50;font-size:2rem;box-sizing:border-box;padding:0 10px;text-shadow:0 2px 10px rgba(0,0,0,.2)}@media only screen and (max-width:500px){.loading-text{font-size:1.5rem}}.fadeout{opacity:0;filter:alpha(opacity=0)}@-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0)}}</style><script>!function(){const n=function(){setTimeout(function(){const n=document.getElementById("loading-container");n.className="fadeout",setTimeout(function(){n.style.display="none"},2500)},1e3)};n()}()</script><body><div id="loading-container"><p class="loading-text">嘘~ 正在从服务器偷取页面 . . .</p><div class="loading-image"><div></div><div></div><div></div><div></div><div></div></div></div><header class="navbar-fixed"><nav id="headNav" class="bg-color nav-transparent"><div id="navContainer" class="nav-wrapper container"><div class="brand-logo"><a href="/" class="waves-effect waves-light"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-3.png" class="logo-img" alt="LOGO"> <span class="logo-span diyFont">张小菜苔</span></a></div><a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a><ul class="right nav-menu"><li class="hide-on-med-and-down nav-item"><a href="/" class="waves-effect waves-light"><i class="fas fa-home"></i><span>主</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fas fa-tags"></i><span>签</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fas fa-bookmark"></i><span>类</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fas fa-archive"></i><span>档</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/about" class="waves-effect waves-light"><i class="fas fa-user-circle"></i><span>吾</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fas fa-comments"></i><span>言</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/artitalk" class="waves-effect waves-light"><i class="fas fa-heartbeat"></i><span>语</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fas fa-address-book"></i><span>友</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/color" class="waves-effect waves-light"><i class="fas fa-asterisk"></i><span>色</span></a></li><li class="hide-on-med-and-down nav-item"><a href="" class="waves-effect waves-light"><i class="fas fa-list"></i> <span>秘</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></a><ul class="sub-nav menus_item_child"><li><a href="/navigate"><i class="fas fa-location-arrow" style="margin-top:-20px"></i> <span>风域之门</span></a></li><li><a href="/box"><i class="fas fa-map-marker" style="margin-top:-20px"></i> <span>妖魔化镜</span></a></li><li><a href="https://hut.zhangxiaocai.cn" target="_blank" rel="noopener"><i class="fas fa-pen-alt" style="margin-top:-20px"></i> <span>沧海成渊</span></a></li><li><a href="https://yun.zhangxiaocai.cn" target="_blank" rel="noopener"><i class="fas fa-cloud" style="margin-top:-20px"></i> <span>云上之城</span></a></li></ul></li><li><a href="#searchModal" class="modal-trigger waves-effect waves-light"><i id="searchIcon" class="fas fa-search" title="搜索"></i></a></li><li id="fullscreen_li" class="fullscreen"><a href="javascript:void(0);" class="modal-trigger waves-effect waves-light"><i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏"></i></a></li></ul><div id="mobile-nav" class="side-nav sidenav"><div class="mobile-head bg-color"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-3.png" class="logo-img circle responsive-img"><div class="logo-name">张小菜苔</div><div class="logo-desc">Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题</div></div><ul class="menu-list mobile-menu-list"><li class="m-nav-item"><a href="/" class="waves-effect waves-light"><i class="fa-fw fas fa-home"></i> 首页</a></li><li class="m-nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fa-fw fas fa-tags"></i> 标签</a></li><li class="m-nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fa-fw fas fa-bookmark"></i> 分类</a></li><li class="m-nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fa-fw fas fa-archive"></i> 归档</a></li><li class="m-nav-item"><a href="/about" class="waves-effect waves-light"><i class="fa-fw fas fa-user-circle"></i> 关于</a></li><li class="m-nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fa-fw fas fa-comments"></i> 留言簿</a></li><li class="m-nav-item"><a href="/artitalk" class="waves-effect waves-light"><i class="fa-fw fas fa-heartbeat"></i> ArtiTalk</a></li><li class="m-nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fa-fw fas fa-address-book"></i> 友情链接</a></li><li class="m-nav-item"><a href="/color" class="waves-effect waves-light"><i class="fa-fw fas fa-asterisk"></i> Color</a></li><li class="m-nav-item"><a href="javascript:;"><i class="fa-fw fas fa-list"></i> Secret <span class="m-icon"><i class="fas fa-chevron-right"></i></span></a><ul><li><a href="/navigate" style="margin-left:75px"><i class="fa fas fa-location-arrow" style="position:absolute;left:50px"></i> <span>风域之门</span></a></li><li><a href="/box" style="margin-left:75px"><i class="fa fas fa-map-marker" style="position:absolute;left:50px"></i> <span>妖魔化镜</span></a></li><li><a href="https://hut.zhangxiaocai.cn" target="_blank" rel="noopener" style="margin-left:75px"><i class="fa fas fa-pen-alt" style="position:absolute;left:50px"></i> <span>沧海成渊</span></a></li><li><a href="https://yun.zhangxiaocai.cn" target="_blank" rel="noopener" style="margin-left:75px"><i class="fa fas fa-cloud" style="position:absolute;left:50px"></i> <span>云上之城</span></a></li></ul></li></ul></div></div></nav></header><div class="bg-cover pd-header post-cover" style="background-image:url(/images/java-logo.jpg)"><div class="container" style="right:0;left:0"><div class="row"><div class="col s12 m12 l12"><div class="brand"><h1 class="description center-align post-title">java 查漏补缺-jdk版本版本变化补充学习</h1></div></div></div></div></div><main class="container content"><div id="artDetail"><div class="card"><div class="card-content article-info"><div class="row tag-cate"><div class="col s7"><div class="article-tag"><a href="/tags/Java/"><span class="chip bg-color">Java</span></a></div></div><div class="col s5 right-align"><div class="post-cate"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/Java/" class="post-category">Java</a></div></div></div><div class="post-info"><div class="post-date info-break-policy"><i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp; 2020-05-24</div><div class="info-break-policy"><i class="fa fa-pencil"></i> 作者: Small-Rose / 张小菜</div><div class="post-date info-break-policy"><i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp; 2020-05-24</div><div class="info-break-policy"><i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp; 4k</div><div class="info-break-policy"><i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp; 17 分</div><div id="busuanzi_container_page_pv" class="info-break-policy"><i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp; <span id="busuanzi_value_page_pv"></span></div></div></div><hr class="clearfix"><div class="card-content article-card-content"><div id="articleContent"><h2 id="JDK各个版本的变化补充学习"><a href="#JDK各个版本的变化补充学习" class="headerlink" title="JDK各个版本的变化补充学习"></a>JDK各个版本的变化补充学习</h2><h3 id="JDK1-5"><a href="#JDK1-5" class="headerlink" title="JDK1.5"></a>JDK1.5</h3><h4 id="1-类包装器"><a href="#1-类包装器" class="headerlink" title="1. 类包装器."></a>1. 类包装器.</h4><p>自动装箱与拆箱。实际操作中比较常见。</p><h4 id="2-枚举类型使用。"><a href="#2-枚举类型使用。" class="headerlink" title="2. 枚举类型使用。"></a>2. 枚举类型使用。</h4><p>实际中按需使用。我也在实际中使用过，需要注意的是使用枚举类型与扩展性的问题，比如性别永远只有”男”和”女”，不会增加扩展第三种，那么枚举是推荐使用的，如果枚举内容是扩展的，不建议使用枚举类型。</p><h4 id="3-静态方法倒入。"><a href="#3-静态方法倒入。" class="headerlink" title="3. 静态方法倒入。"></a>3. 静态方法倒入。</h4><p>说实话，这个我在实际中真没有用过。语法<code>import static</code><br>大致分两种：<br>（1）导入指定类的某个静态成员变量、方法。<br>（2）导入指定类的全部的静态成员变量、方法。</p><p>示例如下：</p><pre class="language-JAVA"><code class="language-JAVA">/*
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta name="keywords" content="JAVA,java5新特性,java6新特性,java7新特性,java8新特性">
+    <meta name="description" content="Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>java 查漏补缺-jdk版本版本变化补充学习 | 张小菜苔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/css/lightgallery.min.css">
+
+     
+
+    <script type="text/javascript" src="/libs/artitalk/artitalk.min.css"></script>
+
+     
+
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/css/my.css">
+
+ 
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="张小菜苔" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+ 
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        background-color: rgb(204, 232, 207);
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+    
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+    
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+    
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+    
+   
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2500); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+</script>
+ 
+<body>
+    
+        <div id="loading-container">
+             <p class="loading-text">嘘~  正在从服务器偷取页面 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-3.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span mytitle">张小菜苔</span>
+                    
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>主</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>吾</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>言</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <i class="fas fa-heartbeat" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>语</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>友</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/color" class="waves-effect waves-light">
+      
+      <i class="fas fa-asterisk" style=" "></i>   <!-- zoom: 0.6;transform:scale(2);-moz-transform：scale(0.6); -->
+      
+      <span>色</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style=" "></i>
+      
+      <span>秘</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style=""></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px;  "></i>
+          
+          <span>风域之门</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/box">
+          
+          <i class="fas fa-map-marker" style="margin-top: -20px;  "></i>
+          
+          <span>妖魔化镜</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://hut.zhangxiaocai.cn" target="_blank" rel="noopener">
+          
+          <i class="fas fa-pen-alt" style="margin-top: -20px;  "></i>
+          
+          <span>沧海成渊</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://yun.zhangxiaocai.cn" target="_blank" rel="noopener">
+          
+          <i class="fas fa-cloud" style="margin-top: -20px;  "></i>
+          
+          <span>云上之城</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style=" "> <!-- zoom: 0.85; -->
+    </a></i>
+  <li  id="fullscreen_li" class="fullscreen">
+    <a href="javascript:void(0);" class="modal-trigger waves-effect waves-light">
+      <i id="fullscreen" class="fa fa-expand-arrows-alt" title="全屏" style=" "> <!-- zoom: 0.75; --></i>
+    </a>
+  
+    <!--
+    <a href="https://travellings.now.sh/" target="blank" title="开往-友链接力"><img src="https://travellings.now.sh/assets/logo.gif" alt="开往-友链接力" width="120"></a>
+    -->
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/logo-3.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">张小菜苔</div>
+        <div class="logo-desc">
+            
+            Small-Rose,张小菜苔,个人技术笔记,记录学习/开发问题
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言簿
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-heartbeat"></i>
+			
+			ArtiTalk
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/color" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-asterisk"></i>
+			
+			Color
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Secret
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>风域之门</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/box " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-map-marker" style="position: absolute;left:50px" ></i>
+			      
+		          <span>妖魔化镜</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="https://hut.zhangxiaocai.cn " target="_blank" rel="noopener" style="margin-left:75px">
+				  
+				   <i class="fa fas fa-pen-alt" style="position: absolute;left:50px" ></i>
+			      
+		          <span>沧海成渊</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="https://yun.zhangxiaocai.cn " target="_blank" rel="noopener" style="margin-left:75px">
+				  
+				   <i class="fa fas fa-cloud" style="position: absolute;left:50px" ></i>
+			      
+		          <span>云上之城</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/java-logo.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">java 查漏补缺-jdk版本版本变化补充学习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-05-24
+                </div>
+                
+                <!--添加作者信息--> 
+                <div class="info-break-policy"> 
+                 
+                    <i class="fa fa-pencil"></i> 作者: Small-Rose / 张小菜 
+                 
+                 </div> 
+
+                     
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-05-24
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    17 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="JDK各个版本的变化补充学习"><a href="#JDK各个版本的变化补充学习" class="headerlink" title="JDK各个版本的变化补充学习"></a>JDK各个版本的变化补充学习</h2><h3 id="JDK1-5"><a href="#JDK1-5" class="headerlink" title="JDK1.5"></a>JDK1.5</h3><h4 id="1-类包装器"><a href="#1-类包装器" class="headerlink" title="1. 类包装器."></a>1. 类包装器.</h4><p>自动装箱与拆箱。实际操作中比较常见。</p>
+<h4 id="2-枚举类型使用。"><a href="#2-枚举类型使用。" class="headerlink" title="2. 枚举类型使用。"></a>2. 枚举类型使用。</h4><p>实际中按需使用。我也在实际中使用过，需要注意的是使用枚举类型与扩展性的问题，比如性别永远只有”男”和”女”，不会增加扩展第三种，那么枚举是推荐使用的，如果枚举内容是扩展的，不建议使用枚举类型。</p>
+<h4 id="3-静态方法倒入。"><a href="#3-静态方法倒入。" class="headerlink" title="3. 静态方法倒入。"></a>3. 静态方法倒入。</h4><p>说实话，这个我在实际中真没有用过。语法<code>import static</code><br>大致分两种：<br>   （1）导入指定类的某个静态成员变量、方法。<br>   （2）导入指定类的全部的静态成员变量、方法。</p>
+<p>示例如下：</p>
+<pre class=" language-JAVA"><code class="language-JAVA">/*
  * 使用import static,导入java.lang.System下的out这个静态成员变量
  */
 import static java.lang.System.out;
@@ -8,7 +677,9 @@ public class ImptTest {
     public static void main(String[] args) {
         out.println("hello world");
     }
-}</code></pre><p>导入静态方法示例：</p><pre class="language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
+}</code></pre>
+<p>导入静态方法示例：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
  * 使用import static,导入java.lang.Math这个类中的round方法
  */</span>
 <span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>Math<span class="token punctuation">.</span>round<span class="token punctuation">;</span>
@@ -19,7 +690,9 @@ public class ImptTest {
         <span class="token comment" spellcheck="true">//out.println("hello world");</span>
         <span class="token function">round</span><span class="token punctuation">(</span><span class="token number">123.123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>导入全部静态成员、静态方法示例：</p><pre class="language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
+<span class="token punctuation">}</span></code></pre>
+<p>导入全部静态成员、静态方法示例：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*
  * 像这样使用.*,则表示类中所有的静态成员变量和静态方法都被导入了
  */</span>
 <span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
@@ -31,16 +704,24 @@ public class ImptTest {
         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><h4 id="4-可变参数使用。"><a href="#4-可变参数使用。" class="headerlink" title="4. 可变参数使用。"></a>4. 可变参数使用。</h4><p>该特征在实际中使用过，实用性还是非常不错的。</p><p>主要特征：<br>（1）一个方法中只能指定一个可变参数，<br>（2）可变参数必须是方法的最后一个参数。<br>（3）可变参数类型必须一致.<br>（4）拥有可变参数的方法可以被重载，在调用方法的时，如果能够和固定参数的方法匹配，也能够与可变长参数的方法匹配，则会调用固定参数的方法。<br>（5）被调用的方法不允许和两个可变参数匹配，否则出现错误。</p><p>调用特点：<br>（1）可以不写参数，即传入空参。<br>（2）可以直接在里边写入参数，参数间用逗号隔开；<br>（3）可变参数兼容数组，数组不能兼容可变参数；<br>（4）注意参数里的null<br>如示例：</p><pre class="language-JAVA"><code class="language-JAVA">public static void say(String...names) { 
+<span class="token punctuation">}</span></code></pre>
+<h4 id="4-可变参数使用。"><a href="#4-可变参数使用。" class="headerlink" title="4. 可变参数使用。"></a>4. 可变参数使用。</h4><p>该特征在实际中使用过，实用性还是非常不错的。</p>
+<p>主要特征：<br>（1）一个方法中只能指定一个可变参数，<br>（2）可变参数必须是方法的最后一个参数。<br>（3）可变参数类型必须一致.<br>（4）拥有可变参数的方法可以被重载，在调用方法的时，如果能够和固定参数的方法匹配，也能够与可变长参数的方法匹配，则会调用固定参数的方法。<br>（5）被调用的方法不允许和两个可变参数匹配，否则出现错误。</p>
+<p>调用特点：<br>（1）可以不写参数，即传入空参。<br>（2）可以直接在里边写入参数，参数间用逗号隔开；<br>（3）可变参数兼容数组，数组不能兼容可变参数；<br>（4）注意参数里的null<br>如示例：</p>
+<pre class=" language-JAVA"><code class="language-JAVA">public static void say(String...names) { 
     for(String name : names) {
         System.out.print(name + ",hello! "); 
     }
-}</code></pre><p>调用示例：</p><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+}</code></pre>
+<p>调用示例：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     String<span class="token punctuation">[</span><span class="token punctuation">]</span> names <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"tom"</span><span class="token punctuation">,</span> <span class="token string">"cat"</span><span class="token punctuation">,</span> <span class="token string">"dog"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 不传递参数</span>
     <span class="token function">say</span><span class="token punctuation">(</span><span class="token string">"dog"</span><span class="token punctuation">,</span> <span class="token string">"cat"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 传递多个参数</span>
     <span class="token function">say</span><span class="token punctuation">(</span>names<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 可传递数组</span>
-<span class="token punctuation">}</span></code></pre><p>反面定义示例：</p><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">say</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>names<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token punctuation">}</span></code></pre>
+<p>反面定义示例：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">say</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>names<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
     <span class="token keyword">for</span><span class="token punctuation">(</span>String name <span class="token operator">:</span> names<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>name <span class="token operator">+</span> <span class="token string">",hello! "</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
     <span class="token punctuation">}</span>
@@ -54,7 +735,14 @@ public class ImptTest {
 
 <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">say</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>names<span class="token punctuation">,</span>Sring date<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
       <span class="token comment" spellcheck="true">//可变参数必须是最后一个参数</span>
-<span class="token punctuation">}</span></code></pre><h4 id="5-内省-Introspector"><a href="#5-内省-Introspector" class="headerlink" title="5. 内省(Introspector)"></a>5. 内省(Introspector)</h4><p>内省(Introspector) 是Java 语言对 JavaBean 类属性、事件的一种缺省处理方法。</p><p>JavaBean是一种特殊的类，主要用于传递数据信息，这种类中的方法主要用于访问私有的字段，且方法名符合某种命名规则。如果在两个模块之间传递信息，可以将信息封装进JavaBean中，这种对象称为“值对象”(Value Object)，或“VO”。方法比较少。这些信息储存在类的私有变量中，通过set()、get()获得。</p><p>实际使用引入apache的BeanUtils工具包：<br>BeanUtils工具包：下载：<a href="http://commons.apache.org/beanutils/" target="_blank" rel="noopener">http://commons.apache.org/beanutils/</a><br>(应用的时候还需要一个logging包 <a href="http://commons.apache.org/logging/" target="_blank" rel="noopener">http://commons.apache.org/logging/</a>)</p><h4 id="6-泛型-Generic"><a href="#6-泛型-Generic" class="headerlink" title="6.泛型(Generic)."></a>6.泛型(Generic).</h4><p>简单的说就是可以指定集合里元素的类型。</p><h4 id="7-for-each循环。"><a href="#7-for-each循环。" class="headerlink" title="7. for-each循环。"></a>7. for-each循环。</h4><p>比较常用。语法<code>for(类型 变量 ： 集合){}</code></p><p>示例：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="5-内省-Introspector"><a href="#5-内省-Introspector" class="headerlink" title="5. 内省(Introspector)"></a>5. 内省(Introspector)</h4><p>内省(Introspector) 是Java 语言对 JavaBean 类属性、事件的一种缺省处理方法。</p>
+<p>JavaBean是一种特殊的类，主要用于传递数据信息，这种类中的方法主要用于访问私有的字段，且方法名符合某种命名规则。如果在两个模块之间传递信息，可以将信息封装进JavaBean中，这种对象称为“值对象”(Value Object)，或“VO”。方法比较少。这些信息储存在类的私有变量中，通过set()、get()获得。</p>
+<p>实际使用引入apache的BeanUtils工具包：<br>　　 BeanUtils工具包：下载：<a href="http://commons.apache.org/beanutils/" target="_blank" rel="noopener">http://commons.apache.org/beanutils/</a>　<br>    (应用的时候还需要一个logging包 <a href="http://commons.apache.org/logging/" target="_blank" rel="noopener">http://commons.apache.org/logging/</a>)</p>
+<h4 id="6-泛型-Generic"><a href="#6-泛型-Generic" class="headerlink" title="6.泛型(Generic)."></a>6.泛型(Generic).</h4><p>简单的说就是可以指定集合里元素的类型。</p>
+<h4 id="7-for-each循环。"><a href="#7-for-each循环。" class="headerlink" title="7. for-each循环。"></a>7. for-each循环。</h4><p>比较常用。语法<code>for(类型 变量 ： 集合){}</code></p>
+<p>示例：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ForEachTest</span> <span class="token punctuation">{</span>
 
@@ -64,7 +752,14 @@ public class ImptTest {
               System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"str:"</span><span class="token operator">+</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
           <span class="token punctuation">}</span>
      <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><h3 id="JDK1-6"><a href="#JDK1-6" class="headerlink" title="JDK1.6"></a>JDK1.6</h3><h4 id="主要变化"><a href="#主要变化" class="headerlink" title="主要变化"></a>主要变化</h4><p>1、引入了一个支持脚本引擎的新框架Scripting for the Java Platform (JSR223脚本引擎)</p><p>2、UI的增强</p><p>3、对WebService支持的增强（JAX-WS2.0和JAXB2.0）</p><p>4、一系列新的安全相关的增强</p><p>5、JDBC4.0</p><p>6、Compiler API （JSR199）<br>支持动态编译。</p><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JavaCompilerAPICompiler</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="JDK1-6"><a href="#JDK1-6" class="headerlink" title="JDK1.6"></a>JDK1.6</h3><h4 id="主要变化"><a href="#主要变化" class="headerlink" title="主要变化"></a>主要变化</h4><p>1、引入了一个支持脚本引擎的新框架Scripting for the Java Platform (JSR223脚本引擎)</p>
+<p>2、UI的增强</p>
+<p>3、对WebService支持的增强（JAX-WS2.0和JAXB2.0）</p>
+<p>4、一系列新的安全相关的增强</p>
+<p>5、JDBC4.0</p>
+<p>6、Compiler API （JSR199）<br>支持动态编译。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JavaCompilerAPICompiler</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">compile</span><span class="token punctuation">(</span>Path src<span class="token punctuation">,</span> Path output<span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException <span class="token punctuation">{</span>
         JavaCompiler compiler <span class="token operator">=</span> ToolProvider<span class="token punctuation">.</span><span class="token function">getSystemJavaCompiler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">try</span> <span class="token punctuation">(</span>StandardJavaFileManager fileManager <span class="token operator">=</span> compiler<span class="token punctuation">.</span><span class="token function">getStandardFileManager</span><span class="token punctuation">(</span>null<span class="token punctuation">,</span> null<span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -74,7 +769,16 @@ public class ImptTest {
             <span class="token keyword">boolean</span> result <span class="token operator">=</span> task<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>7、通用的Annotations支持 （JSR269）<br>一部分是进行注解处理的javax.annotation.processing。<br>另一部分是对程序的静态结构进行建模的javax.lang.model。</p><h4 id="JAXB2来实现对象与XML之间的映射"><a href="#JAXB2来实现对象与XML之间的映射" class="headerlink" title="JAXB2来实现对象与XML之间的映射"></a>JAXB2来实现对象与XML之间的映射</h4><p>JAXB:<br>是Java Architecture for XML Binding的缩写，可以将一个Java对象和XML格式对象相互转换。JAXB2在底层是用StAX(JSR 173)来处理XML文档。</p><p>StAX(JSR 173)是JDK6.0中除了DOM和SAX之外的又一种处理XML文档的API。</p><p>StAX 的来历 ：在JAXP1.3(JSR 206)有两种处理XML文档的方法:DOM(Document Object Model)和SAX(Simple API for XML).</p><p>由 于JDK6.0中的JAXB2(JSR 222)和JAX-WS 2.0(JSR 224)都会用到StAX，所以Sun决定把StAX加入到JAXP家族当中来，并将JAXP的版本升级到1.4(JAXP1.4是JAXP1.3的维护版本). JDK6里面JAXP的版本就是1.4. 。</p><p>StAX是The Streaming API for XML的缩写，一种利用拉模式解析(pull-parsing)XML文档的API.StAX通过提供一种基于事件迭代器(Iterator)的API让程序员去控制xml文档解析过程,程序遍历这个事件迭代器去处理每一个解析事件，解析事件可以看做是程序拉出来的，也就是程序促使解析器产生一个解析事件，然后处理该事件，之后又促使解析器产生下一个解析事件，如此循环直到碰到文档结束符；</p><p>SAX也是基于事件处理xml文档，但却是用推模式解析，解析器解析完整个xml文档后，才产生解析事件，然后推给程序去处理这些事件；DOM 采用的方式是将整个xml文档映射到一颗内存树，这样就可以很容易地得到父节点和子结点以及兄弟节点的数据，但如果文档很大，将会严重影响性能。<br>更多学习可以参考1：<a href="https://blog.csdn.net/visant/java/article/details/79778967" target="_blank" rel="noopener">https://blog.csdn.net/visant/java/article/details/79778967</a><br>更多学习可以参考2：<a href="http://www.blogjava.net/hsith/archive/2006/06/29/55817.html" target="_blank" rel="noopener">http://www.blogjava.net/hsith/archive/2006/06/29/55817.html</a></p><p>示例代码：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk5<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>7、通用的Annotations支持 （JSR269）<br>一部分是进行注解处理的javax.annotation.processing。<br>另一部分是对程序的静态结构进行建模的javax.lang.model。</p>
+<h4 id="JAXB2来实现对象与XML之间的映射"><a href="#JAXB2来实现对象与XML之间的映射" class="headerlink" title="JAXB2来实现对象与XML之间的映射"></a>JAXB2来实现对象与XML之间的映射</h4><p>JAXB:<br>    是Java Architecture for XML Binding的缩写，可以将一个Java对象和XML格式对象相互转换。JAXB2在底层是用StAX(JSR 173)来处理XML文档。</p>
+<p>StAX(JSR 173)是JDK6.0中除了DOM和SAX之外的又一种处理XML文档的API。</p>
+<p>StAX 的来历 ：在JAXP1.3(JSR 206)有两种处理XML文档的方法:DOM(Document Object Model)和SAX(Simple API for XML).</p>
+<p>由 于JDK6.0中的JAXB2(JSR 222)和JAX-WS 2.0(JSR 224)都会用到StAX，所以Sun决定把StAX加入到JAXP家族当中来，并将JAXP的版本升级到1.4(JAXP1.4是JAXP1.3的维护版本). JDK6里面JAXP的版本就是1.4. 。</p>
+<p>StAX是The Streaming API for XML的缩写，一种利用拉模式解析(pull-parsing)XML文档的API.StAX通过提供一种基于事件迭代器(Iterator)的API让程序员去控制xml文档解析过程,程序遍历这个事件迭代器去处理每一个解析事件，解析事件可以看做是程序拉出来的，也就是程序促使解析器产生一个解析事件，然后处理该事件，之后又促使解析器产生下一个解析事件，如此循环直到碰到文档结束符；</p>
+<p>SAX也是基于事件处理xml文档，但却是用推模式解析，解析器解析完整个xml文档后，才产生解析事件，然后推给程序去处理这些事件；DOM 采用的方式是将整个xml文档映射到一颗内存树，这样就可以很容易地得到父节点和子结点以及兄弟节点的数据，但如果文档很大，将会严重影响性能。<br>更多学习可以参考1：<a href="https://blog.csdn.net/visant/java/article/details/79778967" target="_blank" rel="noopener">https://blog.csdn.net/visant/java/article/details/79778967</a><br>更多学习可以参考2：<a href="http://www.blogjava.net/hsith/archive/2006/06/29/55817.html" target="_blank" rel="noopener">http://www.blogjava.net/hsith/archive/2006/06/29/55817.html</a></p>
+<p>示例代码：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk5<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>FileReader<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>FileWriter<span class="token punctuation">;</span>
@@ -104,7 +808,9 @@ public class ImptTest {
         User user2 <span class="token operator">=</span> <span class="token punctuation">(</span>User<span class="token punctuation">)</span>um<span class="token punctuation">.</span><span class="token function">unmarshal</span><span class="token punctuation">(</span>fr<span class="token punctuation">)</span><span class="token punctuation">;</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Country:"</span><span class="token operator">+</span>user2<span class="token punctuation">.</span><span class="token function">getAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCountry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输入China</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>user类:</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk5<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>user类:</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk5<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Calendar<span class="token punctuation">;</span>
 
@@ -135,7 +841,9 @@ public class ImptTest {
     <span class="token keyword">public</span> Address <span class="token function">getAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> address<span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>Address类</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk5<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Address类</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk5<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> javax<span class="token punctuation">.</span>xml<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>XmlAttribute<span class="token punctuation">;</span>
 <span class="token keyword">import</span> javax<span class="token punctuation">.</span>xml<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>XmlElement<span class="token punctuation">;</span>
@@ -170,7 +878,9 @@ public class ImptTest {
     <span class="token keyword">public</span> String <span class="token function">getCountry</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> country<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>转换的XML内容：</p><pre class="language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?></span>
+<span class="token punctuation">}</span></code></pre>
+<p>转换的XML内容：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>小菜<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>18<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>birthDay</span><span class="token punctuation">></span></span>2020-02-24T22:09:03.019+08:00<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>birthDay</span><span class="token punctuation">></span></span>
@@ -179,16 +889,36 @@ public class ImptTest {
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>city</span><span class="token punctuation">></span></span>Shanghai<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>city</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>street</span><span class="token punctuation">></span></span> xuhui<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>street</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>address</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>user</span><span class="token punctuation">></span></span></code></pre><p>注意@XmlAccessorType注解。<br>另Castor实现XML与Java的互转 <a href="http://www.castor.org/" target="_blank" rel="noopener">http://www.castor.org/</a></p><p>另外还有 Compiler API，Http Server API，插入式注解处理API(Pluggable Annotation Processing API)，对脚本语言的支持如: ruby, groovy, javascript，Common Annotations 涉及内容较多篇幅较长，后续单独学习。</p><h3 id="JDK1-7"><a href="#JDK1-7" class="headerlink" title="JDK1.7"></a>JDK1.7</h3><h4 id="1-switch中可以使用字符串。"><a href="#1-switch中可以使用字符串。" class="headerlink" title="1. switch中可以使用字符串。"></a>1. switch中可以使用字符串。</h4><pre><code>非常实用的。</code></pre><h4 id="2-泛型实例化类型自动推断。"><a href="#2-泛型实例化类型自动推断。" class="headerlink" title="2. 泛型实例化类型自动推断。"></a>2. 泛型实例化类型自动推断。</h4><p>指定类型:</p><pre class="language-java"><code class="language-java">    Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> myMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre><p>自动推断:</p><pre class="language-java"><code class="language-java">    Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> myMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre><h4 id="3-数值字面量改进"><a href="#3-数值字面量改进" class="headerlink" title="3. 数值字面量改进."></a>3. 数值字面量改进.</h4><p>数字前面加”0B”或”0b”表示二进制数。如：</p><pre class="language-java"><code class="language-java"><span class="token keyword">int</span> binary <span class="token operator">=</span> <span class="token number">0b10011001</span><span class="token punctuation">;</span></code></pre><p>数值中可以添加<code>&quot;_&quot;</code>。 如：</p><pre class="language-java"><code class="language-java"><span class="token keyword">int</span> one_million <span class="token operator">=</span> 1_000_000<span class="token punctuation">;</span></code></pre><h4 id="4-try-with-resources语句。"><a href="#4-try-with-resources语句。" class="headerlink" title="4. try-with-resources语句。"></a>4. try-with-resources语句。</h4><p>try-with-resources语句中会被自动调用，用于自动释放资源。自动关闭接口AutoCloseable。</p><pre class="language-java"><code class="language-java"><span class="token keyword">try</span><span class="token punctuation">(</span>OutputStream fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"D:/file"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>user</span><span class="token punctuation">></span></span></code></pre>
+<p>注意@XmlAccessorType注解。<br>另Castor实现XML与Java的互转 <a href="http://www.castor.org/" target="_blank" rel="noopener">http://www.castor.org/</a></p>
+<p>另外还有 Compiler API，Http Server API，插入式注解处理API(Pluggable Annotation Processing API)，对脚本语言的支持如: ruby, groovy, javascript，Common Annotations 涉及内容较多篇幅较长，后续单独学习。</p>
+<h3 id="JDK1-7"><a href="#JDK1-7" class="headerlink" title="JDK1.7"></a>JDK1.7</h3><h4 id="1-switch中可以使用字符串。"><a href="#1-switch中可以使用字符串。" class="headerlink" title="1. switch中可以使用字符串。"></a>1. switch中可以使用字符串。</h4><pre><code>非常实用的。</code></pre><h4 id="2-泛型实例化类型自动推断。"><a href="#2-泛型实例化类型自动推断。" class="headerlink" title="2. 泛型实例化类型自动推断。"></a>2. 泛型实例化类型自动推断。</h4><p>指定类型:</p>
+<pre class=" language-java"><code class="language-java">    Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> myMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre>
+<p>自动推断:</p>
+<pre class=" language-java"><code class="language-java">    Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> myMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre>
+<h4 id="3-数值字面量改进"><a href="#3-数值字面量改进" class="headerlink" title="3. 数值字面量改进."></a>3. 数值字面量改进.</h4><p>数字前面加”0B”或”0b”表示二进制数。如：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> binary <span class="token operator">=</span> <span class="token number">0b10011001</span><span class="token punctuation">;</span></code></pre>
+<p>数值中可以添加<code>&quot;_&quot;</code>。 如： </p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> one_million <span class="token operator">=</span> 1_000_000<span class="token punctuation">;</span></code></pre>
+<h4 id="4-try-with-resources语句。"><a href="#4-try-with-resources语句。" class="headerlink" title="4. try-with-resources语句。"></a>4. try-with-resources语句。</h4><p>try-with-resources语句中会被自动调用，用于自动释放资源。自动关闭接口AutoCloseable。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">try</span><span class="token punctuation">(</span>OutputStream fos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"D:/file"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 不需要再次指明fos.close();</span>
-<span class="token punctuation">}</span></code></pre><ol start="5"><li>优化异常处理</li></ol><pre class="language-java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
+<ol start="5">
+<li>优化异常处理</li>
+</ol>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">{</span>
    result <span class="token operator">=</span> field<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IllegalArgumentException</span> <span class="token operator">|</span> IllegalAccessException e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre><h3 id="JDK1-8"><a href="#JDK1-8" class="headerlink" title="JDK1.8"></a>JDK1.8</h3><h4 id="1-Lambda-表达式"><a href="#1-Lambda-表达式" class="headerlink" title="1. Lambda 表达式"></a>1. Lambda 表达式</h4><p>Lambda表达式（也称为闭包）是整个Java 8发行版中最受期待的在Java语言层面上的改变，Lambda允许把函数作为一个方法的参数进行传递。</p><p>Lambda 表达式的标准格式：</p><pre><code>(参数类型 参数名) -&gt; {
+<span class="token punctuation">}</span></code></pre>
+<h3 id="JDK1-8"><a href="#JDK1-8" class="headerlink" title="JDK1.8"></a>JDK1.8</h3><h4 id="1-Lambda-表达式"><a href="#1-Lambda-表达式" class="headerlink" title="1. Lambda 表达式"></a>1. Lambda 表达式</h4><p>Lambda表达式（也称为闭包）是整个Java 8发行版中最受期待的在Java语言层面上的改变，Lambda允许把函数作为一个方法的参数进行传递。</p>
+<p>Lambda 表达式的标准格式：</p>
+<pre><code>(参数类型 参数名) -&gt; {
     方法体;
     return 返回值;
-}</code></pre><p>Lambda 表达式的省略规则：<br>1. 小括号中的参数类型可以省略。<br>2. 如果小括号中只有一个参数，那么可以省略小括号。<br>3. 如果大括号中只有一条语句，那么可以省略大括号，return，分号。<br>其他注意：不允许声明一个与局部变量同名的参数或者局部变量。<br>四种方法引用类型<br>| 类型 | 示例 |<br>| 引用静态方法 | ContainingClass::staticMethodName |<br>| 引用某个对象的实例方法 |containingObject::instanceMethodName |<br>| 引用某个类型的任意对象的实例方法 | ContainingType::methodName |<br>| 引用构造方法 | ClassName::new |</p><pre class="language-java"><code class="language-java">  <span class="token comment" spellcheck="true">// 使用 java 7 排序</span>
+}</code></pre><p>Lambda 表达式的省略规则：<br>    1. 小括号中的参数类型可以省略。<br>    2. 如果小括号中只有一个参数，那么可以省略小括号。<br>    3. 如果大括号中只有一条语句，那么可以省略大括号，return，分号。<br>其他注意：不允许声明一个与局部变量同名的参数或者局部变量。<br>四种方法引用类型<br>| 类型          | 示例                                      |<br>| 引用静态方法 |    ContainingClass::staticMethodName |<br>| 引用某个对象的实例方法     |containingObject::instanceMethodName |<br>| 引用某个类型的任意对象的实例方法 |    ContainingType::methodName |<br>| 引用构造方法 |    ClassName::new  |</p>
+<pre class=" language-java"><code class="language-java">  <span class="token comment" spellcheck="true">// 使用 java 7 排序</span>
    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">sortJava7</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span>String<span class="token operator">></span> names<span class="token punctuation">)</span><span class="token punctuation">{</span>   
       Collections<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>names<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Comparator</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
          <span class="token annotation punctuation">@Override</span>
@@ -201,15 +931,19 @@ public class ImptTest {
    <span class="token comment" spellcheck="true">// 使用 java 8 排序</span>
    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">sortJava8</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span>String<span class="token operator">></span> names<span class="token punctuation">)</span><span class="token punctuation">{</span>
       Collections<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>names<span class="token punctuation">,</span> <span class="token punctuation">(</span>s1<span class="token punctuation">,</span> s2<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> s1<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span></code></pre><p>Lambda 使用条件</p><p>Lambda 表达式的使用前提:</p><pre><code>必须有接口（不能是抽象类），接口中有且仅有一个需要被重写的抽象方法。
+   <span class="token punctuation">}</span></code></pre>
+<p>Lambda 使用条件</p>
+<p>Lambda 表达式的使用前提:</p>
+<pre><code>必须有接口（不能是抽象类），接口中有且仅有一个需要被重写的抽象方法。
 必须支持上下文推导，要能够推导出来 Lambda 表达式表示的是哪个接口中的内容。 
-可以使用接口当做参数，然后传递 Lambda 表达式(常用)，也可以将 Lambda 表达式赋值给一个接口类型的变量。</code></pre><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+可以使用接口当做参数，然后传递 Lambda 表达式(常用)，也可以将 Lambda 表达式赋值给一个接口类型的变量。</code></pre><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
 
 <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterface</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">void</span> <span class="token function">printStr</span><span class="token punctuation">(</span>String string<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token punctuation">}</span></code></pre><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span>  <span class="token class-name">LambdaTest</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span>  <span class="token class-name">LambdaTest</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//使用接口当做参数</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">method</span><span class="token punctuation">(</span>MyInterface m<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//m = s -> System.out.println(s)</span>
         m<span class="token punctuation">.</span><span class="token function">printStr</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -259,7 +993,9 @@ public class ImptTest {
         race1<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
         race2<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><h4 id="2-函数式接口"><a href="#2-函数式接口" class="headerlink" title="2. 函数式接口"></a>2. 函数式接口</h4><p>JDK 8之前就有的函数式接口（使用@FunctionalInterface定义 ）</p><pre class="language-java"><code class="language-java">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>Runnable
+<span class="token punctuation">}</span></code></pre>
+<h4 id="2-函数式接口"><a href="#2-函数式接口" class="headerlink" title="2. 函数式接口"></a>2. 函数式接口</h4><p>JDK 8之前就有的函数式接口（使用@FunctionalInterface定义 ）</p>
+<pre class=" language-java"><code class="language-java">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>Runnable
 
 java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>Callable
 
@@ -277,7 +1013,9 @@ java<span class="token punctuation">.</span>beans<span class="token punctuation"
 
 java<span class="token punctuation">.</span>awt<span class="token punctuation">.</span>event<span class="token punctuation">.</span>ActionListener  
 
-javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span>event<span class="token punctuation">.</span>ChangeListener </code></pre><h4 id="3-接口默认方法与静态方法"><a href="#3-接口默认方法与静态方法" class="headerlink" title="3. 接口默认方法与静态方法"></a>3. 接口默认方法与静态方法</h4><p>接口默认方法，用<code>default</code>关键字。<br>接口静态方法，用<code>static</code>关键字：</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+javax<span class="token punctuation">.</span>swing<span class="token punctuation">.</span>event<span class="token punctuation">.</span>ChangeListener </code></pre>
+<h4 id="3-接口默认方法与静态方法"><a href="#3-接口默认方法与静态方法" class="headerlink" title="3. 接口默认方法与静态方法"></a>3. 接口默认方法与静态方法</h4><p>接口默认方法，用<code>default</code>关键字。<br>接口静态方法，用<code>static</code>关键字：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
 
 <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterface</span> <span class="token punctuation">{</span>
 
@@ -291,10 +1029,15 @@ javax<span class="token punctuation">.</span>swing<span class="token punctuation
          System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Interface Null Check"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
          <span class="token keyword">return</span> str <span class="token operator">==</span> null <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
    <span class="token punctuation">}</span> 
-<span class="token punctuation">}</span></code></pre><p>注意：类继承多个Interface接口同名方法(如show())时，必须在子类中@Override重写父类show()方法。</p><p>特性说明：</p><pre><code>1,函数式接口仅仅只有一个方法(非默认或静态方法)，用于显示转换成ladbma表达式。
+<span class="token punctuation">}</span></code></pre>
+<p>注意：类继承多个Interface接口同名方法(如show())时，必须在子类中@Override重写父类show()方法。</p>
+<p>特性说明：</p>
+<pre><code>1,函数式接口仅仅只有一个方法(非默认或静态方法)，用于显示转换成ladbma表达式。
 2, java.lang.Runnable接口 java.util.concurrent.Callable接口是两个最典型的函数式接口。
 3.如果一个函数式接口添加一个普通方法，就变成了非函数式接口（一般定义的接口）。
-4.Jdk8 规范里添加了注解@FunctionalInterface来限制函数式接口不能修改为普通的接口.</code></pre><p>jdk8新增了四个重要的函数式接口：函数形接口 、供给形接口、消费型接口、判断型接口</p><h4 id="4-日期时间的API"><a href="#4-日期时间的API" class="headerlink" title="4. 日期时间的API."></a>4. 日期时间的API.</h4><p>新的时间及日期API类在java.time包中，不可变且线程安全的。<br>Instant获取时间戳, LocalDate只处理日期、LocalTime只处理时间,LocalDateTime只处理日期时间，ZonedDateTime包含时区的日期时间<br>TemporalAdjusters 日期调整<br>DateTimeFormatter 替代之前版本的SimpleDateFormat类<br>YearMonth年月组合,MonthDay月日组合<br>Clockdeng</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+4.Jdk8 规范里添加了注解@FunctionalInterface来限制函数式接口不能修改为普通的接口.</code></pre><p>jdk8新增了四个重要的函数式接口：函数形接口 、供给形接口、消费型接口、判断型接口 </p>
+<h4 id="4-日期时间的API"><a href="#4-日期时间的API" class="headerlink" title="4. 日期时间的API."></a>4. 日期时间的API.</h4><p>新的时间及日期API类在java.time包中，不可变且线程安全的。<br>Instant获取时间戳, LocalDate只处理日期、LocalTime只处理时间,LocalDateTime只处理日期时间，ZonedDateTime包含时区的日期时间<br>TemporalAdjusters 日期调整<br>DateTimeFormatter 替代之前版本的SimpleDateFormat类<br>YearMonth年月组合,MonthDay月日组合<br>Clockdeng</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>Clock<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>time<span class="token punctuation">.</span>LocalDate<span class="token punctuation">;</span>
@@ -312,9 +1055,13 @@ javax<span class="token punctuation">.</span>swing<span class="token punctuation
          out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" time = "</span> <span class="token operator">+</span>time<span class="token punctuation">)</span><span class="token punctuation">;</span>
          out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" dttm = "</span> <span class="token operator">+</span>dttm<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>控制台输出：</p><pre><code> date = 2020-05-31
+<span class="token punctuation">}</span></code></pre>
+<p>控制台输出：</p>
+<pre><code> date = 2020-05-31
  time = 16:29:41.010
- dttm = 2020-05-31T00:29:41.010</code></pre><p>更多内容参考<a href="/post/d0e15f60.html">《java 查漏补缺-java8里的日期时间API》</a></p><h4 id="5-Optional-类"><a href="#5-Optional-类" class="headerlink" title="5. Optional 类"></a>5. Optional 类</h4><p>Optional 是个容器，它可以保存类型T的值，或者仅仅保存null。Optional提供很多有用的方法，这样我们就不用显式进行空值检测。比较友好的的解决空指针异常。Optional.of()或者Optional.ofNullable()：创建Optional对象，差别在于of不允许参数是null，而ofNullable则无限制。</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+ dttm = 2020-05-31T00:29:41.010</code></pre><p>更多内容参考<a href="/post/d0e15f60.html">《java 查漏补缺-java8里的日期时间API》</a></p>
+<h4 id="5-Optional-类"><a href="#5-Optional-类" class="headerlink" title="5. Optional 类"></a>5. Optional 类</h4><p>Optional 是个容器，它可以保存类型T的值，或者仅仅保存null。Optional提供很多有用的方法，这样我们就不用显式进行空值检测。比较友好的的解决空指针异常。Optional.of()或者Optional.ofNullable()：创建Optional对象，差别在于of不允许参数是null，而ofNullable则无限制。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Optional<span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token keyword">static</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>System<span class="token punctuation">.</span>out<span class="token punctuation">;</span>
@@ -339,7 +1086,9 @@ javax<span class="token punctuation">.</span>swing<span class="token punctuation
 
         out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>optional1<span class="token punctuation">.</span><span class="token function">orElseGet</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">1000</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//true</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><h4 id="6-Nashorn-JavaScript引擎。"><a href="#6-Nashorn-JavaScript引擎。" class="headerlink" title="6. Nashorn, JavaScript引擎。"></a>6. Nashorn, JavaScript引擎。</h4><p>Java 8提供了一个新的Nashorn javascript引擎，它允许我们在JVM上运行特定的javascript应用。</p><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="6-Nashorn-JavaScript引擎。"><a href="#6-Nashorn-JavaScript引擎。" class="headerlink" title="6. Nashorn, JavaScript引擎。"></a>6. Nashorn, JavaScript引擎。</h4><p>Java 8提供了一个新的Nashorn javascript引擎，它允许我们在JVM上运行特定的javascript应用。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>zxc<span class="token punctuation">.</span>jdk8<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> javax<span class="token punctuation">.</span>script<span class="token punctuation">.</span>ScriptEngine<span class="token punctuation">;</span>
 <span class="token keyword">import</span> javax<span class="token punctuation">.</span>script<span class="token punctuation">.</span>ScriptEngineManager<span class="token punctuation">;</span>
@@ -352,14 +1101,507 @@ javax<span class="token punctuation">.</span>swing<span class="token punctuation
         engine<span class="token punctuation">.</span><span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">"print('Hello World!');"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-<span class="token punctuation">}</span></code></pre><p>Nashorn JavaScript基于ECMAScript 5.1，但是它的后续版本会对ES6提供支持：<br>Nashorn的当前策略遵循ECMAScript规范。当我们在JDK8中发布它时，它将基于ECMAScript 5.1。Nashorn未来的主要发布基于ECMAScript 6。<br>Nashorn定义了大量对ECMAScript标准的语言和API扩展。但是首先让我们看一看Java和JavaScript代码如何交互。</p><p>注意：</p><p>该引擎在java11是被弃用。ECMAScript语言标准的快速发展，维护Nashorn引擎变得越发挑战，因此该引擎将在Java中废弃。<br>两个模块将会被最终弃用，被标注为@Deprecated(forRemoval=true)。</p><p>jdk.scripting.nashorn模块，包含dk.nashorn.api.scripting和jdk.nashorn.api.tree包。jdk.scripting.nashorn.shell模块，包含jjs工具，运行jjs将显示警告。</p><p>需要注意的是，java.scripting模块中javax.script包下的相关API不受影响。</p><h4 id="7-新工具"><a href="#7-新工具" class="headerlink" title="7. 新工具"></a>7. 新工具</h4><p>新的编译工具，如：Nashorn引擎 jjs、 类依赖分析器jdeps。<br>Nashorn引擎jjs：<br>jjs是一个基于标准Nashorn引擎的命令行工具，可以接受js源码并执行。<br>类依赖分析器jdeps：<br>jdeps是一个命令行工具，它可以展示包层级和类层级的Java类依赖关系，它以.class文件、目录或者Jar文件为输入，然后会把依赖关系输出到控制台。<br>JVM的新特性<br>使用Metaspace（JEP 122）代替持久代（PermGen space）。在JVM参数方面，使用<code>-XX:MetaSpaceSize</code>和<code>-XX:MaxMetaspaceSize</code>代替原来的<code>-XX:PermSize</code>和<code>-XX:MaxPermSize</code>。</p><h4 id="8-其他"><a href="#8-其他" class="headerlink" title="8. 其他"></a>8. 其他</h4><p>若遇到随时补充学习。</p><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css"></div><br><hr><div class="reprint" id="reprint-statement"><div class="reprint__author"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-user">文章作者: </i></span><span class="reprint-info"><a href="/about" rel="external nofollow noreferrer">Small-Rose / 张小菜</a></span></div><div class="reprint__type"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-link">文章链接: </i></span><span class="reprint-info"><a href="https://www.zhangxiaocai.cn/posts/80dc9555.html">https://www.zhangxiaocai.cn/posts/80dc9555.html</a></span></div><div class="reprint__notice"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-copyright">版权声明: </i></span><span class="reprint-info">本博客所有文章除特別声明外，均采用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a> 许可协议。转载请注明来源 <a href="/about" target="_blank">Small-Rose / 张小菜</a> !</span></div></div><script async defer>document.addEventListener("copy", function (e) {
+<span class="token punctuation">}</span></code></pre>
+<p>Nashorn JavaScript基于ECMAScript 5.1，但是它的后续版本会对ES6提供支持：<br>Nashorn的当前策略遵循ECMAScript规范。当我们在JDK8中发布它时，它将基于ECMAScript 5.1。Nashorn未来的主要发布基于ECMAScript 6。<br>Nashorn定义了大量对ECMAScript标准的语言和API扩展。但是首先让我们看一看Java和JavaScript代码如何交互。</p>
+<p>注意：</p>
+<p>该引擎在java11是被弃用。ECMAScript语言标准的快速发展，维护Nashorn引擎变得越发挑战，因此该引擎将在Java中废弃。<br>两个模块将会被最终弃用，被标注为@Deprecated(forRemoval=true)。</p>
+<p>jdk.scripting.nashorn模块，包含dk.nashorn.api.scripting和jdk.nashorn.api.tree包。jdk.scripting.nashorn.shell模块，包含jjs工具，运行jjs将显示警告。</p>
+<p>需要注意的是，java.scripting模块中javax.script包下的相关API不受影响。</p>
+<h4 id="7-新工具"><a href="#7-新工具" class="headerlink" title="7. 新工具"></a>7. 新工具</h4><p>新的编译工具，如：Nashorn引擎 jjs、 类依赖分析器jdeps。<br>Nashorn引擎jjs：<br>jjs是一个基于标准Nashorn引擎的命令行工具，可以接受js源码并执行。<br>类依赖分析器jdeps：<br>jdeps是一个命令行工具，它可以展示包层级和类层级的Java类依赖关系，它以.class文件、目录或者Jar文件为输入，然后会把依赖关系输出到控制台。<br>JVM的新特性<br>使用Metaspace（JEP 122）代替持久代（PermGen space）。在JVM参数方面，使用<code>-XX:MetaSpaceSize</code>和<code>-XX:MaxMetaspaceSize</code>代替原来的<code>-XX:PermSize</code>和<code>-XX:MaxPermSize</code>。</p>
+<h4 id="8-其他"><a href="#8-其他" class="headerlink" title="8. 其他"></a>8. 其他</h4><p>若遇到随时补充学习。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+            </div>
+            <br/>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Small-Rose / 张小菜</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.zhangxiaocai.cn/posts/80dc9555.html">https://www.zhangxiaocai.cn/posts/80dc9555.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Small-Rose / 张小菜</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
         let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
         M.toast({html: toastHTML})
       });
 
       function navToReprintStatement() {
         $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }</script><div class="tag_share" style="display:block"><div class="post-meta__tag-list" style="display:inline-block"><div class="article-tag"><a href="/tags/Java/"><span class="chip bg-color">Java</span></a></div></div><div class="post_share" style="zoom:80%;width:fit-content;display:inline-block;float:right;margin:-.15rem 0"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/css/share.min.css"><div id="article-share"><div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/js/social-share.min.js"></script></div></div></div><style>#reward{margin:40px 0;text-align:center}#reward .reward-link{font-size:1.4rem;line-height:38px}#reward .btn-floating:hover{box-shadow:0 6px 12px rgba(0,0,0,.2),0 5px 15px rgba(0,0,0,.2)}#rewardModal{width:320px;height:350px}#rewardModal .reward-title{margin:15px auto;padding-bottom:5px}#rewardModal .modal-content{padding:10px}#rewardModal .close{position:absolute;right:15px;top:15px;color:rgba(0,0,0,.5);font-size:1.3rem;line-height:20px;cursor:pointer}#rewardModal .close:hover{color:#ef5350;transform:scale(1.3);-moz-transform:scale(1.3);-webkit-transform:scale(1.3);-o-transform:scale(1.3)}#rewardModal .reward-tabs{margin:0 auto;width:210px}.reward-tabs .tabs{height:38px;margin:10px auto;padding-left:0}.reward-content ul{padding-left:0!important}.reward-tabs .tabs .tab{height:38px;line-height:38px}.reward-tabs .tab a{color:#fff;background-color:#ccc}.reward-tabs .tab a:hover{background-color:#ccc;color:#fff}.reward-tabs .wechat-tab .active{color:#fff!important;background-color:#22AB38!important}.reward-tabs .alipay-tab .active{color:#fff!important;background-color:#019FE8!important}.reward-tabs .reward-img{width:210px;height:210px}</style><div id="reward"><a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a><div id="rewardModal" class="modal"><div class="modal-content"><a class="close modal-close"><i class="fas fa-times"></i></a><h4 class="reward-title">你的赏识是我前进的动力</h4><div class="reward-content"><div class="reward-tabs"><ul class="tabs row"><li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li><li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li></ul><div id="alipay"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码"></div><div id="wechat"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码"></div></div></div></div></div></div><script>$(function(){$(".tabs").tabs()})</script></div></div><style>.valine-card{margin:1.5rem auto}.valine-card .card-content{padding:20px 20px 5px 20px}#vcomments textarea{box-sizing:border-box;background:url(/medias/202007bg.webp) 100% 100% no-repeat}#vcomments p{margin:2px 2px 10px;font-size:1.05rem;line-height:1.78rem}#vcomments blockquote p{text-indent:.2rem}#vcomments a{padding:0 2px;color:#4cbf30;font-weight:500;text-decoration:none}#vcomments img{max-width:100%;height:auto;cursor:pointer}#vcomments ol li{list-style-type:decimal}#vcomments ol,ul{display:block;padding-left:2em;word-spacing:.05rem}#vcomments ul li,ol li{display:list-item;line-height:1.8rem;font-size:1rem}#vcomments ul li{list-style-type:disc}#vcomments ul ul li{list-style-type:circle}#vcomments table,td,th{padding:12px 13px;border:1px solid #dfe2e5}#vcomments table,td,th{border:0}table tr:nth-child(2n),thead{background-color:#fafafa}#vcomments table th{background-color:#f2f2f2;min-width:80px}#vcomments table td{min-width:80px}#vcomments h1{font-size:1.85rem;font-weight:700;line-height:2.2rem}#vcomments h2{font-size:1.65rem;font-weight:700;line-height:1.9rem}#vcomments h3{font-size:1.45rem;font-weight:700;line-height:1.7rem}#vcomments h4{font-size:1.25rem;font-weight:700;line-height:1.5rem}#vcomments h5{font-size:1.1rem;font-weight:700;line-height:1.4rem}#vcomments h6{font-size:1rem;line-height:1.3rem}#vcomments p{font-size:1rem;line-height:1.5rem}#vcomments hr{margin:12px 0;border:0;border-top:1px solid #ccc}#vcomments blockquote{margin:15px 0;border-left:5px solid #42b983;padding:1rem .8rem .3rem .8rem;color:#666;background-color:rgba(66,185,131,.1)}#vcomments pre{font-family:monospace,monospace;padding:1.2em;margin:.5em 0;background:#272822;overflow:auto;border-radius:.3em;tab-size:4}#vcomments code{font-family:monospace,monospace;padding:1px 3px;font-size:.92rem;color:#e96900;background-color:#f8f8f8;border-radius:2px}#vcomments pre code{font-family:monospace,monospace;padding:0;color:#e8eaf6;background-color:#272822}#vcomments pre[class*=language-]{padding:1.2em;margin:.5em 0}#vcomments code[class*=language-],pre[class*=language-]{color:#e8eaf6}#vcomments [type=checkbox]:not(:checked),[type=checkbox]:checked{position:inherit;margin-left:-1.3rem;margin-right:.4rem;margin-top:-1px;vertical-align:middle;left:unset;visibility:visible}#vcomments b,strong{font-weight:700}#vcomments dfn{font-style:italic}#vcomments small{font-size:85%}#vcomments cite{font-style:normal}#vcomments mark{background-color:#fcf8e3;padding:.2em}#vcomments table,td,th{padding:12px 13px;border:1px solid #dfe2e5}table tr:nth-child(2n),thead{background-color:#fafafa}#vcomments table th{background-color:#f2f2f2;min-width:80px}#vcomments table td{min-width:80px}#vcomments [type=checkbox]:not(:checked),[type=checkbox]:checked{position:inherit;margin-left:-1.3rem;margin-right:.4rem;margin-top:-1px;vertical-align:middle;left:unset;visibility:visible}#vcomments .vbtn{background-color:#0bb7fbd6;color:#fff}.v[data-class="v"] .vwrap .vheader .vinput{width:32%;border-bottom:1px dashed #dedede}.v[data-class=v] .vwrap .vemojis i{font-style:normal;padding-top:7px;width:36px;cursor:pointer;text-align:center;display:inline-block;vertical-align:middle;padding-right:3px;padding-left:3px}</style><div class="card valine-card" data-aos="fade-up"><div class="comment_headling" style="font-size:20px;font-weight:700;position:relative;padding-left:20px;top:15px;padding-bottom:5px"><i class="fas fa-comments fa-fw" aria-hidden="true"></i> <span>评论</span></div><div id="vcomments" class="card-content" style="display:grid"></div></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/av-min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script><script>let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/202007bg.webp") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments .vbtn{
+        
+        background-color: #0bb7fbd6;
+        color: #fff;
+    }
+
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+    }
+
+    .v[data-class=v] .vwrap .vemojis i {
+         font-style:normal;
+         padding-top:7px;
+         width:36px;
+         cursor:pointer;
+         text-align:center;
+         display:inline-block;
+         vertical-align:middle;
+         padding-right: 3px;
+         padding-left: 3px;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+<!--
+折腾人啊,如果你看到这个说明你也在搞Valine 哈哈~ 慢慢折腾吧，本站有教程哦
+-->
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    
+ 
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"}
 
     new Valine({
         el: '#vcomments',
@@ -378,7 +1620,7 @@ javax<span class="token punctuation">.</span>swing<span class="token punctuation
         enableQQ: 'monsterid',
         requiredFields: ["68c4c9e1b9a3d34317dc6faefe2ea00e"],
         master: ["68c4c9e1b9a3d34317dc6faefe2ea00e"],
-        friends: ["7a455d704b60807098d18cc8c2470da2", "8acd51671b7e0e1dc68cc76d4d987813", "c08508165c8eba9a77f87285c046d09e", "901345d4c91ddfd8db0f975bbceaf0c8", "1512958e18378c98b498d5ef8e3e763f", "db6069f3bda06d2a9157c4a622ce4648", "fc2c9b067f65c9e2d7057ba797f7cfca", "256a83cdeb9a494df572ef260e98c9bf", "9f38a40d977e6e8a6a555fef3849f23a", "gw_9527@163.com"],
+        friends: ["7a455d704b60807098d18cc8c2470da2", "8acd51671b7e0e1dc68cc76d4d987813", "c08508165c8eba9a77f87285c046d09e", "901345d4c91ddfd8db0f975bbceaf0c8", "1512958e18378c98b498d5ef8e3e763f", "db6069f3bda06d2a9157c4a622ce4648", "fc2c9b067f65c9e2d7057ba797f7cfca", "256a83cdeb9a494df572ef260e98c9bf", "9f38a40d977e6e8a6a555fef3849f23a", "95dbe659464f10506676f48b11962ef7", "93c72e67b6b84508525f5566b865db2d"],
         tagMeta: ["博主", "小伙伴", "访客"],
         metaPlaceholder: metaPlaceholder,
 
@@ -403,4 +1645,495 @@ javax<span class="token punctuation">.</span>swing<span class="token punctuation
             }, 2500);
         }
     }
-    }, true);</script><article id="prenext-posts" class="prev-next articles"><div class="row article-row"><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge left-badge text-color"><i class="fas fa-chevron-left"></i>&nbsp;上一篇</div><div class="card"><a href="/posts/d0e15f60.html"><div class="card-image"><img src="/images/java-logo.jpg" class="responsive-img" alt="java8 日期时间API"> <span class="card-title">java8 日期时间API</span></div></a><div class="card-content article-content"><div class="summary block-with-text">本文记录java8 日期时间API整。</div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i>2020-05-24 </span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/Java/" class="post-category">Java</a></span></div></div><div class="card-action article-tags"><a href="/tags/Java/"><span class="chip bg-color">Java</span></a></div></div></div><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge right-badge text-color">下一篇&nbsp;<i class="fas fa-chevron-right"></i></div><div class="card"><a href="/posts/c68d7a69.html"><div class="card-image"><img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" class="responsive-img" alt="Hexo搭建静态博客（六）——项目部署"> <span class="card-title">Hexo搭建静态博客（六）——项目部署</span></div></a><div class="card-content article-content"><div class="summary block-with-text">本文记录将hexo博客部署到github、云服务器上的相关操作操作。</div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i>2020-05-17 </span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/Hexo/" class="post-category">Hexo</a></span></div></div><div class="card-action article-tags"><a href="/tags/Hexo/"><span class="chip bg-color">Hexo</span></a></div></div></div></div></article></div><script>$("#articleContent").on("copy",function(e){if("undefined"!=typeof window.getSelection){var n=window.getSelection();if(!((""+n).length<Number.parseInt("120"))){var t=document.getElementsByTagName("body")[0],o=document.createElement("div");o.style.position="absolute",o.style.left="-99999px",t.appendChild(o),o.appendChild(n.getRangeAt(0).cloneContents()),"PRE"===n.getRangeAt(0).commonAncestorContainer.nodeName?o.innerHTML="<pre>"+o.innerHTML+"</pre>":o.innerHTML="<pre>"+o.innerHTML+"</pre>";var i=document.location.href;o.innerHTML+='<br />来源: 张小菜苔<br />文章作者: Small Rose / 张小菜苔<br />文章链接: <a href="'+i+'">'+i+"</a><br />本文章著作权归作者所有，任何形式的转载都请注明出处。",n.selectAllChildren(o),window.setTimeout(function(){t.removeChild(o)},200)}}})</script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeBlockFuction.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeLang.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeCopy.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeShrink.js"></script></main><footer class="page-footer bg-color"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.css"><style>.aplayer .aplayer-lrc p{display:none;font-size:12px;font-weight:700;line-height:16px!important}.aplayer .aplayer-lrc p.aplayer-lrc-current{display:none;font-size:15px;color:#42b983}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body{left:-66px!important}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover{left:0!important}</style><div><div class="row"><meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="2056253259" fixed="true" autoplay theme="#42b983" loop order="random" preload="auto" volume="0.7" list-folded="true"></meting-js></div></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><div class="container row center-align" style="margin-bottom:15px!important"><div class="col s12 m8 l8 copy-right">Copyright&nbsp;&copy; <span id="year">2020</span> <a href="/about" target="_blank">Small Rose / 张小菜苔</a> |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> |&nbsp;Comments&nbsp;<a href="https://valine.zhangxiaocia.cn" target="_blank">Valine</a><br>&nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">263.6k</span>&nbsp;字 <span id="busuanzi_container_site_pv">|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次 </span><span id="busuanzi_container_site_uv">|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人</span><br><span id="sitetime">载入运行时间...</span><script>function siteTime(){var e=1e3,t=60*e,n=60*t,o=24*n,l=365*o,r=new Date,a="2020",i="5",d="1",m="0",M="0",g="0",s=r.getFullYear(),u=r.getMonth()+1,T=r.getDate(),c=r.getHours(),f=r.getMinutes(),h=r.getSeconds(),y=Date.UTC(a,i,d,m,M,g),H=Date.UTC(s,u,T,c,f,h),I=H-y,B=Math.floor(I/l),D=Math.floor(I/o-365*B),E=Math.floor((I-(365*B+D)*o)/n),L=Math.floor((I-(365*B+D)*o-E*n)/t),v=Math.floor((I-(365*B+D)*o-E*n-L*t)/e);a==s?(document.getElementById("year").innerHTML=s,document.getElementById("sitetime").innerHTML="本站已 <del>安全</del> 苟全运行 "+D+" 天 "+E+" 小时 "+L+" 分钟 "+v+" 秒"):(document.getElementById("year").innerHTML=a+" - "+s,document.getElementById("sitetime").innerHTML="本站已 <del>安全</del> 苟全运行 "+B+" 年 "+D+" 天 "+E+" 小时 "+L+" 分钟 "+v+" 秒")}setInterval(siteTime,1e3)</script><br><span id="icp"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/icp.png" style="vertical-align:text-bottom"> <a href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19015637号-1</a></span><br></div><div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/small-rose" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50"><i class="fab fa-github"></i> </a><a href="mailto:small-rose@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50"><i class="fas fa-envelope-open"></i> </a><a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=970175021" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 970175021" data-position="top" data-delay="50"><i class="fab fa-qq"></i> </a><a href="https://yun.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="个人云盘" data-position="top" data-delay="50"><i class="fas fa-cloud"></i></a></div></div></footer><div class="progress-bar"></div><script type="text/javascript">window.$crisp=[],window.CRISP_WEBSITE_ID="bf3c468c-2fd7-4dcc-866d-3b008127fff0",function(){d=document,s=d.createElement("script"),s.src="https://client.crisp.chat/l.js",s.async=1,d.getElementsByTagName("head")[0].appendChild(s)}()</script><div id="searchModal" class="modal"><div class="modal-content"><div class="search-header"><span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span> <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input"></div><div id="searchResult"></div></div></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/search.js"></script><script type="text/javascript">$(function(){searchFunc("https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/search.xml","searchInput","searchResult")})</script><div id="backTop" class="top-scroll"><a class="btn-floating btn-large waves-effect waves-light" href="#!"><i class="fas fa-arrow-up"></i></a></div><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/masonry/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/scrollprogress/scrollProgress.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/matery.js"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?90b288cd6d944c8f4f8f0258e60bf981";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script>!function(){var t=document.createElement("script"),s=window.location.protocol.split(":")[0];"https"===s?t.src="https://zz.bdstatic.com/linksubmit/push.js":t.src="http://push.zhanzhang.baidu.com/push.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()</script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/clicklove.js" async></script><script async src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/busuanzi.pure.mini.js"></script><script type="text/javascript" size="150" alpha="0.6" zindex="-1" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/background/ribbon-refresh.min.js" async></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/instantpage/instantpage.js" type="module"></script><script src="/js/sakura.js" type="module"></script><script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/fullscreen.js" type="module"></script><script>window.imageLazyLoadSetting={isSPA:!1,processImages:null}</script><script>window.addEventListener("load",function(){var a=/\.(gif|jpg|jpeg|tiff|png)$/i,e=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(t){var r=t.parentNode;"A"===r.tagName&&(r.href.match(a)||r.href.match(e))&&(r.href=t.dataset.original)})})</script><script>!function(t){function e(){n&&(i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var e,o,a=0;a<i.length;a++)e=i[a],0<=(o=e.getBoundingClientRect()).bottom&&0<=o.left&&o.top<=(t.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,o,r=i[a];t=r,e=function(){i=i.filter(function(t){return r!==t})},n=new Image,o=t.getAttribute("data-original"),n.onload=function(){t.src=o,e&&e()},n.src=o}()}t.imageLazyLoadSetting.processImages=e;var n=t.imageLazyLoadSetting.isSPA,i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));e(),t.addEventListener("scroll",function(){var n,i;n=e,i=t,clearTimeout(n.tId),n.tId=setTimeout(function(){n.call(i)},500)})}(this)</script><script>(function(w,d, s, id) {w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = 'https://cdn.webpushr.com/app.min.js';fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('init','BJrux_BJKMKcoDBNWov5dsd0zhl3p0eF00OUzgogE5bQRheUA7eytp5rcZXYHdodyiVfbOmMlAkf140zUrAPfv4');</script></body></html><!-- rebuild by neat -->
+    }, true);
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/e748f349.html">
+                    <div class="card-image">
+                        
+                        <img src="/images/java-logo.jpg" class="responsive-img" alt="Java8 Optional API">
+                        
+                        <span class="card-title">Java8 Optional API</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本文记录jdk5到jdk8的特征整理，查漏补缺式学习。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/c68d7a69.html">
+                    <div class="card-image">
+                        
+                        <img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" class="responsive-img" alt="Hexo搭建静态博客（六）——项目部署">
+                        
+                        <span class="card-title">Hexo搭建静态博客（六）——项目部署</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本文记录将hexo博客部署到github、云服务器上的相关操作操作。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hexo/" class="post-category">
+                                    Hexo
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }else{
+            //注释掉上面的if，将if中的内容释放出来
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 张小菜苔<br />'
+            + '文章作者: Small Rose / 张小菜苔<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+ 
+    
+
+</main>
+
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2056253259"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">Small Rose / 张小菜苔</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            |&nbsp;Comments&nbsp;<a href="https://valine.zhangxiaocia.cn" target="_blank">Valine</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">270.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "5";
+                    var startDate = "1";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已 <del>安全</del> 苟全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已 <del>安全</del> 苟全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            
+            <span id="icp"><img src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19015637号-1</a>
+            </span> <br/>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/small-rose" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:small-rose@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=970175021" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 970175021" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+    <a href="https://yun.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="个人云盘" data-position="top" data-delay="50">
+        <i class="fas fa-cloud"></i>
+    </a>
+
+
+
+<!-- 
+ <a href="https://valine.zhangxiaocia.cn" class="tooltipped" target="_blank" data-tooltip="Valine管理" data-position="top" data-delay="50">
+        <i class="fas fa fa-comments"></i>
+    </a>
+--></div>
+
+        
+       
+    </div>
+   
+</footer>
+
+<div class="progress-bar"></div>
+
+ 
+
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="bf3c468c-2fd7-4dcc-866d-3b008127fff0";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/matery.js"></script>
+
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?90b288cd6d944c8f4f8f0258e60bf981";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    
+ 
+    
+    <script src="/js/sakura.js" type="module"></script>
+    
+
+    
+
+     
+    <script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/js/fullscreen.js" type="module"></script>
+    
+ 
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script>(function(w,d, s, id) {w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = 'https://cdn.webpushr.com/app.min.js';fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('init','BJrux_BJKMKcoDBNWov5dsd0zhl3p0eF00OUzgogE5bQRheUA7eytp5rcZXYHdodyiVfbOmMlAkf140zUrAPfv4');</script></body>
+
+</html>
