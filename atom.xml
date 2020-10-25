@@ -41,6 +41,30 @@
   </entry>
   
   <entry>
+    <title>Memcache 快速上手</title>
+    <link href="https://www.zhangxiaocai.cn/posts/193c9d75.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/193c9d75.html</id>
+    <published>2020-10-24T02:00:00.000Z</published>
+    <updated>2020-10-24T02:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Memcache-快速入门&quot;&gt;&lt;a href=&quot;#Memcache-快速入门&quot; class=&quot;headerlink&quot; title=&quot;Memcache 快速入门&quot;&gt;&lt;/a&gt;Memcache 快速入门&lt;/h2&gt;&lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="Memcache" scheme="https://www.zhangxiaocai.cn/categories/Memcache/"/>
+    
+    
+      <category term="Memcache" scheme="https://www.zhangxiaocai.cn/tags/Memcache/"/>
+    
+  </entry>
+  
+  <entry>
     <title>保护色-豆沙绿</title>
     <link href="https://www.zhangxiaocai.cn/posts/40a54347.html"/>
     <id>https://www.zhangxiaocai.cn/posts/40a54347.html</id>
@@ -85,30 +109,6 @@
     
     
       <category term="事务失效" scheme="https://www.zhangxiaocai.cn/tags/%E4%BA%8B%E5%8A%A1%E5%A4%B1%E6%95%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Memcache 快速上手</title>
-    <link href="https://www.zhangxiaocai.cn/posts/193c9d75.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/193c9d75.html</id>
-    <published>2020-10-23T02:00:00.000Z</published>
-    <updated>2020-10-23T02:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Memcache-快速入门&quot;&gt;&lt;a href=&quot;#Memcache-快速入门&quot; class=&quot;headerlink&quot; title=&quot;Memcache 快速入门&quot;&gt;&lt;/a&gt;Memcache 快速入门&lt;/h2&gt;&lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="Memcache" scheme="https://www.zhangxiaocai.cn/categories/Memcache/"/>
-    
-    
-      <category term="Memcache" scheme="https://www.zhangxiaocai.cn/tags/Memcache/"/>
     
   </entry>
   
