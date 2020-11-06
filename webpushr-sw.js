@@ -1,1 +1,3 @@
-importScripts('https://cdn.webpushr.com/sw-server.min.js');
+// build time:Fri Nov 06 2020 13:11:02 GMT+0800 (中国标准时间)
+importScripts("https://cdn.webpushr.com/sw-server.min.js");
+//rebuild by neat <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">

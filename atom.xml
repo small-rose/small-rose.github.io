@@ -17,55 +17,6 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>JVM 专题 GC实操整理</title>
-    <link href="https://www.zhangxiaocai.cn/posts/df5e7e17.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/df5e7e17.html</id>
-    <published>2020-11-03T08:00:00.000Z</published>
-    <updated>2020-11-03T08:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1、查看默认垃圾收集器&quot;&gt;&lt;a href=&quot;#1、查看默认垃圾收集器&quot; class=&quot;headerlink&quot; title=&quot;1、查看默认垃圾收集器&quot;&gt;&lt;/a&gt;1、查看默认垃圾收集器&lt;/h2&gt;&lt;p&gt;GC回收类型在jvm里学习了。&lt;/p&gt;
-&lt;p&gt;实际使用的GC主要有：
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="GC" scheme="https://www.zhangxiaocai.cn/tags/GC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jvm 专题 Stack &amp; Heap</title>
-    <link href="https://www.zhangxiaocai.cn/posts/7d9ca25e.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/7d9ca25e.html</id>
-    <published>2020-11-03T08:00:00.000Z</published>
-    <updated>2020-11-03T08:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Stack-amp-Heap&quot;&gt;&lt;a href=&quot;#Stack-amp-Heap&quot; class=&quot;headerlink&quot; title=&quot;Stack &amp;amp; Heap&quot;&gt;&lt;/a&gt;Stack &amp;amp; Heap&lt;/h2&gt;&lt;h2 id=&quot;一、Stack&quot;&gt;&lt;a h
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="Stack &amp; Heap" scheme="https://www.zhangxiaocai.cn/tags/Stack-Heap/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java并发之线程池</title>
     <link href="https://www.zhangxiaocai.cn/posts/2509e756.html"/>
     <id>https://www.zhangxiaocai.cn/posts/2509e756.html</id>
@@ -77,9 +28,9 @@
       
       
         &lt;h2 id=&quot;线程池&quot;&gt;&lt;a href=&quot;#线程池&quot; class=&quot;headerlink&quot; title=&quot;线程池&quot;&gt;&lt;/a&gt;线程池&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;线程池虽然使用过，但是没有掌握好，再梳理补充一下。&lt;/p&gt;
+&lt;p&gt;线程池虽然使用过，还是再梳理补充一下。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;一
+&lt;h2 id=&quot;一、什么是线程
       
     
     </summary>
@@ -89,54 +40,6 @@
     
     
       <category term="线程池" scheme="https://www.zhangxiaocai.cn/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux必知必会</title>
-    <link href="https://www.zhangxiaocai.cn/posts/9d286a37.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/9d286a37.html</id>
-    <published>2020-11-03T08:00:00.000Z</published>
-    <updated>2020-11-03T08:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Linux必知必会&quot;&gt;&lt;a href=&quot;#Linux必知必会&quot; class=&quot;headerlink&quot; title=&quot;Linux必知必会&quot;&gt;&lt;/a&gt;Linux必知必会&lt;/h2&gt;&lt;h3 id=&quot;1、整理状态-TOP&quot;&gt;&lt;a href=&quot;#1、整理状态-TOP&quot; cla
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.zhangxiaocai.cn/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="https://www.zhangxiaocai.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jvm 专题 OOM</title>
-    <link href="https://www.zhangxiaocai.cn/posts/831d5d8d.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/831d5d8d.html</id>
-    <published>2020-11-03T08:00:00.000Z</published>
-    <updated>2020-11-03T08:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;OOM&quot;&gt;&lt;a href=&quot;#OOM&quot; class=&quot;headerlink&quot; title=&quot;OOM&quot;&gt;&lt;/a&gt;OOM&lt;/h2&gt;&lt;h2 id=&quot;一、基本认识&quot;&gt;&lt;a href=&quot;#一、基本认识&quot; class=&quot;headerlink&quot; title=&quot;一、基本认识&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="OOM" scheme="https://www.zhangxiaocai.cn/tags/OOM/"/>
     
   </entry>
   
@@ -286,30 +189,6 @@
   </entry>
   
   <entry>
-    <title>Tomcat 执行流程</title>
-    <link href="https://www.zhangxiaocai.cn/posts/7aaae6eb.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/7aaae6eb.html</id>
-    <published>2020-10-25T14:30:00.000Z</published>
-    <updated>2020-10-25T14:30:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Tomcat-执行流程&quot;&gt;&lt;a href=&quot;#Tomcat-执行流程&quot; class=&quot;headerlink&quot; title=&quot;Tomcat 执行流程&quot;&gt;&lt;/a&gt;Tomcat 执行流程&lt;/h2&gt;&lt;h2 id=&quot;一、文件结构&quot;&gt;&lt;a href=&quot;#一、文件结构&quot; cla
-      
-    
-    </summary>
-    
-    
-      <category term="Tomcat" scheme="https://www.zhangxiaocai.cn/categories/Tomcat/"/>
-    
-    
-      <category term="Tomcat" scheme="https://www.zhangxiaocai.cn/tags/Tomcat/"/>
-    
-  </entry>
-  
-  <entry>
     <title>SpringBoot Cache</title>
     <link href="https://www.zhangxiaocai.cn/posts/78ec1f93.html"/>
     <id>https://www.zhangxiaocai.cn/posts/78ec1f93.html</id>
@@ -330,6 +209,30 @@
     
     
       <category term="Cache" scheme="https://www.zhangxiaocai.cn/tags/Cache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tomcat 执行流程</title>
+    <link href="https://www.zhangxiaocai.cn/posts/7aaae6eb.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/7aaae6eb.html</id>
+    <published>2020-10-25T14:30:00.000Z</published>
+    <updated>2020-10-25T14:30:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Tomcat-执行流程&quot;&gt;&lt;a href=&quot;#Tomcat-执行流程&quot; class=&quot;headerlink&quot; title=&quot;Tomcat 执行流程&quot;&gt;&lt;/a&gt;Tomcat 执行流程&lt;/h2&gt;&lt;h2 id=&quot;一、文件结构&quot;&gt;&lt;a href=&quot;#一、文件结构&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="Tomcat" scheme="https://www.zhangxiaocai.cn/categories/Tomcat/"/>
+    
+    
+      <category term="Tomcat" scheme="https://www.zhangxiaocai.cn/tags/Tomcat/"/>
     
   </entry>
   
@@ -500,6 +403,99 @@
     
     
       <category term="Github" scheme="https://www.zhangxiaocai.cn/tags/Github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Matery 添加ArtiTalk说说模块</title>
+    <link href="https://www.zhangxiaocai.cn/posts/7404e01a.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/7404e01a.html</id>
+    <published>2020-10-02T12:00:00.000Z</published>
+    <updated>2020-10-02T12:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      Matery 添加ArtiTalk 说说模块
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
+    
+    
+      <category term="WebStackPage" scheme="https://www.zhangxiaocai.cn/tags/WebStackPage/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>spring常规配置示例</title>
+    <link href="https://www.zhangxiaocai.cn/posts/598e152e.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/598e152e.html</id>
+    <published>2020-10-01T14:00:00.000Z</published>
+    <updated>2020-10-01T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;开发常见配置整理-spring&quot;&gt;&lt;a href=&quot;#开发常见配置整理-spring&quot; class=&quot;headerlink&quot; title=&quot;开发常见配置整理-spring&quot;&gt;&lt;/a&gt;开发常见配置整理-spring&lt;/h2&gt;&lt;h3 id=&quot;Spring-的空-XML
+      
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="https://www.zhangxiaocai.cn/categories/Spring/"/>
+    
+    
+      <category term="XML样例" scheme="https://www.zhangxiaocai.cn/tags/XML%E6%A0%B7%E4%BE%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud Seata</title>
+    <link href="https://www.zhangxiaocai.cn/posts/fb7c74c4.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/fb7c74c4.html</id>
+    <published>2020-09-30T08:00:00.000Z</published>
+    <updated>2020-09-30T08:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringCloud-Alibaba-Seata-分布式事务&quot;&gt;&lt;a href=&quot;#SpringCloud-Alibaba-Seata-分布式事务&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud Alibaba Seata 分布式事
+      
+    
+    </summary>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud Sentinel</title>
+    <link href="https://www.zhangxiaocai.cn/posts/5122a811.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/5122a811.html</id>
+    <published>2020-09-29T08:00:00.000Z</published>
+    <updated>2020-09-29T08:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringCloud-Alibaba-Sentinel-实现熔断与限流&quot;&gt;&lt;a href=&quot;#SpringCloud-Alibaba-Sentinel-实现熔断与限流&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud Alibaba 
+      
+    
+    </summary>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
+    
+    
+      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/tags/SpringCloud/"/>
     
   </entry>
   
