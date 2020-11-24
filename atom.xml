@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-11-13T05:00:00.000Z</updated>
+  <updated>2020-11-24T15:00:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -15,6 +15,77 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL8-解压安装</title>
+    <link href="https://www.zhangxiaocai.cn/posts/c358a914.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/c358a914.html</id>
+    <published>2020-11-24T15:00:00.000Z</published>
+    <updated>2020-11-24T15:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;MySQL-8-解压安装记录&quot;&gt;&lt;a href=&quot;#MySQL-8-解压安装记录&quot; class=&quot;headerlink&quot; title=&quot;MySQL 8 解压安装记录&quot;&gt;&lt;/a&gt;MySQL 8 解压安装记录&lt;/h2&gt;&lt;p&gt;下载zip包，解压：&lt;code&gt;C:\dev
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://www.zhangxiaocai.cn/categories/MySQL/"/>
+    
+    
+      <category term="MySQL" scheme="https://www.zhangxiaocai.cn/tags/MySQL/"/>
+    
+      <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tools/check_hash</title>
+    <link href="https://www.zhangxiaocai.cn/posts/396747e8.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/396747e8.html</id>
+    <published>2020-11-21T02:26:13.929Z</published>
+    <updated>2020-11-21T02:26:13.929Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;文件校验&quot;&gt;&lt;a href=&quot;#文件校验&quot; class=&quot;headerlink&quot; title=&quot;文件校验&quot;&gt;&lt;/a&gt;文件校验&lt;/h2&gt;&lt;p&gt;比如在&lt;code&gt;apache&lt;/code&gt; 下载的 tomcat 的时候，一般下载长这样：&lt;/p&gt;
+&lt;p&gt;Core:   
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git 操作大全</title>
+    <link href="https://www.zhangxiaocai.cn/posts/9f681b8c.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/9f681b8c.html</id>
+    <published>2020-11-16T16:40:00.000Z</published>
+    <updated>2020-11-16T16:40:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Git-完全指南&quot;&gt;&lt;a href=&quot;#Git-完全指南&quot; class=&quot;headerlink&quot; title=&quot;Git 完全指南&quot;&gt;&lt;/a&gt;Git 完全指南&lt;/h2&gt;&lt;h2 id=&quot;零、速查表&quot;&gt;&lt;a href=&quot;#零、速查表&quot; class=&quot;headerlink
+      
+    
+    </summary>
+    
+    
+      <category term="Github" scheme="https://www.zhangxiaocai.cn/categories/Github/"/>
+    
+    
+      <category term="Git" scheme="https://www.zhangxiaocai.cn/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring-Cloud-Exception-libs</title>
@@ -117,6 +188,54 @@
   </entry>
   
   <entry>
+    <title>Jvm 专题 Stack &amp; Heap</title>
+    <link href="https://www.zhangxiaocai.cn/posts/7d9ca25e.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/7d9ca25e.html</id>
+    <published>2020-11-03T08:00:00.000Z</published>
+    <updated>2020-11-03T08:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Stack-amp-Heap&quot;&gt;&lt;a href=&quot;#Stack-amp-Heap&quot; class=&quot;headerlink&quot; title=&quot;Stack &amp;amp; Heap&quot;&gt;&lt;/a&gt;Stack &amp;amp; Heap&lt;/h2&gt;&lt;h2 id=&quot;一、Stack&quot;&gt;&lt;a h
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+    
+    
+      <category term="Stack &amp; Heap" scheme="https://www.zhangxiaocai.cn/tags/Stack-Heap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jvm 专题 OOM</title>
+    <link href="https://www.zhangxiaocai.cn/posts/831d5d8d.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/831d5d8d.html</id>
+    <published>2020-11-03T08:00:00.000Z</published>
+    <updated>2020-11-03T08:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;OOM&quot;&gt;&lt;a href=&quot;#OOM&quot; class=&quot;headerlink&quot; title=&quot;OOM&quot;&gt;&lt;/a&gt;OOM&lt;/h2&gt;&lt;h2 id=&quot;一、基本认识&quot;&gt;&lt;a href=&quot;#一、基本认识&quot; class=&quot;headerlink&quot; title=&quot;一、基本认识&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+    
+    
+      <category term="OOM" scheme="https://www.zhangxiaocai.cn/tags/OOM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux 必知必会（1）</title>
     <link href="https://www.zhangxiaocai.cn/posts/4736908d.html"/>
     <id>https://www.zhangxiaocai.cn/posts/4736908d.html</id>
@@ -164,54 +283,6 @@
     
     
       <category term="线程池" scheme="https://www.zhangxiaocai.cn/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jvm 专题 OOM</title>
-    <link href="https://www.zhangxiaocai.cn/posts/831d5d8d.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/831d5d8d.html</id>
-    <published>2020-11-03T08:00:00.000Z</published>
-    <updated>2020-11-03T08:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;OOM&quot;&gt;&lt;a href=&quot;#OOM&quot; class=&quot;headerlink&quot; title=&quot;OOM&quot;&gt;&lt;/a&gt;OOM&lt;/h2&gt;&lt;h2 id=&quot;一、基本认识&quot;&gt;&lt;a href=&quot;#一、基本认识&quot; class=&quot;headerlink&quot; title=&quot;一、基本认识&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="OOM" scheme="https://www.zhangxiaocai.cn/tags/OOM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jvm 专题 Stack &amp; Heap</title>
-    <link href="https://www.zhangxiaocai.cn/posts/7d9ca25e.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/7d9ca25e.html</id>
-    <published>2020-11-03T08:00:00.000Z</published>
-    <updated>2020-11-03T08:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Stack-amp-Heap&quot;&gt;&lt;a href=&quot;#Stack-amp-Heap&quot; class=&quot;headerlink&quot; title=&quot;Stack &amp;amp; Heap&quot;&gt;&lt;/a&gt;Stack &amp;amp; Heap&lt;/h2&gt;&lt;h2 id=&quot;一、Stack&quot;&gt;&lt;a h
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="Stack &amp; Heap" scheme="https://www.zhangxiaocai.cn/tags/Stack-Heap/"/>
     
   </entry>
   
@@ -429,78 +500,6 @@
     
     
       <category term="Memcache" scheme="https://www.zhangxiaocai.cn/tags/Memcache/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>保护色-豆沙绿</title>
-    <link href="https://www.zhangxiaocai.cn/posts/40a54347.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/40a54347.html</id>
-    <published>2020-10-23T14:00:00.000Z</published>
-    <updated>2020-10-23T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;各类软件设置保护色&quot;&gt;&lt;a href=&quot;#各类软件设置保护色&quot; class=&quot;headerlink&quot; title=&quot;各类软件设置保护色&quot;&gt;&lt;/a&gt;各类软件设置保护色&lt;/h2&gt;&lt;p&gt;今年idea盯着时间有点长，跟以前一样设置一下。干脆怎么设置都放一起，不用每次都要搜
-      
-    
-    </summary>
-    
-    
-      <category term="Tools" scheme="https://www.zhangxiaocai.cn/categories/Tools/"/>
-    
-    
-      <category term="保护色" scheme="https://www.zhangxiaocai.cn/tags/%E4%BF%9D%E6%8A%A4%E8%89%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Transactional 事务失效</title>
-    <link href="https://www.zhangxiaocai.cn/posts/66a60771.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/66a60771.html</id>
-    <published>2020-10-23T07:00:00.000Z</published>
-    <updated>2020-10-23T07:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Transactional-事务失效整理&quot;&gt;&lt;a href=&quot;#Transactional-事务失效整理&quot; class=&quot;headerlink&quot; title=&quot;@Transactional 事务失效整理&quot;&gt;&lt;/a&gt;@Transactional 事务失效整理&lt;/h2
-      
-    
-    </summary>
-    
-    
-      <category term="Spring" scheme="https://www.zhangxiaocai.cn/categories/Spring/"/>
-    
-    
-      <category term="事务失效" scheme="https://www.zhangxiaocai.cn/tags/%E4%BA%8B%E5%8A%A1%E5%A4%B1%E6%95%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Fontawesome 图标样例</title>
-    <link href="https://www.zhangxiaocai.cn/posts/ff8ce404.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/ff8ce404.html</id>
-    <published>2020-10-04T07:30:00.000Z</published>
-    <updated>2020-10-04T07:30:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Fontawesome-图标样例&quot;&gt;&lt;a href=&quot;#Fontawesome-图标样例&quot; class=&quot;headerlink&quot; title=&quot;Fontawesome 图标样例&quot;&gt;&lt;/a&gt;Fontawesome 图标样例&lt;/h2&gt;&lt;p&gt;图标库官网：&lt;a href=
-      
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
