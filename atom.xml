@@ -36,18 +36,18 @@
       <category term="MySQL" scheme="https://www.zhangxiaocai.cn/categories/MySQL/"/>
     
     
-      <category term="MySQL" scheme="https://www.zhangxiaocai.cn/tags/MySQL/"/>
-    
       <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
+    
+      <category term="MySQL" scheme="https://www.zhangxiaocai.cn/tags/MySQL/"/>
     
   </entry>
   
   <entry>
-    <title>Tools/check_hash</title>
-    <link href="https://www.zhangxiaocai.cn/posts/396747e8.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/396747e8.html</id>
-    <published>2020-11-21T02:26:13.929Z</published>
-    <updated>2020-11-21T02:26:13.929Z</updated>
+    <title>文件校验</title>
+    <link href="https://www.zhangxiaocai.cn/posts/15dd40aa.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/15dd40aa.html</id>
+    <published>2020-11-20T16:00:00.000Z</published>
+    <updated>2020-11-20T16:00:00.000Z</updated>
     
     <summary type="html">
     
@@ -60,6 +60,10 @@
     </summary>
     
     
+      <category term="Tools" scheme="https://www.zhangxiaocai.cn/categories/Tools/"/>
+    
+    
+      <category term="check hash" scheme="https://www.zhangxiaocai.cn/tags/check-hash/"/>
     
   </entry>
   
