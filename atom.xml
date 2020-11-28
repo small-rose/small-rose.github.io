@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-11-24T15:00:00.000Z</updated>
+  <updated>2020-11-27T16:00:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2020年Java 面试题</title>
+    <link href="https://www.zhangxiaocai.cn/posts/b191965e.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/b191965e.html</id>
+    <published>2020-11-27T16:00:00.000Z</published>
+    <updated>2020-11-27T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;2020年10月Java面试题&quot;&gt;&lt;a href=&quot;#2020年10月Java面试题&quot; class=&quot;headerlink&quot; title=&quot;2020年10月Java面试题&quot;&gt;&lt;/a&gt;2020年10月Java面试题&lt;/h2&gt;&lt;h3 id=&quot;2020年10月23日整理
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
+    
+    
+      <category term="面试题" scheme="https://www.zhangxiaocai.cn/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL8-解压安装</title>
@@ -36,9 +60,9 @@
       <category term="MySQL" scheme="https://www.zhangxiaocai.cn/categories/MySQL/"/>
     
     
-      <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
-    
       <category term="MySQL" scheme="https://www.zhangxiaocai.cn/tags/MySQL/"/>
+    
+      <category term="SQL" scheme="https://www.zhangxiaocai.cn/tags/SQL/"/>
     
   </entry>
   
@@ -192,9 +216,9 @@
   </entry>
   
   <entry>
-    <title>Jvm 专题 Stack &amp; Heap</title>
-    <link href="https://www.zhangxiaocai.cn/posts/7d9ca25e.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/7d9ca25e.html</id>
+    <title>Java并发之线程池</title>
+    <link href="https://www.zhangxiaocai.cn/posts/2509e756.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/2509e756.html</id>
     <published>2020-11-03T08:00:00.000Z</published>
     <updated>2020-11-03T08:00:00.000Z</updated>
     
@@ -202,16 +226,19 @@
     
       
       
-        &lt;h2 id=&quot;Stack-amp-Heap&quot;&gt;&lt;a href=&quot;#Stack-amp-Heap&quot; class=&quot;headerlink&quot; title=&quot;Stack &amp;amp; Heap&quot;&gt;&lt;/a&gt;Stack &amp;amp; Heap&lt;/h2&gt;&lt;h2 id=&quot;一、Stack&quot;&gt;&lt;a h
+        &lt;h2 id=&quot;线程池&quot;&gt;&lt;a href=&quot;#线程池&quot; class=&quot;headerlink&quot; title=&quot;线程池&quot;&gt;&lt;/a&gt;线程池&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;线程池虽然使用过，还是再梳理补充一下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;一、什么是线程
       
     
     </summary>
     
     
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
+      <category term="Java并发" scheme="https://www.zhangxiaocai.cn/categories/Java%E5%B9%B6%E5%8F%91/"/>
     
     
-      <category term="Stack &amp; Heap" scheme="https://www.zhangxiaocai.cn/tags/Stack-Heap/"/>
+      <category term="线程池" scheme="https://www.zhangxiaocai.cn/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
     
   </entry>
   
@@ -264,9 +291,9 @@
   </entry>
   
   <entry>
-    <title>Java并发之线程池</title>
-    <link href="https://www.zhangxiaocai.cn/posts/2509e756.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/2509e756.html</id>
+    <title>Jvm 专题 Stack &amp; Heap</title>
+    <link href="https://www.zhangxiaocai.cn/posts/7d9ca25e.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/7d9ca25e.html</id>
     <published>2020-11-03T08:00:00.000Z</published>
     <updated>2020-11-03T08:00:00.000Z</updated>
     
@@ -274,19 +301,16 @@
     
       
       
-        &lt;h2 id=&quot;线程池&quot;&gt;&lt;a href=&quot;#线程池&quot; class=&quot;headerlink&quot; title=&quot;线程池&quot;&gt;&lt;/a&gt;线程池&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;线程池虽然使用过，还是再梳理补充一下。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;一、什么是线程
+        &lt;h2 id=&quot;Stack-amp-Heap&quot;&gt;&lt;a href=&quot;#Stack-amp-Heap&quot; class=&quot;headerlink&quot; title=&quot;Stack &amp;amp; Heap&quot;&gt;&lt;/a&gt;Stack &amp;amp; Heap&lt;/h2&gt;&lt;h2 id=&quot;一、Stack&quot;&gt;&lt;a h
       
     
     </summary>
     
     
-      <category term="Java并发" scheme="https://www.zhangxiaocai.cn/categories/Java%E5%B9%B6%E5%8F%91/"/>
+      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
     
     
-      <category term="线程池" scheme="https://www.zhangxiaocai.cn/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+      <category term="Stack &amp; Heap" scheme="https://www.zhangxiaocai.cn/tags/Stack-Heap/"/>
     
   </entry>
   
@@ -480,30 +504,6 @@
     
     
       <category term="Cache" scheme="https://www.zhangxiaocai.cn/tags/Cache/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Memcache 快速上手</title>
-    <link href="https://www.zhangxiaocai.cn/posts/193c9d75.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/193c9d75.html</id>
-    <published>2020-10-24T02:00:00.000Z</published>
-    <updated>2020-10-24T02:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Memcache-快速入门&quot;&gt;&lt;a href=&quot;#Memcache-快速入门&quot; class=&quot;headerlink&quot; title=&quot;Memcache 快速入门&quot;&gt;&lt;/a&gt;Memcache 快速入门&lt;/h2&gt;&lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="Memcache" scheme="https://www.zhangxiaocai.cn/categories/Memcache/"/>
-    
-    
-      <category term="Memcache" scheme="https://www.zhangxiaocai.cn/tags/Memcache/"/>
     
   </entry>
   
