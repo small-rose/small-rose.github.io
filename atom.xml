@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhangxiaocai.cn/"/>
-  <updated>2020-12-06T02:30:00.000Z</updated>
+  <updated>2020-12-12T14:00:00.000Z</updated>
   <id>https://www.zhangxiaocai.cn/</id>
   
   <author>
@@ -15,6 +15,85 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git 注意事项</title>
+    <link href="https://www.zhangxiaocai.cn/posts/29d713c1.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/29d713c1.html</id>
+    <published>2020-12-12T14:00:00.000Z</published>
+    <updated>2020-12-12T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;1、gitHub-提交&quot;&gt;&lt;a href=&quot;#1、gitHub-提交&quot; class=&quot;headerlink&quot; title=&quot;1、gitHub 提交&quot;&gt;&lt;/a&gt;1、gitHub 提交&lt;/h3&gt;&lt;p&gt;（1）创建新的仓库然后提交：&lt;/p&gt;
+&lt;pre class=&quot; la
+      
+    
+    </summary>
+    
+    
+      <category term="Github" scheme="https://www.zhangxiaocai.cn/categories/Github/"/>
+    
+    
+      <category term="Git" scheme="https://www.zhangxiaocai.cn/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>静态博客-字体更换</title>
+    <link href="https://www.zhangxiaocai.cn/posts/8f5c11d2.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/8f5c11d2.html</id>
+    <published>2020-12-12T14:00:00.000Z</published>
+    <updated>2020-12-12T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;关于网站更换字体，还是独立出来，并不是所有的人都有这种需要。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;一、CSS-字体支持&quot;&gt;&lt;a href=&quot;#一、CSS-字体支持&quot; class=&quot;headerlink&quot; title=&quot;一、CSS 字
+      
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring batch</title>
+    <link href="https://www.zhangxiaocai.cn/posts/7e9b1e27.html"/>
+    <id>https://www.zhangxiaocai.cn/posts/7e9b1e27.html</id>
+    <published>2020-12-12T02:00:00.000Z</published>
+    <updated>2020-12-12T02:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;分类说明，Spring batch 属于sping框架，而非springboot，但因为现在多使用springboot开发，并且本文案例也是基于springboot的，所以就放到SpringBoot类目下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
+    
+    
+      <category term="Spring batch" scheme="https://www.zhangxiaocai.cn/tags/Spring-batch/"/>
+    
+  </entry>
   
   <entry>
     <title>基于SpringBoot的自定义注解</title>
@@ -147,7 +226,8 @@
     
       
       
-        &lt;h3 id=&quot;Ctrl-F12&quot;&gt;&lt;a href=&quot;#Ctrl-F12&quot; class=&quot;headerlink&quot; title=&quot;Ctrl+F12&quot;&gt;&lt;/a&gt;Ctrl+F12&lt;/h3&gt;&lt;p&gt;功能：查看当前类中的所有成员：方法、属性、内部类&lt;br&gt;亮点：直接显示所有成员的列表，支持搜
+        &lt;h3 id=&quot;Ctrl-Alt-O&quot;&gt;&lt;a href=&quot;#Ctrl-Alt-O&quot; class=&quot;headerlink&quot; title=&quot;Ctrl + Alt + O&quot;&gt;&lt;/a&gt;Ctrl + Alt + O&lt;/h3&gt;&lt;p&gt;功能：清理不需要的导入&lt;/p&gt;
+&lt;h3 id=&quot;Ctrl-F
       
     
     </summary>
@@ -427,79 +507,6 @@
     
     
       <category term="Github" scheme="https://www.zhangxiaocai.cn/tags/Github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM GC</title>
-    <link href="https://www.zhangxiaocai.cn/posts/a98cbd2a.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/a98cbd2a.html</id>
-    <published>2020-11-04T08:00:00.000Z</published>
-    <updated>2020-11-04T08:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;0、查看JVM-初始化参数&quot;&gt;&lt;a href=&quot;#0、查看JVM-初始化参数&quot; class=&quot;headerlink&quot; title=&quot;0、查看JVM 初始化参数&quot;&gt;&lt;/a&gt;0、查看JVM 初始化参数&lt;/h2&gt;&lt;p&gt;方式一：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;jps -l
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="GC" scheme="https://www.zhangxiaocai.cn/tags/GC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jvm 专题 Stack &amp; Heap</title>
-    <link href="https://www.zhangxiaocai.cn/posts/7d9ca25e.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/7d9ca25e.html</id>
-    <published>2020-11-03T08:00:00.000Z</published>
-    <updated>2020-11-03T08:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Stack-amp-Heap&quot;&gt;&lt;a href=&quot;#Stack-amp-Heap&quot; class=&quot;headerlink&quot; title=&quot;Stack &amp;amp; Heap&quot;&gt;&lt;/a&gt;Stack &amp;amp; Heap&lt;/h2&gt;&lt;h2 id=&quot;一、Stack&quot;&gt;&lt;a h
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="Stack &amp; Heap" scheme="https://www.zhangxiaocai.cn/tags/Stack-Heap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jvm 专题 OOM</title>
-    <link href="https://www.zhangxiaocai.cn/posts/831d5d8d.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/831d5d8d.html</id>
-    <published>2020-11-03T08:00:00.000Z</published>
-    <updated>2020-11-03T08:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;OOM&quot;&gt;&lt;a href=&quot;#OOM&quot; class=&quot;headerlink&quot; title=&quot;OOM&quot;&gt;&lt;/a&gt;OOM&lt;/h2&gt;&lt;h2 id=&quot;一、基本认识&quot;&gt;&lt;a href=&quot;#一、基本认识&quot; class=&quot;headerlink&quot; title=&quot;一、基本认识&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://www.zhangxiaocai.cn/categories/JVM/"/>
-    
-    
-      <category term="OOM" scheme="https://www.zhangxiaocai.cn/tags/OOM/"/>
     
   </entry>
   
