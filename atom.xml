@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://small-rose.github.io/"/>
-  <updated>2020-08-06T07:00:00.000Z</updated>
+  <updated>2021-01-02T05:30:00.000Z</updated>
   <id>https://small-rose.github.io/</id>
   
   <author>
@@ -17,15 +17,15 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Matery 添加加载动画</title>
-    <link href="https://small-rose.github.io/posts/7496029d.html"/>
-    <id>https://small-rose.github.io/posts/7496029d.html</id>
-    <published>2020-08-06T07:00:00.000Z</published>
-    <updated>2020-08-06T07:00:00.000Z</updated>
+    <title>Hexo 添加春节装饰</title>
+    <link href="https://small-rose.github.io/posts/166ffc86.html"/>
+    <id>https://small-rose.github.io/posts/166ffc86.html</id>
+    <published>2021-01-02T05:30:00.000Z</published>
+    <updated>2021-01-02T05:30:00.000Z</updated>
     
     <summary type="html">
     
-      Matery添加加载动画
+      Matery、Hexo添加春节装饰
     
     </summary>
     
@@ -38,43 +38,139 @@
   </entry>
   
   <entry>
-    <title>Nginx 快速上手</title>
-    <link href="https://small-rose.github.io/posts/35e29c2a.html"/>
-    <id>https://small-rose.github.io/posts/35e29c2a.html</id>
-    <published>2020-08-06T02:00:00.000Z</published>
-    <updated>2020-08-06T02:00:00.000Z</updated>
+    <title>Tyloo-chat 聊天室部署教程</title>
+    <link href="https://small-rose.github.io/posts/39142aea.html"/>
+    <id>https://small-rose.github.io/posts/39142aea.html</id>
+    <published>2021-01-02T03:00:00.000Z</published>
+    <updated>2021-01-02T03:00:00.000Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;Nginx-快速上手&quot;&gt;&lt;a href=&quot;#Nginx-快速上手&quot; class=&quot;headerlink&quot; title=&quot;Nginx 快速上手&quot;&gt;&lt;/a&gt;Nginx 快速上手&lt;/h1&gt;&lt;p&gt;前言&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;去年的时候使用 &lt;code&gt;S
+        &lt;h2 id=&quot;Tyloo-chat-聊天室部署详细教程&quot;&gt;&lt;a href=&quot;#Tyloo-chat-聊天室部署详细教程&quot; class=&quot;headerlink&quot; title=&quot;Tyloo-chat 聊天室部署详细教程&quot;&gt;&lt;/a&gt;Tyloo-chat 聊天室部署详细教程&lt;/h2&gt;&lt;
       
     
     </summary>
     
     
-      <category term="Nginx" scheme="https://small-rose.github.io/categories/Nginx/"/>
+      <category term="聊天室" scheme="https://small-rose.github.io/categories/%E8%81%8A%E5%A4%A9%E5%AE%A4/"/>
     
     
-      <category term="Nginx" scheme="https://small-rose.github.io/tags/Nginx/"/>
+      <category term="聊天室" scheme="https://small-rose.github.io/tags/%E8%81%8A%E5%A4%A9%E5%AE%A4/"/>
     
   </entry>
   
   <entry>
-    <title>Thymeleaf 内置对象</title>
-    <link href="https://small-rose.github.io/posts/44478111.html"/>
-    <id>https://small-rose.github.io/posts/44478111.html</id>
-    <published>2020-07-26T10:30:00.000Z</published>
-    <updated>2020-07-26T10:30:00.000Z</updated>
+    <title>MySQL5-解压安装</title>
+    <link href="https://small-rose.github.io/posts/74a2d94f.html"/>
+    <id>https://small-rose.github.io/posts/74a2d94f.html</id>
+    <published>2020-12-24T03:00:00.000Z</published>
+    <updated>2020-12-24T03:00:00.000Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;Thymeleaf-内置对象&quot;&gt;&lt;a href=&quot;#Thymeleaf-内置对象&quot; class=&quot;headerlink&quot; title=&quot;Thymeleaf  内置对象&quot;&gt;&lt;/a&gt;Thymeleaf  内置对象&lt;/h2&gt;&lt;p&gt;Thymeleaf 的内置对象主要有三类
+        &lt;h2 id=&quot;MySQL-解压安装&quot;&gt;&lt;a href=&quot;#MySQL-解压安装&quot; class=&quot;headerlink&quot; title=&quot;MySQL 解压安装  &quot;&gt;&lt;/a&gt;MySQL 解压安装  &lt;!-- {docsify-ignore} --&gt;&lt;/h2&gt;&lt;blockquote&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://small-rose.github.io/categories/MySQL/"/>
+    
+    
+      <category term="MySQL" scheme="https://small-rose.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL5-在线安装</title>
+    <link href="https://small-rose.github.io/posts/6afb1b4e.html"/>
+    <id>https://small-rose.github.io/posts/6afb1b4e.html</id>
+    <published>2020-12-23T02:00:00.000Z</published>
+    <updated>2020-12-23T02:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;MySQL-在线安装与卸载&quot;&gt;&lt;a href=&quot;#MySQL-在线安装与卸载&quot; class=&quot;headerlink&quot; title=&quot;MySQL 在线安装与卸载 &quot;&gt;&lt;/a&gt;MySQL 在线安装与卸载 &lt;!-- {docsify-ignore} --&gt;&lt;/h2&gt;&lt;b
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://small-rose.github.io/categories/MySQL/"/>
+    
+    
+      <category term="MySQL" scheme="https://small-rose.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Aop</title>
+    <link href="https://small-rose.github.io/posts/655d86b3.html"/>
+    <id>https://small-rose.github.io/posts/655d86b3.html</id>
+    <published>2020-12-18T07:00:00.000Z</published>
+    <updated>2020-12-18T07:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Spring&quot;&gt;&lt;a href=&quot;#Spring&quot; class=&quot;headerlink&quot; title=&quot;Spring&quot;&gt;&lt;/a&gt;Spring&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://spring.io/&quot; target=&quot;_
+      
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="https://small-rose.github.io/categories/Spring/"/>
+    
+    
+      <category term="AOP" scheme="https://small-rose.github.io/tags/AOP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring IoC</title>
+    <link href="https://small-rose.github.io/posts/eff096d5.html"/>
+    <id>https://small-rose.github.io/posts/eff096d5.html</id>
+    <published>2020-12-16T07:00:00.000Z</published>
+    <updated>2020-12-16T07:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Spring&quot;&gt;&lt;a href=&quot;#Spring&quot; class=&quot;headerlink&quot; title=&quot;Spring&quot;&gt;&lt;/a&gt;Spring&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://spring.io/&quot; target=&quot;_
+      
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="https://small-rose.github.io/categories/Spring/"/>
+    
+    
+      <category term="Ioc" scheme="https://small-rose.github.io/tags/Ioc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot AutoConfig 自动装配</title>
+    <link href="https://small-rose.github.io/posts/9c6bb4e4.html"/>
+    <id>https://small-rose.github.io/posts/9c6bb4e4.html</id>
+    <published>2020-12-14T13:00:00.000Z</published>
+    <updated>2020-12-14T13:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringBoot-自动装配&quot;&gt;&lt;a href=&quot;#SpringBoot-自动装配&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot  自动装配 &quot;&gt;&lt;/a&gt;SpringBoot  自动装配 &lt;!-- {docsify-ignore} 
       
     
     </summary>
@@ -83,342 +179,51 @@
       <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
     
     
-      <category term="Thymeleaf" scheme="https://small-rose.github.io/tags/Thymeleaf/"/>
+      <category term="AutoConfig" scheme="https://small-rose.github.io/tags/AutoConfig/"/>
     
   </entry>
   
   <entry>
-    <title>Thymeleaf 语法学习</title>
-    <link href="https://small-rose.github.io/posts/9e1a85cd.html"/>
-    <id>https://small-rose.github.io/posts/9e1a85cd.html</id>
-    <published>2020-07-25T13:30:00.000Z</published>
-    <updated>2020-08-05T12:00:00.000Z</updated>
+    <title>Git 注意事项</title>
+    <link href="https://small-rose.github.io/posts/29d713c1.html"/>
+    <id>https://small-rose.github.io/posts/29d713c1.html</id>
+    <published>2020-12-13T14:00:00.000Z</published>
+    <updated>2020-12-13T14:00:00.000Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;SpringBoot-Thymeleaf-语法学习&quot;&gt;&lt;a href=&quot;#SpringBoot-Thymeleaf-语法学习&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot Thymeleaf  语法学习&quot;&gt;&lt;/a&gt;SpringBoot
+        &lt;h3 id=&quot;1、gitHub-提交&quot;&gt;&lt;a href=&quot;#1、gitHub-提交&quot; class=&quot;headerlink&quot; title=&quot;1、gitHub 提交&quot;&gt;&lt;/a&gt;1、gitHub 提交&lt;/h3&gt;&lt;p&gt;（1）创建新的仓库然后提交：&lt;/p&gt;
+&lt;pre class=&quot; la
       
     
     </summary>
     
     
-      <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
+      <category term="Github" scheme="https://small-rose.github.io/categories/Github/"/>
     
     
-      <category term="Thymeleaf" scheme="https://small-rose.github.io/tags/Thymeleaf/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot 静态资源配置</title>
-    <link href="https://small-rose.github.io/posts/6de4ee20.html"/>
-    <id>https://small-rose.github.io/posts/6de4ee20.html</id>
-    <published>2020-07-25T06:30:00.000Z</published>
-    <updated>2020-07-25T06:30:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;SpringBoot-静态资源配置&quot;&gt;&lt;a href=&quot;#SpringBoot-静态资源配置&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot 静态资源配置&quot;&gt;&lt;/a&gt;SpringBoot 静态资源配置&lt;/h2&gt;&lt;p&gt;在 SpringBo
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
-    
-    
-      <category term="static" scheme="https://small-rose.github.io/tags/static/"/>
+      <category term="Git" scheme="https://small-rose.github.io/tags/Git/"/>
     
   </entry>
   
   <entry>
-    <title>SpringBoot 日志学习</title>
-    <link href="https://small-rose.github.io/posts/c74d2d29.html"/>
-    <id>https://small-rose.github.io/posts/c74d2d29.html</id>
-    <published>2020-07-23T06:30:00.000Z</published>
-    <updated>2020-07-23T06:30:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;SpringBoot-日志学习&quot;&gt;&lt;a href=&quot;#SpringBoot-日志学习&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot 日志学习&quot;&gt;&lt;/a&gt;SpringBoot 日志学习&lt;/h2&gt;&lt;h3 id=&quot;一、-日志框架了解&quot;&gt;&lt;a
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
-    
-    
-      <category term="Loging" scheme="https://small-rose.github.io/tags/Loging/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>YAML 语法学习</title>
-    <link href="https://small-rose.github.io/posts/bb845937.html"/>
-    <id>https://small-rose.github.io/posts/bb845937.html</id>
-    <published>2020-07-22T14:00:00.000Z</published>
-    <updated>2020-07-22T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;YAML语法学习&quot;&gt;&lt;a href=&quot;#YAML语法学习&quot; class=&quot;headerlink&quot; title=&quot;YAML语法学习&quot;&gt;&lt;/a&gt;YAML语法学习&lt;/h2&gt;&lt;p&gt;其实 &lt;code&gt;YAML&lt;/code&gt; 并不是springboot 特有语法，比如 Hex
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
-    
-    
-      <category term="YAML" scheme="https://small-rose.github.io/tags/YAML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matery 主题添加多级分类</title>
-    <link href="https://small-rose.github.io/posts/5a99eb4d.html"/>
-    <id>https://small-rose.github.io/posts/5a99eb4d.html</id>
-    <published>2020-07-20T17:00:00.000Z</published>
-    <updated>2020-07-20T17:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Hexo-Matery-主题添加多级分类&quot;&gt;&lt;a href=&quot;#Hexo-Matery-主题添加多级分类&quot; class=&quot;headerlink&quot; title=&quot;Hexo Matery 主题添加多级分类&quot;&gt;&lt;/a&gt;Hexo Matery 主题添加多级分类&lt;/h2&gt;&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://small-rose.github.io/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://small-rose.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo 博客添加思维导图渲染</title>
-    <link href="https://small-rose.github.io/posts/5a2c12e2.html"/>
-    <id>https://small-rose.github.io/posts/5a2c12e2.html</id>
-    <published>2020-07-20T14:00:00.000Z</published>
-    <updated>2020-07-20T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Hexo-博客添加思维导图渲染&quot;&gt;&lt;a href=&quot;#Hexo-博客添加思维导图渲染&quot; class=&quot;headerlink&quot; title=&quot;Hexo 博客添加思维导图渲染&quot;&gt;&lt;/a&gt;Hexo 博客添加思维导图渲染&lt;/h2&gt;&lt;p&gt;理论上是不分主题的。&lt;/p&gt;
-&lt;p&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://small-rose.github.io/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://small-rose.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>定时任务之Quartz</title>
-    <link href="https://small-rose.github.io/posts/6ddb3c14.html"/>
-    <id>https://small-rose.github.io/posts/6ddb3c14.html</id>
-    <published>2020-07-18T15:00:00.000Z</published>
-    <updated>2020-07-18T15:00:00.000Z</updated>
+    <title>静态博客-字体更换</title>
+    <link href="https://small-rose.github.io/posts/8f5c11d2.html"/>
+    <id>https://small-rose.github.io/posts/8f5c11d2.html</id>
+    <published>2020-12-12T14:00:00.000Z</published>
+    <updated>2020-12-12T14:00:00.000Z</updated>
     
     <summary type="html">
     
       
       
         &lt;blockquote&gt;
-&lt;p&gt;本文主要记录学习Quartz的相关内容。&lt;br&gt;  整理于2020-06-25，最后更新2020-07-18。&lt;/p&gt;
+&lt;p&gt;关于网站更换字体，还是独立出来，并不是所有的人都有这种需要。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;一、Quartz简述&quot;&gt;&lt;a href=&quot;#一、Quartz简述&quot; class=&quot;h
+&lt;h2 id=&quot;一、CSS-字体支持&quot;&gt;&lt;a href=&quot;#一、CSS-字体支持&quot; class=&quot;headerlink&quot; title=&quot;一、CSS 字
       
-    
-    </summary>
-    
-    
-      <category term="定时任务" scheme="https://small-rose.github.io/categories/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
-    
-    
-      <category term="Quartz" scheme="https://small-rose.github.io/tags/Quartz/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>定时任务之Spring Task</title>
-    <link href="https://small-rose.github.io/posts/5a5ab620.html"/>
-    <id>https://small-rose.github.io/posts/5a5ab620.html</id>
-    <published>2020-07-18T14:00:00.000Z</published>
-    <updated>2020-07-18T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;定时任务之Spring-Task&quot;&gt;&lt;a href=&quot;#定时任务之Spring-Task&quot; class=&quot;headerlink&quot; title=&quot;定时任务之Spring Task&quot;&gt;&lt;/a&gt;定时任务之Spring Task&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;本
-      
-    
-    </summary>
-    
-    
-      <category term="定时任务" scheme="https://small-rose.github.io/categories/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
-    
-    
-      <category term="Spring Task" scheme="https://small-rose.github.io/tags/Spring-Task/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>定时任务之Java定时API</title>
-    <link href="https://small-rose.github.io/posts/a516f8e8.html"/>
-    <id>https://small-rose.github.io/posts/a516f8e8.html</id>
-    <published>2020-07-18T12:20:00.000Z</published>
-    <updated>2020-07-18T12:20:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;定时任务之Java定时任务API&quot;&gt;&lt;a href=&quot;#定时任务之Java定时任务API&quot; class=&quot;headerlink&quot; title=&quot;定时任务之Java定时任务API&quot;&gt;&lt;/a&gt;定时任务之Java定时任务API&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;本
-      
-    
-    </summary>
-    
-    
-      <category term="定时任务" scheme="https://small-rose.github.io/categories/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
-    
-    
-      <category term="Java Timer" scheme="https://small-rose.github.io/tags/Java-Timer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM学习导航（第三版）</title>
-    <link href="https://small-rose.github.io/posts/2a1a7c1f.html"/>
-    <id>https://small-rose.github.io/posts/2a1a7c1f.html</id>
-    <published>2020-07-16T16:00:00.000Z</published>
-    <updated>2020-07-16T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;本系列主要记录关于深入理解JVM（第三版）相关学习比较，本文为导航。&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;JVM学习导航&quot;&gt;&lt;a href=&quot;#JVM学习导航&quot; class=&quot;headerlink&quot; title=&quot;JVM学习导航&quot;&gt;&lt;/a&gt;JVM学习导航
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
-    
-      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jvm常见参数汇总</title>
-    <link href="https://small-rose.github.io/posts/bb37497b.html"/>
-    <id>https://small-rose.github.io/posts/bb37497b.html</id>
-    <published>2020-07-16T10:00:00.000Z</published>
-    <updated>2020-07-16T10:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jvm常见参数汇总&quot;&gt;&lt;a href=&quot;#jvm常见参数汇总&quot; class=&quot;headerlink&quot; title=&quot;jvm常见参数汇总&quot;&gt;&lt;/a&gt;jvm常见参数汇总&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;主要是针对之前的学习，进行一个参数的集中整理。&lt;/p&gt;
-&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="JVM" scheme="https://small-rose.github.io/categories/JVM/"/>
-    
-    
-      <category term="JVM" scheme="https://small-rose.github.io/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java8 接口新特征</title>
-    <link href="https://small-rose.github.io/posts/1d9dd225.html"/>
-    <id>https://small-rose.github.io/posts/1d9dd225.html</id>
-    <published>2020-07-12T12:00:00.000Z</published>
-    <updated>2020-07-12T12:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Java8-接口新特征&quot;&gt;&lt;a href=&quot;#Java8-接口新特征&quot; class=&quot;headerlink&quot; title=&quot;Java8 接口新特征&quot;&gt;&lt;/a&gt;Java8 接口新特征&lt;/h2&gt;&lt;h3 id=&quot;1-接口默认方法&quot;&gt;&lt;a href=&quot;#1-接口默认方法&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java8 中的Stream API</title>
-    <link href="https://small-rose.github.io/posts/2da068d9.html"/>
-    <id>https://small-rose.github.io/posts/2da068d9.html</id>
-    <published>2020-07-11T17:00:00.000Z</published>
-    <updated>2020-07-11T17:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Java8-中的Stream-API&quot;&gt;&lt;a href=&quot;#Java8-中的Stream-API&quot; class=&quot;headerlink&quot; title=&quot;Java8 中的Stream API&quot;&gt;&lt;/a&gt;Java8 中的Stream API&lt;/h2&gt;&lt;p&gt;Stream
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://small-rose.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matery主题新手常见问题</title>
-    <link href="https://small-rose.github.io/posts/a53a9069.html"/>
-    <id>https://small-rose.github.io/posts/a53a9069.html</id>
-    <published>2020-07-11T09:00:00.000Z</published>
-    <updated>2020-08-14T06:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      Matery主题新手常见问题
     
     </summary>
     
@@ -431,15 +236,214 @@
   </entry>
   
   <entry>
-    <title>Mybtis(五)Mapper映射器</title>
-    <link href="https://small-rose.github.io/posts/ae8510ea.html"/>
-    <id>https://small-rose.github.io/posts/ae8510ea.html</id>
-    <published>2020-07-09T17:00:00.000Z</published>
-    <updated>2020-07-09T17:00:00.000Z</updated>
+    <title>Spring batch</title>
+    <link href="https://small-rose.github.io/posts/7e9b1e27.html"/>
+    <id>https://small-rose.github.io/posts/7e9b1e27.html</id>
+    <published>2020-12-12T02:00:00.000Z</published>
+    <updated>2020-12-12T02:00:00.000Z</updated>
     
     <summary type="html">
     
-      Mybatis的Mapper映射器。
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;分类说明，Spring batch 属于sping框架，而非springboot，但因为现在多使用springboot开发，并且本文案例也是基于springboot的，所以就放到SpringBoot类目下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
+    
+    
+      <category term="Spring batch" scheme="https://small-rose.github.io/tags/Spring-batch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于SpringBoot的自定义注解</title>
+    <link href="https://small-rose.github.io/posts/ab810780.html"/>
+    <id>https://small-rose.github.io/posts/ab810780.html</id>
+    <published>2020-12-06T02:30:00.000Z</published>
+    <updated>2020-12-06T02:30:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;基于SpringBoot的自定义注解&quot;&gt;&lt;a href=&quot;#基于SpringBoot的自定义注解&quot; class=&quot;headerlink&quot; title=&quot;基于SpringBoot的自定义注解&quot;&gt;&lt;/a&gt;基于SpringBoot的自定义注解&lt;/h2&gt;&lt;h2 id=&quot;一
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
+    
+    
+      <category term="Annotation" scheme="https://small-rose.github.io/tags/Annotation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud Stream RocketMQ</title>
+    <link href="https://small-rose.github.io/posts/6df661fe.html"/>
+    <id>https://small-rose.github.io/posts/6df661fe.html</id>
+    <published>2020-12-04T14:00:00.000Z</published>
+    <updated>2020-12-04T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Spring-Cloud-Stream-RocketMQ&quot;&gt;&lt;a href=&quot;#Spring-Cloud-Stream-RocketMQ&quot; class=&quot;headerlink&quot; title=&quot;Spring Cloud Stream - RocketMQ&quot;&gt;&lt;/a&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="SpringCloud" scheme="https://small-rose.github.io/categories/SpringCloud/"/>
+    
+    
+      <category term="RocketMQ" scheme="https://small-rose.github.io/tags/RocketMQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BaseController 通用操作</title>
+    <link href="https://small-rose.github.io/posts/5504561c.html"/>
+    <id>https://small-rose.github.io/posts/5504561c.html</id>
+    <published>2020-12-02T14:00:00.000Z</published>
+    <updated>2020-12-02T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;BaseController&quot;&gt;&lt;a href=&quot;#BaseController&quot; class=&quot;headerlink&quot; title=&quot;BaseController&quot;&gt;&lt;/a&gt;BaseController&lt;/h2&gt;&lt;h3 id=&quot;1、复用基础常见操作&quot;&gt;&lt;a hr
+      
+    
+    </summary>
+    
+    
+      <category term="Web" scheme="https://small-rose.github.io/categories/Web/"/>
+    
+    
+      <category term="BaseXxx抽象" scheme="https://small-rose.github.io/tags/BaseXxx%E6%8A%BD%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RocketMQ 入门与实操</title>
+    <link href="https://small-rose.github.io/posts/c6651ce9.html"/>
+    <id>https://small-rose.github.io/posts/c6651ce9.html</id>
+    <published>2020-11-30T14:00:00.000Z</published>
+    <updated>2020-11-30T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;RocketMQ&quot;&gt;&lt;a href=&quot;#RocketMQ&quot; class=&quot;headerlink&quot; title=&quot;RocketMQ&quot;&gt;&lt;/a&gt;RocketMQ&lt;/h2&gt;&lt;h2 id=&quot;一、基本特点&quot;&gt;&lt;a href=&quot;#一、基本特点&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+    
+      <category term="MQ" scheme="https://small-rose.github.io/categories/MQ/"/>
+    
+    
+      <category term="RocketMQ" scheme="https://small-rose.github.io/tags/RocketMQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot Jackson 配置</title>
+    <link href="https://small-rose.github.io/posts/9c2f24e2.html"/>
+    <id>https://small-rose.github.io/posts/9c2f24e2.html</id>
+    <published>2020-11-29T13:00:00.000Z</published>
+    <updated>2020-11-29T13:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SpringBoot-jackson-配置&quot;&gt;&lt;a href=&quot;#SpringBoot-jackson-配置&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot jackson 配置&quot;&gt;&lt;/a&gt;SpringBoot jackson 配置&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
+    
+    
+      <category term="Jackson" scheme="https://small-rose.github.io/tags/Jackson/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IDEA 快捷键</title>
+    <link href="https://small-rose.github.io/posts/25ed82e.html"/>
+    <id>https://small-rose.github.io/posts/25ed82e.html</id>
+    <published>2020-11-29T08:00:00.000Z</published>
+    <updated>2020-11-29T08:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Ctrl-Alt-O&quot;&gt;&lt;a href=&quot;#Ctrl-Alt-O&quot; class=&quot;headerlink&quot; title=&quot;Ctrl + Alt + O&quot;&gt;&lt;/a&gt;Ctrl + Alt + O&lt;/h3&gt;&lt;p&gt;功能：清理不需要的导入&lt;/p&gt;
+&lt;h3 id=&quot;Ctrl-F
+      
+    
+    </summary>
+    
+    
+      <category term="IDEA" scheme="https://small-rose.github.io/categories/IDEA/"/>
+    
+    
+      <category term="IDEA" scheme="https://small-rose.github.io/tags/IDEA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020年Java 面试题</title>
+    <link href="https://small-rose.github.io/posts/b191965e.html"/>
+    <id>https://small-rose.github.io/posts/b191965e.html</id>
+    <published>2020-11-27T16:00:00.000Z</published>
+    <updated>2020-11-27T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;2020年10月Java面试题&quot;&gt;&lt;a href=&quot;#2020年10月Java面试题&quot; class=&quot;headerlink&quot; title=&quot;2020年10月Java面试题&quot;&gt;&lt;/a&gt;2020年10月Java面试题&lt;/h2&gt;&lt;h3 id=&quot;2020年10月23日整理
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
+    
+    
+      <category term="面试题" scheme="https://small-rose.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot Mybatis-Generator</title>
+    <link href="https://small-rose.github.io/posts/57dd2f7a.html"/>
+    <id>https://small-rose.github.io/posts/57dd2f7a.html</id>
+    <published>2020-11-27T14:00:00.000Z</published>
+    <updated>2020-11-27T14:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;TK-Mybatis-Generator-代码生成器&quot;&gt;&lt;a href=&quot;#TK-Mybatis-Generator-代码生成器&quot; class=&quot;headerlink&quot; title=&quot;TK.Mybatis-Generator 代码生成器&quot;&gt;&lt;/a&gt;TK.Mybat
+      
     
     </summary>
     
@@ -452,15 +456,18 @@
   </entry>
   
   <entry>
-    <title>Mybtis(六)Mapper级联</title>
-    <link href="https://small-rose.github.io/posts/44c4c800.html"/>
-    <id>https://small-rose.github.io/posts/44c4c800.html</id>
-    <published>2020-07-09T15:00:00.000Z</published>
-    <updated>2020-07-09T15:00:00.000Z</updated>
+    <title>SpringBoot Mybatis-Plus-generator</title>
+    <link href="https://small-rose.github.io/posts/7e372e85.html"/>
+    <id>https://small-rose.github.io/posts/7e372e85.html</id>
+    <published>2020-11-26T15:30:00.000Z</published>
+    <updated>2020-11-26T15:30:00.000Z</updated>
     
     <summary type="html">
     
-      Mybatis的映射器级联使用。
+      
+      
+        &lt;h2 id=&quot;Mybatis-Plus-generator-代码生成器&quot;&gt;&lt;a href=&quot;#Mybatis-Plus-generator-代码生成器&quot; class=&quot;headerlink&quot; title=&quot;Mybatis-Plus-generator 代码生成器&quot;&gt;&lt;/a&gt;My
+      
     
     </summary>
     
@@ -468,28 +475,31 @@
       <category term="Mybatis" scheme="https://small-rose.github.io/categories/Mybatis/"/>
     
     
-      <category term="Mybatis" scheme="https://small-rose.github.io/tags/Mybatis/"/>
+      <category term="Mybatis-Plus" scheme="https://small-rose.github.io/tags/Mybatis-Plus/"/>
     
   </entry>
   
   <entry>
-    <title>Hexo添加Live2D二次元老婆</title>
-    <link href="https://small-rose.github.io/posts/caf66d5e.html"/>
-    <id>https://small-rose.github.io/posts/caf66d5e.html</id>
-    <published>2020-06-30T15:20:00.000Z</published>
-    <updated>2020-06-30T15:20:00.000Z</updated>
+    <title>SpringBoot TK.Mybatis-generator</title>
+    <link href="https://small-rose.github.io/posts/b610e3c9.html"/>
+    <id>https://small-rose.github.io/posts/b610e3c9.html</id>
+    <published>2020-11-25T14:00:00.000Z</published>
+    <updated>2020-11-25T14:00:00.000Z</updated>
     
     <summary type="html">
     
-      Hexo添加Live2D二次元老婆。
+      
+      
+        &lt;h2 id=&quot;TK-Mybatis-generator-代码生成器&quot;&gt;&lt;a href=&quot;#TK-Mybatis-generator-代码生成器&quot; class=&quot;headerlink&quot; title=&quot;TK.Mybatis-generator 代码生成器&quot;&gt;&lt;/a&gt;TK.Mybat
+      
     
     </summary>
     
     
-      <category term="Hexo" scheme="https://small-rose.github.io/categories/Hexo/"/>
+      <category term="Mybatis" scheme="https://small-rose.github.io/categories/Mybatis/"/>
     
     
-      <category term="Hexo" scheme="https://small-rose.github.io/tags/Hexo/"/>
+      <category term="TKMybatis" scheme="https://small-rose.github.io/tags/TKMybatis/"/>
     
   </entry>
   
