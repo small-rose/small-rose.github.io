@@ -5,9 +5,9 @@
   <subtitle>Small Rose</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://www.zhangxiaocai.cn/"/>
+  <link href="https://notes.zhangxiaocai.cn/"/>
   <updated>2021-01-02T05:30:00.000Z</updated>
-  <id>https://www.zhangxiaocai.cn/</id>
+  <id>https://notes.zhangxiaocai.cn/</id>
   
   <author>
     <name>Small Rose / 张小菜苔</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hexo 添加春节装饰</title>
-    <link href="https://www.zhangxiaocai.cn/posts/166ffc86.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/166ffc86.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/166ffc86.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/166ffc86.html</id>
     <published>2021-01-02T05:30:00.000Z</published>
     <updated>2021-01-02T05:30:00.000Z</updated>
     
@@ -30,17 +30,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://notes.zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://notes.zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Tyloo-chat 聊天室部署教程</title>
-    <link href="https://www.zhangxiaocai.cn/posts/39142aea.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/39142aea.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/39142aea.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/39142aea.html</id>
     <published>2021-01-02T03:00:00.000Z</published>
     <updated>2021-01-02T03:00:00.000Z</updated>
     
@@ -54,17 +54,17 @@
     </summary>
     
     
-      <category term="聊天室" scheme="https://www.zhangxiaocai.cn/categories/%E8%81%8A%E5%A4%A9%E5%AE%A4/"/>
+      <category term="聊天室" scheme="https://notes.zhangxiaocai.cn/categories/%E8%81%8A%E5%A4%A9%E5%AE%A4/"/>
     
     
-      <category term="聊天室" scheme="https://www.zhangxiaocai.cn/tags/%E8%81%8A%E5%A4%A9%E5%AE%A4/"/>
+      <category term="聊天室" scheme="https://notes.zhangxiaocai.cn/tags/%E8%81%8A%E5%A4%A9%E5%AE%A4/"/>
     
   </entry>
   
   <entry>
     <title>MySQL5-解压安装</title>
-    <link href="https://www.zhangxiaocai.cn/posts/74a2d94f.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/74a2d94f.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/74a2d94f.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/74a2d94f.html</id>
     <published>2020-12-24T03:00:00.000Z</published>
     <updated>2020-12-24T03:00:00.000Z</updated>
     
@@ -78,17 +78,17 @@
     </summary>
     
     
-      <category term="MySQL" scheme="https://www.zhangxiaocai.cn/categories/MySQL/"/>
+      <category term="MySQL" scheme="https://notes.zhangxiaocai.cn/categories/MySQL/"/>
     
     
-      <category term="MySQL" scheme="https://www.zhangxiaocai.cn/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://notes.zhangxiaocai.cn/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>MySQL5-在线安装</title>
-    <link href="https://www.zhangxiaocai.cn/posts/6afb1b4e.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/6afb1b4e.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/6afb1b4e.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/6afb1b4e.html</id>
     <published>2020-12-23T02:00:00.000Z</published>
     <updated>2020-12-23T02:00:00.000Z</updated>
     
@@ -102,17 +102,17 @@
     </summary>
     
     
-      <category term="MySQL" scheme="https://www.zhangxiaocai.cn/categories/MySQL/"/>
+      <category term="MySQL" scheme="https://notes.zhangxiaocai.cn/categories/MySQL/"/>
     
     
-      <category term="MySQL" scheme="https://www.zhangxiaocai.cn/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://notes.zhangxiaocai.cn/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>Spring Aop</title>
-    <link href="https://www.zhangxiaocai.cn/posts/655d86b3.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/655d86b3.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/655d86b3.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/655d86b3.html</id>
     <published>2020-12-18T07:00:00.000Z</published>
     <updated>2020-12-18T07:00:00.000Z</updated>
     
@@ -127,17 +127,17 @@
     </summary>
     
     
-      <category term="Spring" scheme="https://www.zhangxiaocai.cn/categories/Spring/"/>
+      <category term="Spring" scheme="https://notes.zhangxiaocai.cn/categories/Spring/"/>
     
     
-      <category term="AOP" scheme="https://www.zhangxiaocai.cn/tags/AOP/"/>
+      <category term="AOP" scheme="https://notes.zhangxiaocai.cn/tags/AOP/"/>
     
   </entry>
   
   <entry>
     <title>Spring IoC</title>
-    <link href="https://www.zhangxiaocai.cn/posts/eff096d5.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/eff096d5.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/eff096d5.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/eff096d5.html</id>
     <published>2020-12-16T07:00:00.000Z</published>
     <updated>2020-12-16T07:00:00.000Z</updated>
     
@@ -152,17 +152,17 @@
     </summary>
     
     
-      <category term="Spring" scheme="https://www.zhangxiaocai.cn/categories/Spring/"/>
+      <category term="Spring" scheme="https://notes.zhangxiaocai.cn/categories/Spring/"/>
     
     
-      <category term="Ioc" scheme="https://www.zhangxiaocai.cn/tags/Ioc/"/>
+      <category term="Ioc" scheme="https://notes.zhangxiaocai.cn/tags/Ioc/"/>
     
   </entry>
   
   <entry>
     <title>SpringBoot AutoConfig 自动装配</title>
-    <link href="https://www.zhangxiaocai.cn/posts/9c6bb4e4.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/9c6bb4e4.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/9c6bb4e4.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/9c6bb4e4.html</id>
     <published>2020-12-14T13:00:00.000Z</published>
     <updated>2020-12-14T13:00:00.000Z</updated>
     
@@ -176,17 +176,17 @@
     </summary>
     
     
-      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
+      <category term="SpringBoot" scheme="https://notes.zhangxiaocai.cn/categories/SpringBoot/"/>
     
     
-      <category term="AutoConfig" scheme="https://www.zhangxiaocai.cn/tags/AutoConfig/"/>
+      <category term="AutoConfig" scheme="https://notes.zhangxiaocai.cn/tags/AutoConfig/"/>
     
   </entry>
   
   <entry>
     <title>Git 注意事项</title>
-    <link href="https://www.zhangxiaocai.cn/posts/29d713c1.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/29d713c1.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/29d713c1.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/29d713c1.html</id>
     <published>2020-12-13T14:00:00.000Z</published>
     <updated>2020-12-13T14:00:00.000Z</updated>
     
@@ -201,17 +201,17 @@
     </summary>
     
     
-      <category term="Github" scheme="https://www.zhangxiaocai.cn/categories/Github/"/>
+      <category term="Github" scheme="https://notes.zhangxiaocai.cn/categories/Github/"/>
     
     
-      <category term="Git" scheme="https://www.zhangxiaocai.cn/tags/Git/"/>
+      <category term="Git" scheme="https://notes.zhangxiaocai.cn/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>静态博客-字体更换</title>
-    <link href="https://www.zhangxiaocai.cn/posts/8f5c11d2.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/8f5c11d2.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/8f5c11d2.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/8f5c11d2.html</id>
     <published>2020-12-12T14:00:00.000Z</published>
     <updated>2020-12-12T14:00:00.000Z</updated>
     
@@ -228,17 +228,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://notes.zhangxiaocai.cn/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://www.zhangxiaocai.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://notes.zhangxiaocai.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Spring batch</title>
-    <link href="https://www.zhangxiaocai.cn/posts/7e9b1e27.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/7e9b1e27.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/7e9b1e27.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/7e9b1e27.html</id>
     <published>2020-12-12T02:00:00.000Z</published>
     <updated>2020-12-12T02:00:00.000Z</updated>
     
@@ -255,17 +255,17 @@
     </summary>
     
     
-      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
+      <category term="SpringBoot" scheme="https://notes.zhangxiaocai.cn/categories/SpringBoot/"/>
     
     
-      <category term="Spring batch" scheme="https://www.zhangxiaocai.cn/tags/Spring-batch/"/>
+      <category term="Spring batch" scheme="https://notes.zhangxiaocai.cn/tags/Spring-batch/"/>
     
   </entry>
   
   <entry>
     <title>基于SpringBoot的自定义注解</title>
-    <link href="https://www.zhangxiaocai.cn/posts/ab810780.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/ab810780.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/ab810780.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/ab810780.html</id>
     <published>2020-12-06T02:30:00.000Z</published>
     <updated>2020-12-06T02:30:00.000Z</updated>
     
@@ -279,17 +279,17 @@
     </summary>
     
     
-      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
+      <category term="SpringBoot" scheme="https://notes.zhangxiaocai.cn/categories/SpringBoot/"/>
     
     
-      <category term="Annotation" scheme="https://www.zhangxiaocai.cn/tags/Annotation/"/>
+      <category term="Annotation" scheme="https://notes.zhangxiaocai.cn/tags/Annotation/"/>
     
   </entry>
   
   <entry>
     <title>SpringCloud Stream RocketMQ</title>
-    <link href="https://www.zhangxiaocai.cn/posts/6df661fe.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/6df661fe.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/6df661fe.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/6df661fe.html</id>
     <published>2020-12-04T14:00:00.000Z</published>
     <updated>2020-12-04T14:00:00.000Z</updated>
     
@@ -303,17 +303,17 @@
     </summary>
     
     
-      <category term="SpringCloud" scheme="https://www.zhangxiaocai.cn/categories/SpringCloud/"/>
+      <category term="SpringCloud" scheme="https://notes.zhangxiaocai.cn/categories/SpringCloud/"/>
     
     
-      <category term="RocketMQ" scheme="https://www.zhangxiaocai.cn/tags/RocketMQ/"/>
+      <category term="RocketMQ" scheme="https://notes.zhangxiaocai.cn/tags/RocketMQ/"/>
     
   </entry>
   
   <entry>
     <title>BaseController 通用操作</title>
-    <link href="https://www.zhangxiaocai.cn/posts/5504561c.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/5504561c.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/5504561c.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/5504561c.html</id>
     <published>2020-12-02T14:00:00.000Z</published>
     <updated>2020-12-02T14:00:00.000Z</updated>
     
@@ -327,17 +327,17 @@
     </summary>
     
     
-      <category term="Web" scheme="https://www.zhangxiaocai.cn/categories/Web/"/>
+      <category term="Web" scheme="https://notes.zhangxiaocai.cn/categories/Web/"/>
     
     
-      <category term="BaseXxx抽象" scheme="https://www.zhangxiaocai.cn/tags/BaseXxx%E6%8A%BD%E8%B1%A1/"/>
+      <category term="BaseXxx抽象" scheme="https://notes.zhangxiaocai.cn/tags/BaseXxx%E6%8A%BD%E8%B1%A1/"/>
     
   </entry>
   
   <entry>
     <title>RocketMQ 入门与实操</title>
-    <link href="https://www.zhangxiaocai.cn/posts/c6651ce9.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/c6651ce9.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/c6651ce9.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/c6651ce9.html</id>
     <published>2020-11-30T14:00:00.000Z</published>
     <updated>2020-11-30T14:00:00.000Z</updated>
     
@@ -351,17 +351,17 @@
     </summary>
     
     
-      <category term="MQ" scheme="https://www.zhangxiaocai.cn/categories/MQ/"/>
+      <category term="MQ" scheme="https://notes.zhangxiaocai.cn/categories/MQ/"/>
     
     
-      <category term="RocketMQ" scheme="https://www.zhangxiaocai.cn/tags/RocketMQ/"/>
+      <category term="RocketMQ" scheme="https://notes.zhangxiaocai.cn/tags/RocketMQ/"/>
     
   </entry>
   
   <entry>
     <title>SpringBoot Jackson 配置</title>
-    <link href="https://www.zhangxiaocai.cn/posts/9c2f24e2.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/9c2f24e2.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/9c2f24e2.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/9c2f24e2.html</id>
     <published>2020-11-29T13:00:00.000Z</published>
     <updated>2020-11-29T13:00:00.000Z</updated>
     
@@ -375,17 +375,17 @@
     </summary>
     
     
-      <category term="SpringBoot" scheme="https://www.zhangxiaocai.cn/categories/SpringBoot/"/>
+      <category term="SpringBoot" scheme="https://notes.zhangxiaocai.cn/categories/SpringBoot/"/>
     
     
-      <category term="Jackson" scheme="https://www.zhangxiaocai.cn/tags/Jackson/"/>
+      <category term="Jackson" scheme="https://notes.zhangxiaocai.cn/tags/Jackson/"/>
     
   </entry>
   
   <entry>
     <title>IDEA 快捷键</title>
-    <link href="https://www.zhangxiaocai.cn/posts/25ed82e.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/25ed82e.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/25ed82e.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/25ed82e.html</id>
     <published>2020-11-29T08:00:00.000Z</published>
     <updated>2020-11-29T08:00:00.000Z</updated>
     
@@ -400,17 +400,17 @@
     </summary>
     
     
-      <category term="IDEA" scheme="https://www.zhangxiaocai.cn/categories/IDEA/"/>
+      <category term="IDEA" scheme="https://notes.zhangxiaocai.cn/categories/IDEA/"/>
     
     
-      <category term="IDEA" scheme="https://www.zhangxiaocai.cn/tags/IDEA/"/>
+      <category term="IDEA" scheme="https://notes.zhangxiaocai.cn/tags/IDEA/"/>
     
   </entry>
   
   <entry>
     <title>2020年Java 面试题</title>
-    <link href="https://www.zhangxiaocai.cn/posts/b191965e.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/b191965e.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/b191965e.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/b191965e.html</id>
     <published>2020-11-27T16:00:00.000Z</published>
     <updated>2020-11-27T16:00:00.000Z</updated>
     
@@ -424,17 +424,17 @@
     </summary>
     
     
-      <category term="Java" scheme="https://www.zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://notes.zhangxiaocai.cn/categories/Java/"/>
     
     
-      <category term="面试题" scheme="https://www.zhangxiaocai.cn/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <category term="面试题" scheme="https://notes.zhangxiaocai.cn/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>SpringBoot Mybatis-Generator</title>
-    <link href="https://www.zhangxiaocai.cn/posts/57dd2f7a.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/57dd2f7a.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/57dd2f7a.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/57dd2f7a.html</id>
     <published>2020-11-27T14:00:00.000Z</published>
     <updated>2020-11-27T14:00:00.000Z</updated>
     
@@ -448,17 +448,17 @@
     </summary>
     
     
-      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/categories/Mybatis/"/>
+      <category term="Mybatis" scheme="https://notes.zhangxiaocai.cn/categories/Mybatis/"/>
     
     
-      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/tags/Mybatis/"/>
+      <category term="Mybatis" scheme="https://notes.zhangxiaocai.cn/tags/Mybatis/"/>
     
   </entry>
   
   <entry>
     <title>SpringBoot Mybatis-Plus-generator</title>
-    <link href="https://www.zhangxiaocai.cn/posts/7e372e85.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/7e372e85.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/7e372e85.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/7e372e85.html</id>
     <published>2020-11-26T15:30:00.000Z</published>
     <updated>2020-11-26T15:30:00.000Z</updated>
     
@@ -472,17 +472,17 @@
     </summary>
     
     
-      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/categories/Mybatis/"/>
+      <category term="Mybatis" scheme="https://notes.zhangxiaocai.cn/categories/Mybatis/"/>
     
     
-      <category term="Mybatis-Plus" scheme="https://www.zhangxiaocai.cn/tags/Mybatis-Plus/"/>
+      <category term="Mybatis-Plus" scheme="https://notes.zhangxiaocai.cn/tags/Mybatis-Plus/"/>
     
   </entry>
   
   <entry>
     <title>SpringBoot TK.Mybatis-generator</title>
-    <link href="https://www.zhangxiaocai.cn/posts/b610e3c9.html"/>
-    <id>https://www.zhangxiaocai.cn/posts/b610e3c9.html</id>
+    <link href="https://notes.zhangxiaocai.cn/posts/b610e3c9.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/b610e3c9.html</id>
     <published>2020-11-25T14:00:00.000Z</published>
     <updated>2020-11-25T14:00:00.000Z</updated>
     
@@ -496,10 +496,10 @@
     </summary>
     
     
-      <category term="Mybatis" scheme="https://www.zhangxiaocai.cn/categories/Mybatis/"/>
+      <category term="Mybatis" scheme="https://notes.zhangxiaocai.cn/categories/Mybatis/"/>
     
     
-      <category term="TKMybatis" scheme="https://www.zhangxiaocai.cn/tags/TKMybatis/"/>
+      <category term="TKMybatis" scheme="https://notes.zhangxiaocai.cn/tags/TKMybatis/"/>
     
   </entry>
   
