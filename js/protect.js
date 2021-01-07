@@ -1,3 +1,3 @@
-// build time:Thu Jan 07 2021 01:39:39 GMT+0800 (中国标准时间)
+// build time:Thu Jan 07 2021 21:16:07 GMT+0800 (中国标准时间)
 document.onkeydown=function(){var e=window.event||arguments[0];if(e.keyCode==123){window.location.href="https://blog.zhangxiaocai.cn";return false}else if(e.ctrlKey&&e.shiftKey&&e.keyCode==73){window.location.href="https://blog.zhangxiaocai.cn";return false}else if(e.ctrlKey&&e.keyCode==85){window.location.href="https://blog.zhangxiaocai.cn";return false}else if(e.ctrlKey&&e.keyCode==83){window.location.href="https://blog.zhangxiaocai.cn";return false}};document.oncontextmenu=function(){window.location.href="https://chat.zhangxiaocai.cn";return false};
 //rebuild by neat 
