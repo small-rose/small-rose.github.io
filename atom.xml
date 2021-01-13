@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://notes.zhangxiaocai.cn/"/>
-  <updated>2021-01-02T05:30:00.000Z</updated>
+  <updated>2021-01-13T08:30:00.000Z</updated>
   <id>https://notes.zhangxiaocai.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo-theme-zhoo</title>
+    <link href="https://notes.zhangxiaocai.cn/posts/5bd3ea20.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/5bd3ea20.html</id>
+    <published>2021-01-13T08:30:00.000Z</published>
+    <updated>2021-01-13T08:30:00.000Z</updated>
+    
+    <summary type="html">
+    
+      简洁又好看的Hexo主题，还支持小程序
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://notes.zhangxiaocai.cn/categories/Hexo/"/>
+    
+    
+      <category term="Hexo-theme-zhoo" scheme="https://notes.zhangxiaocai.cn/tags/Hexo-theme-zhoo/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo 添加春节装饰</title>
@@ -476,30 +497,6 @@
     
     
       <category term="Mybatis-Plus" scheme="https://notes.zhangxiaocai.cn/tags/Mybatis-Plus/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot TK.Mybatis-generator</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/b610e3c9.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/b610e3c9.html</id>
-    <published>2020-11-25T14:00:00.000Z</published>
-    <updated>2020-11-25T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;TK-Mybatis-generator-代码生成器&quot;&gt;&lt;a href=&quot;#TK-Mybatis-generator-代码生成器&quot; class=&quot;headerlink&quot; title=&quot;TK.Mybatis-generator 代码生成器&quot;&gt;&lt;/a&gt;TK.Mybat
-      
-    
-    </summary>
-    
-    
-      <category term="Mybatis" scheme="https://notes.zhangxiaocai.cn/categories/Mybatis/"/>
-    
-    
-      <category term="TKMybatis" scheme="https://notes.zhangxiaocai.cn/tags/TKMybatis/"/>
     
   </entry>
   
