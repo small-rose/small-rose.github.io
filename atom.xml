@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://notes.zhangxiaocai.cn/"/>
-  <updated>2021-01-13T08:30:00.000Z</updated>
+  <updated>2021-04-03T13:32:36.647Z</updated>
   <id>https://notes.zhangxiaocai.cn/</id>
   
   <author>
@@ -15,6 +15,69 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java/activiti</title>
+    <link href="https://notes.zhangxiaocai.cn/posts/2934a646.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/2934a646.html</id>
+    <published>2021-04-03T13:32:36.647Z</published>
+    <updated>2021-04-03T13:32:36.647Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;h
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>java/SpringCloud/distributed-idempotency</title>
+    <link href="https://notes.zhangxiaocai.cn/posts/ac1fe76.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/ac1fe76.html</id>
+    <published>2021-03-29T10:57:58.941Z</published>
+    <updated>2021-03-29T10:57:58.941Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;幂等性问题&quot;&gt;&lt;a href=&quot;#幂等性问题&quot; class=&quot;headerlink&quot; title=&quot;幂等性问题&quot;&gt;&lt;/a&gt;幂等性问题&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;幂等性概念&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;幂等 idempotency&lt;/p&gt;
+&lt;p&gt;幂等性是数学
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mybatis(七)Mybatis缓存</title>
+    <link href="https://notes.zhangxiaocai.cn/posts/ae8510ea.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/ae8510ea.html</id>
+    <published>2021-03-25T11:00:00.000Z</published>
+    <updated>2021-03-25T11:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      Mybatis的缓存机制。
+    
+    </summary>
+    
+    
+      <category term="Mybatis" scheme="https://notes.zhangxiaocai.cn/categories/Mybatis/"/>
+    
+    
+      <category term="Mybatis,cache" scheme="https://notes.zhangxiaocai.cn/tags/Mybatis-cache/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo-theme-zhaoo</title>
@@ -425,78 +488,6 @@
     
     
       <category term="IDEA" scheme="https://notes.zhangxiaocai.cn/tags/IDEA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2020年Java 面试题</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/b191965e.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/b191965e.html</id>
-    <published>2020-11-27T16:00:00.000Z</published>
-    <updated>2020-11-27T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;2020年10月Java面试题&quot;&gt;&lt;a href=&quot;#2020年10月Java面试题&quot; class=&quot;headerlink&quot; title=&quot;2020年10月Java面试题&quot;&gt;&lt;/a&gt;2020年10月Java面试题&lt;/h2&gt;&lt;h3 id=&quot;2020年10月23日整理
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://notes.zhangxiaocai.cn/categories/Java/"/>
-    
-    
-      <category term="面试题" scheme="https://notes.zhangxiaocai.cn/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot Mybatis-Generator</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/57dd2f7a.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/57dd2f7a.html</id>
-    <published>2020-11-27T14:00:00.000Z</published>
-    <updated>2020-11-27T14:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;TK-Mybatis-Generator-代码生成器&quot;&gt;&lt;a href=&quot;#TK-Mybatis-Generator-代码生成器&quot; class=&quot;headerlink&quot; title=&quot;TK.Mybatis-Generator 代码生成器&quot;&gt;&lt;/a&gt;TK.Mybat
-      
-    
-    </summary>
-    
-    
-      <category term="Mybatis" scheme="https://notes.zhangxiaocai.cn/categories/Mybatis/"/>
-    
-    
-      <category term="Mybatis" scheme="https://notes.zhangxiaocai.cn/tags/Mybatis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot Mybatis-Plus-generator</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/7e372e85.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/7e372e85.html</id>
-    <published>2020-11-26T15:30:00.000Z</published>
-    <updated>2020-11-26T15:30:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Mybatis-Plus-generator-代码生成器&quot;&gt;&lt;a href=&quot;#Mybatis-Plus-generator-代码生成器&quot; class=&quot;headerlink&quot; title=&quot;Mybatis-Plus-generator 代码生成器&quot;&gt;&lt;/a&gt;My
-      
-    
-    </summary>
-    
-    
-      <category term="Mybatis" scheme="https://notes.zhangxiaocai.cn/categories/Mybatis/"/>
-    
-    
-      <category term="Mybatis-Plus" scheme="https://notes.zhangxiaocai.cn/tags/Mybatis-Plus/"/>
     
   </entry>
   
