@@ -1,47 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>斯莫笔记</title>
-  
+  <icon>https://www.gravatar.com/avatar/3a8c3ed8567a0e252996252d9543c4e2</icon>
   <subtitle>Small Rose</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://notes.zhangxiaocai.cn/"/>
-  <updated>2021-04-03T13:32:36.647Z</updated>
+  <updated>2021-05-01T02:30:00.000Z</updated>
   <id>https://notes.zhangxiaocai.cn/</id>
   
   <author>
-    <name>Small Rose / 张小菜苔</name>
-    
+    <name>Small-Rose</name>
+    <email>small-rose#qq.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>java/activiti</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/2934a646.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/2934a646.html</id>
-    <published>2021-04-03T13:32:36.647Z</published>
-    <updated>2021-04-03T13:32:36.647Z</updated>
+    <title>SpringBoot Redis</title>
+    <link href="https://notes.zhangxiaocai.cn/posts/428ea463.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/428ea463.html</id>
+    <published>2021-05-01T02:30:00.000Z</published>
+    <updated>2021-05-01T02:30:00.000Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;h
+        &lt;h1 id=&quot;SpringBoot-redis&quot;&gt;&lt;a href=&quot;#SpringBoot-redis&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot-redis&quot;&gt;&lt;/a&gt;SpringBoot-redis&lt;/h1&gt;&lt;p&gt;引依赖&lt;/p&gt;
+&lt;pre c
       
     
     </summary>
     
     
+      <category term="SpringBoot" scheme="https://notes.zhangxiaocai.cn/categories/SpringBoot/"/>
+    
+    
+      <category term="Redis" scheme="https://notes.zhangxiaocai.cn/tags/Redis/"/>
     
   </entry>
   
   <entry>
-    <title>java/SpringCloud/distributed-idempotency</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/ac1fe76.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/ac1fe76.html</id>
-    <published>2021-03-29T10:57:58.941Z</published>
-    <updated>2021-03-29T10:57:58.941Z</updated>
+    <title>SpringBoot Hibernate5</title>
+    <link href="https://notes.zhangxiaocai.cn/posts/572fffbb.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/572fffbb.html</id>
+    <published>2021-04-30T12:30:00.000Z</published>
+    <updated>2021-04-30T12:30:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Springboot-Hibernate5 整合&lt;/p&gt;
+&lt;p&gt;版本适配请自行调整。&lt;/p&gt;
+&lt;p&gt;版本信息：&lt;/p&gt;
+&lt;pre class=&quot; language-xml&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&lt;span class=&quot;token tag&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://notes.zhangxiaocai.cn/categories/SpringBoot/"/>
+    
+    
+      <category term="Hibernate5" scheme="https://notes.zhangxiaocai.cn/tags/Hibernate5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud 幂等性问题</title>
+    <link href="https://notes.zhangxiaocai.cn/posts/96e5b040.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/96e5b040.html</id>
+    <published>2021-03-29T08:00:00.000Z</published>
+    <updated>2021-03-29T08:00:00.000Z</updated>
     
     <summary type="html">
     
@@ -55,6 +87,10 @@
     </summary>
     
     
+      <category term="SpringCloud" scheme="https://notes.zhangxiaocai.cn/categories/SpringCloud/"/>
+    
+    
+      <category term="幂等性问题" scheme="https://notes.zhangxiaocai.cn/tags/%E5%B9%82%E7%AD%89%E6%80%A7%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
@@ -76,6 +112,30 @@
     
     
       <category term="Mybatis,cache" scheme="https://notes.zhangxiaocai.cn/tags/Mybatis-cache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021年Java 面试题</title>
+    <link href="https://notes.zhangxiaocai.cn/posts/fa814936.html"/>
+    <id>https://notes.zhangxiaocai.cn/posts/fa814936.html</id>
+    <published>2021-03-11T16:00:00.000Z</published>
+    <updated>2021-03-11T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Java面试题及答案&quot;&gt;&lt;a href=&quot;#Java面试题及答案&quot; class=&quot;headerlink&quot; title=&quot;Java面试题及答案&quot;&gt;&lt;/a&gt;Java面试题及答案&lt;/h2&gt;&lt;h3 id=&quot;2020年10月23日整理&quot;&gt;&lt;a href=&quot;#2020年10月
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://notes.zhangxiaocai.cn/categories/Java/"/>
+    
+    
+      <category term="面试题" scheme="https://notes.zhangxiaocai.cn/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
@@ -439,55 +499,6 @@
     
     
       <category term="RocketMQ" scheme="https://notes.zhangxiaocai.cn/tags/RocketMQ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot Jackson 配置</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/9c2f24e2.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/9c2f24e2.html</id>
-    <published>2020-11-29T13:00:00.000Z</published>
-    <updated>2020-11-29T13:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;SpringBoot-jackson-配置&quot;&gt;&lt;a href=&quot;#SpringBoot-jackson-配置&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot jackson 配置&quot;&gt;&lt;/a&gt;SpringBoot jackson 配置&lt;/
-      
-    
-    </summary>
-    
-    
-      <category term="SpringBoot" scheme="https://notes.zhangxiaocai.cn/categories/SpringBoot/"/>
-    
-    
-      <category term="Jackson" scheme="https://notes.zhangxiaocai.cn/tags/Jackson/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IDEA 快捷键</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/25ed82e.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/25ed82e.html</id>
-    <published>2020-11-29T08:00:00.000Z</published>
-    <updated>2020-11-29T08:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Ctrl-Alt-O&quot;&gt;&lt;a href=&quot;#Ctrl-Alt-O&quot; class=&quot;headerlink&quot; title=&quot;Ctrl + Alt + O&quot;&gt;&lt;/a&gt;Ctrl + Alt + O&lt;/h3&gt;&lt;p&gt;功能：清理不需要的导入&lt;/p&gt;
-&lt;h3 id=&quot;Ctrl-F
-      
-    
-    </summary>
-    
-    
-      <category term="IDEA" scheme="https://notes.zhangxiaocai.cn/categories/IDEA/"/>
-    
-    
-      <category term="IDEA" scheme="https://notes.zhangxiaocai.cn/tags/IDEA/"/>
     
   </entry>
   
