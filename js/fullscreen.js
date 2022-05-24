@@ -23,7 +23,7 @@ function enterfullscreen() { //进入全屏
 
 function exitfullscreen() { //退出全屏
    // $("#fullscreen").html("切换全屏");
-    
+   
     if(document.exitFullscreen) {
         document.exitFullscreen();
     } else if(document.mozCancelFullScreen) {

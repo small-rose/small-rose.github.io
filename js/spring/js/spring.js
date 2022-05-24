@@ -17,4 +17,5 @@ function switchThemes() {
 function autoSpring(){
     document.body.classList.add('themespring');
     localStorage.setItem('themespring','1');
+    
 }
