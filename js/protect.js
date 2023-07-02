@@ -1,3 +1,3 @@
-// build time:Sun Jun 26 2022 12:23:17 GMT+0800 (中国标准时间)
+// build time:Sun Jul 02 2023 22:56:29 GMT+0800 (中国标准时间)
 document.onkeydown=function(){var e=window.event||arguments[0];if(e.keyCode==123){window.location.href="https://zhangxiaocai.cn?f=reboot";return false}else if(e.ctrlKey&&e.shiftKey&&e.keyCode==73){window.location.href="https://zhangxiaocai.cn?f=reboot";return false}else if(e.ctrlKey&&e.keyCode==85){window.location.href="https://zhangxiaocai.cn?f=reboot";return false}else if(e.ctrlKey&&e.keyCode==83){window.location.href="https://zhangxiaocai.cn?f=reboot";return false}};document.oncontextmenu=function(){window.location.href="https://chat.zhangxiaocai.cn";return false};
 //rebuild by neat 
