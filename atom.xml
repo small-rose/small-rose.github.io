@@ -5,9 +5,9 @@
   <subtitle>Small Rose</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://notes.zhangxiaocai.cn/"/>
-  <updated>2024-01-26T16:00:00.000Z</updated>
-  <id>https://notes.zhangxiaocai.cn/</id>
+  <link href="https://small-rose.github.io/"/>
+  <updated>2025-01-14T17:14:00.000Z</updated>
+  <id>https://small-rose.github.io/</id>
   
   <author>
     <name>Small-Rose</name>
@@ -18,33 +18,33 @@
   
   <entry>
     <title>我回来了</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/a418cca.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/a418cca.html</id>
+    <link href="https://small-rose.github.io/posts/a418cca.html"/>
+    <id>https://small-rose.github.io/posts/a418cca.html</id>
     <published>2024-01-26T16:00:00.000Z</published>
-    <updated>2024-01-26T16:00:00.000Z</updated>
+    <updated>2025-01-14T17:14:00.000Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;biandong&quot;&gt;&lt;a href=&quot;#biandong&quot; class=&quot;headerlink&quot; title=&quot;biandong&quot;&gt;&lt;/a&gt;biandong&lt;/h2&gt;&lt;p&gt;翻到以前的学习记录。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;span style=&quot;color: 
+        &lt;h2 id=&quot;变动&quot;&gt;&lt;a href=&quot;#变动&quot; class=&quot;headerlink&quot; title=&quot;变动&quot;&gt;&lt;/a&gt;变动&lt;/h2&gt;&lt;p&gt;翻到以前的学习记录。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span style=&quot;color: red&quot;&gt;&lt;del&gt;hexo老要迁移，懒得年年倒
       
     
     </summary>
     
     
-      <category term="收藏资源" scheme="https://notes.zhangxiaocai.cn/categories/%E6%94%B6%E8%97%8F%E8%B5%84%E6%BA%90/"/>
+      <category term="收藏资源" scheme="https://small-rose.github.io/categories/%E6%94%B6%E8%97%8F%E8%B5%84%E6%BA%90/"/>
     
     
-      <category term="环境变量" scheme="https://notes.zhangxiaocai.cn/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
+      <category term="环境变量" scheme="https://small-rose.github.io/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
     
   </entry>
   
   <entry>
     <title>SpringBoot Redis</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/428ea463.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/428ea463.html</id>
+    <link href="https://small-rose.github.io/posts/428ea463.html"/>
+    <id>https://small-rose.github.io/posts/428ea463.html</id>
     <published>2021-05-01T02:30:00.000Z</published>
     <updated>2021-05-01T02:30:00.000Z</updated>
     
@@ -59,17 +59,17 @@
     </summary>
     
     
-      <category term="SpringBoot" scheme="https://notes.zhangxiaocai.cn/categories/SpringBoot/"/>
+      <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
     
     
-      <category term="Redis" scheme="https://notes.zhangxiaocai.cn/tags/Redis/"/>
+      <category term="Redis" scheme="https://small-rose.github.io/tags/Redis/"/>
     
   </entry>
   
   <entry>
     <title>SpringBoot Hibernate5</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/572fffbb.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/572fffbb.html</id>
+    <link href="https://small-rose.github.io/posts/572fffbb.html"/>
+    <id>https://small-rose.github.io/posts/572fffbb.html</id>
     <published>2021-04-30T12:30:00.000Z</published>
     <updated>2021-04-30T12:30:00.000Z</updated>
     
@@ -86,17 +86,17 @@
     </summary>
     
     
-      <category term="SpringBoot" scheme="https://notes.zhangxiaocai.cn/categories/SpringBoot/"/>
+      <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
     
     
-      <category term="Hibernate5" scheme="https://notes.zhangxiaocai.cn/tags/Hibernate5/"/>
+      <category term="Hibernate5" scheme="https://small-rose.github.io/tags/Hibernate5/"/>
     
   </entry>
   
   <entry>
     <title>SpringCloud 幂等性问题</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/96e5b040.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/96e5b040.html</id>
+    <link href="https://small-rose.github.io/posts/96e5b040.html"/>
+    <id>https://small-rose.github.io/posts/96e5b040.html</id>
     <published>2021-03-29T08:00:00.000Z</published>
     <updated>2021-03-29T08:00:00.000Z</updated>
     
@@ -112,17 +112,17 @@
     </summary>
     
     
-      <category term="SpringCloud" scheme="https://notes.zhangxiaocai.cn/categories/SpringCloud/"/>
+      <category term="SpringCloud" scheme="https://small-rose.github.io/categories/SpringCloud/"/>
     
     
-      <category term="幂等性问题" scheme="https://notes.zhangxiaocai.cn/tags/%E5%B9%82%E7%AD%89%E6%80%A7%E9%97%AE%E9%A2%98/"/>
+      <category term="幂等性问题" scheme="https://small-rose.github.io/tags/%E5%B9%82%E7%AD%89%E6%80%A7%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>Mybatis(七)Mybatis缓存</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/bee98cc1.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/bee98cc1.html</id>
+    <link href="https://small-rose.github.io/posts/bee98cc1.html"/>
+    <id>https://small-rose.github.io/posts/bee98cc1.html</id>
     <published>2021-03-25T11:00:00.000Z</published>
     <updated>2021-03-25T11:00:00.000Z</updated>
     
@@ -133,17 +133,17 @@
     </summary>
     
     
-      <category term="Mybatis" scheme="https://notes.zhangxiaocai.cn/categories/Mybatis/"/>
+      <category term="Mybatis" scheme="https://small-rose.github.io/categories/Mybatis/"/>
     
     
-      <category term="Mybatis,cache" scheme="https://notes.zhangxiaocai.cn/tags/Mybatis-cache/"/>
+      <category term="Mybatis,cache" scheme="https://small-rose.github.io/tags/Mybatis-cache/"/>
     
   </entry>
   
   <entry>
     <title>2021年Java 面试题</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/fa814936.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/fa814936.html</id>
+    <link href="https://small-rose.github.io/posts/fa814936.html"/>
+    <id>https://small-rose.github.io/posts/fa814936.html</id>
     <published>2021-03-11T16:00:00.000Z</published>
     <updated>2021-03-11T16:00:00.000Z</updated>
     
@@ -157,17 +157,17 @@
     </summary>
     
     
-      <category term="Java" scheme="https://notes.zhangxiaocai.cn/categories/Java/"/>
+      <category term="Java" scheme="https://small-rose.github.io/categories/Java/"/>
     
     
-      <category term="面试题" scheme="https://notes.zhangxiaocai.cn/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <category term="面试题" scheme="https://small-rose.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>Hexo-theme-zhaoo</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/5bd3ea20.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/5bd3ea20.html</id>
+    <link href="https://small-rose.github.io/posts/5bd3ea20.html"/>
+    <id>https://small-rose.github.io/posts/5bd3ea20.html</id>
     <published>2021-01-13T08:30:00.000Z</published>
     <updated>2021-01-13T08:30:00.000Z</updated>
     
@@ -178,17 +178,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://notes.zhangxiaocai.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://small-rose.github.io/categories/Hexo/"/>
     
     
-      <category term="Hexo-theme-zhaoo" scheme="https://notes.zhangxiaocai.cn/tags/Hexo-theme-zhaoo/"/>
+      <category term="Hexo-theme-zhaoo" scheme="https://small-rose.github.io/tags/Hexo-theme-zhaoo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo 添加春节装饰</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/166ffc86.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/166ffc86.html</id>
+    <link href="https://small-rose.github.io/posts/166ffc86.html"/>
+    <id>https://small-rose.github.io/posts/166ffc86.html</id>
     <published>2021-01-02T05:30:00.000Z</published>
     <updated>2021-01-02T05:30:00.000Z</updated>
     
@@ -199,17 +199,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://notes.zhangxiaocai.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://small-rose.github.io/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://notes.zhangxiaocai.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://small-rose.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Tyloo-chat 聊天室部署教程</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/39142aea.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/39142aea.html</id>
+    <link href="https://small-rose.github.io/posts/39142aea.html"/>
+    <id>https://small-rose.github.io/posts/39142aea.html</id>
     <published>2021-01-02T03:00:00.000Z</published>
     <updated>2021-01-02T03:00:00.000Z</updated>
     
@@ -223,17 +223,17 @@
     </summary>
     
     
-      <category term="聊天室" scheme="https://notes.zhangxiaocai.cn/categories/%E8%81%8A%E5%A4%A9%E5%AE%A4/"/>
+      <category term="聊天室" scheme="https://small-rose.github.io/categories/%E8%81%8A%E5%A4%A9%E5%AE%A4/"/>
     
     
-      <category term="聊天室" scheme="https://notes.zhangxiaocai.cn/tags/%E8%81%8A%E5%A4%A9%E5%AE%A4/"/>
+      <category term="聊天室" scheme="https://small-rose.github.io/tags/%E8%81%8A%E5%A4%A9%E5%AE%A4/"/>
     
   </entry>
   
   <entry>
     <title>MySQL57-解压安装</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/74a2d94f.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/74a2d94f.html</id>
+    <link href="https://small-rose.github.io/posts/74a2d94f.html"/>
+    <id>https://small-rose.github.io/posts/74a2d94f.html</id>
     <published>2020-12-24T03:00:00.000Z</published>
     <updated>2020-12-24T03:00:00.000Z</updated>
     
@@ -247,17 +247,17 @@
     </summary>
     
     
-      <category term="MySQL" scheme="https://notes.zhangxiaocai.cn/categories/MySQL/"/>
+      <category term="MySQL" scheme="https://small-rose.github.io/categories/MySQL/"/>
     
     
-      <category term="MySQL" scheme="https://notes.zhangxiaocai.cn/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://small-rose.github.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>MySQL57-在线安装</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/6afb1b4e.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/6afb1b4e.html</id>
+    <link href="https://small-rose.github.io/posts/6afb1b4e.html"/>
+    <id>https://small-rose.github.io/posts/6afb1b4e.html</id>
     <published>2020-12-23T02:00:00.000Z</published>
     <updated>2020-12-23T02:00:00.000Z</updated>
     
@@ -271,17 +271,17 @@
     </summary>
     
     
-      <category term="MySQL" scheme="https://notes.zhangxiaocai.cn/categories/MySQL/"/>
+      <category term="MySQL" scheme="https://small-rose.github.io/categories/MySQL/"/>
     
     
-      <category term="MySQL" scheme="https://notes.zhangxiaocai.cn/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://small-rose.github.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>Spring Aop</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/655d86b3.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/655d86b3.html</id>
+    <link href="https://small-rose.github.io/posts/655d86b3.html"/>
+    <id>https://small-rose.github.io/posts/655d86b3.html</id>
     <published>2020-12-18T07:00:00.000Z</published>
     <updated>2020-12-18T07:00:00.000Z</updated>
     
@@ -296,17 +296,17 @@
     </summary>
     
     
-      <category term="Spring" scheme="https://notes.zhangxiaocai.cn/categories/Spring/"/>
+      <category term="Spring" scheme="https://small-rose.github.io/categories/Spring/"/>
     
     
-      <category term="AOP" scheme="https://notes.zhangxiaocai.cn/tags/AOP/"/>
+      <category term="AOP" scheme="https://small-rose.github.io/tags/AOP/"/>
     
   </entry>
   
   <entry>
     <title>Spring IoC</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/eff096d5.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/eff096d5.html</id>
+    <link href="https://small-rose.github.io/posts/eff096d5.html"/>
+    <id>https://small-rose.github.io/posts/eff096d5.html</id>
     <published>2020-12-16T07:00:00.000Z</published>
     <updated>2020-12-16T07:00:00.000Z</updated>
     
@@ -321,17 +321,17 @@
     </summary>
     
     
-      <category term="Spring" scheme="https://notes.zhangxiaocai.cn/categories/Spring/"/>
+      <category term="Spring" scheme="https://small-rose.github.io/categories/Spring/"/>
     
     
-      <category term="Ioc" scheme="https://notes.zhangxiaocai.cn/tags/Ioc/"/>
+      <category term="Ioc" scheme="https://small-rose.github.io/tags/Ioc/"/>
     
   </entry>
   
   <entry>
     <title>SpringBoot AutoConfig 自动装配</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/9c6bb4e4.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/9c6bb4e4.html</id>
+    <link href="https://small-rose.github.io/posts/9c6bb4e4.html"/>
+    <id>https://small-rose.github.io/posts/9c6bb4e4.html</id>
     <published>2020-12-14T13:00:00.000Z</published>
     <updated>2020-12-14T13:00:00.000Z</updated>
     
@@ -345,17 +345,17 @@
     </summary>
     
     
-      <category term="SpringBoot" scheme="https://notes.zhangxiaocai.cn/categories/SpringBoot/"/>
+      <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
     
     
-      <category term="AutoConfig" scheme="https://notes.zhangxiaocai.cn/tags/AutoConfig/"/>
+      <category term="AutoConfig" scheme="https://small-rose.github.io/tags/AutoConfig/"/>
     
   </entry>
   
   <entry>
     <title>Git 注意事项</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/29d713c1.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/29d713c1.html</id>
+    <link href="https://small-rose.github.io/posts/29d713c1.html"/>
+    <id>https://small-rose.github.io/posts/29d713c1.html</id>
     <published>2020-12-13T14:00:00.000Z</published>
     <updated>2020-12-13T14:00:00.000Z</updated>
     
@@ -370,17 +370,17 @@
     </summary>
     
     
-      <category term="Github" scheme="https://notes.zhangxiaocai.cn/categories/Github/"/>
+      <category term="Github" scheme="https://small-rose.github.io/categories/Github/"/>
     
     
-      <category term="Git" scheme="https://notes.zhangxiaocai.cn/tags/Git/"/>
+      <category term="Git" scheme="https://small-rose.github.io/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>静态博客-字体更换</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/8f5c11d2.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/8f5c11d2.html</id>
+    <link href="https://small-rose.github.io/posts/8f5c11d2.html"/>
+    <id>https://small-rose.github.io/posts/8f5c11d2.html</id>
     <published>2020-12-12T14:00:00.000Z</published>
     <updated>2020-12-12T14:00:00.000Z</updated>
     
@@ -397,17 +397,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://notes.zhangxiaocai.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://small-rose.github.io/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://notes.zhangxiaocai.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://small-rose.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Spring batch</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/7e9b1e27.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/7e9b1e27.html</id>
+    <link href="https://small-rose.github.io/posts/7e9b1e27.html"/>
+    <id>https://small-rose.github.io/posts/7e9b1e27.html</id>
     <published>2020-12-12T02:00:00.000Z</published>
     <updated>2020-12-12T02:00:00.000Z</updated>
     
@@ -424,17 +424,17 @@
     </summary>
     
     
-      <category term="SpringBoot" scheme="https://notes.zhangxiaocai.cn/categories/SpringBoot/"/>
+      <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
     
     
-      <category term="Spring batch" scheme="https://notes.zhangxiaocai.cn/tags/Spring-batch/"/>
+      <category term="Spring batch" scheme="https://small-rose.github.io/tags/Spring-batch/"/>
     
   </entry>
   
   <entry>
     <title>基于SpringBoot的自定义注解</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/ab810780.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/ab810780.html</id>
+    <link href="https://small-rose.github.io/posts/ab810780.html"/>
+    <id>https://small-rose.github.io/posts/ab810780.html</id>
     <published>2020-12-06T02:30:00.000Z</published>
     <updated>2020-12-06T02:30:00.000Z</updated>
     
@@ -448,17 +448,17 @@
     </summary>
     
     
-      <category term="SpringBoot" scheme="https://notes.zhangxiaocai.cn/categories/SpringBoot/"/>
+      <category term="SpringBoot" scheme="https://small-rose.github.io/categories/SpringBoot/"/>
     
     
-      <category term="Annotation" scheme="https://notes.zhangxiaocai.cn/tags/Annotation/"/>
+      <category term="Annotation" scheme="https://small-rose.github.io/tags/Annotation/"/>
     
   </entry>
   
   <entry>
     <title>SpringCloud Stream RocketMQ</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/6df661fe.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/6df661fe.html</id>
+    <link href="https://small-rose.github.io/posts/6df661fe.html"/>
+    <id>https://small-rose.github.io/posts/6df661fe.html</id>
     <published>2020-12-04T14:00:00.000Z</published>
     <updated>2020-12-04T14:00:00.000Z</updated>
     
@@ -472,17 +472,17 @@
     </summary>
     
     
-      <category term="SpringCloud" scheme="https://notes.zhangxiaocai.cn/categories/SpringCloud/"/>
+      <category term="SpringCloud" scheme="https://small-rose.github.io/categories/SpringCloud/"/>
     
     
-      <category term="RocketMQ" scheme="https://notes.zhangxiaocai.cn/tags/RocketMQ/"/>
+      <category term="RocketMQ" scheme="https://small-rose.github.io/tags/RocketMQ/"/>
     
   </entry>
   
   <entry>
     <title>BaseController 通用操作</title>
-    <link href="https://notes.zhangxiaocai.cn/posts/5504561c.html"/>
-    <id>https://notes.zhangxiaocai.cn/posts/5504561c.html</id>
+    <link href="https://small-rose.github.io/posts/5504561c.html"/>
+    <id>https://small-rose.github.io/posts/5504561c.html</id>
     <published>2020-12-02T14:00:00.000Z</published>
     <updated>2020-12-02T14:00:00.000Z</updated>
     
@@ -496,10 +496,10 @@
     </summary>
     
     
-      <category term="Web" scheme="https://notes.zhangxiaocai.cn/categories/Web/"/>
+      <category term="Web" scheme="https://small-rose.github.io/categories/Web/"/>
     
     
-      <category term="BaseXxx抽象" scheme="https://notes.zhangxiaocai.cn/tags/BaseXxx%E6%8A%BD%E8%B1%A1/"/>
+      <category term="BaseXxx抽象" scheme="https://small-rose.github.io/tags/BaseXxx%E6%8A%BD%E8%B1%A1/"/>
     
   </entry>
   
