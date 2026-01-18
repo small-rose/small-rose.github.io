@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>斯莫笔记</title>
-  <icon>https://www.gravatar.com/avatar/3a8c3ed8567a0e252996252d9543c4e2</icon>
+  <icon>https://www.gravatar.com/avatar/44ef968448cef01205a9ca5162bc1ee2</icon>
   <subtitle>Small Rose</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -11,7 +11,7 @@
   
   <author>
     <name>Small-Rose</name>
-    <email>small-rose#qq.com</email>
+    <email>small-rose(at)qq.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
